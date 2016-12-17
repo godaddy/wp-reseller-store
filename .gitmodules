@@ -1,0 +1,4 @@
+[submodule "lib/butterbean"]
+	path = lib/butterbean
+	url = https://github.com/justintadlock/butterbean.git
+	branch = master
