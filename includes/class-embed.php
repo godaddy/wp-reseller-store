@@ -31,7 +31,7 @@ final class Embed {
 	 */
 	public function head() {
 
-		if ( Post_Type::SLUG !== get_post_type() ) {
+		if ( Product::SLUG !== get_post_type() ) {
 
 			return;
 
@@ -75,7 +75,7 @@ final class Embed {
 	 */
 	public function excerpt( $excerpt ) {
 
-		if ( Post_Type::SLUG !== get_post_type() ) {
+		if ( Product::SLUG !== get_post_type() ) {
 
 			return;
 

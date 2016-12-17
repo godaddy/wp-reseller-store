@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-final class Post_Type {
+final class Product {
 
 	/**
 	 * Post type slug.
