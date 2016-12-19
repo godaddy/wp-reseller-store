@@ -1,17 +1,322 @@
-# Copyright (C) 2016 GoDaddy Operating Company, LLC.
+# GoDaddy Reseller Store
+# Copyright (C) 2016
+# This file is distributed under the same license as the reseller-store package.
+# GoDaddy Operating Company, LLC.
+#
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: GoDaddy Reseller Store - 1.0.0\n"
-"POT-Creation-Date: 2016-02-10 00:00:00\n"
-"PO-Revision-Date: \n"
+"Project-Id-Version: reseller-store 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-19 00:17-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
-msgid "GoDaddy Reseller Store"
+#: includes/class-api.php:90
+msgid "API Error"
+msgstr ""
+
+#: includes/class-embed.php:97 includes/class-post-type.php:275
+msgid "Add to Cart"
+msgstr ""
+
+#: includes/class-post-type.php:67
+#, php-format
+msgid "Edit: %s"
+msgstr ""
+
+#: includes/class-post-type.php:102
+msgctxt "post type general name"
+msgid "Products"
+msgstr ""
+
+#: includes/class-post-type.php:103
+msgctxt "post type singular name"
+msgid "Product"
+msgstr ""
+
+#: includes/class-post-type.php:104
+msgctxt "admin menu"
+msgid "Reseller Store"
+msgstr ""
+
+#: includes/class-post-type.php:105
+msgctxt "add new on admin bar"
+msgid "Reseller Product"
+msgstr ""
+
+#: includes/class-post-type.php:106
+msgctxt "product"
+msgid "Add Product"
+msgstr ""
+
+#: includes/class-post-type.php:107
+msgid "Add New Product"
+msgstr ""
+
+#: includes/class-post-type.php:108
+msgid "Edit Product"
+msgstr ""
+
+#: includes/class-post-type.php:109
+msgid "New Product"
+msgstr ""
+
+#: includes/class-post-type.php:110
+msgid "View Product"
+msgstr ""
+
+#: includes/class-post-type.php:111
+msgid "View Products"
+msgstr ""
+
+#: includes/class-post-type.php:112
+msgid "Search Products"
+msgstr ""
+
+#: includes/class-post-type.php:113
+msgid "No products found."
+msgstr ""
+
+#: includes/class-post-type.php:114
+msgid "No products found in Trash."
+msgstr ""
+
+#: includes/class-post-type.php:115
+msgid "Parent Products:"
+msgstr ""
+
+#: includes/class-post-type.php:116
+msgid "Products"
+msgstr ""
+
+#: includes/class-post-type.php:117
+msgid "Product Archives"
+msgstr ""
+
+#: includes/class-post-type.php:118
+msgid "Insert into product"
+msgstr ""
+
+#: includes/class-post-type.php:119
+msgid "Uploaded to this product"
+msgstr ""
+
+#: includes/class-post-type.php:120
+msgid "Product Image"
+msgstr ""
+
+#: includes/class-post-type.php:121
+msgid "Set product image"
+msgstr ""
+
+#: includes/class-post-type.php:122
+msgid "Remove product image"
+msgstr ""
+
+#: includes/class-post-type.php:123
+msgid "Use as featured image"
+msgstr ""
+
+#: includes/class-post-type.php:128
+msgid "This is where you can add new products to your Reseller Store."
+msgstr ""
+
+#: includes/class-post-type.php:208
+msgid "Product Options"
+msgstr ""
+
+#: includes/class-post-type.php:235
+msgid "General"
+msgstr ""
+
+#: includes/class-post-type.php:245
+msgid "Price"
+msgstr ""
+
+#: includes/class-post-type.php:263
+msgid "Advanced"
+msgstr ""
+
+#: includes/class-post-type.php:273
+msgid "Add to Cart Button Label"
+msgstr ""
+
+#: includes/class-post-type.php:290
+msgid "Redirect to the cart immediately after adding"
+msgstr ""
+
+#: includes/class-post-type.php:337
+msgid "No products have been added yet."
+msgstr ""
+
+#: includes/class-post-type.php:338
+msgid "Import All Products"
+msgstr ""
+
+#: includes/class-setup.php:131
+msgid "Reseller Store Setup"
+msgstr ""
+
+#: includes/class-setup.php:132
+msgid "Reseller Store"
+msgstr ""
+
+#: includes/class-setup.php:202
+msgid "Let's setup your GoDaddy Reseller Store."
+msgstr ""
+
+#: includes/class-setup.php:206
+msgid "Sign in with your Reseller account to get started."
+msgstr ""
+
+#: includes/class-setup.php:207
+msgid "Sign In"
+msgstr ""
+
+#: includes/class-setup.php:208
+msgid "Don't have an account?"
+msgstr ""
+
+#: includes/class-setup.php:208
+msgid "Create an account"
+msgstr ""
+
+#: includes/class-setup.php:211
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr ""
+
+#: includes/class-taxonomy-category.php:42
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:43
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:44
+msgid "Search Categories"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:45
+msgid "All Categories"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:46
+msgid "Parent Category"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:47
+msgid "Parent Category:"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:48
+msgid "Edit Category"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:49
+msgid "Update Category"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:50
+msgid "Add New Category"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:51
+msgid "New Category Name"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:52
+#: includes/class-taxonomy-category.php:56
+msgid "Categories"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:42
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:43
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:44
+msgid "Search Tags"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:45
+msgid "All Tags"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:46
+msgid "Parent Tag"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:47
+msgid "Parent Tag:"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:48
+msgid "Edit Tag"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:49
+msgid "Update Tag"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:50
+msgid "Add New Tag"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:51
+msgid "New Tag Name"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:52 includes/class-taxonomy-tag.php:56
+msgid "Tags"
+msgstr ""
+
+#: includes/widgets/class-cart.php:22
+msgid "Reseller Cart"
+msgstr ""
+
+#: includes/widgets/class-cart.php:25
+msgid "Display the user's cart in the sidebar."
+msgstr ""
+
+#: includes/widgets/class-cart.php:66
+msgid "Title:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:22
+msgid "Reseller Domain Search"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:25
+msgid "A search form for domain names."
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:78
+#: includes/widgets/class-domain-search.php:112
+msgid "Find your perfect domain name"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:84
+msgid "Search for a domain name:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:111
+msgid "Placeholder:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:116
+msgid "Button:"
 msgstr ""
