@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-final class Product_Category {
+final class Taxonomy_Category {
 
 	/**
 	 * Taxonomy slug.
@@ -53,12 +53,14 @@ final class Product_Category {
 		];
 
 		$args = [
+			'label'             => esc_html__( 'Categories', 'reseller-store' ),
 			'labels'            => $labels,
-			'description'       => esc_html__( 'This is only a Test', 'reseller-store' ),
-			'hierarchical'      => true,
-			'show_ui'           => true,
 			'show_admin_column' => true,
+			'show_ui'           => true,
+			'show_in_nav_menus' => true,
+			'show_in_rest'      => true,
 			'query_var'         => true,
+			'hierarchical'      => true,
 			'rewrite'           => [
 				'slug'         => self::SLUG,
 				'with_front'   => false,
@@ -66,7 +68,16 @@ final class Product_Category {
 			],
 		];
 
-		register_taxonomy( self::SLUG, Product::SLUG, $args );
+		/**
+		 * Filter the category taxonomy args.
+		 *
+		 * @since NEXT
+		 *
+		 * @var array
+		 */
+		$args = (array) apply_filters( 'rstore_category_args', $args );
+
+		register_taxonomy( self::SLUG, Post_Type::SLUG, $args );
 
 	}
 

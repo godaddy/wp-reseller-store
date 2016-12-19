@@ -26,7 +26,89 @@ final class Setup {
 	 */
 	public function __construct() {
 
+		add_action( 'init', [ $this, 'redirects' ], 1 );
+
+		add_action( 'init', [ $this, 'listener' ] );
+
 		add_action( 'admin_menu', [ $this, 'page' ], 9 );
+
+	}
+
+	/**
+	 * Check if we are on the Setup screen.
+	 *
+	 * @since NEXT
+	 *
+	 * @return bool
+	 */
+	public function is_setup_screen() {
+
+		return ( is_admin() && 0 === strpos( basename( filter_input( INPUT_SERVER, 'REQUEST_URI' ) ), 'admin.php?page=' . Setup::SLUG ) );
+
+	}
+
+	/**
+	 * Check if we are on a screen for our post type.
+	 *
+	 * @since NEXT
+	 *
+	 * @return bool
+	 */
+	public function is_post_type_screen() {
+
+		return ( is_admin() && false !== strpos( basename( filter_input( INPUT_SERVER, 'REQUEST_URI' ) ), 'post_type=' . Post_Type::SLUG ) );
+
+	}
+
+	/**
+	 * Do admin redirects depending on setup status.
+	 *
+	 * @action init - 1
+	 * @since  NEXT
+	 */
+	public function redirects() {
+
+		if ( ! is_admin() ) {
+
+			return;
+
+		}
+
+		if ( ! rstore()->is_setup() && $this->is_post_type_screen() ) {
+
+			rstore()->admin_redirect( 'admin.php', [ 'page' => self::SLUG ] );
+
+		}
+
+		if ( rstore()->is_setup() && $this->is_setup_screen() ) {
+
+			rstore()->admin_redirect( 'edit.php', [ 'post_type' => Post_Type::SLUG ] );
+
+		}
+
+	}
+
+	/**
+	 * Listen for SSO handoff and install.
+	 *
+	 * @action init
+	 * @since  NEXT
+	 */
+	public function listener() {
+
+		if ( ! $this->is_setup_screen() ) {
+
+			return;
+
+		}
+
+		if ( $reseller_id = (int) filter_input( INPUT_GET, 'reseller_id' ) ) {
+
+			$this->install( $reseller_id );
+
+			rstore()->admin_redirect( 'edit.php', [ 'post_type' => Post_Type::SLUG ] );
+
+		}
 
 	}
 
@@ -39,11 +121,9 @@ final class Setup {
 	 */
 	public function page() {
 
-		global $menu;
+		if ( rstore()->is_setup() ) {
 
-		if ( current_user_can( 'activate_plugins' ) ) {
-
-			$menu[ '55.54' ] = [ '', 'read', 'separator-reseller-store', '', 'wp-menu-separator reseller-store' ];
+			return;
 
 		}
 
@@ -54,7 +134,7 @@ final class Setup {
 			self::SLUG,
 			[ $this, 'content' ],
 			'dashicons-cart',
-			'55.55'
+			Post_Type::MENU_POSITION
 		);
 
 	}
@@ -62,10 +142,20 @@ final class Setup {
 	/**
 	 * Admin page content.
 	 *
-	 * @see   $this->menu()
+	 * @see   $this->page()
 	 * @since NEXT
 	 */
 	public function content() {
+
+		$sso_url = add_query_arg(
+			[
+				'app'     => 'reseller',
+				'referer' => esc_url_raw(
+					add_query_arg( 'page', self::SLUG, admin_url( 'admin.php' ) )
+				),
+			],
+			'https://sso.godaddy.com/login'
+		);
 
 		?>
 		<style type="text/css">
@@ -114,7 +204,7 @@ final class Setup {
 				</div>
 				<div class="rstore-setup-body">
 					<h3><?php esc_html_e( 'Sign in with your Reseller account to get started.', 'reseller-store' ); ?></h3>
-					<p><button href="https://sso.godaddy.com/login?app=reseller" class="button button-primary button-hero"><?php esc_html_e( 'Sign In', 'reseller-store' ); ?></button></p>
+					<p><a href="<?php echo esc_url( $sso_url ); ?>" class="button button-primary button-hero"><?php esc_html_e( 'Sign In', 'reseller-store' ); ?></a></p>
 					<p><?php esc_html_e( "Don't have an account?", 'reseller-store' ); ?> <a href="https://sso.godaddy.com/account/create?path=/&app=reseller"><?php esc_html_e( 'Create an account', 'reseller-store' ); ?></a></p>
 				</div>
 				<div class="rstore-setup-footer">
@@ -123,6 +213,96 @@ final class Setup {
 			</div>
 		</div>
 		<?php
+
+	}
+
+	/**
+	 * Install the plugin.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  int $reseller_id
+	 *
+	 * @return bool
+	 */
+	public function install( $reseller_id ) {
+
+		if ( rstore()->is_setup() || ! is_int( $reseller_id ) ) {
+
+			return false;
+
+		}
+
+		rstore()->update_option( 'reseller_id', $reseller_id );
+
+		flush_rewrite_rules();
+
+		return true;
+
+	}
+
+	/**
+	 * Uninstall plugin data.
+	 *
+	 * @global wpdb $wpdb
+	 * @see    register_uninstall_hook()
+	 * @since  NEXT
+	 */
+	public static function uninstall() {
+
+		global $wpdb;
+
+		$wpdb->query(
+			$wpdb->prepare(
+				"DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE %s;",
+				Plugin::PREFIX . '%'
+			)
+		);
+
+		$posts = $wpdb->get_col(
+			$wpdb->prepare(
+				"SELECT `ID` FROM `{$wpdb->posts}` WHERE `post_type` = %s;",
+				Post_Type::SLUG
+			)
+		);
+
+		foreach ( $posts as $post_id ) {
+
+			wp_delete_post( (int) $post_id, true );
+
+		}
+
+		foreach ( [ Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG ] as $taxonomy ) {
+
+			$terms = get_terms( $taxonomy, [ 'fields' => 'ids', 'hide_empty' => false ] );
+
+			if ( is_wp_error( $terms ) ) {
+
+				continue;
+
+			}
+
+			foreach ( (array) $terms as $term_id ) {
+
+				wp_delete_term( (int) $term_id, $taxonomy );
+
+			}
+
+		}
+
+	}
+
+	/**
+	 * Runs on plugin deactivation.
+	 *
+	 * @see   register_deactivation_hook()
+	 * @since NEXT
+	 */
+	public static function deactivate() {
+
+		delete_option( Plugin::PREFIX . 'reseller_id' );
+
+		flush_rewrite_rules();
 
 	}
 

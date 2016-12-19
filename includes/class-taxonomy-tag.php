@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-final class Product_Tag {
+final class Taxonomy_Tag {
 
 	/**
 	 * Taxonomy slug.
@@ -53,18 +53,31 @@ final class Product_Tag {
 		];
 
 		$args = [
+			'label'             => esc_html__( 'Tags', 'reseller-store' ),
 			'labels'            => $labels,
-			'hierarchical'      => false,
-			'show_ui'           => true,
 			'show_admin_column' => true,
+			'show_ui'           => true,
+			'show_in_nav_menus' => true,
+			'show_in_rest'      => true,
 			'query_var'         => true,
+			'hierarchical'      => false,
 			'rewrite'           => [
-				'slug'       => self::SLUG,
-				'with_front' => false,
+				'slug'         => self::SLUG,
+				'with_front'   => false,
+				'hierarchical' => false,
 			],
 		];
 
-		register_taxonomy( self::SLUG, Product::SLUG, $args );
+		/**
+		 * Filter the tag taxonomy args.
+		 *
+		 * @since NEXT
+		 *
+		 * @var array
+		 */
+		$args = (array) apply_filters( 'rstore_tag_args', $args );
+
+		register_taxonomy( self::SLUG, Post_Type::SLUG, $args );
 
 	}
 

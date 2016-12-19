@@ -67,6 +67,7 @@ final class Embed {
 	 * Customize the embed excerpt.
 	 *
 	 * @filter the_excerpt_embed
+	 * @global WP_Post $post
 	 * @since  NEXT
 	 *
 	 * @param  string $excerpt

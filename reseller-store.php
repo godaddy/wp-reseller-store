@@ -31,6 +31,15 @@ final class Plugin {
 	use Singleton, Data, Helpers;
 
 	/**
+	 * Plugin prefix.
+	 *
+	 * @since NEXT
+	 *
+	 * @var string
+	 */
+	const PREFIX = 'rstore_';
+
+	/**
 	 * Class contructor.
 	 *
 	 * @since NEXT
@@ -43,34 +52,27 @@ final class Plugin {
 		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
 		$this->api        = new API;
 
-		/**
-		 * Load languages.
-		 */
 		add_action( 'plugins_loaded', function() {
 
 			load_plugin_textdomain( 'reseller-store', false, dirname( __FILE__ ) . '/languages' );
 
 		} );
 
-		if ( ! $this->is_setup() ) {
+		new Setup;
 
-			new Setup;
+		if ( ! $this->is_setup() ) {
 
 			return; // Bail until Setup is complete
 
 		}
 
 		new Embed;
-		new Product;
-		new Product_Caps;
-		new Product_Category;
-		new Product_Tag;
+		new Post_Type;
 		new Settings;
+		new Taxonomy_Category;
+		new Taxonomy_Tag;
 		new Widgets;
 
-		/**
-		 * Register custom WP-CLI command.
-		 */
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
 			\WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI' );
@@ -82,3 +84,17 @@ final class Plugin {
 }
 
 rstore();
+
+/**
+ * Register deactivation hook.
+ *
+ * @since NEXT
+ */
+register_deactivation_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'deactivate' ] );
+
+/**
+ * Register uninstall hook.
+ *
+ * @since NEXT
+ */
+register_uninstall_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'uninstall' ] );

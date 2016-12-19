@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-final class Product {
+final class Post_Type {
 
 	/**
 	 * Post type slug.
@@ -18,6 +18,13 @@ final class Product {
 	 * @var string
 	 */
 	const SLUG = 'reseller_product';
+
+	/**
+	 * Post type menu position.
+	 *
+	 * @var int
+	 */
+	const MENU_POSITION = 52;
 
 	/**
 	 * Class constructor.
@@ -120,17 +127,17 @@ final class Product {
 			'labels'             => $labels,
 			'description'        => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
 			'menu_icon'          => 'dashicons-cart',
-			'menu_position'      => '55.55',
+			'menu_position'      => self::MENU_POSITION,
+			'capability_type'    => 'post',
 			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
+			'show_in_nav_menus'  => true,
+			'show_in_rest'       => true,
 			'query_var'          => true,
-			'capability_type'    => 'post',
-			'map_meta_cap'       => true,
 			'has_archive'        => true,
 			'hierarchical'       => false,
-			'menu_position'      => null,
 			'supports'           => [ 'title', 'editor', 'thumbnail' ],
 			'rewrite'            => [
 				'slug'       => self::SLUG,
@@ -139,7 +146,48 @@ final class Product {
 			],
 		];
 
+		/**
+		 * Filter the post type args.
+		 *
+		 * @since NEXT
+		 *
+		 * @var array
+		 */
+		$args = (array) apply_filters( 'rstore_post_type_args', $args );
+
 		register_post_type( self::SLUG, $args );
+
+	}
+
+	/**
+	 * Add menu separator.
+	 *
+	 * @action admin_menu
+	 * @global array $menu
+	 */
+	public static function add_menu_separator() {
+
+		global $menu;
+
+		if ( current_user_can( sprintf( 'edit_%ss', self::SLUG ) ) ) {
+
+			$menu[ self::MENU_POSITION + 1 ] = [ '', 'read', 'separator-reseller-store', '', 'wp-menu-separator reseller-store' ];
+
+		}
+
+	}
+
+	public static function admin_menu_order( $menu_order ) {
+
+		$separator = array_search( 'separator-reseller-store', $menu_order );
+		$main      = array_search( 'edit.php?post_type=' . self::SLUG, $menu_order );
+
+		var_dump( $menu_order );
+		var_dump( $separator );
+		var_dump( $main );
+		exit;
+
+		return $menu_order;
 
 	}
 
