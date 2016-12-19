@@ -83,7 +83,7 @@ trait Helpers {
 	 */
 	public function is_setup() {
 
-		return ( (int) $this->get_option( 'reseller_id' ) > 0 );
+		return ( (int) $this->get_option( 'pl_id' ) > 0 );
 
 	}
 

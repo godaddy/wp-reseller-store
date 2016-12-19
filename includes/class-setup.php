@@ -102,9 +102,9 @@ final class Setup {
 
 		}
 
-		if ( $reseller_id = (int) filter_input( INPUT_GET, 'reseller_id' ) ) {
+		if ( $pl_id = (int) filter_input( INPUT_GET, 'pl_id' ) ) {
 
-			$this->install( $reseller_id );
+			$this->install( $pl_id );
 
 			rstore()->admin_redirect( 'edit.php', [ 'post_type' => Post_Type::SLUG ] );
 
@@ -221,19 +221,19 @@ final class Setup {
 	 *
 	 * @since NEXT
 	 *
-	 * @param  int $reseller_id
+	 * @param  int $pl_id
 	 *
 	 * @return bool
 	 */
-	public function install( $reseller_id ) {
+	public function install( $pl_id ) {
 
-		if ( rstore()->is_setup() || ! is_int( $reseller_id ) ) {
+		if ( rstore()->is_setup() || ! is_int( $pl_id ) ) {
 
 			return false;
 
 		}
 
-		rstore()->update_option( 'reseller_id', $reseller_id );
+		rstore()->update_option( 'pl_id', $pl_id );
 
 		flush_rewrite_rules();
 
@@ -300,7 +300,7 @@ final class Setup {
 	 */
 	public static function deactivate() {
 
-		delete_option( Plugin::PREFIX . 'reseller_id' );
+		delete_option( Plugin::PREFIX . 'pl_id' );
 
 		flush_rewrite_rules();
 
