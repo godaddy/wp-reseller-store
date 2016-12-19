@@ -90,6 +90,8 @@ trait Helpers {
 	/**
 	 * Safe redirect to any admin page.
 	 *
+	 * @since NEXT
+	 *
 	 * @param string $endpoint (optional)
 	 * @param array  $args (optional)
 	 * @param int    status (optional)
