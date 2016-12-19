@@ -2,6 +2,8 @@
 
 namespace Reseller_Store\Widgets;
 
+use Reseller_Store as Plugin;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -79,10 +81,10 @@ final class Domain_Search extends \WP_Widget {
 		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
 
 		?>
-		<form role="search" method="get" class="search-form rstore-domain-search-form" action="<?php echo esc_url( home_url() ); ?>">
+		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( Plugin\rstore()->api->urls['domain_search'] ); ?>" novalidate>
 			<label>
 				<span class="screen-reader-text"><?php esc_html_e( 'Search for a domain name:', 'reseller-store' ); ?></span>
-				<input type="search" name="domain-name-search" value="" class="search-field rstore-domain-search-field" placeholder="<?php echo esc_attr( $placeholder ); ?>">
+				<input type="search" name="domainToCheck" value="" class="search-field rstore-domain-search-field" placeholder="<?php echo esc_attr( $placeholder ); ?>" required>
 				<?php if ( $button_label ) : ?>
 					<input type="submit" value="<?php echo esc_attr( $button_label ); ?>">
 				<?php endif; ?>

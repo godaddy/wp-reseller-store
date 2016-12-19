@@ -49,7 +49,7 @@ final class Cart extends \WP_Widget {
 			'rstore',
 			[
 				'pl_id'        => (int) Plugin\rstore()->get_option( 'pl_id' ),
-				'cart_url'     => Plugin\rstore()->api->cart_url(), // xss ok
+				'cart_url'     => Plugin\rstore()->api->urls['cart'], // xss ok
 				'cart_api_url' => Plugin\rstore()->api->url( 'cart/{pl_id}' ), // xss ok
 			]
 		);
@@ -64,7 +64,7 @@ final class Cart extends \WP_Widget {
 
 		printf(
 			'<div class="rstore-view-cart"><a href="%s" class="rstore-view-cart">%s</a></div>',
-			esc_url( Plugin\rstore()->api->cart_url() ),
+			esc_url( Plugin\rstore()->api->urls['cart'] ),
 			sprintf(
 				esc_html_x( 'View Cart %s', 'number of items in cart', 'reseller-store' ),
 				'(<span class="rstore-cart-count">0</span>)'

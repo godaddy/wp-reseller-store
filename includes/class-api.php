@@ -11,22 +11,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class API {
 
 	/**
-	 * Base API URL.
+	 * Top-level domain for URLs.
 	 *
 	 * @since NEXT
 	 *
 	 * @var string
 	 */
-	private $base_url = 'https://storefront.api.dev-secureserver.net/api/v1/';
+	private $tld = 'dev-secureserver.net'; // TODO: use prod TLD here
 
 	/**
-	 * Cart URL.
+	 * Array of URLs.
 	 *
 	 * @since NEXT
 	 *
-	 * @var string
+	 * @var array
 	 */
-	private $cart_url = 'https://cart.dev-secureserver.net/';
+	public $urls = [];
 
 	/**
 	 * Class constructor.
@@ -36,35 +36,36 @@ final class API {
 	public function __construct() {
 
 		/**
-		 * Filter the API base URL.
+		 * Filter the base TLD.
 		 *
 		 * @since NEXT
 		 *
 		 * @var string
 		 */
-		$this->base_url = trailingslashit( (string) apply_filters( 'rstore_api_base_url', $this->base_url ) );
+		$this->tld = (string) apply_filters( 'rstore_api_tld', $this->tld );
 
-		/**
-		 * Filter the Cart URL.
-		 *
-		 * @since NEXT
-		 *
-		 * @var string
-		 */
-		$this->cart_url = trailingslashit( (string) apply_filters( 'rstore_cart_url', $this->cart_url ) );
+		add_action( 'plugins_loaded', function () {
+
+			$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
+			$this->urls['cart']          = $this->add_pl_id_arg( sprintf( 'https://cart.%s/', $this->tld ) );
+			$this->urls['domain_search'] = $this->add_pl_id_arg( sprintf( 'https://www.%s/domains/search.aspx?checkAvail=1', $this->tld ) );
+
+		} );
 
 	}
 
 	/**
-	 * Return a Cart URL.
+	 * Add the `pl_id` query arg to a given URL.
 	 *
 	 * @since NEXT
 	 *
+	 * @param  string $url
+	 *
 	 * @return string
 	 */
-	public function cart_url() {
+	public function add_pl_id_arg( $url ) {
 
-		$url = rstore()->is_setup() ? add_query_arg( 'pl_id', (int) rstore()->get_option( 'pl_id' ), $this->cart_url ) : $this->cart_url;
+		$url = rstore()->is_setup() ? add_query_arg( 'pl_id', (int) rstore()->get_option( 'pl_id' ), $url ) : $url;
 
 		return esc_url_raw( $url );
 
@@ -81,7 +82,7 @@ final class API {
 	 */
 	public function url( $endpoint = '' ) {
 
-		$url = $this->base_url;
+		$url = trailingslashit( $this->urls['api'] );
 
 		if ( $endpoint ) {
 
