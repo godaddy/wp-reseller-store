@@ -77,18 +77,18 @@ final class Domain_Search extends \WP_Widget {
 
 		}
 
-		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : esc_attr__( 'Find your perfect domain name', 'reseller-store' );
+		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : esc_attr__( 'Search domain names', 'reseller-store' );
 		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
 
 		?>
 		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( Plugin\rstore()->api->urls['domain_search'] ); ?>" novalidate>
-			<label>
-				<span class="screen-reader-text"><?php esc_html_e( 'Search for a domain name:', 'reseller-store' ); ?></span>
-				<input type="search" name="domainToCheck" value="" class="search-field rstore-domain-search-field" placeholder="<?php echo esc_attr( $placeholder ); ?>" required>
-				<?php if ( $button_label ) : ?>
-					<input type="submit" value="<?php echo esc_attr( $button_label ); ?>">
-				<?php endif; ?>
-			</label>
+			<label class="screen-reader-text" for="rstore-domain-search-field"><?php esc_html_e( 'Search for a domain name:', 'reseller-store' ); ?></label>
+			<input type="search" name="domainToCheck" id="rstore-domain-search-field" class="search-field required" placeholder="<?php echo esc_attr( $placeholder ); ?>" title="<?php esc_attr_e( 'Search for a domain name:', 'reseller-store' ); ?>" value="" required="required">
+			<?php if ( $button_label ) : ?>
+				<button type="submit" class="search-submit rstore-domain-search-submit"><?php echo esc_html( $button_label ); ?></button>
+			<?php else : ?>
+				<input type="submit" class="screen-reader-text search-submit rstore-domain-search-submit" value="<?php esc_attr_e( 'Search', 'reseller-store' ); ?>">
+			<?php endif; ?>
 		</form>
 		<?php
 
@@ -105,13 +105,19 @@ final class Domain_Search extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 
+		$title        = ! empty( $instance['title'] ) ? $instance['title'] : null;
 		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : null;
 		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
 
 		?>
 		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'reseller' ); ?></label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>" class="widefat">
+		</p>
+
+		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>"><?php esc_html_e( 'Placeholder:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" value="<?php echo esc_attr( $placeholder ); ?>" class="widefat" placeholder="<?php esc_attr_e( 'Find your perfect domain name', 'reseller-store' ); ?>">
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" value="<?php echo esc_attr( $placeholder ); ?>" class="widefat" placeholder="<?php esc_attr_e( 'Search domain names', 'reseller-store' ); ?>">
 		</p>
 
 		<p>

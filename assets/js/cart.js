@@ -2,7 +2,8 @@
 
 ( function ( $ ) {
 
-	var cart_cookie = 'rstore-cart-count';
+	var cart_cookie = 'rstore-cart-count',
+	    $widget     = $( '.rstore-hide-empty-cart' ).closest( '.widget.rstore_cart' );
 
 	$( document ).ready( function() {
 
@@ -10,9 +11,15 @@
 
 		if ( cart_count > 0 ) {
 
+			$widget.show();
+
 			$( '.rstore-cart-count' ).text( cart_count );
 
 			fetch_cart_count();
+
+		} else {
+
+			$widget.hide();
 
 		}
 
@@ -28,9 +35,13 @@
 
 		if ( count > 0 ) {
 
+			$widget.show();
+
 			Cookies.set( cart_cookie, count, { expires: 7 } );
 
 		} else {
+
+			$widget.hide();
 
 			Cookies.remove( cart_cookie );
 
