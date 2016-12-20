@@ -42,7 +42,9 @@ final class Cart extends \WP_Widget {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-cart', Plugin\rstore()->assets_url . "js/cart{$suffix}.js", [ 'jquery' ], Plugin\rstore()->version, true );
+		wp_enqueue_script( 'js-cookie', "https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie{$suffix}.js", [], '2.1.3', true );
+
+		wp_enqueue_script( 'rstore-cart', Plugin\rstore()->assets_url . "js/cart{$suffix}.js", [ 'jquery', 'js-cookie' ], Plugin\rstore()->version, true );
 
 		wp_localize_script(
 			'rstore-cart',

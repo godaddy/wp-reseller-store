@@ -1,10 +1,20 @@
-/* global jQuery, rstore */
+/* global Cookies, jQuery, rstore */
 
 ( function ( $ ) {
 
+	var cart_cookie = 'rstore-cart-count';
+
 	$( document ).ready( function() {
 
-		fetch_cart_count(); // TODO: not on every page load
+		var cart_count = parseInt( Cookies.get( cart_cookie ) );
+
+		if ( cart_count > 0 ) {
+
+			$( '.rstore-cart-count' ).text( cart_count );
+
+			fetch_cart_count();
+
+		}
 
 		$( '.rstore-add-to-cart' ).on( 'click', add_to_cart );
 
@@ -12,9 +22,19 @@
 
 	function set_cart_count( data ) {
 
-		var count = ( 'undefined' !== typeof data.cartCount && data.cartCount ) ? data.cartCount : 0;
+		var count = ( 'undefined' !== typeof data.cartCount && data.cartCount ) ? parseInt( data.cartCount ) : 0;
 
-		$( '.rstore-cart-count' ).text( parseInt( count ) );
+		$( '.rstore-cart-count' ).text( count );
+
+		if ( count > 0 ) {
+
+			Cookies.set( cart_cookie, count, { expires: 7 } );
+
+		} else {
+
+			Cookies.remove( cart_cookie );
+
+		}
 
 	}
 
