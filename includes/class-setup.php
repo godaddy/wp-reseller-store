@@ -254,7 +254,12 @@ final class Setup {
 		);
 
 		// Find the attachments we imported
-		$attachments = $wpdb->get_col( "SELECT `post_id` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'rstore_image';" );
+		$attachments = $wpdb->get_col(
+			$wpdb->prepare(
+				"SELECT `post_id` FROM `{$wpdb->postmeta}` WHERE `meta_key` = %s;",
+				Plugin::prefix( 'image' )
+			)
+		);
 
 		foreach ( $posts as $post_id ) {
 

@@ -107,7 +107,7 @@ final class Post_Type {
 
 		add_filter( 'post_type_labels_' . self::SLUG, function( $labels ) {
 
-			$name = get_post_meta( (int) filter_input( INPUT_GET, 'post' ), 'rstore_title', true );
+			$name = get_post_meta( (int) filter_input( INPUT_GET, 'post' ), Plugin::prefix( 'title' ), true );
 
 			$labels->edit_item = ! empty( $name ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $name ) : $labels->edit_item;
 
@@ -439,8 +439,8 @@ final class Post_Type {
 
 		if ( 'price' === $column ) {
 
-			$price = get_post_meta( $post_id, 'rstore_listPrice', true );
-			$sale  = get_post_meta( $post_id, 'rstore_salePrice', true );
+			$price = get_post_meta( $post_id, Plugin::prefix( 'listPrice' ), true );
+			$sale  = get_post_meta( $post_id, Plugin::prefix( 'salePrice' ), true );
 
 			printf(
 				'%s%s',
@@ -472,9 +472,12 @@ final class Post_Type {
 
 			$order = ( 'DESC' === strtoupper( $wp_query->get( 'order' ) ) ) ? 'DESC' : 'ASC';
 
-			$clauses['join'] .= " LEFT JOIN {$wpdb->postmeta} price ON( {$wpdb->posts}.ID = price.post_id AND price.meta_key = 'rstore_listPrice' ) ";
+			$clauses['join'] .= $wpdb->prepare(
+				" LEFT JOIN `{$wpdb->postmeta}` pm ON ( `{$wpdb->posts}`.`ID` = pm.`post_id` AND pm.`meta_key` = %s ) ",
+				Plugin::prefix( 'listPrice' )
+			);
 
-			$clauses['orderby'] = " CONVERT( REPLACE( price.meta_value, '$', '' ), DECIMAL( 13, 2 ) ) {$order}";
+			$clauses['orderby'] = " CONVERT( REPLACE( pm.`meta_value`, '$', '' ), DECIMAL( 13, 2 ) ) {$order}"; // xss ok
 
 		}
 

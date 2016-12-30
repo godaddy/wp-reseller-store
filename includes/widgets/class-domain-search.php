@@ -20,10 +20,10 @@ final class Domain_Search extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			'rstore_domain_search',
+			Plugin\Plugin::prefix( 'domain_search' ),
 			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
 			[
-				'classname'   => 'rstore_domain_search',
+				'classname'   => Plugin\Plugin::prefix( 'domain_search' ),
 				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
 			]
 		);

@@ -93,7 +93,8 @@ final class Import {
 
 		return (bool) $wpdb->get_var(
 			$wpdb->prepare(
-				"SELECT `post_id` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'rstore_id' AND `meta_value` = %s;",
+				"SELECT `post_id` FROM `{$wpdb->postmeta}` WHERE `meta_key` = %s AND `meta_value` = %s;",
+				Plugin::prefix( 'id' ),
 				$this->product->id
 			)
 		);
@@ -116,7 +117,8 @@ final class Import {
 
 		$attachment_id = $wpdb->get_var(
 			$wpdb->prepare(
-				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = 'rstore_image' AND pm.`meta_value` = %s;",
+				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
+				Plugin::prefix( 'image' ),
 				$url
 			)
 		);
@@ -145,7 +147,7 @@ final class Import {
 
 		foreach ( $this->product as $property => $value ) {
 
-			update_post_meta( $post_id, "rstore_{$property}", $value );
+			update_post_meta( $post_id, Plugin::prefix( $property ), $value );
 
 		}
 
@@ -255,9 +257,9 @@ final class Import {
 
 		set_post_thumbnail( $post_id, $attachment_id );
 
-		update_post_meta( $attachment_id, 'rstore_id', $this->product->id );
-		update_post_meta( $attachment_id, 'rstore_image', $url );
-		update_post_meta( $attachment_id, 'rstore_post_id', $post_id );
+		update_post_meta( $attachment_id, Plugin::prefix( 'id' ), $this->product->id );
+		update_post_meta( $attachment_id, Plugin::prefix( 'image' ), $url );
+		update_post_meta( $attachment_id, Plugin::prefix( 'post_id' ), $post_id );
 
 		return $attachment_id;
 

@@ -20,10 +20,10 @@ final class Cart extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			'rstore_cart',
+			Plugin\Plugin::prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),
 			[
-				'classname'   => 'rstore_cart',
+				'classname'   => Plugin\Plugin::prefix( 'cart' ),
 				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
 			]
 		);
