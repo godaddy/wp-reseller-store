@@ -58,9 +58,16 @@ final class Plugin {
 
 		} );
 
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+
+			\WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI' );
+
+		}
+
+		new Restrictions;
 		new Setup;
 
-		if ( ! $this->is_setup() ) {
+		if ( ! self::is_setup() ) {
 
 			return; // Bail until Setup is complete
 
@@ -72,12 +79,6 @@ final class Plugin {
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
 		new Widgets;
-
-		if ( defined( 'WP_CLI' ) && WP_CLI ) {
-
-			\WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI' );
-
-		}
 
 	}
 

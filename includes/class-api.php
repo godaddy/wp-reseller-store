@@ -44,30 +44,36 @@ final class API {
 		 */
 		$this->tld = (string) apply_filters( 'rstore_api_tld', $this->tld );
 
-		add_action( 'plugins_loaded', function () {
-
-			$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
-			$this->urls['cart']          = $this->add_pl_id_arg( sprintf( 'https://cart.%s/', $this->tld ) );
-			$this->urls['domain_search'] = $this->add_pl_id_arg( sprintf( 'https://www.%s/domains/search.aspx?checkAvail=1', $this->tld ) );
-
-		} );
+		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
+		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['domain_search'] = $this->add_query_args( sprintf( 'https://www.%s/domains/search.aspx?checkAvail=1', $this->tld ) );
 
 	}
 
 	/**
-	 * Add the `pl_id` query arg to a given URL.
+	 * Add required query args to a given URL.
 	 *
 	 * @since NEXT
 	 *
 	 * @param  string $url
+	 * @param  bool   $add_pl_id (optional)
 	 *
 	 * @return string
 	 */
-	public function add_pl_id_arg( $url ) {
+	public function add_query_args( $url, $add_pl_id = true ) {
 
-		$url = rstore()->is_setup() ? add_query_arg( 'pl_id', (int) rstore()->get_option( 'pl_id' ), $url ) : $url;
+		$args = [
+			'currencyType' => Plugin::get_option( 'currency', 'USD' ),
+			'marketId'     => Plugin::get_option( 'market_id', 'en-US' ),
+		];
 
-		return esc_url_raw( $url );
+		if ( $add_pl_id && Plugin::is_setup() ) {
+
+			$args['pl_id'] = (int) Plugin::get_option( 'pl_id' );
+
+		}
+
+		return esc_url_raw( add_query_arg( $args, $url ) );
 
 	}
 
@@ -89,12 +95,12 @@ final class API {
 			$url = sprintf(
 				'%s/%s',
 				untrailingslashit( $url ),
-				str_replace( '{pl_id}', (int) rstore()->get_option( 'pl_id' ), $endpoint )
+				str_replace( '{pl_id}', (int) Plugin::get_option( 'pl_id' ), $endpoint )
 			);
 
 		}
 
-		return esc_url_raw( trailingslashit( $url ) );
+		return esc_url_raw( $this->add_query_args( trailingslashit( $url ), false ) );
 
 	}
 
@@ -111,7 +117,7 @@ final class API {
 
 		$args = [
 			'headers'   => [ 'Content-Type: application/json' ],
-			'sslverify' => false, // TODO: Should be true with prod API
+			'sslverify' => ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? false : true,
 		];
 
 		/**
@@ -127,10 +133,7 @@ final class API {
 
 		if ( is_wp_error( $response ) ) {
 
-			wp_die(
-				$response->get_error_message(),
-				esc_html__( 'API Error', 'reseller-store' )
-			);
+			return $response;
 
 		}
 

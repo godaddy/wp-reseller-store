@@ -26,89 +26,17 @@ final class Setup {
 	 */
 	public function __construct() {
 
-		add_action( 'init', [ $this, 'redirects' ], 1 );
-
-		add_action( 'init', [ $this, 'listener' ] );
-
 		add_action( 'admin_menu', [ $this, 'page' ], 9 );
 
-	}
+		add_action( 'admin_enqueue_scripts', function () {
 
-	/**
-	 * Check if we are on the Setup screen.
-	 *
-	 * @since NEXT
-	 *
-	 * @return bool
-	 */
-	public function is_setup_screen() {
+			$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		return ( is_admin() && 0 === strpos( basename( filter_input( INPUT_SERVER, 'REQUEST_URI' ) ), 'admin.php?page=' . Setup::SLUG ) );
+			wp_enqueue_script( 'rstore-admin-setup', rstore()->assets_url . "js/admin-setup{$suffix}.js", [ 'jquery' ], rstore()->version, true );
 
-	}
+		} );
 
-	/**
-	 * Check if we are on a screen for our post type.
-	 *
-	 * @since NEXT
-	 *
-	 * @return bool
-	 */
-	public function is_post_type_screen() {
-
-		return ( is_admin() && false !== strpos( basename( filter_input( INPUT_SERVER, 'REQUEST_URI' ) ), 'post_type=' . Post_Type::SLUG ) );
-
-	}
-
-	/**
-	 * Do admin redirects depending on setup status.
-	 *
-	 * @action init - 1
-	 * @since  NEXT
-	 */
-	public function redirects() {
-
-		if ( ! is_admin() ) {
-
-			return;
-
-		}
-
-		if ( ! rstore()->is_setup() && $this->is_post_type_screen() ) {
-
-			rstore()->admin_redirect( 'admin.php', [ 'page' => self::SLUG ] );
-
-		}
-
-		if ( rstore()->is_setup() && $this->is_setup_screen() ) {
-
-			rstore()->admin_redirect( 'edit.php', [ 'post_type' => Post_Type::SLUG ] );
-
-		}
-
-	}
-
-	/**
-	 * Listen for SSO handoff and install.
-	 *
-	 * @action init
-	 * @since  NEXT
-	 */
-	public function listener() {
-
-		if ( ! $this->is_setup_screen() ) {
-
-			return;
-
-		}
-
-		if ( $pl_id = (int) filter_input( INPUT_GET, 'pl_id' ) ) {
-
-			$this->install( $pl_id );
-
-			rstore()->admin_redirect( 'edit.php', [ 'post_type' => Post_Type::SLUG ] );
-
-		}
+		add_action( 'wp_ajax_rstore_install', [ $this, 'install' ] );
 
 	}
 
@@ -121,7 +49,7 @@ final class Setup {
 	 */
 	public function page() {
 
-		if ( rstore()->is_setup() ) {
+		if ( Plugin::is_setup() ) {
 
 			return;
 
@@ -189,9 +117,11 @@ final class Setup {
 			margin-bottom: 30px;
 			font-weight: 500;
 		}
-		.wp-core-ui .rstore-setup .button.button-hero {
-			padding: 0 72px;
-			font-size: 18px;
+		.rstore-spinner {
+			visibility: hidden;
+			max-width: 20px;
+			height: auto;
+			margin-bottom: -4px;
 		}
 		</style>
 
@@ -203,8 +133,15 @@ final class Setup {
 					<div class="clear"></div>
 				</div>
 				<div class="rstore-setup-body">
-					<h3><?php esc_html_e( 'Sign in with your Reseller account to get started.', 'reseller-store' ); ?></h3>
-					<p><a href="<?php echo esc_url( $sso_url ); ?>" class="button button-primary button-hero"><?php esc_html_e( 'Sign In', 'reseller-store' ); ?></a></p>
+					<h3><?php esc_html_e( 'Enter your Private Label ID to get started.', 'reseller-store' ); ?></h3>
+					<p>
+						<form id="rstore-setup-form">
+							<label class="screen-reader-text" for="rstore-pl-id-field"><?php esc_html_e( 'Enter your Private Label ID:', 'reseller-store' ); ?></label>
+							<input type="number" id="rstore-pl-id-field" min="0" autocomplete="off" required="required">
+							<button type="submit" class="button button-primary"><?php esc_html_e( 'Submit', 'reseller-store' ); ?></button>
+							<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
+						</form>
+					</p>
 					<p><?php esc_html_e( "Don't have an account?", 'reseller-store' ); ?> <a href="https://sso.godaddy.com/account/create?path=/&app=reseller"><?php esc_html_e( 'Create an account', 'reseller-store' ); ?></a></p>
 				</div>
 				<div class="rstore-setup-footer">
@@ -217,27 +154,75 @@ final class Setup {
 	}
 
 	/**
-	 * Install the plugin.
+	 * Perform the plugin installation.
 	 *
-	 * @since NEXT
+	 * @action wp_ajax_rstore_install
+	 * @global wpdb $wpdb
+	 * @since  NEXT
 	 *
-	 * @param  int $pl_id
-	 *
-	 * @return bool
+	 * @param int $pl_id (optional)
 	 */
-	public function install( $pl_id ) {
+	public function install( $pl_id = 0 ) {
 
-		if ( rstore()->is_setup() || ! is_int( $pl_id ) ) {
+		$pl_id = ( (int) $pl_id > 0 ) ? (int) $pl_id : absint( filter_input( INPUT_POST, 'pl_id' ) );
 
-			return false;
+		if ( 0 === $pl_id ) {
+
+			wp_send_json_error( esc_html__( 'Error: Invalid Private Label ID', 'reseller-store' ) );
 
 		}
 
-		rstore()->update_option( 'pl_id', $pl_id );
+		Plugin::update_option( 'pl_id', $pl_id );
+
+		new Post_Type;
+		new Taxonomy_Category;
+		new Taxonomy_Tag;
+
+		do_action( 'init' ); // Register post type and taxonomies for rewrite rules
 
 		flush_rewrite_rules();
 
-		return true;
+		$products = rstore()->api->get( 'catalog/{pl_id}/products' );
+
+		if ( is_wp_error( $products ) ) {
+
+			wp_send_json_error( $products->get_error_message() );
+
+		}
+
+		$products = (array) $products;
+
+		set_transient( Plugin::prefix( 'products' ), $products, DAY_IN_SECONDS );
+
+		foreach ( $products as $product ) {
+
+			$import = new Import( $product );
+
+			if ( ! $import->is_valid_product() || $import->product_exists() ) {
+
+				continue;
+
+			}
+
+			$post_id = $import->post();
+
+			if ( $post_id ) {
+
+				$import->categories( $product->categories, $post_id );
+
+				$import->attachment( $post_id );
+
+			}
+
+		}
+
+		wp_send_json_success(
+			[
+				'redirect' => esc_url_raw(
+					add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
+				)
+			]
+		);
 
 	}
 
@@ -247,15 +232,17 @@ final class Setup {
 	 * @global wpdb $wpdb
 	 * @see    register_uninstall_hook()
 	 * @since  NEXT
+	 *
+	 * @param bool $keep_attachments (optional)
 	 */
-	public static function uninstall() {
+	public static function uninstall( $keep_attachments = true ) {
 
 		global $wpdb;
 
 		$wpdb->query(
 			$wpdb->prepare(
 				"DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE %s;",
-				Plugin::PREFIX . '%'
+				'%' . Plugin::prefix( '%' ) // Transients too
 			)
 		);
 
@@ -266,9 +253,33 @@ final class Setup {
 			)
 		);
 
+		// Find the attachments we imported
+		$attachments = $wpdb->get_col( "SELECT `post_id` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'rstore_image';" );
+
 		foreach ( $posts as $post_id ) {
 
+			// Find all attachments tied to product posts
+			$attachments = array_merge(
+				$attachments,
+				array_map(
+					function ( $attachment ) {
+						return $attachment->ID;
+					},
+					get_attached_media( 'image', $post_id )
+				)
+			);
+
 			wp_delete_post( (int) $post_id, true );
+
+		}
+
+		if ( ! $keep_attachments ) {
+
+			foreach ( $attachments as $attachment_id ) {
+
+				wp_delete_attachment( (int) $attachment_id, true );
+
+			}
 
 		}
 
@@ -300,7 +311,7 @@ final class Setup {
 	 */
 	public static function deactivate() {
 
-		delete_option( Plugin::PREFIX . 'pl_id' );
+		delete_option( Plugin::prefix( 'pl_id' ) );
 
 		flush_rewrite_rules();
 

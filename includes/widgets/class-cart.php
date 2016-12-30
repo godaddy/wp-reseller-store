@@ -50,7 +50,7 @@ final class Cart extends \WP_Widget {
 			'rstore-cart',
 			'rstore',
 			[
-				'pl_id'        => (int) Plugin\rstore()->get_option( 'pl_id' ),
+				'pl_id'        => (int) Plugin\Plugin::get_option( 'pl_id' ),
 				'cart_url'     => Plugin\rstore()->api->urls['cart'], // xss ok
 				'cart_api_url' => Plugin\rstore()->api->url( 'cart/{pl_id}' ), // xss ok
 			]

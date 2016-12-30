@@ -54,6 +54,51 @@ final class Post_Type {
 
 		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
 
+		add_action( 'admin_head', function () {
+
+			?>
+			<style type="text/css">
+			table.wp-list-table .column-image {
+				width: 52px;
+				text-align: center;
+				white-space: nowrap;
+			}
+			table.wp-list-table .column-title {
+				width: 33%;
+			}
+			@media only screen and (max-width: 782px) {
+				.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image {
+					display: none;
+					text-align: left;
+					padding-bottom: 0;
+				}
+				.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image img {
+					max-width: 32px;
+					height: auto;
+				}
+				.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table tr td.column-image::before {
+					display: none !important;
+				}
+			}
+			</style>
+			<?php
+
+		} );
+
+		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
+
+		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
+
+			$columns['price'] = 'price';
+
+			return $columns;
+
+		} );
+
+		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
+
+		add_filter( 'posts_clauses', [ $this, 'order_by_price_clause' ], 10, 2 );
+
 		add_filter( 'view_mode_post_types', function( $post_types ) {
 
 			return array_diff( $post_types, [ self::SLUG => self::SLUG ] );
@@ -62,7 +107,7 @@ final class Post_Type {
 
 		add_filter( 'post_type_labels_' . self::SLUG, function( $labels ) {
 
-			$name = get_post_meta( (int) filter_input( INPUT_GET, 'post' ), 'product_name', true );
+			$name = get_post_meta( (int) filter_input( INPUT_GET, 'post' ), 'rstore_title', true );
 
 			$labels->edit_item = ! empty( $name ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $name ) : $labels->edit_item;
 
@@ -103,7 +148,7 @@ final class Post_Type {
 			'singular_name'         => esc_html_x( 'Product', 'post type singular name', 'reseller-store' ),
 			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'reseller-store' ),
 			'name_admin_bar'        => esc_html_x( 'Reseller Product', 'add new on admin bar', 'reseller-store' ),
-			'add_new'               => esc_html_x( 'Add Product', 'product', 'reseller-store' ),
+			'add_new'               => esc_html_x( 'Add New', 'product', 'reseller-store' ),
 			'add_new_item'          => esc_html__( 'Add New Product', 'reseller-store' ),
 			'edit_item'             => esc_html__( 'Edit Product', 'reseller-store' ),
 			'new_item'              => esc_html__( 'New Product', 'reseller-store' ),
@@ -113,7 +158,7 @@ final class Post_Type {
 			'not_found'             => esc_html__( 'No products found.', 'reseller-store' ),
 			'not_found_in_trash'    => esc_html__( 'No products found in Trash.', 'reseller-store' ),
 			'parent_item_colon'     => esc_html__( 'Parent Products:', 'reseller-store' ),
-			'all_items'             => esc_html__( 'Products', 'reseller-store' ),
+			'all_items'             => esc_html__( 'All Products', 'reseller-store' ),
 			'archives'              => esc_html__( 'Product Archives', 'reseller-store' ),
 			'insert_into_item'      => esc_html__( 'Insert into product', 'reseller-store' ),
 			'uploaded_to_this_item' => esc_html__( 'Uploaded to this product', 'reseller-store' ),
@@ -156,38 +201,6 @@ final class Post_Type {
 		$args = (array) apply_filters( 'rstore_post_type_args', $args );
 
 		register_post_type( self::SLUG, $args );
-
-	}
-
-	/**
-	 * Add menu separator.
-	 *
-	 * @action admin_menu
-	 * @global array $menu
-	 */
-	public static function add_menu_separator() {
-
-		global $menu;
-
-		if ( current_user_can( sprintf( 'edit_%ss', self::SLUG ) ) ) {
-
-			$menu[ self::MENU_POSITION + 1 ] = [ '', 'read', 'separator-reseller-store', '', 'wp-menu-separator reseller-store' ];
-
-		}
-
-	}
-
-	public static function admin_menu_order( $menu_order ) {
-
-		$separator = array_search( 'separator-reseller-store', $menu_order );
-		$main      = array_search( 'edit.php?post_type=' . self::SLUG, $menu_order );
-
-		var_dump( $menu_order );
-		var_dump( $separator );
-		var_dump( $main );
-		exit;
-
-		return $menu_order;
 
 	}
 
@@ -238,11 +251,42 @@ final class Post_Type {
 		);
 
 		$manager->register_control(
-			'price',
+			Plugin::prefix( 'listPrice' ),
 			[
 				'type'    => 'text',
 				'section' => __METHOD__,
 				'label'   => esc_html__( 'Price', 'reseller-store' ),
+				'attr'    => [
+					'class'    => 'disabled',
+					'disabled' => 'disabled',
+				],
+			]
+		);
+
+		$manager->register_setting(
+			Plugin::prefix( 'listPrice' ),
+			[
+				'sanitize_callback' => 'sanitize_text_field',
+			]
+		);
+
+		$manager->register_control(
+			Plugin::prefix( 'salePrice' ),
+			[
+				'type'    => 'text',
+				'section' => __METHOD__,
+				'label'   => esc_html__( 'Sale Price', 'reseller-store' ),
+				'attr'    => [
+					'class'    => 'disabled',
+					'disabled' => 'disabled',
+				],
+			]
+		);
+
+		$manager->register_setting(
+			Plugin::prefix( 'salePrice' ),
+			[
+				'sanitize_callback' => 'sanitize_text_field',
 			]
 		);
 
@@ -272,7 +316,7 @@ final class Post_Type {
 				'section' => __METHOD__,
 				'label'   => esc_html__( 'Add to Cart Button Label', 'reseller-store' ),
 				'attr'    => [
-					'placeholder' => esc_attr( rstore()->get_option( 'add_cart_button_label', esc_attr__( 'Add to Cart', 'reseller-store' ) ) ),
+					'placeholder' => esc_attr( Plugin::get_option( 'add_cart_button_label', esc_attr__( 'Add to Cart', 'reseller-store' ) ) ),
 				],
 			]
 		);
@@ -290,7 +334,7 @@ final class Post_Type {
 			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
 		];
 
-		if ( 1 === rstore()->get_option( 'add_cart_redirect' ) ) {
+		if ( 1 === Plugin::get_option( 'add_cart_redirect' ) ) {
 
 			$args['attr']['checked']  = 'checked';
 			$args['attr']['disabled'] = 'disabled';
@@ -338,6 +382,103 @@ final class Post_Type {
 			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>
 		</div>
 		<?php
+
+	}
+
+	/**
+	 * Add custom columns.
+	 *
+	 * @filter manage_reseller_product_posts_columns
+	 * @since  NEXT
+	 *
+	 * @param  array $columns
+	 *
+	 * @return array
+	 */
+	public function columns( $columns ) {
+
+		// Insert before Title column
+		$columns = Plugin::array_insert(
+			$columns,
+			[
+				'image' => sprintf(
+					'<span class="dashicons dashicons-format-image"><span class="screen-reader-text">%s</span></span>',
+					__( 'Image', 'reseller-store' )
+				),
+			],
+			(int) array_search( 'title', array_values( array_flip( $columns ) ) )
+		);
+
+		// Insert after Title column
+		$columns = Plugin::array_insert(
+			$columns,
+			[ 'price' => __( 'Price', 'reseller-store' ) ],
+			(int) array_search( 'title', array_values( array_flip( $columns ) ) ) + 1
+		);
+
+		return $columns;
+
+	}
+
+	/**
+	 * Display custom column content.
+	 *
+	 * @action manage_posts_custom_column
+	 * @since  NEXT
+	 *
+	 * @param string $column
+	 * @param int    $post_id
+	 */
+	public function column_content( $column, $post_id ) {
+
+		if ( 'image' === $column ) {
+
+			echo get_the_post_thumbnail( $post_id, [ 40, 40 ] );
+
+		}
+
+		if ( 'price' === $column ) {
+
+			$price = get_post_meta( $post_id, 'rstore_listPrice', true );
+			$sale  = get_post_meta( $post_id, 'rstore_salePrice', true );
+
+			printf(
+				'%s%s',
+				( $sale ) ? sprintf( '<del>%s</del><br>', esc_html( $price ) ) : '',
+				( $sale ) ? esc_html( $sale ) : esc_html( $price )
+			);
+
+		}
+
+	}
+
+	/**
+	 * Strip `$` from meta values when ordering by price.
+	 *
+	 * @filter posts_clauses
+	 * @global wpdb $wpdb
+	 * @since  NEXT
+	 *
+	 * @param  array    $clauses
+	 * @param  WP_Query $wp_query
+	 *
+	 * @return array
+	 */
+	public function order_by_price_clause( $clauses, $wp_query ) {
+
+		global $wpdb;
+
+		if ( self::SLUG === $wp_query->get( 'post_type' ) && 'price' === $wp_query->get( 'orderby' ) ) {
+
+			$order = ( 'DESC' === strtoupper( $wp_query->get( 'order' ) ) ) ? 'DESC' : 'ASC';
+
+			$clauses['join'] .= " LEFT JOIN {$wpdb->postmeta} price ON( {$wpdb->posts}.ID = price.post_id AND price.meta_key = 'rstore_listPrice' ) ";
+
+			$clauses['orderby'] = " CONVERT( REPLACE( price.meta_value, '$', '' ), DECIMAL( 13, 2 ) ) {$order}";
+
+		}
+
+		return $clauses;
 
 	}
 

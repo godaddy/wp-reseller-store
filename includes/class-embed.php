@@ -91,14 +91,14 @@ final class Embed {
 			'$8.99' // @TODO Pull from API
 		);
 
-		$redirect = ( 1 === (int) rstore()->get_product_meta( $post->ID, 'add_cart_redirect' ) );
+		$redirect = ( 1 === (int) Plugin::get_product_meta( $post->ID, 'add_cart_redirect' ) );
 
 		printf(
-			'<p><a href="%s" class="rstore-embed-button" data-plan="%s" data-redirect="%s">%s</a></p>',
+			'<p><a href="%s" class="rstore-embed-button" data-id="%s" data-redirect="%s">%s</a></p>',
 			esc_url( add_query_arg( 'add_to_cart', 'true', get_permalink( $post->ID ) ) ),
-			esc_attr( rstore()->get_product_meta( $post->ID, 'plan_id' ) ),
+			esc_attr( get_post_meta( $post->ID, 'rstore_id', true ) ),
 			esc_attr( $redirect ? 'true' : 'false' ),
-			esc_html( rstore()->get_product_meta( $post->ID, 'add_cart_button_label', esc_html__( 'Add to Cart', 'reseller-store' ) ) )
+			esc_html( Plugin::get_product_meta( $post->ID, 'add_cart_button_label', esc_html__( 'Add to Cart', 'reseller-store' ) ) )
 		);
 
 		the_excerpt();

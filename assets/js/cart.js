@@ -1,6 +1,6 @@
 /* global Cookies, jQuery, rstore */
 
-( function ( $ ) {
+( function( $ ) {
 
 	var cart_cookie = 'rstore-cart-count',
 	    $widget     = $( '.rstore-hide-empty-cart' ).closest( '.widget.rstore_cart' );
@@ -73,7 +73,7 @@
 		     body     = {
 				items: [
 					{
-						id: $button.data( 'plan' ),
+						id: $button.data( 'id' ),
 						quantity: 1,
 						periodCount: 1
 					}
@@ -106,7 +106,7 @@
 		} )
 		.fail( function( xhr, status, error ) {
 
-			alert( error );
+			window.alert( error );
 
 		} )
 		.always( function() {
