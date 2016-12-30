@@ -21,7 +21,7 @@ trait Helpers {
 	 */
 	public static function prefix( $string ) {
 
-		return ( 0 === strpos( $string, Plugin::PREFIX ) ) ? $string : Plugin::PREFIX . $string;
+		return ( 0 === strpos( $string, self::PREFIX ) ) ? $string : self::PREFIX . $string;
 
 	}
 
