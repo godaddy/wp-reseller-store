@@ -55,11 +55,13 @@ final class Post_Type {
 		add_action( 'admin_head',                 [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 
-		add_filter( 'view_mode_post_types',                            [ $this, 'view_mode' ] );
-		add_filter( 'manage_' . self::SLUG . '_posts_columns',         [ $this, 'columns' ] );
-		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', [ $this, 'sortable_columns' ] );
-		add_filter( 'posts_clauses',                                   [ $this, 'order_by_price_clause' ], 10, 2 );
-		add_filter( 'post_type_labels_' . self::SLUG,                  [ $this, 'post_screen_edit_heading' ] );
+		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
+		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
+		add_filter( 'post_type_labels_' . self::SLUG,          [ $this, 'post_screen_edit_heading' ] );
+
+		add_filter( 'edit_' . self::SLUG . '_per_page',                function () { return 50; } );
+		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) { return array_merge( $columns, [ 'price' => 'price' ] ); } );
+		add_filter( 'view_mode_post_types',                            function ( $post_types ) { return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] ); } );
 
 	}
 
@@ -283,15 +285,37 @@ final class Post_Type {
 	}
 
 	/**
-	 * Print styles for custom columns.
+	 * Print styles for custom columns on the edit screen.
 	 *
 	 * @action admin_head
 	 * @since  NEXT
 	 */
 	public function column_styles() {
 
+		if ( ! Plugin::is_admin_uri( 'edit.php?post_type=' . self::SLUG ) ) {
+
+			return;
+
+		}
+
 		?>
 		<style type="text/css">
+		#screen-options-wrap .rstore-image {
+			display: inline;
+			font-family: inherit;
+			font-size: inherit;
+			line-height: inherit;
+
+			 -webkit-font-smoothing: auto;
+			-moz-osx-font-smoothing: auto;
+		}
+		#screen-options-wrap .rstore-image:before {
+			display: none;
+		}
+		#screen-options-wrap .rstore-image .screen-reader-text {
+			visibility: visible;
+			position: static;
+		}
 		table.wp-list-table .column-image {
 			width: 52px;
 			text-align: center;
@@ -320,24 +344,6 @@ final class Post_Type {
 	}
 
 	/**
-	 * Disable view mode switching on this post type.
-	 *
-	 * @filter view_mode_post_types
-	 * @since  NEXT
-	 *
-	 * @param  array $post_types
-	 *
-	 * @return array
-	 */
-	public function view_mode( $post_types ) {
-
-		unset( $post_types[ self::SLUG ] );
-
-		return $post_types;
-
-	}
-
-	/**
 	 * Add custom columns.
 	 *
 	 * @filter manage_{post_type}_posts_columns
@@ -354,7 +360,7 @@ final class Post_Type {
 			$columns,
 			[
 				'image' => sprintf(
-					'<span class="dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
+					'<span class="rstore-image dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
 					__( 'Product Image', 'reseller-store' )
 				),
 			],
@@ -367,24 +373,6 @@ final class Post_Type {
 			[ 'price' => __( 'Price', 'reseller-store' ) ],
 			(int) array_search( 'title', array_values( array_flip( $columns ) ) ) + 1
 		);
-
-		return $columns;
-
-	}
-
-	/**
-	 * Make custom columns sortable.
-	 *
-	 * @filter manage_edit-{post_type}_sortable_columns
-	 * @since  NEXT
-	 *
-	 * @param  array $columns
-	 *
-	 * @return array
-	 */
-	public function sortable_columns( $columns ) {
-
-		$columns['price'] = 'price';
 
 		return $columns;
 
