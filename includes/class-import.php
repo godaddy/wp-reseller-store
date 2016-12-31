@@ -2,7 +2,7 @@
 
 namespace Reseller_Store;
 
-use \stdClass;
+use stdClass;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
