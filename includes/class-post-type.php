@@ -320,7 +320,7 @@ final class Post_Type {
 	}
 
 	/**
-	 * Enable view mode for this post type.
+	 * Disable view mode switching on this post type.
 	 *
 	 * @filter view_mode_post_types
 	 * @since  NEXT
@@ -331,7 +331,9 @@ final class Post_Type {
 	 */
 	public function view_mode( $post_types ) {
 
-		return array_diff( $post_types, [ self::SLUG => self::SLUG ] );
+		unset( $post_types[ self::SLUG ] );
+
+		return $post_types;
 
 	}
 
