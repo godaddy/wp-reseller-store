@@ -22,6 +22,8 @@ final class Post_Type {
 	/**
 	 * Post type menu position.
 	 *
+	 * @since NEXT
+	 *
 	 * @var int
 	 */
 	const MENU_POSITION = 52;
@@ -48,98 +50,24 @@ final class Post_Type {
 
 		} );
 
-		add_action( 'init', [ $this, 'register' ] );
-
-		add_action( 'butterbean_register', [ $this, 'metabox' ], 10, 2 );
-
-		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
-
-		add_action( 'admin_head', function () {
-
-			?>
-			<style type="text/css">
-			table.wp-list-table .column-image {
-				width: 52px;
-				text-align: center;
-				white-space: nowrap;
-			}
-			table.wp-list-table .column-title {
-				width: 33%;
-			}
-			@media only screen and (max-width: 782px) {
-				.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image {
-					display: none;
-					text-align: left;
-					padding-bottom: 0;
-				}
-				.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image img {
-					max-width: 32px;
-					height: auto;
-				}
-				.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table tr td.column-image::before {
-					display: none !important;
-				}
-			}
-			</style>
-			<?php
-
-		} );
-
-		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
-
-		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
-
-			$columns['price'] = 'price';
-
-			return $columns;
-
-		} );
-
+		add_action( 'init',                       [ $this, 'register' ] );
+		add_action( 'butterbean_register',        [ $this, 'metabox' ], 10, 2 );
+		add_action( 'admin_head',                 [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 
-		add_filter( 'posts_clauses', [ $this, 'order_by_price_clause' ], 10, 2 );
-
-		add_filter( 'view_mode_post_types', function( $post_types ) {
-
-			return array_diff( $post_types, [ self::SLUG => self::SLUG ] );
-
-		} );
-
-		add_filter( 'post_type_labels_' . self::SLUG, function( $labels ) {
-
-			$name = get_post_meta( (int) filter_input( INPUT_GET, 'post' ), Plugin::prefix( 'title' ), true );
-
-			$labels->edit_item = ! empty( $name ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $name ) : $labels->edit_item;
-
-			return $labels;
-
-		} );
-
-	}
-
-	/**
-	 * Check whether products exist.
-	 *
-	 * @since NEXT
-	 *
-	 * @return bool
-	 */
-	public static function products_exist() {
-
-		$counts = (array) wp_count_posts( self::SLUG );
-
-		unset( $counts['auto-draft'] );
-
-		return ( array_sum( $counts ) > 0 );
+		add_filter( 'view_mode_post_types',                            [ $this, 'view_mode' ] );
+		add_filter( 'manage_' . self::SLUG . '_posts_columns',         [ $this, 'columns' ] );
+		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', [ $this, 'sortable_columns' ] );
+		add_filter( 'posts_clauses',                                   [ $this, 'order_by_price_clause' ], 10, 2 );
+		add_filter( 'post_type_labels_' . self::SLUG,                  [ $this, 'post_screen_edit_heading' ] );
 
 	}
 
 	/**
 	 * Register the custom post type.
 	 *
-	 * @since NEXT
-	 *
 	 * @action init
+	 * @since  NEXT
 	 */
 	public function register() {
 
@@ -355,40 +283,62 @@ final class Post_Type {
 	}
 
 	/**
-	 * Customize the edit screen when there are no products.
+	 * Print styles for custom columns.
 	 *
-	 * @action manage_posts_extra_tablenav
+	 * @action admin_head
 	 * @since  NEXT
-	 *
-	 * @param string $which
 	 */
-	public function edit_screen( $which ) {
-
-		if ( self::SLUG !== get_post_type() || 'bottom' !== $which || self::products_exist() ) {
-
-			return;
-
-		}
+	public function column_styles() {
 
 		?>
 		<style type="text/css">
-		.rstore-blank { margin-top: 50px; text-align: center; }
-		.rstore-blank h2 { font-weight: 400; }
-		#posts-filter .wp-list-table, #posts-filter .tablenav.top, .tablenav-pages, .bulkactions, .search-box, #screen-meta-links, .wrap .subsubsub { display: none; }
-		.tablenav a.rstore-blank-button { display: inline-block; }
+		table.wp-list-table .column-image {
+			width: 52px;
+			text-align: center;
+			white-space: nowrap;
+		}
+		table.wp-list-table .column-title {
+			width: 33%;
+		}
+		@media only screen and (max-width: 782px) {
+			.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image {
+				display: none;
+				text-align: left;
+				padding-bottom: 0;
+			}
+			.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image img {
+				max-width: 32px;
+				height: auto;
+			}
+			.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table tr td.column-image::before {
+				display: none !important;
+			}
+		}
 		</style>
-		<div class="rstore-blank">
-			<h2 class="rstore-blank-message"><?php esc_html_e( 'No products have been added yet.', 'reseller-store' ); ?></h2>
-			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>
-		</div>
 		<?php
+
+	}
+
+	/**
+	 * Enable view mode for this post type.
+	 *
+	 * @filter view_mode_post_types
+	 * @since  NEXT
+	 *
+	 * @param  array $post_types
+	 *
+	 * @return array
+	 */
+	public function view_mode( $post_types ) {
+
+		return array_diff( $post_types, [ self::SLUG => self::SLUG ] );
 
 	}
 
 	/**
 	 * Add custom columns.
 	 *
-	 * @filter manage_reseller_product_posts_columns
+	 * @filter manage_{post_type}_posts_columns
 	 * @since  NEXT
 	 *
 	 * @param  array $columns
@@ -402,8 +352,8 @@ final class Post_Type {
 			$columns,
 			[
 				'image' => sprintf(
-					'<span class="dashicons dashicons-format-image"><span class="screen-reader-text">%s</span></span>',
-					__( 'Image', 'reseller-store' )
+					'<span class="dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
+					__( 'Product Image', 'reseller-store' )
 				),
 			],
 			(int) array_search( 'title', array_values( array_flip( $columns ) ) )
@@ -415,6 +365,24 @@ final class Post_Type {
 			[ 'price' => __( 'Price', 'reseller-store' ) ],
 			(int) array_search( 'title', array_values( array_flip( $columns ) ) ) + 1
 		);
+
+		return $columns;
+
+	}
+
+	/**
+	 * Make custom columns sortable.
+	 *
+	 * @filter manage_edit-{post_type}_sortable_columns
+	 * @since  NEXT
+	 *
+	 * @param  array $columns
+	 *
+	 * @return array
+	 */
+	public function sortable_columns( $columns ) {
+
+		$columns['price'] = 'price';
 
 		return $columns;
 
@@ -482,6 +450,34 @@ final class Post_Type {
 		}
 
 		return $clauses;
+
+	}
+
+	/**
+	 * Customize the edit heading on the post screen.
+	 *
+	 * @filter post_type_labels_{post_type}
+	 * @since  NEXT
+	 *
+	 * @param  array $labels
+	 *
+	 * @return array
+	 */
+	public function post_screen_edit_heading( $labels ) {
+
+		if ( ! Plugin::is_admin_uri( 'post.php?post=' ) ) {
+
+			return $labels;
+
+		}
+
+		$post_id = (int) filter_input( INPUT_GET, 'post' );
+
+		$title = ( $post_id > 0 ) ? get_post_meta( $post_id, Plugin::prefix( 'title' ), true ) : null;
+
+		$labels->edit_item = ! empty( $title ) ? sprintf( esc_html_x( 'Edit: %s', 'product title', 'reseller-store' ), $title ) : $labels->edit_item;
+
+		return $labels;
 
 	}
 

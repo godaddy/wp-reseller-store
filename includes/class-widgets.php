@@ -17,7 +17,7 @@ final class Widgets {
 	 */
 	public function __construct() {
 
-		add_action( 'widgets_init', function() {
+		add_action( 'widgets_init', function () {
 
 			register_widget( __NAMESPACE__ . '\Widgets\Cart' );
 

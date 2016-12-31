@@ -26,17 +26,29 @@ final class Setup {
 	 */
 	public function __construct() {
 
-		add_action( 'admin_menu', [ $this, 'page' ], 9 );
-
-		add_action( 'admin_enqueue_scripts', function () {
-
-			$suffix = SCRIPT_DEBUG ? '' : '.min';
-
-			wp_enqueue_script( 'rstore-admin-setup', rstore()->assets_url . "js/admin-setup{$suffix}.js", [ 'jquery' ], rstore()->version, true );
-
-		} );
-
+		add_action( 'admin_enqueue_scripts',  [ $this, 'admin_enqueue_scripts' ] );
+		add_action( 'admin_menu',             [ $this, 'page' ], 9 );
 		add_action( 'wp_ajax_rstore_install', [ $this, 'install' ] );
+
+	}
+
+	/**
+	 * Enqueue admin scripts.
+	 *
+	 * @action admin_enqueue_scripts
+	 * @since  NEXT
+	 */
+	public function admin_enqueue_scripts() {
+
+		if ( ! Plugin::is_admin_uri( 'admin.php?page=' . self::SLUG ) ) {
+
+			return;
+
+		}
+
+		$suffix = SCRIPT_DEBUG ? '' : '.min';
+
+		wp_enqueue_script( 'rstore-admin-setup', rstore()->assets_url . "js/admin-setup{$suffix}.js", [ 'jquery' ], rstore()->version, true );
 
 	}
 

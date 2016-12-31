@@ -20,6 +20,15 @@ final class API {
 	private $tld = 'dev-secureserver.net'; // TODO: use prod TLD here
 
 	/**
+	 * Maximum number of retries for API requests.
+	 *
+	 * @since NEXT
+	 *
+	 * @var int
+	 */
+	private $max_retries = 1;
+
+	/**
 	 * Array of URLs.
 	 *
 	 * @since NEXT
@@ -43,6 +52,15 @@ final class API {
 		 * @var string
 		 */
 		$this->tld = (string) apply_filters( 'rstore_api_tld', $this->tld );
+
+		/**
+		 *
+		 *
+		 * @since NEXT
+		 *
+		 * @var int
+		 */
+		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
 		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
 		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
@@ -117,7 +135,7 @@ final class API {
 
 		$args = [
 			'headers'   => [ 'Content-Type: application/json' ],
-			'sslverify' => ( defined( 'WP_DEBUG' ) && WP_DEBUG ) ? false : true,
+			'sslverify' => ! ( defined( 'WP_DEBUG' ) && WP_DEBUG ),
 		];
 
 		/**
@@ -131,13 +149,25 @@ final class API {
 
 		$response = wp_remote_get( $this->url( $endpoint ), $args );
 
-		if ( is_wp_error( $response ) ) {
+		if ( ! is_wp_error( $response ) ) {
 
-			return $response;
+			return json_decode( wp_remote_retrieve_body( $response ) );
 
 		}
 
-		return json_decode( wp_remote_retrieve_body( $response ) );
+		static $errors = 0;
+
+		$errors++;
+
+		if ( $errors <= $this->max_retries ) {
+
+			sleep( 2 ); // Pause between retries
+
+			return $this->get( $endpoint );
+
+		}
+
+		return $response;
 
 	}
 

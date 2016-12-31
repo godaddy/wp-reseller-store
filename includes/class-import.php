@@ -40,7 +40,9 @@ final class Import {
 	];
 
 	/**
+	 * Class constructor.
 	 *
+	 * @since NEXT
 	 *
 	 * @param stdClass $product
 	 */

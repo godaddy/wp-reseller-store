@@ -52,7 +52,7 @@ final class Plugin {
 		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
 		$this->api        = new API;
 
-		add_action( 'plugins_loaded', function() {
+		add_action( 'plugins_loaded', function () {
 
 			load_plugin_textdomain( 'reseller-store', false, dirname( __FILE__ ) . '/languages' );
 

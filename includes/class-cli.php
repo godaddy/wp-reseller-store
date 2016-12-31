@@ -2,7 +2,8 @@
 
 namespace Reseller_Store;
 
-use \WP_CLI;
+use WP_CLI;
+use WP_CLI_Command;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
@@ -10,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-final class CLI extends \WP_CLI_Command {
+final class CLI extends WP_CLI_Command {
 
 	/**
 	 * Basic description of the custom subcommand.

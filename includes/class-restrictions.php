@@ -11,36 +11,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class Restrictions {
 
 	/**
-	 * Array of product IDs that can be imported.
+	 * Class constructor.
 	 *
 	 * @since NEXT
-	 *
-	 * @var array
-	 */
-	public $available_products = [];
-
-	/**
-	 * Class constructor.
 	 */
 	public function __construct() {
 
-		add_action( 'init', function () {
-
-			if ( is_user_logged_in() ) {
-
-				$this->available_products = $this->get_available_products();
-
-			}
-
-		}, 0 );
-
-		add_action( 'init', [ $this, 'redirects' ], 1 );
-
-		add_action( 'admin_menu', [ $this, 'admin_submenu' ] );
-
-		add_action( 'admin_head', [ $this, 'add_product_button' ] );
-
-		add_action( 'wp_before_admin_bar_render', [ $this, 'admin_bar_submenu' ] );
+		add_action( 'init',                        [ $this, 'redirects' ], 1 );
+		add_action( 'admin_menu',                  [ $this, 'admin_submenu' ] );
+		add_action( 'admin_head',                  [ $this, 'add_product_button' ] );
+		add_action( 'wp_before_admin_bar_render',  [ $this, 'admin_bar_submenu' ] );
+		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
+//		add_action( 'manage_posts_extra_tablenav', [ $this, 'new_post_screen' ] );
 
 	}
 
@@ -58,9 +40,9 @@ final class Restrictions {
 
 		}
 
-		$is_post_type_screen = Plugin::is_admin_screen( 'post_type=' . Post_Type::SLUG, false );
-		$is_setup_screen     = Plugin::is_admin_screen( 'admin.php?page=' . Setup::SLUG );
-		$is_add_new_screen   = Plugin::is_admin_screen( 'post-new.php?post_type=' . Post_Type::SLUG );
+		$is_post_type_screen = Plugin::is_admin_uri( 'post_type=' . Post_Type::SLUG, false );
+		$is_setup_screen     = Plugin::is_admin_uri( 'admin.php?page=' . Setup::SLUG );
+		$is_add_new_screen   = Plugin::is_admin_uri( 'post-new.php?post_type=' . Post_Type::SLUG );
 
 		if ( $is_post_type_screen && ! Plugin::is_setup() ) {
 
@@ -76,7 +58,7 @@ final class Restrictions {
 		if (
 			( $is_setup_screen && Plugin::is_setup() )
 			||
-			( $is_add_new_screen && empty( $this->available_products ) )
+			( $is_add_new_screen && Plugin::has_all_products() )
 		) {
 
 			Plugin::admin_redirect(
@@ -98,7 +80,7 @@ final class Restrictions {
 	 */
 	public function admin_submenu() {
 
-		if ( ! empty( $this->available_products ) ) {
+		if ( Plugin::is_missing_products() ) {
 
 			return;
 
@@ -119,7 +101,7 @@ final class Restrictions {
 	 */
 	public function add_product_button() {
 
-		if ( ! empty( $this->available_products ) ) {
+		if ( Plugin::is_missing_products() ) {
 
 			return;
 
@@ -142,7 +124,7 @@ final class Restrictions {
 	 */
 	public function admin_bar_submenu() {
 
-		if ( ! empty( $this->available_products ) ) {
+		if ( Plugin::is_missing_products() ) {
 
 			return;
 
@@ -155,48 +137,39 @@ final class Restrictions {
 	}
 
 	/**
-	 * Return an array of product IDs that can be imported.
+	 * Customize the edit screen when there are no products.
 	 *
-	 * @global wpdb $wpdb
+	 * @action manage_posts_extra_tablenav
 	 * @since  NEXT
 	 *
-	 * @return array
+	 * @param string $which
 	 */
-	public function get_available_products() {
+	public function edit_screen( $which ) {
 
-		if ( ! Plugin::is_setup() ) {
+		if (
+			Post_Type::SLUG !== get_post_type()
+			||
+			'bottom' !== $which
+			||
+			Plugin::has_products()
+		) {
 
-			return [];
-
-		}
-
-		$available = (array) Plugin::get_transient( 'products', [], function () {
-
-			return rstore()->api->get( 'catalog/{pl_id}/products' );
-
-		} );
-
-		if ( empty( $available[0]->id ) ) {
-
-			return [];
+			return;
 
 		}
 
-		$available = wp_list_pluck( $available, 'id' );
-
-		global $wpdb;
-
-		$imported = (array) $wpdb->get_col(
-			$wpdb->prepare(
-				"SELECT `meta_value` FROM {$wpdb->postmeta} as pm LEFT JOIN {$wpdb->posts} as p ON ( pm.`post_id` = p.`ID` ) WHERE p.`post_type` = %s AND pm.`meta_key` = %s;",
-				Post_Type::SLUG,
-				Plugin::prefix( 'id' )
-			)
-		);
-
-		$missing = array_diff( $available, $imported );
-
-		return ! empty( $missing ) ? $missing : [];
+		?>
+		<style type="text/css">
+		.rstore-blank { margin-top: 50px; text-align: center; }
+		.rstore-blank h2 { font-weight: 400; }
+		#posts-filter .wp-list-table, #posts-filter .tablenav.top, .tablenav-pages, .bulkactions, .search-box, #screen-meta-links, .wrap .subsubsub { display: none; }
+		.tablenav a.rstore-blank-button { display: inline-block; }
+		</style>
+		<div class="rstore-blank">
+			<h2 class="rstore-blank-message"><?php esc_html_e( 'No products have been added yet.', 'reseller-store' ); ?></h2>
+			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>
+		</div>
+		<?php
 
 	}
 

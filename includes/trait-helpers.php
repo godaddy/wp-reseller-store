@@ -90,14 +90,16 @@ trait Helpers {
 
 		$value = get_transient( $name );
 
-		if ( false === $value && is_callable( $callback ) ) {
+		if ( false !== $value || ! is_callable( $callback ) ) {
 
-			$value = $callback();
-			$value = ( $value && ! is_wp_error( $value ) ) ? $value : $default;
-
-			self::set_transient( $name, $value, (int) $expiration );
+			return ( false !== $value ) ? $value : $default;
 
 		}
+
+		$value = $callback();
+		$value = ( $value && ! is_wp_error( $value ) ) ? $value : $default;
+
+		self::set_transient( $name, $value, (int) $expiration );
 
 		return $value;
 
@@ -133,7 +135,100 @@ trait Helpers {
 	 */
 	public static function get_product_meta( $id, $key, $default = false ) {
 
-		return metadata_exists( 'post', $id, $key ) ? get_post_meta( $id, $key, true ) : self::get_option( $key, $default );
+		$key = self::prefix( $key );
+
+		return metadata_exists( 'post', $id, $key ) ? get_post_meta( $id, $key, true ) : get_option( $key, $default );
+
+	}
+
+	/**
+	 * Return an array of missing product IDs that can be imported.
+	 *
+	 * @global wpdb $wpdb
+	 * @since  NEXT
+	 *
+	 * @return array
+	 */
+	public static function get_missing_products() {
+
+		if ( ! self::is_setup() ) {
+
+			return [];
+
+		}
+
+		$available = (array) self::get_transient( 'products', [], function () {
+
+			return rstore()->api->get( 'catalog/{pl_id}/products' );
+
+		} );
+
+		if ( empty( $available[0]->id ) ) {
+
+			return [];
+
+		}
+
+		$available = wp_list_pluck( $available, 'id' );
+
+		global $wpdb;
+
+		$imported = (array) $wpdb->get_col(
+			$wpdb->prepare(
+				"SELECT `meta_value` FROM {$wpdb->postmeta} as pm LEFT JOIN {$wpdb->posts} as p ON ( pm.`post_id` = p.`ID` ) WHERE p.`post_type` = %s AND pm.`meta_key` = %s;",
+				Post_Type::SLUG,
+				Plugin::prefix( 'id' )
+			)
+		);
+
+		$missing = array_diff( $available, $imported );
+
+		return ! empty( $missing ) ? $missing : [];
+
+	}
+
+	/**
+	 * Check if the site is missing products that can be imported.
+	 *
+	 * @since NEXT
+	 *
+	 * @return bool
+	 */
+	public static function is_missing_products() {
+
+		$missing = self::get_missing_products();
+
+		return ! empty( $missing );
+
+	}
+
+	/**
+	 * Check if the site has imported all available products.
+	 *
+	 * @since NEXT
+	 *
+	 * @return bool
+	 */
+	public static function has_all_products() {
+
+		return ! self::is_missing_products();
+
+	}
+
+	/**
+	 * Check whether products exist.
+	 *
+	 * @since NEXT
+	 *
+	 * @return bool
+	 */
+	public static function has_products() {
+
+		$counts = (array) wp_count_posts( Post_Type::SLUG );
+
+		unset( $counts['auto-draft'] );
+
+		return ( array_sum( $counts ) > 0 );
 
 	}
 
@@ -160,7 +255,7 @@ trait Helpers {
 	 *
 	 * @return bool
 	 */
-	public static function is_admin_screen( $request_uri, $strict = true ) {
+	public static function is_admin_uri( $request_uri, $strict = true ) {
 
 		$strpos = strpos( basename( filter_input( INPUT_SERVER, 'REQUEST_URI' ) ), $request_uri );
 		$result = ( $strict ) ? ( 0 === $strpos ) : ( false !== $strpos );
