@@ -2,6 +2,8 @@
 
 namespace Reseller_Store;
 
+use WP_Error;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -127,16 +129,23 @@ final class API {
 	 *
 	 * @since NEXT
 	 *
-	 * @param  string $endpoint (optional)
+	 * @param  string $method
+	 * @param  string $endpoint
+	 * @param  array  $args     (optional)
 	 *
-	 * @return mixed
+	 * @return array|WP_Error
 	 */
-	public function get( $endpoint = '' ) {
+	private function request( $method, $endpoint, array $args = [] ) {
 
-		$args = [
-			'headers'   => [ 'Content-Type: application/json' ],
+		$defaults = [
+			'method'    => $method,
 			'sslverify' => ! ( defined( 'WP_DEBUG' ) && WP_DEBUG ),
+			'headers'   => [
+				'Content-Type: application/json',
+			],
 		];
+
+		$args = wp_parse_args( $args, $defaults );
 
 		/**
 		 * Filter the default API request args.
@@ -147,7 +156,7 @@ final class API {
 		 */
 		$args = (array) apply_filters( 'rstore_api_request_args', $args );
 
-		$response = wp_remote_get( $this->url( $endpoint ), $args );
+		$response = wp_remote_request( $this->url( $endpoint ), $args );
 
 		if ( ! is_wp_error( $response ) ) {
 
@@ -163,11 +172,75 @@ final class API {
 
 			sleep( 2 ); // Pause between retries
 
-			return $this->get( $endpoint );
+			return $this->request( $method, $endpoint, $args );
 
 		}
 
 		return $response;
+
+	}
+
+	/**
+	 * Make a GET request to the API.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $endpoint
+	 * @param  array  $args     (optional)
+	 *
+	 * @return array|WP_Error
+	 */
+	public function get( $endpoint, array $args = [] ) {
+
+		return $this->request( 'GET', $endpoint, $args );
+
+	}
+
+	/**
+	 * Make a POST request to the API.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $endpoint
+	 * @param  array  $args     (optional)
+	 *
+	 * @return array|WP_Error
+	 */
+	public function post( $endpoint, array $args = [] ) {
+
+		return $this->request( 'POST', $endpoint, $args );
+
+	}
+
+	/**
+	 * Make a PUT request to the API.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $endpoint
+	 * @param  array  $args     (optional)
+	 *
+	 * @return array|WP_Error
+	 */
+	public function put( $endpoint, array $args = [] ) {
+
+		return $this->request( 'PUT', $endpoint, $args );
+
+	}
+
+	/**
+	 * Make a DELETE request to the API.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $endpoint
+	 * @param  array  $args     (optional)
+	 *
+	 * @return array|WP_Error
+	 */
+	public function delete( $endpoint, array $args = [] ) {
+
+		return $this->request( 'DELETE', $endpoint, $args );
 
 	}
 

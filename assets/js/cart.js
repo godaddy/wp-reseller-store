@@ -1,66 +1,41 @@
-/* global Cookies, jQuery, rstore */
+/* global ajaxurl, jQuery, rstore */
+
+"use strict";
 
 ( function( $ ) {
 
-	var cart_cookie = 'rstore-cart-count',
-	    $widget     = $( '.rstore-hide-empty-cart' ).closest( '.widget.rstore_cart' );
+	var cookie = 'rstore-cart-count';
 
-	$( document ).ready( function() {
+	$( document ).ready( function( $ ) {
 
-		var cart_count = parseInt( Cookies.get( cart_cookie ) );
+		check_count();
 
-		if ( cart_count > 0 ) {
-
-			$widget.show();
-
-			$( '.rstore-cart-count' ).text( cart_count );
-
-			fetch_cart_count();
-
-		} else {
-
-			$widget.hide();
-
-		}
-
-		$( '.rstore-add-to-cart' ).on( 'click', add_to_cart );
+		$( document ).on( 'click', '.rstore-add-to-cart', add_to_cart );
 
 	} );
 
-	function set_cart_count( data ) {
+	function check_count() {
 
-		var count = ( 'undefined' !== typeof data.cartCount && data.cartCount ) ? parseInt( data.cartCount ) : 0;
+		var value = parseInt( get_cookie( cookie ), 10 );
 
-		$( '.rstore-cart-count' ).text( count );
+		set_count( value );
 
-		if ( count > 0 ) {
+		if ( value > 0 ) {
 
-			$widget.show();
-
-			Cookies.set( cart_cookie, count, { expires: 7 } );
-
-		} else {
-
-			$widget.hide();
-
-			Cookies.remove( cart_cookie );
+			fetch_count(); // Verify
 
 		}
 
 	}
 
-	function fetch_cart_count() {
+	function set_count( value ) {
 
-		$.ajax( {
-			method: 'GET',
-			url: rstore.cart_api_url,
-			crossDomain: true,
-			xhrFields: { withCredentials: true },
-			dataType: 'json'
-		} )
-		.done( function( data ) {
-			set_cart_count( data );
-		} );
+		value = ( 'undefined' !== typeof value.cartCount ) ? value.cartCount : value;
+		value = ( value ) ? parseInt( value, 10 ) : 0;
+
+		set_cookie( cookie, value );
+
+		$( '.rstore-cart-count' ).text( value );
 
 	}
 
@@ -68,52 +43,91 @@
 
 		e.preventDefault();
 
-		 var $button  = $( this ),
-		     redirect = $button.data( 'redirect' ),
-		     body     = {
-				items: [
-					{
-						id: $button.data( 'id' ),
-						quantity: 1,
-						periodCount: 1
-					}
-				]
-			};
+		var $this = $( this ),
+		    id    = $this.attr( 'data-id' ),
+		    qty   = parseInt( $this.attr( 'data-qty' ), 10 );
 
-		$button.prop( 'disabled', true );
+		$this.css( 'opacity', 0.5 );
 
-		$.ajax( {
-			method: 'POST',
+		var request = { items: [ {
+			id: id,
+			quantity: ( qty > 0 ) ? qty : 1, // Must be greater than 0
+			periodCount: 1
+		} ] };
+
+		$.post( {
 			url: rstore.cart_api_url,
-			crossDomain: true,
-			xhrFields: { withCredentials: true },
-			contentType: 'application/json',
 			dataType: 'json',
-			data: JSON.stringify( body )
+			contentType: 'application/json',
+			data: JSON.stringify( request ),
+			crossDomain: true,
+			xhrFields: {
+				withCredentials: true
+			}
 		} )
 		.done( function( data ) {
+			set_count( data );
+		} )
+		.always( function() {
+			$this.css( 'opacity', 1 );
+		} );
 
-			if ( 'true' === redirect ) {
+	}
 
-				window.location.href = rstore.cart_url;
+	function fetch_count() {
 
-				return;
+		$.get( {
+			url: rstore.cart_api_url,
+			dataType: 'json',
+			contentType: 'application/json',
+			crossDomain: true,
+			xhrFields: {
+				withCredentials: true
+			}
+		} )
+		.done( function( data ) {
+			set_count( data );
+		} );
+
+	}
+
+	function set_cookie( name, value, days ) {
+
+		var date = new Date();
+
+		days = ( days ) ? days : 30;
+
+		date.setTime( date.getTime() + ( days * 86400 * 1000 ) ); // Convert to ms
+
+		document.cookie = name + "=" + value + "; expires=" + date.toGMTString() + "; path=/";
+
+	}
+
+	function get_cookie( name ) {
+
+		var parts = document.cookie.split( ';' );
+
+		name = name + '=';
+
+		for ( var i = 0; i < parts.length; i++ ) {
+
+			var cookie = parts[i];
+
+			while ( ' ' === cookie.charAt( 0 ) ) {
+
+				cookie = cookie.substring( 1 );
 
 			}
 
-			set_cart_count( data );
+			if ( 0 === cookie.indexOf( name ) ) {
 
-		} )
-		.fail( function( xhr, status, error ) {
+				return cookie.substring( name.length, cookie.length );
 
-			window.alert( error );
+			}
 
-		} )
-		.always( function() {
+		}
 
-			$button.prop( 'disabled', false );
-
-		} );
+		return null;
 
 	}
 

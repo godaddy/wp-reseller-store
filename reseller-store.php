@@ -78,6 +78,7 @@ final class Plugin {
 		new Settings;
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
+		new Templates;
 		new Widgets;
 
 	}

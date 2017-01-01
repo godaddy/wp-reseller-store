@@ -40,22 +40,6 @@ final class Cart extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		$suffix = SCRIPT_DEBUG ? '' : '.min';
-
-		wp_enqueue_script( 'js-cookie', "https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie{$suffix}.js", [], '2.1.3', true );
-
-		wp_enqueue_script( 'rstore-cart', Plugin\rstore()->assets_url . "js/cart{$suffix}.js", [ 'jquery', 'js-cookie' ], Plugin\rstore()->version, true );
-
-		wp_localize_script(
-			'rstore-cart',
-			'rstore',
-			[
-				'pl_id'        => (int) Plugin\Plugin::get_option( 'pl_id' ),
-				'cart_url'     => Plugin\rstore()->api->urls['cart'], // xss ok
-				'cart_api_url' => Plugin\rstore()->api->url( 'cart/{pl_id}' ), // xss ok
-			]
-		);
-
 		echo $args['before_widget']; // xss ok
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -65,7 +49,7 @@ final class Cart extends \WP_Widget {
 		}
 
 		printf(
-			'<div class="rstore-view-cart %s"><a href="%s" class="rstore-view-cart">%s</a></div>',
+			'<div class="rstore-view-cart %s"><a href="%s" class="rstore-view-cart-link">%s</a></div>',
 			! empty( $instance['hide_empty'] ) ? 'rstore-hide-empty-cart' : null,
 			esc_url( Plugin\rstore()->api->urls['cart'] ),
 			sprintf(

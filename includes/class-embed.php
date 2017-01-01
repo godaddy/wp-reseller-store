@@ -94,7 +94,7 @@ final class Embed {
 		$redirect = ( 1 === (int) Plugin::get_product_meta( $post->ID, 'add_cart_redirect' ) );
 
 		printf(
-			'<p><a href="%s" class="rstore-embed-button" data-id="%s" data-redirect="%s">%s</a></p>',
+			'<p><a href="%s" class="rstore-embed-button rstore-add-to-cart" data-id="%s" data-redirect="%s">%s</a></p>',
 			esc_url( add_query_arg( 'add_to_cart', 'true', get_permalink( $post->ID ) ) ),
 			esc_attr( get_post_meta( $post->ID, Plugin::prefix( 'id' ), true ) ),
 			esc_attr( $redirect ? 'true' : 'false' ),
