@@ -253,7 +253,7 @@ final class Import {
 		$url = esc_url_raw( $this->product->image );
 
 		$attachment_id = $this->attachment_url_exists( $url );
-		$attachment_id = ( $attachment_id ) ? $attachment_id : $this->sideload_image( $url, 0, $this->product->title );
+		$attachment_id = ( $attachment_id ) ? $attachment_id : $this->sideload_image( $url, $this->product->title );
 
 		if ( ! $attachment_id ) {
 
