@@ -130,8 +130,8 @@ final class Cart extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$title      = sanitize_text_field( $new_instance['title'] );
-		$hide_empty = absint( $new_instance['hide_empty'] );
+		$title      = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
+		$hide_empty = isset( $new_instance['hide_empty'] ) ? absint( $new_instance['hide_empty'] ) : 0;
 
 		$instance['title']      = ( $title ) ? $title : null;
 		$instance['hide_empty'] = (bool) $hide_empty;

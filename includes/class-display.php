@@ -45,7 +45,7 @@ final class Display {
 				'cart_api' => rstore()->api->url( 'cart/{pl_id}' ),
 			],
 			'product' => [
-				'id'      => ( Post_Type::SLUG === $post->post_type ) ? get_post_meta( $post->ID, Plugin::prefix( 'id' ), true ) : '',
+				'id'      => ( Post_Type::SLUG === $post->post_type ) ? Plugin::get_product_meta( $post->ID, 'id', '' ) : '',
 				'post_id' => ( Post_Type::SLUG === $post->post_type ) ? $post->ID : '',
 			],
 		];
@@ -68,16 +68,17 @@ final class Display {
 
 		$post = get_post( $post );
 
-		$sale = (string) get_post_meta( $post->ID, Plugin::prefix( 'salePrice' ), true );
-		$list = (string) get_post_meta( $post->ID, Plugin::prefix( 'listPrice' ), true );
+		$list = Plugin::get_product_meta( $post->ID, 'listPrice' );
 
-		if ( ! $sale && ! $list ) {
+		if ( ! $list ) {
 
 			return;
 
 		}
 
-		$output = ( $sale ) ? sprintf( '<span class="rstore-price"><del>%s</del> %s</span>', $sale, $list ) : sprintf( '<span class="rstore-price">%s</span>', $list );
+		$sale = Plugin::get_product_meta( $post->ID, 'salePrice' );
+
+		$output = ( $sale ) ? sprintf( '<span class="rstore-price rstore-has-sale-price"><del>%s</del> %s</span>', $sale, $list ) : sprintf( '<span class="rstore-price">%s</span>', $list );
 
 		if ( ! $echo ) {
 
@@ -103,9 +104,9 @@ final class Display {
 		$post = get_post( $post );
 
 		return [
-			'id'        => get_post_meta( $post->ID, Plugin::prefix( 'id' ), true ),
-			'redirect'  => (bool) Plugin::get_product_meta( $post->ID, 'add_cart_redirect', false ),
-			'label'     => Plugin::get_product_meta( $post->ID, 'add_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ) ),
+			'id'        => Plugin::get_product_meta( $post->ID, 'id' ),
+			'redirect'  => (bool) Plugin::get_product_meta( $post->ID, 'add_cart_redirect', false, true ),
+			'label'     => Plugin::get_product_meta( $post->ID, 'add_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
 			'permalink' => get_permalink( $post->ID ),
 		];
 

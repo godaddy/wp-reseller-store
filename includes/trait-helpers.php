@@ -84,12 +84,16 @@ trait Helpers {
 	 *
 	 * @return mixed
 	 */
-	public static function get_transient( $name, $default = null, $callback = null, $expiration = DAY_IN_SECONDS ) {
+	public static function get_transient( $name, $default = null, $callback = null, $expiration = HOUR_IN_SECONDS ) {
 
 		$name = self::prefix( $name );
 
 		$value = get_transient( $name );
 
+		/**
+		 * 1. Transient exists: return the cached value
+		 * 2. Transient doesn't exist and the callback isn't valid: return the default value
+		 */
 		if ( false !== $value || ! is_callable( $callback ) ) {
 
 			return ( false !== $value ) ? $value : $default;
@@ -99,6 +103,7 @@ trait Helpers {
 		$value = $callback();
 		$value = ( $value && ! is_wp_error( $value ) ) ? $value : $default;
 
+		// Always set, even when the value is empty data
 		self::set_transient( $name, $value, (int) $expiration );
 
 		return $value;
@@ -123,29 +128,132 @@ trait Helpers {
 	}
 
 	/**
-	 * Return product meta value, or the global setting fallback.
+	 * Delete a transient value.
 	 *
 	 * @since NEXT
 	 *
-	 * @param  int    $id
+	 * @param  string $name
+	 *
+	 * @return bool
+	 */
+	public static function delete_transient( $name ) {
+
+		return delete_transient( self::prefix( $name ) );
+
+	}
+
+	/**
+	 * Return a product meta value, or its global setting fallback.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  int    $post_id
 	 * @param  string $key
-	 * @param  mixed  $default (optional)
+	 * @param  mixed  $default          (optional)
+	 * @param  bool   $setting_fallback (optional)
 	 *
 	 * @return mixed
 	 */
-	public static function get_product_meta( $id, $key, $default = false ) {
+	public static function get_product_meta( $post_id, $key, $default = false, $setting_fallback = false ) {
 
 		$key = self::prefix( $key );
 
-		return metadata_exists( 'post', $id, $key ) ? get_post_meta( $id, $key, true ) : get_option( $key, $default );
+		return metadata_exists( 'post', $post_id, $key ) ? get_post_meta( $post_id, $key, true ) : ( $setting_fallback ? get_option( $key, $default ) : $default );
+
+	}
+
+	/**
+	 * Update post meta value(s).
+	 *
+	 * @since NEXT
+	 *
+	 * @param  int   $post_id
+	 * @param  mixed $key
+	 * @param  mixed $value   (optional)
+	 *
+	 * @return int|bool
+	 */
+	public static function update_post_meta( $post_id, $key, $value = '' ) {
+
+		if ( ! is_array( $key ) && ! is_object( $key ) ) {
+
+			return update_post_meta( $post_id, self::prefix( $key ), $value );
+
+		}
+
+		if ( 3 === func_num_args() ) {
+
+			return false;
+
+		}
+
+		foreach ( $key as $_key => $_value ) {
+
+			self::update_post_meta( $post_id, $_key, $_value );
+
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * Mark a product as imported.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  int    $post_id
+	 * @param  string $product_id
+	 *
+	 * @return bool
+	 */
+	public static function mark_product_as_imported( $post_id, $product_id ) {
+
+		if ( Post_Type::SLUG !== get_post_type( $post_id ) ) {
+
+			return false;
+
+		}
+
+		$imported = (array) self::get_option( 'imported', [] );
+
+		$imported[ $post_id ] = $product_id;
+
+		return self::update_option( 'imported', $imported );
+
+	}
+
+	/**
+	 * Mark an imported product as deleted.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  int $post_id
+	 *
+	 * @return bool
+	 */
+	public static function mark_product_as_deleted( $post_id ) {
+
+		if ( Post_Type::SLUG !== get_post_type( $post_id ) ) {
+
+			return false;
+
+		}
+
+		self::delete_transient( 'products' ); // Re-fetch products from API
+
+		$imported = (array) self::get_option( 'imported', [] );
+
+		unset( $imported[ $post_id ] );
+
+		return self::update_option( 'imported', $imported );
 
 	}
 
 	/**
 	 * Return an array of missing product IDs that can be imported.
 	 *
-	 * @global wpdb $wpdb
-	 * @since  NEXT
+	 * @since NEXT
 	 *
 	 * @return array
 	 */
@@ -157,33 +265,24 @@ trait Helpers {
 
 		}
 
-		$available = (array) self::get_transient( 'products', [], function () {
+		$products = (array) self::get_transient( 'products', [], function () {
 
 			return rstore()->api->get( 'catalog/{pl_id}/products' );
 
 		} );
 
-		if ( empty( $available[0]->id ) ) {
+		if ( empty( $products[0]->id ) ) {
 
 			return [];
 
 		}
 
-		$available = wp_list_pluck( $available, 'id' );
-
-		global $wpdb;
-
-		$imported = (array) $wpdb->get_col(
-			$wpdb->prepare(
-				"SELECT `meta_value` FROM {$wpdb->postmeta} as pm LEFT JOIN {$wpdb->posts} as p ON ( pm.`post_id` = p.`ID` ) WHERE p.`post_type` = %s AND pm.`meta_key` = %s;",
-				Post_Type::SLUG,
-				Plugin::prefix( 'id' )
-			)
+		$missing = array_diff(
+			wp_list_pluck( $products, 'id' ),
+			(array) self::get_option( 'imported', [] )
 		);
 
-		$missing = array_diff( $available, $imported );
-
-		return ! empty( $missing ) ? $missing : [];
+		return ( $missing ) ? $missing : [];
 
 	}
 
@@ -196,9 +295,7 @@ trait Helpers {
 	 */
 	public static function is_missing_products() {
 
-		$missing = self::get_missing_products();
-
-		return ! empty( $missing );
+		return ( self::get_missing_products() );
 
 	}
 

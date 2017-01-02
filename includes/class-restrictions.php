@@ -173,4 +173,41 @@ final class Restrictions {
 
 	}
 
+	public function sync_product_meta() {
+
+		Plugin::delete_transient( 'products' );
+
+		$products = (array) Plugin::get_transient( 'products', [], function () {
+
+			return rstore()->api->get( 'catalog/{pl_id}/products' );
+
+		} );
+
+		if ( empty( $products[0]->id ) ) {
+
+			return;
+
+		}
+
+		$imported = (array) Plugin::get_option( 'imported', [] );
+
+		foreach ( $products as $product ) {
+
+			$post_id = array_search( $product->id, $imported );
+
+			if ( false === $post_id ) {
+
+				continue;
+
+			}
+
+			// Some properties should not be synced
+			unset( $product->id, $product->categories, $product->image );
+
+			Plugin::update_post_meta( $post_id, $product );
+
+		}
+
+	}
+
 }

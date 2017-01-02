@@ -117,7 +117,7 @@ final class Import {
 
 		global $wpdb;
 
-		$attachment_id = $wpdb->get_var(
+		$attachment_id = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
 				Plugin::prefix( 'image' ),
@@ -125,7 +125,7 @@ final class Import {
 			)
 		);
 
-		return ! empty( $attachment_id ) ? (int) $attachment_id : false;
+		return ( $attachment_id > 0 ) ? $attachment_id : false;
 
 	}
 
@@ -147,13 +147,17 @@ final class Import {
 			]
 		);
 
-		foreach ( $this->product as $property => $value ) {
+		if ( 0 === $post_id ) {
 
-			update_post_meta( $post_id, Plugin::prefix( $property ), $value );
+			return false;
 
 		}
 
-		return ( $post_id > 0 ) ? $post_id : false;
+		Plugin::update_post_meta( $post_id, $this->product );
+
+		Plugin::mark_product_as_imported( $post_id, $this->product->id );
+
+		return $post_id;
 
 	}
 
@@ -259,9 +263,14 @@ final class Import {
 
 		set_post_thumbnail( $post_id, $attachment_id );
 
-		update_post_meta( $attachment_id, Plugin::prefix( 'id' ), $this->product->id );
-		update_post_meta( $attachment_id, Plugin::prefix( 'image' ), $url );
-		update_post_meta( $attachment_id, Plugin::prefix( 'post_id' ), $post_id );
+		Plugin::update_post_meta(
+			$attachment_id,
+			[
+				'id'      => $this->product->id,
+				'image'   => $url,
+				'post_id' => $post_id,
+			]
+		);
 
 		return $attachment_id;
 

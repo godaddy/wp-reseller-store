@@ -54,6 +54,7 @@ final class Post_Type {
 		add_action( 'butterbean_register',        [ $this, 'metabox' ], 10, 2 );
 		add_action( 'admin_head',                 [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
+		add_action( 'delete_post',                [ __NAMESPACE__ . '\Plugin', 'mark_product_as_deleted' ] );
 
 		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
 		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
@@ -256,7 +257,7 @@ final class Post_Type {
 				'section' => __METHOD__,
 				'label'   => esc_html__( 'Add to Cart Button Label', 'reseller-store' ),
 				'attr'    => [
-					'placeholder' => esc_attr( Plugin::get_option( 'add_cart_button_label', esc_attr__( 'Add to Cart', 'reseller-store' ) ) ),
+					'placeholder' => esc_attr( Plugin::get_option( 'add_cart_button_label', esc_attr__( 'Add to cart', 'reseller-store' ) ) ),
 				],
 			]
 		);
@@ -408,13 +409,13 @@ final class Post_Type {
 
 		if ( 'price' === $column ) {
 
-			$price = get_post_meta( $post_id, Plugin::prefix( 'listPrice' ), true );
-			$sale  = get_post_meta( $post_id, Plugin::prefix( 'salePrice' ), true );
+			$list = Plugin::get_product_meta( $post_id, 'listPrice' );
+			$sale = Plugin::get_product_meta( $post_id, 'salePrice' );
 
 			printf(
 				'%s%s',
-				( $sale ) ? sprintf( '<del>%s</del><br>', esc_html( $price ) ) : '',
-				( $sale ) ? esc_html( $sale ) : esc_html( $price )
+				( $sale ) ? sprintf( '<del>%s</del><br>', esc_html( $list ) ) : '',
+				( $sale ) ? esc_html( $sale ) : esc_html( $list )
 			);
 
 		}
@@ -474,9 +475,9 @@ final class Post_Type {
 
 		$post_id = (int) filter_input( INPUT_GET, 'post' );
 
-		$title = ( $post_id > 0 ) ? get_post_meta( $post_id, Plugin::prefix( 'title' ), true ) : null;
+		$title = ( $post_id > 0 ) ? Plugin::get_product_meta( $post_id, 'title' ) : null;
 
-		$labels->edit_item = ! empty( $title ) ? sprintf( esc_html_x( 'Edit: %s', 'product title', 'reseller-store' ), $title ) : $labels->edit_item;
+		$labels->edit_item = ( $title ) ? sprintf( esc_html_x( 'Edit: %s', 'product title', 'reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
 

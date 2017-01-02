@@ -140,11 +140,11 @@ final class Domain_Search extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$placeholder  = sanitize_text_field( $new_instance['placeholder'] );
-		$button_label = sanitize_text_field( $new_instance['button_label'] );
+		$placeholder  = isset( $new_instance['placeholder'] ) ? sanitize_text_field( $new_instance['placeholder'] ) : null;
+		$button_label = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : null;
 
-		$instance['placeholder']  = ! empty( $placeholder ) ? $placeholder : null;
-		$instance['button_label'] = ! empty( $button_label ) ? $button_label : null;
+		$instance['placeholder']  = ( $placeholder ) ? $placeholder : null;
+		$instance['button_label'] = ( $button_label ) ? $button_label : null;
 
 		return $instance;
 
