@@ -24,7 +24,7 @@ final class Cart extends \WP_Widget {
 			Plugin::prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),
 			[
-				'classname'   => str_replace( '_', '-', Plugin::prefix( 'cart' ) ),
+				'classname'   => Plugin::prefix( 'cart', true ),
 				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
 			]
 		);

@@ -16,12 +16,15 @@ trait Helpers {
 	 * @since NEXT
 	 *
 	 * @param  string $string
+	 * @param  bool   $use_dashes (optional)
 	 *
 	 * @return string
 	 */
-	public static function prefix( $string ) {
+	public static function prefix( $string, $use_dashes = false ) {
 
-		return ( 0 === strpos( $string, self::PREFIX ) ) ? $string : self::PREFIX . $string;
+		$prefix = ( $use_dashes ) ? str_replace( '_', '-', self::PREFIX ) : self::PREFIX;
+
+		return ( 0 === strpos( $string, $prefix ) ) ? $string : $prefix . $string;
 
 	}
 
@@ -158,7 +161,9 @@ trait Helpers {
 
 		$key = self::prefix( $key );
 
-		return metadata_exists( 'post', $post_id, $key ) ? get_post_meta( $post_id, $key, true ) : ( $setting_fallback ? get_option( $key, $default ) : $default );
+		$meta = get_post_meta( $post_id, $key, true );
+
+		return ( $meta ) ? $meta : ( $setting_fallback ? get_option( $key, $default ) : $default );
 
 	}
 

@@ -105,6 +105,7 @@ final class Display {
 
 		return [
 			'id'        => Plugin::get_product_meta( $post->ID, 'id' ),
+			'quantity'  => (int) Plugin::get_product_meta( $post->ID, 'default_quantity', 1, true ),
 			'redirect'  => (bool) Plugin::get_product_meta( $post->ID, 'add_cart_redirect', false, true ),
 			'label'     => Plugin::get_product_meta( $post->ID, 'add_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
 			'permalink' => get_permalink( $post->ID ),
@@ -126,7 +127,7 @@ final class Display {
 
 		extract( self::get_add_to_cart_vars( $post ) );
 
-		if ( empty( $id ) || ! isset( $redirect ) || empty( $label ) ) {
+		if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 
 			return;
 
@@ -138,8 +139,8 @@ final class Display {
 
 		?>
 		<form class="rstore-add-to-cart-form">
-			<input type="number" class="rstore-add-to-cart-quantity" value="1" min="1" required>
-			<input type="submit" class="rstore-add-to-cart submit button" data-id="<?php echo esc_attr( $id ); ?>" data-quantity="1" data-redirect="<?php echo esc_attr( $redirect ); ?>" value="<?php echo esc_attr( $label ); ?>">
+			<input type="number" class="rstore-add-to-cart-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
+			<input type="submit" class="rstore-add-to-cart submit button" data-id="<?php echo esc_attr( $id ); ?>" data-quantity="<?php echo absint( $quantity ); ?>" data-redirect="<?php echo esc_attr( $redirect ); ?>" value="<?php echo esc_attr( $label ); ?>">
 		</form>
 		<?php
 
@@ -169,15 +170,16 @@ final class Display {
 
 		extract( self::get_add_to_cart_vars( $post ) );
 
-		if ( empty( $id ) || ! isset( $redirect ) || empty( $label ) ) {
+		if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 
 			return;
 
 		}
 
 		$output = sprintf(
-			'<button class="rstore-add-to-cart button" data-id="%s" data-quantity="1" data-redirect="%s">%s</button>',
+			'<button class="rstore-add-to-cart button" data-id="%s" data-quantity="%d" data-redirect="%s">%s</button>',
 			esc_attr( $id ),
+			absint( $quantity ),
 			( $redirect ) ? 'true' : 'false',
 			esc_html( $label )
 		);
@@ -206,16 +208,17 @@ final class Display {
 
 		extract( self::get_add_to_cart_vars( $post ) );
 
-		if ( empty( $permalink ) || empty( $id ) || empty( $label ) ) {
+		if ( empty( $id ) || empty( $quantity ) || empty( $label ) || empty( $permalink ) ) {
 
 			return;
 
 		}
 
 		$output = sprintf(
-			'<a href="%s" class="rstore-add-to-cart" data-id="%s" data-quantity="1">%s</a>',
+			'<a href="%s" class="rstore-add-to-cart" data-id="%s" data-quantity="%d">%s</a>',
 			esc_url( add_query_arg( 'add-to-cart', $id, $permalink ) ),
 			esc_attr( $id ),
+			absint( $quantity ),
 			esc_html( $label )
 		);
 

@@ -73,6 +73,7 @@ final class Plugin {
 
 		}
 
+		new ButterBean;
 		new Display;
 		new Embed;
 		new Post_Type;

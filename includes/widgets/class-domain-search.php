@@ -23,7 +23,7 @@ final class Domain_Search extends \WP_Widget {
 			Plugin::prefix( 'domain-search' ),
 			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
 			[
-				'classname'   => str_replace( '_', '-', Plugin::prefix( 'domain-search' ) ),
+				'classname'   => Plugin::prefix( 'domain-search', true ),
 				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
 			]
 		);
