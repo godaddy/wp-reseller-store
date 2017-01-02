@@ -1,5 +1,5 @@
 # GoDaddy Reseller Store
-# Copyright (C) 2016
+# Copyright (C) 2017
 # This file is distributed under the same license as the reseller-store package.
 # GoDaddy Operating Company, LLC.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: reseller-store 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 00:17-0600\n"
+"POT-Creation-Date: 2017-01-02 17:12-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,178 +17,200 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: includes/class-api.php:90
-msgid "API Error"
+#: includes/class-butterbean.php:118
+msgid "Product Options"
 msgstr ""
 
-#: includes/class-embed.php:97 includes/class-post-type.php:275
-msgid "Add to Cart"
+#: includes/class-butterbean.php:130
+msgid "General"
 msgstr ""
 
-#: includes/class-post-type.php:67
-#, php-format
-msgid "Edit: %s"
+#: includes/class-butterbean.php:141
+msgid "Advanced"
 msgstr ""
 
-#: includes/class-post-type.php:102
+#: includes/class-butterbean.php:167 includes/class-post-type.php:209
+msgid "Price"
+msgstr ""
+
+#: includes/class-butterbean.php:195
+msgid "Sale Price"
+msgstr ""
+
+#: includes/class-butterbean.php:196
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr ""
+
+#: includes/class-butterbean.php:224
+msgid "Default Quantity"
+msgstr ""
+
+#: includes/class-butterbean.php:258
+msgid "Add to Cart Button Label"
+msgstr ""
+
+#: includes/class-butterbean.php:260 includes/class-display.php:137
+msgid "Add to cart"
+msgstr ""
+
+#: includes/class-butterbean.php:287
+msgid "Redirect to the cart immediately after adding"
+msgstr ""
+
+#: includes/class-display.php:65
+msgid "View cart"
+msgstr ""
+
+#: includes/class-post-type.php:63
 msgctxt "post type general name"
 msgid "Products"
 msgstr ""
 
-#: includes/class-post-type.php:103
+#: includes/class-post-type.php:64
 msgctxt "post type singular name"
 msgid "Product"
 msgstr ""
 
-#: includes/class-post-type.php:104
+#: includes/class-post-type.php:65
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr ""
 
-#: includes/class-post-type.php:105
+#: includes/class-post-type.php:66
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr ""
 
-#: includes/class-post-type.php:106
+#: includes/class-post-type.php:67
 msgctxt "product"
-msgid "Add Product"
+msgid "Add New"
 msgstr ""
 
-#: includes/class-post-type.php:107
+#: includes/class-post-type.php:68
 msgid "Add New Product"
 msgstr ""
 
-#: includes/class-post-type.php:108
+#: includes/class-post-type.php:69
 msgid "Edit Product"
 msgstr ""
 
-#: includes/class-post-type.php:109
+#: includes/class-post-type.php:70
 msgid "New Product"
 msgstr ""
 
-#: includes/class-post-type.php:110
+#: includes/class-post-type.php:71
 msgid "View Product"
 msgstr ""
 
-#: includes/class-post-type.php:111
+#: includes/class-post-type.php:72
 msgid "View Products"
 msgstr ""
 
-#: includes/class-post-type.php:112
+#: includes/class-post-type.php:73
 msgid "Search Products"
 msgstr ""
 
-#: includes/class-post-type.php:113
+#: includes/class-post-type.php:74
 msgid "No products found."
 msgstr ""
 
-#: includes/class-post-type.php:114
+#: includes/class-post-type.php:75
 msgid "No products found in Trash."
 msgstr ""
 
-#: includes/class-post-type.php:115
+#: includes/class-post-type.php:76
 msgid "Parent Products:"
 msgstr ""
 
-#: includes/class-post-type.php:116
-msgid "Products"
+#: includes/class-post-type.php:77
+msgid "All Products"
 msgstr ""
 
-#: includes/class-post-type.php:117
+#: includes/class-post-type.php:78
 msgid "Product Archives"
 msgstr ""
 
-#: includes/class-post-type.php:118
+#: includes/class-post-type.php:79
 msgid "Insert into product"
 msgstr ""
 
-#: includes/class-post-type.php:119
+#: includes/class-post-type.php:80
 msgid "Uploaded to this product"
 msgstr ""
 
-#: includes/class-post-type.php:120
+#: includes/class-post-type.php:81 includes/class-post-type.php:200
 msgid "Product Image"
 msgstr ""
 
-#: includes/class-post-type.php:121
+#: includes/class-post-type.php:82
 msgid "Set product image"
 msgstr ""
 
-#: includes/class-post-type.php:122
+#: includes/class-post-type.php:83
 msgid "Remove product image"
 msgstr ""
 
-#: includes/class-post-type.php:123
+#: includes/class-post-type.php:84
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/class-post-type.php:128
+#: includes/class-post-type.php:89
 msgid "This is where you can add new products to your Reseller Store."
 msgstr ""
 
-#: includes/class-post-type.php:208
-msgid "Product Options"
+#: includes/class-post-type.php:304
+#, php-format
+msgctxt "product title"
+msgid "Edit: %s"
 msgstr ""
 
-#: includes/class-post-type.php:235
-msgid "General"
-msgstr ""
-
-#: includes/class-post-type.php:245
-msgid "Price"
-msgstr ""
-
-#: includes/class-post-type.php:263
-msgid "Advanced"
-msgstr ""
-
-#: includes/class-post-type.php:273
-msgid "Add to Cart Button Label"
-msgstr ""
-
-#: includes/class-post-type.php:290
-msgid "Redirect to the cart immediately after adding"
-msgstr ""
-
-#: includes/class-post-type.php:337
+#: includes/class-restrictions.php:169
 msgid "No products have been added yet."
 msgstr ""
 
-#: includes/class-post-type.php:338
+#: includes/class-restrictions.php:170
 msgid "Import All Products"
 msgstr ""
 
-#: includes/class-setup.php:131
+#: includes/class-setup.php:71
 msgid "Reseller Store Setup"
 msgstr ""
 
-#: includes/class-setup.php:132
+#: includes/class-setup.php:72
 msgid "Reseller Store"
 msgstr ""
 
-#: includes/class-setup.php:202
+#: includes/class-setup.php:144
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr ""
 
-#: includes/class-setup.php:206
-msgid "Sign in with your Reseller account to get started."
+#: includes/class-setup.php:148
+msgid "Enter your Private Label ID to get started."
 msgstr ""
 
-#: includes/class-setup.php:207
-msgid "Sign In"
+#: includes/class-setup.php:151
+msgid "Enter your Private Label ID:"
 msgstr ""
 
-#: includes/class-setup.php:208
+#: includes/class-setup.php:153
+msgid "Submit"
+msgstr ""
+
+#: includes/class-setup.php:157
 msgid "Don't have an account?"
 msgstr ""
 
-#: includes/class-setup.php:208
+#: includes/class-setup.php:157
 msgid "Create an account"
 msgstr ""
 
-#: includes/class-setup.php:211
+#: includes/class-setup.php:160
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr ""
+
+#: includes/class-setup.php:183
+msgid "Error: Invalid Private Label ID"
 msgstr ""
 
 #: includes/class-taxonomy-category.php:42
@@ -284,39 +306,63 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: includes/widgets/class-cart.php:22
+#: includes/widgets/class-cart.php:25
 msgid "Reseller Cart"
 msgstr ""
 
-#: includes/widgets/class-cart.php:25
+#: includes/widgets/class-cart.php:28
 msgid "Display the user's cart in the sidebar."
 msgstr ""
 
-#: includes/widgets/class-cart.php:66
+#: includes/widgets/class-cart.php:86
+#, php-format
+msgctxt "number of items in cart"
+msgid "View Cart %s"
+msgstr ""
+
+#: includes/widgets/class-cart.php:104
+msgid "Cart"
+msgstr ""
+
+#: includes/widgets/class-cart.php:109
+#: includes/widgets/class-domain-search.php:115
 msgid "Title:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:22
-msgid "Reseller Domain Search"
+#: includes/widgets/class-cart.php:115
+msgid "Hide if cart is empty"
 msgstr ""
 
 #: includes/widgets/class-domain-search.php:25
+msgid "Reseller Domain Search"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:28
 msgid "A search form for domain names."
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:78
-#: includes/widgets/class-domain-search.php:112
-msgid "Find your perfect domain name"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:84
+#: includes/widgets/class-domain-search.php:86
+#: includes/widgets/class-domain-search.php:87
 msgid "Search for a domain name:"
 msgstr ""
 
+#: includes/widgets/class-domain-search.php:91
 #: includes/widgets/class-domain-search.php:111
+msgid "Search"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:109
+msgid "Domain Search"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:110
+msgid "Find your perfect name"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:120
 msgid "Placeholder:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:116
+#: includes/widgets/class-domain-search.php:125
 msgid "Button:"
 msgstr ""
