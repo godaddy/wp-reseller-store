@@ -7,16 +7,16 @@ Stable tag:        0.1.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-A boilerplate WordPress plugin by GoDaddy.
+TODO
 
 == Description ==
 
-Get your new plugin off to a great start!
+TODO
 
 == Changelog ==
 
-= 1.0.0 - January 1, 2017 =
+= 0.1.0 - January 2017 =
 
 * Initial release
 
-Props [@username](https://github.com/username)
+Props [@fjarrett](https://github.com/fjarrett), [@bfocht](https://github.com/bfocht)
