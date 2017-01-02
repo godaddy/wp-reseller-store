@@ -134,7 +134,7 @@
 
 		addItemError: function( $form, response ) {
 
-			var message = 'An unknown error has occurred';
+			var message = rstore.i18n.error;
 
 			if ( undefined !== response.error.statusCode && undefined !== response.error.name && undefined !== response.error.message ) {
 

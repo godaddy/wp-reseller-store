@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: reseller-store 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-02 17:12-0600\n"
+"POT-Creation-Date: 2017-01-02 17:43-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Add to Cart Button Label"
 msgstr ""
 
-#: includes/class-butterbean.php:260 includes/class-display.php:137
+#: includes/class-butterbean.php:260 includes/class-display.php:138
 msgid "Add to cart"
 msgstr ""
 
@@ -60,6 +60,10 @@ msgstr ""
 
 #: includes/class-display.php:65
 msgid "View cart"
+msgstr ""
+
+#: includes/class-display.php:66
+msgid "An unknown error has occurred"
 msgstr ""
 
 #: includes/class-post-type.php:63

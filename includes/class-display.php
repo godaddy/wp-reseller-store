@@ -63,6 +63,7 @@ final class Display {
 			],
 			'i18n'    => [
 				'view_cart' => esc_html__( 'View cart', 'reseller-store' ),
+				'error'     => esc_html__( 'An unknown error has occurred', 'reseller-store' ),
 			],
 		];
 
