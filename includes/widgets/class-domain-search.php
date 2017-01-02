@@ -2,6 +2,7 @@
 
 namespace Reseller_Store\Widgets;
 
+use Reseller_Store as Store;
 use Reseller_Store\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -77,11 +78,11 @@ final class Domain_Search extends \WP_Widget {
 
 		}
 
-		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : esc_attr__( 'Search domain names', 'reseller-store' );
+		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : null;
 		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
 
 		?>
-		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( Plugin\rstore()->api->urls['domain_search'] ); ?>" novalidate>
+		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( Store\rstore()->api->urls['domain_search'] ); ?>" novalidate>
 			<label class="screen-reader-text" for="rstore-domain-search-field"><?php esc_html_e( 'Search for a domain name:', 'reseller-store' ); ?></label>
 			<input type="search" name="domainToCheck" id="rstore-domain-search-field" class="search-field required" placeholder="<?php echo esc_attr( $placeholder ); ?>" title="<?php esc_attr_e( 'Search for a domain name:', 'reseller-store' ); ?>" value="" required="required">
 			<?php if ( $button_label ) : ?>
@@ -105,9 +106,9 @@ final class Domain_Search extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$title        = ! empty( $instance['title'] ) ? $instance['title'] : null;
-		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : null;
-		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
+		$title        = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Domain Search', 'reseller-store' );
+		$placeholder  = isset( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Find your perfect name', 'reseller-store' );
+		$button_label = isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Search', 'reseller-store' );
 
 		?>
 		<p>
@@ -117,7 +118,7 @@ final class Domain_Search extends \WP_Widget {
 
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>"><?php esc_html_e( 'Placeholder:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" value="<?php echo esc_attr( $placeholder ); ?>" class="widefat" placeholder="<?php esc_attr_e( 'Search domain names', 'reseller-store' ); ?>">
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" value="<?php echo esc_attr( $placeholder ); ?>" class="widefat">
 		</p>
 
 		<p>
@@ -140,11 +141,9 @@ final class Domain_Search extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$placeholder  = isset( $new_instance['placeholder'] ) ? sanitize_text_field( $new_instance['placeholder'] ) : null;
-		$button_label = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : null;
-
-		$instance['placeholder']  = ( $placeholder ) ? $placeholder : null;
-		$instance['button_label'] = ( $button_label ) ? $button_label : null;
+		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
+		$instance['placeholder']  = isset( $new_instance['placeholder'] ) ? sanitize_text_field( $new_instance['placeholder'] ) : null;
+		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : null;
 
 		return $instance;
 

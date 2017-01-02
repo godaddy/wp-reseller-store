@@ -25,28 +25,44 @@ final class Display {
 	 * Enqueue front-end scripts.
 	 *
 	 * @action wp_enqueue_scripts
-	 * @global WP_Post $post
 	 * @since  NEXT
 	 */
 	public function wp_enqueue_scripts() {
 
-		global $post;
+		$rtl = is_rtl() ? '-rtl' : '';
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'rstore', rstore()->assets_url . "css/store{$suffix}.css", [], rstore()->version );
+		wp_enqueue_style( 'rstore', rstore()->assets_url . "css/store{$rtl}{$suffix}.css", [ 'dashicons' ], rstore()->version );
 
 		wp_enqueue_script( 'rstore', rstore()->assets_url . "js/store{$suffix}.js", [ 'jquery' ], rstore()->version, true );
+
+		/**
+		 * Filter the TTL for cookies (in seconds).
+		 *
+		 * @since NEXT
+		 *
+		 * @var int
+		 */
+		$cookie_ttl = (int) apply_filters( 'rstore_cookie_ttl', HOUR_IN_SECONDS );
 
 		$data = [
 			'pl_id'   => (int) Plugin::get_option( 'pl_id' ),
 			'urls'    => [
-				'cart'     => rstore()->api->urls['cart'],
-				'cart_api' => rstore()->api->url( 'cart/{pl_id}' ),
+				'cart'     => esc_url( rstore()->api->urls['cart'] ),
+				'cart_api' => esc_url( rstore()->api->url( 'cart/{pl_id}' ) ),
+			],
+			'cookies' => [
+				'ttl'       => absint( $cookie_ttl ) * 1000, // Convert seconds to ms
+				'cartCount' => Plugin::prefix( 'cart-count', true ),
 			],
 			'product' => [
-				'id'      => ( Post_Type::SLUG === $post->post_type ) ? Plugin::get_product_meta( $post->ID, 'id', '' ) : '',
-				'post_id' => ( Post_Type::SLUG === $post->post_type ) ? $post->ID : '',
+				'id'         => ( Post_Type::SLUG === get_post_type() ) ? Plugin::get_product_meta( get_the_ID(), 'id', '' ) : '',
+				'post_id'    => ( Post_Type::SLUG === get_post_type() ) ? get_the_ID() : '',
+				'post_title' => ( Post_Type::SLUG === get_post_type() ) ? get_the_title() : '',
+			],
+			'i18n'    => [
+				'view_cart' => esc_html__( 'View cart', 'reseller-store' ),
 			],
 		];
 
@@ -150,8 +166,10 @@ final class Display {
 
 		?>
 		<form class="rstore-add-to-cart-form">
-			<input type="number" class="rstore-add-to-cart-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
+			<input type="number" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
 			<input type="submit" class="rstore-add-to-cart submit button" data-id="<?php echo esc_attr( $id ); ?>" data-quantity="<?php echo absint( $quantity ); ?>" data-redirect="<?php echo esc_attr( $redirect ); ?>" value="<?php echo esc_attr( $label ); ?>">
+			<img src="<?php echo esc_url( rstore()->assets_url . 'images/loading.svg' ); ?>" class="rstore-loading">
+			<div class="rstore-message"></div>
 		</form>
 		<?php
 

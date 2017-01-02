@@ -101,7 +101,7 @@ final class Cart extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$title      = ! empty( $instance['title'] ) ? $instance['title'] : null;
+		$title      = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Cart', 'reseller-store' );
 		$hide_empty = ! empty( $instance['hide_empty'] );
 
 		?>
@@ -130,11 +130,8 @@ final class Cart extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$title      = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
-		$hide_empty = isset( $new_instance['hide_empty'] ) ? absint( $new_instance['hide_empty'] ) : 0;
-
-		$instance['title']      = ( $title ) ? $title : null;
-		$instance['hide_empty'] = (bool) $hide_empty;
+		$instance['title']      = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
+		$instance['hide_empty'] = isset( $new_instance['hide_empty'] ) ? (bool) absint( $new_instance['hide_empty'] ) : false;
 
 		return $instance;
 

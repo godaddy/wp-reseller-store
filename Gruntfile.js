@@ -14,6 +14,23 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		cssjanus: {
+			theme: {
+				options: {
+					swapLtrRtlInUrl: false
+				},
+				files: [
+					{
+						expand: true,
+						cwd: 'assets/css',
+						src: [ '*.css','!*-rtl.css','!*.min.css','!*-rtl.min.css' ],
+						dest: 'assets/css',
+						ext: '-rtl.css'
+					}
+				]
+			}
+		},
+
 		cssmin: {
 			options: {
 				shorthandCompacting: false,
@@ -31,6 +48,10 @@ module.exports = function( grunt ) {
 					}
 				]
 			}
+		},
+
+		jshint: {
+			all: [ 'Gruntfile.js', 'assets/js/*.js', '!assets/js/*.min.js' ]
 		},
 
 		po2mo: {
@@ -169,7 +190,7 @@ module.exports = function( grunt ) {
 
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
-	grunt.registerTask( 'default', [ 'cssmin', 'uglify' ] );
+	grunt.registerTask( 'default', [ 'cssjanus', 'cssmin', 'jshint', 'uglify' ] );
 	grunt.registerTask( 'update-pot', [ 'pot', 'replace:pot', 'clean:po' ] );
 	grunt.registerTask( 'version', [ 'replace' ] );
 

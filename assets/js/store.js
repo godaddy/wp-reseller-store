@@ -1,18 +1,14 @@
 /* global jQuery, rstore */
 
-"use strict";
-
 ( function( $ ) {
 
-	var cookies = {
-		cartCount: 'rstore-cart-count'
-	};
+	'use strict';
 
 	var cart = {
 
 		init: function() {
 
-			var value = parseInt( cookie.get( cookies.cartCount ), 10 );
+			var value = parseInt( cookie.get( rstore.cookies.cartCount ), 10 );
 
 			cart.updateCount( value );
 
@@ -28,7 +24,11 @@
 
 		},
 
-		api: function( method, data, callback ) {
+		api: function( method, data, success, error ) {
+
+			// The data arg is optional depending on the method
+			success = ( 3 === arguments.length ) ? arguments[1] : success;
+			error   = ( 3 === arguments.length ) ? arguments[2] : error;
 
 			var settings = {
 				method: method,
@@ -41,24 +41,24 @@
 				}
 			};
 
-			if ( 3 === arguments.length ) {
+			if ( arguments.length > 3 ) {
 
 				settings.data = JSON.stringify( data );
 
 			}
 
-			callback = ( 2 === arguments.length ) ? data : callback;
+			success = $.isFunction( success ) ? success : function() { return; };
+			error   = $.isFunction( error ) ? error : function() { return; };
 
-			$.ajax( settings ).done( callback );
+			$.ajax( settings ).done( success ).fail( error );
 
 		},
 
-		addItem: function( id, qty, redirect ) {
+		addItem: function( id, qty, redirect, $form ) {
 
 			var data = { items: [ {
 				id: id,
-				quantity: ( qty > 0 ) ? qty : 1, // Must be greater than 0
-				periodCount: 1
+				quantity: ( qty > 0 ) ? qty : 1 // Must be greater than 0
 			} ] };
 
 			cart.api( 'post', data, function( response ) {
@@ -71,6 +71,20 @@
 
 				}
 
+				if ( $form ) {
+
+					cart.addItemSuccess( $form );
+
+				}
+
+			}, function( response ) {
+
+				if ( $form ) {
+
+					cart.addItemError( $form, response.error );
+
+				}
+
 			} );
 
 		},
@@ -80,7 +94,7 @@
 			value = ( undefined !== value.cartCount ) ? value.cartCount : value;
 			value = ( value ) ? parseInt( value, 10 ) : 0;
 
-			cookie.set( cookies.cartCount, value );
+			cookie.set( rstore.cookies.cartCount, value );
 
 			$( '.rstore-cart-count' ).text( value );
 
@@ -97,11 +111,33 @@
 			e.preventDefault();
 
 			var $this    = $( this ),
+			    $form    = $this.closest( 'form' ),
 			    id       = $this.attr( 'data-id' ),
 			    qty      = parseInt( $this.attr( 'data-quantity' ), 10 ),
 			    redirect = ( 'true' === $this.attr( 'data-redirect' ) );
 
-			cart.addItem( id, qty, redirect );
+			$form.find( '.rstore-message' ).empty();
+			$form.find( '.rstore-loading' ).show();
+
+			cart.addItem( id, qty, redirect, $form );
+
+		},
+
+		addItemSuccess: function( $form ) {
+
+			var html = '<span class="dashicons dashicons-yes rstore-success"></span> <a href="' + rstore.urls.cart + '">' + rstore.i18n.view_cart + '</a>';
+
+			$form.find( '.rstore-loading' ).hide();
+			$form.find( '.rstore-message' ).html( html );
+
+		},
+
+		addItemError: function( $form, error ) {
+
+			var html = '<span class="dashicons dashicons-no-alt rstore-error"></span> ' + error.statusCode + ' ' + error.name + ': ' + error.message;
+
+			$form.find( '.rstore-loading' ).hide();
+			$form.find( '.rstore-message' ).html( html );
 
 		},
 
@@ -112,6 +148,9 @@
 			if ( null !== arg ) {
 
 				cart.addItem( arg[2], 1, false );
+
+				// Remove args from the URL without redirecting
+				window.history.pushState( {}, rstore.product.post_title, window.location.href.split( '?' )[0] );
 
 			}
 
@@ -174,13 +213,13 @@
 
 		},
 
-		set: function( name, value, days ) {
+		set: function( name, value, ttl ) {
 
 			var date = new Date();
 
-			days = ( days ) ? days : 30;
+			ttl = ( ttl ) ? ttl : rstore.cookies.ttl;
 
-			date.setTime( date.getTime() + ( days * 86400 * 1000 ) ); // Convert to ms
+			date.setTime( date.getTime() + ttl );
 
 			document.cookie = name + "=" + value + "; expires=" + date.toGMTString() + "; path=/";
 
@@ -195,7 +234,7 @@
 		cart.init();
 
 		$( document ).on( 'click', '.rstore-add-to-cart', cart.addItemButton );
-		$( document ).on( 'keyup blur', '.rstore-add-to-cart-quantity', cart.updateQty );
+		$( document ).on( 'keyup blur', '.rstore-quantity', cart.updateQty );
 
 	} );
 
