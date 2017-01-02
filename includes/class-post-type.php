@@ -152,6 +152,8 @@ final class Post_Type {
 
 		}
 
+		$butterbean->register_setting_type( 'read_only', __NAMESPACE__ . '\ButterBean_Setting_Read_Only' );
+
 		$butterbean->register_manager(
 			'product_options',
 			[
@@ -203,6 +205,7 @@ final class Post_Type {
 		$manager->register_setting(
 			Plugin::prefix( 'listPrice' ),
 			[
+				'type'              => 'read_only',
 				'sanitize_callback' => 'sanitize_text_field',
 			]
 		);
