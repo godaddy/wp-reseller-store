@@ -76,9 +76,20 @@ final class Display {
 
 		}
 
-		$sale = Plugin::get_product_meta( $post->ID, 'salePrice' );
+		$output = sprintf(
+			'<span class="rstore-price">%s</span>',
+			esc_html( $list )
+		);
 
-		$output = ( $sale ) ? sprintf( '<span class="rstore-price rstore-has-sale-price"><del>%s</del> %s</span>', $sale, $list ) : sprintf( '<span class="rstore-price">%s</span>', $list );
+		if ( $sale = Plugin::get_product_meta( $post->ID, 'salePrice' ) ) {
+
+			$output = sprintf(
+				'<span class="rstore-price rstore-has-sale-price"><del>%s</del> %s</span>',
+				esc_html( $list ),
+				esc_html( $sale )
+			);
+
+		}
 
 		if ( ! $echo ) {
 
