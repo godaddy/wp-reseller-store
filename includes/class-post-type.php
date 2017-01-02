@@ -146,6 +146,12 @@ final class Post_Type {
 	 */
 	public function metabox( $butterbean, $post_type ) {
 
+		if ( self::SLUG !== $post_type ) {
+
+			return;
+
+		}
+
 		$butterbean->register_manager(
 			'product_options',
 			[
@@ -241,7 +247,7 @@ final class Post_Type {
 		);
 
 		$manager->register_control(
-			'add_cart_button_label',
+			Plugin::prefix( 'add_cart_button_label' ),
 			[
 				'type'    => 'text',
 				'section' => __METHOD__,
@@ -253,7 +259,7 @@ final class Post_Type {
 		);
 
 		$manager->register_setting(
-			'add_cart_button_label',
+			Plugin::prefix( 'add_cart_button_label' ),
 			[
 				'sanitize_callback' => 'sanitize_text_field',
 			]
@@ -265,6 +271,7 @@ final class Post_Type {
 			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
 		];
 
+		// TODO: Decide which setting wins?
 		if ( 1 === Plugin::get_option( 'add_cart_redirect' ) ) {
 
 			$args['attr']['checked']  = 'checked';
@@ -272,10 +279,10 @@ final class Post_Type {
 
 		}
 
-		$manager->register_control( 'add_cart_redirect', $args );
+		$manager->register_control( Plugin::prefix( 'add_cart_redirect' ), $args );
 
 		$manager->register_setting(
-			'add_cart_redirect',
+			Plugin::prefix( 'add_cart_redirect' ),
 			[
 				'sanitize_callback' => function( $value ) {
 					return ( 'true' === $value ) ? 1 : 0;
