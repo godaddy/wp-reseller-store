@@ -81,7 +81,7 @@
 
 				if ( $form ) {
 
-					cart.addItemError( $form, response.error );
+					cart.addItemError( $form, response );
 
 				}
 
@@ -132,9 +132,17 @@
 
 		},
 
-		addItemError: function( $form, error ) {
+		addItemError: function( $form, response ) {
 
-			var html = '<span class="dashicons dashicons-no-alt rstore-error"></span> ' + error.statusCode + ' ' + error.name + ': ' + error.message;
+			var message = 'An unknown error has occurred';
+
+			if ( undefined !== response.error.statusCode && undefined !== response.error.name && undefined !== response.error.message ) {
+
+				message = response.error.statusCode + ' ' + response.error.name + ': ' + response.error.message;
+
+			}
+
+			var html = '<span class="dashicons dashicons-warning rstore-error"></span> ' + message;
 
 			$form.find( '.rstore-loading' ).hide();
 			$form.find( '.rstore-message' ).html( html );
