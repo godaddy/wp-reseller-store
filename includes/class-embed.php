@@ -24,14 +24,17 @@ final class Embed {
 	}
 
 	/**
-	 * Add styles to the embded <head>.
+	 * Add styles to the embed <head>.
 	 *
 	 * @action embed_head
+	 * @global WP_Post $post
 	 * @since  NEXT
 	 */
 	public function head() {
 
-		if ( Post_Type::SLUG !== get_post_type() ) {
+		global $post;
+
+		if ( Post_Type::SLUG !== $post->post_type ) {
 
 			return;
 
@@ -42,18 +45,22 @@ final class Embed {
 		.wp-embed-excerpt p {
 			margin: 0 0 1em;
 		}
-		.rstore-embed-price {
+		.wp-embed-excerpt .rstore-price {
 			display: block;
 			margin-top: -0.75em;
-			font-weight: 700;
-			opacity: 0.75;
+			font-weight: bold;
+			color: #41a62a;
 		}
-		a.rstore-embed-button {
+		.wp-embed-excerpt .rstore-price del {
+			color: #ccc;
+		}
+		.wp-embed-excerpt .rstore-add-to-cart {
 			display:inline-block;
 			padding: 0.5em;
 			border: 1px solid #ddd;
 		}
-		a.rstore-embed-button:hover, a.rstore-embed-button:focus {
+		.wp-embed-excerpt .rstore-add-to-cart:hover,
+		.wp-embed-excerpt .rstore-add-to-cart:focus {
 			text-decoration: none;
 			color: #999;
 			border: 1px solid #ccc;
@@ -76,34 +83,19 @@ final class Embed {
 	 */
 	public function excerpt( $excerpt ) {
 
-		if ( Post_Type::SLUG !== get_post_type() ) {
+		global $post;
 
-			return;
+		if ( Post_Type::SLUG !== $post->post_type ) {
+
+			return $excerpt;
 
 		}
 
-		global $post;
+		$output  = wpautop( Display::price( $post->ID, false ) );
+		$output .= wpautop( Display::add_to_cart_link( $post->ID, false ) );
+		$output .= wpautop( $excerpt );
 
-		ob_start();
-
-		printf(
-			'<p><span class="rstore-embed-price">%s</span></p>',
-			'$8.99' // @TODO Pull from API
-		);
-
-		$redirect = ( 1 === (int) Plugin::get_product_meta( $post->ID, 'add_cart_redirect' ) );
-
-		printf(
-			'<p><a href="%s" class="rstore-embed-button rstore-add-to-cart" data-id="%s" data-redirect="%s">%s</a></p>',
-			esc_url( add_query_arg( 'add_to_cart', 'true', get_permalink( $post->ID ) ) ),
-			esc_attr( get_post_meta( $post->ID, Plugin::prefix( 'id' ), true ) ),
-			esc_attr( $redirect ? 'true' : 'false' ),
-			esc_html( Plugin::get_product_meta( $post->ID, 'add_cart_button_label', esc_html__( 'Add to Cart', 'reseller-store' ) ) )
-		);
-
-		the_excerpt();
-
-		return ob_get_clean();
+		return $output;
 
 	}
 

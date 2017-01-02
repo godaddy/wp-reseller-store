@@ -58,6 +58,7 @@ final class Post_Type {
 		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
 		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
 		add_filter( 'post_type_labels_' . self::SLUG,          [ $this, 'post_screen_edit_heading' ] );
+		add_filter( 'the_content',                             [ $this, 'append_add_to_cart_form' ] );
 
 		add_filter( 'edit_' . self::SLUG . '_per_page',                function () { return 50; } );
 		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) { return array_merge( $columns, [ 'price' => 'price' ] ); } );
@@ -468,6 +469,32 @@ final class Post_Type {
 		$labels->edit_item = ! empty( $title ) ? sprintf( esc_html_x( 'Edit: %s', 'product title', 'reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
+
+	}
+
+	/**
+	 * Append an `Add to cart` form the end of product post content.
+	 *
+	 * @action the_content
+	 * @global WP_Post $post
+	 * @since  NEXT
+	 *
+	 * @param  string $content
+	 *
+	 * @return string
+	 */
+	public function append_add_to_cart_form( $content ) {
+
+		global $post;
+
+		if ( self::SLUG === $post->post_type ) {
+
+			$content .= wpautop( Display::price( $post->ID, false ) );
+			$content .= Display::add_to_cart_form( $post->ID, false );
+
+		}
+
+		return $content;
 
 	}
 

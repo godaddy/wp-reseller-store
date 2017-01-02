@@ -2,7 +2,7 @@
 
 namespace Reseller_Store\Widgets;
 
-use Reseller_Store as Plugin;
+use Reseller_Store\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
@@ -20,10 +20,10 @@ final class Domain_Search extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			Plugin\Plugin::prefix( 'domain_search' ),
+			Plugin::prefix( 'domain-search' ),
 			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
 			[
-				'classname'   => Plugin\Plugin::prefix( 'domain_search' ),
+				'classname'   => str_replace( '_', '-', Plugin::prefix( 'domain-search' ) ),
 				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
 			]
 		);

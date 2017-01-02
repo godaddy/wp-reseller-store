@@ -2,7 +2,8 @@
 
 namespace Reseller_Store\Widgets;
 
-use Reseller_Store as Plugin;
+use Reseller_Store as Store;
+use Reseller_Store\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
@@ -20,10 +21,10 @@ final class Cart extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			Plugin\Plugin::prefix( 'cart' ),
+			Plugin::prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),
 			[
-				'classname'   => Plugin\Plugin::prefix( 'cart' ),
+				'classname'   => str_replace( '_', '-', Plugin::prefix( 'cart' ) ),
 				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
 			]
 		);
@@ -40,6 +41,37 @@ final class Cart extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		/**
+		 * Filter classes to be appended to the Cart widget.
+		 *
+		 * @since NEXT
+		 *
+		 * @var array
+		 */
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_cart_widget_classes', [] ) );
+
+		if ( ! empty( $instance['hide_empty'] ) ) {
+
+			$classes[] = 'hide-empty';
+
+		}
+
+		if ( $classes ) {
+
+			preg_match( '/class="([^"]*)"/', $args['before_widget'], $matches );
+
+		}
+
+		if ( ! empty( $matches[0] ) && ! empty( $matches[1] ) ) {
+
+			$args['before_widget'] = str_replace(
+				$matches[0],
+				sprintf( 'class="%s"', implode( ' ', array_merge( explode( ' ', $matches[1] ), $classes ) ) ),
+				$args['before_widget']
+			);
+
+		}
+
 		echo $args['before_widget']; // xss ok
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -48,15 +80,13 @@ final class Cart extends \WP_Widget {
 
 		}
 
-		printf(
-			'<div class="rstore-view-cart %s"><a href="%s" class="rstore-view-cart-link">%s</a></div>',
-			! empty( $instance['hide_empty'] ) ? 'rstore-hide-empty-cart' : null,
-			esc_url( Plugin\rstore()->api->urls['cart'] ),
-			sprintf(
-				esc_html_x( 'View Cart %s', 'number of items in cart', 'reseller-store' ),
-				'(<span class="rstore-cart-count">0</span>)'
-			)
-		);
+		?>
+		<div class="rstore-view-cart">
+			<a href="<?php echo esc_url( Store\rstore()->api->urls['cart'] ); ?>">
+				<?php printf( esc_html_x( 'View Cart %s', 'number of items in cart', 'reseller-store' ), '(<span class="rstore-cart-count">0</span>)' ); ?>
+			</a>
+		</div>
+		<?php
 
 		echo $args['after_widget']; // xss ok
 
@@ -103,8 +133,8 @@ final class Cart extends \WP_Widget {
 		$title      = sanitize_text_field( $new_instance['title'] );
 		$hide_empty = absint( $new_instance['hide_empty'] );
 
-		$instance['title']      = ! empty( $title ) ? $title : null;
-		$instance['hide_empty'] = ! empty( $hide_empty );
+		$instance['title']      = ( $title ) ? $title : null;
+		$instance['hide_empty'] = (bool) $hide_empty;
 
 		return $instance;
 
