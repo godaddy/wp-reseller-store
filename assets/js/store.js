@@ -79,6 +79,8 @@
 
 			}, function( response ) {
 
+				window.console.log( response );
+
 				if ( $form ) {
 
 					cart.addItemError( $form, response );
