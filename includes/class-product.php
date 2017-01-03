@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-final class Import {
+final class Product {
 
 	/**
 	 * Product object.
@@ -28,15 +28,14 @@ final class Import {
 	 *
 	 * @var array
 	 */
-	private $required = [
+	private $properties = [
 		'id'         => 'strlen',
 		'categories' => 'is_array',
-		'title'      => 'strlen',
-		'content'    => 'strlen',
 		'image'      => 'strlen',
 		'term'       => 'strlen',
 		'listPrice'  => 'strlen',
-		'salePrice'  => 'strlen',
+		'title'      => 'strlen',
+		'content'    => 'strlen',
 	];
 
 	/**
@@ -46,9 +45,38 @@ final class Import {
 	 *
 	 * @param stdClass $product
 	 */
-	public function __construct( stdClass $product ) {
+	public function __construct( $product ) {
 
 		$this->product = $product;
+
+	}
+
+	/**
+	 * Import the product.
+	 *
+	 * @since NEXT
+	 *
+	 * @return bool
+	 */
+	public function import() {
+
+		if ( ! $this->is_valid() || $this->exists() ) {
+
+			return false;
+
+		}
+
+		$post_id = $this->insert_post();
+
+		if ( $post_id ) {
+
+			$this->insert_categories( $this->product->categories, $post_id );
+
+			$this->insert_attachment( $post_id );
+
+		}
+
+		return true;
 
 	}
 
@@ -59,16 +87,22 @@ final class Import {
 	 *
 	 * @return bool
 	 */
-	public function is_valid_product() {
+	public function is_valid() {
 
-		foreach ( $this->required as $property => $callback ) {
+		if ( ! is_a( $this->product, 'stdClass' ) ) {
+
+			return false;
+
+		}
+
+		foreach ( $this->properties as $property => $validator ) {
 
 			if (
-				isset( $this->product->$property )
+				property_exists( $this->product, $property )
 				&&
-				is_callable( $callback )
+				is_callable( $validator )
 				&&
-				$callback( $this->product->$property )
+				$validator( $this->product->{$property} )
 			) {
 
 				return true;
@@ -89,7 +123,7 @@ final class Import {
 	 *
 	 * @return bool
 	 */
-	public function product_exists() {
+	public function exists() {
 
 		global $wpdb;
 
@@ -113,7 +147,7 @@ final class Import {
 	 *
 	 * @return int|false
 	 */
-	public function attachment_url_exists( $url ) {
+	private function attachment_url_exists( $url ) {
 
 		global $wpdb;
 
@@ -136,7 +170,7 @@ final class Import {
 	 *
 	 * @return int|false
 	 */
-	public function post() {
+	private function insert_post() {
 
 		$post_id = wp_insert_post(
 			[
@@ -164,13 +198,15 @@ final class Import {
 	/**
 	 * Import product categories as terms and preserve heirarchy.
 	 *
+	 * @since NEXT
+	 *
 	 * @param  array $categories
 	 * @param  int   $post_id
 	 * @param  int   $parent (optional)
 	 *
 	 * @return array
 	 */
-	public function categories( array $categories, $post_id, $parent = 0 ) {
+	private function insert_categories( $categories, $post_id, $parent = 0 ) {
 
 		if ( 0 === ( $post_id = absint( $post_id ) ) ) {
 
@@ -184,7 +220,7 @@ final class Import {
 
 			if ( is_string( $category ) ) {
 
-				$term_ids[] = $this->category( $category, $post_id, $parent );
+				$term_ids[] = $this->create_category( $category, $post_id, $parent );
 
 				continue;
 
@@ -192,11 +228,11 @@ final class Import {
 
 			foreach ( (array) $category as $index => $categories ) {
 
-				$parent = $this->category( $index, $post_id, $parent );
+				$parent = $this->create_category( $index, $post_id, $parent );
 
 				$term_ids[] = $parent;
 
-				$term_ids = array_merge( $term_ids, $this->categories( $categories, $post_id, $parent ) );
+				$term_ids = array_merge( $term_ids, $this->insert_categories( $categories, $post_id, $parent ) );
 
 			}
 
@@ -217,13 +253,19 @@ final class Import {
 	 *
 	 * @return int|false
 	 */
-	private function category( $name, $post_id, $parent = 0 ) {
+	private function create_category( $name, $post_id, $parent = 0 ) {
 
 		$term = term_exists( $name, Taxonomy_Category::SLUG );
 
 		if ( ! is_array( $term ) ) {
 
 			$term = wp_insert_term( $name, Taxonomy_Category::SLUG, [ 'parent' => (int) $parent ] );
+
+		}
+
+		if ( is_wp_error( $term ) ) {
+
+			return false;
 
 		}
 
@@ -248,7 +290,7 @@ final class Import {
 	 *
 	 * @return int|false
 	 */
-	public function attachment( $post_id ) {
+	private function insert_attachment( $post_id ) {
 
 		$url = esc_url_raw( $this->product->image );
 
@@ -278,6 +320,8 @@ final class Import {
 
 	/**
 	 * Sideload an image and return its attachment ID.
+	 *
+	 * @since NEXT
 	 *
 	 * @param  string $url
 	 * @param  string $description (optional)

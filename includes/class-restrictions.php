@@ -44,7 +44,7 @@ final class Restrictions {
 		$is_setup_screen     = Plugin::is_admin_uri( 'admin.php?page=' . Setup::SLUG );
 		$is_add_new_screen   = Plugin::is_admin_uri( 'post-new.php?post_type=' . Post_Type::SLUG );
 
-		if ( $is_post_type_screen && ! Plugin::is_setup() ) {
+		if ( $is_post_type_screen && ( ! Plugin::is_setup() || ! Plugin::has_products() ) ) {
 
 			Plugin::admin_redirect(
 				'admin.php',
@@ -56,7 +56,7 @@ final class Restrictions {
 		}
 
 		if (
-			( $is_setup_screen && Plugin::is_setup() )
+			( $is_setup_screen && Plugin::is_setup() && Plugin::has_products() )
 			||
 			( $is_add_new_screen && Plugin::has_all_products() )
 		) {
@@ -177,13 +177,13 @@ final class Restrictions {
 
 		Plugin::delete_transient( 'products' );
 
-		$products = (array) Plugin::get_transient( 'products', [], function () {
+		$products = Plugin::get_transient( 'products', [], function () {
 
 			return rstore()->api->get( 'catalog/{pl_id}/products' );
 
 		} );
 
-		if ( empty( $products[0]->id ) ) {
+		if ( is_wp_error( $products ) ) {
 
 			return;
 
@@ -191,7 +191,7 @@ final class Restrictions {
 
 		$imported = (array) Plugin::get_option( 'imported', [] );
 
-		foreach ( $products as $product ) {
+		foreach ( (array) $products as $product ) {
 
 			$post_id = array_search( $product->id, $imported );
 

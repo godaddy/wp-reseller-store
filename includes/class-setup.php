@@ -61,7 +61,7 @@ final class Setup {
 	 */
 	public function page() {
 
-		if ( Plugin::is_setup() ) {
+		if ( Plugin::is_setup() && Plugin::has_products() ) {
 
 			return;
 
@@ -149,8 +149,8 @@ final class Setup {
 					<p>
 						<form id="rstore-setup-form">
 							<label class="screen-reader-text" for="rstore-pl-id-field"><?php esc_html_e( 'Enter your Private Label ID:', 'reseller-store' ); ?></label>
-							<input type="number" id="rstore-pl-id-field" min="0" autocomplete="off" required="required">
-							<button type="submit" class="button button-primary"><?php esc_html_e( 'Submit', 'reseller-store' ); ?></button>
+							<input type="number" id="rstore-pl-id-field" value="<?php echo Plugin::get_option( 'pl_id', '' ); // xss ok ?>" min="0" autocomplete="off" required>
+							<button type="submit" class="button button-primary"><?php esc_html_e( 'Install Now', 'reseller-store' ); ?></button>
 							<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
 						</form>
 					</p>
@@ -176,11 +176,13 @@ final class Setup {
 	 */
 	public function install( $pl_id = 0 ) {
 
-		$pl_id = ( (int) $pl_id > 0 ) ? (int) $pl_id : absint( filter_input( INPUT_POST, 'pl_id' ) );
+		$pl_id = ( $pl_id > 0 ) ? (int) $pl_id : absint( filter_input( INPUT_POST, 'pl_id' ) );
 
 		if ( 0 === $pl_id ) {
 
-			wp_send_json_error( esc_html__( 'Error: Invalid Private Label ID', 'reseller-store' ) );
+			wp_send_json_error(
+				esc_html__( 'Error: Invalid Private Label ID', 'reseller-store' )
+			);
 
 		}
 
@@ -194,6 +196,8 @@ final class Setup {
 
 		flush_rewrite_rules();
 
+		Plugin::delete_transient( 'products' );
+
 		$products = rstore()->api->get( 'catalog/{pl_id}/products' );
 
 		if ( is_wp_error( $products ) ) {
@@ -202,31 +206,31 @@ final class Setup {
 
 		}
 
-		$products = (array) $products;
+		if ( ! $products ) {
 
-		set_transient( Plugin::prefix( 'products' ), $products, DAY_IN_SECONDS );
-
-		foreach ( $products as $product ) {
-
-			$import = new Import( $product );
-
-			if ( ! $import->is_valid_product() || $import->product_exists() ) {
-
-				continue;
-
-			}
-
-			$post_id = $import->post();
-
-			if ( $post_id ) {
-
-				$import->categories( $product->categories, $post_id );
-
-				$import->attachment( $post_id );
-
-			}
+			wp_send_json_error(
+				esc_html__( 'Error: No products available. Please try again later.', 'reseller-store' )
+			);
 
 		}
+
+		foreach ( (array) $products as $product ) {
+
+			$product = new Product( $product );
+
+			$product->import();
+
+		}
+
+		if ( ! Plugin::has_products() ) {
+
+			wp_send_json_error(
+				esc_html__( 'Error: Invalid product data. Please try again later.', 'reseller-store' )
+			);
+
+		}
+
+		Plugin::set_transient( 'products', $products );
 
 		wp_send_json_success(
 			[

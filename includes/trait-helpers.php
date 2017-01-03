@@ -106,7 +106,7 @@ trait Helpers {
 		$value = $callback();
 		$value = ( $value && ! is_wp_error( $value ) ) ? $value : $default;
 
-		// Always set, even when the value is empty data
+		// Always set, even when the value is empty
 		self::set_transient( $name, $value, (int) $expiration );
 
 		return $value;
@@ -124,7 +124,7 @@ trait Helpers {
 	 *
 	 * @return bool
 	 */
-	public static function set_transient( $name, $value, $expiration = DAY_IN_SECONDS ) {
+	public static function set_transient( $name, $value, $expiration = HOUR_IN_SECONDS ) {
 
 		return set_transient( self::prefix( $name ), $value, (int) $expiration );
 
@@ -320,17 +320,23 @@ trait Helpers {
 	/**
 	 * Check whether products exist.
 	 *
-	 * @since NEXT
+	 * @global wpdb $wpdb
+	 * @since  NEXT
 	 *
 	 * @return bool
 	 */
 	public static function has_products() {
 
-		$counts = (array) wp_count_posts( Post_Type::SLUG );
+		global $wpdb;
 
-		unset( $counts['auto-draft'] );
+		$count = (int) $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT COUNT(*) FROM `{$wpdb->posts}` WHERE `post_type` = %s AND `post_status` != 'auto-draft';",
+				Post_Type::SLUG
+			)
+		);
 
-		return ( array_sum( $counts ) > 0 );
+		return ( $count > 0 );
 
 	}
 

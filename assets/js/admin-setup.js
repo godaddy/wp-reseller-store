@@ -27,6 +27,8 @@
 
 				window.location.replace( response.data.redirect );
 
+				return false;
+
 			}
 
 			$input.prop( 'disabled', false );

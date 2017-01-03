@@ -128,7 +128,7 @@ final class Post_Type {
 	 */
 	public function column_styles() {
 
-		if ( ! Plugin::is_admin_uri( 'edit.php?post_type=' . self::SLUG ) ) {
+		if ( ! Plugin::is_admin_uri( 'post_type=' . self::SLUG, false ) ) {
 
 			return;
 
