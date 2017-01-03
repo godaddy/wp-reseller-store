@@ -214,6 +214,8 @@ final class Setup {
 
 		}
 
+		Plugin::delete_option( 'imported' );
+
 		foreach ( (array) $products as $product ) {
 
 			$product = new Product( $product );

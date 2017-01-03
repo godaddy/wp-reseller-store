@@ -222,6 +222,12 @@ trait Helpers {
 
 		$imported = (array) self::get_option( 'imported', [] );
 
+		if ( $key = array_search( $product_id, $imported ) ) {
+
+			unset( $imported[ $key ] );
+
+		}
+
 		$imported[ $post_id ] = $product_id;
 
 		return self::update_option( 'imported', $imported );
