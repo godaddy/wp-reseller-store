@@ -1,14 +1,17 @@
-/* jQuery */
+/* global ajaxurl, jQuery */
 
 ( function( $ ) {
 
-	$( '#rstore-setup-form' ).on( 'submit', function( e ) {
+	'use strict';
+
+	var install = function( e ) {
 
 		e.preventDefault();
 
-		var $input   = $( this ).find( 'input' ),
-		    $submit  = $( this ).find( 'button' ),
-		    $spinner = $( this ).find( 'img' ),
+		var $this    = $( this ),
+		    $input   = $this.find( 'input' ),
+		    $submit  = $this.find( 'button' ),
+		    $spinner = $this.find( 'img' ),
 		    data     = {
 				'action': 'rstore_install',
 				'pl_id': $input.val()
@@ -20,18 +23,27 @@
 
 		$.post( ajaxurl, data, function( response ) {
 
-			window.location.replace( response.data.redirect );
+			if ( response.success ) {
 
-		} )
-		.fail( function( xhr, status, error ) {
+				window.location.replace( response.data.redirect );
 
-			$input.val( '' ).prop( 'disabled', false );
+			}
+
+			$input.prop( 'disabled', false );
 			$submit.prop( 'disabled', false );
 			$spinner.css( 'visibility', 'hidden' );
 
-			window.alert( error );
+			window.console.log( response );
+
+			window.alert( response.data );
 
 		} );
+
+	};
+
+	$( document ).ready( function( $ ) {
+
+		$( '#rstore-setup-form' ).on( 'submit', install );
 
 	} );
 
