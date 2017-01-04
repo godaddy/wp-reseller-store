@@ -164,31 +164,6 @@
 
 			}
 
-		},
-
-		updateQty: function( e ) {
-
-			var $this = $( this ),
-			    qty   = $this.val();
-
-			if ( '' === qty ) {
-
-				if ( 'focusout' !== e.type ) {
-
-					return false;
-
-				}
-
-				qty = 1;
-
-			}
-
-			qty = parseInt( qty, 10 );
-			qty = ( qty > 1 ) ? qty : 1;
-
-			$this.val( qty );
-			$this.next( '.rstore-add-to-cart' ).attr( 'data-quantity', qty );
-
 		}
 
 	};
@@ -244,7 +219,6 @@
 		cart.init();
 
 		$( document ).on( 'click', '.rstore-add-to-cart', cart.addItemButton );
-		$( document ).on( 'keyup blur', '.rstore-quantity', cart.updateQty );
 
 	} );
 

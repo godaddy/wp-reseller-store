@@ -131,7 +131,7 @@ final class Display {
 
 		return [
 			'id'        => Plugin::get_product_meta( $post->ID, 'id' ),
-			'quantity'  => (int) Plugin::get_product_meta( $post->ID, 'default_quantity', 1, true ),
+			'quantity'  => 1, // TODO: Future release
 			'redirect'  => (bool) Plugin::get_product_meta( $post->ID, 'add_to_cart_redirect', false, true ),
 			'label'     => Plugin::get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
 			'permalink' => get_permalink( $post->ID ),
@@ -165,7 +165,7 @@ final class Display {
 
 		?>
 		<form class="rstore-add-to-cart-form">
-			<input type="number" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
+			<input type="hidden" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
 			<input type="submit" class="rstore-add-to-cart submit button" data-id="<?php echo esc_attr( $id ); ?>" data-quantity="<?php echo absint( $quantity ); ?>" data-redirect="<?php echo esc_attr( $redirect ); ?>" value="<?php echo esc_attr( $label ); ?>">
 			<img src="<?php echo esc_url( rstore()->assets_url . 'images/loading.svg' ); ?>" class="rstore-loading">
 			<div class="rstore-message"></div>
