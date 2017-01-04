@@ -139,7 +139,7 @@ final class API {
 
 		$defaults = [
 			'method'    => $method,
-			'sslverify' => ! ( defined( 'WP_DEBUG' ) && WP_DEBUG ),
+			'sslverify' => ! WP_DEBUG, // This should be true for PROD
 			'headers'   => [
 				'Content-Type: application/json',
 			],
