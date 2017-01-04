@@ -47,7 +47,7 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                       [ $this, 'register' ] );
-		add_action( 'init',                       [ $this, 'sync_product_meta' ] );
+		add_action( 'wp',                         [ $this, 'sync_product_meta' ] );
 		add_action( 'admin_head',                 [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 		add_action( 'delete_post',                [ __NAMESPACE__ . '\Plugin', 'mark_product_as_deleted' ] );
@@ -154,7 +154,7 @@ final class Post_Type {
 	 * @action init
 	 * @since  NEXT
 	 */
-	private function sync_product_meta() {
+	public function sync_product_meta() {
 
 		$last_synced = get_transient( Plugin::prefix( 'last_synced' ) );
 
