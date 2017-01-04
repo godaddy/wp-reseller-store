@@ -56,7 +56,9 @@
 
 		forceDefault: function() {
 
-			if ( ! $.trim( $input.val() ) || $input.val() === $default.val() ) {
+			var value = $.trim( $input.val() );
+
+			if ( ! value || $default.val() === value ) {
 
 				$default.click();
 
