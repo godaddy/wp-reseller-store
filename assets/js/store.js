@@ -155,12 +155,12 @@
 
 			var arg = window.location.search.match( /(\?|&)add-to-cart=(.*?)(&|$)/i );
 
-			if ( null !== arg ) {
+			if ( null !== arg && rstore.product.id ) {
 
-				cart.addItem( arg[2], 1, false );
+				cart.addItem( rstore.product.id, parseInt( arg[2], 10 ), false );
 
 				// Remove args from the URL without redirecting
-				window.history.pushState( {}, rstore.product.post_title, window.location.href.split( '?' )[0] );
+				window.history.replaceState( {}, '', window.location.href.split( '?' )[0] );
 
 			}
 

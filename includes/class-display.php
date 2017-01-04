@@ -44,7 +44,7 @@ final class Display {
 		 *
 		 * @var int
 		 */
-		$cookie_ttl = (int) apply_filters( 'rstore_cookie_ttl', HOUR_IN_SECONDS );
+		$cookie_ttl = (int) apply_filters( 'rstore_cookie_ttl', DAY_IN_SECONDS * 30 );
 
 		$data = [
 			'pl_id'   => (int) Plugin::get_option( 'pl_id' ),
@@ -57,9 +57,7 @@ final class Display {
 				'cartCount' => Plugin::prefix( 'cart-count', true ),
 			],
 			'product' => [
-				'id'         => ( Post_Type::SLUG === get_post_type() ) ? Plugin::get_product_meta( get_the_ID(), 'id', '' ) : '',
-				'post_id'    => ( Post_Type::SLUG === get_post_type() ) ? get_the_ID() : '',
-				'post_title' => ( Post_Type::SLUG === get_post_type() ) ? get_the_title() : '',
+				'id' => ( Post_Type::SLUG === get_post_type() ) ? Plugin::get_product_meta( get_the_ID(), 'id', '' ) : '',
 			],
 			'i18n'    => [
 				'view_cart' => esc_html__( 'View cart', 'reseller-store' ),
@@ -245,10 +243,9 @@ final class Display {
 		}
 
 		$output = sprintf(
-			'<a href="%s" class="rstore-add-to-cart" data-id="%s" data-quantity="%d">%s</a>',
-			esc_url( add_query_arg( 'add-to-cart', $id, $permalink ) ),
+			'<a href="%s" class="rstore-add-to-cart" data-id="%s">%s</a>',
+			esc_url( add_query_arg( 'add-to-cart', absint( $quantity ), $permalink ) ),
 			esc_attr( $id ),
-			absint( $quantity ),
 			esc_html( $label )
 		);
 
