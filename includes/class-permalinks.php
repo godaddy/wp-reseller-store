@@ -38,7 +38,7 @@ final class Permalinks {
 
 		add_settings_field(
 			'rstore_category_base',
-			esc_html__( 'Reseller Store category base', 'reseller-store' ),
+			esc_html__( 'Reseller category base', 'reseller-store' ),
 			function () {
 
 				printf(
@@ -55,7 +55,7 @@ final class Permalinks {
 
 		add_settings_field(
 			'rstore_tag_base',
-			esc_html__( 'Reseller Store tag base', 'reseller-store' ),
+			esc_html__( 'Reseller tag base', 'reseller-store' ),
 			function () {
 
 				printf(
