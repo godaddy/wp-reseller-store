@@ -17,6 +17,7 @@ final class Restrictions {
 	 */
 	public function __construct() {
 
+		add_action( 'init',                        [ $this, 'sync_product_meta' ] );
 		add_action( 'init',                        [ $this, 'redirects' ], 1 );
 		add_action( 'admin_menu',                  [ $this, 'admin_submenu' ] );
 		add_action( 'admin_head',                  [ $this, 'add_product_button' ] );
@@ -173,7 +174,21 @@ final class Restrictions {
 
 	}
 
+	/**
+	 * Re-sync product data every hour.
+	 *
+	 * @action init
+	 * @since  NEXT
+	 */
 	public function sync_product_meta() {
+
+		$synced = Plugin::get_transient( 'synced', false, '__return_true' );
+
+		if ( $synced ) {
+
+			return;
+
+		}
 
 		Plugin::delete_transient( 'products' );
 
@@ -183,7 +198,7 @@ final class Restrictions {
 
 		} );
 
-		if ( is_wp_error( $products ) ) {
+		if ( is_wp_error( $products ) || ! $products ) {
 
 			return;
 
