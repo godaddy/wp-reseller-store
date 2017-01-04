@@ -28,7 +28,7 @@ final class Setup {
 
 		add_action( 'admin_enqueue_scripts',  [ $this, 'admin_enqueue_scripts' ] );
 		add_action( 'admin_menu',             [ $this, 'page' ], 9 );
-		add_action( 'wp_ajax_rstore_install', [ $this, 'install' ] );
+		add_action( 'wp_ajax_rstore_install', [ __CLASS__, 'install' ] );
 
 	}
 
@@ -174,7 +174,7 @@ final class Setup {
 	 *
 	 * @param int $pl_id (optional)
 	 */
-	public function install( $pl_id = 0 ) {
+	public static function install( $pl_id = 0 ) {
 
 		$pl_id = ( $pl_id > 0 ) ? (int) $pl_id : absint( filter_input( INPUT_POST, 'pl_id' ) );
 
