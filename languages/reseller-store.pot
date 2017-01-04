@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: reseller-store 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-02 17:43-0600\n"
+"POT-Creation-Date: 2017-01-04 15:34-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,156 +17,240 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: includes/class-butterbean.php:118
+#: includes/class-butterbean.php:133
 msgid "Product Options"
 msgstr ""
 
-#: includes/class-butterbean.php:130
+#: includes/class-butterbean.php:145
 msgid "General"
 msgstr ""
 
-#: includes/class-butterbean.php:141
+#: includes/class-butterbean.php:159
 msgid "Advanced"
 msgstr ""
 
-#: includes/class-butterbean.php:167 includes/class-post-type.php:209
+#: includes/class-butterbean.php:183 includes/class-post-type.php:399
 msgid "Price"
 msgstr ""
 
-#: includes/class-butterbean.php:195
+#: includes/class-butterbean.php:211
 msgid "Sale Price"
 msgstr ""
 
-#: includes/class-butterbean.php:196
+#: includes/class-butterbean.php:212
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr ""
 
-#: includes/class-butterbean.php:224
+#: includes/class-butterbean.php:240
 msgid "Default Quantity"
 msgstr ""
 
-#: includes/class-butterbean.php:258
+#: includes/class-butterbean.php:274
 msgid "Add to Cart Button Label"
 msgstr ""
 
-#: includes/class-butterbean.php:260 includes/class-display.php:138
+#: includes/class-butterbean.php:276 includes/class-display.php:136
 msgid "Add to cart"
 msgstr ""
 
-#: includes/class-butterbean.php:287
+#: includes/class-butterbean.php:303
 msgid "Redirect to the cart immediately after adding"
 msgstr ""
 
-#: includes/class-display.php:65
+#: includes/class-butterbean.php:344
+msgid "Restore Product Data"
+msgstr ""
+
+#: includes/class-butterbean.php:345
+msgid ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be "
+"lost."
+msgstr ""
+
+#: includes/class-butterbean.php:346
+msgid "Reset Data"
+msgstr ""
+
+#: includes/class-display.php:63
 msgid "View cart"
 msgstr ""
 
-#: includes/class-display.php:66
+#: includes/class-display.php:64
 msgid "An unknown error has occurred"
 msgstr ""
 
-#: includes/class-post-type.php:63
+#: includes/class-permalinks.php:41
+msgid "Reseller category base"
+msgstr ""
+
+#: includes/class-permalinks.php:58
+msgid "Reseller tag base"
+msgstr ""
+
+#: includes/class-permalinks.php:75
+msgid "Reseller Product Permalinks"
+msgstr ""
+
+#: includes/class-permalinks.php:93
+msgid ""
+"These settings control the permalinks used specifically for Reseller Store "
+"products."
+msgstr ""
+
+#: includes/class-permalinks.php:98
+msgctxt "slug name"
+msgid "sample-product"
+msgstr ""
+
+#: includes/class-permalinks.php:121
+msgid "Default"
+msgstr ""
+
+#: includes/class-permalinks.php:133
+msgid "Custom base"
+msgstr ""
+
+#: includes/class-post-type.php:49
+msgctxt "slug name"
+msgid "products"
+msgstr ""
+
+#: includes/class-post-type.php:94
 msgctxt "post type general name"
 msgid "Products"
 msgstr ""
 
-#: includes/class-post-type.php:64
+#: includes/class-post-type.php:95
 msgctxt "post type singular name"
 msgid "Product"
 msgstr ""
 
-#: includes/class-post-type.php:65
+#: includes/class-post-type.php:96
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr ""
 
-#: includes/class-post-type.php:66
+#: includes/class-post-type.php:97
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr ""
 
-#: includes/class-post-type.php:67
+#: includes/class-post-type.php:98
 msgctxt "product"
 msgid "Add New"
 msgstr ""
 
-#: includes/class-post-type.php:68
+#: includes/class-post-type.php:99
 msgid "Add New Product"
 msgstr ""
 
-#: includes/class-post-type.php:69
+#: includes/class-post-type.php:100
 msgid "Edit Product"
 msgstr ""
 
-#: includes/class-post-type.php:70
+#: includes/class-post-type.php:101
 msgid "New Product"
 msgstr ""
 
-#: includes/class-post-type.php:71
+#: includes/class-post-type.php:102
 msgid "View Product"
 msgstr ""
 
-#: includes/class-post-type.php:72
+#: includes/class-post-type.php:103
 msgid "View Products"
 msgstr ""
 
-#: includes/class-post-type.php:73
+#: includes/class-post-type.php:104
 msgid "Search Products"
 msgstr ""
 
-#: includes/class-post-type.php:74
+#: includes/class-post-type.php:105
 msgid "No products found."
 msgstr ""
 
-#: includes/class-post-type.php:75
+#: includes/class-post-type.php:106
 msgid "No products found in Trash."
 msgstr ""
 
-#: includes/class-post-type.php:76
+#: includes/class-post-type.php:107
 msgid "Parent Products:"
 msgstr ""
 
-#: includes/class-post-type.php:77
+#: includes/class-post-type.php:108
 msgid "All Products"
 msgstr ""
 
-#: includes/class-post-type.php:78
+#: includes/class-post-type.php:109
 msgid "Product Archives"
 msgstr ""
 
-#: includes/class-post-type.php:79
+#: includes/class-post-type.php:110
 msgid "Insert into product"
 msgstr ""
 
-#: includes/class-post-type.php:80
+#: includes/class-post-type.php:111
 msgid "Uploaded to this product"
 msgstr ""
 
-#: includes/class-post-type.php:81 includes/class-post-type.php:200
+#: includes/class-post-type.php:112 includes/class-post-type.php:390
 msgid "Product Image"
 msgstr ""
 
-#: includes/class-post-type.php:82
+#: includes/class-post-type.php:113
 msgid "Set product image"
 msgstr ""
 
-#: includes/class-post-type.php:83
+#: includes/class-post-type.php:114
 msgid "Remove product image"
 msgstr ""
 
-#: includes/class-post-type.php:84
+#: includes/class-post-type.php:115
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/class-post-type.php:89
+#: includes/class-post-type.php:120
 msgid "This is where you can add new products to your Reseller Store."
 msgstr ""
 
-#: includes/class-post-type.php:304
+#: includes/class-post-type.php:198
+#, php-format
+msgid "Post ID `%d` is invalid."
+msgstr ""
+
+#: includes/class-post-type.php:204
+#, php-format
+msgid "Post type `%s` is invalid."
+msgstr ""
+
+#: includes/class-post-type.php:212
+msgid "No data availble for unknown product."
+msgstr ""
+
+#: includes/class-post-type.php:232
+msgid "Product data could not be retreived. Please try again later."
+msgstr ""
+
+#: includes/class-post-type.php:246
+#, php-format
+msgid "Product `%s` is no longer available."
+msgstr ""
+
+#: includes/class-post-type.php:494
 #, php-format
 msgctxt "product title"
 msgid "Edit: %s"
+msgstr ""
+
+#: includes/class-product.php:67
+#, php-format
+msgid "Invalid product: %s"
+msgstr ""
+
+#: includes/class-product.php:75
+#, php-format
+msgid "Product `%s` already exists."
 msgstr ""
 
 #: includes/class-restrictions.php:169
@@ -198,7 +282,7 @@ msgid "Enter your Private Label ID:"
 msgstr ""
 
 #: includes/class-setup.php:153
-msgid "Submit"
+msgid "Install Now"
 msgstr ""
 
 #: includes/class-setup.php:157
@@ -213,100 +297,118 @@ msgstr ""
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 msgstr ""
 
-#: includes/class-setup.php:183
+#: includes/class-setup.php:184
 msgid "Error: Invalid Private Label ID"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:42
+#: includes/class-setup.php:212
+msgid "Error: No products available. Please try again later."
+msgstr ""
+
+#: includes/class-setup.php:230
+msgid "Error: Invalid product data. Please try again later."
+msgstr ""
+
+#: includes/class-taxonomy-category.php:38
+msgctxt "slug name"
+msgid "product-category"
+msgstr ""
+
+#: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:43
+#: includes/class-taxonomy-category.php:70
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:44
+#: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:45
+#: includes/class-taxonomy-category.php:72
 msgid "All Categories"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:46
+#: includes/class-taxonomy-category.php:73
 msgid "Parent Category"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:47
+#: includes/class-taxonomy-category.php:74
 msgid "Parent Category:"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:48
+#: includes/class-taxonomy-category.php:75
 msgid "Edit Category"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:49
+#: includes/class-taxonomy-category.php:76
 msgid "Update Category"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:50
+#: includes/class-taxonomy-category.php:77
 msgid "Add New Category"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:51
+#: includes/class-taxonomy-category.php:78
 msgid "New Category Name"
 msgstr ""
 
-#: includes/class-taxonomy-category.php:52
-#: includes/class-taxonomy-category.php:56
+#: includes/class-taxonomy-category.php:79
+#: includes/class-taxonomy-category.php:83
 msgid "Categories"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:42
+#: includes/class-taxonomy-tag.php:38
+msgctxt "slug name"
+msgid "product-tag"
+msgstr ""
+
+#: includes/class-taxonomy-tag.php:69
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:43
+#: includes/class-taxonomy-tag.php:70
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:44
+#: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:45
+#: includes/class-taxonomy-tag.php:72
 msgid "All Tags"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:46
+#: includes/class-taxonomy-tag.php:73
 msgid "Parent Tag"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:47
+#: includes/class-taxonomy-tag.php:74
 msgid "Parent Tag:"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:48
+#: includes/class-taxonomy-tag.php:75
 msgid "Edit Tag"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:49
+#: includes/class-taxonomy-tag.php:76
 msgid "Update Tag"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:50
+#: includes/class-taxonomy-tag.php:77
 msgid "Add New Tag"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:51
+#: includes/class-taxonomy-tag.php:78
 msgid "New Tag Name"
 msgstr ""
 
-#: includes/class-taxonomy-tag.php:52 includes/class-taxonomy-tag.php:56
+#: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
 msgid "Tags"
 msgstr ""
 
@@ -318,22 +420,22 @@ msgstr ""
 msgid "Display the user's cart in the sidebar."
 msgstr ""
 
-#: includes/widgets/class-cart.php:86
+#: includes/widgets/class-cart.php:87
 #, php-format
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr ""
 
-#: includes/widgets/class-cart.php:104
+#: includes/widgets/class-cart.php:105
 msgid "Cart"
 msgstr ""
 
-#: includes/widgets/class-cart.php:109
+#: includes/widgets/class-cart.php:110
 #: includes/widgets/class-domain-search.php:115
 msgid "Title:"
 msgstr ""
 
-#: includes/widgets/class-cart.php:115
+#: includes/widgets/class-cart.php:116
 msgid "Hide if cart is empty"
 msgstr ""
 
