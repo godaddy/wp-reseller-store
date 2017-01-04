@@ -132,8 +132,8 @@ final class Display {
 		return [
 			'id'        => Plugin::get_product_meta( $post->ID, 'id' ),
 			'quantity'  => (int) Plugin::get_product_meta( $post->ID, 'default_quantity', 1, true ),
-			'redirect'  => (bool) Plugin::get_product_meta( $post->ID, 'add_cart_redirect', false, true ),
-			'label'     => Plugin::get_product_meta( $post->ID, 'add_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
+			'redirect'  => (bool) Plugin::get_product_meta( $post->ID, 'add_to_cart_redirect', false, true ),
+			'label'     => Plugin::get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
 			'permalink' => get_permalink( $post->ID ),
 		];
 

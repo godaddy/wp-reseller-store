@@ -303,21 +303,13 @@ final class ButterBean {
 			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
 		];
 
-		// TODO: Decide which setting wins?
-		if ( 1 === Plugin::get_option( __FUNCTION__ ) ) {
-
-			$args['attr']['checked']  = 'checked';
-			$args['attr']['disabled'] = 'disabled';
-
-		}
-
 		$manager->register_control( Plugin::prefix( __FUNCTION__ ), $args );
 
 		$manager->register_setting(
 			Plugin::prefix( __FUNCTION__ ),
 			[
 				'sanitize_callback' => function ( $value ) {
-					return ( 'true' === $value ) ? 1 : 0;
+					return ( 'true' === $value ) ? 'true' : '';
 				},
 			]
 		);
