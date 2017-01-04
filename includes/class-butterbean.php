@@ -144,8 +144,8 @@ final class ButterBean {
 		);
 
 		$this->default_quantity( $manager, 'advanced' );
-		$this->add_cart_button_label( $manager, 'advanced' );
-		$this->add_cart_redirect( $manager, 'advanced' );
+		$this->add_to_cart_button_label( $manager, 'advanced' );
+		$this->add_to_cart_redirect( $manager, 'advanced' );
 
 	}
 
@@ -248,7 +248,7 @@ final class ButterBean {
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
 	 */
-	private function add_cart_button_label( $manager, $section ) {
+	private function add_to_cart_button_label( $manager, $section ) {
 
 		$manager->register_control(
 			Plugin::prefix( __FUNCTION__ ),
@@ -279,7 +279,7 @@ final class ButterBean {
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
 	 */
-	private function add_cart_redirect( $manager, $section ) {
+	private function add_to_cart_redirect( $manager, $section ) {
 
 		$args = [
 			'type'    => 'checkbox',
