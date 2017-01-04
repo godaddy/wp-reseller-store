@@ -47,6 +47,7 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                       [ $this, 'register' ] );
+		add_action( 'init',                       [ $this, 'sync_product_meta' ] );
 		add_action( 'admin_head',                 [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 		add_action( 'delete_post',                [ __NAMESPACE__ . '\Plugin', 'mark_product_as_deleted' ] );
@@ -144,6 +145,63 @@ final class Post_Type {
 		$args = (array) apply_filters( 'rstore_product_args', $args );
 
 		register_post_type( self::SLUG, $args );
+
+	}
+
+	/**
+	 * Re-sync product meta every hour.
+	 *
+	 * @action init
+	 * @since  NEXT
+	 */
+	private function sync_product_meta() {
+
+		$last_synced = get_transient( Plugin::prefix( 'last_synced' ) );
+
+		if ( false !== $last_synced ) {
+
+			return;
+
+		}
+
+		// Set early so if the sync fails, we try again in 5 min
+		Plugin::set_transient( 'last_synced', time(), 300 );
+
+		Plugin::delete_transient( 'products' );
+
+		$products = Plugin::get_transient( 'products', [], function () {
+
+			return rstore()->api->get( 'catalog/{pl_id}/products' );
+
+		} );
+
+		if ( is_wp_error( $products ) || ! $products ) {
+
+			return;
+
+		}
+
+		$imported = (array) Plugin::get_option( 'imported', [] );
+
+		foreach ( (array) $products as $product ) {
+
+			$post_id = array_search( $product->id, $imported );
+
+			if ( false === $post_id ) {
+
+				continue;
+
+			}
+
+			// Some properties should not be synced
+			unset( $product->id, $product->categories, $product->image );
+
+			Plugin::update_post_meta( $post_id, $product );
+
+		}
+
+		// The sync was successful, wait another hour
+		Plugin::set_transient( 'last_synced', time(), HOUR_IN_SECONDS );
 
 	}
 

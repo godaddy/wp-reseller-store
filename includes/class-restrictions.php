@@ -17,7 +17,6 @@ final class Restrictions {
 	 */
 	public function __construct() {
 
-		add_action( 'init',                        [ $this, 'sync_product_meta' ] );
 		add_action( 'init',                        [ $this, 'redirects' ], 1 );
 		add_action( 'admin_menu',                  [ $this, 'admin_submenu' ] );
 		add_action( 'admin_head',                  [ $this, 'add_product_button' ] );
@@ -171,57 +170,6 @@ final class Restrictions {
 			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>
 		</div>
 		<?php
-
-	}
-
-	/**
-	 * Re-sync product data every hour.
-	 *
-	 * @action init
-	 * @since  NEXT
-	 */
-	public function sync_product_meta() {
-
-		$synced = Plugin::get_transient( 'synced', false, '__return_true' );
-
-		if ( $synced ) {
-
-			return;
-
-		}
-
-		Plugin::delete_transient( 'products' );
-
-		$products = Plugin::get_transient( 'products', [], function () {
-
-			return rstore()->api->get( 'catalog/{pl_id}/products' );
-
-		} );
-
-		if ( is_wp_error( $products ) || ! $products ) {
-
-			return;
-
-		}
-
-		$imported = (array) Plugin::get_option( 'imported', [] );
-
-		foreach ( (array) $products as $product ) {
-
-			$post_id = array_search( $product->id, $imported );
-
-			if ( false === $post_id ) {
-
-				continue;
-
-			}
-
-			// Some properties should not be synced
-			unset( $product->id, $product->categories, $product->image );
-
-			Plugin::update_post_meta( $post_id, $product );
-
-		}
 
 	}
 
