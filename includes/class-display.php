@@ -127,7 +127,7 @@ final class Display {
 	 *
 	 * @return array
 	 */
-	private function get_add_to_cart_vars( $post ) {
+	private static function get_add_to_cart_vars( $post ) {
 
 		$post = get_post( $post );
 
