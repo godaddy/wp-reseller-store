@@ -73,8 +73,6 @@
 
 				if ( $form && ! redirect ) {
 
-					$form.removeAttr( 'data-loading' );
-
 					cart.addItemSuccess( $form );
 
 				}
@@ -84,8 +82,6 @@
 				window.console.log( response );
 
 				if ( $form ) {
-
-					$form.removeAttr( 'data-loading' );
 
 					cart.addItemError( $form, response );
 
@@ -141,6 +137,7 @@
 
 			var html = '<span class="dashicons dashicons-yes rstore-success"></span> <a href="' + rstore.urls.cart + '">' + rstore.i18n.view_cart + '</a>';
 
+			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
 			$form.find( '.rstore-loading' ).hide();
 			$form.find( '.rstore-message' ).html( html );
 
@@ -158,6 +155,7 @@
 
 			var html = '<span class="dashicons dashicons-warning rstore-error"></span> ' + message;
 
+			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
 			$form.find( '.rstore-loading' ).hide();
 			$form.find( '.rstore-message' ).html( html );
 
