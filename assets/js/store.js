@@ -85,7 +85,7 @@
 
 				if ( $form ) {
 
-					$form.removeAttr( 'data-active' );
+					$form.removeAttr( 'data-loading' );
 
 					cart.addItemError( $form, response );
 
