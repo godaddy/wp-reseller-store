@@ -60,7 +60,9 @@ final class Plugin {
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
-			\WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI' );
+			\WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI\Reseller' );
+
+			\WP_CLI::add_command( 'reseller product', __NAMESPACE__ . '\CLI\Reseller_Product' );
 
 		}
 

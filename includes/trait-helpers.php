@@ -389,6 +389,9 @@ trait Helpers {
 	 */
 	public static function admin_redirect( $endpoint = '', $args = [], $status = 302 ) {
 
+		// Allow full admin URL to be passed as $endpoint
+		$endpoint = preg_replace( '/^.*\/wp-admin(\/|$)/', '', $endpoint );
+
 		wp_safe_redirect(
 			esc_url_raw(
 				add_query_arg( $args, admin_url( $endpoint ) )

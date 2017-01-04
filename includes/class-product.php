@@ -56,25 +56,41 @@ final class Product {
 	 *
 	 * @since NEXT
 	 *
-	 * @return bool
+	 * @param  int $post_id
+	 *
+	 * @return true|WP_Error
 	 */
-	public function import() {
+	public function import( $post_id = 0 ) {
 
-		if ( ! $this->is_valid() || $this->exists() ) {
+		if ( ! $this->is_valid() ) {
 
-			return false;
+			return new WP_Error( 'invalid_product', esc_html__( 'Invalid product: %s' ), json_encode( (array) $this->product ) );
+
+		}
+
+		$post_id = absint( $post_id );
+
+		if ( ! $post_id && $this->exists() ) {
+
+			return new WP_Error( 'product_exists', esc_html__( 'Product `%s` already exists.' ), $this->product->id );
 
 		}
 
-		$post_id = $this->insert_post();
+		$post_id = $this->insert_post( $post_id, true );
 
-		if ( $post_id ) {
+		if ( is_wp_error( $post_id ) ) {
 
-			$this->insert_categories( $this->product->categories, $post_id );
-
-			$this->insert_attachment( $post_id );
+			return $post_id;
 
 		}
+
+		$this->insert_post_meta( $post_id );
+
+		$this->insert_categories( $this->product->categories, $post_id );
+
+		$this->insert_attachment( $post_id );
+
+		Plugin::mark_product_as_imported( $post_id, $this->product->id );
 
 		return true;
 
@@ -168,15 +184,25 @@ final class Product {
 	 *
 	 * @since NEXT
 	 *
+	 * @param  int $post_id (optional)
+	 *
 	 * @return int|false
 	 */
-	private function insert_post() {
+	private function insert_post( $post_id = 0 ) {
+
+		if ( ! $post_id && Post_Type::SLUG !== get_post_type( $post_id ) ) {
+
+			$post_id = 0;
+
+		}
 
 		$post_id = wp_insert_post(
 			[
+				'ID'           => absint( $post_id ),
 				'post_type'    => Post_Type::SLUG,
 				'post_status'  => 'publish',
 				'post_title'   => $this->product->title,
+				'post_name'    => sanitize_title( $this->product->title ),
 				'post_content' => $this->product->content,
 			]
 		);
@@ -187,11 +213,58 @@ final class Product {
 
 		}
 
-		Plugin::update_post_meta( $post_id, $this->product );
-
-		Plugin::mark_product_as_imported( $post_id, $this->product->id );
-
 		return $post_id;
+
+	}
+
+	/**
+	 * Add product meta as post meta.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  int  $post_id
+	 * @param  bool $replace (optional)
+	 *
+	 * @return int|bool
+	 */
+	private function insert_post_meta( $post_id, $replace = true ) {
+
+		if ( $replace ) {
+
+			global $wpdb;
+
+			$wpdb->query(
+				$wpdb->prepare(
+					"DELETE FROM `{$wpdb->postmeta}` WHERE `post_id` = %d;",
+					$post_id
+				)
+			);
+
+		}
+
+		return Plugin::update_post_meta( $post_id, $this->product );
+
+	}
+
+	/**
+	 * Import product categories as terms and preserve heirarchy.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  int  $post_id
+	 * @param  bool $replace (optional)
+	 *
+	 * @return array
+	 */
+	private function insert_categories( $post_id, $replace = true ) {
+
+		if ( $replace ) {
+
+			wp_delete_object_term_relationships( $post_id, Taxonomy_Category::SLUG );
+
+		}
+
+		return $this->create_categories( $this->product->categories, $post_id );
 
 	}
 
@@ -206,9 +279,11 @@ final class Product {
 	 *
 	 * @return array
 	 */
-	private function insert_categories( $categories, $post_id, $parent = 0 ) {
+	private function create_categories( $categories, $post_id, $parent = 0 ) {
 
-		if ( 0 === ( $post_id = absint( $post_id ) ) ) {
+		$post_id = absint( $post_id );
+
+		if ( ! $post_id ) {
 
 			return [];
 
@@ -226,13 +301,13 @@ final class Product {
 
 			}
 
-			foreach ( (array) $category as $index => $categories ) {
+			foreach ( (array) $category as $index => $_categories ) {
 
 				$parent = $this->create_category( $index, $post_id, $parent );
 
 				$term_ids[] = $parent;
 
-				$term_ids = array_merge( $term_ids, $this->insert_categories( $categories, $post_id, $parent ) );
+				$term_ids = array_merge( $term_ids, $this->create_categories( (array) $_categories, $post_id, $parent ) );
 
 			}
 

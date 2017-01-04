@@ -2,6 +2,8 @@
 
 namespace Reseller_Store;
 
+use WP_Error;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -46,11 +48,12 @@ final class Post_Type {
 
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
-		add_action( 'init',                       [ $this, 'register' ] );
-		add_action( 'wp',                         [ $this, 'sync_product_meta' ] );
-		add_action( 'admin_head',                 [ $this, 'column_styles' ] );
-		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
-		add_action( 'delete_post',                [ __NAMESPACE__ . '\Plugin', 'mark_product_as_deleted' ] );
+		add_action( 'init',                         [ $this, 'register' ] );
+		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
+		add_action( 'wp',                           [ $this, 'sync_product_meta' ] );
+		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
+		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
+		add_action( 'delete_post',                  [ __NAMESPACE__ . '\Plugin', 'mark_product_as_deleted' ] );
 
 		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
 		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
@@ -145,6 +148,108 @@ final class Post_Type {
 		$args = (array) apply_filters( 'rstore_product_args', $args );
 
 		register_post_type( self::SLUG, $args );
+
+	}
+
+	/**
+	 * Process a product data reset in the admin.
+	 *
+	 * @since NEXT
+	 *
+	 * @action admin_init
+	 */
+	public function process_product_reset() {
+
+		if (
+			! Plugin::is_admin_uri( 'post.php?post=' )
+			||
+			! ( $post_id = absint( filter_input( INPUT_GET, 'post' ) ) )
+			||
+			! ( $nonce = filter_input( INPUT_GET, '_wpnonce' ) )
+			||
+			false === wp_verify_nonce( $nonce, sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() ) )
+		) {
+
+			return;
+
+		}
+
+		self::reset_product_data( $post_id );
+
+		Plugin::admin_redirect( remove_query_arg( '_wpnonce' ) );
+
+	}
+
+	/**
+	 * Reset a product's data.
+	 *
+	 * @since  NEXT
+	 *
+	 * @param  int $post_id
+	 *
+	 * @return true|WP_Error
+	 */
+	public static function reset_product_data( $post_id ) {
+
+		$post = get_post( absint( $post_id ) );
+
+		if ( ! $post ) {
+
+			return new WP_Error( 'invalid_post_id', esc_html__( 'Post ID `%d` is invalid.' ), $post_id );
+
+		}
+
+		if ( self::SLUG !== $post->post_type ) {
+
+			return new WP_Error( 'invalid_post_type', esc_html__( 'Post type `%s` is invalid.' ), $post->post_type );
+
+		}
+
+		$imported = (array) Plugin::get_option( 'imported', [] );
+
+		if ( ! isset( $imported[ $post->ID ] ) ) {
+
+			return new WP_Error( 'unknown_product', esc_html__( 'No data availble for unknown product.' ) );
+
+		}
+
+		$product_id = $imported[ $post->ID ];
+
+		$products = Plugin::get_transient( 'products', [], function () {
+
+			return rstore()->api->get( 'catalog/{pl_id}/products' );
+
+		} );
+
+		if ( is_wp_error( $products ) ) {
+
+			return new WP_Error( 'api_error', $products->get_error_message() );
+
+		}
+
+		if ( ! $products ) {
+
+			return new WP_Error( 'no_product_data', esc_html__( 'Product data could not be retreived. Please try again later.' ) );
+
+		}
+
+		$products = array_filter( $products, function ( $product ) use ( $product_id ) {
+
+			return ( isset( $product->id ) && $product->id === $product_id );
+
+		} );
+
+		$product = array_values( $products );
+
+		if ( empty( $product[0]->id ) ) {
+
+			return new WP_Error( 'product_not_found', esc_html__( 'Product `%s` is no longer available.' ), $product_id );
+
+		}
+
+		$product = new Product( $product[0] );
+
+		return $product->import( $post->ID );
 
 	}
 

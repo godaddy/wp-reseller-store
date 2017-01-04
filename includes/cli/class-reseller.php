@@ -1,7 +1,8 @@
 <?php
 
-namespace Reseller_Store;
+namespace Reseller_Store\CLI;
 
+use Reseller_Store\Setup;
 use WP_CLI;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-final class CLI extends \WP_CLI_Command {
+final class Reseller extends \WP_CLI_Command {
 
 	/**
 	 * Import and install all Reseller Store products.

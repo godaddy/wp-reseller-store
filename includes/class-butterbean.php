@@ -21,7 +21,7 @@ final class ButterBean {
 		add_action( 'butterbean_register', [ $this, 'register_types' ], 10, 2 );
 		add_action( 'butterbean_register', [ $this, 'register_metabox' ], 10, 2 );
 
-		add_filter( 'butterbean_pre_control_template', [ $this, 'plain_text_control_template' ], 10, 2 );
+		add_filter( 'butterbean_pre_control_template', [ $this, 'control_templates' ], 10, 2 );
 
 	}
 
@@ -66,6 +66,11 @@ final class ButterBean {
 		);
 
 		$butterbean->register_control_type(
+			Plugin::prefix( 'anchor', true ),
+			__NAMESPACE__ . '\ButterBean\Controls\Anchor'
+		);
+
+		$butterbean->register_control_type(
 			Plugin::prefix( 'plain-text', true ),
 			__NAMESPACE__ . '\ButterBean\Controls\Plain_Text'
 		);
@@ -73,7 +78,7 @@ final class ButterBean {
 	}
 
 	/**
-	 * Register the control template for Plain Text.
+	 * Register custom control templates.
 	 *
 	 * @filter butterbean_pre_control_template
 	 * @since  NEXT
@@ -83,11 +88,21 @@ final class ButterBean {
 	 *
 	 * @return string
 	 */
-	public function plain_text_control_template( $path, $slug ) {
+	public function control_templates( $path, $slug ) {
 
-		if ( Plugin::prefix( 'plain-text', true ) === $slug ) {
+		switch ( $slug ) {
 
-			$path = rstore()->base_dir . 'includes/butterbean/templates/control-plain-text.php';
+			case Plugin::prefix( 'anchor', true ) :
+
+				$path = rstore()->base_dir . 'includes/butterbean/templates/control-anchor.php';
+
+				break;
+
+			case Plugin::prefix( 'plain-text', true ) :
+
+				$path = rstore()->base_dir . 'includes/butterbean/templates/control-plain-text.php';
+
+				break;
 
 		}
 
@@ -134,6 +149,9 @@ final class ButterBean {
 
 		$this->listPrice( $manager, 'general' );
 		$this->salePrice( $manager, 'general' );
+		$this->default_quantity( $manager, 'general' );
+		$this->add_to_cart_button_label( $manager, 'general' );
+		$this->add_to_cart_redirect( $manager, 'general' );
 
 		$manager->register_section(
 			'advanced',
@@ -143,9 +161,7 @@ final class ButterBean {
 			]
 		);
 
-		$this->default_quantity( $manager, 'advanced' );
-		$this->add_to_cart_button_label( $manager, 'advanced' );
-		$this->add_to_cart_redirect( $manager, 'advanced' );
+		$this->reset_product_data( $manager, 'advanced' );
 
 	}
 
@@ -303,6 +319,42 @@ final class ButterBean {
 				'sanitize_callback' => function ( $value ) {
 					return ( 'true' === $value ) ? 1 : 0;
 				},
+			]
+		);
+
+	}
+
+	/**
+	 * Register control for Reset Product Data.
+	 *
+	 * @since NEXT
+	 *
+	 * @param ButterBean_Manager $manager
+	 * @param string             $section
+	 */
+	private function reset_product_data( $manager, $section ) {
+
+		$post_id = filter_input( INPUT_GET, 'post' );
+
+		$manager->register_control(
+			Plugin::prefix( __FUNCTION__ ),
+			[
+				'type'        => Plugin::prefix( 'anchor', true ),
+				'section'     => $section,
+				'label'       => esc_html__( 'Restore Product Data', 'reseller-store' ),
+				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),
+				'text'        => esc_html__( 'Reset Data', 'reseller-store' ),
+				'attr'        => [
+					'class' => 'button button-primary',
+					'href'  => esc_url(
+						add_query_arg(
+							'_wpnonce',
+							wp_create_nonce(
+								sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() )
+							)
+						)
+					),
+				],
 			]
 		);
 
