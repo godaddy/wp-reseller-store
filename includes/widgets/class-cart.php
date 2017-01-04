@@ -82,6 +82,7 @@ final class Cart extends \WP_Widget {
 
 		?>
 		<div class="rstore-view-cart">
+			<span class="dashicons dashicons-cart"></span>
 			<a href="<?php echo esc_url( Store\rstore()->api->urls['cart'] ); ?>">
 				<?php printf( esc_html_x( 'View Cart %s', 'number of items in cart', 'reseller-store' ), '(<span class="rstore-cart-count">0</span>)' ); ?>
 			</a>
