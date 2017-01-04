@@ -20,13 +20,40 @@ final class Taxonomy_Tag {
 	const SLUG = 'reseller_product_tag';
 
 	/**
+	 * Taxonomy default permalink base.
+	 *
+	 * @since NEXT
+	 *
+	 * @var string
+	 */
+	public static $default_permalink_base;
+
+	/**
 	 * Class constructor.
 	 *
 	 * @since NEXT
 	 */
 	public function __construct() {
 
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-tag', 'slug name', 'reseller-store' ) );
+
 		add_action( 'init', [ $this, 'register' ] );
+
+	}
+
+	/**
+	 * Return the taxonomy custom permalink base.
+	 *
+	 * @since NEXT
+	 *
+	 * @return string
+	 */
+	public static function permalink_base() {
+
+		$permalinks     = (array) Plugin::get_option( 'permalinks', [] );
+		$permalink_base = ! empty( $permalinks['tag_base'] ) ? $permalinks['tag_base'] : self::$default_permalink_base;
+
+		return sanitize_title( $permalink_base );
 
 	}
 
@@ -62,7 +89,7 @@ final class Taxonomy_Tag {
 			'query_var'         => true,
 			'hierarchical'      => false,
 			'rewrite'           => [
-				'slug'         => self::SLUG,
+				'slug'         => self::permalink_base(),
 				'with_front'   => false,
 				'hierarchical' => false,
 			],
@@ -75,7 +102,7 @@ final class Taxonomy_Tag {
 		 *
 		 * @var array
 		 */
-		$args = (array) apply_filters( 'rstore_tag_args', $args );
+		$args = (array) apply_filters( 'rstore_product_tag_args', $args );
 
 		register_taxonomy( self::SLUG, Post_Type::SLUG, $args );
 

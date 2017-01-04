@@ -29,11 +29,22 @@ final class Post_Type {
 	const MENU_POSITION = 52;
 
 	/**
+	 * Post type default permalink base.
+	 *
+	 * @since NEXT
+	 *
+	 * @var string
+	 */
+	public static $default_permalink_base;
+
+	/**
 	 * Class constructor.
 	 *
 	 * @since NEXT
 	 */
 	public function __construct() {
+
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                       [ $this, 'register' ] );
 		add_action( 'admin_head',                 [ $this, 'column_styles' ] );
@@ -48,6 +59,22 @@ final class Post_Type {
 		add_filter( 'edit_' . self::SLUG . '_per_page',                function () { return 50; } );
 		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) { return array_merge( $columns, [ 'price' => 'price' ] ); } );
 		add_filter( 'view_mode_post_types',                            function ( $post_types ) { return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] ); } );
+
+	}
+
+	/**
+	 * Return the post type custom permalink base.
+	 *
+	 * @since NEXT
+	 *
+	 * @return string
+	 */
+	public static function permalink_base() {
+
+		$permalinks     = (array) Plugin::get_option( 'permalinks', [] );
+		$permalink_base = ! empty( $permalinks['product_base'] ) ? $permalinks['product_base'] : self::$default_permalink_base;
+
+		return sanitize_title( $permalink_base );
 
 	}
 
@@ -101,7 +128,7 @@ final class Post_Type {
 			'hierarchical'       => false,
 			'supports'           => [ 'title', 'editor', 'thumbnail' ],
 			'rewrite'            => [
-				'slug'       => self::SLUG,
+				'slug'       => self::permalink_base(),
 				'with_front' => false,
 				'feeds'      => true,
 			],
@@ -114,7 +141,7 @@ final class Post_Type {
 		 *
 		 * @var array
 		 */
-		$args = (array) apply_filters( 'rstore_post_type_args', $args );
+		$args = (array) apply_filters( 'rstore_product_args', $args );
 
 		register_post_type( self::SLUG, $args );
 

@@ -76,6 +76,7 @@ final class Plugin {
 		new ButterBean;
 		new Display;
 		new Embed;
+		new Permalinks;
 		new Post_Type;
 		new Settings;
 		new Taxonomy_Category;
