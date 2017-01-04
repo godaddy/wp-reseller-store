@@ -71,7 +71,9 @@
 
 				}
 
-				if ( $form ) {
+				if ( $form && ! redirect ) {
+
+					$form.removeAttr( 'data-loading' );
 
 					cart.addItemSuccess( $form );
 
@@ -82,6 +84,8 @@
 				window.console.log( response );
 
 				if ( $form ) {
+
+					$form.removeAttr( 'data-active' );
 
 					cart.addItemError( $form, response );
 
@@ -117,6 +121,14 @@
 			    id       = $this.attr( 'data-id' ),
 			    qty      = parseInt( $this.attr( 'data-quantity' ), 10 ),
 			    redirect = ( 'true' === $this.attr( 'data-redirect' ) );
+
+			if ( $this.attr( 'data-loading' ) ) {
+
+				return false;
+
+			}
+
+			$this.attr( 'data-loading', 'true' );
 
 			$form.find( '.rstore-message' ).empty();
 			$form.find( '.rstore-loading' ).show();

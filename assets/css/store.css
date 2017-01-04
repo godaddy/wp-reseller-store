@@ -35,8 +35,13 @@
 	vertical-align: middle;
 }
 
+.rstore-pricing {
+	font-size: 0.8em;
+}
+
 .rstore-price {
-	font-size: 1.25em;
+	margin-right: 5px;
+	font-size: 1.25rem;
 	font-weight: bold;
 	color: #41a62a;
 }
@@ -44,6 +49,11 @@
 .rstore-price del {
 	font-weight: normal;
 	color: #ccc;
+}
+
+.rstore-term {
+	margin-left: 5px;
+	font-size: 0.9em;
 }
 
 body.single-reseller_product .entry-meta {

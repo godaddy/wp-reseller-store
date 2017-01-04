@@ -106,6 +106,18 @@ final class Display {
 
 		}
 
+		if ( $term = Plugin::get_product_meta( $post->ID, 'term' ) ) {
+
+			$output = sprintf(
+				esc_html_x( '%1$s / per %2$s', '1. price, 2. subscription term - e.g. $10 / per month', 'reseller-store' ),
+				$output,
+				$term // xss ok
+			);
+
+		}
+
+		$output = sprintf( '<p class="rstore-pricing">%s</p>', $output );
+
 		if ( ! $echo ) {
 
 			return $output;
