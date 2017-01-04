@@ -147,9 +147,8 @@ final class ButterBean {
 			]
 		);
 
-		$this->listPrice( $manager, 'general' );
-		$this->salePrice( $manager, 'general' );
-		$this->default_quantity( $manager, 'general' );
+		$this->list_price( $manager, 'general' );
+		$this->sale_price( $manager, 'general' );
 		$this->add_to_cart_button_label( $manager, 'general' );
 		$this->add_to_cart_redirect( $manager, 'general' );
 
@@ -173,10 +172,10 @@ final class ButterBean {
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
 	 */
-	private function listPrice( $manager, $section ) {
+	private function list_price( $manager, $section ) {
 
 		$manager->register_control(
-			Plugin::prefix( __FUNCTION__ ),
+			Plugin::prefix( 'listPrice' ),
 			[
 				'type'    => Plugin::prefix( 'plain-text', true ),
 				'section' => $section,
@@ -185,7 +184,7 @@ final class ButterBean {
 		);
 
 		$manager->register_setting(
-			Plugin::prefix( __FUNCTION__ ),
+			Plugin::prefix( 'listPrice' ),
 			[
 				'type' => Plugin::prefix( 'read-only', true ),
 			]
@@ -201,10 +200,10 @@ final class ButterBean {
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
 	 */
-	private function salePrice( $manager, $section ) {
+	private function sale_price( $manager, $section ) {
 
 		$manager->register_control(
-			Plugin::prefix( __FUNCTION__ ),
+			Plugin::prefix( 'salePrice' ),
 			[
 				'type'    => Plugin::prefix( 'plain-text', true ),
 				'section' => $section,
@@ -214,7 +213,7 @@ final class ButterBean {
 		);
 
 		$manager->register_setting(
-			Plugin::prefix( __FUNCTION__ ),
+			Plugin::prefix( 'salePrice' ),
 			[
 				'type' => Plugin::prefix( 'read-only', true ),
 			]
