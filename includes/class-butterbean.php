@@ -132,8 +132,8 @@ final class ButterBean {
 			]
 		);
 
-		$this->listPrice( $manager, 'general' );
-		$this->salePrice( $manager, 'general' );
+		$this->list_price( $manager, 'general' );
+		$this->sale_price( $manager, 'general' );
 
 		$manager->register_section(
 			'advanced',
@@ -157,7 +157,7 @@ final class ButterBean {
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
 	 */
-	private function listPrice( $manager, $section ) {
+	private function list_price( $manager, $section ) {
 
 		$manager->register_control(
 			Plugin::prefix( __FUNCTION__ ),
@@ -185,7 +185,7 @@ final class ButterBean {
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
 	 */
-	private function salePrice( $manager, $section ) {
+	private function sale_price( $manager, $section ) {
 
 		$manager->register_control(
 			Plugin::prefix( __FUNCTION__ ),
