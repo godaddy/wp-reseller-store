@@ -35,7 +35,8 @@ final class Display {
 
 		wp_enqueue_style( 'rstore', rstore()->assets_url . "css/store{$rtl}{$suffix}.css", [ 'dashicons' ], rstore()->version );
 
-		wp_enqueue_script( 'rstore', rstore()->assets_url . "js/store{$suffix}.js", [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'js-cookie', rstore()->assets_url . "js/js-cookie{$suffix}.js", [], '2.1.3', true );
+		wp_enqueue_script( 'rstore', rstore()->assets_url . "js/store{$suffix}.js", [ 'jquery', 'js-cookie' ], rstore()->version, true );
 
 		/**
 		 * Filter the TTL for cookies (in seconds).

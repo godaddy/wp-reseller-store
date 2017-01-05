@@ -1,4 +1,4 @@
-/* global jQuery, rstore */
+/* global Cookies, jQuery, rstore */
 
 ( function( $ ) {
 
@@ -8,13 +8,13 @@
 
 		init: function() {
 
-			var value = parseInt( cookie.get( rstore.cookies.cartCount ), 10 );
+			var value = parseInt( Cookies.get( rstore.cookies.cartCount ), 10 );
 
 			cart.updateCount( value );
 
 			if ( value > 0 ) {
 
-				cart.api( 'get', function( response ) {
+				cart.api( 'get', {}, function( response ) {
 
 					cart.updateCount( response );
 
@@ -26,26 +26,17 @@
 
 		api: function( method, data, success, error ) {
 
-			// The data arg is optional depending on the method
-			success = ( 3 === arguments.length ) ? arguments[1] : success;
-			error   = ( 3 === arguments.length ) ? arguments[2] : error;
-
 			var settings = {
 				method: method,
 				url: rstore.urls.cart_api,
 				dataType: 'json',
 				contentType: 'application/json',
+				data: JSON.stringify( data ),
 				crossDomain: true,
 				xhrFields: {
 					withCredentials: true
 				}
 			};
-
-			if ( arguments.length > 3 ) {
-
-				settings.data = JSON.stringify( data );
-
-			}
 
 			success = $.isFunction( success ) ? success : function() { return; };
 			error   = $.isFunction( error ) ? error : function() { return; };
@@ -96,7 +87,7 @@
 			value = ( undefined !== value.cartCount ) ? value.cartCount : value;
 			value = ( value ) ? parseInt( value, 10 ) : 0;
 
-			cookie.set( rstore.cookies.cartCount, value );
+			Cookies.set( rstore.cookies.cartCount, value, { expires: new Date( new Date().getTime() + rstore.cookies.ttl ), path: '/' } );
 
 			$( '.rstore-cart-count' ).text( value );
 
@@ -173,50 +164,6 @@
 				window.history.replaceState( {}, '', window.location.href.split( '?' )[0] );
 
 			}
-
-		}
-
-	};
-
-	var cookie = {
-
-		get: function( name ) {
-
-			var parts = document.cookie.split( ';' );
-
-			name = name + '=';
-
-			for ( var i = 0; i < parts.length; i++ ) {
-
-				var cookie = parts[i];
-
-				while ( ' ' === cookie.charAt( 0 ) ) {
-
-					cookie = cookie.substring( 1 );
-
-				}
-
-				if ( 0 === cookie.indexOf( name ) ) {
-
-					return cookie.substring( name.length, cookie.length );
-
-				}
-
-			}
-
-			return null;
-
-		},
-
-		set: function( name, value, ttl ) {
-
-			var date = new Date();
-
-			ttl = ( ttl ) ? ttl : rstore.cookies.ttl;
-
-			date.setTime( date.getTime() + ttl );
-
-			document.cookie = name + "=" + value + "; expires=" + date.toGMTString() + "; path=/";
 
 		}
 
