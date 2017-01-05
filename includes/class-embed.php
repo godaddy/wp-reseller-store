@@ -45,9 +45,11 @@ final class Embed {
 		.wp-embed-excerpt p {
 			margin: 0 0 1em;
 		}
+		.wp-embed-excerpt .rstore-pricing {
+			font-size: 0.9em;
+		}
 		.wp-embed-excerpt .rstore-price {
-			display: block;
-			margin-top: -0.75em;
+			font-size: 1rem;
 			font-weight: bold;
 			color: #41a62a;
 		}
