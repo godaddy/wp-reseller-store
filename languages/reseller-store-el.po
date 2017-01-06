@@ -1,0 +1,463 @@
+# GoDaddy Reseller Store
+# Copyright (C) 2017
+# This file is distributed under the same license as the reseller-store package.
+# GoDaddy Operating Company, LLC.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: reseller-store 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-06 02:44-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/class-butterbean.php:133
+msgid "Product Options"
+msgstr "Product Options"
+
+#: includes/class-butterbean.php:145
+msgid "General"
+msgstr "Γενικά"
+
+#: includes/class-butterbean.php:158
+msgid "Advanced"
+msgstr "Για προχωρημένους"
+
+#: includes/class-butterbean.php:182 includes/class-post-type.php:375
+msgid "Price"
+msgstr "Τιμή"
+
+#: includes/class-butterbean.php:210
+msgid "Sale Price"
+msgstr "Τιμή προσφοράς"
+
+#: includes/class-butterbean.php:211
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr "Μη διαθέσιμο"
+
+#: includes/class-butterbean.php:239
+msgid "Default Quantity"
+msgstr "Default Quantity"
+
+#: includes/class-butterbean.php:273
+msgid "Add to Cart Button Label"
+msgstr "Add to Cart Button Label"
+
+#: includes/class-butterbean.php:275 includes/class-display.php:149
+msgid "Add to cart"
+msgstr "Προσθήκη στο καλάθι"
+
+#: includes/class-butterbean.php:302
+msgid "Redirect to the cart immediately after adding"
+msgstr "Redirect to the cart immediately after adding"
+
+#: includes/class-butterbean.php:335
+msgid "Restore Product Data"
+msgstr "Restore Product Data"
+
+#: includes/class-butterbean.php:336
+msgid ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be "
+"lost."
+msgstr ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be lost."
+
+#: includes/class-butterbean.php:337
+msgid "Reset Data"
+msgstr "Reset Data"
+
+#: includes/class-display.php:64
+msgid "View cart"
+msgstr "Προβολή καλαθιού αγορών "
+
+#: includes/class-display.php:65
+msgid "An unknown error has occurred"
+msgstr "Παρουσιάστηκε άγνωστο σφάλμα"
+
+#: includes/class-display.php:113
+#, php-format
+msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / per %2$s"
+
+#: includes/class-import.php:63
+msgid "Invalid product."
+msgstr "Invalid product."
+
+#: includes/class-import.php:80
+msgid "No data availble for unknown product."
+msgstr "No data availble for unknown product."
+
+#: includes/class-import.php:88
+#, php-format
+msgid "Post type `%s` is invalid."
+msgstr "Post type `%s` is invalid."
+
+#: includes/class-permalinks.php:41
+msgid "Reseller category base"
+msgstr "Reseller category base"
+
+#: includes/class-permalinks.php:58
+msgid "Reseller tag base"
+msgstr "Reseller tag base"
+
+#: includes/class-permalinks.php:75
+msgid "Reseller Product Permalinks"
+msgstr "Reseller Product Permalinks"
+
+#: includes/class-permalinks.php:93
+msgid ""
+"These settings control the permalinks used specifically for Reseller Store "
+"products."
+msgstr ""
+"These settings control the permalinks used specifically for Reseller Store products."
+
+#: includes/class-permalinks.php:98
+msgctxt "slug name"
+msgid "sample-product"
+msgstr "sample-product"
+
+#: includes/class-permalinks.php:121
+msgid "Default"
+msgstr "Προεπιλογή"
+
+#: includes/class-permalinks.php:133
+msgid "Custom base"
+msgstr "Custom base"
+
+#: includes/class-post-type.php:58
+msgctxt "slug name"
+msgid "products"
+msgstr "προϊόντα"
+
+#: includes/class-post-type.php:103
+msgctxt "post type general name"
+msgid "Products"
+msgstr "Προϊόντα"
+
+#: includes/class-post-type.php:104
+msgctxt "post type singular name"
+msgid "Product"
+msgstr "Προϊόν"
+
+#: includes/class-post-type.php:105
+msgctxt "admin menu"
+msgid "Reseller Store"
+msgstr "Reseller Store"
+
+#: includes/class-post-type.php:106
+msgctxt "add new on admin bar"
+msgid "Reseller Product"
+msgstr "Reseller Product"
+
+#: includes/class-post-type.php:107
+msgctxt "product"
+msgid "Add New"
+msgstr "Προσθήκη Νέου"
+
+#: includes/class-post-type.php:108
+msgid "Add New Product"
+msgstr "Προσθήκη Νέου Προϊόντος"
+
+#: includes/class-post-type.php:109
+msgid "Edit Product"
+msgstr "Επεξεργασία Προϊόντος"
+
+#: includes/class-post-type.php:110
+msgid "New Product"
+msgstr "Νέο Προϊόν"
+
+#: includes/class-post-type.php:111
+msgid "View Product"
+msgstr "Εμφάνιση Προϊόντος"
+
+#: includes/class-post-type.php:112
+msgid "View Products"
+msgstr "Προβολή προϊόντων"
+
+#: includes/class-post-type.php:113
+msgid "Search Products"
+msgstr "Αναζήτηση Προϊόντων"
+
+#: includes/class-post-type.php:114
+msgid "No products found."
+msgstr "Δεν βρέθηκε κάποιο προϊόν"
+
+#: includes/class-post-type.php:115
+msgid "No products found in Trash."
+msgstr "No products found in Trash."
+
+#: includes/class-post-type.php:116
+msgid "Parent Products:"
+msgstr "Parent Products:"
+
+#: includes/class-post-type.php:117
+msgid "All Products"
+msgstr "Όλα τα προϊόντα"
+
+#: includes/class-post-type.php:118
+msgid "Product Archives"
+msgstr "Product Archives"
+
+#: includes/class-post-type.php:119
+msgid "Insert into product"
+msgstr "Εισαγωγή στο προϊόν"
+
+#: includes/class-post-type.php:120
+msgid "Uploaded to this product"
+msgstr "Έγινε αποστολή στο προϊόν"
+
+#: includes/class-post-type.php:121 includes/class-post-type.php:366
+msgid "Product Image"
+msgstr "Εικόνα Προϊόντος"
+
+#: includes/class-post-type.php:122
+msgid "Set product image"
+msgstr "Όρισε εικόνα προϊόντος"
+
+#: includes/class-post-type.php:123
+msgid "Remove product image"
+msgstr "Αφαίρεση εικόνα προϊόντος"
+
+#: includes/class-post-type.php:124
+msgid "Use as featured image"
+msgstr "Use as featured image"
+
+#: includes/class-post-type.php:129
+msgid "This is where you can add new products to your Reseller Store."
+msgstr "This is where you can add new products to your Reseller Store."
+
+#: includes/class-post-type.php:499
+#, php-format
+msgctxt "product title"
+msgid "Edit: %s"
+msgstr "Edit: %s"
+
+#: includes/class-restrictions.php:169
+msgid "No products have been added yet."
+msgstr "No products have been added yet."
+
+#: includes/class-restrictions.php:170
+msgid "Import All Products"
+msgstr "Import All Products"
+
+#: includes/class-setup.php:65
+msgid "Reseller Store Setup"
+msgstr "Reseller Store Setup"
+
+#: includes/class-setup.php:66
+msgid "Reseller Store"
+msgstr "Reseller Store"
+
+#: includes/class-setup.php:138
+msgid "Let's setup your GoDaddy Reseller Store."
+msgstr "Let's setup your GoDaddy Reseller Store."
+
+#: includes/class-setup.php:142
+msgid "Enter your Private Label ID to get started."
+msgstr "Enter your Private Label ID to get started."
+
+#: includes/class-setup.php:145
+msgid "Enter your Private Label ID:"
+msgstr "Enter your Private Label ID:"
+
+#: includes/class-setup.php:147
+msgid "Install Now"
+msgstr "Εγκατάσταση τώρα"
+
+#: includes/class-setup.php:151
+msgid "Don't have an account?"
+msgstr "Δεν έχετε λογαριασμό;"
+
+#: includes/class-setup.php:151
+msgid "Create an account"
+msgstr "Δημιουργία λογαριασμού"
+
+#: includes/class-setup.php:154
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+
+#: includes/class-setup.php:178
+msgid "Error: Invalid Private Label ID"
+msgstr "Error: Invalid Private Label ID"
+
+#: includes/class-setup.php:209
+msgid "Error: No products available. Please try again later."
+msgstr "Error: No products available. Please try again later."
+
+#: includes/class-setup.php:236
+msgid "Error: Invalid product data. Please try again later."
+msgstr "Error: Invalid product data. Please try again later."
+
+#: includes/class-taxonomy-category.php:38
+msgctxt "slug name"
+msgid "product-category"
+msgstr "product-category"
+
+#: includes/class-taxonomy-category.php:69
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "Κατηγορίες"
+
+#: includes/class-taxonomy-category.php:70
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "Κατηγορία"
+
+#: includes/class-taxonomy-category.php:71
+msgid "Search Categories"
+msgstr "Search Categories"
+
+#: includes/class-taxonomy-category.php:72
+msgid "All Categories"
+msgstr "Όλες οι κατηγορίες"
+
+#: includes/class-taxonomy-category.php:73
+msgid "Parent Category"
+msgstr "Parent Category"
+
+#: includes/class-taxonomy-category.php:74
+msgid "Parent Category:"
+msgstr "Parent Category:"
+
+#: includes/class-taxonomy-category.php:75
+msgid "Edit Category"
+msgstr "Edit Category"
+
+#: includes/class-taxonomy-category.php:76
+msgid "Update Category"
+msgstr "Update Category"
+
+#: includes/class-taxonomy-category.php:77
+msgid "Add New Category"
+msgstr "Add New Category"
+
+#: includes/class-taxonomy-category.php:78
+msgid "New Category Name"
+msgstr "New Category Name"
+
+#: includes/class-taxonomy-category.php:79
+#: includes/class-taxonomy-category.php:83
+msgid "Categories"
+msgstr "Κατηγορίες"
+
+#: includes/class-taxonomy-tag.php:38
+msgctxt "slug name"
+msgid "product-tag"
+msgstr "product-tag"
+
+#: includes/class-taxonomy-tag.php:69
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "Ετικέτες"
+
+#: includes/class-taxonomy-tag.php:70
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "Ετικέτα"
+
+#: includes/class-taxonomy-tag.php:71
+msgid "Search Tags"
+msgstr "Search Tags"
+
+#: includes/class-taxonomy-tag.php:72
+msgid "All Tags"
+msgstr "All Tags"
+
+#: includes/class-taxonomy-tag.php:73
+msgid "Parent Tag"
+msgstr "Parent Tag"
+
+#: includes/class-taxonomy-tag.php:74
+msgid "Parent Tag:"
+msgstr "Parent Tag:"
+
+#: includes/class-taxonomy-tag.php:75
+msgid "Edit Tag"
+msgstr "Edit Tag"
+
+#: includes/class-taxonomy-tag.php:76
+msgid "Update Tag"
+msgstr "Update Tag"
+
+#: includes/class-taxonomy-tag.php:77
+msgid "Add New Tag"
+msgstr "Add New Tag"
+
+#: includes/class-taxonomy-tag.php:78
+msgid "New Tag Name"
+msgstr "New Tag Name"
+
+#: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
+msgid "Tags"
+msgstr "Ετικέτες"
+
+#: includes/widgets/class-cart.php:25
+msgid "Reseller Cart"
+msgstr "Reseller Cart"
+
+#: includes/widgets/class-cart.php:28
+msgid "Display the user's cart in the sidebar."
+msgstr "Display the user's cart in the sidebar."
+
+#: includes/widgets/class-cart.php:87
+#, php-format
+msgctxt "number of items in cart"
+msgid "View Cart %s"
+msgstr "View Cart %s"
+
+#: includes/widgets/class-cart.php:105
+msgid "Cart"
+msgstr "Καλάθι"
+
+#: includes/widgets/class-cart.php:110
+#: includes/widgets/class-domain-search.php:115
+msgid "Title:"
+msgstr "Τίτλος:"
+
+#: includes/widgets/class-cart.php:116
+msgid "Hide if cart is empty"
+msgstr "Απόκρυψη αν το καλάθι είναι άδειο"
+
+#: includes/widgets/class-domain-search.php:25
+msgid "Reseller Domain Search"
+msgstr "Reseller Domain Search"
+
+#: includes/widgets/class-domain-search.php:28
+msgid "A search form for domain names."
+msgstr "A search form for domain names."
+
+#: includes/widgets/class-domain-search.php:86
+#: includes/widgets/class-domain-search.php:87
+msgid "Search for a domain name:"
+msgstr "Search for a domain name:"
+
+#: includes/widgets/class-domain-search.php:91
+#: includes/widgets/class-domain-search.php:111
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: includes/widgets/class-domain-search.php:109
+msgid "Domain Search"
+msgstr "Αναζήτηση domain"
+
+#: includes/widgets/class-domain-search.php:110
+msgid "Find your perfect name"
+msgstr "Βρείτε το ιδανικό όνομα domain για εσάς"
+
+#: includes/widgets/class-domain-search.php:120
+msgid "Placeholder:"
+msgstr "Placeholder:"
+
+#: includes/widgets/class-domain-search.php:125
+msgid "Button:"
+msgstr "Button:"
