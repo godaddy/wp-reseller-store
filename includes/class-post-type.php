@@ -243,7 +243,7 @@ final class Post_Type {
 	 */
 	public function sync_product_meta() {
 
-		$last_synced = get_transient( Plugin::prefix( 'last_synced' ) );
+		$last_synced = Plugin::get_transient( 'last_synced', false );
 
 		if ( false !== $last_synced ) {
 

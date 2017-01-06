@@ -85,7 +85,7 @@ trait Helpers {
 	 * @param  string|array $callback   (optional)
 	 * @param  int          $expiration (optional)
 	 *
-	 * @return mixed
+	 * @return mixed|WP_Error
 	 */
 	public static function get_transient( $name, $default = null, $callback = null, $expiration = HOUR_IN_SECONDS ) {
 
@@ -104,7 +104,14 @@ trait Helpers {
 		}
 
 		$value = $callback();
-		$value = ( $value && ! is_wp_error( $value ) ) ? $value : $default;
+
+		if ( is_wp_error( $value ) ) {
+
+			return $value; // Return the WP_Error
+
+		}
+
+		$value = ( $value ) ? $value : $default;
 
 		// Always set, even when the value is empty
 		self::set_transient( $name, $value, (int) $expiration );
@@ -232,7 +239,7 @@ trait Helpers {
 
 		$products = API::get_products();
 
-		if ( empty( $products[0]->id ) ) {
+		if ( is_wp_error( $products ) || empty( $products[0]->id ) ) {
 
 			return [];
 

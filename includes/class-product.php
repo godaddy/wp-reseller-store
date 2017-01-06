@@ -60,7 +60,7 @@ final class Product {
 	 */
 	public function is_valid() {
 
-		if ( ! is_array( $this->product ) && ! is_a( $this->product, 'stdClass' ) ) {
+		if ( ! is_a( $this->product, 'stdClass' ) ) {
 
 			return false;
 

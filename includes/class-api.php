@@ -244,7 +244,7 @@ final class API {
 
 		}
 
-		return (array) Plugin::get_transient( 'products', [], function () {
+		return Plugin::get_transient( 'products', [], function () {
 
 			return rstore()->api->get( 'catalog/{pl_id}/products' );
 
