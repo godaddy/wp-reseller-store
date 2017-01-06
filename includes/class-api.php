@@ -29,7 +29,7 @@ final class API {
 	 *
 	 * @var int
 	 */
-	private $max_retries = 1;
+	private $max_retries = 0;
 
 	/**
 	 * Array of URLs.
@@ -171,7 +171,7 @@ final class API {
 
 		if ( $errors <= $this->max_retries ) {
 
-			sleep( 2 ); // Pause between retries
+			sleep( 1 ); // Pause between retries
 
 			return $this->request( $method, $endpoint, $args );
 
