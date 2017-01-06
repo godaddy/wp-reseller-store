@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: reseller-store 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 15:34-0600\n"
+"POT-Creation-Date: 2017-01-06 02:44-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,60 +25,79 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: includes/class-butterbean.php:159
+#: includes/class-butterbean.php:158
 msgid "Advanced"
 msgstr ""
 
-#: includes/class-butterbean.php:183 includes/class-post-type.php:399
+#: includes/class-butterbean.php:182 includes/class-post-type.php:375
 msgid "Price"
 msgstr ""
 
-#: includes/class-butterbean.php:211
+#: includes/class-butterbean.php:210
 msgid "Sale Price"
 msgstr ""
 
-#: includes/class-butterbean.php:212
+#: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr ""
 
-#: includes/class-butterbean.php:240
+#: includes/class-butterbean.php:239
 msgid "Default Quantity"
 msgstr ""
 
-#: includes/class-butterbean.php:274
+#: includes/class-butterbean.php:273
 msgid "Add to Cart Button Label"
 msgstr ""
 
-#: includes/class-butterbean.php:276 includes/class-display.php:136
+#: includes/class-butterbean.php:275 includes/class-display.php:149
 msgid "Add to cart"
 msgstr ""
 
-#: includes/class-butterbean.php:303
+#: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"
 msgstr ""
 
-#: includes/class-butterbean.php:344
+#: includes/class-butterbean.php:335
 msgid "Restore Product Data"
 msgstr ""
 
-#: includes/class-butterbean.php:345
+#: includes/class-butterbean.php:336
 msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
 
-#: includes/class-butterbean.php:346
+#: includes/class-butterbean.php:337
 msgid "Reset Data"
 msgstr ""
 
-#: includes/class-display.php:63
+#: includes/class-display.php:64
 msgid "View cart"
 msgstr ""
 
-#: includes/class-display.php:64
+#: includes/class-display.php:65
 msgid "An unknown error has occurred"
+msgstr ""
+
+#: includes/class-display.php:113
+#, php-format
+msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
+msgid "%1$s / per %2$s"
+msgstr ""
+
+#: includes/class-import.php:63
+msgid "Invalid product."
+msgstr ""
+
+#: includes/class-import.php:80
+msgid "No data availble for unknown product."
+msgstr ""
+
+#: includes/class-import.php:88
+#, php-format
+msgid "Post type `%s` is invalid."
 msgstr ""
 
 #: includes/class-permalinks.php:41
@@ -112,145 +131,112 @@ msgstr ""
 msgid "Custom base"
 msgstr ""
 
-#: includes/class-post-type.php:49
+#: includes/class-post-type.php:58
 msgctxt "slug name"
 msgid "products"
 msgstr ""
 
-#: includes/class-post-type.php:94
+#: includes/class-post-type.php:103
 msgctxt "post type general name"
 msgid "Products"
 msgstr ""
 
-#: includes/class-post-type.php:95
+#: includes/class-post-type.php:104
 msgctxt "post type singular name"
 msgid "Product"
 msgstr ""
 
-#: includes/class-post-type.php:96
+#: includes/class-post-type.php:105
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr ""
 
-#: includes/class-post-type.php:97
+#: includes/class-post-type.php:106
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr ""
 
-#: includes/class-post-type.php:98
+#: includes/class-post-type.php:107
 msgctxt "product"
 msgid "Add New"
 msgstr ""
 
-#: includes/class-post-type.php:99
+#: includes/class-post-type.php:108
 msgid "Add New Product"
 msgstr ""
 
-#: includes/class-post-type.php:100
+#: includes/class-post-type.php:109
 msgid "Edit Product"
 msgstr ""
 
-#: includes/class-post-type.php:101
+#: includes/class-post-type.php:110
 msgid "New Product"
 msgstr ""
 
-#: includes/class-post-type.php:102
+#: includes/class-post-type.php:111
 msgid "View Product"
 msgstr ""
 
-#: includes/class-post-type.php:103
+#: includes/class-post-type.php:112
 msgid "View Products"
 msgstr ""
 
-#: includes/class-post-type.php:104
+#: includes/class-post-type.php:113
 msgid "Search Products"
 msgstr ""
 
-#: includes/class-post-type.php:105
+#: includes/class-post-type.php:114
 msgid "No products found."
 msgstr ""
 
-#: includes/class-post-type.php:106
+#: includes/class-post-type.php:115
 msgid "No products found in Trash."
 msgstr ""
 
-#: includes/class-post-type.php:107
+#: includes/class-post-type.php:116
 msgid "Parent Products:"
 msgstr ""
 
-#: includes/class-post-type.php:108
+#: includes/class-post-type.php:117
 msgid "All Products"
 msgstr ""
 
-#: includes/class-post-type.php:109
+#: includes/class-post-type.php:118
 msgid "Product Archives"
 msgstr ""
 
-#: includes/class-post-type.php:110
+#: includes/class-post-type.php:119
 msgid "Insert into product"
 msgstr ""
 
-#: includes/class-post-type.php:111
+#: includes/class-post-type.php:120
 msgid "Uploaded to this product"
 msgstr ""
 
-#: includes/class-post-type.php:112 includes/class-post-type.php:390
+#: includes/class-post-type.php:121 includes/class-post-type.php:366
 msgid "Product Image"
 msgstr ""
 
-#: includes/class-post-type.php:113
+#: includes/class-post-type.php:122
 msgid "Set product image"
 msgstr ""
 
-#: includes/class-post-type.php:114
+#: includes/class-post-type.php:123
 msgid "Remove product image"
 msgstr ""
 
-#: includes/class-post-type.php:115
+#: includes/class-post-type.php:124
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/class-post-type.php:120
+#: includes/class-post-type.php:129
 msgid "This is where you can add new products to your Reseller Store."
 msgstr ""
 
-#: includes/class-post-type.php:198
-#, php-format
-msgid "Post ID `%d` is invalid."
-msgstr ""
-
-#: includes/class-post-type.php:204
-#, php-format
-msgid "Post type `%s` is invalid."
-msgstr ""
-
-#: includes/class-post-type.php:212
-msgid "No data availble for unknown product."
-msgstr ""
-
-#: includes/class-post-type.php:232
-msgid "Product data could not be retreived. Please try again later."
-msgstr ""
-
-#: includes/class-post-type.php:246
-#, php-format
-msgid "Product `%s` is no longer available."
-msgstr ""
-
-#: includes/class-post-type.php:494
+#: includes/class-post-type.php:499
 #, php-format
 msgctxt "product title"
 msgid "Edit: %s"
-msgstr ""
-
-#: includes/class-product.php:67
-#, php-format
-msgid "Invalid product: %s"
-msgstr ""
-
-#: includes/class-product.php:75
-#, php-format
-msgid "Product `%s` already exists."
 msgstr ""
 
 #: includes/class-restrictions.php:169
@@ -261,51 +247,51 @@ msgstr ""
 msgid "Import All Products"
 msgstr ""
 
-#: includes/class-setup.php:71
+#: includes/class-setup.php:65
 msgid "Reseller Store Setup"
 msgstr ""
 
-#: includes/class-setup.php:72
+#: includes/class-setup.php:66
 msgid "Reseller Store"
 msgstr ""
 
-#: includes/class-setup.php:144
+#: includes/class-setup.php:138
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr ""
 
-#: includes/class-setup.php:148
+#: includes/class-setup.php:142
 msgid "Enter your Private Label ID to get started."
 msgstr ""
 
-#: includes/class-setup.php:151
+#: includes/class-setup.php:145
 msgid "Enter your Private Label ID:"
 msgstr ""
 
-#: includes/class-setup.php:153
+#: includes/class-setup.php:147
 msgid "Install Now"
 msgstr ""
 
-#: includes/class-setup.php:157
+#: includes/class-setup.php:151
 msgid "Don't have an account?"
 msgstr ""
 
-#: includes/class-setup.php:157
+#: includes/class-setup.php:151
 msgid "Create an account"
 msgstr ""
 
-#: includes/class-setup.php:160
+#: includes/class-setup.php:154
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 msgstr ""
 
-#: includes/class-setup.php:184
+#: includes/class-setup.php:178
 msgid "Error: Invalid Private Label ID"
 msgstr ""
 
-#: includes/class-setup.php:212
+#: includes/class-setup.php:209
 msgid "Error: No products available. Please try again later."
 msgstr ""
 
-#: includes/class-setup.php:230
+#: includes/class-setup.php:236
 msgid "Error: Invalid product data. Please try again later."
 msgstr ""
 
