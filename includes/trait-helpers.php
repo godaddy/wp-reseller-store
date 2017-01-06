@@ -18,7 +18,7 @@ trait Helpers {
 	 * @param  string $string
 	 * @param  bool   $use_dashes (optional)
 	 *
-	 * @return string
+	 * @return string  Returns a string prepended with the plugin prefix.
 	 */
 	public static function prefix( $string, $use_dashes = false ) {
 
@@ -36,7 +36,7 @@ trait Helpers {
 	 * @param  string $key
 	 * @param  mixed  $default (optional)
 	 *
-	 * @return mixed
+	 * @return mixed  Returns the option value if the key exists, otherwise the `$default` parameter value.
 	 */
 	public static function get_option( $key, $default = false ) {
 
@@ -52,7 +52,7 @@ trait Helpers {
 	 * @param  string $key
 	 * @param  mixed  $value
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
 	public static function update_option( $key, $value ) {
 
@@ -67,7 +67,7 @@ trait Helpers {
 	 *
 	 * @param  string $key
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
 	public static function delete_option( $key ) {
 
@@ -122,7 +122,7 @@ trait Helpers {
 	 * @param  mixed  $value
 	 * @param  int    $expiration (optional)
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
 	public static function set_transient( $name, $value, $expiration = HOUR_IN_SECONDS ) {
 
@@ -137,7 +137,7 @@ trait Helpers {
 	 *
 	 * @param  string $name
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
 	public static function delete_transient( $name ) {
 
@@ -172,92 +172,46 @@ trait Helpers {
 	 *
 	 * @since NEXT
 	 *
-	 * @param  int   $post_id
-	 * @param  mixed $key
-	 * @param  mixed $value   (optional)
+	 * @param  int                 $post_id
+	 * @param  string|array|object $key
+	 * @param  mixed               $value   (optional)
 	 *
-	 * @return int|bool
+	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
 	public static function update_post_meta( $post_id, $key, $value = '' ) {
 
-		if ( ! is_array( $key ) && ! is_object( $key ) ) {
+		$result = update_post_meta( $post_id, self::prefix( $key ), $value );
 
-			return update_post_meta( $post_id, self::prefix( $key ), $value );
-
-		}
-
-		if ( 3 === func_num_args() ) {
-
-			return false;
-
-		}
-
-		foreach ( $key as $_key => $_value ) {
-
-			self::update_post_meta( $post_id, $_key, $_value );
-
-		}
-
-		return true;
+		/**
+		 * WordPress returns the meta_id if the post meta was "added" rather
+		 * than "updated". We don't really care, so just returning `true` in
+		 * those cases since the meta was created.
+		 */
+		return is_int( $result ) ? true : $result;
 
 	}
 
 	/**
-	 * Mark a product as imported.
+	 * Update post meta key/value pairs in bulk.
 	 *
 	 * @since NEXT
 	 *
-	 * @param  int    $post_id
-	 * @param  string $product_id
+	 * @param  int          $post_id
+	 * @param  array|object $meta
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` on success of _all_ post meta, `false` on failure of _any_ post meta.
 	 */
-	public static function mark_product_as_imported( $post_id, $product_id ) {
+	public static function bulk_update_post_meta( $post_id, $meta ) {
 
-		if ( Post_Type::SLUG !== get_post_type( $post_id ) ) {
+		$results = [];
 
-			return false;
+		foreach ( $meta as $key => $value ) {
 
-		}
-
-		$imported = (array) self::get_option( 'imported', [] );
-
-		if ( $key = array_search( $product_id, $imported ) ) {
-
-			unset( $imported[ $key ] );
+			$results[] = self::update_post_meta( (int) $post_id, $key, $value );
 
 		}
 
-		$imported[ $post_id ] = $product_id;
-
-		return self::update_option( 'imported', $imported );
-
-	}
-
-	/**
-	 * Mark an imported product as deleted.
-	 *
-	 * @since NEXT
-	 *
-	 * @param  int $post_id
-	 *
-	 * @return bool
-	 */
-	public static function mark_product_as_deleted( $post_id ) {
-
-		if ( Post_Type::SLUG !== get_post_type( $post_id ) ) {
-
-			return false;
-
-		}
-
-		self::delete_transient( 'products' ); // Re-fetch products from API
-
-		$imported = (array) self::get_option( 'imported', [] );
-
-		unset( $imported[ $post_id ] );
-
-		return self::update_option( 'imported', $imported );
+		return ! in_array( false, $results, true );
 
 	}
 
@@ -266,7 +220,7 @@ trait Helpers {
 	 *
 	 * @since NEXT
 	 *
-	 * @return array
+	 * @return array  Returns an array of product IDs, otherwise an empty array.
 	 */
 	public static function get_missing_products() {
 
@@ -276,11 +230,7 @@ trait Helpers {
 
 		}
 
-		$products = (array) self::get_transient( 'products', [], function () {
-
-			return rstore()->api->get( 'catalog/{pl_id}/products' );
-
-		} );
+		$products = API::get_products();
 
 		if ( empty( $products[0]->id ) ) {
 
@@ -298,28 +248,15 @@ trait Helpers {
 	}
 
 	/**
-	 * Check if the site is missing products that can be imported.
-	 *
-	 * @since NEXT
-	 *
-	 * @return bool
-	 */
-	public static function is_missing_products() {
-
-		return ( self::get_missing_products() );
-
-	}
-
-	/**
 	 * Check if the site has imported all available products.
 	 *
 	 * @since NEXT
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` if all available products have been imported, otherwise `false`.
 	 */
 	public static function has_all_products() {
 
-		return ! self::is_missing_products();
+		return ! (bool) self::get_missing_products();
 
 	}
 
@@ -329,18 +266,24 @@ trait Helpers {
 	 * @global wpdb $wpdb
 	 * @since  NEXT
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` if there are product posts, otherwise `false`. Ignores the `auto-draft` post status.
 	 */
 	public static function has_products() {
 
-		global $wpdb;
+		static $count;
 
-		$count = (int) $wpdb->get_var(
-			$wpdb->prepare(
-				"SELECT COUNT(*) FROM `{$wpdb->posts}` WHERE `post_type` = %s AND `post_status` != 'auto-draft';",
-				Post_Type::SLUG
-			)
-		);
+		if ( ! isset( $count ) ) {
+
+			global $wpdb;
+
+			$count = (int) $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT COUNT(*) FROM `{$wpdb->posts}` WHERE `post_type` = %s AND `post_status` != 'auto-draft';",
+					Post_Type::SLUG
+				)
+			);
+
+		}
 
 		return ( $count > 0 );
 
@@ -351,7 +294,7 @@ trait Helpers {
 	 *
 	 * @since NEXT
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` if a private label ID exists, otherwise `false`.
 	 */
 	public static function is_setup() {
 
@@ -367,7 +310,7 @@ trait Helpers {
 	 * @param  string $request_uri
 	 * @param  bool   $strict      (optional)
 	 *
-	 * @return bool
+	 * @return bool  Returns `true` if the current admin URL contains the specified URI, otherwise `false`.
 	 */
 	public static function is_admin_uri( $request_uri, $strict = true ) {
 

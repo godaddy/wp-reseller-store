@@ -61,12 +61,6 @@ final class Setup {
 	 */
 	public function page() {
 
-		if ( Plugin::is_setup() && Plugin::has_products() ) {
-
-			return;
-
-		}
-
 		add_menu_page(
 			esc_html__( 'Reseller Store Setup', 'reseller-store' ),
 			esc_html__( 'Reseller Store', 'reseller-store' ),
@@ -196,13 +190,16 @@ final class Setup {
 
 		flush_rewrite_rules();
 
-		Plugin::delete_transient( 'products' );
-
-		$products = rstore()->api->get( 'catalog/{pl_id}/products' );
+		$products = API::get_products( true );
 
 		if ( is_wp_error( $products ) ) {
 
-			wp_send_json_error( $products->get_error_message() );
+			wp_send_json_error(
+				sprintf(
+					$products->get_error_message(),
+					$products->get_error_data( $products->get_error_code() )
+				)
+			);
 
 		}
 
@@ -214,13 +211,22 @@ final class Setup {
 
 		}
 
-		Plugin::delete_option( 'imported' );
-
 		foreach ( (array) $products as $product ) {
 
 			$product = new Product( $product );
 
-			$product->import();
+			$result = $product->import();
+
+			if ( is_wp_error( $result ) ) {
+
+				wp_send_json_error(
+					sprintf(
+						$result->get_error_message(),
+						$result->get_error_data( $result->get_error_code() )
+					)
+				);
+
+			}
 
 		}
 
@@ -232,7 +238,6 @@ final class Setup {
 
 		}
 
-		Plugin::set_transient( 'products', $products );
 		Plugin::set_transient( 'last_synced', time(), HOUR_IN_SECONDS );
 
 		wp_send_json_success(
@@ -257,13 +262,6 @@ final class Setup {
 	public static function uninstall( $keep_attachments = true ) {
 
 		global $wpdb;
-
-		$wpdb->query(
-			$wpdb->prepare(
-				"DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE %s;",
-				'%' . Plugin::prefix( '%' ) // Transients too
-			)
-		);
 
 		$posts = $wpdb->get_col(
 			$wpdb->prepare(
@@ -324,6 +322,13 @@ final class Setup {
 			}
 
 		}
+
+		$wpdb->query(
+			$wpdb->prepare(
+				"DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE %s;",
+				'%' . Plugin::prefix( '%' ) // Transients too
+			)
+		);
 
 	}
 

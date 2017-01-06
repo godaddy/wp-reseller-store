@@ -40,6 +40,15 @@ final class Post_Type {
 	public static $default_permalink_base;
 
 	/**
+	 * Hold error object.
+	 *
+	 * @since NEXT
+	 *
+	 * @var WP_Error
+	 */
+	private $error;
+
+	/**
 	 * Class constructor.
 	 *
 	 * @since NEXT
@@ -53,7 +62,7 @@ final class Post_Type {
 		add_action( 'wp',                           [ $this, 'sync_product_meta' ] );
 		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
-		add_action( 'delete_post',                  [ __NAMESPACE__ . '\Plugin', 'mark_product_as_deleted' ] );
+		add_action( 'delete_post',                  [ $this, 'delete_imported_product' ] );
 
 		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
 		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
@@ -174,9 +183,30 @@ final class Post_Type {
 
 		}
 
-		self::reset_product_data( $post_id );
+		$result = $this->reset_product_data( $post_id );
 
-		Plugin::admin_redirect( remove_query_arg( '_wpnonce' ) );
+		if ( ! is_wp_error( $result ) ) {
+
+			return;
+
+		}
+
+		/**
+		 * If there is an error, display it in an admin notice.
+		 */
+		add_action( 'edit_form_top', function () use ( $result ) {
+
+			printf(
+				'<div class="notice notice-error is-dismissible"><p>%s</p></div>',
+				esc_html(
+					sprintf(
+						$result->get_error_message(),
+						$result->get_error_data( $result->get_error_code() )
+					)
+				)
+			);
+
+		} );
 
 	}
 
@@ -189,67 +219,19 @@ final class Post_Type {
 	 *
 	 * @return true|WP_Error
 	 */
-	public static function reset_product_data( $post_id ) {
+	public function reset_product_data( $post_id ) {
 
-		$post = get_post( absint( $post_id ) );
+		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ), true );
 
-		if ( ! $post ) {
+		if ( is_wp_error( $product ) ) {
 
-			return new WP_Error( 'invalid_post_id', esc_html__( 'Post ID `%d` is invalid.' ), $post_id );
-
-		}
-
-		if ( self::SLUG !== $post->post_type ) {
-
-			return new WP_Error( 'invalid_post_type', esc_html__( 'Post type `%s` is invalid.' ), $post->post_type );
+			return $product; // Return the WP_Error
 
 		}
 
-		$imported = (array) Plugin::get_option( 'imported', [] );
+		$product = new Product( $product );
 
-		if ( ! isset( $imported[ $post->ID ] ) ) {
-
-			return new WP_Error( 'unknown_product', esc_html__( 'No data availble for unknown product.' ) );
-
-		}
-
-		$product_id = $imported[ $post->ID ];
-
-		$products = Plugin::get_transient( 'products', [], function () {
-
-			return rstore()->api->get( 'catalog/{pl_id}/products' );
-
-		} );
-
-		if ( is_wp_error( $products ) ) {
-
-			return new WP_Error( 'api_error', $products->get_error_message() );
-
-		}
-
-		if ( ! $products ) {
-
-			return new WP_Error( 'no_product_data', esc_html__( 'Product data could not be retreived. Please try again later.' ) );
-
-		}
-
-		$products = array_filter( $products, function ( $product ) use ( $product_id ) {
-
-			return ( isset( $product->id ) && $product->id === $product_id );
-
-		} );
-
-		$product = array_values( $products );
-
-		if ( empty( $product[0]->id ) ) {
-
-			return new WP_Error( 'product_not_found', esc_html__( 'Product `%s` is no longer available.' ), $product_id );
-
-		}
-
-		$product = new Product( $product[0] );
-
-		return $product->import( $post->ID );
+		return $product->import( $post_id );
 
 	}
 
@@ -272,13 +254,7 @@ final class Post_Type {
 		// Set early so if the sync fails, we try again in 5 min
 		Plugin::set_transient( 'last_synced', time(), 300 );
 
-		Plugin::delete_transient( 'products' );
-
-		$products = Plugin::get_transient( 'products', [], function () {
-
-			return rstore()->api->get( 'catalog/{pl_id}/products' );
-
-		} );
+		$products = API::get_products( true );
 
 		if ( is_wp_error( $products ) || ! $products ) {
 
@@ -433,6 +409,35 @@ final class Post_Type {
 			);
 
 		}
+
+	}
+
+	/**
+	 * Mark an imported product as deleted.
+	 *
+	 * @action delete_post
+	 * @since  NEXT
+	 *
+	 * @param  int $post_id
+	 *
+	 * @return bool  Returns `true` on success, `false` on failure.
+	 */
+	public function delete_imported_product( $post_id ) {
+
+		if ( Post_Type::SLUG !== get_post_type( $post_id ) ) {
+
+			return false;
+
+		}
+
+		// Re-fetch products from the API to ensure `Plugin::has_all_products()` is accurate
+		Plugin::delete_transient( 'products' );
+
+		$imported = (array) Plugin::get_option( 'imported', [] );
+
+		unset( $imported[ $post_id ] );
+
+		return Plugin::update_option( 'imported', $imported );
 
 	}
 

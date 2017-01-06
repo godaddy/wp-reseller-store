@@ -80,7 +80,7 @@ final class Restrictions {
 	 */
 	public function admin_submenu() {
 
-		if ( Plugin::is_missing_products() ) {
+		if ( ! Plugin::has_all_products() ) {
 
 			return;
 
@@ -101,7 +101,7 @@ final class Restrictions {
 	 */
 	public function add_product_button() {
 
-		if ( Plugin::is_missing_products() ) {
+		if ( ! Plugin::has_all_products() ) {
 
 			return;
 
@@ -124,7 +124,7 @@ final class Restrictions {
 	 */
 	public function admin_bar_submenu() {
 
-		if ( Plugin::is_missing_products() ) {
+		if ( ! Plugin::has_all_products() ) {
 
 			return;
 

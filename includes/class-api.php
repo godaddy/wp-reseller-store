@@ -2,6 +2,7 @@
 
 namespace Reseller_Store;
 
+use stdClass;
 use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -213,22 +214,6 @@ final class API {
 	}
 
 	/**
-	 * Make a PUT request to the API.
-	 *
-	 * @since NEXT
-	 *
-	 * @param  string $endpoint
-	 * @param  array  $args     (optional)
-	 *
-	 * @return array|WP_Error
-	 */
-	public function put( $endpoint, array $args = [] ) {
-
-		return $this->request( 'PUT', $endpoint, $args );
-
-	}
-
-	/**
 	 * Make a DELETE request to the API.
 	 *
 	 * @since NEXT
@@ -241,6 +226,53 @@ final class API {
 	public function delete( $endpoint, array $args = [] ) {
 
 		return $this->request( 'DELETE', $endpoint, $args );
+
+	}
+
+	/**
+	 * Return an array of products and cache them.
+	 *
+	 * @param  bool $force (optional)
+	 *
+	 * @return array|WP_Error
+	 */
+	public static function get_products( $force = false ) {
+
+		if ( $force ) {
+
+			Plugin::delete_transient( 'products' );
+
+		}
+
+		return (array) Plugin::get_transient( 'products', [], function () {
+
+			return rstore()->api->get( 'catalog/{pl_id}/products' );
+
+		} );
+
+	}
+
+	/**
+	 * Return a product and cache it.
+	 *
+	 * @param  string $product_id
+	 * @param  bool   $force (optional)
+	 *
+	 * @return stdClass|WP_Error
+	 */
+	public static function get_product( $product_id, $force = false ) {
+
+		if ( $force ) {
+
+			Plugin::delete_transient( 'product_' . $product_id );
+
+		}
+
+		return Plugin::get_transient( 'product_' . $product_id, [], function () use ( $product_id ) {
+
+			return rstore()->api->get( 'catalog/{pl_id}/products/' . $product_id );
+
+		} );
 
 	}
 

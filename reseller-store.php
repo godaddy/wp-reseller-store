@@ -67,9 +67,10 @@ final class Plugin {
 		}
 
 		new Restrictions;
-		new Setup;
 
 		if ( ! self::is_setup() || ! self::has_products() ) {
+
+			new Setup;
 
 			return; // Bail until Setup is complete
 

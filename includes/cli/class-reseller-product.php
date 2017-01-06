@@ -55,7 +55,10 @@ final class Reseller_Product extends \WP_CLI_Command {
 					sprintf(
 						'[%d] %s',
 						$post_id,
-						sprintf( $error->get_error_message(), $error->get_error_data( $error->get_error_code() ) )
+						sprintf(
+							$error->get_error_message(),
+							$error->get_error_data( $error->get_error_code() )
+						)
 					),
 					false
 				);
