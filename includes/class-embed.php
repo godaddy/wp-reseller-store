@@ -24,6 +24,28 @@ final class Embed {
 	}
 
 	/**
+	 * Flush all oEmbed post meta cache.
+	 *
+	 * Note: This function may return `false`, or it may return `0` (which evaluates
+	 * to `false`). Use the identical comparison operator (===) when relying on the
+	 * return value of this method.
+	 *
+	 * @global wpdb $wpdb
+	 *
+	 * @return int|false  Returns the number cache entries deleted, `false` on error.
+	 */
+	public static function flush_cache() {
+
+		global $wpdb;
+
+		$results = $wpdb->query( "DELETE FROM `{$wpdb->postmeta}` WHERE `meta_key` LIKE '_oembed_%';" );
+
+		// Every cache row has an expiration row, divide by two
+		return is_int( $results ) ? $results / 2 : $results;
+
+	}
+
+	/**
 	 * Add styles to the embed <head>.
 	 *
 	 * @action embed_head

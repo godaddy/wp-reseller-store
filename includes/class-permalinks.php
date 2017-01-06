@@ -160,13 +160,23 @@ final class Permalinks {
 
 		}
 
-		$permalinks = (array) Plugin::get_option( 'permalinks', [] );
+		$permalinks  = (array) Plugin::get_option( 'permalinks', [] );
+		$_permalinks = $permalinks;
 
-		$permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base' ) );
-		$permalinks['tag_base']      = sanitize_title( filter_input( INPUT_POST, 'rstore_tag_base' ) );
-		$permalinks['product_base']  = sanitize_title( filter_input( INPUT_POST, 'rstore_product_base' ) );
+		$_permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base' ) );
+		$_permalinks['tag_base']      = sanitize_title( filter_input( INPUT_POST, 'rstore_tag_base' ) );
+		$_permalinks['product_base']  = sanitize_title( filter_input( INPUT_POST, 'rstore_product_base' ) );
 
-		Plugin::update_option( 'permalinks', $permalinks );
+		if ( $_permalinks === $permalinks ) {
+
+			return; // There is no change, do nothing
+
+		}
+
+		// Flush the oEmbed cache when product permalinks change
+		Embed::flush_cache();
+
+		Plugin::update_option( 'permalinks', $_permalinks );
 
 	}
 
