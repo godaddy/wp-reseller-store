@@ -263,6 +263,9 @@ trait Helpers {
 	/**
 	 * Check whether products exist.
 	 *
+	 * Product count is cached in memory to prevent duplicate
+	 * queries on the same page load.
+	 *
 	 * @global wpdb $wpdb
 	 * @since  NEXT
 	 *
