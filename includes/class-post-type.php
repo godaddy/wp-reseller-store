@@ -236,23 +236,38 @@ final class Post_Type {
 	}
 
 	/**
-	 * Re-sync product meta every hour.
+	 * Sync down API product meta on a regular basis.
 	 *
 	 * @action init
 	 * @since  NEXT
 	 */
 	public function sync_product_meta() {
 
-		$last_synced = Plugin::get_transient( 'last_synced', false );
+		$last_sync = Plugin::get_transient( 'last_sync', false );
 
-		if ( false !== $last_synced ) {
+		if ( false !== $last_sync ) {
 
 			return;
 
 		}
 
-		// Set early so if the sync fails, we try again in 5 min
-		Plugin::set_transient( 'last_synced', time(), 300 );
+		/**
+		 * Filter the time to wait in between API sync retries (in seconds).
+		 *
+		 * Default: 1 min
+		 *
+		 * This is the TTL that will be used if the sync fails. It should be
+		 * _equal-to or less-than_ than the real `rstore_sync_ttl`, which is
+		 * used after a successful sync.
+		 *
+		 * @since NEXT
+		 *
+		 * @var int
+		 */
+		$sync_retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
+
+		// Set early so if the sync fails, we retry with a shorter TTL
+		Plugin::set_transient( 'last_sync', time(), $sync_retry_ttl );
 
 		$products = API::get_products( true );
 
@@ -274,15 +289,40 @@ final class Post_Type {
 
 			}
 
-			// Some properties should not be synced
-			unset( $product->id, $product->categories, $product->image );
+			/**
+			 * Filter the properties that should not be synced.
+			 *
+			 * Default: id, categories, image
+			 *
+			 * @since NEXT
+			 *
+			 * @var array
+			 */
+			$properties = (array) apply_filters( 'rstore_sync_ignore', [ 'id', 'categories', 'image' ] );
+
+			foreach ( $properties as $property ) {
+
+				unset( $product->property );
+
+			}
 
 			Plugin::update_post_meta( $post_id, $product );
 
 		}
 
-		// The sync was successful, wait another hour
-		Plugin::set_transient( 'last_synced', time(), HOUR_IN_SECONDS );
+		/**
+		 * Filter the time to wait in between API syncs (in seconds).
+		 *
+		 * Default: 15 min
+		 *
+		 * @since NEXT
+		 *
+		 * @var int
+		 */
+		$sync_ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
+
+		// The sync was successful, use the real TTL
+		Plugin::set_transient( 'last_sync', time(), $sync_ttl );
 
 	}
 

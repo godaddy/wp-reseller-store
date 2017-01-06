@@ -238,7 +238,7 @@ final class Setup {
 
 		}
 
-		Plugin::set_transient( 'last_synced', time(), HOUR_IN_SECONDS );
+		Plugin::set_transient( 'last_sync', time(), HOUR_IN_SECONDS );
 
 		wp_send_json_success(
 			[
