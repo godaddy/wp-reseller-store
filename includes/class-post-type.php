@@ -68,6 +68,7 @@ final class Post_Type {
 		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
 		add_filter( 'post_type_labels_' . self::SLUG,          [ $this, 'post_screen_edit_heading' ] );
 		add_filter( 'the_content',                             [ $this, 'append_add_to_cart_form' ] );
+		add_filter( 'the_excerpt',                             [ $this, 'append_add_to_cart_form' ] );
 
 		add_filter( 'edit_' . self::SLUG . '_per_page',                function () { return 50; } );
 		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) { return array_merge( $columns, [ 'price' => 'price' ] ); } );
@@ -557,7 +558,7 @@ final class Post_Type {
 
 		global $post;
 
-		if ( self::SLUG === $post->post_type ) {
+		if ( self::SLUG === $post->post_type && ! is_feed() ) {
 
 			$content .= wpautop( Display::price( $post->ID, false ) );
 			$content .= Display::add_to_cart_form( $post->ID, false );
