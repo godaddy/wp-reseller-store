@@ -558,7 +558,7 @@ final class Post_Type {
 
 		global $post;
 
-		if ( self::SLUG === $post->post_type && ! is_feed() ) {
+		if ( self::SLUG === $post->post_type && ! is_feed() && ! REST_REQUEST ) {
 
 			$content .= wpautop( Display::price( $post->ID, false ) );
 			$content .= Display::add_to_cart_form( $post->ID, false );
