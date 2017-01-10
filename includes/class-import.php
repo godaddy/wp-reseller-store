@@ -214,25 +214,25 @@ final class Import {
 	 */
 	private function process_categories( $categories, $post_id, $parent = 0 ) {
 
-		$term_ids = [];
-
 		foreach ( $categories as $category ) {
 
 			if ( is_string( $category ) ) {
 
-				$term_ids[] = $this->add_category( $category, $post_id, $parent );
+				$this->add_category( $category, $post_id, $parent );
 
 				continue;
 
 			}
 
-			foreach ( (array) $category as $index => $_categories ) {
+			foreach ( (array) $category as $index => $children ) {
 
-				$parent = $this->add_category( $index, $post_id, $parent );
+				$term_id = $this->add_category( $index, $post_id, $parent );
 
-				$term_ids[] = $parent;
+				if ( $term_id ) {
 
-				$term_ids = array_merge( $term_ids, $this->process_categories( $_categories, $post_id, $parent ) );
+					$this->process_categories( $children, $post_id, $term_id );
+
+				}
 
 			}
 
