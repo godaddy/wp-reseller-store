@@ -2,3 +2,7 @@
 	path = lib/butterbean
 	url = https://github.com/justintadlock/butterbean.git
 	branch = master
+[submodule "dev-lib"]
+	path = dev-lib
+	url = https://github.com/xwp/wp-dev-lib.git
+	branch = master
