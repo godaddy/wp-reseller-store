@@ -1,8 +1,4 @@
-# GoDaddy Reseller Store
-# Copyright (C) 2017
-# This file is distributed under the same license as the reseller-store package.
-# GoDaddy Operating Company, LLC.
-#
+# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
 #, fuzzy
 msgid ""
 msgstr ""
