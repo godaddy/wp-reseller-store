@@ -20,7 +20,7 @@ final class API {
 	 *
 	 * @var string
 	 */
-	private $tld = 'dev-secureserver.net'; // TODO: use prod TLD here
+	private $tld = 'secureserver.net';
 
 	/**
 	 * Maximum number of retries for API requests.
@@ -140,7 +140,7 @@ final class API {
 
 		$defaults = [
 			'method'    => $method,
-			'sslverify' => ! WP_DEBUG, // This should be true for PROD
+			'sslverify' => true,
 			'headers'   => [
 				'Content-Type: application/json',
 			],
@@ -159,7 +159,9 @@ final class API {
 
 		$response = wp_remote_request( $this->url( $endpoint ), $args );
 
-		if ( ! is_wp_error( $response ) ) {
+		$code = wp_remote_retrieve_response_code( $response );
+
+		if ( 200 === $code && ! is_wp_error( $response ) ) {
 
 			return json_decode( wp_remote_retrieve_body( $response ) );
 
@@ -177,7 +179,7 @@ final class API {
 
 		}
 
-		return $response;
+		return new WP_Error( $code, wp_remote_retrieve_response_message( $response ) );
 
 	}
 
