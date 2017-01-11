@@ -299,15 +299,15 @@ final class Post_Type {
 			 *
 			 * @var array
 			 */
-			$properties = (array) apply_filters( 'rstore_sync_ignore', [ 'id', 'categories', 'image' ] );
+			$ignored_properties = (array) apply_filters( 'rstore_sync_ignore', [ 'id', 'categories', 'image' ] );
 
-			foreach ( $properties as $property ) {
+			foreach ( $ignored_properties as $property ) {
 
 				unset( $product->property );
 
 			}
 
-			Plugin::update_post_meta( $post_id, $product );
+			Plugin::bulk_update_post_meta( $post_id, $product );
 
 		}
 
