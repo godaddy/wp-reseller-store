@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: reseller-store 0.1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-11 13:53-0600\n"
+"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
+"POT-Creation-Date: 2017-01-11 20:01:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,11 +41,6 @@ msgstr "價格"
 #: includes/class-butterbean.php:210
 msgid "Sale Price"
 msgstr "促銷價"
-
-#: includes/class-butterbean.php:211
-msgctxt "abbreviation for not applicable"
-msgid "N/A"
-msgstr "N/A"
 
 #: includes/class-butterbean.php:239
 msgid "Default Quantity"
@@ -89,32 +84,8 @@ msgstr "檢視購物車"
 msgid "An unknown error has occurred"
 msgstr "An unknown error has occurred"
 
-#: includes/class-display.php:113
-#, php-format
-msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
-msgid "%1$s / per %2$s"
-msgstr "%1$s / per %2$s"
-
-#: includes/class-import.php:65
-#, php-format
-msgctxt "product name"
-msgid "Error: `%s` is not a valid product."
-msgstr ""
-
 #: includes/class-import.php:66
 msgid "unknown"
-msgstr ""
-
-#: includes/class-import.php:84
-#, php-format
-msgctxt "product name"
-msgid "Error: `%s` must be imported as a product post before it can be reset."
-msgstr ""
-
-#: includes/class-import.php:92
-#, php-format
-msgctxt "post type name"
-msgid "Error: `%s` is not a valid post type for products."
 msgstr ""
 
 #: includes/class-permalinks.php:41
@@ -137,11 +108,6 @@ msgstr ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 
-#: includes/class-permalinks.php:98
-msgctxt "slug name"
-msgid "sample-product"
-msgstr "sample-product"
-
 #: includes/class-permalinks.php:121
 msgid "Default"
 msgstr "預設"
@@ -149,36 +115,6 @@ msgstr "預設"
 #: includes/class-permalinks.php:133
 msgid "Custom base"
 msgstr "自訂起點"
-
-#: includes/class-post-type.php:58
-msgctxt "slug name"
-msgid "products"
-msgstr "產品"
-
-#: includes/class-post-type.php:104
-msgctxt "post type general name"
-msgid "Products"
-msgstr "商品"
-
-#: includes/class-post-type.php:105
-msgctxt "post type singular name"
-msgid "Product"
-msgstr "產品"
-
-#: includes/class-post-type.php:106
-msgctxt "admin menu"
-msgid "Reseller Store"
-msgstr "Reseller Store"
-
-#: includes/class-post-type.php:107
-msgctxt "add new on admin bar"
-msgid "Reseller Product"
-msgstr "Reseller Product"
-
-#: includes/class-post-type.php:108
-msgctxt "product"
-msgid "Add New"
-msgstr "新增項目"
 
 #: includes/class-post-type.php:109
 msgid "Add New Product"
@@ -252,12 +188,6 @@ msgstr "Use as featured image"
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "This is where you can add new products to your Reseller Store."
 
-#: includes/class-post-type.php:540
-#, php-format
-msgctxt "product title"
-msgid "Edit: %s"
-msgstr "Edit: %s"
-
 #: includes/class-restrictions.php:169
 msgid "No products have been added yet."
 msgstr "No products have been added yet."
@@ -317,21 +247,6 @@ msgstr "Error: No products available. Please try again later."
 msgid "Error: Product data was found to be invalid, please try again later."
 msgstr "Error: No products available. Please try again later."
 
-#: includes/class-taxonomy-category.php:38
-msgctxt "slug name"
-msgid "product-category"
-msgstr "product-category"
-
-#: includes/class-taxonomy-category.php:69
-msgctxt "taxonomy general name"
-msgid "Categories"
-msgstr "分類"
-
-#: includes/class-taxonomy-category.php:70
-msgctxt "taxonomy singular name"
-msgid "Category"
-msgstr "類別"
-
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
 msgstr "Search Categories"
@@ -368,21 +283,6 @@ msgstr "New Category Name"
 #: includes/class-taxonomy-category.php:83
 msgid "Categories"
 msgstr "分類"
-
-#: includes/class-taxonomy-tag.php:38
-msgctxt "slug name"
-msgid "product-tag"
-msgstr "product-tag"
-
-#: includes/class-taxonomy-tag.php:69
-msgctxt "taxonomy general name"
-msgid "Tags"
-msgstr "標籤"
-
-#: includes/class-taxonomy-tag.php:70
-msgctxt "taxonomy singular name"
-msgid "Tag"
-msgstr "標籤"
 
 #: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
@@ -427,12 +327,6 @@ msgstr "Reseller Cart"
 #: includes/widgets/class-cart.php:28
 msgid "Display the user's cart in the sidebar."
 msgstr "在側邊欄顯示使用者的購物車."
-
-#: includes/widgets/class-cart.php:87
-#, php-format
-msgctxt "number of items in cart"
-msgid "View Cart %s"
-msgstr "View Cart %s"
 
 #: includes/widgets/class-cart.php:105
 msgid "Cart"
@@ -480,6 +374,123 @@ msgstr "Placeholder:"
 #: includes/widgets/class-domain-search.php:125
 msgid "Button:"
 msgstr "Button:"
+
+#. Plugin Name of the plugin/theme
+#, fuzzy
+msgid "GoDaddy Reseller Store"
+msgstr "Reseller Store"
+
+#. Description of the plugin/theme
+msgid "A boilerplate WordPress plugin by GoDaddy."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "GoDaddy"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://reseller.godaddy.com/"
+msgstr ""
+
+#: includes/class-butterbean.php:211
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/class-display.php:113
+msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / per %2$s"
+
+#: includes/class-import.php:65
+msgctxt "product name"
+msgid "Error: `%s` is not a valid product."
+msgstr ""
+
+#: includes/class-import.php:84
+msgctxt "product name"
+msgid "Error: `%s` must be imported as a product post before it can be reset."
+msgstr ""
+
+#: includes/class-import.php:92
+msgctxt "post type name"
+msgid "Error: `%s` is not a valid post type for products."
+msgstr ""
+
+#: includes/class-permalinks.php:98
+msgctxt "slug name"
+msgid "sample-product"
+msgstr "sample-product"
+
+#: includes/class-post-type.php:58
+msgctxt "slug name"
+msgid "products"
+msgstr "產品"
+
+#: includes/class-taxonomy-category.php:38
+msgctxt "slug name"
+msgid "product-category"
+msgstr "product-category"
+
+#: includes/class-taxonomy-tag.php:38
+msgctxt "slug name"
+msgid "product-tag"
+msgstr "product-tag"
+
+#: includes/class-post-type.php:104
+msgctxt "post type general name"
+msgid "Products"
+msgstr "商品"
+
+#: includes/class-post-type.php:105
+msgctxt "post type singular name"
+msgid "Product"
+msgstr "產品"
+
+#: includes/class-post-type.php:106
+msgctxt "admin menu"
+msgid "Reseller Store"
+msgstr "Reseller Store"
+
+#: includes/class-post-type.php:107
+msgctxt "add new on admin bar"
+msgid "Reseller Product"
+msgstr "Reseller Product"
+
+#: includes/class-post-type.php:108
+msgctxt "product"
+msgid "Add New"
+msgstr "新增項目"
+
+#: includes/class-post-type.php:540
+msgctxt "product title"
+msgid "Edit: %s"
+msgstr "Edit: %s"
+
+#: includes/class-taxonomy-category.php:69
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "分類"
+
+#: includes/class-taxonomy-tag.php:69
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "標籤"
+
+#: includes/class-taxonomy-category.php:70
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "類別"
+
+#: includes/class-taxonomy-tag.php:70
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "標籤"
+
+#: includes/widgets/class-cart.php:87
+msgctxt "number of items in cart"
+msgid "View Cart %s"
+msgstr "View Cart %s"
 
 #~ msgid "Invalid product."
 #~ msgstr "Invalid product."
