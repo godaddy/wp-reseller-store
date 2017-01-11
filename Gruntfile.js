@@ -8,12 +8,6 @@ module.exports = function( grunt ) {
 
 		pkg: pkg,
 
-		clean: {
-			po: {
-				src: [ 'languages/*.po~' ]
-			}
-		},
-
 		cssjanus: {
 			theme: {
 				options: {
@@ -54,46 +48,28 @@ module.exports = function( grunt ) {
 			all: [ 'Gruntfile.js', 'assets/js/*.js', '!assets/js/*.min.js' ]
 		},
 
-		po2mo: {
-			files: {
-				src: 'languages/*.po',
-				expand: true
+		makepot: {
+			target: {
+				options: {
+					domainPath: 'languages/',
+					include: [ pkg.name + '.php', 'includes/.+\.php' ],
+					potComments: 'Copyright (c) {year} GoDaddy Operating Company, LLC. All Rights Reserved.',
+					potHeaders: {
+						'x-poedit-keywordslist': true
+					},
+					processPot: function( pot, options ) {
+						pot.headers['report-msgid-bugs-to'] = pkg.bugs.url;
+						return pot;
+					},
+					type: 'wp-plugin',
+					updatePoFiles: true
+				}
 			}
 		},
 
-		pot: {
-			options: {
-				omit_header: false,
-				text_domain: pkg.name,
-				encoding: 'UTF-8',
-				dest: 'languages/',
-				keywords: [
-					'__',
-					'_e',
-					'__ngettext:1,2',
-					'_n:1,2',
-					'__ngettext_noop:1,2',
-					'_n_noop:1,2',
-					'_c',
-					'_nc:4c,1,2',
-					'_x:1,2c',
-					'_nx:4c,1,2',
-					'_nx_noop:4c,1,2',
-					'_ex:1,2c',
-					'esc_attr__',
-					'esc_attr_e',
-					'esc_attr_x:1,2c',
-					'esc_html__',
-					'esc_html_e',
-					'esc_html_x:1,2c'
-				],
-				msgmerge: true
-			},
+		po2mo: {
 			files: {
-				src: [
-					pkg.name + '.php',
-					'includes/**/*.php'
-				],
+				src: 'languages/*.po',
 				expand: true
 			}
 		},
@@ -191,7 +167,8 @@ module.exports = function( grunt ) {
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
 	grunt.registerTask( 'default', [ 'cssjanus', 'cssmin', 'jshint', 'uglify' ] );
-	grunt.registerTask( 'update-pot', [ 'pot', 'replace:pot', 'clean:po' ] );
+	grunt.registerTask( 'update-pot', [ 'makepot' ] );
+	grunt.registerTask( 'update-mo', [ 'po2mo' ] );
 	grunt.registerTask( 'version', [ 'replace' ] );
 
 };
