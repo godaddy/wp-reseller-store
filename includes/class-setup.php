@@ -175,24 +175,18 @@ final class Setup {
 		if ( 0 === $pl_id ) {
 
 			wp_send_json_error(
-				esc_html__( 'Error: Invalid Private Label ID', 'reseller-store' )
+				esc_html__( 'Error: Invalid Private Label ID.', 'reseller-store' )
 			);
 
 		}
 
 		Plugin::update_option( 'pl_id', $pl_id );
 
-		new Post_Type;
-		new Taxonomy_Category;
-		new Taxonomy_Tag;
-
-		do_action( 'init' ); // Register post type and taxonomies for rewrite rules
-
-		flush_rewrite_rules();
-
 		$products = API::get_products( true );
 
 		if ( is_wp_error( $products ) ) {
+
+			Plugin::delete_option( 'pl_id' ); // Could be unauthorized
 
 			wp_send_json_error(
 				sprintf(
@@ -206,10 +200,18 @@ final class Setup {
 		if ( ! $products ) {
 
 			wp_send_json_error(
-				esc_html__( 'Error: No products available. Please try again later.', 'reseller-store' )
+				esc_html__( 'Error: There are no products available, please try again later.', 'reseller-store' )
 			);
 
 		}
+
+		new Post_Type;
+		new Taxonomy_Category;
+		new Taxonomy_Tag;
+
+		do_action( 'init' ); // Register post type and taxonomies for rewrite rules
+
+		flush_rewrite_rules();
 
 		foreach ( (array) $products as $product ) {
 
@@ -233,7 +235,7 @@ final class Setup {
 		if ( ! Plugin::has_products() ) {
 
 			wp_send_json_error(
-				esc_html__( 'Error: Invalid product data. Please try again later.', 'reseller-store' )
+				esc_html__( 'Error: Product data was found to be invalid, please try again later.', 'reseller-store' )
 			);
 
 		}

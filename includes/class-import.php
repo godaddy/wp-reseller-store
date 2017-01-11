@@ -60,7 +60,11 @@ final class Import {
 
 		if ( ! $product->is_valid() ) {
 
-			$this->result = new WP_Error( 'invalid_product', esc_html__( 'Invalid product.' ) );
+			$this->result = new WP_Error(
+				'invalid_product',
+				esc_html_x( 'Error: `%s` is not a valid product.', 'product name', 'reseller-store' ),
+				( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) )
+			);
 
 			return;
 
@@ -77,7 +81,7 @@ final class Import {
 
 			if ( ! array_key_exists( $this->post_id, $this->imported ) ) {
 
-				$this->result = new WP_Error( 'unknown_product', esc_html__( 'No data availble for unknown product.' ) );
+				$this->result = new WP_Error( 'product_not_imported', esc_html_x( 'Error: `%s` must be imported as a product post before it can be reset.', 'product name', 'reseller-store' ), $this->product->id );
 
 				return;
 
@@ -85,7 +89,7 @@ final class Import {
 
 			if ( Post_Type::SLUG !== get_post_type( $this->post_id ) ) {
 
-				$this->result = new WP_Error( 'invalid_post_type', esc_html__( 'Post type `%s` is invalid.' ), $post->post_type );
+				$this->result = new WP_Error( 'invalid_post_type', esc_html_x( 'Error: `%s` is not a valid post type for products.', 'post type name', 'reseller-store' ), $post->post_type );
 
 				return;
 

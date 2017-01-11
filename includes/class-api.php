@@ -179,7 +179,13 @@ final class API {
 
 		}
 
-		return new WP_Error( $code, wp_remote_retrieve_response_message( $response ) );
+		$code = is_wp_error( $response ) ? $response->get_error_code() : $code;
+
+		$message = is_wp_error( $response ) ? $response->get_error_message() : wp_remote_retrieve_response_message( $response );
+		$message = trim( $message );
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'reseller-store' );
+
+		return new WP_Error( $code, $message );
 
 	}
 
