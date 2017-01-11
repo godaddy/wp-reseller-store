@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: reseller-store 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-06 02:44-0600\n"
+"POT-Creation-Date: 2017-01-11 13:53-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: includes/class-api.php:186
+#, fuzzy
+msgid "An unknown error has occurred."
+msgstr "Er is een onbekende fout opgetreden."
 
 #: includes/class-butterbean.php:133
 msgid "Product Options"
@@ -29,7 +34,7 @@ msgstr "Algemeen"
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:375
+#: includes/class-butterbean.php:182 includes/class-post-type.php:416
 msgid "Price"
 msgstr "Prijs"
 
@@ -69,7 +74,8 @@ msgid ""
 "lost."
 msgstr ""
 "Need to start over? You can restore the original product title, content, "
-"featured image, and category assignments. Note: Your customizations will be lost."
+"featured image, and category assignments. Note: Your customizations will be "
+"lost."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -89,18 +95,27 @@ msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / per %2$s"
 
-#: includes/class-import.php:63
-msgid "Invalid product."
-msgstr "Invalid product."
-
-#: includes/class-import.php:80
-msgid "No data availble for unknown product."
-msgstr "No data availble for unknown product."
-
-#: includes/class-import.php:88
+#: includes/class-import.php:65
 #, php-format
-msgid "Post type `%s` is invalid."
-msgstr "Post type `%s` is invalid."
+msgctxt "product name"
+msgid "Error: `%s` is not a valid product."
+msgstr ""
+
+#: includes/class-import.php:66
+msgid "unknown"
+msgstr ""
+
+#: includes/class-import.php:84
+#, php-format
+msgctxt "product name"
+msgid "Error: `%s` must be imported as a product post before it can be reset."
+msgstr ""
+
+#: includes/class-import.php:92
+#, php-format
+msgctxt "post type name"
+msgid "Error: `%s` is not a valid post type for products."
+msgstr ""
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
@@ -119,7 +134,8 @@ msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 msgstr ""
-"These settings control the permalinks used specifically for Reseller Store products."
+"These settings control the permalinks used specifically for Reseller Store "
+"products."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -139,104 +155,104 @@ msgctxt "slug name"
 msgid "products"
 msgstr "producten"
 
-#: includes/class-post-type.php:103
+#: includes/class-post-type.php:104
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Producten"
 
-#: includes/class-post-type.php:104
+#: includes/class-post-type.php:105
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Product"
 
-#: includes/class-post-type.php:105
+#: includes/class-post-type.php:106
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Reseller Store"
 
-#: includes/class-post-type.php:106
+#: includes/class-post-type.php:107
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Reseller Product"
 
-#: includes/class-post-type.php:107
+#: includes/class-post-type.php:108
 msgctxt "product"
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
 
-#: includes/class-post-type.php:108
+#: includes/class-post-type.php:109
 msgid "Add New Product"
 msgstr "Nieuw Product toevoegen"
 
-#: includes/class-post-type.php:109
+#: includes/class-post-type.php:110
 msgid "Edit Product"
 msgstr "Product bewerken"
 
-#: includes/class-post-type.php:110
+#: includes/class-post-type.php:111
 msgid "New Product"
 msgstr "Nieuw Product"
 
-#: includes/class-post-type.php:111
+#: includes/class-post-type.php:112
 msgid "View Product"
 msgstr "Product bekijken"
 
-#: includes/class-post-type.php:112
+#: includes/class-post-type.php:113
 msgid "View Products"
 msgstr "Producten weergeven"
 
-#: includes/class-post-type.php:113
+#: includes/class-post-type.php:114
 msgid "Search Products"
 msgstr "Producten zoeken"
 
-#: includes/class-post-type.php:114
+#: includes/class-post-type.php:115
 msgid "No products found."
 msgstr "Geen producten gevonden."
 
-#: includes/class-post-type.php:115
+#: includes/class-post-type.php:116
 msgid "No products found in Trash."
 msgstr "No products found in Trash."
 
-#: includes/class-post-type.php:116
+#: includes/class-post-type.php:117
 msgid "Parent Products:"
 msgstr "Parent Products:"
 
-#: includes/class-post-type.php:117
+#: includes/class-post-type.php:118
 msgid "All Products"
 msgstr "Alle producten"
 
-#: includes/class-post-type.php:118
+#: includes/class-post-type.php:119
 msgid "Product Archives"
 msgstr "Product Archives"
 
-#: includes/class-post-type.php:119
+#: includes/class-post-type.php:120
 msgid "Insert into product"
 msgstr "Toevoegen aan product"
 
-#: includes/class-post-type.php:120
+#: includes/class-post-type.php:121
 msgid "Uploaded to this product"
 msgstr "Geüpload naar dit product"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:366
+#: includes/class-post-type.php:122 includes/class-post-type.php:407
 msgid "Product Image"
 msgstr "Productafbeelding"
 
-#: includes/class-post-type.php:122
+#: includes/class-post-type.php:123
 msgid "Set product image"
 msgstr "Productafbeelding instellen"
 
-#: includes/class-post-type.php:123
+#: includes/class-post-type.php:124
 msgid "Remove product image"
 msgstr "Verwijder productafbeelding"
 
-#: includes/class-post-type.php:124
+#: includes/class-post-type.php:125
 msgid "Use as featured image"
 msgstr "Use as featured image"
 
-#: includes/class-post-type.php:129
+#: includes/class-post-type.php:130
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "This is where you can add new products to your Reseller Store."
 
-#: includes/class-post-type.php:499
+#: includes/class-post-type.php:540
 #, php-format
 msgctxt "product title"
 msgid "Edit: %s"
@@ -287,16 +303,19 @@ msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 msgstr "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 
 #: includes/class-setup.php:178
-msgid "Error: Invalid Private Label ID"
+#, fuzzy
+msgid "Error: Invalid Private Label ID."
 msgstr "Error: Invalid Private Label ID"
 
-#: includes/class-setup.php:209
-msgid "Error: No products available. Please try again later."
+#: includes/class-setup.php:203
+#, fuzzy
+msgid "Error: There are no products available, please try again later."
 msgstr "Error: No products available. Please try again later."
 
-#: includes/class-setup.php:236
-msgid "Error: Invalid product data. Please try again later."
-msgstr "Error: Invalid product data. Please try again later."
+#: includes/class-setup.php:238
+#, fuzzy
+msgid "Error: Product data was found to be invalid, please try again later."
+msgstr "Error: No products available. Please try again later."
 
 #: includes/class-taxonomy-category.php:38
 msgctxt "slug name"
@@ -461,3 +480,15 @@ msgstr "Placeholder:"
 #: includes/widgets/class-domain-search.php:125
 msgid "Button:"
 msgstr "Button:"
+
+#~ msgid "Invalid product."
+#~ msgstr "Invalid product."
+
+#~ msgid "No data availble for unknown product."
+#~ msgstr "No data availble for unknown product."
+
+#~ msgid "Post type `%s` is invalid."
+#~ msgstr "Post type `%s` is invalid."
+
+#~ msgid "Error: Invalid product data. Please try again later."
+#~ msgstr "Error: Invalid product data. Please try again later."
