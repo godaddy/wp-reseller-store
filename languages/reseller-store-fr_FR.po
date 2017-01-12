@@ -1,26 +1,27 @@
 # Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: reseller-store 0.1.0\n"
+"Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-11 20:01:25+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2017-01-11 20:05:16+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:186
-#, fuzzy
 msgid "An unknown error has occurred."
-msgstr "Une erreur inconnue s’est produite"
+msgstr "Erreur de nature inconnue."
 
 #: includes/class-butterbean.php:133
 msgid "Product Options"
-msgstr "Product Options"
+msgstr "Options du produit"
 
 #: includes/class-butterbean.php:145
 msgid "General"
@@ -40,11 +41,11 @@ msgstr "Prix promo"
 
 #: includes/class-butterbean.php:239
 msgid "Default Quantity"
-msgstr "Default Quantity"
+msgstr "Quantité par défaut"
 
 #: includes/class-butterbean.php:273
 msgid "Add to Cart Button Label"
-msgstr "Add to Cart Button Label"
+msgstr "Ajouter au nom du bouton du panier"
 
 #: includes/class-butterbean.php:275 includes/class-display.php:149
 msgid "Add to cart"
@@ -52,11 +53,11 @@ msgstr "Ajouter au panier"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"
-msgstr "Redirect to the cart immediately after adding"
+msgstr "Rediriger vers le panier immédiatement après l’ajout"
 
 #: includes/class-butterbean.php:335
 msgid "Restore Product Data"
-msgstr "Restore Product Data"
+msgstr "Restaurer les données de produit"
 
 #: includes/class-butterbean.php:336
 msgid ""
@@ -64,13 +65,13 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"Need to start over? You can restore the original product title, content, "
-"featured image, and category assignments. Note: Your customizations will be "
-"lost."
+"Besoin de recommencer ? Vous pouvez restaurer le titre, le contenu, l’image "
+"vedette et les attributions de catégorie du produit d’origine. Remarque : "
+"Votre customisation sera perdue."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
-msgstr "Reset Data"
+msgstr "Réinitialiser les données"
 
 #: includes/class-display.php:64
 msgid "View cart"
@@ -82,27 +83,27 @@ msgstr "Une erreur inconnue s’est produite"
 
 #: includes/class-import.php:66
 msgid "unknown"
-msgstr ""
+msgstr "unknown"
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
-msgstr "Reseller category base"
+msgstr "Base de catégorie de Revendeur"
 
 #: includes/class-permalinks.php:58
 msgid "Reseller tag base"
-msgstr "Reseller tag base"
+msgstr "Base de tag de Revendeur"
 
 #: includes/class-permalinks.php:75
 msgid "Reseller Product Permalinks"
-msgstr "Reseller Product Permalinks"
+msgstr "Permaliens de produit de Revendeur"
 
 #: includes/class-permalinks.php:93
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 msgstr ""
-"These settings control the permalinks used specifically for Reseller Store "
-"products."
+"Ces paramètres contrôlent les permaliens servant spécifiquement aux produits "
+"de Boutique de Revendeur."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -110,7 +111,7 @@ msgstr "Valeur par défaut"
 
 #: includes/class-permalinks.php:133
 msgid "Custom base"
-msgstr "Custom base"
+msgstr "Personnaliser la base"
 
 #: includes/class-post-type.php:109
 msgid "Add New Product"
@@ -142,11 +143,11 @@ msgstr "Aucun produit trouvé."
 
 #: includes/class-post-type.php:116
 msgid "No products found in Trash."
-msgstr "No products found in Trash."
+msgstr "Aucun produit trouvé dans la corbeille."
 
 #: includes/class-post-type.php:117
 msgid "Parent Products:"
-msgstr "Parent Products:"
+msgstr "Produits parents :"
 
 #: includes/class-post-type.php:118
 msgid "All Products"
@@ -154,7 +155,7 @@ msgstr "Tous les produits"
 
 #: includes/class-post-type.php:119
 msgid "Product Archives"
-msgstr "Product Archives"
+msgstr "Archives des produits"
 
 #: includes/class-post-type.php:120
 msgid "Insert into product"
@@ -178,39 +179,39 @@ msgstr "Supprimer l&rsquo;image produit"
 
 #: includes/class-post-type.php:125
 msgid "Use as featured image"
-msgstr "Use as featured image"
+msgstr "Utiliser comme image en vedette"
 
 #: includes/class-post-type.php:130
 msgid "This is where you can add new products to your Reseller Store."
-msgstr "This is where you can add new products to your Reseller Store."
+msgstr "C’est ici que vous pouvez ajouter de nouveaux produits à votre Boutique de Revendeur."
 
 #: includes/class-restrictions.php:169
 msgid "No products have been added yet."
-msgstr "No products have been added yet."
+msgstr "Aucun produit n’a été ajouté pour l’instant."
 
 #: includes/class-restrictions.php:170
 msgid "Import All Products"
-msgstr "Import All Products"
+msgstr "Importer tous les produits"
 
 #: includes/class-setup.php:65
 msgid "Reseller Store Setup"
-msgstr "Reseller Store Setup"
+msgstr "Configuration de la Boutique de Revendeur"
 
 #: includes/class-setup.php:66
 msgid "Reseller Store"
-msgstr "Reseller Store"
+msgstr "Boutique de Revendeur"
 
 #: includes/class-setup.php:138
 msgid "Let's setup your GoDaddy Reseller Store."
-msgstr "Let's setup your GoDaddy Reseller Store."
+msgstr "Configurons votre Boutique de Revendeur GoDaddy."
 
 #: includes/class-setup.php:142
 msgid "Enter your Private Label ID to get started."
-msgstr "Enter your Private Label ID to get started."
+msgstr "Entrez votre Identifiant Private Label pour démarrer."
 
 #: includes/class-setup.php:145
 msgid "Enter your Private Label ID:"
-msgstr "Enter your Private Label ID:"
+msgstr "Entrez votre identifiant Private Label :"
 
 #: includes/class-setup.php:147
 msgid "Install Now"
@@ -226,26 +227,23 @@ msgstr "Créer un compte"
 
 #: includes/class-setup.php:154
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "Besoin d'aide ? Appelez notre équipe de support technique récompensée au (+1-480) 505-88-77."
 
 #: includes/class-setup.php:178
-#, fuzzy
 msgid "Error: Invalid Private Label ID."
-msgstr "Error: Invalid Private Label ID"
+msgstr "Error: Invalid Private Label ID."
 
 #: includes/class-setup.php:203
-#, fuzzy
 msgid "Error: There are no products available, please try again later."
-msgstr "Error: No products available. Please try again later."
+msgstr "Error: There are no products available, please try again later."
 
 #: includes/class-setup.php:238
-#, fuzzy
 msgid "Error: Product data was found to be invalid, please try again later."
-msgstr "Error: No products available. Please try again later."
+msgstr "Error: Product data was found to be invalid, please try again later."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "Search Categories"
+msgstr "Chercher dans les catégories"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"
@@ -253,27 +251,27 @@ msgstr "Toutes les catégories"
 
 #: includes/class-taxonomy-category.php:73
 msgid "Parent Category"
-msgstr "Parent Category"
+msgstr "Catégorie-mère"
 
 #: includes/class-taxonomy-category.php:74
 msgid "Parent Category:"
-msgstr "Parent Category:"
+msgstr "Catégorie-mère :"
 
 #: includes/class-taxonomy-category.php:75
 msgid "Edit Category"
-msgstr "Edit Category"
+msgstr "Modifier la catégorie"
 
 #: includes/class-taxonomy-category.php:76
 msgid "Update Category"
-msgstr "Update Category"
+msgstr "Mettre à jour la catégorie"
 
 #: includes/class-taxonomy-category.php:77
 msgid "Add New Category"
-msgstr "Add New Category"
+msgstr "Ajouter une nouvelle catégorie"
 
 #: includes/class-taxonomy-category.php:78
 msgid "New Category Name"
-msgstr "New Category Name"
+msgstr "Nouveau nom de la catégorie"
 
 #: includes/class-taxonomy-category.php:79
 #: includes/class-taxonomy-category.php:83
@@ -282,35 +280,35 @@ msgstr "Catégories"
 
 #: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
-msgstr "Search Tags"
+msgstr "Tags de recherche"
 
 #: includes/class-taxonomy-tag.php:72
 msgid "All Tags"
-msgstr "All Tags"
+msgstr "Tous les tags"
 
 #: includes/class-taxonomy-tag.php:73
 msgid "Parent Tag"
-msgstr "Parent Tag"
+msgstr "Tag parent"
 
 #: includes/class-taxonomy-tag.php:74
 msgid "Parent Tag:"
-msgstr "Parent Tag:"
+msgstr "Tag parent :"
 
 #: includes/class-taxonomy-tag.php:75
 msgid "Edit Tag"
-msgstr "Edit Tag"
+msgstr "Modifier le tag"
 
 #: includes/class-taxonomy-tag.php:76
 msgid "Update Tag"
-msgstr "Update Tag"
+msgstr "Mettre à jour le tag"
 
 #: includes/class-taxonomy-tag.php:77
 msgid "Add New Tag"
-msgstr "Add New Tag"
+msgstr "Ajouter un nouveau tag"
 
 #: includes/class-taxonomy-tag.php:78
 msgid "New Tag Name"
-msgstr "New Tag Name"
+msgstr "Nouveau nom de tag"
 
 #: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
 msgid "Tags"
@@ -318,11 +316,11 @@ msgstr "Étiquettes"
 
 #: includes/widgets/class-cart.php:25
 msgid "Reseller Cart"
-msgstr "Reseller Cart"
+msgstr "Panier due Revendeur"
 
 #: includes/widgets/class-cart.php:28
 msgid "Display the user's cart in the sidebar."
-msgstr "Display the user's cart in the sidebar."
+msgstr "Afficher le panier de l’utilisateur dans l’encadré."
 
 #: includes/widgets/class-cart.php:105
 msgid "Cart"
@@ -339,16 +337,16 @@ msgstr "Masquer si le panier est vide"
 
 #: includes/widgets/class-domain-search.php:25
 msgid "Reseller Domain Search"
-msgstr "Reseller Domain Search"
+msgstr "Recherche de domaine de Revendeur"
 
 #: includes/widgets/class-domain-search.php:28
 msgid "A search form for domain names."
-msgstr "A search form for domain names."
+msgstr "Un formulaire de recherche de noms de domaine."
 
 #: includes/widgets/class-domain-search.php:86
 #: includes/widgets/class-domain-search.php:87
 msgid "Search for a domain name:"
-msgstr "Search for a domain name:"
+msgstr "Recherchez un nom de domaine."
 
 #: includes/widgets/class-domain-search.php:91
 #: includes/widgets/class-domain-search.php:111
@@ -365,28 +363,27 @@ msgstr "Trouvez le nom parfait"
 
 #: includes/widgets/class-domain-search.php:120
 msgid "Placeholder:"
-msgstr "Placeholder:"
+msgstr "Marque substitutive :"
 
 #: includes/widgets/class-domain-search.php:125
 msgid "Button:"
-msgstr "Button:"
+msgstr "Bouton :"
 
 #. Plugin Name of the plugin/theme
-#, fuzzy
 msgid "GoDaddy Reseller Store"
-msgstr "Reseller Store"
+msgstr "GoDaddy Reseller Store"
 
 #. Description of the plugin/theme
 msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr ""
+msgstr "A boilerplate WordPress plugin by GoDaddy."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
-msgstr ""
+msgstr "GoDaddy"
 
 #. Author URI of the plugin/theme
 msgid "https://reseller.godaddy.com/"
-msgstr ""
+msgstr "https://reseller.godaddy.com/"
 
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
@@ -396,27 +393,27 @@ msgstr "N/D"
 #: includes/class-display.php:113
 msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
 msgid "%1$s / per %2$s"
-msgstr "%1$s / per %2$s"
+msgstr "%1$s / par %2$s"
 
 #: includes/class-import.php:65
 msgctxt "product name"
 msgid "Error: `%s` is not a valid product."
-msgstr ""
+msgstr "Error: `%s` is not a valid product."
 
 #: includes/class-import.php:84
 msgctxt "product name"
 msgid "Error: `%s` must be imported as a product post before it can be reset."
-msgstr ""
+msgstr "Error: `%s` must be imported as a product post before it can be reset."
 
 #: includes/class-import.php:92
 msgctxt "post type name"
 msgid "Error: `%s` is not a valid post type for products."
-msgstr ""
+msgstr "Error: `%s` is not a valid post type for products."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
 msgid "sample-product"
-msgstr "sample-product"
+msgstr "Produit-sample"
 
 #: includes/class-post-type.php:58
 msgctxt "slug name"
@@ -446,12 +443,12 @@ msgstr "Produit"
 #: includes/class-post-type.php:106
 msgctxt "admin menu"
 msgid "Reseller Store"
-msgstr "Reseller Store"
+msgstr "Boutique de Revendeur"
 
 #: includes/class-post-type.php:107
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
-msgstr "Reseller Product"
+msgstr "Produit de Revendeur"
 
 #: includes/class-post-type.php:108
 msgctxt "product"
@@ -461,7 +458,7 @@ msgstr "Ajouter"
 #: includes/class-post-type.php:540
 msgctxt "product title"
 msgid "Edit: %s"
-msgstr "Edit: %s"
+msgstr "Modifier : %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -486,16 +483,4 @@ msgstr "Balise"
 #: includes/widgets/class-cart.php:87
 msgctxt "number of items in cart"
 msgid "View Cart %s"
-msgstr "View Cart %s"
-
-#~ msgid "Invalid product."
-#~ msgstr "Invalid product."
-
-#~ msgid "No data availble for unknown product."
-#~ msgstr "No data availble for unknown product."
-
-#~ msgid "Post type `%s` is invalid."
-#~ msgstr "Post type `%s` is invalid."
-
-#~ msgid "Error: Invalid product data. Please try again later."
-#~ msgstr "Error: Invalid product data. Please try again later."
+msgstr "Afficher le panier %s"
