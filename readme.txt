@@ -1,7 +1,7 @@
 === GoDaddy Reseller Store ===
 Contributors:      godaddy
 Tags:              admin, posts, users
-Requires at least: 4.4
+Requires at least: 4.6
 Tested up to:      4.7
 Stable tag:        0.1.0
 License:           GPL-2.0
