@@ -340,7 +340,7 @@ trait Helpers {
 	 * @param array  $args (optional)
 	 * @param int    status (optional)
 	 */
-	public static function admin_redirect( $endpoint = '', $args = [], $status = 302 ) {
+	public static function admin_redirect( $endpoint = '', array $args = [], $status = 302 ) {
 
 		// Allow full admin URL to be passed as $endpoint
 		$endpoint = preg_replace( '/^.*\/wp-admin(\/|$)/', '', $endpoint );

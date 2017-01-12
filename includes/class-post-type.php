@@ -106,7 +106,7 @@ final class Post_Type {
 			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'reseller-store' ),
 			'name_admin_bar'        => esc_html_x( 'Reseller Product', 'add new on admin bar', 'reseller-store' ),
 			'add_new'               => esc_html_x( 'Add New', 'product', 'reseller-store' ),
-			'add_new_item'          => esc_html__( 'Add New Product', 'reseller-store' ),
+			'add_new_item'          => esc_html__( 'Add New Products', 'reseller-store' ),
 			'edit_item'             => esc_html__( 'Edit Product', 'reseller-store' ),
 			'new_item'              => esc_html__( 'New Product', 'reseller-store' ),
 			'view_item'             => esc_html__( 'View Product', 'reseller-store' ),
@@ -396,7 +396,7 @@ final class Post_Type {
 	 *
 	 * @return array
 	 */
-	public function columns( $columns ) {
+	public function columns( array $columns ) {
 
 		// Insert before Title column
 		$columns = Plugin::array_insert(
@@ -494,7 +494,7 @@ final class Post_Type {
 	 *
 	 * @return array
 	 */
-	public function order_by_price_clause( $clauses, $wp_query ) {
+	public function order_by_price_clause( array $clauses, $wp_query ) {
 
 		global $wpdb;
 
@@ -525,7 +525,7 @@ final class Post_Type {
 	 *
 	 * @return array
 	 */
-	public function post_screen_edit_heading( $labels ) {
+	public function post_screen_edit_heading( array $labels ) {
 
 		if ( ! Plugin::is_admin_uri( 'post.php?post=' ) ) {
 
