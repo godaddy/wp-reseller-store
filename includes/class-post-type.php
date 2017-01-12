@@ -244,9 +244,20 @@ final class Post_Type {
 	 */
 	public function sync_product_meta() {
 
-		$last_sync = Plugin::get_transient( 'last_sync', false );
+		/**
+		 * Filter the time to wait in between API syncs (in seconds).
+		 *
+		 * Default: 15 min
+		 *
+		 * @since NEXT
+		 *
+		 * @var int
+		 */
+		$ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
 
-		if ( false !== $last_sync ) {
+		$last_sync = (int) Plugin::get_option( 'last_sync', 0 );
+
+		if ( $last_sync && ( $last_sync + $ttl ) < time() ) {
 
 			return;
 
@@ -265,10 +276,10 @@ final class Post_Type {
 		 *
 		 * @var int
 		 */
-		$sync_retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
+		$retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
 
-		// Set early so if the sync fails, we retry with a shorter TTL
-		Plugin::set_transient( 'last_sync', time(), $sync_retry_ttl );
+		// Store last sync time with an offset so if it fails we try again sooner
+		Plugin::update_option( 'last_sync', time() + $retry_ttl - $ttl );
 
 		$products = API::get_products( true );
 
@@ -311,19 +322,8 @@ final class Post_Type {
 
 		}
 
-		/**
-		 * Filter the time to wait in between API syncs (in seconds).
-		 *
-		 * Default: 15 min
-		 *
-		 * @since NEXT
-		 *
-		 * @var int
-		 */
-		$sync_ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
-
-		// The sync was successful, use the real TTL
-		Plugin::set_transient( 'last_sync', time(), $sync_ttl );
+		// The sync was successful, use the real time
+		Plugin::update_option( 'last_sync', time() );
 
 	}
 

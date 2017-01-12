@@ -240,7 +240,7 @@ final class Setup {
 
 		}
 
-		Plugin::set_transient( 'last_sync', time(), HOUR_IN_SECONDS );
+		Plugin::update_option( 'last_sync', time() );
 
 		wp_send_json_success(
 			[
