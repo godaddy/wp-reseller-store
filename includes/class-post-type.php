@@ -3,7 +3,6 @@
 namespace Reseller_Store;
 
 use stdClass;
-use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
