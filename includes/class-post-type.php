@@ -2,6 +2,7 @@
 
 namespace Reseller_Store;
 
+use stdClass;
 use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -521,11 +522,11 @@ final class Post_Type {
 	 * @filter post_type_labels_{post_type}
 	 * @since  NEXT
 	 *
-	 * @param  array $labels
+	 * @param  stdClass $labels
 	 *
 	 * @return array
 	 */
-	public function post_screen_edit_heading( array $labels ) {
+	public function post_screen_edit_heading( stdClass $labels ) {
 
 		if ( ! Plugin::is_admin_uri( 'post.php?post=' ) ) {
 
