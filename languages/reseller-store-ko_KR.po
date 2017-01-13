@@ -1,26 +1,27 @@
 # Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: reseller-store 0.1.0\n"
+"Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-11 20:01:25+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2017-01-11 20:05:16+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:186
-#, fuzzy
 msgid "An unknown error has occurred."
-msgstr "An unknown error has occurred"
+msgstr "알 수 없는 오류가 발생했습니다."
 
 #: includes/class-butterbean.php:133
 msgid "Product Options"
-msgstr "Product Options"
+msgstr "제품 옵션"
 
 #: includes/class-butterbean.php:145
 msgid "General"
@@ -40,11 +41,11 @@ msgstr "세일 가격"
 
 #: includes/class-butterbean.php:239
 msgid "Default Quantity"
-msgstr "Default Quantity"
+msgstr "기본 수량"
 
 #: includes/class-butterbean.php:273
 msgid "Add to Cart Button Label"
-msgstr "Add to Cart Button Label"
+msgstr "카트에 추가 버튼 레이블"
 
 #: includes/class-butterbean.php:275 includes/class-display.php:149
 msgid "Add to cart"
@@ -52,11 +53,11 @@ msgstr "장바구니"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"
-msgstr "Redirect to the cart immediately after adding"
+msgstr "추가 후에 즉시 카트로 리디렉션"
 
 #: includes/class-butterbean.php:335
 msgid "Restore Product Data"
-msgstr "Restore Product Data"
+msgstr "제품 데이터 복원"
 
 #: includes/class-butterbean.php:336
 msgid ""
@@ -64,13 +65,11 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"Need to start over? You can restore the original product title, content, "
-"featured image, and category assignments. Note: Your customizations will be "
-"lost."
+"처음부터 다시 시작? 원래 제품 제목, 콘텐츠, 추천 이미지, 범주 지정을 복원할 수 있습니다. 참고: 사용자가 지정한 기능은 손실됩니다."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
-msgstr "Reset Data"
+msgstr "데이터 재설정"
 
 #: includes/class-display.php:64
 msgid "View cart"
@@ -78,31 +77,29 @@ msgstr "카트 보기"
 
 #: includes/class-display.php:65
 msgid "An unknown error has occurred"
-msgstr "An unknown error has occurred"
+msgstr "알 수 없는 오류가 발생했습니다"
 
 #: includes/class-import.php:66
 msgid "unknown"
-msgstr ""
+msgstr "알 수 없음"
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
-msgstr "Reseller category base"
+msgstr "리셀러 범주 기초"
 
 #: includes/class-permalinks.php:58
 msgid "Reseller tag base"
-msgstr "Reseller tag base"
+msgstr "리셀러 태그 기초"
 
 #: includes/class-permalinks.php:75
 msgid "Reseller Product Permalinks"
-msgstr "Reseller Product Permalinks"
+msgstr "리셀러 제품 고정 링크"
 
 #: includes/class-permalinks.php:93
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr ""
-"These settings control the permalinks used specifically for Reseller Store "
-"products."
+msgstr "이러한 설정은 리셀러 상점 제품에 대해서만 사용되는 고정 링크를 제어합니다."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -142,11 +139,11 @@ msgstr "상품을 찾을 수 없습니다."
 
 #: includes/class-post-type.php:116
 msgid "No products found in Trash."
-msgstr "No products found in Trash."
+msgstr "휴지통에 제품이 없습니다."
 
 #: includes/class-post-type.php:117
 msgid "Parent Products:"
-msgstr "Parent Products:"
+msgstr "부모 제품:"
 
 #: includes/class-post-type.php:118
 msgid "All Products"
@@ -154,7 +151,7 @@ msgstr "모든 상품"
 
 #: includes/class-post-type.php:119
 msgid "Product Archives"
-msgstr "Product Archives"
+msgstr "제품 보관"
 
 #: includes/class-post-type.php:120
 msgid "Insert into product"
@@ -178,39 +175,39 @@ msgstr "상품 이미지 제거"
 
 #: includes/class-post-type.php:125
 msgid "Use as featured image"
-msgstr "Use as featured image"
+msgstr "추천 이미지로 사용"
 
 #: includes/class-post-type.php:130
 msgid "This is where you can add new products to your Reseller Store."
-msgstr "This is where you can add new products to your Reseller Store."
+msgstr "여기에서 리셀러 상점에 새 제품을 추가할 수 있습니다."
 
 #: includes/class-restrictions.php:169
 msgid "No products have been added yet."
-msgstr "No products have been added yet."
+msgstr "아직 추가된 제품이 없습니다."
 
 #: includes/class-restrictions.php:170
 msgid "Import All Products"
-msgstr "Import All Products"
+msgstr "모든 제품 가져오기"
 
 #: includes/class-setup.php:65
 msgid "Reseller Store Setup"
-msgstr "Reseller Store Setup"
+msgstr "리셀러 상점 설정"
 
 #: includes/class-setup.php:66
 msgid "Reseller Store"
-msgstr "Reseller Store"
+msgstr "리셀러 상점"
 
 #: includes/class-setup.php:138
 msgid "Let's setup your GoDaddy Reseller Store."
-msgstr "Let's setup your GoDaddy Reseller Store."
+msgstr "GoDaddy 리셀러 상점을 설정합시다."
 
 #: includes/class-setup.php:142
 msgid "Enter your Private Label ID to get started."
-msgstr "Enter your Private Label ID to get started."
+msgstr "시작하려면 비공개 레이블 ID를 입력하세요."
 
 #: includes/class-setup.php:145
 msgid "Enter your Private Label ID:"
-msgstr "Enter your Private Label ID:"
+msgstr "비공개 레이블 ID 입력:"
 
 #: includes/class-setup.php:147
 msgid "Install Now"
@@ -226,26 +223,23 @@ msgstr "계정 만들기"
 
 #: includes/class-setup.php:154
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "도움이 필요하신가요? +1 (480) 505-8877 번호로 최고 수준의 지원 팀에 문의하시기 바랍니다."
 
 #: includes/class-setup.php:178
-#, fuzzy
 msgid "Error: Invalid Private Label ID."
-msgstr "Error: Invalid Private Label ID"
+msgstr "Error: Invalid Private Label ID."
 
 #: includes/class-setup.php:203
-#, fuzzy
 msgid "Error: There are no products available, please try again later."
-msgstr "Error: No products available. Please try again later."
+msgstr "Error: There are no products available, please try again later."
 
 #: includes/class-setup.php:238
-#, fuzzy
 msgid "Error: Product data was found to be invalid, please try again later."
-msgstr "Error: No products available. Please try again later."
+msgstr "Error: Product data was found to be invalid, please try again later."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "Search Categories"
+msgstr "범주 검색"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"
@@ -253,27 +247,27 @@ msgstr "모든 범주"
 
 #: includes/class-taxonomy-category.php:73
 msgid "Parent Category"
-msgstr "Parent Category"
+msgstr "부모 범위"
 
 #: includes/class-taxonomy-category.php:74
 msgid "Parent Category:"
-msgstr "Parent Category:"
+msgstr "부모 범위:"
 
 #: includes/class-taxonomy-category.php:75
 msgid "Edit Category"
-msgstr "Edit Category"
+msgstr "범주 편집"
 
 #: includes/class-taxonomy-category.php:76
 msgid "Update Category"
-msgstr "Update Category"
+msgstr "범주 업데이트"
 
 #: includes/class-taxonomy-category.php:77
 msgid "Add New Category"
-msgstr "Add New Category"
+msgstr "새 범주 추가"
 
 #: includes/class-taxonomy-category.php:78
 msgid "New Category Name"
-msgstr "New Category Name"
+msgstr "새 범주 이름"
 
 #: includes/class-taxonomy-category.php:79
 #: includes/class-taxonomy-category.php:83
@@ -282,35 +276,35 @@ msgstr "카테고리"
 
 #: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
-msgstr "Search Tags"
+msgstr "검색 태그"
 
 #: includes/class-taxonomy-tag.php:72
 msgid "All Tags"
-msgstr "All Tags"
+msgstr "모든 태그"
 
 #: includes/class-taxonomy-tag.php:73
 msgid "Parent Tag"
-msgstr "Parent Tag"
+msgstr "부모 태그"
 
 #: includes/class-taxonomy-tag.php:74
 msgid "Parent Tag:"
-msgstr "Parent Tag:"
+msgstr "부모 태그:"
 
 #: includes/class-taxonomy-tag.php:75
 msgid "Edit Tag"
-msgstr "Edit Tag"
+msgstr "태그 편집"
 
 #: includes/class-taxonomy-tag.php:76
 msgid "Update Tag"
-msgstr "Update Tag"
+msgstr "태그 업데이트"
 
 #: includes/class-taxonomy-tag.php:77
 msgid "Add New Tag"
-msgstr "Add New Tag"
+msgstr "새 태그 추가"
 
 #: includes/class-taxonomy-tag.php:78
 msgid "New Tag Name"
-msgstr "New Tag Name"
+msgstr "새 태그 이름"
 
 #: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
 msgid "Tags"
@@ -318,7 +312,7 @@ msgstr "태그"
 
 #: includes/widgets/class-cart.php:25
 msgid "Reseller Cart"
-msgstr "Reseller Cart"
+msgstr "리셀러 카트"
 
 #: includes/widgets/class-cart.php:28
 msgid "Display the user's cart in the sidebar."
@@ -339,16 +333,16 @@ msgstr "장바구니가 비어있으면 감추기"
 
 #: includes/widgets/class-domain-search.php:25
 msgid "Reseller Domain Search"
-msgstr "Reseller Domain Search"
+msgstr "리셀러 도메인 검색"
 
 #: includes/widgets/class-domain-search.php:28
 msgid "A search form for domain names."
-msgstr "A search form for domain names."
+msgstr "도메인 이름 검색 폼"
 
 #: includes/widgets/class-domain-search.php:86
 #: includes/widgets/class-domain-search.php:87
 msgid "Search for a domain name:"
-msgstr "Search for a domain name:"
+msgstr "도메인 이름 검색:"
 
 #: includes/widgets/class-domain-search.php:91
 #: includes/widgets/class-domain-search.php:111
@@ -365,28 +359,27 @@ msgstr "가장 적합한 이름 찾기"
 
 #: includes/widgets/class-domain-search.php:120
 msgid "Placeholder:"
-msgstr "Placeholder:"
+msgstr "자리 표시자:"
 
 #: includes/widgets/class-domain-search.php:125
 msgid "Button:"
-msgstr "Button:"
+msgstr "버튼:"
 
 #. Plugin Name of the plugin/theme
-#, fuzzy
 msgid "GoDaddy Reseller Store"
-msgstr "Reseller Store"
+msgstr "GoDaddy Reseller Store"
 
 #. Description of the plugin/theme
 msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr ""
+msgstr "A boilerplate WordPress plugin by GoDaddy."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
-msgstr ""
+msgstr "GoDaddy"
 
 #. Author URI of the plugin/theme
 msgid "https://reseller.godaddy.com/"
-msgstr ""
+msgstr "https://reseller.godaddy.com/"
 
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
@@ -396,27 +389,27 @@ msgstr "해당 없음"
 #: includes/class-display.php:113
 msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
 msgid "%1$s / per %2$s"
-msgstr "%1$s / per %2$s"
+msgstr "%1$s / %2$s"
 
 #: includes/class-import.php:65
 msgctxt "product name"
 msgid "Error: `%s` is not a valid product."
-msgstr ""
+msgstr "Error: `%s` is not a valid product."
 
 #: includes/class-import.php:84
 msgctxt "product name"
 msgid "Error: `%s` must be imported as a product post before it can be reset."
-msgstr ""
+msgstr "Error: `%s` must be imported as a product post before it can be reset."
 
 #: includes/class-import.php:92
 msgctxt "post type name"
 msgid "Error: `%s` is not a valid post type for products."
-msgstr ""
+msgstr "Error: `%s` is not a valid post type for products."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
 msgid "sample-product"
-msgstr "sample-product"
+msgstr "샘플 제품"
 
 #: includes/class-post-type.php:58
 msgctxt "slug name"
@@ -446,12 +439,12 @@ msgstr "제품"
 #: includes/class-post-type.php:106
 msgctxt "admin menu"
 msgid "Reseller Store"
-msgstr "Reseller Store"
+msgstr "리셀러 상점"
 
 #: includes/class-post-type.php:107
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
-msgstr "Reseller Product"
+msgstr "리셀러 제품"
 
 #: includes/class-post-type.php:108
 msgctxt "product"
@@ -461,7 +454,7 @@ msgstr "새로 추가"
 #: includes/class-post-type.php:540
 msgctxt "product title"
 msgid "Edit: %s"
-msgstr "Edit: %s"
+msgstr "편집: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -486,16 +479,4 @@ msgstr "태그"
 #: includes/widgets/class-cart.php:87
 msgctxt "number of items in cart"
 msgid "View Cart %s"
-msgstr "View Cart %s"
-
-#~ msgid "Invalid product."
-#~ msgstr "Invalid product."
-
-#~ msgid "No data availble for unknown product."
-#~ msgstr "No data availble for unknown product."
-
-#~ msgid "Post type `%s` is invalid."
-#~ msgstr "Post type `%s` is invalid."
-
-#~ msgid "Error: Invalid product data. Please try again later."
-#~ msgstr "Error: Invalid product data. Please try again later."
+msgstr "%s 카트 보기"
