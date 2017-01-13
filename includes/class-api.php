@@ -85,7 +85,7 @@ final class API {
 
 		$args = [
 			'currencyType' => Plugin::get_option( 'currency', 'USD' ),
-			'marketId'     => Plugin::get_option( 'market_id', 'en-US' ),
+			'marketId'     => self::get_market_id(),
 		];
 
 		if ( $add_pl_id && Plugin::is_setup() ) {
@@ -95,6 +95,57 @@ final class API {
 		}
 
 		return esc_url_raw( add_query_arg( $args, $url ) );
+
+	}
+
+	/**
+	 * Return the market ID for a given locale.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $locale (optional)
+	 *
+	 * @return string
+	 */
+	public static function get_market_id( $locale = null ) {
+
+		$locale = ( $locale ) ? $locale : get_locale();
+
+		$mappings = [
+			'da-DK'  => 'da_DK', // Danish (Denmark)
+			'de-DE'  => 'de_DE', // German
+			'el-GR'  => 'el',    // Greek
+			'es-ES'  => 'es_ES', // Spanish
+			'es-MX'  => 'es_MX', // Spanish (Mexico)
+			'fi-FI'  => 'fi',    // Finnish
+			'fil-PH' => 'tl',    // Filipino (Philippines)
+			'fr-FR'  => 'fr_FR', // French
+			'hi-IN'  => 'hi_IN', // Hindi (India)
+			'id-ID'  => 'id_ID', // Indonesian
+			'it-IT'  => 'it_IT', // Italian
+			'ja-JP'  => 'ja',    // Japanese
+			'ko-KR'  => 'ko_KR', // Korean
+			'mr-IN'  => 'mr',    // Marathi (India)
+			'ms-MY'  => 'ms_MY', // Malay (Malaysia)
+			'nb-NO'  => 'nb_NO', // Norwegian (Norway)
+			'nl-NL'  => 'nl_NL', // Dutch (Netherlands)
+			'pl-PL'  => 'pl_PL', // Polish
+			'pt-BR'  => 'pt_BR', // Portuguese (Brazil)
+			'pt-PT'  => 'pt_PT', // Portuguese (Portugal)
+			'ru-RU'  => 'ru_RU', // Russian
+			'sv-SE'  => 'sv_SE', // Swedish (Sweden)
+			'th-TH'  => 'th',    // Thai
+			'tl-PH'  => 'tl',    // Tagalog
+			'tr-TR'  => 'tr_TR', // Turkish
+			'uk-UA'  => 'uk',    // Ukranian
+			'vi-VN'  => 'vi',    // Vietnamese
+			'zh-CN'  => 'zh_CN', // Chinese
+			'zh-TW'  => 'zh_TW', // Chinese (Taiwan)
+		];
+
+		$market_id = array_search( $locale, $mappings );
+
+		return ( false !== $market_id ) ? $market_id : 'en-US';
 
 	}
 
@@ -240,13 +291,13 @@ final class API {
 	/**
 	 * Return an array of products and cache them.
 	 *
-	 * @param  bool $force (optional)
+	 * @param  bool $hard (optional)
 	 *
 	 * @return array|WP_Error
 	 */
-	public static function get_products( $force = false ) {
+	public static function get_products( $hard = false ) {
 
-		if ( $force ) {
+		if ( $hard ) {
 
 			Plugin::delete_transient( 'products' );
 
@@ -261,26 +312,28 @@ final class API {
 	}
 
 	/**
-	 * Return a product and cache it.
+	 * Return a product object.
 	 *
 	 * @param  string $product_id
-	 * @param  bool   $force (optional)
+	 * @param  bool   $hard (optional)
 	 *
 	 * @return stdClass|WP_Error
 	 */
-	public static function get_product( $product_id, $force = false ) {
+	public static function get_product( $product_id, $hard = false ) {
 
-		if ( $force ) {
+		foreach ( self::get_products( $hard ) as $product ) {
 
-			Plugin::delete_transient( 'product_' . $product_id );
+			$product = new Product( $product );
+
+			if ( $product->is_valid() && $product->id === $product_id ) {
+
+				return $product;
+
+			}
 
 		}
 
-		return Plugin::get_transient( 'product_' . $product_id, [], function () use ( $product_id ) {
-
-			return rstore()->api->get( 'catalog/{pl_id}/products/' . $product_id );
-
-		} );
+		return new WP_Error( 'product_not_found', esc_html_x( 'Error: `%s` does not exist.', 'product name', 'reseller-store' ), $product_id );
 
 	}
 

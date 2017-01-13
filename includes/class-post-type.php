@@ -222,7 +222,7 @@ final class Post_Type {
 	 */
 	public function reset_product_data( $post_id ) {
 
-		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ), true );
+		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ) );
 
 		if ( is_wp_error( $product ) ) {
 
