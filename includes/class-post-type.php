@@ -558,7 +558,6 @@ final class Post_Type {
 
 		global $post;
 
-		// Back compat below WP 4.7
 		$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
 
 		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
