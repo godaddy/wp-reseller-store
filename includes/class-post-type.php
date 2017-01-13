@@ -239,7 +239,7 @@ final class Post_Type {
 	/**
 	 * Sync down API product meta on a regular basis.
 	 *
-	 * @action init
+	 * @action wp
 	 * @since  NEXT
 	 */
 	public function sync_product_meta() {
