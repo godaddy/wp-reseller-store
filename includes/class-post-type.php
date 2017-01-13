@@ -2,7 +2,7 @@
 
 namespace Reseller_Store;
 
-use WP_Error;
+use stdClass;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
@@ -58,8 +58,8 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                         [ $this, 'register' ] );
+		add_action( 'init',                         [ $this, 'sync_product_meta' ], 11 );
 		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
-		add_action( 'wp',                           [ $this, 'sync_product_meta' ] );
 		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
 		add_action( 'delete_post',                  [ $this, 'delete_imported_product' ] );
@@ -106,7 +106,7 @@ final class Post_Type {
 			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'reseller-store' ),
 			'name_admin_bar'        => esc_html_x( 'Reseller Product', 'add new on admin bar', 'reseller-store' ),
 			'add_new'               => esc_html_x( 'Add New', 'product', 'reseller-store' ),
-			'add_new_item'          => esc_html__( 'Add New Product', 'reseller-store' ),
+			'add_new_item'          => esc_html__( 'Add New Products', 'reseller-store' ),
 			'edit_item'             => esc_html__( 'Edit Product', 'reseller-store' ),
 			'new_item'              => esc_html__( 'New Product', 'reseller-store' ),
 			'view_item'             => esc_html__( 'View Product', 'reseller-store' ),
@@ -222,7 +222,7 @@ final class Post_Type {
 	 */
 	public function reset_product_data( $post_id ) {
 
-		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ), true );
+		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ) );
 
 		if ( is_wp_error( $product ) ) {
 
@@ -244,9 +244,20 @@ final class Post_Type {
 	 */
 	public function sync_product_meta() {
 
-		$last_sync = Plugin::get_transient( 'last_sync', false );
+		/**
+		 * Filter the time to wait in between API syncs (in seconds).
+		 *
+		 * Default: 15 min
+		 *
+		 * @since NEXT
+		 *
+		 * @var int
+		 */
+		$ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
 
-		if ( false !== $last_sync ) {
+		$last_sync = (int) Plugin::get_option( 'last_sync', 0 );
+
+		if ( $last_sync && ( $last_sync + $ttl ) > time() ) {
 
 			return;
 
@@ -265,10 +276,10 @@ final class Post_Type {
 		 *
 		 * @var int
 		 */
-		$sync_retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
+		$retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
 
-		// Set early so if the sync fails, we retry with a shorter TTL
-		Plugin::set_transient( 'last_sync', time(), $sync_retry_ttl );
+		// Store last sync time with an offset so if it fails we try again sooner
+		Plugin::update_option( 'last_sync', time() + $retry_ttl - $ttl );
 
 		$products = API::get_products( true );
 
@@ -311,19 +322,8 @@ final class Post_Type {
 
 		}
 
-		/**
-		 * Filter the time to wait in between API syncs (in seconds).
-		 *
-		 * Default: 15 min
-		 *
-		 * @since NEXT
-		 *
-		 * @var int
-		 */
-		$sync_ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
-
-		// The sync was successful, use the real TTL
-		Plugin::set_transient( 'last_sync', time(), $sync_ttl );
+		// The sync was successful, use the real time
+		Plugin::update_option( 'last_sync', time() );
 
 	}
 
@@ -396,7 +396,7 @@ final class Post_Type {
 	 *
 	 * @return array
 	 */
-	public function columns( $columns ) {
+	public function columns( array $columns ) {
 
 		// Insert before Title column
 		$columns = Plugin::array_insert(
@@ -494,7 +494,7 @@ final class Post_Type {
 	 *
 	 * @return array
 	 */
-	public function order_by_price_clause( $clauses, $wp_query ) {
+	public function order_by_price_clause( array $clauses, $wp_query ) {
 
 		global $wpdb;
 
@@ -521,11 +521,11 @@ final class Post_Type {
 	 * @filter post_type_labels_{post_type}
 	 * @since  NEXT
 	 *
-	 * @param  array $labels
+	 * @param  stdClass $labels
 	 *
 	 * @return array
 	 */
-	public function post_screen_edit_heading( $labels ) {
+	public function post_screen_edit_heading( stdClass $labels ) {
 
 		if ( ! Plugin::is_admin_uri( 'post.php?post=' ) ) {
 
@@ -558,7 +558,9 @@ final class Post_Type {
 
 		global $post;
 
-		if ( self::SLUG === $post->post_type && ! is_feed() && ! REST_REQUEST ) {
+		$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+
+		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
 			$content .= wpautop( Display::price( $post->ID, false ) );
 			$content .= Display::add_to_cart_form( $post->ID, false );

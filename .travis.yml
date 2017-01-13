@@ -9,14 +9,14 @@ php:
   - 7.1
 
 env:
-  - WP_VERSION=4.4 WP_MULTISITE=0
+  - WP_VERSION=4.6 WP_MULTISITE=0
   - WP_VERSION=latest WP_MULTISITE=0
   - WP_VERSION=trunk WP_MULTISITE=0
 
 matrix:
   exclude:
     - php: 7.1
-      env: WP_VERSION=4.4 WP_MULTISITE=0
+      env: WP_VERSION=4.6 WP_MULTISITE=0
 
 install:
   - export DEV_LIB_PATH=dev-lib

@@ -87,7 +87,7 @@ trait Helpers {
 	 *
 	 * @return mixed|WP_Error
 	 */
-	public static function get_transient( $name, $default = null, $callback = null, $expiration = HOUR_IN_SECONDS ) {
+	public static function get_transient( $name, $default = null, $callback = null, $expiration = 0 ) {
 
 		$name = self::prefix( $name );
 
@@ -114,7 +114,7 @@ trait Helpers {
 		$value = ( $value ) ? $value : $default;
 
 		// Always set, even when the value is empty
-		self::set_transient( $name, $value, (int) $expiration );
+		self::set_transient( $name, $value, $expiration );
 
 		return $value;
 
@@ -131,9 +131,9 @@ trait Helpers {
 	 *
 	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
-	public static function set_transient( $name, $value, $expiration = HOUR_IN_SECONDS ) {
+	public static function set_transient( $name, $value, $expiration = 0 ) {
 
-		return set_transient( self::prefix( $name ), $value, (int) $expiration );
+		return set_transient( self::prefix( $name ), $value, absint( $expiration ) );
 
 	}
 
@@ -340,7 +340,7 @@ trait Helpers {
 	 * @param array  $args (optional)
 	 * @param int    status (optional)
 	 */
-	public static function admin_redirect( $endpoint = '', $args = [], $status = 302 ) {
+	public static function admin_redirect( $endpoint = '', array $args = [], $status = 302 ) {
 
 		// Allow full admin URL to be passed as $endpoint
 		$endpoint = preg_replace( '/^.*\/wp-admin(\/|$)/', '', $endpoint );

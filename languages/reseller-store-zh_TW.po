@@ -3,19 +3,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-11 20:05:16+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-01-13 18:40:12+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 
-#: includes/class-api.php:186
+#: includes/class-api.php:237
 msgid "An unknown error has occurred."
 msgstr "發生不明錯誤。"
 
@@ -64,7 +65,9 @@ msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
-msgstr "要重新開始嗎？您可以還原原始產品標題、內容、特色圖片及類別分配項目。注意：您的自訂項目將會遺失。"
+msgstr ""
+"要重新開始嗎？您可以還原原始產品標題、內容、特色圖片及類別分配項目。注意：您"
+"的自訂項目將會遺失。"
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -109,7 +112,8 @@ msgid "Custom base"
 msgstr "自訂起點"
 
 #: includes/class-post-type.php:109
-msgid "Add New Product"
+#, fuzzy
+msgid "Add New Products"
 msgstr "新增商品"
 
 #: includes/class-post-type.php:110
@@ -380,15 +384,11 @@ msgstr "GoDaddy"
 msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
-#: includes/class-butterbean.php:211
-msgctxt "abbreviation for not applicable"
-msgid "N/A"
-msgstr "N/A"
-
-#: includes/class-display.php:113
-msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
-msgid "%1$s / per %2$s"
-msgstr "%1$s / 每 %2$s"
+#: includes/class-api.php:336
+#, fuzzy
+msgctxt "product name"
+msgid "Error: `%s` does not exist."
+msgstr "Error: `%s` is not a valid product."
 
 #: includes/class-import.php:65
 msgctxt "product name"
@@ -399,6 +399,16 @@ msgstr "Error: `%s` is not a valid product."
 msgctxt "product name"
 msgid "Error: `%s` must be imported as a product post before it can be reset."
 msgstr "Error: `%s` must be imported as a product post before it can be reset."
+
+#: includes/class-butterbean.php:211
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/class-display.php:113
+msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / 每 %2$s"
 
 #: includes/class-import.php:92
 msgctxt "post type name"

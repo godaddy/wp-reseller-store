@@ -81,7 +81,6 @@ final class Plugin {
 		new Embed;
 		new Permalinks;
 		new Post_Type;
-		new Settings;
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
 		new Widgets;
