@@ -222,7 +222,7 @@ final class Post_Type {
 	 */
 	public function reset_product_data( $post_id ) {
 
-		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ), true );
+		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ) );
 
 		if ( is_wp_error( $product ) ) {
 
@@ -239,7 +239,7 @@ final class Post_Type {
 	/**
 	 * Sync down API product meta on a regular basis.
 	 *
-	 * @action init
+	 * @action wp
 	 * @since  NEXT
 	 */
 	public function sync_product_meta() {
@@ -558,7 +558,9 @@ final class Post_Type {
 
 		global $post;
 
-		if ( self::SLUG === $post->post_type && ! is_feed() && ! REST_REQUEST ) {
+		$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+
+		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
 			$content .= wpautop( Display::price( $post->ID, false ) );
 			$content .= Display::add_to_cart_form( $post->ID, false );
