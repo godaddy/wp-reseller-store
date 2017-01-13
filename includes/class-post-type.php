@@ -58,8 +58,8 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                         [ $this, 'register' ] );
+		add_action( 'init',                         [ $this, 'sync_product_meta' ], 11 );
 		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
-		add_action( 'wp',                           [ $this, 'sync_product_meta' ] );
 		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
 		add_action( 'delete_post',                  [ $this, 'delete_imported_product' ] );
@@ -239,7 +239,7 @@ final class Post_Type {
 	/**
 	 * Sync down API product meta on a regular basis.
 	 *
-	 * @action wp
+	 * @action init
 	 * @since  NEXT
 	 */
 	public function sync_product_meta() {
@@ -257,7 +257,7 @@ final class Post_Type {
 
 		$last_sync = (int) Plugin::get_option( 'last_sync', 0 );
 
-		if ( $last_sync && ( $last_sync + $ttl ) < time() ) {
+		if ( $last_sync && ( $last_sync + $ttl ) > time() ) {
 
 			return;
 
