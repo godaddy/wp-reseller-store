@@ -54,7 +54,7 @@ final class Plugin {
 
 		add_action( 'plugins_loaded', function () {
 
-			load_plugin_textdomain( 'reseller-store', false, dirname( __FILE__ ) . '/languages' );
+			load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
 
 		} );
 
