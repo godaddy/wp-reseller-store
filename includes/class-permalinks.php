@@ -151,7 +151,7 @@ final class Permalinks {
 	private function save() {
 
 		if (
-			! Plugin::is_admin_uri( 'options-permalink.php' )
+			! rstore_is_admin_uri( 'options-permalink.php' )
 			||
 			! isset( $_POST['permalink_structure'] )
 		) {
@@ -160,7 +160,7 @@ final class Permalinks {
 
 		}
 
-		$permalinks  = (array) Plugin::get_option( 'permalinks', [] );
+		$permalinks  = (array) rstore_get_option( 'permalinks', [] );
 		$_permalinks = $permalinks;
 
 		$_permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base' ) );
@@ -176,7 +176,7 @@ final class Permalinks {
 		// Flush the oEmbed cache when product permalinks change
 		Embed::flush_cache();
 
-		Plugin::update_option( 'permalinks', $_permalinks );
+		rstore_update_option( 'permalinks', $_permalinks );
 
 	}
 
@@ -188,7 +188,7 @@ final class Permalinks {
 	 */
 	public function admin_enqueue_scripts() {
 
-		if ( ! Plugin::is_admin_uri( 'options-permalink.php' ) ) {
+		if ( ! rstore_is_admin_uri( 'options-permalink.php' ) ) {
 
 			return;
 
@@ -196,7 +196,7 @@ final class Permalinks {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-admin-permalinks', rstore()->assets_url . "js/admin-permalinks{$suffix}.js", [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-admin-permalinks', Plugin::assets_url( "js/admin-permalinks{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
 	}
 

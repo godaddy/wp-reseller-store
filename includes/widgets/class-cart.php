@@ -2,9 +2,6 @@
 
 namespace Reseller_Store\Widgets;
 
-use Reseller_Store as Store;
-use Reseller_Store\Plugin;
-
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -21,10 +18,10 @@ final class Cart extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			Plugin::prefix( 'cart' ),
+			rstore_prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),
 			[
-				'classname'   => Plugin::prefix( 'cart', true ),
+				'classname'   => rstore_prefix( 'cart', true ),
 				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
 			]
 		);
@@ -83,7 +80,7 @@ final class Cart extends \WP_Widget {
 		?>
 		<div class="rstore-view-cart">
 			<span class="dashicons dashicons-cart"></span>
-			<a href="<?php echo esc_url( Store\rstore()->api->urls['cart'] ); ?>">
+			<a href="<?php echo esc_url( rstore()->api->urls['cart'] ); ?>">
 				<?php printf( esc_html_x( 'View Cart %s', 'number of items in cart', 'reseller-store' ), '(<span class="rstore-cart-count">0</span>)' ); ?>
 			</a>
 		</div>

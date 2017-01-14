@@ -2,7 +2,6 @@
 
 namespace Reseller_Store;
 
-use stdClass;
 use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -84,13 +83,13 @@ final class API {
 	public function add_query_args( $url, $add_pl_id = true ) {
 
 		$args = [
-			'currencyType' => Plugin::get_option( 'currency', 'USD' ),
-			'marketId'     => self::get_market_id(),
+			'currencyType' => rstore_get_option( 'currency', 'USD' ),
+			'marketId'     => $this->get_market_id(),
 		];
 
-		if ( $add_pl_id && Plugin::is_setup() ) {
+		if ( $add_pl_id && rstore_is_setup() ) {
 
-			$args['pl_id'] = (int) Plugin::get_option( 'pl_id' );
+			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
 
 		}
 
@@ -107,7 +106,7 @@ final class API {
 	 *
 	 * @return string
 	 */
-	public static function get_market_id( $locale = null ) {
+	public function get_market_id( $locale = null ) {
 
 		$locale = ( $locale ) ? $locale : get_locale();
 
@@ -167,7 +166,7 @@ final class API {
 			$url = sprintf(
 				'%s/%s',
 				untrailingslashit( $url ),
-				str_replace( '{pl_id}', (int) Plugin::get_option( 'pl_id' ), $endpoint )
+				str_replace( '{pl_id}', (int) rstore_get_option( 'pl_id' ), $endpoint )
 			);
 
 		}
@@ -285,55 +284,6 @@ final class API {
 	public function delete( $endpoint, array $args = [] ) {
 
 		return $this->request( 'DELETE', $endpoint, $args );
-
-	}
-
-	/**
-	 * Return an array of products and cache them.
-	 *
-	 * @param  bool $hard (optional)
-	 *
-	 * @return array|WP_Error
-	 */
-	public static function get_products( $hard = false ) {
-
-		if ( $hard ) {
-
-			Plugin::delete_transient( 'products' );
-
-		}
-
-		return Plugin::get_transient( 'products', [], function () {
-
-			return rstore()->api->get( 'catalog/{pl_id}/products' );
-
-		} );
-
-	}
-
-	/**
-	 * Return a product object.
-	 *
-	 * @param  string $product_id
-	 * @param  bool   $hard (optional)
-	 *
-	 * @return stdClass|WP_Error
-	 */
-	public static function get_product( $product_id, $hard = false ) {
-
-		foreach ( self::get_products( $hard ) as $product ) {
-
-			$product = new Product( $product );
-
-			if ( $product->is_valid() && $product->id === $product_id ) {
-
-				return $product;
-
-			}
-
-		}
-
-		return new WP_Error( 'product_not_found', esc_html_x( 'Error: `%s` does not exist.', 'product name', 'reseller-store' ), $product_id );
 
 	}
 

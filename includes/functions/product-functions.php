@@ -1,0 +1,149 @@
+<?php
+
+/**
+ * Check whether products exist.
+ *
+ * Product count is cached in memory to prevent duplicate
+ * queries on the same page load.
+ *
+ * @global wpdb $wpdb
+ * @since  NEXT
+ *
+ * @return bool  Returns `true` if there are product posts, otherwise `false`. Ignores the `auto-draft` post status.
+ */
+function rstore_has_products() {
+
+	static $count;
+
+	if ( ! isset( $count ) ) {
+
+		global $wpdb;
+
+		$count = (int) $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT COUNT(*) FROM `{$wpdb->posts}` WHERE `post_type` = %s AND `post_status` != 'auto-draft';",
+				Reseller_Store\Post_Type::SLUG
+			)
+		);
+
+	}
+
+	return ( $count > 0 );
+
+}
+
+/**
+ * Check if the site has imported all available products.
+ *
+ * @since NEXT
+ *
+ * @return bool  Returns `true` if all available products have been imported, otherwise `false`.
+ */
+function rstore_has_all_products() {
+
+	return ! (bool) rstore_get_missing_products();
+
+}
+
+/**
+ * Return an array of missing product IDs that can be imported.
+ *
+ * @since NEXT
+ *
+ * @return array  Returns an array of product IDs, otherwise an empty array.
+ */
+function rstore_get_missing_products() {
+
+	if ( ! rstore_is_setup() ) {
+
+		return [];
+
+	}
+
+	$products = rstore_get_products();
+
+	if ( is_wp_error( $products ) || empty( $products[0]->id ) ) {
+
+		return [];
+
+	}
+
+	$missing = array_diff(
+		wp_list_pluck( $products, 'id' ),
+		(array) rstore_get_option( 'imported', [] )
+	);
+
+	return ( $missing ) ? $missing : [];
+
+}
+
+/**
+ * Return an array of products and cache them.
+ *
+ * @param  bool $hard (optional)
+ *
+ * @return array|WP_Error
+ */
+function rstore_get_products( $hard = false ) {
+
+	if ( $hard ) {
+
+		rstore_delete_transient( 'products' );
+
+	}
+
+	return rstore_get_transient( 'products', [], function () {
+
+		return rstore()->api->get( 'catalog/{pl_id}/products' );
+
+	} );
+
+}
+
+/**
+ * Return a product object.
+ *
+ * @param  string $product_id
+ * @param  bool   $hard (optional)
+ *
+ * @return stdClass|WP_Error
+ */
+function rstore_get_product( $product_id, $hard = false ) {
+
+	foreach ( rstore_get_products( $hard ) as $product ) {
+
+		$product = new Reseller_Store\Product( $product );
+
+		if ( $product->is_valid() && $product->id === $product_id ) {
+
+			return $product;
+
+		}
+
+	}
+
+	return new WP_Error( 'product_not_found', esc_html_x( 'Error: `%s` does not exist.', 'product name', 'reseller-store' ), $product_id );
+
+}
+
+/**
+ * Return a product meta value, or its global setting fallback.
+ *
+ * @since NEXT
+ *
+ * @param  int    $post_id
+ * @param  string $key
+ * @param  mixed  $default          (optional)
+ * @param  bool   $setting_fallback (optional)
+ *
+ * @return mixed
+ */
+function rstore_get_product_meta( $post_id, $key, $default = false, $setting_fallback = false ) {
+
+	$key = rstore_prefix( $key );
+
+	$meta = get_post_meta( $post_id, $key, true );
+
+	return ( $meta ) ? $meta : ( $setting_fallback ? get_option( $key, $default ) : $default );
+
+}

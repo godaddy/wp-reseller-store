@@ -40,13 +40,13 @@ final class Restrictions {
 
 		}
 
-		$is_post_type_screen = Plugin::is_admin_uri( 'post_type=' . Post_Type::SLUG, false );
-		$is_setup_screen     = Plugin::is_admin_uri( 'admin.php?page=' . Setup::SLUG );
-		$is_add_new_screen   = Plugin::is_admin_uri( 'post-new.php?post_type=' . Post_Type::SLUG );
+		$is_post_type_screen = rstore_is_admin_uri( 'post_type=' . Post_Type::SLUG, false );
+		$is_setup_screen     = rstore_is_admin_uri( 'admin.php?page=' . Setup::SLUG );
+		$is_add_new_screen   = rstore_is_admin_uri( 'post-new.php?post_type=' . Post_Type::SLUG );
 
-		if ( $is_post_type_screen && ( ! Plugin::is_setup() || ! Plugin::has_products() ) ) {
+		if ( $is_post_type_screen && ( ! rstore_is_setup() || ! rstore_has_products() ) ) {
 
-			Plugin::admin_redirect(
+			rstore_admin_redirect(
 				'admin.php',
 				[
 					'page' => Setup::SLUG,
@@ -56,12 +56,12 @@ final class Restrictions {
 		}
 
 		if (
-			( $is_setup_screen && Plugin::is_setup() && Plugin::has_products() )
+			( $is_setup_screen && rstore_is_setup() && rstore_has_products() )
 			||
-			( $is_add_new_screen && Plugin::has_all_products() )
+			( $is_add_new_screen && rstore_has_all_products() )
 		) {
 
-			Plugin::admin_redirect(
+			rstore_admin_redirect(
 				'edit.php',
 				[
 					'post_type' => Post_Type::SLUG,
@@ -80,7 +80,7 @@ final class Restrictions {
 	 */
 	public function admin_submenu() {
 
-		if ( ! Plugin::has_all_products() ) {
+		if ( ! rstore_has_all_products() ) {
 
 			return;
 
@@ -101,7 +101,7 @@ final class Restrictions {
 	 */
 	public function add_product_button() {
 
-		if ( ! Plugin::has_all_products() ) {
+		if ( ! rstore_has_all_products() ) {
 
 			return;
 
@@ -124,7 +124,7 @@ final class Restrictions {
 	 */
 	public function admin_bar_submenu() {
 
-		if ( ! Plugin::has_all_products() ) {
+		if ( ! rstore_has_all_products() ) {
 
 			return;
 
@@ -151,7 +151,7 @@ final class Restrictions {
 			||
 			'bottom' !== $which
 			||
-			Plugin::has_products()
+			rstore_has_products()
 		) {
 
 			return;

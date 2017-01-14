@@ -8,6 +8,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
+foreach ( glob( __DIR__ . '/functions/*.php' ) as $include ) {
+
+	if ( is_readable( $include ) ) {
+
+		require_once $include;
+
+	}
+
+}
+
 spl_autoload_register( function( $resource ) {
 
 	if ( 0 !== strpos( $resource, __NAMESPACE__ ) ) {

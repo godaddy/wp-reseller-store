@@ -40,7 +40,7 @@ final class Setup {
 	 */
 	public function admin_enqueue_scripts() {
 
-		if ( ! Plugin::is_admin_uri( 'admin.php?page=' . self::SLUG ) ) {
+		if ( ! rstore_is_admin_uri( 'admin.php?page=' . self::SLUG ) ) {
 
 			return;
 
@@ -48,7 +48,7 @@ final class Setup {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-admin-setup', rstore()->assets_url . "js/admin-setup{$suffix}.js", [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
 	}
 
@@ -134,7 +134,7 @@ final class Setup {
 		<div class="rstore-setup">
 			<div class="rstore-setup-wrapper">
 				<div class="rstore-setup-header">
-					<img src="<?php echo esc_url( rstore()->assets_url . 'images/store.svg' ); ?>">
+					<img src="<?php echo esc_url( Plugin::assets_url( 'images/store.svg' ) ); ?>">
 					<h2><?php esc_html_e( "Let's setup your GoDaddy Reseller Store.", 'reseller-store' ); ?></h2>
 					<div class="clear"></div>
 				</div>
@@ -143,7 +143,7 @@ final class Setup {
 					<p>
 						<form id="rstore-setup-form">
 							<label class="screen-reader-text" for="rstore-pl-id-field"><?php esc_html_e( 'Enter your Private Label ID:', 'reseller-store' ); ?></label>
-							<input type="number" id="rstore-pl-id-field" value="<?php echo Plugin::get_option( 'pl_id', '' ); // xss ok ?>" min="0" autocomplete="off" required>
+							<input type="number" id="rstore-pl-id-field" value="<?php echo rstore_get_option( 'pl_id', '' ); // xss ok ?>" min="0" autocomplete="off" required>
 							<button type="submit" class="button button-primary"><?php esc_html_e( 'Install Now', 'reseller-store' ); ?></button>
 							<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
 						</form>
@@ -180,13 +180,13 @@ final class Setup {
 
 		}
 
-		Plugin::update_option( 'pl_id', $pl_id );
+		rstore_update_option( 'pl_id', $pl_id );
 
-		$products = API::get_products( true );
+		$products = rstore_get_products( true );
 
 		if ( is_wp_error( $products ) ) {
 
-			Plugin::delete_option( 'pl_id' ); // Could be unauthorized
+			rstore_delete_option( 'pl_id' ); // Could be unauthorized
 
 			wp_send_json_error(
 				sprintf(
@@ -232,7 +232,7 @@ final class Setup {
 
 		}
 
-		if ( ! Plugin::has_products() ) {
+		if ( ! rstore_has_products() ) {
 
 			wp_send_json_error(
 				esc_html__( 'Error: Product data was found to be invalid, please try again later.', 'reseller-store' )
@@ -240,7 +240,7 @@ final class Setup {
 
 		}
 
-		Plugin::update_option( 'last_sync', time() );
+		rstore_update_option( 'last_sync', time() );
 
 		wp_send_json_success(
 			[
@@ -276,7 +276,7 @@ final class Setup {
 		$attachments = $wpdb->get_col(
 			$wpdb->prepare(
 				"SELECT `post_id` FROM `{$wpdb->postmeta}` WHERE `meta_key` = %s;",
-				Plugin::prefix( 'image' )
+				rstore_prefix( 'image' )
 			)
 		);
 
@@ -328,7 +328,7 @@ final class Setup {
 		$wpdb->query(
 			$wpdb->prepare(
 				"DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE %s;",
-				'%' . Plugin::prefix( '%' ) // Transients too
+				'%' . rstore_prefix( '%' ) // Transients too
 			)
 		);
 
@@ -342,7 +342,7 @@ final class Setup {
 	 */
 	public static function deactivate() {
 
-		delete_option( Plugin::prefix( 'pl_id' ) );
+		delete_option( rstore_prefix( 'pl_id' ) );
 
 		flush_rewrite_rules();
 

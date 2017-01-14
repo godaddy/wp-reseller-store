@@ -2,8 +2,6 @@
 
 namespace Reseller_Store\ButterBean\Controls;
 
-use Reseller_Store\Plugin;
-
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -20,7 +18,7 @@ final class Plain_Text extends \ButterBean_Control {
 
 		parent::__construct( $manager, $name, $args );
 
-		$this->type = Plugin::prefix( $this->type, true );
+		$this->type = rstore_prefix( $this->type, true );
 
 	}
 

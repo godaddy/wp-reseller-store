@@ -50,7 +50,7 @@ final class Taxonomy_Tag {
 	 */
 	public static function permalink_base() {
 
-		$permalinks     = (array) Plugin::get_option( 'permalinks', [] );
+		$permalinks     = (array) rstore_get_option( 'permalinks', [] );
 		$permalink_base = ! empty( $permalinks['tag_base'] ) ? $permalinks['tag_base'] : self::$default_permalink_base;
 
 		return sanitize_title( $permalink_base );

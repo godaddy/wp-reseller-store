@@ -115,8 +115,8 @@ final class Embed {
 
 		}
 
-		$output  = wpautop( Display::price( $post->ID, false ) );
-		$output .= wpautop( Display::add_to_cart_link( $post->ID, false ) );
+		$output  = wpautop( rstore_price( $post->ID, false ) );
+		$output .= wpautop( rstore_add_to_cart_link( $post->ID, false ) );
 		$output .= wpautop( $excerpt );
 
 		return $output;

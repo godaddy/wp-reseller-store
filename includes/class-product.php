@@ -105,7 +105,7 @@ final class Product {
 			$wpdb->prepare(
 				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = %s AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
 				Post_Type::SLUG,
-				Plugin::prefix( 'id' ),
+				rstore_prefix( 'id' ),
 				sanitize_title( $this->product->id ) // Product IDs are sanitized on import
 			)
 		);
@@ -131,7 +131,7 @@ final class Product {
 		$attachment_id = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
-				Plugin::prefix( 'image' ),
+				rstore_prefix( 'image' ),
 				esc_url_raw( $this->product->image ) // Image URLs are sanitized on import
 			)
 		);

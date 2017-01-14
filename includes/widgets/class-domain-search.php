@@ -2,9 +2,6 @@
 
 namespace Reseller_Store\Widgets;
 
-use Reseller_Store as Store;
-use Reseller_Store\Plugin;
-
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -21,10 +18,10 @@ final class Domain_Search extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			Plugin::prefix( 'domain-search' ),
+			rstore_prefix( 'domain-search' ),
 			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
 			[
-				'classname'   => Plugin::prefix( 'domain-search', true ),
+				'classname'   => rstore_prefix( 'domain-search', true ),
 				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
 			]
 		);
@@ -82,7 +79,7 @@ final class Domain_Search extends \WP_Widget {
 		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
 
 		?>
-		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( Store\rstore()->api->urls['domain_search'] ); ?>" novalidate>
+		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( rstore()->api->urls['domain_search'] ); ?>" novalidate>
 			<label class="screen-reader-text" for="rstore-domain-search-field"><?php esc_html_e( 'Search for a domain name:', 'reseller-store' ); ?></label>
 			<input type="search" name="domainToCheck" id="rstore-domain-search-field" class="search-field required" placeholder="<?php echo esc_attr( $placeholder ); ?>" title="<?php esc_attr_e( 'Search for a domain name:', 'reseller-store' ); ?>" value="" required="required">
 			<?php if ( $button_label ) : ?>

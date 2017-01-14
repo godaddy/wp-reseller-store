@@ -56,7 +56,7 @@ final class Import {
 
 		$this->product  = $product->product;
 		$this->post_id  = absint( $post_id );
-		$this->imported = (array) Plugin::get_option( 'imported', [] );
+		$this->imported = (array) rstore_get_option( 'imported', [] );
 
 		if ( ! $product->is_valid() ) {
 
@@ -177,11 +177,11 @@ final class Import {
 			$wpdb->prepare(
 				"DELETE FROM `{$wpdb->postmeta}` WHERE `post_id` = %d AND `meta_key` LIKE %s;",
 				$this->post_id,
-				Plugin::prefix( '%' )
+				rstore_prefix( '%' )
 			)
 		);
 
-		Plugin::bulk_update_post_meta( $this->post_id, $this->product );
+		rstore_bulk_update_post_meta( $this->post_id, $this->product );
 
 	}
 
@@ -313,7 +313,7 @@ final class Import {
 			'post_id' => $this->post_id,
 		];
 
-		Plugin::bulk_update_post_meta( $attachment_id, $meta );
+		rstore_bulk_update_post_meta( $attachment_id, $meta );
 
 	}
 
@@ -387,7 +387,7 @@ final class Import {
 
 		$this->imported[ $this->post_id ] = $this->product->id;
 
-		return Plugin::update_option( 'imported', $this->imported );
+		return rstore_update_option( 'imported', $this->imported );
 
 	}
 
