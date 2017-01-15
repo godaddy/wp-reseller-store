@@ -18,21 +18,32 @@ final class Reseller extends \WP_CLI_Command {
 	 *
 	 * ## OPTIONS
 	 *
-	 * [--yes]
-	 * : Answer yes to the confirmation message.
+	 * <id>
+	 * : Private Label ID.
 	 *
 	 * ## EXAMPLES
 	 *
-	 *     $ wp reseller install 123456 --yes
+	 *     $ wp reseller install 123456
 	 *     Success: Reseller Store data imported and installed.
 	 */
 	public function install( $args, $assoc_args ) {
 
-		WP_CLI::confirm( 'Are you sure you want to import all Reseller Store products into this site?', $assoc_args );
+		WP_CLI::line( 'Installing ...' );
 
-		Setup::install( $args[0] );
+		$result = Setup::install( $args[0] );
 
-		WP_CLI::success( 'Reseller Store data imported.' );
+		if ( is_wp_error( $result ) ) {
+
+			WP_CLI::error(
+				sprintf(
+					$result->get_error_message(),
+					$result->get_error_data( $result->get_error_code() )
+				)
+			);
+
+		}
+
+		WP_CLI::success( 'Reseller Store installed.' );
 
 	}
 

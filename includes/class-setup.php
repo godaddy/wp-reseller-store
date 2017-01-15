@@ -2,6 +2,8 @@
 
 namespace Reseller_Store;
 
+use WP_Error;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -166,16 +168,25 @@ final class Setup {
 	 * @global wpdb $wpdb
 	 * @since  NEXT
 	 *
-	 * @param int $pl_id (optional)
+	 * @param  int $pl_id (optional)
+	 *
+	 * @return true|WP_Error|void
 	 */
 	public static function install( $pl_id = 0 ) {
 
-		$pl_id = ( $pl_id > 0 ) ? (int) $pl_id : absint( filter_input( INPUT_POST, 'pl_id' ) );
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+
+			$pl_id = absint( filter_input( INPUT_POST, 'pl_id' ) );
+
+		}
+
+		$pl_id = ( $pl_id > 0 ) ? (int) $pl_id : 0;
 
 		if ( 0 === $pl_id ) {
 
-			wp_send_json_error(
-				esc_html__( 'Error: Invalid Private Label ID.', 'reseller-store' )
+			return self::install_error(
+				'invalid_pl_id',
+				esc_html__( 'Private Label ID is invalid.', 'reseller-store' )
 			);
 
 		}
@@ -186,21 +197,17 @@ final class Setup {
 
 		if ( is_wp_error( $products ) ) {
 
-			rstore_delete_option( 'pl_id' ); // Could be unauthorized
+			rstore_delete_option( 'pl_id' ); // The ID might be unauthorized
 
-			wp_send_json_error(
-				sprintf(
-					$products->get_error_message(),
-					$products->get_error_data( $products->get_error_code() )
-				)
-			);
+			return self::install_error( $products );
 
 		}
 
 		if ( ! $products ) {
 
-			wp_send_json_error(
-				esc_html__( 'Error: There are no products available, please try again later.', 'reseller-store' )
+			return self::install_error(
+				'no_products_found',
+				esc_html__( 'There are no products available, please try again later.', 'reseller-store' )
 			);
 
 		}
@@ -221,12 +228,7 @@ final class Setup {
 
 			if ( is_wp_error( $result ) ) {
 
-				wp_send_json_error(
-					sprintf(
-						$result->get_error_message(),
-						$result->get_error_data( $result->get_error_code() )
-					)
-				);
+				return self::install_error( $result );
 
 			}
 
@@ -234,20 +236,60 @@ final class Setup {
 
 		if ( ! rstore_has_products() ) {
 
-			wp_send_json_error(
-				esc_html__( 'Error: Product data was found to be invalid, please try again later.', 'reseller-store' )
+			return self::install_error(
+				'products_import_failure',
+				esc_html__( 'Product data could not be imported, please try again later.', 'reseller-store' )
 			);
 
 		}
 
 		rstore_update_option( 'last_sync', time() );
 
-		wp_send_json_success(
-			[
-				'redirect' => esc_url_raw(
-					add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
-				)
-			]
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+
+			wp_send_json_success(
+				[
+					'redirect' => esc_url_raw(
+						add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
+					)
+				]
+			);
+
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * Return an install error.
+	 *
+	 * @param  string|WP_Error $code
+	 * @param  string          $message
+	 * @param  string          $data
+	 *
+	 * @return WP_Error|void  Returns a `WP_Error`, or prints an error as JSON and dies when called during an AJAX request.
+	 */
+	private static function install_error( $code = '', $message = '', $data = '' ) {
+
+		$wp_error = is_wp_error( $code ) ? $code : false;
+
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'reseller-store' );
+
+		if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
+
+			return ( $wp_error ) ? $wp_error : new WP_Error( $code, $message, $data );
+
+		}
+
+		$message = ( $wp_error ) ? $wp_error->get_error_message() : $message;
+		$data    = ( $wp_error ) ? $wp_error->get_error_data( $wp_error->get_error_code() ) : $data;
+
+		wp_send_json_error(
+			sprintf(
+				esc_html_x( 'Error: %s', 'error message', 'reseller-store' ),
+				sprintf( $message, $data )
+			)
 		);
 
 	}
