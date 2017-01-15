@@ -162,11 +162,11 @@ final class Restrictions {
 
 		} );
 
-		$products = API::get_products();
+		$products = rstore_get_products();
 
 		sort( $products );
 
-		$missing = Plugin::get_missing_products();
+		$missing = rstore_get_missing_products();
 
 		?>
 		<style type="text/css">
@@ -192,7 +192,7 @@ final class Restrictions {
 				<table class="wp-list-table widefat fixed striped rstore-product-list">
 					<thead>
 						<tr>
-							<td id="cb" class="manage-column column-cb check-column"><label class="screen-reader-text" for="cb-select-all-1">Select All</label><input id="cb-select-all-1" type="checkbox"></td>
+							<td id="cb" class="manage-column column-cb check-column"><label class="screen-reader-text" for="cb-select-all-1"><?php esc_html_e( 'Select All', 'reseller-store' ); ?></label><input id="cb-select-all-1" type="checkbox"></td>
 							<th class="manage-column column-title column-primary"><?php esc_html_e( 'Product', 'reseller-store' ); ?></th>
 							<th><?php esc_html_e( 'List Price', 'reseller-store' ); ?></th>
 							<th><?php esc_html_e( 'Sale Price', 'reseller-store' ); ?></th>
