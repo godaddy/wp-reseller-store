@@ -10,12 +10,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 trait Helpers {
 
+	/**
+	 * Return the plugin base directory path.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $path (optional)
+	 *
+	 * @return string
+	 */
 	public static function base_dir( $path = '' ) {
 
 		return rstore()->base_dir . $path;
 
 	}
 
+	/**
+	 * Return the plugin assets URL.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $path (optional)
+	 *
+	 * @return string
+	 */
 	public static function assets_url( $path = '' ) {
 
 		return rstore()->assets_url . $path;
