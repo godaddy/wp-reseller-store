@@ -45,16 +45,3 @@ spl_autoload_register( function( $resource ) {
 	}
 
 } );
-
-/**
- * Returns the plugin instance.
- *
- * @since NEXT
- *
- * @return Plugin
- */
-function rstore() {
-
-	return Plugin::load();
-
-}
