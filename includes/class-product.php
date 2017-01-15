@@ -138,33 +138,25 @@ final class Product {
 
 		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->image ) );
 
-		$attachment_id = wp_cache_get( $key );
+		$attachment_id = (int) wp_cache_get( $key );
 
-		if ( $attachment_id > 0 ) {
+		if ( ! $attachment_id ) {
 
-			return (int) $attachment_id;
+			global $wpdb;
 
-		}
-
-		global $wpdb;
-
-		$attachment_id = (int) $wpdb->get_var(
-			$wpdb->prepare(
-				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
-				rstore_prefix( 'image' ),
-				esc_url_raw( $this->product->image ) // Image URLs are sanitized on import
-			)
-		);
-
-		if ( $attachment_id > 0 ) {
+			$attachment_id = (int) $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
+					rstore_prefix( 'image' ),
+					esc_url_raw( $this->product->image ) // Image URLs are sanitized on import
+				)
+			);
 
 			wp_cache_set( $key, $attachment_id );
 
-			return $attachment_id;
-
 		}
 
-		return false;
+		return ( $attachment_id > 0 ) ? $attachment_id : false;
 
 	}
 
