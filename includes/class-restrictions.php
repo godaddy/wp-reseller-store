@@ -44,7 +44,11 @@ final class Restrictions {
 		$is_setup_screen     = rstore_is_admin_uri( 'admin.php?page=' . Setup::SLUG );
 		$is_add_new_screen   = rstore_is_admin_uri( 'post-new.php?post_type=' . Post_Type::SLUG );
 
-		if ( $is_post_type_screen && ( ! rstore_is_setup() || ! rstore_has_products() ) ) {
+		if (
+			$is_post_type_screen
+			&&
+			( ! rstore_is_setup() || ! rstore_has_products() )
+		) {
 
 			rstore_admin_redirect(
 				'admin.php',
