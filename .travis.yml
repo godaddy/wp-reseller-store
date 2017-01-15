@@ -26,16 +26,16 @@ install:
   - bash bin/install-wp-tests.sh wordpress wordpress_test root '' localhost $WP_VERSION
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
   - sleep 3
-  - "php /tmp/wp-cli.phar server --path=$WP_CORE_DIR > /dev/null 2>/dev/null &"
+  - php /tmp/wp-cli.phar server --path=$WP_CORE_DIR > /dev/null 2>/dev/null &
   - sleep 3
   - ln -s $TRAVIS_BUILD_DIR $WP_CORE_DIR/wp-content/plugins/
-  - "php /tmp/wp-cli.phar plugin activate $(basename $TRAVIS_BUILD_DIR) --path=$WP_CORE_DIR"
-  - "php /tmp/wp-cli.phar selenium start --path=$WP_CORE_DIR"
+  - php /tmp/wp-cli.phar plugin activate $(basename $TRAVIS_BUILD_DIR) --path=$WP_CORE_DIR
+  - php /tmp/wp-cli.phar selenium start --path=$WP_CORE_DIR
 
 script:
   - source $DEV_LIB_PATH/travis.script.sh
   - phpunit
-  - "php /tmp/wp-cli.phar codeception run --debug --path=$WP_CORE_DIR"
+  - php /tmp/wp-cli.phar codeception run --debug --path=$WP_CORE_DIR
