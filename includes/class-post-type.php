@@ -244,20 +244,7 @@ final class Post_Type {
 	 */
 	public function sync_product_meta() {
 
-		/**
-		 * Filter the time to wait in between API syncs (in seconds).
-		 *
-		 * Default: 15 min
-		 *
-		 * @since NEXT
-		 *
-		 * @var int
-		 */
-		$ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
-
-		$last_sync = (int) rstore_get_option( 'last_sync', 0 );
-
-		if ( $last_sync && ( $last_sync + $ttl ) > time() ) {
+		if ( time() < (int) rstore_get_option( 'next_sync' ) ) {
 
 			return;
 
@@ -278,8 +265,8 @@ final class Post_Type {
 		 */
 		$retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
 
-		// Store last sync time with an offset so if it fails we try again sooner
-		rstore_update_option( 'last_sync', time() + $retry_ttl - $ttl );
+		// Use the retry TTL by default in case the sync fails
+		rstore_update_option( 'next_sync', time() + $retry_ttl );
 
 		$products = rstore_get_products( true );
 
@@ -322,8 +309,20 @@ final class Post_Type {
 
 		}
 
-		// The sync was successful, use the real time
 		rstore_update_option( 'last_sync', time() );
+
+		/**
+		 * Filter the time to wait in between API syncs (in seconds).
+		 *
+		 * Default: 15 min
+		 *
+		 * @since NEXT
+		 *
+		 * @var int
+		 */
+		$ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
+
+		rstore_update_option( 'next_sync', time() + $ttl );
 
 	}
 

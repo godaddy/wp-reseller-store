@@ -260,7 +260,19 @@ final class API {
 	 */
 	public function get( $endpoint, array $args = [] ) {
 
-		return $this->request( 'GET', $endpoint, $args );
+		$key = rstore_prefix( 'api_get-' . md5( $endpoint . serialize( $args ) ) );
+
+		$results = wp_cache_get( $key );
+
+		if ( false === $results ) {
+
+			$results = $this->request( 'GET', $endpoint, $args );
+
+			wp_cache_set( $key, $results );
+
+		}
+
+		return $results;
 
 	}
 
