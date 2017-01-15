@@ -136,6 +136,16 @@ final class Product {
 	 */
 	public function image_exists() {
 
+		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->image ) );
+
+		$attachment_id = wp_cache_get( $key );
+
+		if ( $attachment_id > 0 ) {
+
+			return (int) $attachment_id;
+
+		}
+
 		global $wpdb;
 
 		$attachment_id = (int) $wpdb->get_var(
@@ -146,7 +156,15 @@ final class Product {
 			)
 		);
 
-		return ( $attachment_id > 0 ) ? $attachment_id : false;
+		if ( $attachment_id > 0 ) {
+
+			wp_cache_set( $key, $attachment_id );
+
+			return $attachment_id;
+
+		}
+
+		return false;
 
 	}
 
