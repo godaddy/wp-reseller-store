@@ -23,7 +23,7 @@ install:
   - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
   - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
   - source $DEV_LIB_PATH/travis.install.sh
-  - bash bin/install-wp-tests.sh wordpress wordpress_test root '' localhost $WP_VERSION
+  - bash tests/install-wp-tests.sh wordpress wordpress_test root '' localhost $WP_VERSION
 
 before_script:
   - export DISPLAY=:99.0
