@@ -144,7 +144,16 @@ final class API {
 
 		$market_id = array_search( $locale, $mappings );
 
-		return ( false !== $market_id ) ? $market_id : 'en-US';
+		/**
+		 * Filter the market ID used in API requests.
+		 *
+		 * @since NEXT
+		 *
+		 * @var string
+		 */
+		$market_id = (string) apply_filters( 'rstore_api_market_id', $market_id );
+
+		return ( $market_id ) ? $market_id : 'en-US';
 
 	}
 
