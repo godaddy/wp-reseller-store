@@ -33,7 +33,7 @@ final class ButterBean {
 	 */
 	public function load() {
 
-		$path = rstore()->base_dir . 'lib/butterbean/butterbean.php';
+		$path = Plugin::base_dir( 'lib/butterbean/butterbean.php' );
 
 		if ( is_readable( $path ) ) {
 
@@ -61,17 +61,17 @@ final class ButterBean {
 		}
 
 		$butterbean->register_setting_type(
-			Plugin::prefix( 'read-only', true ),
+			rstore_prefix( 'read-only', true ),
 			__NAMESPACE__ . '\ButterBean\Settings\Read_Only'
 		);
 
 		$butterbean->register_control_type(
-			Plugin::prefix( 'anchor', true ),
+			rstore_prefix( 'anchor', true ),
 			__NAMESPACE__ . '\ButterBean\Controls\Anchor'
 		);
 
 		$butterbean->register_control_type(
-			Plugin::prefix( 'plain-text', true ),
+			rstore_prefix( 'plain-text', true ),
 			__NAMESPACE__ . '\ButterBean\Controls\Plain_Text'
 		);
 
@@ -92,15 +92,15 @@ final class ButterBean {
 
 		switch ( $slug ) {
 
-			case Plugin::prefix( 'anchor', true ) :
+			case rstore_prefix( 'anchor', true ) :
 
-				$path = rstore()->base_dir . 'includes/butterbean/templates/control-anchor.php';
+				$path = Plugin::base_dir( 'includes/butterbean/templates/control-anchor.php' );
 
 				break;
 
-			case Plugin::prefix( 'plain-text', true ) :
+			case rstore_prefix( 'plain-text', true ) :
 
-				$path = rstore()->base_dir . 'includes/butterbean/templates/control-plain-text.php';
+				$path = Plugin::base_dir( 'includes/butterbean/templates/control-plain-text.php' );
 
 				break;
 
@@ -175,18 +175,18 @@ final class ButterBean {
 	private function list_price( $manager, $section ) {
 
 		$manager->register_control(
-			Plugin::prefix( 'listPrice' ),
+			rstore_prefix( 'listPrice' ),
 			[
-				'type'    => Plugin::prefix( 'plain-text', true ),
+				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
 				'label'   => esc_html__( 'Price', 'reseller-store' ),
 			]
 		);
 
 		$manager->register_setting(
-			Plugin::prefix( 'listPrice' ),
+			rstore_prefix( 'listPrice' ),
 			[
-				'type' => Plugin::prefix( 'read-only', true ),
+				'type' => rstore_prefix( 'read-only', true ),
 			]
 		);
 
@@ -203,9 +203,9 @@ final class ButterBean {
 	private function sale_price( $manager, $section ) {
 
 		$manager->register_control(
-			Plugin::prefix( 'salePrice' ),
+			rstore_prefix( 'salePrice' ),
 			[
-				'type'    => Plugin::prefix( 'plain-text', true ),
+				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
 				'label'   => esc_html__( 'Sale Price', 'reseller-store' ),
 				'default' => esc_html_x( 'N/A', 'abbreviation for not applicable', 'reseller-store' ),
@@ -213,9 +213,9 @@ final class ButterBean {
 		);
 
 		$manager->register_setting(
-			Plugin::prefix( 'salePrice' ),
+			rstore_prefix( 'salePrice' ),
 			[
-				'type' => Plugin::prefix( 'read-only', true ),
+				'type' => rstore_prefix( 'read-only', true ),
 			]
 		);
 
@@ -232,20 +232,20 @@ final class ButterBean {
 	private function default_quantity( $manager, $section ) {
 
 		$manager->register_control(
-			Plugin::prefix( __FUNCTION__ ),
+			rstore_prefix( __FUNCTION__ ),
 			[
 				'type'    => 'number',
 				'section' => $section,
 				'label'   => esc_html__( 'Default Quantity', 'reseller-store' ),
 				'attr'    => [
 					'min'         => 1,
-					'placeholder' => absint( Plugin::get_option( __FUNCTION__, 1 ) ),
+					'placeholder' => absint( rstore_get_option( __FUNCTION__, 1 ) ),
 				],
 			]
 		);
 
 		$manager->register_setting(
-			Plugin::prefix( __FUNCTION__ ),
+			rstore_prefix( __FUNCTION__ ),
 			[
 				'sanitize_callback' => function ( $value ) {
 					return ( 0 !== absint( $value ) ) ? absint( $value ) : null;
@@ -266,19 +266,19 @@ final class ButterBean {
 	private function add_to_cart_button_label( $manager, $section ) {
 
 		$manager->register_control(
-			Plugin::prefix( __FUNCTION__ ),
+			rstore_prefix( __FUNCTION__ ),
 			[
 				'type'    => 'text',
 				'section' => $section,
 				'label'   => esc_html__( 'Add to Cart Button Label', 'reseller-store' ),
 				'attr'    => [
-					'placeholder' => esc_attr( Plugin::get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'reseller-store' ) ) ),
+					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'reseller-store' ) ) ),
 				],
 			]
 		);
 
 		$manager->register_setting(
-			Plugin::prefix( __FUNCTION__ ),
+			rstore_prefix( __FUNCTION__ ),
 			[
 				'sanitize_callback' => 'sanitize_text_field',
 			]
@@ -302,10 +302,10 @@ final class ButterBean {
 			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
 		];
 
-		$manager->register_control( Plugin::prefix( __FUNCTION__ ), $args );
+		$manager->register_control( rstore_prefix( __FUNCTION__ ), $args );
 
 		$manager->register_setting(
-			Plugin::prefix( __FUNCTION__ ),
+			rstore_prefix( __FUNCTION__ ),
 			[
 				'sanitize_callback' => function ( $value ) {
 					return ( 'true' === $value ) ? 'true' : '';
@@ -328,9 +328,9 @@ final class ButterBean {
 		$post_id = filter_input( INPUT_GET, 'post' );
 
 		$manager->register_control(
-			Plugin::prefix( __FUNCTION__ ),
+			rstore_prefix( __FUNCTION__ ),
 			[
-				'type'        => Plugin::prefix( 'anchor', true ),
+				'type'        => rstore_prefix( 'anchor', true ),
 				'section'     => $section,
 				'label'       => esc_html__( 'Restore Product Data', 'reseller-store' ),
 				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),

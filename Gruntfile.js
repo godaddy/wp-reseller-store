@@ -44,6 +44,22 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		devUpdate: {
+			main: {
+				options: {
+					updateType: 'force',
+					reportUpdated: false,
+					semver: true,
+					packages: {
+						devDependencies: true,
+						dependencies: false
+					},
+					packageJson: null,
+					reportOnlyPkgs: []
+				}
+			}
+		},
+
 		jshint: {
 			all: [ 'Gruntfile.js', 'assets/js/*.js', '!assets/js/*.min.js' ]
 		},
@@ -67,10 +83,13 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		po2mo: {
+		potomo: {
 			files: {
-				src: 'languages/*.po',
-				expand: true
+				expand: true,
+				cwd: 'languages',
+				src: [ '*.po' ],
+				dest: 'languages',
+				ext: '.mo'
 			}
 		},
 
@@ -137,9 +156,9 @@ module.exports = function( grunt ) {
 			core: {
 				expand: true,
 				cwd: 'assets/js',
+				src: [ '*.js', '!*.min.js' ],
 				dest: 'assets/js',
-				ext: '.min.js',
-				src: [ '*.js', '!*.min.js' ]
+				ext: '.min.js'
 			}
 		},
 
@@ -147,16 +166,16 @@ module.exports = function( grunt ) {
 			css: {
 				files: [ '*.css', '!*.min.css' ],
 				options: {
-					cwd: 'assets/css',
-					nospawn: true
+					nospawn: true,
+					cwd: 'assets/css'
 				},
 				tasks: [ 'cssmin' ]
 			},
 			uglify: {
 				files: [ '*.js', '!*.min.js' ],
 				options: {
-					cwd: 'assets/js',
-					nospawn: true
+					nospawn: true,
+					cwd: 'assets/js'
 				},
 				tasks: [ 'uglify' ]
 			}
@@ -168,7 +187,7 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'default', [ 'cssjanus', 'cssmin', 'jshint', 'uglify' ] );
 	grunt.registerTask( 'update-pot', [ 'makepot' ] );
-	grunt.registerTask( 'update-mo', [ 'po2mo' ] );
+	grunt.registerTask( 'update-mo', [ 'potomo' ] );
 	grunt.registerTask( 'version', [ 'replace' ] );
 
 };

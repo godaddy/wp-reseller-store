@@ -85,7 +85,7 @@ final class Post_Type {
 	 */
 	public static function permalink_base() {
 
-		$permalinks     = (array) Plugin::get_option( 'permalinks', [] );
+		$permalinks     = (array) rstore_get_option( 'permalinks', [] );
 		$permalink_base = ! empty( $permalinks['product_base'] ) ? $permalinks['product_base'] : self::$default_permalink_base;
 
 		return sanitize_title( $permalink_base );
@@ -171,7 +171,7 @@ final class Post_Type {
 	public function process_product_reset() {
 
 		if (
-			! Plugin::is_admin_uri( 'post.php?post=' )
+			! rstore_is_admin_uri( 'post.php?post=' )
 			||
 			! ( $post_id = absint( filter_input( INPUT_GET, 'post' ) ) )
 			||
@@ -222,7 +222,7 @@ final class Post_Type {
 	 */
 	public function reset_product_data( $post_id ) {
 
-		$product = API::get_product( Plugin::get_product_meta( $post_id, 'id' ) );
+		$product = rstore_get_product( rstore_get_product_meta( $post_id, 'id' ) );
 
 		if ( is_wp_error( $product ) ) {
 
@@ -255,7 +255,7 @@ final class Post_Type {
 		 */
 		$ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
 
-		$last_sync = (int) Plugin::get_option( 'last_sync', 0 );
+		$last_sync = (int) rstore_get_option( 'last_sync', 0 );
 
 		if ( $last_sync && ( $last_sync + $ttl ) > time() ) {
 
@@ -279,9 +279,9 @@ final class Post_Type {
 		$retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
 
 		// Store last sync time with an offset so if it fails we try again sooner
-		Plugin::update_option( 'last_sync', time() + $retry_ttl - $ttl );
+		rstore_update_option( 'last_sync', time() + $retry_ttl - $ttl );
 
-		$products = API::get_products( true );
+		$products = rstore_get_products( true );
 
 		if ( is_wp_error( $products ) || ! $products ) {
 
@@ -289,7 +289,7 @@ final class Post_Type {
 
 		}
 
-		$imported = (array) Plugin::get_option( 'imported', [] );
+		$imported = (array) rstore_get_option( 'imported', [] );
 
 		foreach ( (array) $products as $product ) {
 
@@ -318,12 +318,12 @@ final class Post_Type {
 
 			}
 
-			Plugin::bulk_update_post_meta( $post_id, $product );
+			rstore_bulk_update_post_meta( $post_id, $product );
 
 		}
 
 		// The sync was successful, use the real time
-		Plugin::update_option( 'last_sync', time() );
+		rstore_update_option( 'last_sync', time() );
 
 	}
 
@@ -335,7 +335,7 @@ final class Post_Type {
 	 */
 	public function column_styles() {
 
-		if ( ! Plugin::is_admin_uri( 'post_type=' . self::SLUG, false ) ) {
+		if ( ! rstore_is_admin_uri( 'post_type=' . self::SLUG, false ) ) {
 
 			return;
 
@@ -399,7 +399,7 @@ final class Post_Type {
 	public function columns( array $columns ) {
 
 		// Insert before Title column
-		$columns = Plugin::array_insert(
+		$columns = rstore_array_insert(
 			$columns,
 			[
 				'image' => sprintf(
@@ -411,7 +411,7 @@ final class Post_Type {
 		);
 
 		// Insert after Title column
-		$columns = Plugin::array_insert(
+		$columns = rstore_array_insert(
 			$columns,
 			[ 'price' => __( 'Price', 'reseller-store' ) ],
 			(int) array_search( 'title', array_values( array_flip( $columns ) ) ) + 1
@@ -440,8 +440,8 @@ final class Post_Type {
 
 		if ( 'price' === $column ) {
 
-			$list = Plugin::get_product_meta( $post_id, 'listPrice' );
-			$sale = Plugin::get_product_meta( $post_id, 'salePrice' );
+			$list = rstore_get_product_meta( $post_id, 'listPrice' );
+			$sale = rstore_get_product_meta( $post_id, 'salePrice' );
 
 			printf(
 				'%s%s',
@@ -471,14 +471,14 @@ final class Post_Type {
 
 		}
 
-		// Re-fetch products from the API to ensure `Plugin::has_all_products()` is accurate
-		Plugin::delete_transient( 'products' );
+		// Re-fetch products from the API to ensure `rstore_has_all_products()` is accurate
+		rstore_delete_transient( 'products' );
 
-		$imported = (array) Plugin::get_option( 'imported', [] );
+		$imported = (array) rstore_get_option( 'imported', [] );
 
 		unset( $imported[ $post_id ] );
 
-		return Plugin::update_option( 'imported', $imported );
+		return rstore_update_option( 'imported', $imported );
 
 	}
 
@@ -504,7 +504,7 @@ final class Post_Type {
 
 			$clauses['join'] .= $wpdb->prepare(
 				" LEFT JOIN `{$wpdb->postmeta}` pm ON ( `{$wpdb->posts}`.`ID` = pm.`post_id` AND pm.`meta_key` = %s ) ",
-				Plugin::prefix( 'listPrice' )
+				rstore_prefix( 'listPrice' )
 			);
 
 			$clauses['orderby'] = " CONVERT( REPLACE( pm.`meta_value`, '$', '' ), DECIMAL( 13, 2 ) ) {$order}"; // xss ok
@@ -527,7 +527,7 @@ final class Post_Type {
 	 */
 	public function post_screen_edit_heading( stdClass $labels ) {
 
-		if ( ! Plugin::is_admin_uri( 'post.php?post=' ) ) {
+		if ( ! rstore_is_admin_uri( 'post.php?post=' ) ) {
 
 			return $labels;
 
@@ -535,7 +535,7 @@ final class Post_Type {
 
 		$post_id = (int) filter_input( INPUT_GET, 'post' );
 
-		$title = ( $post_id > 0 ) ? Plugin::get_product_meta( $post_id, 'title' ) : null;
+		$title = ( $post_id > 0 ) ? rstore_get_product_meta( $post_id, 'title' ) : null;
 
 		$labels->edit_item = ( $title ) ? sprintf( esc_html_x( 'Edit: %s', 'product title', 'reseller-store' ), $title ) : $labels->edit_item;
 
@@ -562,8 +562,8 @@ final class Post_Type {
 
 		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
-			$content .= wpautop( Display::price( $post->ID, false ) );
-			$content .= Display::add_to_cart_form( $post->ID, false );
+			$content .= wpautop( rstore_price( $post->ID, false ) );
+			$content .= rstore_add_to_cart_form( $post->ID, false );
 
 		}
 

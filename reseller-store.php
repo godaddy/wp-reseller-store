@@ -18,6 +18,9 @@
 
 namespace Reseller_Store;
 
+use stdClass;
+use WP_CLI;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -29,6 +32,15 @@ require_once __DIR__ . '/includes/autoload.php';
 final class Plugin {
 
 	use Singleton, Data, Helpers;
+
+	/**
+	 * Plugin version.
+	 *
+	 * @since NEXT
+	 *
+	 * @var string
+	 */
+	const VERSION = '0.1.0';
 
 	/**
 	 * Plugin prefix.
@@ -46,7 +58,7 @@ final class Plugin {
 	 */
 	private function __construct() {
 
-		$this->version    = '0.1.0';
+		$this->version    = self::VERSION;
 		$this->basename   = plugin_basename( __FILE__ );
 		$this->base_dir   = plugin_dir_path( __FILE__ );
 		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
@@ -60,15 +72,15 @@ final class Plugin {
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
-			\WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI\Reseller' );
+			WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI\Reseller' );
 
-			\WP_CLI::add_command( 'reseller product', __NAMESPACE__ . '\CLI\Reseller_Product' );
+			WP_CLI::add_command( 'reseller product', __NAMESPACE__ . '\CLI\Reseller_Product' );
 
 		}
 
 		new Restrictions;
 
-		if ( ! self::is_setup() || ! self::has_products() ) {
+		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
 			new Setup;
 

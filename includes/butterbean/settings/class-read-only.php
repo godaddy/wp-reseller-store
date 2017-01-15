@@ -2,8 +2,6 @@
 
 namespace Reseller_Store\ButterBean\Settings;
 
-use Reseller_Store\Plugin;
-
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -18,7 +16,7 @@ final class Read_Only extends \ButterBean_Setting {
 
 		parent::__construct( $manager, $name, $args );
 
-		$this->type = Plugin::prefix( $this->type, true );
+		$this->type = rstore_prefix( $this->type, true );
 
 	}
 

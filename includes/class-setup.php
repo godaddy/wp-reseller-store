@@ -2,6 +2,8 @@
 
 namespace Reseller_Store;
 
+use WP_Error;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -40,7 +42,7 @@ final class Setup {
 	 */
 	public function admin_enqueue_scripts() {
 
-		if ( ! Plugin::is_admin_uri( 'admin.php?page=' . self::SLUG ) ) {
+		if ( ! rstore_is_admin_uri( 'admin.php?page=' . self::SLUG ) ) {
 
 			return;
 
@@ -48,7 +50,7 @@ final class Setup {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-admin-setup', rstore()->assets_url . "js/admin-setup{$suffix}.js", [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
 	}
 
@@ -134,7 +136,7 @@ final class Setup {
 		<div class="rstore-setup">
 			<div class="rstore-setup-wrapper">
 				<div class="rstore-setup-header">
-					<img src="<?php echo esc_url( rstore()->assets_url . 'images/store.svg' ); ?>">
+					<img src="<?php echo esc_url( Plugin::assets_url( 'images/store.svg' ) ); ?>">
 					<h2><?php esc_html_e( "Let's setup your GoDaddy Reseller Store.", 'reseller-store' ); ?></h2>
 					<div class="clear"></div>
 				</div>
@@ -143,7 +145,7 @@ final class Setup {
 					<p>
 						<form id="rstore-setup-form">
 							<label class="screen-reader-text" for="rstore-pl-id-field"><?php esc_html_e( 'Enter your Private Label ID:', 'reseller-store' ); ?></label>
-							<input type="number" id="rstore-pl-id-field" value="<?php echo Plugin::get_option( 'pl_id', '' ); // xss ok ?>" min="0" autocomplete="off" required>
+							<input type="number" id="rstore-pl-id-field" value="<?php echo rstore_get_option( 'pl_id', '' ); // xss ok ?>" min="0" autocomplete="off" required>
 							<button type="submit" class="button button-primary"><?php esc_html_e( 'Install Now', 'reseller-store' ); ?></button>
 							<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
 						</form>
@@ -166,41 +168,46 @@ final class Setup {
 	 * @global wpdb $wpdb
 	 * @since  NEXT
 	 *
-	 * @param int $pl_id (optional)
+	 * @param  int $pl_id (optional)
+	 *
+	 * @return true|WP_Error|void
 	 */
 	public static function install( $pl_id = 0 ) {
 
-		$pl_id = ( $pl_id > 0 ) ? (int) $pl_id : absint( filter_input( INPUT_POST, 'pl_id' ) );
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+
+			$pl_id = absint( filter_input( INPUT_POST, 'pl_id' ) );
+
+		}
+
+		$pl_id = ( $pl_id > 0 ) ? (int) $pl_id : 0;
 
 		if ( 0 === $pl_id ) {
 
-			wp_send_json_error(
-				esc_html__( 'Error: Invalid Private Label ID.', 'reseller-store' )
+			return self::install_error(
+				'invalid_pl_id',
+				esc_html__( 'Private Label ID is invalid.', 'reseller-store' )
 			);
 
 		}
 
-		Plugin::update_option( 'pl_id', $pl_id );
+		rstore_update_option( 'pl_id', $pl_id );
 
-		$products = API::get_products( true );
+		$products = rstore_get_products( true );
 
 		if ( is_wp_error( $products ) ) {
 
-			Plugin::delete_option( 'pl_id' ); // Could be unauthorized
+			rstore_delete_option( 'pl_id' ); // The ID might be unauthorized
 
-			wp_send_json_error(
-				sprintf(
-					$products->get_error_message(),
-					$products->get_error_data( $products->get_error_code() )
-				)
-			);
+			return self::install_error( $products );
 
 		}
 
 		if ( ! $products ) {
 
-			wp_send_json_error(
-				esc_html__( 'Error: There are no products available, please try again later.', 'reseller-store' )
+			return self::install_error(
+				'no_products_found',
+				esc_html__( 'There are no products available, please try again later.', 'reseller-store' )
 			);
 
 		}
@@ -221,33 +228,68 @@ final class Setup {
 
 			if ( is_wp_error( $result ) ) {
 
-				wp_send_json_error(
-					sprintf(
-						$result->get_error_message(),
-						$result->get_error_data( $result->get_error_code() )
-					)
-				);
+				return self::install_error( $result );
 
 			}
 
 		}
 
-		if ( ! Plugin::has_products() ) {
+		if ( ! rstore_has_products() ) {
 
-			wp_send_json_error(
-				esc_html__( 'Error: Product data was found to be invalid, please try again later.', 'reseller-store' )
+			return self::install_error(
+				'products_import_failure',
+				esc_html__( 'Product data could not be imported, please try again later.', 'reseller-store' )
 			);
 
 		}
 
-		Plugin::update_option( 'last_sync', time() );
+		rstore_update_option( 'last_sync', time() );
 
-		wp_send_json_success(
-			[
-				'redirect' => esc_url_raw(
-					add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
-				)
-			]
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+
+			wp_send_json_success(
+				[
+					'redirect' => esc_url_raw(
+						add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
+					)
+				]
+			);
+
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * Return an install error.
+	 *
+	 * @param  string|WP_Error $code
+	 * @param  string          $message
+	 * @param  string          $data
+	 *
+	 * @return WP_Error|void  Returns a `WP_Error`, or prints an error as JSON and dies when called during an AJAX request.
+	 */
+	private static function install_error( $code = '', $message = '', $data = '' ) {
+
+		$wp_error = is_wp_error( $code ) ? $code : false;
+
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'reseller-store' );
+
+		if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
+
+			return ( $wp_error ) ? $wp_error : new WP_Error( $code, $message, $data );
+
+		}
+
+		$message = ( $wp_error ) ? $wp_error->get_error_message() : $message;
+		$data    = ( $wp_error ) ? $wp_error->get_error_data( $wp_error->get_error_code() ) : $data;
+
+		wp_send_json_error(
+			sprintf(
+				esc_html_x( 'Error: %s', 'error message', 'reseller-store' ),
+				sprintf( $message, $data )
+			)
 		);
 
 	}
@@ -276,7 +318,7 @@ final class Setup {
 		$attachments = $wpdb->get_col(
 			$wpdb->prepare(
 				"SELECT `post_id` FROM `{$wpdb->postmeta}` WHERE `meta_key` = %s;",
-				Plugin::prefix( 'image' )
+				rstore_prefix( 'image' )
 			)
 		);
 
@@ -328,7 +370,7 @@ final class Setup {
 		$wpdb->query(
 			$wpdb->prepare(
 				"DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE %s;",
-				'%' . Plugin::prefix( '%' ) // Transients too
+				'%' . rstore_prefix( '%' ) // Transients too
 			)
 		);
 
@@ -342,7 +384,7 @@ final class Setup {
 	 */
 	public static function deactivate() {
 
-		delete_option( Plugin::prefix( 'pl_id' ) );
+		delete_option( rstore_prefix( 'pl_id' ) );
 
 		flush_rewrite_rules();
 

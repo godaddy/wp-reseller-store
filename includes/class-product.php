@@ -99,14 +99,24 @@ final class Product {
 	 */
 	public function exists() {
 
+		$product_id = sanitize_title( $this->product->id ); // Product IDs are sanitized on import
+
+		if ( $imported = (array) rstore_get_option( 'imported', [] ) ) {
+
+			return array_search( $product_id, $imported );
+
+		}
+
+		// Query post meta if the imported option is missing
+
 		global $wpdb;
 
 		$post_id = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = %s AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
 				Post_Type::SLUG,
-				Plugin::prefix( 'id' ),
-				sanitize_title( $this->product->id ) // Product IDs are sanitized on import
+				rstore_prefix( 'id' ),
+				$product_id // Already sanitized
 			)
 		);
 
@@ -126,17 +136,35 @@ final class Product {
 	 */
 	public function image_exists() {
 
+		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->image ) );
+
+		$attachment_id = wp_cache_get( $key );
+
+		if ( $attachment_id > 0 ) {
+
+			return (int) $attachment_id;
+
+		}
+
 		global $wpdb;
 
 		$attachment_id = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
-				Plugin::prefix( 'image' ),
+				rstore_prefix( 'image' ),
 				esc_url_raw( $this->product->image ) // Image URLs are sanitized on import
 			)
 		);
 
-		return ( $attachment_id > 0 ) ? $attachment_id : false;
+		if ( $attachment_id > 0 ) {
+
+			wp_cache_set( $key, $attachment_id );
+
+			return $attachment_id;
+
+		}
+
+		return false;
 
 	}
 
