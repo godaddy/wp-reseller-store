@@ -1,0 +1,25 @@
+{
+  "name" : "godaddy/wp-reseller-store",
+  "description": "",
+  "type" : "wordpress-plugin",
+  "license" : "GPL-2.0",
+  "require": {
+      "10up/wp-codeception": "^1.0"
+  },
+  "extra": {
+    "installer-paths": {
+      "vendor/{$name}/": [ "type:wordpress-plugin" ]
+    }
+  },
+  "autoload": {
+    "files": [
+      "vendor/wp-codeception/wp-codeception.php"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "if [ -n \"$(command -v apt-get)\" ]; then sudo apt-get install openjdk-7-jre-headless --yes || true; fi",
+      "cd vendor/wp-codeception && npm install"
+    ]
+  }
+}
