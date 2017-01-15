@@ -19,6 +19,7 @@
 namespace Reseller_Store;
 
 use stdClass;
+use WP_CLI;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
@@ -73,9 +74,9 @@ final class Plugin {
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
-			\WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI\Reseller' );
+			WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI\Reseller' );
 
-			\WP_CLI::add_command( 'reseller product', __NAMESPACE__ . '\CLI\Reseller_Product' );
+			WP_CLI::add_command( 'reseller product', __NAMESPACE__ . '\CLI\Reseller_Product' );
 
 		}
 
