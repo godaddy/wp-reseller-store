@@ -51,8 +51,6 @@ final class Plugin {
 	 */
 	const PREFIX = 'rstore_';
 
-	public $api;
-
 	/**
 	 * Class contructor.
 	 *
