@@ -23,7 +23,7 @@ function rstore_has_products() {
 
 		global $wpdb;
 
-		$count = $wpdb->get_var(
+		$count = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT(*) FROM `{$wpdb->posts}` WHERE `post_type` = %s AND `post_status` != 'auto-draft';",
 				Reseller_Store\Post_Type::SLUG
@@ -34,7 +34,7 @@ function rstore_has_products() {
 
 	}
 
-	return ( (int) $count > 0 );
+	return ( $count > 0 );
 
 }
 
