@@ -72,6 +72,8 @@ final class Reseller extends \WP_CLI_Command {
 
 		$keep_attachments = (bool) WP_CLI\Utils\get_flag_value( $assoc_args, 'keep-attachments', false );
 
+		WP_CLI::line( 'Uninstalling ...' );
+
 		Setup::uninstall( $keep_attachments );
 
 		WP_CLI::success( 'Reseller Store data uninstalled.' );
