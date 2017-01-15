@@ -3,32 +3,38 @@
 /**
  * Check whether products exist.
  *
+ * Ignores the `auto-draft` post status.
+ *
  * Product count is cached in memory to prevent duplicate
  * queries on the same page load.
  *
  * @global wpdb $wpdb
  * @since  NEXT
  *
- * @return bool  Returns `true` if there are product posts, otherwise `false`. Ignores the `auto-draft` post status.
+ * @return bool  Returns `true` if there are product posts, otherwise `false`.
  */
 function rstore_has_products() {
 
-	static $count;
+	$key = rstore_prefix( 'products_count' );
 
-	if ( ! isset( $count ) ) {
+	$count = wp_cache_get( $key );
+
+	if ( false === $count ) {
 
 		global $wpdb;
 
-		$count = (int) $wpdb->get_var(
+		$count = $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT(*) FROM `{$wpdb->posts}` WHERE `post_type` = %s AND `post_status` != 'auto-draft';",
 				Reseller_Store\Post_Type::SLUG
 			)
 		);
 
+		wp_cache_set( $key, $count );
+
 	}
 
-	return ( $count > 0 );
+	return ( (int) $count > 0 );
 
 }
 
