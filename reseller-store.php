@@ -93,6 +93,7 @@ final class Plugin {
 		new Embed;
 		new Permalinks;
 		new Post_Type;
+		new Sync;
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
 		new Widgets;
