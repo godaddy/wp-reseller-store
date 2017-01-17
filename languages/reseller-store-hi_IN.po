@@ -4,21 +4,20 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-01-13 18:40:12+00:00\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:237
 msgid "An unknown error has occurred."
-msgstr "An unknown error has occurred."
+msgstr "कोई अज्ञात त्रुटि हुई है."
 
 #: includes/class-butterbean.php:133
 msgid "Product Options"
@@ -66,8 +65,8 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"क्या आपको फिर से आरंभ करना है? आप मूल उत्पाद शीर्षक, सामग्री, प्रदर्शित छवि और श्रेणी "
-"असाइनमेंट पुनर्स्थापित कर सकते हैं. नोट: आपका कस्टमाइज़ेशन चला जाएगा."
+"क्या आपको फिर से आरंभ करना है? आप मूल उत्पाद शीर्षक, सामग्री, प्रदर्शित छवि "
+"और श्रेणी असाइनमेंट पुनर्स्थापित कर सकते हैं. नोट: आपका कस्टमाइज़ेशन चला जाएगा."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -102,8 +101,8 @@ msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 msgstr ""
-"ये सेटिंग पुनर्विक्रेता स्टोर उत्पादों के लिए विशिष्ट रूप से उपयोग किए जाने वाले पर्मालिंक को "
-"नियंत्रित करती हैं."
+"ये सेटिंग पुनर्विक्रेता स्टोर उत्पादों के लिए विशिष्ट रूप से उपयोग किए जाने "
+"वाले पर्मालिंक को नियंत्रित करती हैं."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -114,9 +113,8 @@ msgid "Custom base"
 msgstr "कस्टम आधार"
 
 #: includes/class-post-type.php:109
-#, fuzzy
 msgid "Add New Products"
-msgstr "नया उत्पाद जोड़ें"
+msgstr "Add New Products"
 
 #: includes/class-post-type.php:110
 msgid "Edit Product"
@@ -232,15 +230,15 @@ msgstr "मदद चाहिए? (480) 505-8877 पर हमारी पु�
 
 #: includes/class-setup.php:178
 msgid "Error: Invalid Private Label ID."
-msgstr "Error: Invalid Private Label ID."
+msgstr "त्रुटि: अमान्य व्यक्तिगत लेबल ID."
 
 #: includes/class-setup.php:203
 msgid "Error: There are no products available, please try again later."
-msgstr "Error: There are no products available, please try again later."
+msgstr "त्रुटि: कोई उत्पाद उपलब्ध नहीं हैं, कृपया पुनः प्रयास करें."
 
 #: includes/class-setup.php:238
 msgid "Error: Product data was found to be invalid, please try again later."
-msgstr "Error: Product data was found to be invalid, please try again later."
+msgstr "त्रुटि: उत्पाद डेटा अमान्य पाया गया था, कृपया पुनः प्रयास करें."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -372,11 +370,11 @@ msgstr "बटन:"
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
-msgstr "GoDaddy Reseller Store"
+msgstr "GoDaddy रीसेलर स्टोर"
 
 #. Description of the plugin/theme
 msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "A boilerplate WordPress plugin by GoDaddy."
+msgstr "GoDaddy के द्वारा बॉयलरप्लेट WordPress प्लगइन."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -387,20 +385,19 @@ msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
 #: includes/class-api.php:336
-#, fuzzy
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` is not a valid product."
+msgstr "Error: `%s` does not exist."
 
 #: includes/class-import.php:65
 msgctxt "product name"
 msgid "Error: `%s` is not a valid product."
-msgstr "Error: `%s` is not a valid product."
+msgstr "त्रुटि: `%s` मान्य उत्पाद नहीं है."
 
 #: includes/class-import.php:84
 msgctxt "product name"
 msgid "Error: `%s` must be imported as a product post before it can be reset."
-msgstr "Error: `%s` must be imported as a product post before it can be reset."
+msgstr "त्रुटि: `%s` इसे रीसेट कर सकने से पहले उत्पाद पोस्ट के रूप में आयात करना होगा."
 
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
@@ -415,7 +412,7 @@ msgstr "%1$s / प्रति %2$s"
 #: includes/class-import.php:92
 msgctxt "post type name"
 msgid "Error: `%s` is not a valid post type for products."
-msgstr "Error: `%s` is not a valid post type for products."
+msgstr "त्रुटि: `%s` उत्पादों के लिए मान्य पोस्ट प्रकार नहीं है."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"

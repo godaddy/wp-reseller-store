@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-01-13 18:40:12+00:00\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:237
 msgid "An unknown error has occurred."
@@ -84,7 +83,7 @@ msgstr "Ha ocurrido un error desconocido."
 
 #: includes/class-import.php:66
 msgid "unknown"
-msgstr "unknown"
+msgstr "desconocido"
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
@@ -115,9 +114,8 @@ msgid "Custom base"
 msgstr "Base personalizada"
 
 #: includes/class-post-type.php:109
-#, fuzzy
 msgid "Add New Products"
-msgstr "Añadir Nuevo Producto"
+msgstr "Add New Products"
 
 #: includes/class-post-type.php:110
 msgid "Edit Product"
@@ -185,8 +183,7 @@ msgstr "Usar como imagen destacada"
 
 #: includes/class-post-type.php:130
 msgid "This is where you can add new products to your Reseller Store."
-msgstr ""
-"Aquí es donde puedes agregar productos nuevos a tu tienda de revendedor."
+msgstr "Aquí es donde puedes agregar productos nuevos a tu tienda de revendedor."
 
 #: includes/class-restrictions.php:169
 msgid "No products have been added yet."
@@ -230,21 +227,19 @@ msgstr "Crear una cuenta"
 
 #: includes/class-setup.php:154
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"¿Asistencia? Llama a nuestro galardonado equipo de asistencia técnica 24/7 "
-"al (480) 505-8877."
+msgstr "¿Asistencia? Llama a nuestro galardonado equipo de asistencia técnica 24/7 al (480) 505-8877."
 
 #: includes/class-setup.php:178
 msgid "Error: Invalid Private Label ID."
-msgstr "Error: Invalid Private Label ID."
+msgstr "Error: ID de etiqueta privada inválida."
 
 #: includes/class-setup.php:203
 msgid "Error: There are no products available, please try again later."
-msgstr "Error: There are no products available, please try again later."
+msgstr "Error: No hay productos disponibles, inténtalo de nuevo más tarde."
 
 #: includes/class-setup.php:238
 msgid "Error: Product data was found to be invalid, please try again later."
-msgstr "Error: Product data was found to be invalid, please try again later."
+msgstr "Error: Los datos del producto son inválidos, inténtalo de nuevo más tarde"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -376,11 +371,11 @@ msgstr "Botón:"
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
-msgstr "GoDaddy Reseller Store"
+msgstr "Tienda de revendedor de GoDaddy"
 
 #. Description of the plugin/theme
 msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "A boilerplate WordPress plugin by GoDaddy."
+msgstr "Un complemento de plantilla de WordPress realizado por GoDaddy."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -391,20 +386,19 @@ msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
 #: includes/class-api.php:336
-#, fuzzy
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` is not a valid product."
+msgstr "Error: `%s` does not exist."
 
 #: includes/class-import.php:65
 msgctxt "product name"
 msgid "Error: `%s` is not a valid product."
-msgstr "Error: `%s` is not a valid product."
+msgstr "Error: `%s` no es un producto válido."
 
 #: includes/class-import.php:84
 msgctxt "product name"
 msgid "Error: `%s` must be imported as a product post before it can be reset."
-msgstr "Error: `%s` must be imported as a product post before it can be reset."
+msgstr "Error: `%s` debe importarse como una publicación de producto antes de que se pueda restablecer."
 
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
@@ -419,7 +413,7 @@ msgstr "%1$s / por %2$s"
 #: includes/class-import.php:92
 msgctxt "post type name"
 msgid "Error: `%s` is not a valid post type for products."
-msgstr "Error: `%s` is not a valid post type for products."
+msgstr "Error: `%s` no es un tipo de publicación válido para productos."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
