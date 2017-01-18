@@ -24,6 +24,42 @@ final class Embed {
 	}
 
 	/**
+	 * Search and replace text across all post content.
+	 *
+	 * When product permalinks are changed, we want to update references to the
+	 * old product base URL with the base URL. This will prevent broken links
+	 * and 404 errors on product oEmbeds.
+	 *
+	 * - Excludes posts in the `revision` post type.
+	 * - Excludes posts with an `auto-draft` post status.
+	 * - Excludes posts with serialized data in the post content.
+	 *
+	 * @global wpdb $wpdb
+	 * @since  NEXT
+	 *
+	 * @param  string $search
+	 * @param  string $replace
+	 *
+	 * @return int|false Returns the number of posts updated, `false` on error.
+	 */
+	public static function search_replace_post_content( $search, $replace ) {
+
+		global $wpdb;
+
+		$results = $wpdb->query(
+			$wpdb->prepare(
+				"UPDATE `{$wpdb->posts}` SET `post_content` = REPLACE( `post_content`, %s, %s ) WHERE `post_type` != 'revision' AND `post_status` != 'auto-draft' AND `post_content` LIKE %s AND `post_content` NOT RLIKE '(a:[0-9]+:{)|(s:[0-9]+:)|(i:[0-9]+;)|(O:[0-9]+:\")';",
+				$search,
+				$replace,
+				'%' . $search . '%'
+			)
+		);
+
+		return is_int( $results ) ? $results : false;
+
+	}
+
+	/**
 	 * Flush all oEmbed post meta cache.
 	 *
 	 * Note: This function may return `false`, or it may return `0` (which evaluates
@@ -32,7 +68,7 @@ final class Embed {
 	 *
 	 * @global wpdb $wpdb
 	 *
-	 * @return int|false  Returns the number cache entries deleted, `false` on error.
+	 * @return int|false Returns the number of cache entries deleted, `false` on error.
 	 */
 	public static function flush_cache() {
 
