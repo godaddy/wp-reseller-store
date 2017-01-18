@@ -1,4 +1,4 @@
-/* global ajaxurl, jQuery */
+/* global ajaxurl, jQuery, rstore_admin_setup */
 
 ( function( $ ) {
 
@@ -14,6 +14,7 @@
 		    $spinner = $this.find( 'img' ),
 		    data     = {
 				'action': 'rstore_install',
+				'nonce': rstore_admin_setup.install_nonce,
 				'pl_id': $input.val()
 			};
 

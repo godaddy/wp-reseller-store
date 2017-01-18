@@ -22,11 +22,26 @@ final class Setup {
 	const SLUG = 'reseller-store-setup';
 
 	/**
+	 * Install nonce action name.
+	 *
+	 * @since NEXT
+	 *
+	 * @var string
+	 */
+	private static $install_nonce;
+
+	/**
 	 * Class constructor.
 	 *
 	 * @since NEXT
 	 */
 	public function __construct() {
+
+		add_action( 'init', function () {
+
+			self::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
+
+		} );
 
 		add_action( 'admin_enqueue_scripts',  [ $this, 'admin_enqueue_scripts' ] );
 		add_action( 'admin_menu',             [ $this, 'page' ], 9 );
@@ -51,6 +66,8 @@ final class Setup {
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
 		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
+
+		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [ 'install_nonce' => wp_create_nonce( self::$install_nonce ) ] );
 
 	}
 
@@ -174,7 +191,29 @@ final class Setup {
 	 */
 	public static function install( $pl_id = 0 ) {
 
+		if (
+			! current_user_can( 'install_plugins' )
+			&&
+			( ! defined( 'WP_CLI' ) || ! WP_CLI )
+		) {
+
+			return self::install_error(
+				'invalid_permissions',
+				esc_html__( 'Sorry, you are not allowed to install plugins on this site.' ) // Use core translation
+			);
+
+		}
+
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+
+			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce' ), self::$install_nonce ) ) {
+
+				return self::install_error(
+					'invalid_nonce',
+					esc_html__( 'Sorry, you are not allowed to do that.' ) // Use core translation
+				);
+
+			}
 
 			$pl_id = absint( filter_input( INPUT_POST, 'pl_id' ) );
 
@@ -274,7 +313,7 @@ final class Setup {
 
 		$wp_error = is_wp_error( $code ) ? $code : false;
 
-		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'reseller-store' );
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error occurred' ); // Use core translation
 
 		if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
 
