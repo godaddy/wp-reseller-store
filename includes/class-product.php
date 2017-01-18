@@ -19,7 +19,7 @@ final class Product {
 	 *
 	 * @var stdClass
 	 */
-	public $product;
+	private $product;
 
 	/**
 	 * Array of required properties and validation callbacks.
@@ -48,6 +48,21 @@ final class Product {
 	public function __construct( $product ) {
 
 		$this->product = json_decode( json_encode( $product ) );
+
+	}
+
+	/**
+	 * Return a product property.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $property
+	 *
+	 * @return mixed|null
+	 */
+	public function __get( $property ) {
+
+		return property_exists( $this->product, $property ) ? $this->product->{$property} : null;
 
 	}
 
