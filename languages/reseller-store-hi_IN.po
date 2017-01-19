@@ -242,7 +242,7 @@ msgstr "त्रुटि: उत्पाद डेटा अमान्य �
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "खोज श्रेणियाँ"
+msgstr "श्रेणियाँ खोजें"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"
@@ -258,15 +258,15 @@ msgstr "मूल श्रेणी:"
 
 #: includes/class-taxonomy-category.php:75
 msgid "Edit Category"
-msgstr "श्रेणी संपादित करें"
+msgstr "संपादन श्रेणी"
 
 #: includes/class-taxonomy-category.php:76
 msgid "Update Category"
-msgstr "श्रेणी अपडेट करें"
+msgstr "अपडेट श्रेणी"
 
 #: includes/class-taxonomy-category.php:77
 msgid "Add New Category"
-msgstr "नई श्रेणी जोड़ें"
+msgstr "नया जोड़ें श्रेणी"
 
 #: includes/class-taxonomy-category.php:78
 msgid "New Category Name"
@@ -279,7 +279,7 @@ msgstr "श्रेणियां"
 
 #: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
-msgstr "खोज टैग"
+msgstr "टैग खोजें"
 
 #: includes/class-taxonomy-tag.php:72
 msgid "All Tags"
@@ -295,15 +295,15 @@ msgstr "मूल टैग:"
 
 #: includes/class-taxonomy-tag.php:75
 msgid "Edit Tag"
-msgstr "टैग संपादित करें"
+msgstr "संपादन टैग"
 
 #: includes/class-taxonomy-tag.php:76
 msgid "Update Tag"
-msgstr "टैग अपडेट करें"
+msgstr "अपडेट टैग"
 
 #: includes/class-taxonomy-tag.php:77
 msgid "Add New Tag"
-msgstr "नया टैग जोड़ें"
+msgstr "नया जोड़ें टैग"
 
 #: includes/class-taxonomy-tag.php:78
 msgid "New Tag Name"

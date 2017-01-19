@@ -241,7 +241,7 @@ msgstr "Błąd: Dane produktu okazały się nieprawidłowe. Spróbuj ponownie p�
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "Przeszukaj kategorie"
+msgstr "Wyszukaj kategorie"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"

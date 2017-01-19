@@ -280,7 +280,7 @@ msgstr "Categorías"
 
 #: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
-msgstr "Etiquetas de búsqueda"
+msgstr "Buscar etiquetas"
 
 #: includes/class-taxonomy-tag.php:72
 msgid "All Tags"

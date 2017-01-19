@@ -243,7 +243,7 @@ msgstr "Σφάλμα: Διαπιστώθηκε ότι τα δεδομένα το
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "Κατηγορίες αναζήτησης"
+msgstr "Αναζήτηση σε κατηγορίες"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"

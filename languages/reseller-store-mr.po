@@ -242,7 +242,7 @@ msgstr "त्रुटी: उत्पादन डेटा अवैध अ�
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "श्रेणी"
+msgstr "श्रेणी शोधा"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"
@@ -258,15 +258,15 @@ msgstr "पालक श्रेणी:"
 
 #: includes/class-taxonomy-category.php:75
 msgid "Edit Category"
-msgstr "श्रेणी संपादित करा"
+msgstr "संपादन श्रेणी"
 
 #: includes/class-taxonomy-category.php:76
 msgid "Update Category"
-msgstr "श्रेणी अद्यतानित करा"
+msgstr "अपडेट श्रेणी"
 
 #: includes/class-taxonomy-category.php:77
 msgid "Add New Category"
-msgstr "नवीन श्रेणी जोडा"
+msgstr "नवीन जोडा श्रेणी"
 
 #: includes/class-taxonomy-category.php:78
 msgid "New Category Name"
@@ -295,15 +295,15 @@ msgstr "पालक टॅग:"
 
 #: includes/class-taxonomy-tag.php:75
 msgid "Edit Tag"
-msgstr "टॅग संपादित करा"
+msgstr "संपादन टॅग"
 
 #: includes/class-taxonomy-tag.php:76
 msgid "Update Tag"
-msgstr "टॅग अद्यतनित करा"
+msgstr "अपडेट टॅग"
 
 #: includes/class-taxonomy-tag.php:77
 msgid "Add New Tag"
-msgstr "नवीन टॅग जोडा"
+msgstr "नवीन जोडा टॅग"
 
 #: includes/class-taxonomy-tag.php:78
 msgid "New Tag Name"
