@@ -199,7 +199,7 @@ final class Setup {
 
 			return self::install_error(
 				'invalid_permissions',
-				esc_html__( 'Sorry, you are not allowed to install plugins on this site.' ) // Use core translation
+				esc_html__( 'Sorry, you are not allowed to install plugins on this site.', 'reseller-store' ) // Use core translation
 			);
 
 		}
@@ -210,7 +210,7 @@ final class Setup {
 
 				return self::install_error(
 					'invalid_nonce',
-					esc_html__( 'Sorry, you are not allowed to do that.' ) // Use core translation
+					esc_html__( 'Sorry, you are not allowed to do that.', 'reseller-store' ) // Use core translation
 				);
 
 			}
@@ -313,7 +313,7 @@ final class Setup {
 
 		$wp_error = is_wp_error( $code ) ? $code : false;
 
-		$message = ( $message ) ? $message : esc_html__( 'An unknown error occurred' ); // Use core translation
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error occurred.', 'reseller-store' ); // Use core translation
 
 		if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
 
