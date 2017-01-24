@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -66,8 +65,9 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"प्रारंभ करणे आवश्यक आहे? आपण मूळ उत्पादन शीर्षक, सामग्री, वैशिष्ट्यीकृत प्रतिमा आणि श्रेणी "
-"असाइनमेंट पूर्वस्थित करू शकता. नोट: आपले सानुकूलीकरण गमावले जाईल."
+"प्रारंभ करणे आवश्यक आहे? आपण मूळ उत्पादन शीर्षक, सामग्री, वैशिष्ट्यीकृत "
+"प्रतिमा आणि श्रेणी असाइनमेंट पूर्वस्थित करू शकता. नोट: आपले सानुकूलीकरण "
+"गमावले जाईल."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -101,7 +101,8 @@ msgstr "विक्रेता उत्पादन परमालिंक�
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr "या सएटिंग्स विशेषतः विक्रेता स्टोअर उत्पादनासाठी परमालिंक्स नियंत्रित करतात."
+msgstr ""
+"या सएटिंग्स विशेषतः विक्रेता स्टोअर उत्पादनासाठी परमालिंक्स नियंत्रित करतात."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -113,7 +114,7 @@ msgstr "सानुकूल आधारित"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "नवीन उत्पादने जोडा"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -229,30 +230,27 @@ msgstr "मदत हवी आहे? आमच्या पुरस्का�
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "Sorry, you are not allowed to install plugins on this site."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Sorry, you are not allowed to do that."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "Private Label ID is invalid."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "त्रुटी: कोणतीही उत्पादने उपलब्ध नाहीत, कृपया नंतर पुन्हा प्रयत्न करा."
+msgstr "There are no products available, please try again later."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr "त्रुटी: उत्पादन डेटा अवैध असल्याचे आढळले, कृपया नंतर पुन्हा प्रयत्न करा."
+msgstr "Product data could not be imported, please try again later."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "एक अज्ञात त्रुटी आली"
+msgstr "An unknown error occurred."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -404,32 +402,29 @@ msgid "N/A"
 msgstr "लागू नाही"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "त्रुटी: `%s`हे वैध उत्पादन नाही."
+msgstr "`%s` is not a valid product."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` already exists."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "त्रुटी: `%s`पुनर्स्थित करण्यापूर्वी एक उत्पादन पोस्ट म्हणून आयात करणे आवश्यक आहे."
+msgstr "`%s` must be imported as a product post before it can be reset."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "त्रुटी: `%s` अस्तित्वात नाही."
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "त्रुटी: `%s` हा उत्पादनांसाठी वैध पोस्ट प्रकार नाही."
+msgstr "`%s` is not a valid post type for products."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -484,7 +479,7 @@ msgstr "संपादित करा: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Error: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -515,6 +510,3 @@ msgstr "%1$s / प्रती %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "कार्ट पहा %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "त्रुटी: अवैध गोपनीय लेबल ID."
