@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-01-13 18:40:12+00:00\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:237
 msgid "An unknown error has occurred."
@@ -66,8 +65,7 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"처음부터 다시 시작? 원래 제품 제목, 콘텐츠, 추천 이미지, 범주 지정을 복원할 "
-"수 있습니다. 참고: 사용자가 지정한 기능은 손실됩니다."
+"처음부터 다시 시작? 원래 제품 제목, 콘텐츠, 추천 이미지, 범주 지정을 복원할 수 있습니다. 참고: 사용자가 지정한 기능은 손실됩니다."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -101,8 +99,7 @@ msgstr "리셀러 제품 고정 링크"
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr ""
-"이러한 설정은 리셀러 상점 제품에 대해서만 사용되는 고정 링크를 제어합니다."
+msgstr "이러한 설정은 리셀러 상점 제품에 대해서만 사용되는 고정 링크를 제어합니다."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -113,9 +110,8 @@ msgid "Custom base"
 msgstr "사용자 정의 기준"
 
 #: includes/class-post-type.php:109
-#, fuzzy
 msgid "Add New Products"
-msgstr "새 상품 추가하기"
+msgstr "Add New Products"
 
 #: includes/class-post-type.php:110
 msgid "Edit Product"
@@ -227,21 +223,19 @@ msgstr "계정 만들기"
 
 #: includes/class-setup.php:154
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"도움이 필요하신가요? +1 (480) 505-8877 번호로 최고 수준의 지원 팀에 문의하시"
-"기 바랍니다."
+msgstr "도움이 필요하신가요? +1 (480) 505-8877 번호로 최고 수준의 지원 팀에 문의하시기 바랍니다."
 
 #: includes/class-setup.php:178
 msgid "Error: Invalid Private Label ID."
-msgstr "Error: Invalid Private Label ID."
+msgstr "오류: 잘못된 비공개 레이블 ID입니다."
 
 #: includes/class-setup.php:203
 msgid "Error: There are no products available, please try again later."
-msgstr "Error: There are no products available, please try again later."
+msgstr "오류: 이용할 수 있는 제품이 없습니다. 나중에 다시 시도해 주십시오."
 
 #: includes/class-setup.php:238
 msgid "Error: Product data was found to be invalid, please try again later."
-msgstr "Error: Product data was found to be invalid, please try again later."
+msgstr "오류: 발견한 제품 데이터가 유효하지 않습니다. 나중에 다시 시도해 주십시오."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -373,11 +367,11 @@ msgstr "버튼:"
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
-msgstr "GoDaddy Reseller Store"
+msgstr "GoDaddy 리셀러 상점"
 
 #. Description of the plugin/theme
 msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "A boilerplate WordPress plugin by GoDaddy."
+msgstr "GoDaddy에서 제공하는 표준 워드프레스 플러그인입니다."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -388,20 +382,19 @@ msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
 #: includes/class-api.php:336
-#, fuzzy
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` is not a valid product."
+msgstr "Error: `%s` does not exist."
 
 #: includes/class-import.php:65
 msgctxt "product name"
 msgid "Error: `%s` is not a valid product."
-msgstr "Error: `%s` is not a valid product."
+msgstr "오류: ‘%s’은(는) 유효한 제품이 아닙니다."
 
 #: includes/class-import.php:84
 msgctxt "product name"
 msgid "Error: `%s` must be imported as a product post before it can be reset."
-msgstr "Error: `%s` must be imported as a product post before it can be reset."
+msgstr "오류: ‘%s’을(를) 재설정하려면 제품 게시물로 가져와야 합니다."
 
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
@@ -416,7 +409,7 @@ msgstr "%1$s / %2$s"
 #: includes/class-import.php:92
 msgctxt "post type name"
 msgid "Error: `%s` is not a valid post type for products."
-msgstr "Error: `%s` is not a valid post type for products."
+msgstr "오류: ‘%s’은 제품에 유효한 게시물 유형이 아닙니다."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
