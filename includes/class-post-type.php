@@ -229,8 +229,6 @@ final class Post_Type {
 
 		}
 
-		$product = new Product( $product );
-
 		return $product->import( $post_id );
 
 	}

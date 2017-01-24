@@ -19,7 +19,7 @@ final class Product {
 	 *
 	 * @var stdClass
 	 */
-	private $product;
+	public $product;
 
 	/**
 	 * Array of required properties and validation callbacks.
@@ -62,7 +62,7 @@ final class Product {
 	 */
 	public function __get( $property ) {
 
-		return property_exists( $this->product, $property ) ? $this->product->{$property} : null;
+		return isset( $this->product->{$property} ) ? $this->product->{$property} : null;
 
 	}
 
