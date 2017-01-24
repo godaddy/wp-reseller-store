@@ -125,16 +125,17 @@ final class Post_Type {
 		];
 
 		$args = [
-			'labels'             => $labels,
-			'description'        => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
-			'menu_icon'          => 'dashicons-cart',
-			'menu_position'      => self::MENU_POSITION,
-			'public'             => true,
-			'show_in_rest'       => true,
-			'query_var'          => self::permalink_base(),
-			'has_archive'        => true,
-			'supports'           => [ 'title', 'editor', 'thumbnail' ],
-			'rewrite'            => [
+			'labels'        => $labels,
+			'description'   => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
+			'menu_icon'     => 'dashicons-cart',
+			'menu_position' => self::MENU_POSITION,
+			'public'        => true,
+			'show_in_rest'  => true,
+			'rest_base'     => self::permalink_base(),
+			'query_var'     => self::permalink_base(),
+			'has_archive'   => true,
+			'supports'      => [ 'title', 'editor', 'thumbnail' ],
+			'rewrite'       => [
 				'slug'       => self::permalink_base(),
 				'with_front' => false,
 				'feeds'      => true,
