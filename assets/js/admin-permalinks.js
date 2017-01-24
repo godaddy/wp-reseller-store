@@ -70,6 +70,8 @@
 
 	$( document ).ready( function( $ ) {
 
+		$inputs.prop( 'disabled', ! $( '#permalink_structure' ).val() );
+
 		$( '.permalink-structure input' ).on( 'change', permalinks.init );
 		$( 'input[name="rstore_permalink_structure"]' ).on( 'change', permalinks.radioSelect );
 		$( '#rstore-product-base' ).on( 'focus', permalinks.forceCustom );

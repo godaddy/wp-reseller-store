@@ -49,8 +49,8 @@ final class Import {
 	/**
 	 * Class constructor.
 	 *
-	 * @param Product $product
-	 * @param int     $post_id (optional)
+	 * @param stdClass $product
+	 * @param int      $post_id (optional)
 	 */
 	public function __construct( $product, $post_id = 0 ) {
 
@@ -58,12 +58,14 @@ final class Import {
 		$this->post_id  = absint( $post_id );
 		$this->imported = (array) rstore_get_option( 'imported', [] );
 
+		$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) );
+
 		if ( ! $product->is_valid() ) {
 
 			$this->result = new WP_Error(
 				'invalid_product',
 				esc_html_x( '`%s` is not a valid product.', 'product name', 'reseller-store' ),
-				( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) )
+				$fallback_id
 			);
 
 			return;
@@ -75,7 +77,7 @@ final class Import {
 			$this->result = new WP_Error(
 				'product_exists',
 				esc_html_x( '`%s` already exists.', 'product name', 'reseller-store' ),
-				( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) )
+				$fallback_id
 			);
 
 			return;
@@ -127,7 +129,7 @@ final class Import {
 
 		$this->categories();
 
-		$this->featured_image( (int) $product->image_exists() );
+		$this->featured_image( $product->image_exists() );
 
 		$this->result = $this->mark_as_imported(); // Success!
 

@@ -52,6 +52,21 @@ final class Product {
 	}
 
 	/**
+	 * Return a product property.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $property
+	 *
+	 * @return mixed|null
+	 */
+	public function __get( $property ) {
+
+		return isset( $this->product->{$property} ) ? $this->product->{$property} : null;
+
+	}
+
+	/**
 	 * Check if the product object is valid.
 	 *
 	 * @since NEXT

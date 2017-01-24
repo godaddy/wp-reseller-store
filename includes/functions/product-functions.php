@@ -139,17 +139,17 @@ function rstore_get_product( $product_id, $hard = false ) {
  *
  * @param  int    $post_id
  * @param  string $key
- * @param  mixed  $default          (optional)
- * @param  bool   $setting_fallback (optional)
+ * @param  mixed  $default         (optional)
+ * @param  bool   $option_fallback (optional)
  *
  * @return mixed
  */
-function rstore_get_product_meta( $post_id, $key, $default = false, $setting_fallback = false ) {
+function rstore_get_product_meta( $post_id, $key, $default = false, $option_fallback = false ) {
 
 	$key = rstore_prefix( $key );
 
 	$meta = get_post_meta( $post_id, $key, true );
 
-	return ( $meta ) ? $meta : ( $setting_fallback ? get_option( $key, $default ) : $default );
+	return ( $meta ) ? $meta : ( $option_fallback ? get_option( $key, $default ) : $default );
 
 }

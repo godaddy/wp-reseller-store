@@ -3,20 +3,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-13 18:40:12+00:00\n"
+"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;\n"
 
-#: includes/class-api.php:237
+#: includes/class-api.php:245
 msgid "An unknown error has occurred."
 msgstr "Đã xảy ra một lỗi chưa xác định."
 
@@ -32,7 +32,7 @@ msgstr "Chung"
 msgid "Advanced"
 msgstr "Nâng cao"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:416
+#: includes/class-butterbean.php:182 includes/class-post-type.php:322
 msgid "Price"
 msgstr "Giá"
 
@@ -48,7 +48,7 @@ msgstr "Số lượng mặc định"
 msgid "Add to Cart Button Label"
 msgstr "Thêm vào giỏ hàng nhãn nút"
 
-#: includes/class-butterbean.php:275 includes/class-display.php:149
+#: includes/class-butterbean.php:275 includes/functions/helper-functions.php:64
 msgid "Add to cart"
 msgstr "Thêm vào giỏ"
 
@@ -81,9 +81,9 @@ msgstr "Xem giỏ hàng"
 msgid "An unknown error has occurred"
 msgstr "Đã xảy ra một lỗi chưa xác định"
 
-#: includes/class-import.php:66
+#: includes/class-import.php:61
 msgid "unknown"
-msgstr "unknown"
+msgstr "Không xác định"
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
@@ -113,136 +113,151 @@ msgstr "Mặc định"
 msgid "Custom base"
 msgstr "Cơ sở tùy chỉnh"
 
-#: includes/class-post-type.php:109
-#, fuzzy
+#: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Thêm sản phẩm mới"
+msgstr "Add New Products"
 
-#: includes/class-post-type.php:110
+#: includes/class-post-type.php:109
 msgid "Edit Product"
 msgstr "Sửa sản phẩm"
 
-#: includes/class-post-type.php:111
+#: includes/class-post-type.php:110
 msgid "New Product"
 msgstr "Sản phẩm mới"
 
-#: includes/class-post-type.php:112
+#: includes/class-post-type.php:111
 msgid "View Product"
 msgstr "Xem sản phẩm"
 
-#: includes/class-post-type.php:113
+#: includes/class-post-type.php:112
 msgid "View Products"
 msgstr "Xem sản phẩm"
 
-#: includes/class-post-type.php:114
+#: includes/class-post-type.php:113
 msgid "Search Products"
 msgstr "Tìm kiếm sản phẩm"
 
-#: includes/class-post-type.php:115
+#: includes/class-post-type.php:114
 msgid "No products found."
 msgstr "Không tìm thấy sản phẩm"
 
-#: includes/class-post-type.php:116
+#: includes/class-post-type.php:115
 msgid "No products found in Trash."
 msgstr "Không tìm thấy sản phẩm nào trong thùng rác."
 
-#: includes/class-post-type.php:117
+#: includes/class-post-type.php:116
 msgid "Parent Products:"
 msgstr "Sản phẩm mẹ:"
 
-#: includes/class-post-type.php:118
+#: includes/class-post-type.php:117
 msgid "All Products"
 msgstr "Tất cả sản phẩm"
 
-#: includes/class-post-type.php:119
+#: includes/class-post-type.php:118
 msgid "Product Archives"
 msgstr "Mục lưu trữ sản phẩm"
 
-#: includes/class-post-type.php:120
+#: includes/class-post-type.php:119
 msgid "Insert into product"
 msgstr "Chèn vào sản phẩm"
 
-#: includes/class-post-type.php:121
+#: includes/class-post-type.php:120
 msgid "Uploaded to this product"
 msgstr "Tải lên sản phẩm này"
 
-#: includes/class-post-type.php:122 includes/class-post-type.php:407
+#: includes/class-post-type.php:121 includes/class-post-type.php:313
 msgid "Product Image"
 msgstr "Ảnh sản phẩm"
 
-#: includes/class-post-type.php:123
+#: includes/class-post-type.php:122
 msgid "Set product image"
 msgstr "Thiết lập ảnh sản phẩm"
 
-#: includes/class-post-type.php:124
+#: includes/class-post-type.php:123
 msgid "Remove product image"
 msgstr "Xóa ảnh sản phẩm."
 
-#: includes/class-post-type.php:125
+#: includes/class-post-type.php:124
 msgid "Use as featured image"
 msgstr "Sử dụng dưới dạng hình ảnh nổi bật"
 
-#: includes/class-post-type.php:130
+#: includes/class-post-type.php:129
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Đây là nơi bạn có thể thêm sản phẩm mới vào Cửa hàng đại lý."
 
-#: includes/class-restrictions.php:169
+#: includes/class-restrictions.php:173
 msgid "No products have been added yet."
 msgstr "Bạn vẫn chưa thêm sản phẩm nào."
 
-#: includes/class-restrictions.php:170
+#: includes/class-restrictions.php:174
 msgid "Import All Products"
 msgstr "Nhập tất cả sản phẩm"
 
-#: includes/class-setup.php:65
+#: includes/class-setup.php:84
 msgid "Reseller Store Setup"
 msgstr "Cài đặt cửa hàng của đại lý"
 
-#: includes/class-setup.php:66
+#: includes/class-setup.php:85
 msgid "Reseller Store"
 msgstr "Cửa hàng của đại lý"
 
-#: includes/class-setup.php:138
+#: includes/class-setup.php:157
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr "Hãy cài đặt Cửa hàng của đại lý của GoDaddy."
 
-#: includes/class-setup.php:142
+#: includes/class-setup.php:161
 msgid "Enter your Private Label ID to get started."
 msgstr "Nhập ID Nhãn hiệu riêng để bắt đầu."
 
-#: includes/class-setup.php:145
+#: includes/class-setup.php:164
 msgid "Enter your Private Label ID:"
 msgstr "Nhập ID Nhãn hiệu riêng:"
 
-#: includes/class-setup.php:147
+#: includes/class-setup.php:166
 msgid "Install Now"
 msgstr "Cài đặt"
 
-#: includes/class-setup.php:151
+#: includes/class-setup.php:170
 msgid "Don't have an account?"
 msgstr "Không có tài khoản?"
 
-#: includes/class-setup.php:151
+#: includes/class-setup.php:170
 msgid "Create an account"
 msgstr "Tạo tài khoản"
 
-#: includes/class-setup.php:154
+#: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 msgstr ""
 "Cần hỗ trợ? Hãy gọi cho nhóm hỗ trợ uy tín của chúng tôi theo số (480) "
 "505-8877."
 
-#: includes/class-setup.php:178
-msgid "Error: Invalid Private Label ID."
-msgstr "Error: Invalid Private Label ID."
+#: includes/class-setup.php:202
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr ""
 
-#: includes/class-setup.php:203
-msgid "Error: There are no products available, please try again later."
-msgstr "Error: There are no products available, please try again later."
+#: includes/class-setup.php:213
+msgid "Sorry, you are not allowed to do that."
+msgstr ""
 
-#: includes/class-setup.php:238
-msgid "Error: Product data was found to be invalid, please try again later."
-msgstr "Error: Product data was found to be invalid, please try again later."
+#: includes/class-setup.php:228
+msgid "Private Label ID is invalid."
+msgstr ""
+
+#: includes/class-setup.php:249
+#, fuzzy
+msgid "There are no products available, please try again later."
+msgstr "Lỗi: Không có sản phẩm nào khả dụng, vui lòng thử lại sau."
+
+#: includes/class-setup.php:280
+#, fuzzy
+msgid "Product data could not be imported, please try again later."
+msgstr ""
+"Lỗi: Dữ liệu sản phẩm được tìm thấy là không hợp lệ, vui lòng thử lại sau."
+
+#: includes/class-setup.php:316
+#, fuzzy
+msgid "An unknown error occurred."
+msgstr "Đã xảy ra một lỗi chưa xác định"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -317,68 +332,68 @@ msgstr "Tên thẻ mới"
 msgid "Tags"
 msgstr "Từ khóa"
 
-#: includes/widgets/class-cart.php:25
+#: includes/widgets/class-cart.php:22
 msgid "Reseller Cart"
 msgstr "Giỏ hàng của đại lý"
 
-#: includes/widgets/class-cart.php:28
+#: includes/widgets/class-cart.php:25
 msgid "Display the user's cart in the sidebar."
 msgstr "Hiển thị giỏ của người dùng ở thanh bên."
 
-#: includes/widgets/class-cart.php:105
+#: includes/widgets/class-cart.php:102
 msgid "Cart"
 msgstr "Giỏ hàng"
 
-#: includes/widgets/class-cart.php:110
-#: includes/widgets/class-domain-search.php:115
+#: includes/widgets/class-cart.php:107
+#: includes/widgets/class-domain-search.php:112
 msgid "Title:"
 msgstr "Tiêu đề:"
 
-#: includes/widgets/class-cart.php:116
+#: includes/widgets/class-cart.php:113
 msgid "Hide if cart is empty"
 msgstr "Ẩn nếu giỏ hàng trống"
 
-#: includes/widgets/class-domain-search.php:25
+#: includes/widgets/class-domain-search.php:22
 msgid "Reseller Domain Search"
 msgstr "Tìm kiếm miền của đại lý"
 
-#: includes/widgets/class-domain-search.php:28
+#: includes/widgets/class-domain-search.php:25
 msgid "A search form for domain names."
 msgstr "Biểu mẫu tìm kiếm tên miền."
 
-#: includes/widgets/class-domain-search.php:86
-#: includes/widgets/class-domain-search.php:87
+#: includes/widgets/class-domain-search.php:83
+#: includes/widgets/class-domain-search.php:84
 msgid "Search for a domain name:"
 msgstr "Tìm một tên miền:"
 
-#: includes/widgets/class-domain-search.php:91
-#: includes/widgets/class-domain-search.php:111
+#: includes/widgets/class-domain-search.php:88
+#: includes/widgets/class-domain-search.php:108
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: includes/widgets/class-domain-search.php:109
+#: includes/widgets/class-domain-search.php:106
 msgid "Domain Search"
 msgstr "Tìm kiếm miền"
 
-#: includes/widgets/class-domain-search.php:110
+#: includes/widgets/class-domain-search.php:107
 msgid "Find your perfect name"
 msgstr "Tên phù hợp nhất với bạn"
 
-#: includes/widgets/class-domain-search.php:120
+#: includes/widgets/class-domain-search.php:117
 msgid "Placeholder:"
 msgstr "Trình giữ chỗ:"
 
-#: includes/widgets/class-domain-search.php:125
+#: includes/widgets/class-domain-search.php:122
 msgid "Button:"
 msgstr "Nút:"
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
-msgstr "GoDaddy Reseller Store"
+msgstr "Cửa hàng đại lý của GoDaddy"
 
 #. Description of the plugin/theme
 msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "A boilerplate WordPress plugin by GoDaddy."
+msgstr "Một trình cắm WordPress soạn sẵn của GoDaddy."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -388,36 +403,40 @@ msgstr "GoDaddy"
 msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
-#: includes/class-api.php:336
-#, fuzzy
-msgctxt "product name"
-msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` is not a valid product."
-
-#: includes/class-import.php:65
-msgctxt "product name"
-msgid "Error: `%s` is not a valid product."
-msgstr "Error: `%s` is not a valid product."
-
-#: includes/class-import.php:84
-msgctxt "product name"
-msgid "Error: `%s` must be imported as a product post before it can be reset."
-msgstr "Error: `%s` must be imported as a product post before it can be reset."
-
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr "Không xác định"
 
-#: includes/class-display.php:113
-msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
-msgid "%1$s / per %2$s"
-msgstr "%1$s / mỗi %2$s"
+#: includes/class-import.php:67
+#, fuzzy
+msgctxt "product name"
+msgid "`%s` is not a valid product."
+msgstr "Lỗi: `%s` không phải là sản phẩm hợp lệ."
 
-#: includes/class-import.php:92
+#: includes/class-import.php:79
+msgctxt "product name"
+msgid "`%s` already exists."
+msgstr ""
+
+#: includes/class-import.php:100
+#, fuzzy
+msgctxt "product name"
+msgid "`%s` must be imported as a product post before it can be reset."
+msgstr ""
+"Lỗi:`%s` phải được nhập dưới dạng bài đăng sản phẩm trước khi nó có thể được "
+"cài đặt lại."
+
+#: includes/functions/product-functions.php:131
+msgctxt "product name"
+msgid "Error: `%s` does not exist."
+msgstr "Error: `%s` does not exist."
+
+#: includes/class-import.php:110
+#, fuzzy
 msgctxt "post type name"
-msgid "Error: `%s` is not a valid post type for products."
-msgstr "Error: `%s` is not a valid post type for products."
+msgid "`%s` is not a valid post type for products."
+msgstr "Lỗi `%s` không phải là loại bài đăng hợp lệ cho các sản phẩm."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -439,35 +458,40 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "tu-khoa"
 
-#: includes/class-post-type.php:104
+#: includes/class-post-type.php:103
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Sản phẩm"
 
-#: includes/class-post-type.php:105
+#: includes/class-post-type.php:104
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Sản phẩm"
 
-#: includes/class-post-type.php:106
+#: includes/class-post-type.php:105
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Cửa hàng đại lý"
 
-#: includes/class-post-type.php:107
+#: includes/class-post-type.php:106
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Sản phẩm của đại lý"
 
-#: includes/class-post-type.php:108
+#: includes/class-post-type.php:107
 msgctxt "product"
 msgid "Add New"
 msgstr "Thêm mới"
 
-#: includes/class-post-type.php:540
+#: includes/class-post-type.php:446
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Chỉnh sửa: %s"
+
+#: includes/class-setup.php:329
+msgctxt "error message"
+msgid "Error: %s"
+msgstr ""
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -489,7 +513,15 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Thẻ"
 
-#: includes/widgets/class-cart.php:87
+#: includes/functions/template-functions.php:43
+msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / mỗi %2$s"
+
+#: includes/widgets/class-cart.php:84
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Xem giỏ hàng %s"
+
+#~ msgid "Error: Invalid Private Label ID."
+#~ msgstr "Lỗi: ID Nhãn hiệu riêng không hợp lệ."

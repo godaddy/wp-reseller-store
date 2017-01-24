@@ -95,12 +95,14 @@ final class Permalinks {
 
 		$permalink_structure = get_option( 'permalink_structure' );
 
+		$post_type = get_post_type_object( Post_Type::SLUG );
+
 		$sample_product = sanitize_title( esc_html_x( 'sample-product', 'slug name', 'reseller-store' ) );
 
 		$default_example = sprintf(
 			'<code id="rstore-default-example" style="%s">%s</code>',
 			( $permalink_structure ) ? 'display: none;' : '',
-			esc_url( add_query_arg( Post_Type::$default_permalink_base, $sample_product, home_url() ) )
+			esc_url( add_query_arg( $post_type->query_var, $sample_product, home_url() ) )
 		);
 
 		$custom_example = sprintf(
@@ -129,12 +131,12 @@ final class Permalinks {
 				<tr>
 					<th>
 						<label>
-							<input type="radio" name="rstore_permalink_structure" id="rstore-permalink-structure-custom" value="" <?php checked( $is_default, false ); ?>>
+							<input type="radio" name="rstore_permalink_structure" id="rstore-permalink-structure-custom" value="" <?php checked( ! $is_default ); ?>>
 							<?php _e( 'Custom base', 'reseller-store' ); ?>
 						</label>
 					</th>
 					<td>
-						<input type="text" name="rstore_product_base" id="rstore-product-base" class="regular-text code" value="<?php echo esc_attr( Post_Type::permalink_base() ); ?>">
+						<input type="text" name="rstore_product_base" id="rstore-product-base" class="regular-text code" value="<?php echo ! $is_default ? esc_attr( Post_Type::permalink_base() ) : ''; ?>" placeholder="<?php echo esc_attr( Post_Type::permalink_base() ); ?>">
 					</td>
 				</tr>
 			</tbody>
@@ -160,23 +162,41 @@ final class Permalinks {
 
 		}
 
-		$permalinks  = (array) rstore_get_option( 'permalinks', [] );
-		$_permalinks = $permalinks;
+		$old_permalinks = (array) rstore_get_option( 'permalinks', [] );
+		$new_permalinks = $old_permalinks;
 
-		$_permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base' ) );
-		$_permalinks['tag_base']      = sanitize_title( filter_input( INPUT_POST, 'rstore_tag_base' ) );
-		$_permalinks['product_base']  = sanitize_title( filter_input( INPUT_POST, 'rstore_product_base' ) );
+		$new_permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base' ) );
+		$new_permalinks['tag_base']      = sanitize_title( filter_input( INPUT_POST, 'rstore_tag_base' ) );
+		$new_permalinks['product_base']  = sanitize_title( filter_input( INPUT_POST, 'rstore_product_base' ) );
 
-		if ( $_permalinks === $permalinks ) {
+		$old_structure = get_option( 'permalink_structure', '' );
+		$new_structure = (string) $_POST['permalink_structure'];
+
+		if ( $new_permalinks === $old_permalinks && $old_structure === $new_structure ) {
 
 			return; // There is no change, do nothing
 
 		}
 
-		// Flush the oEmbed cache when product permalinks change
-		Embed::flush_cache();
+		$post_type = get_post_type_object( Post_Type::SLUG );
 
-		rstore_update_option( 'permalinks', $_permalinks );
+		$old_base = ( $old_permalinks['product_base'] ) ? $old_permalinks['product_base'] : Post_Type::$default_permalink_base;
+		$new_base = ( $new_permalinks['product_base'] ) ? $new_permalinks['product_base'] : Post_Type::$default_permalink_base;
+
+		$old_base_url = ( $old_structure ) ? home_url( trailingslashit( $old_base ) ) : add_query_arg( $post_type->query_var, '', home_url( '/' ) ) . '=';
+		$new_base_url = ( $new_structure ) ? home_url( trailingslashit( $new_base ) ) : add_query_arg( $post_type->query_var, '', home_url( '/' ) ) . '=';
+
+		if ( $old_base_url !== $new_base_url ) {
+
+			// Update post content containing URLs of the old base
+			Embed::search_replace_post_content( $old_base_url, $new_base_url );
+
+			// Flush the oEmbed cache when the product base changes
+			Embed::flush_cache();
+
+		}
+
+		rstore_update_option( 'permalinks', $new_permalinks );
 
 	}
 

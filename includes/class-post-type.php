@@ -58,7 +58,6 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                         [ $this, 'register' ] );
-		add_action( 'init',                         [ $this, 'sync_product_meta' ], 11 );
 		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
 		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
@@ -126,22 +125,17 @@ final class Post_Type {
 		];
 
 		$args = [
-			'labels'             => $labels,
-			'description'        => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
-			'menu_icon'          => 'dashicons-cart',
-			'menu_position'      => self::MENU_POSITION,
-			'capability_type'    => 'post',
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'show_in_nav_menus'  => true,
-			'show_in_rest'       => true,
-			'query_var'          => true,
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'supports'           => [ 'title', 'editor', 'thumbnail' ],
-			'rewrite'            => [
+			'labels'        => $labels,
+			'description'   => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
+			'menu_icon'     => 'dashicons-cart',
+			'menu_position' => self::MENU_POSITION,
+			'public'        => true,
+			'show_in_rest'  => true,
+			'rest_base'     => self::permalink_base(),
+			'query_var'     => self::permalink_base(),
+			'has_archive'   => true,
+			'supports'      => [ 'title', 'editor', 'thumbnail' ],
+			'rewrite'       => [
 				'slug'       => self::permalink_base(),
 				'with_front' => false,
 				'feeds'      => true,
@@ -230,99 +224,7 @@ final class Post_Type {
 
 		}
 
-		$product = new Product( $product );
-
 		return $product->import( $post_id );
-
-	}
-
-	/**
-	 * Sync down API product meta on a regular basis.
-	 *
-	 * @action init
-	 * @since  NEXT
-	 */
-	public function sync_product_meta() {
-
-		if ( time() < (int) rstore_get_option( 'next_sync' ) ) {
-
-			return;
-
-		}
-
-		/**
-		 * Filter the time to wait in between API sync retries (in seconds).
-		 *
-		 * Default: 1 min
-		 *
-		 * This is the TTL that will be used if the sync fails. It should be
-		 * _equal-to or less-than_ than the real `rstore_sync_ttl`, which is
-		 * used after a successful sync.
-		 *
-		 * @since NEXT
-		 *
-		 * @var int
-		 */
-		$retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', 60 );
-
-		// Use the retry TTL by default in case the sync fails
-		rstore_update_option( 'next_sync', time() + $retry_ttl );
-
-		$products = rstore_get_products( true );
-
-		if ( is_wp_error( $products ) || ! $products ) {
-
-			return;
-
-		}
-
-		$imported = (array) rstore_get_option( 'imported', [] );
-
-		foreach ( (array) $products as $product ) {
-
-			$post_id = array_search( $product->id, $imported );
-
-			if ( false === $post_id ) {
-
-				continue;
-
-			}
-
-			/**
-			 * Filter the properties that should not be synced.
-			 *
-			 * Default: id, categories, image
-			 *
-			 * @since NEXT
-			 *
-			 * @var array
-			 */
-			$ignored_properties = (array) apply_filters( 'rstore_sync_ignore', [ 'id', 'categories', 'image' ] );
-
-			foreach ( $ignored_properties as $property ) {
-
-				unset( $product->property );
-
-			}
-
-			rstore_bulk_update_post_meta( $post_id, $product );
-
-		}
-
-		rstore_update_option( 'last_sync', time() );
-
-		/**
-		 * Filter the time to wait in between API syncs (in seconds).
-		 *
-		 * Default: 15 min
-		 *
-		 * @since NEXT
-		 *
-		 * @var int
-		 */
-		$ttl = (int) apply_filters( 'rstore_sync_ttl', HOUR_IN_SECONDS / 4 );
-
-		rstore_update_option( 'next_sync', time() + $ttl );
 
 	}
 
