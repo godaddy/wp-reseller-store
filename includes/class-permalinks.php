@@ -95,12 +95,14 @@ final class Permalinks {
 
 		$permalink_structure = get_option( 'permalink_structure' );
 
+		$post_type = get_post_type_object( Post_Type::SLUG );
+
 		$sample_product = sanitize_title( esc_html_x( 'sample-product', 'slug name', 'reseller-store' ) );
 
 		$default_example = sprintf(
 			'<code id="rstore-default-example" style="%s">%s</code>',
 			( $permalink_structure ) ? 'display: none;' : '',
-			esc_url( add_query_arg( Post_Type::SLUG, $sample_product, home_url() ) )
+			esc_url( add_query_arg( $post_type->query_var, $sample_product, home_url() ) )
 		);
 
 		$custom_example = sprintf(
@@ -176,11 +178,13 @@ final class Permalinks {
 
 		}
 
+		$post_type = get_post_type_object( Post_Type::SLUG );
+
 		$old_base = ( $old_permalinks['product_base'] ) ? $old_permalinks['product_base'] : Post_Type::$default_permalink_base;
 		$new_base = ( $new_permalinks['product_base'] ) ? $new_permalinks['product_base'] : Post_Type::$default_permalink_base;
 
-		$old_base_url = ( $old_structure ) ? home_url( trailingslashit( $old_base ) ) : add_query_arg( Post_Type::SLUG, '', home_url( '/' ) ) . '=';
-		$new_base_url = ( $new_structure ) ? home_url( trailingslashit( $new_base ) ) : add_query_arg( Post_Type::SLUG, '', home_url( '/' ) ) . '=';
+		$old_base_url = ( $old_structure ) ? home_url( trailingslashit( $old_base ) ) : add_query_arg( $post_type->query_var, '', home_url( '/' ) ) . '=';
+		$new_base_url = ( $new_structure ) ? home_url( trailingslashit( $new_base ) ) : add_query_arg( $post_type->query_var, '', home_url( '/' ) ) . '=';
 
 		if ( $old_base_url !== $new_base_url ) {
 
