@@ -153,9 +153,9 @@ final class Sync {
 
 			foreach ( $this->properties as $property ) {
 
-				if ( isset( $product->property ) ) {
+				if ( isset( $product->{$property} ) ) {
 
-					$meta[ $property ] = $product->property;
+					$meta[ $property ] = $product->{$property};
 
 				}
 
