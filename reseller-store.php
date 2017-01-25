@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: GoDaddy Reseller Store
- * Description: A boilerplate WordPress plugin by GoDaddy.
+ * Description: Resell hosting, domains, and more right from your WordPress site.
  * Version: 0.1.0
  * Author: GoDaddy
  * Author URI: https://reseller.godaddy.com/
