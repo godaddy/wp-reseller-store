@@ -11,7 +11,7 @@ Resell hosting, domains, and more right from your WordPress site.
 **Stable tag:** 0.1.0  
 **License:** [GPL-2.0](https://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com) 
+[![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com) [![devDependency Status](https://david-dm.org/godaddy/wp-reseller-store/dev-status.svg)](https://david-dm.org/godaddy/wp-reseller-store#info=devDependencies) 
 
 ## Description ##
 
