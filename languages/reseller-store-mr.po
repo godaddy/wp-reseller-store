@@ -230,27 +230,27 @@ msgstr "मदत हवी आहे? आमच्या पुरस्का�
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "क्षमस्व, आपल्याला या साइटवर प्ल्गइन्स स्थापित करण्याची अनुमती नाही."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "क्षमस्व, आपल्याला ते करण्याची अनुमती नाही."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "खाजगी लेबल ID अवैध."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "कोणतीही उत्पादने उपलब्ध नाहीत, कृपया नंतर पुन्हा प्रयत्न करा."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "उप्तादन डेटा आयात केला जाऊ शकत नाही, कृपया नंतर पुन्हा प्रयत्न करा."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "एक अज्ञात त्रुटी आली."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -404,17 +404,17 @@ msgstr "लागू नाही"
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "`%s` हे वैध उत्पादन नाही."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "`%s` आधीपासूनच अस्तित्वात आहे."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` पुनर्स्थित करण्यापूर्वी एक उत्पादन पोस्ट म्हणून आयात करणे आवश्यक आहे."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -424,7 +424,7 @@ msgstr "त्रुटी: `%s` अस्तित्वात नाही."
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "`%s` हा उत्पादनांसाठी वैध पोस्ट प्रकार नाही."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -479,7 +479,7 @@ msgstr "संपादित करा: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "त्रुटी: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

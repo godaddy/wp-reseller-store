@@ -231,27 +231,27 @@ msgstr "Besoin d'aide ? Appelez notre équipe de support technique récompensé
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "Désolé, vous n’avez pas l’autorisation d’installer des modules sur ce site Web."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "Désolé, vous n’avez pas l’autorisation de faire ceci."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "L’identifiant de marque de distributeur est invalide."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "Il n’y a pas de produit disponible, veuillez réessayer plus tard."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "Les données du produit n’ont pas pu être importées, veuillez réessayer plus tard."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "Une erreur inconnue s'est produite."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -405,17 +405,17 @@ msgstr "N/D"
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "’%s’ n’est pas un produit valide."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "’%s’ existe déjà."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "Vous devez importer ’%s’ en tant qu’article de produit avant de pouvoir le réinitialiser."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -425,7 +425,7 @@ msgstr "Erreur : ’%s’ n'existe pas."
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "’%s’ n’est pas un type de post valide pour les produits."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -480,7 +480,7 @@ msgstr "Modifier : %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "Erreur&nbsp;: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

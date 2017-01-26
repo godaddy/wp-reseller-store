@@ -231,27 +231,27 @@ msgstr "Tarvitsetko apua? Soita palkitulle tukitiimillemme numeroon +1 480 505 8
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "Pahoittelemme. Lisäosien/laajennusten (plugins) asentaminen tähän sivustoon ei ole sallittua sinulle."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "Pahoittelemme. Sinulla ei ole lupaa tehdä sitä."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "Yksityisen selitteen tunnus on virheellinen."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "Mitään tuotteita ei ole saatavilla. Yritä myöhemmin uudelleen."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "Tuotetietoja ei voitu tuoda. Yritä myöhemmin uudelleen."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "Määrittämätön virhe"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -405,17 +405,17 @@ msgstr "Ei käytettävissä"
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "`%s` ei ole käypä tuote."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "`%s` on jo olemassa."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` täytyy tuoda tuotejulkaisuna, ennen kuin sitä voi asettaa uudelleen."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -425,7 +425,7 @@ msgstr "Virhe: %s – ei ole olemassa"
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "`%s` ei ole käypä tuotteiden julkaisutyyppi."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -480,7 +480,7 @@ msgstr "Muokkaa: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "Virhe: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

@@ -231,27 +231,27 @@ msgstr "Hulp nodig? Bel ons bekroonde klantenserviceteam op 00-1 (480) 505-8877.
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "Je mag geen plugins op deze site installeren."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "Je mag dat niet doen."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "Privélabel-id is ongeldig."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "Er zijn geen producten beschikbaar. Probeer het later opnieuw."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "Productgegevens kunnen niet worden geïmporteerd. Probeer het later opnieuw."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "Er is een onbekende fout opgetreden."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -405,17 +405,17 @@ msgstr "N.v.t."
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "`%s` is geen geldig product."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "`%s` bestaat al."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` moet worden geïmporteerd als een productpost voordat opnieuw instellen mogelijk is."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -425,7 +425,7 @@ msgstr "Fout: %s bestaat niet."
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "`%s` is geen geldig posttype voor producten."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -480,7 +480,7 @@ msgstr "Bewerken: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "Fout: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

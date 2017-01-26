@@ -226,27 +226,27 @@ msgstr "需要幫助嗎？請聯絡我們獲獎的支援小組：(480) 505-8877�
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "抱歉，您無法在此網站上安裝外掛程式。"
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "抱歉，您無法執行此動作。"
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "無效的自家品牌 ID。"
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "沒有適用的產品，請稍後再試。"
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "無法匯入產品資料，請稍後再試。"
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "系統出現未知錯誤。"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -400,17 +400,17 @@ msgstr "N/A"
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "`%s` 非有效產品。"
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "`%s` 已存在。"
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` 必須當成產品貼文匯入後才可重設。"
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -420,7 +420,7 @@ msgstr "錯誤： `%s` 不存在"
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "`%s` 不是產品的有效貼文類型。"
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -475,7 +475,7 @@ msgstr "編輯：%s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "錯誤: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

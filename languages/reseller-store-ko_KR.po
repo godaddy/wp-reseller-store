@@ -227,27 +227,27 @@ msgstr "도움이 필요하신가요? +1 (480) 505-8877 번호로 최고 수준�
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "죄송합니다. 귀하는 이 사이트에 플러그인을 설치할 수 없습니다."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "죄송합니다. 귀하는 그렇게 할 수 없습니다."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "잘못된 비공개 레이블 ID입니다."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "이용할 수 있는 제품이 없습니다. 나중에 다시 시도해 주세요."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "제품 데이터를 가져올 수 없습니다. 나중에 다시 시도해 주세요."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "알 수 없는 오류가 발생했습니다."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -401,17 +401,17 @@ msgstr "해당 없음"
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "'%s'은(는) 유효한 제품이 아닙니다."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "'%s'은(는) 이미 존재합니다."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "'%s'을(를) 재설정하려면 제품 게시물로 가져와야 합니다."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -421,7 +421,7 @@ msgstr "오류: ‘%s’이(가) 존재하지 않습니다."
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "'%s'은(는) 제품에 유효한 게시물 유형이 아닙니다."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -476,7 +476,7 @@ msgstr "편집: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "에러: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

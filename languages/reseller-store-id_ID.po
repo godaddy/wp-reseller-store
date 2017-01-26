@@ -229,27 +229,27 @@ msgstr "Perlu bantuan? Hubungi tim dukungan peraih penghargaan kami di (480) 505
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "Maaf, Anda tidak diizinkan untuk menginstal plugin di situs ini."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "Maaf, Anda tidak diizinkan untuk melakukannya."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "ID Label Pribadi tidak valid."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "Tidak ada produk yang tersedia. Coba lagi nanti."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "Data produk tidak dapat diimpor. Coba lagi nanti."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "Terjadi kesalahan yang tidak dikenal."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -403,17 +403,17 @@ msgstr "T/A"
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "`%s` bukan produk yang valid."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "`%s` sudah ada."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` harus diimpor sebagai postingan produk agar bisa direset."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -423,7 +423,7 @@ msgstr "Kesalahan: `%s` tidak ada."
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "`%s` bukan jenis postingan yang valid untuk produk."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -478,7 +478,7 @@ msgstr "Edit: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "Kesalahan: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

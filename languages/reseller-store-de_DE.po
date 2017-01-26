@@ -231,27 +231,27 @@ msgstr "Brauchen Sie Hilfe? Rufen Sie unser preisgekröntes Supportteam unter (4
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "Leider können Sie auf dieser Website keine Plugins installieren."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "Diesen Vorgang dürfen Sie leider nicht ausführen."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "Eigenmarke-ID ist ungültig."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "Keine Produkte verfügbar. Bitte versuchen Sie es später erneut."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "Produktdaten konnten nicht importiert werden. Bitte versuchen Sie es später erneut."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "Ein unbekannter Fehler ist aufgetreten."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -405,17 +405,17 @@ msgstr "n. z."
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "„%s“ ist kein gültiges Produkt."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "„%s“ ist bereits vorhanden."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "„%s“ muss zunächst als Produktbeitrag importiert werden. Erst dann ist das Zurücksetzen möglich."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -425,7 +425,7 @@ msgstr "Fehler: ‚%s‘ ist nicht vorhanden."
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "„%s“ ist kein gültiger Beitragstyp für Produkte."
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -480,7 +480,7 @@ msgstr "Bearbeiten: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "Fehler: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"

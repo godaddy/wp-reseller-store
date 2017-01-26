@@ -229,27 +229,27 @@ msgstr "ต้องการความช่วยเหลือหรือ
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Sorry, you are not allowed to install plugins on this site."
+msgstr "ขออภัย คุณไม่ได้รับอนุญาตให้ติดตั้งปลั๊กอินบนเว็บไซต์นี้"
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Sorry, you are not allowed to do that."
+msgstr "ขออภัย คุณไม่ได้รับอนุญาตให้ดำเนินการดังกล่าว"
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Private Label ID is invalid."
+msgstr "รหัสสินค้าเฉพาะของร้านค้าไม่ถูกต้อง"
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "There are no products available, please try again later."
+msgstr "ไม่มีสินค้าให้ โปรดลองอีกครั้งในภายหลัง"
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Product data could not be imported, please try again later."
+msgstr "ไม่สามารถนำเข้าข้อมูลผลิตภัณฑ์ได้ โปรดลองใหม่อีกครั้งในภายหลัง"
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "An unknown error occurred."
+msgstr "เกิดข้อผิดพลาดที่ไม่รู้จัก"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -403,17 +403,17 @@ msgstr "ไม่มีข้อมูล"
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` is not a valid product."
+msgstr "`%s` ไม่ใช่ผลิตภัณฑ์ที่ถูกต้อง"
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` already exists."
+msgstr "มี `%s` อยู่แล้ว"
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` must be imported as a product post before it can be reset."
+msgstr "ต้องนำเข้า `%s` เป็นผลิตภัณฑ์ที่ผ่านการลงรายการก่อน จึงจะสามารถตั้งค่าใหม่ได้"
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -423,7 +423,7 @@ msgstr "ข้อผิดพลาด: ไม่มี `%s` อยู่"
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` is not a valid post type for products."
+msgstr "`%s` ไม่ใช่ประเภทการลงรายการผลิตภัณฑ์ที่ถูกต้องของผลิตภัณฑ์"
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -478,7 +478,7 @@ msgstr "แก้ไข: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "ข้อผิดพลาด: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
