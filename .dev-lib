@@ -1,0 +1,3 @@
+DEV_LIB_SKIP=codeception,jscs,yuicompressor,phpunit
+CHECK_SCOPE=all
+ASSETS_DIR=wp-org-assets

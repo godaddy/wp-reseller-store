@@ -7,7 +7,7 @@ Stable tag:        0.1.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-TODO
+Resell hosting, domains, and more right from your WordPress site.
 
 == Description ==
 
