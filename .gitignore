@@ -1,3 +1,5 @@
+*.zip
+build
 node_modules
 tests/codeception/_output/*
 vendor
