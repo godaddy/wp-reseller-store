@@ -131,19 +131,21 @@ module.exports = function( grunt ) {
 		},
 
 		makepot: {
-			options: {
-				domainPath: 'languages/',
-				include: [ pkg.name + '.php', 'includes/.+\.php' ],
-				potComments: 'Copyright (c) {year} GoDaddy Operating Company, LLC. All Rights Reserved.',
-				potHeaders: {
-					'x-poedit-keywordslist': true
-				},
-				processPot: function( pot, options ) {
-					pot.headers['report-msgid-bugs-to'] = pkg.bugs.url;
-					return pot;
-				},
-				type: 'wp-plugin',
-				updatePoFiles: true
+			target: {
+				options: {
+					domainPath: 'languages/',
+					include: [ pkg.name + '.php', 'includes/.+\.php' ],
+					potComments: 'Copyright (c) {year} GoDaddy Operating Company, LLC. All Rights Reserved.',
+					potHeaders: {
+						'x-poedit-keywordslist': true
+					},
+					processPot: function( pot, options ) {
+						pot.headers['report-msgid-bugs-to'] = pkg.bugs.url;
+						return pot;
+					},
+					type: 'wp-plugin',
+					updatePoFiles: true
+				}
 			}
 		},
 
