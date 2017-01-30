@@ -3,17 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-01-30 22:22:04+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -31,7 +32,7 @@ msgstr "General"
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Precio"
 
@@ -105,11 +106,11 @@ msgstr ""
 "Estas configuraciones controlan los vínculos permanentes utilizados "
 "específicamente para los productos de la tienda del revendedor."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Predeterminado"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Base personalizada"
 
@@ -165,7 +166,7 @@ msgstr "Insertar en el producto"
 msgid "Uploaded to this product"
 msgstr "Subido a este producto"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Imagen del producto"
 
@@ -183,7 +184,8 @@ msgstr "Usar como imagen destacada"
 
 #: includes/class-post-type.php:129
 msgid "This is where you can add new products to your Reseller Store."
-msgstr "Aquí es donde puedes agregar productos nuevos a tu tienda de revendedor."
+msgstr ""
+"Aquí es donde puedes agregar productos nuevos a tu tienda de revendedor."
 
 #: includes/class-restrictions.php:173
 msgid "No products have been added yet."
@@ -227,7 +229,9 @@ msgstr "Crear una cuenta"
 
 #: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "¿Asistencia? Llama a nuestro galardonado equipo de asistencia técnica 24/7 al (480) 505-8877."
+msgstr ""
+"¿Asistencia? Llama a nuestro galardonado equipo de asistencia técnica 24/7 "
+"al (480) 505-8877."
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -247,7 +251,9 @@ msgstr "No hay productos disponibles, inténtalo de nuevo más tarde."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Los datos del producto no se pudieron importar, vuelve a intentarlo más tarde."
+msgstr ""
+"Los datos del producto no se pudieron importar, vuelve a intentarlo más "
+"tarde."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
@@ -386,8 +392,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "Tienda de revendedor de GoDaddy"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Un complemento de plantilla de WordPress realizado por GoDaddy."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -415,7 +421,9 @@ msgstr "`%s` ya existe."
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` debe importarse como una publicación de producto antes de que se pueda restablecer."
+msgstr ""
+"`%s` debe importarse como una publicación de producto antes de que se pueda "
+"restablecer."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -427,7 +435,7 @@ msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
 msgstr "`%s` no es un tipo de publicación válido para productos."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "muestra del producto"
@@ -472,7 +480,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Añadir Nuevo"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Editar: %s"
@@ -511,3 +519,6 @@ msgstr "%1$s / por %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Ver carrito %s"
+
+#~ msgid "A boilerplate WordPress plugin by GoDaddy."
+#~ msgstr "Un complemento de plantilla de WordPress realizado por GoDaddy."

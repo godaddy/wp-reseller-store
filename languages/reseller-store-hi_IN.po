@@ -3,17 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-01-30 22:22:04+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -31,7 +32,7 @@ msgstr "सामान्य"
 msgid "Advanced"
 msgstr "उन्नत"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "मूल्य"
 
@@ -65,8 +66,8 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"क्या आपको फिर से आरंभ करना है? आप मूल उत्पाद शीर्षक, सामग्री, प्रदर्शित छवि "
-"और श्रेणी असाइनमेंट पुनर्स्थापित कर सकते हैं. नोट: आपका कस्टमाइज़ेशन चला जाएगा."
+"क्या आपको फिर से आरंभ करना है? आप मूल उत्पाद शीर्षक, सामग्री, प्रदर्शित छवि और श्रेणी "
+"असाइनमेंट पुनर्स्थापित कर सकते हैं. नोट: आपका कस्टमाइज़ेशन चला जाएगा."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -101,14 +102,14 @@ msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 msgstr ""
-"ये सेटिंग पुनर्विक्रेता स्टोर उत्पादों के लिए विशिष्ट रूप से उपयोग किए जाने "
-"वाले पर्मालिंक को नियंत्रित करती हैं."
+"ये सेटिंग पुनर्विक्रेता स्टोर उत्पादों के लिए विशिष्ट रूप से उपयोग किए जाने वाले पर्मालिंक को "
+"नियंत्रित करती हैं."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "डिफ़ॉल्ट"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "कस्टम आधार"
 
@@ -164,7 +165,7 @@ msgstr "उत्पाद में प्रविष्ट करें"
 msgid "Uploaded to this product"
 msgstr "इस उत्पाद में अपलोड किया गया"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "उत्पाद की छवि"
 
@@ -385,8 +386,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "GoDaddy रीसेलर स्टोर"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "GoDaddy के द्वारा बॉयलरप्लेट WordPress प्लगइन."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -426,7 +427,7 @@ msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
 msgstr "`%s` उत्पादों के लिए मान्य पोस्ट प्रकार नहीं है."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "नमूना-उत्पाद"
@@ -471,7 +472,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "नया जोड़े"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "संपादित करें: %s"
@@ -510,3 +511,6 @@ msgstr "%1$s / प्रति %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "कार्ट देखें %s"
+
+#~ msgid "A boilerplate WordPress plugin by GoDaddy."
+#~ msgstr "GoDaddy के द्वारा बॉयलरप्लेट WordPress प्लगइन."

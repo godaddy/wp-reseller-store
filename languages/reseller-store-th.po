@@ -3,17 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-01-30 22:22:04+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -31,7 +32,7 @@ msgstr "ทั่วไป"
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "ราคา"
 
@@ -100,14 +101,13 @@ msgstr "ลิงก์ถาวรของผลิตภัณฑ์ตัว
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr ""
-"การตั้งค่าเหล่านี้จะควบคุมลิงก์ถาวรที่ใช้เฉพาะสำหรับผลิตภัณฑ์ในร้านค้าตัวแทนจำหน่าย"
+msgstr "การตั้งค่าเหล่านี้จะควบคุมลิงก์ถาวรที่ใช้เฉพาะสำหรับผลิตภัณฑ์ในร้านค้าตัวแทนจำหน่าย"
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "ค่าเริ่มต้น"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "พื้นฐานปรับแต่ง"
 
@@ -163,7 +163,7 @@ msgstr "แทรกในสินค้า"
 msgid "Uploaded to this product"
 msgstr "อัปโหลดไปยังสินค้านี้"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "รูปภาพสินค้า"
 
@@ -225,7 +225,8 @@ msgstr "สร้างบัญชี"
 
 #: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "ต้องการความช่วยเหลือหรือไม่ โทรติดต่อทีมสนับสนุนที่ได้รับรางวัลของเราได้ที่ (480) 505-8877"
+msgstr ""
+"ต้องการความช่วยเหลือหรือไม่ โทรติดต่อทีมสนับสนุนที่ได้รับรางวัลของเราได้ที่ (480) 505-8877"
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -384,8 +385,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "ร้านค้าตัวแทนจำหน่าย GoDaddy"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "ปลั๊กอินสำเร็จรูปของ WordPress โดย GoDaddy"
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -425,7 +426,7 @@ msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
 msgstr "`%s` ไม่ใช่ประเภทการลงรายการผลิตภัณฑ์ที่ถูกต้องของผลิตภัณฑ์"
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "ผลิตภัณฑ์ตัวอย่าง"
@@ -470,7 +471,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "เพิ่มใหม่"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "แก้ไข: %s"
@@ -509,3 +510,6 @@ msgstr "%1$s / ต่อ %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "ดูตะกร้าสินค้า %s"
+
+#~ msgid "A boilerplate WordPress plugin by GoDaddy."
+#~ msgstr "ปลั๊กอินสำเร็จรูปของ WordPress โดย GoDaddy"

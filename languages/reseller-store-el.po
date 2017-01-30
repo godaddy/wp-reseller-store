@@ -3,17 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-01-30 22:22:04+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -31,7 +32,7 @@ msgstr "Γενικά"
 msgid "Advanced"
 msgstr "Για προχωρημένους"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Τιμή"
 
@@ -105,11 +106,11 @@ msgstr ""
 "Αυτές οι ρυθμίσεις ελέγχουν τα permalinks που χρησιμοποιούνται ειδικά για τα "
 "προϊόντα του καταστήματος μεταπωλητή."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Προεπιλογή"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Βάση πελατείας"
 
@@ -165,7 +166,7 @@ msgstr "Εισαγωγή στο προϊόν"
 msgid "Uploaded to this product"
 msgstr "Έγινε αποστολή στο προϊόν"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Εικόνα Προϊόντος"
 
@@ -207,7 +208,8 @@ msgstr "Ας ρυθμίσουμε το κατάστημα μεταπωλητή �
 
 #: includes/class-setup.php:161
 msgid "Enter your Private Label ID to get started."
-msgstr "Για να ξεκινήσουμε, καταχωρήστε το αναγνωριστικό σας ιδιωτικής ετικέτας."
+msgstr ""
+"Για να ξεκινήσουμε, καταχωρήστε το αναγνωριστικό σας ιδιωτικής ετικέτας."
 
 #: includes/class-setup.php:164
 msgid "Enter your Private Label ID:"
@@ -227,11 +229,15 @@ msgstr "Δημιουργία λογαριασμού"
 
 #: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Θέλετε βοήθεια; Καλέστε τη βραβευμένη μας ομάδα υποστήριξης στον αριθμό (480) 505-8877."
+msgstr ""
+"Θέλετε βοήθεια; Καλέστε τη βραβευμένη μας ομάδα υποστήριξης στον αριθμό "
+"(480) 505-8877."
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Λυπούμαστε, δεν σας επιτρέπεται να εγκαταστήσετε προσθήκες σε αυτό τον ιστότοπο."
+msgstr ""
+"Λυπούμαστε, δεν σας επιτρέπεται να εγκαταστήσετε προσθήκες σε αυτό τον "
+"ιστότοπο."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
@@ -247,7 +253,8 @@ msgstr "Δεν υπάρχουν διαθέσιμα προϊόντα, ξαναπ�
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Δεν ήταν δυνατή η εισαγωγή δεδομένων προϊόντων, ξαναπροσπαθήστε αργότερα."
+msgstr ""
+"Δεν ήταν δυνατή η εισαγωγή δεδομένων προϊόντων, ξαναπροσπαθήστε αργότερα."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
@@ -386,8 +393,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "Κατάστημα μεταπωλητή GoDaddy"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Μια προσθήκη WordPress με έτοιμα στοιχεία από την GoDaddy."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -415,7 +422,9 @@ msgstr "Το `%s` υπάρχει ήδη."
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "Το `%s` πρέπει να εισαχθεί ως ανάρτηση προϊόντος πριν μπορέσει να γίνει επαναφορά του."
+msgstr ""
+"Το `%s` πρέπει να εισαχθεί ως ανάρτηση προϊόντος πριν μπορέσει να γίνει "
+"επαναφορά του."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
@@ -427,7 +436,7 @@ msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
 msgstr "Το `%s` δεν είναι έγκυρος τύπος ανάρτησης για προϊόντα."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "προϊόν-δείγμα"
@@ -472,7 +481,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Προσθήκη Νέου"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Επεξεργασία: %s"
@@ -511,3 +520,6 @@ msgstr "%1$s / ανά %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Προβολή καλαθιού αγορών %s"
+
+#~ msgid "A boilerplate WordPress plugin by GoDaddy."
+#~ msgstr "Μια προσθήκη WordPress με έτοιμα στοιχεία από την GoDaddy."
