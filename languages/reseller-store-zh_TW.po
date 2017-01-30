@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -65,9 +64,7 @@ msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
-msgstr ""
-"要重新開始嗎？您可以還原原始產品標題、內容、特色圖片及類別分配項目。注意：您"
-"的自訂項目將會遺失。"
+msgstr "要重新開始嗎？您可以還原原始產品標題、內容、特色圖片及類別分配項目。注意：您的自訂項目將會遺失。"
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -113,7 +110,7 @@ msgstr "自訂起點"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "新增產品"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -229,30 +226,27 @@ msgstr "需要幫助嗎？請聯絡我們獲獎的支援小組：(480) 505-8877�
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "抱歉，您無法在此網站上安裝外掛程式。"
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "抱歉，您無法執行此動作。"
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "無效的自家品牌 ID。"
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "錯誤：沒有適用的產品，請稍後再試。"
+msgstr "沒有適用的產品，請稍後再試。"
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr "錯誤：系統發現產品資料無效，請稍後再試。"
+msgstr "無法匯入產品資料，請稍後再試。"
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "發生不明錯誤"
+msgstr "系統出現未知錯誤。"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -404,32 +398,29 @@ msgid "N/A"
 msgstr "N/A"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "錯誤：`%s` 非有效產品。"
+msgstr "`%s` 非有效產品。"
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` 已存在。"
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "錯誤： `%s` 必須當成產品貼文匯入後才可重設。"
+msgstr "`%s` 必須當成產品貼文匯入後才可重設。"
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "錯誤： `%s` 不存在"
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "錯誤：`%s` 不是產品的有效貼文類型。"
+msgstr "`%s` 不是產品的有效貼文類型。"
 
 #: includes/class-permalinks.php:98
 msgctxt "slug name"
@@ -484,7 +475,7 @@ msgstr "編輯：%s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "錯誤: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -515,6 +506,3 @@ msgstr "%1$s / 每 %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "檢視購物車 %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "錯誤：無效的私人標籤 ID。"
