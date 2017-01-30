@@ -17,47 +17,47 @@ msgstr ""
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
-msgstr "On tapahtunut tuntematon virhe."
+msgstr "An unknown error has occurred."
 
 #: includes/class-butterbean.php:133
 msgid "Product Options"
-msgstr "Tuotevaihtoehdot"
+msgstr "Product Options"
 
 #: includes/class-butterbean.php:145
 msgid "General"
-msgstr "Yleiset"
+msgstr "General"
 
 #: includes/class-butterbean.php:158
 msgid "Advanced"
-msgstr "Edistyneet"
+msgstr "Advanced"
 
 #: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
-msgstr "Hinta"
+msgstr "Price"
 
 #: includes/class-butterbean.php:210
 msgid "Sale Price"
-msgstr "Tarjoushinta"
+msgstr "Sale Price"
 
 #: includes/class-butterbean.php:239
 msgid "Default Quantity"
-msgstr "Oletusmäärä"
+msgstr "Default Quantity"
 
 #: includes/class-butterbean.php:273
 msgid "Add to Cart Button Label"
-msgstr "Lisää ostoskoriin -painikkeen selite"
+msgstr "Add to Cart Button Label"
 
 #: includes/class-butterbean.php:275 includes/functions/helper-functions.php:64
 msgid "Add to cart"
-msgstr "Lisää ostoskoriin"
+msgstr "Add to cart"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"
-msgstr "Siirry lisäämisen jälkeen välittömästi ostoskoriin"
+msgstr "Redirect to the cart immediately after adding"
 
 #: includes/class-butterbean.php:335
 msgid "Restore Product Data"
-msgstr "Palauta tuotetiedot"
+msgstr "Restore Product Data"
 
 #: includes/class-butterbean.php:336
 msgid ""
@@ -65,325 +65,323 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"Haluatko aloittaa uudelleen alusta? Voit palauttaa alkuperäisen tuotenimen, "
-"sisällön, käytetyn kuvan sekä määritetyt luokat. Huomautus: Tekemäsi "
-"mukautukset menetetään."
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be lost."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
-msgstr "Nollaa tiedot"
+msgstr "Reset Data"
 
 #: includes/class-display.php:64
 msgid "View cart"
-msgstr "Tarkastele ostoskoria"
+msgstr "View cart"
 
 #: includes/class-display.php:65
 msgid "An unknown error has occurred"
-msgstr "Ilmeni tuntematon virhe."
+msgstr "An unknown error has occurred"
 
 #: includes/class-import.php:61
 msgid "unknown"
-msgstr "tuntematon"
+msgstr "unknown"
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
-msgstr "Jälleenmyyjän luokan perusta"
+msgstr "Reseller category base"
 
 #: includes/class-permalinks.php:58
 msgid "Reseller tag base"
-msgstr "Jälleenmyyjän tunnisteen perusta"
+msgstr "Reseller tag base"
 
 #: includes/class-permalinks.php:75
 msgid "Reseller Product Permalinks"
-msgstr "Jälleenmyyjän tuotteiden pysyvät linkit"
+msgstr "Reseller Product Permalinks"
 
 #: includes/class-permalinks.php:93
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 msgstr ""
-"Nämä asetukset hallitsevat pysyviä linkkejä, joita käytetään erityisesti "
-"jälleenmyyjän kaupan tuotteita varten."
+"These settings control the permalinks used specifically for Reseller Store products."
 
 #: includes/class-permalinks.php:123
 msgid "Default"
-msgstr "Oletus"
+msgstr "Default"
 
 #: includes/class-permalinks.php:135
 msgid "Custom base"
-msgstr "Asiakaskunta"
+msgstr "Custom base"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Lisää uusia tuotteita"
+msgstr "Add New Products"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
-msgstr "Muokkaa tuotetta"
+msgstr "Edit Product"
 
 #: includes/class-post-type.php:110
 msgid "New Product"
-msgstr "Uusi tuote"
+msgstr "New Product"
 
 #: includes/class-post-type.php:111
 msgid "View Product"
-msgstr "Tarkastele tuotetta"
+msgstr "View Product"
 
 #: includes/class-post-type.php:112
 msgid "View Products"
-msgstr "Näytä tuotteet"
+msgstr "View Products"
 
 #: includes/class-post-type.php:113
 msgid "Search Products"
-msgstr "Etsi tuotteita"
+msgstr "Search Products"
 
 #: includes/class-post-type.php:114
 msgid "No products found."
-msgstr "Tuotteita ei löytynyt."
+msgstr "No products found."
 
 #: includes/class-post-type.php:115
 msgid "No products found in Trash."
-msgstr "Roskakorista ei löydetty tuotteita."
+msgstr "No products found in Trash."
 
 #: includes/class-post-type.php:116
 msgid "Parent Products:"
-msgstr "Ylätason tuotteet:"
+msgstr "Parent Products:"
 
 #: includes/class-post-type.php:117
 msgid "All Products"
-msgstr "Kaikki tuotteet"
+msgstr "All Products"
 
 #: includes/class-post-type.php:118
 msgid "Product Archives"
-msgstr "Tuotearkistot"
+msgstr "Product Archives"
 
 #: includes/class-post-type.php:119
 msgid "Insert into product"
-msgstr "Lisää tuotteeseen"
+msgstr "Insert into product"
 
 #: includes/class-post-type.php:120
 msgid "Uploaded to this product"
-msgstr "Siirrä palvelimelle tähän tuotteeseen"
+msgstr "Uploaded to this product"
 
 #: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
-msgstr "Tuotekuva"
+msgstr "Product Image"
 
 #: includes/class-post-type.php:122
 msgid "Set product image"
-msgstr "Aseta tuotekuva"
+msgstr "Set product image"
 
 #: includes/class-post-type.php:123
 msgid "Remove product image"
-msgstr "Poista tuotekuva"
+msgstr "Remove product image"
 
 #: includes/class-post-type.php:124
 msgid "Use as featured image"
-msgstr "Käytä pääkuvana"
+msgstr "Use as featured image"
 
 #: includes/class-post-type.php:129
 msgid "This is where you can add new products to your Reseller Store."
-msgstr "Tässä voit lisätä uusia tuotteita jälleenmyyjän kauppaasi."
+msgstr "This is where you can add new products to your Reseller Store."
 
 #: includes/class-restrictions.php:173
 msgid "No products have been added yet."
-msgstr "Mitään tuotteita ei ole vielä lisätty."
+msgstr "No products have been added yet."
 
 #: includes/class-restrictions.php:174
 msgid "Import All Products"
-msgstr "Tuo kaikki tuotteet"
+msgstr "Import All Products"
 
 #: includes/class-setup.php:84
 msgid "Reseller Store Setup"
-msgstr "Jälleenmyyjän kaupan asetukset"
+msgstr "Reseller Store Setup"
 
 #: includes/class-setup.php:85
 msgid "Reseller Store"
-msgstr "Jälleenmyyjän kauppa"
+msgstr "Reseller Store"
 
 #: includes/class-setup.php:157
 msgid "Let's setup your GoDaddy Reseller Store."
-msgstr "Luodaanpa GoDaddy-jälleenmyyjäkauppasi valmiiksi."
+msgstr "Let's setup your GoDaddy Reseller Store."
 
 #: includes/class-setup.php:161
 msgid "Enter your Private Label ID to get started."
-msgstr "Aloita antamalla yksityisen selitteen tunnuksesi."
+msgstr "Enter your Private Label ID to get started."
 
 #: includes/class-setup.php:164
 msgid "Enter your Private Label ID:"
-msgstr "Anna yksityisen selitteen tunnuksesi:"
+msgstr "Enter your Private Label ID:"
 
 #: includes/class-setup.php:166
 msgid "Install Now"
-msgstr "Asenna nyt"
+msgstr "Install Now"
 
 #: includes/class-setup.php:170
 msgid "Don't have an account?"
-msgstr "Eikö sinulla ole tiliä?"
+msgstr "Don't have an account?"
 
 #: includes/class-setup.php:170
 msgid "Create an account"
-msgstr "Luo tili"
+msgstr "Create an account"
 
 #: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Tarvitsetko apua? Soita palkitulle tukitiimillemme numeroon +1 480 505 8877."
+msgstr "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Pahoittelemme. Lisäosien/laajennusten (plugins) asentaminen tähän sivustoon ei ole sallittua sinulle."
+msgstr "Sorry, you are not allowed to install plugins on this site."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "Pahoittelemme. Sinulla ei ole lupaa tehdä sitä."
+msgstr "Sorry, you are not allowed to do that."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "Yksityisen selitteen tunnus on virheellinen."
+msgstr "Private Label ID is invalid."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "Mitään tuotteita ei ole saatavilla. Yritä myöhemmin uudelleen."
+msgstr "There are no products available, please try again later."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Tuotetietoja ei voitu tuoda. Yritä myöhemmin uudelleen."
+msgstr "Product data could not be imported, please try again later."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "Määrittämätön virhe"
+msgstr "An unknown error occurred."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "Haku luokista"
+msgstr "Search Categories"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"
-msgstr "Kaikki luokat"
+msgstr "All Categories"
 
 #: includes/class-taxonomy-category.php:73
 msgid "Parent Category"
-msgstr "Ylätason luokka"
+msgstr "Parent Category"
 
 #: includes/class-taxonomy-category.php:74
 msgid "Parent Category:"
-msgstr "Ylätason luokka:"
+msgstr "Parent Category:"
 
 #: includes/class-taxonomy-category.php:75
 msgid "Edit Category"
-msgstr "Muokkaa luokkaa"
+msgstr "Edit Category"
 
 #: includes/class-taxonomy-category.php:76
 msgid "Update Category"
-msgstr "Päivitä luokka"
+msgstr "Update Category"
 
 #: includes/class-taxonomy-category.php:77
 msgid "Add New Category"
-msgstr "Lisää uusi luokka"
+msgstr "Add New Category"
 
 #: includes/class-taxonomy-category.php:78
 msgid "New Category Name"
-msgstr "Uusi luokan nimi"
+msgstr "New Category Name"
 
 #: includes/class-taxonomy-category.php:79
 #: includes/class-taxonomy-category.php:83
 msgid "Categories"
-msgstr "Osastot"
+msgstr "Categories"
 
 #: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
-msgstr "Haku tunnisteista"
+msgstr "Search Tags"
 
 #: includes/class-taxonomy-tag.php:72
 msgid "All Tags"
-msgstr "Kaikki tunnisteet"
+msgstr "All Tags"
 
 #: includes/class-taxonomy-tag.php:73
 msgid "Parent Tag"
-msgstr "Ylätason tunniste"
+msgstr "Parent Tag"
 
 #: includes/class-taxonomy-tag.php:74
 msgid "Parent Tag:"
-msgstr "Ylätason tunniste:"
+msgstr "Parent Tag:"
 
 #: includes/class-taxonomy-tag.php:75
 msgid "Edit Tag"
-msgstr "Muokkaa tunnistetta"
+msgstr "Edit Tag"
 
 #: includes/class-taxonomy-tag.php:76
 msgid "Update Tag"
-msgstr "Päivitä tunniste"
+msgstr "Update Tag"
 
 #: includes/class-taxonomy-tag.php:77
 msgid "Add New Tag"
-msgstr "Lisää uusi tunniste"
+msgstr "Add New Tag"
 
 #: includes/class-taxonomy-tag.php:78
 msgid "New Tag Name"
-msgstr "Uusi tunnisteen nimi"
+msgstr "New Tag Name"
 
 #: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
 msgid "Tags"
-msgstr "Avainsanat"
+msgstr "Tags"
 
 #: includes/widgets/class-cart.php:22
 msgid "Reseller Cart"
-msgstr "Jälleenmyyjän ostoskori"
+msgstr "Reseller Cart"
 
 #: includes/widgets/class-cart.php:25
 msgid "Display the user's cart in the sidebar."
-msgstr "Näytä käyttäjän ostoskori sivupalkissa."
+msgstr "Display the user's cart in the sidebar."
 
 #: includes/widgets/class-cart.php:102
 msgid "Cart"
-msgstr "Ostoskori"
+msgstr "Cart"
 
 #: includes/widgets/class-cart.php:107
 #: includes/widgets/class-domain-search.php:112
 msgid "Title:"
-msgstr "Otsikko:"
+msgstr "Title:"
 
 #: includes/widgets/class-cart.php:113
 msgid "Hide if cart is empty"
-msgstr "Piilota ostoskori jos tyhjä"
+msgstr "Hide if cart is empty"
 
 #: includes/widgets/class-domain-search.php:22
 msgid "Reseller Domain Search"
-msgstr "Haku jälleenmyyjän verkkotunnuksesta"
+msgstr "Reseller Domain Search"
 
 #: includes/widgets/class-domain-search.php:25
 msgid "A search form for domain names."
-msgstr "Hakulomake verkkotunnuksia varten"
+msgstr "A search form for domain names."
 
 #: includes/widgets/class-domain-search.php:83
 #: includes/widgets/class-domain-search.php:84
 msgid "Search for a domain name:"
-msgstr "Etsi verkkotunnusta:"
+msgstr "Search for a domain name:"
 
 #: includes/widgets/class-domain-search.php:88
 #: includes/widgets/class-domain-search.php:108
 msgid "Search"
-msgstr "Haku"
+msgstr "Search"
 
 #: includes/widgets/class-domain-search.php:106
 msgid "Domain Search"
-msgstr "Verkkotunnushaku"
+msgstr "Domain Search"
 
 #: includes/widgets/class-domain-search.php:107
 msgid "Find your perfect name"
-msgstr "Löydä itsellesi sopiva tunnus"
+msgstr "Find your perfect name"
 
 #: includes/widgets/class-domain-search.php:117
 msgid "Placeholder:"
-msgstr "Paikkamerkki:"
+msgstr "Placeholder:"
 
 #: includes/widgets/class-domain-search.php:122
 msgid "Button:"
-msgstr "Painike:"
+msgstr "Button:"
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
-msgstr "GoDaddy-jälleenmyyjän kauppa"
+msgstr "GoDaddy Reseller Store"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
@@ -400,107 +398,107 @@ msgstr "https://reseller.godaddy.com/"
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
-msgstr "Ei käytettävissä"
+msgstr "N/A"
 
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` ei ole käypä tuote."
+msgstr "`%s` is not a valid product."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` on jo olemassa."
+msgstr "`%s` already exists."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` täytyy tuoda tuotejulkaisuna, ennen kuin sitä voi asettaa uudelleen."
+msgstr "`%s` must be imported as a product post before it can be reset."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Virhe: %s – ei ole olemassa"
+msgstr "Error: `%s` does not exist."
 
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` ei ole käypä tuotteiden julkaisutyyppi."
+msgstr "`%s` is not a valid post type for products."
 
 #: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
-msgstr "esimerkkituote"
+msgstr "sample-product"
 
 #: includes/class-post-type.php:58
 msgctxt "slug name"
 msgid "products"
-msgstr "tuotteet"
+msgstr "products"
 
 #: includes/class-taxonomy-category.php:38
 msgctxt "slug name"
 msgid "product-category"
-msgstr "tuote-osasto"
+msgstr "product-category"
 
 #: includes/class-taxonomy-tag.php:38
 msgctxt "slug name"
 msgid "product-tag"
-msgstr "tuote-avainsana"
+msgstr "product-tag"
 
 #: includes/class-post-type.php:103
 msgctxt "post type general name"
 msgid "Products"
-msgstr "Tuotteet"
+msgstr "Products"
 
 #: includes/class-post-type.php:104
 msgctxt "post type singular name"
 msgid "Product"
-msgstr "Tuote"
+msgstr "Product"
 
 #: includes/class-post-type.php:105
 msgctxt "admin menu"
 msgid "Reseller Store"
-msgstr "Jälleenmyyjän kauppa"
+msgstr "Reseller Store"
 
 #: includes/class-post-type.php:106
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
-msgstr "Jälleenmyyjän tuote"
+msgstr "Reseller Product"
 
 #: includes/class-post-type.php:107
 msgctxt "product"
 msgid "Add New"
-msgstr "Lisää uusi"
+msgstr "Add New"
 
 #: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
-msgstr "Muokkaa: %s"
+msgstr "Edit: %s"
 
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "Virhe: %s"
+msgstr "Error: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
 msgid "Categories"
-msgstr "Osastot"
+msgstr "Categories"
 
 #: includes/class-taxonomy-tag.php:69
 msgctxt "taxonomy general name"
 msgid "Tags"
-msgstr "Avainsanat"
+msgstr "Tags"
 
 #: includes/class-taxonomy-category.php:70
 msgctxt "taxonomy singular name"
 msgid "Category"
-msgstr "Luokka"
+msgstr "Category"
 
 #: includes/class-taxonomy-tag.php:70
 msgctxt "taxonomy singular name"
 msgid "Tag"
-msgstr "Tunniste"
+msgstr "Tag"
 
 #: includes/functions/template-functions.php:43
 msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
@@ -510,4 +508,4 @@ msgstr "%1$s / per %2$s"
 #: includes/widgets/class-cart.php:84
 msgctxt "number of items in cart"
 msgid "View Cart %s"
-msgstr "Näytä ostoskori %s"
+msgstr "View Cart %s"
