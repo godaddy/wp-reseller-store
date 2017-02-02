@@ -385,7 +385,7 @@ msgstr "ร้านค้าตัวแทนจำหน่าย GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Resell hosting, domains, and more right from your WordPress site."
+msgstr "การขายต่อโฮสติ้ง โดเมนและสิทธิ์อื่นๆ จากเว็บไซต์ WordPress ของคุณ"
 
 #. Author of the plugin/theme
 msgid "GoDaddy"

@@ -382,7 +382,7 @@ msgstr "GoDaddyリセラーストア"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Resell hosting, domains, and more right from your WordPress site."
+msgstr "ホスティングやドメインなどをWordPressサイトから直接再販できます。"
 
 #. Author of the plugin/theme
 msgid "GoDaddy"

@@ -383,7 +383,7 @@ msgstr "GoDaddy 리셀러 상점"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Resell hosting, domains, and more right from your WordPress site."
+msgstr "호스팅, 도메인 등을 고객님의 워드프레스 사이트에서 곧바로 판매할 수 있습니다."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"

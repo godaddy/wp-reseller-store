@@ -386,7 +386,7 @@ msgstr "Cửa hàng đại lý của GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Bán lại dịch vụ lưu trữ, miền và nhiều hơn nữa, ngay từ trang WordPress của bạn."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"

@@ -386,7 +386,7 @@ msgstr "GoDaddy पुनर्विक्रेता स्टोअर"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Resell hosting, domains, and more right from your WordPress site."
+msgstr "तुमच्या WordPress साईटवरूनच होस्टिंग, डोमेन्स आणि अधिकची पुनर्विक्री करा."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"

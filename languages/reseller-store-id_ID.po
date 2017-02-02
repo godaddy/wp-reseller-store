@@ -385,7 +385,7 @@ msgstr "Toko Reseller GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Jual kembali hosting, domain, dan banyak lagi lainnya dari situs WordPress Anda."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"

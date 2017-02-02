@@ -387,7 +387,7 @@ msgstr "Κατάστημα μεταπωλητή GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Μεταπωλήστε φιλοξενία, domains και πολλά άλλα, μέσα από τον ιστότοπό σας WordPress."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
