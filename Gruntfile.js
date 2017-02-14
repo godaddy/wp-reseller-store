@@ -90,9 +90,9 @@ module.exports = function( grunt ) {
 			},
 			wp_org_assets: {
 				expand: true,
-				cwd: 'wp-org-assets/',
+				cwd: '.dev/wp-org-assets/',
 				src: [ '**/*.{gif,jpeg,jpg,png,svg}' ],
-				dest: 'wp-org-assets/'
+				dest: '.dev/wp-org-assets/'
 			}
 		},
 
@@ -187,7 +187,7 @@ module.exports = function( grunt ) {
 			images: {
 				files: [
 					'assets/images/**/*.{gif,jpeg,jpg,png,svg}',
-					'wp-org-assets/**/*.{gif,jpeg,jpg,png,svg}'
+					'.dev/wp-org-assets/**/*.{gif,jpeg,jpg,png,svg}'
 				],
 				tasks: [ 'imagemin' ]
 			},
@@ -204,7 +204,7 @@ module.exports = function( grunt ) {
 		wp_deploy: {
 			plugin: {
 				options: {
-					assets_dir: 'wp-org-assets/',
+					assets_dir: '.dev/wp-org-assets/',
 					build_dir: 'build/',
 					plugin_main_file: pkg.name + '.php',
 					plugin_slug: pkg.name,

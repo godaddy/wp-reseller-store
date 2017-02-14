@@ -13,6 +13,7 @@ branches:
 
 php:
   - 5.4
+  - 5.6
   - 7.1
 
 env:
@@ -39,8 +40,8 @@ before_script:
     phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit
+  - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
+  - phpunit -c .dev/phpunit.xml.dist
 
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
