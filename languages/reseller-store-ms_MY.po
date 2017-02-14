@@ -17,372 +17,375 @@ msgstr ""
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
-msgstr "不明なエラーが発生しました。"
+msgstr "An unknown error has occurred."
 
 #: includes/class-butterbean.php:133
 msgid "Product Options"
-msgstr "商品オプション"
+msgstr "Product Options"
 
 #: includes/class-butterbean.php:145
 msgid "General"
-msgstr "一般"
+msgstr "General"
 
 #: includes/class-butterbean.php:158
 msgid "Advanced"
-msgstr "高度"
+msgstr "Advanced"
 
 #: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
-msgstr "価格"
+msgstr "Price"
 
 #: includes/class-butterbean.php:210
 msgid "Sale Price"
-msgstr "セール価格"
+msgstr "Sale Price"
 
 #: includes/class-butterbean.php:239
 msgid "Default Quantity"
-msgstr "デフォルトの数量"
+msgstr "Default Quantity"
 
 #: includes/class-butterbean.php:273
 msgid "Add to Cart Button Label"
-msgstr "カート追加のボタンラベル"
+msgstr "Add to Cart Button Label"
 
 #: includes/class-butterbean.php:275 includes/functions/helper-functions.php:64
 msgid "Add to cart"
-msgstr "カートに入れる"
+msgstr "Add to cart"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"
-msgstr "追加後すぐにカートに切り替える"
+msgstr "Redirect to the cart immediately after adding"
 
 #: includes/class-butterbean.php:335
 msgid "Restore Product Data"
-msgstr "商品データを復元"
+msgstr "Restore Product Data"
 
 #: includes/class-butterbean.php:336
 msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
-msgstr "最初からやり直しますか？最初の商品名、内容、メイン画像、カテゴリ分けを復元できます。ご注意：カスタマイズした内容は失われます。"
+msgstr ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be lost."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
-msgstr "データをリセット"
+msgstr "Reset Data"
 
 #: includes/class-display.php:64
 msgid "View cart"
-msgstr "カートを見る"
+msgstr "View cart"
 
 #: includes/class-display.php:65
 msgid "An unknown error has occurred"
-msgstr "不明なエラーが発生しました"
+msgstr "An unknown error has occurred"
 
 #: includes/class-import.php:61
 msgid "unknown"
-msgstr "不明"
+msgstr "unknown"
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
-msgstr "リセラー カテゴリ ベース"
+msgstr "Reseller category base"
 
 #: includes/class-permalinks.php:58
 msgid "Reseller tag base"
-msgstr "リセラー タグ ベース"
+msgstr "Reseller tag base"
 
 #: includes/class-permalinks.php:75
 msgid "Reseller Product Permalinks"
-msgstr "リセラー商品パーマリンク"
+msgstr "Reseller Product Permalinks"
 
 #: includes/class-permalinks.php:93
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr "これらの設定で、とくにリセラーストア商品のパーマリンクを管理します。"
+msgstr ""
+"These settings control the permalinks used specifically for Reseller Store products."
 
 #: includes/class-permalinks.php:123
 msgid "Default"
-msgstr "デフォルト"
+msgstr "Default"
 
 #: includes/class-permalinks.php:135
 msgid "Custom base"
-msgstr "カスタムベース"
+msgstr "Custom base"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "新しい商品を追加"
+msgstr "Add New Products"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
-msgstr "商品を編集"
+msgstr "Edit Product"
 
 #: includes/class-post-type.php:110
 msgid "New Product"
-msgstr "新商品"
+msgstr "New Product"
 
 #: includes/class-post-type.php:111
 msgid "View Product"
-msgstr "商品を表示"
+msgstr "View Product"
 
 #: includes/class-post-type.php:112
 msgid "View Products"
-msgstr "製品を表示"
+msgstr "View Products"
 
 #: includes/class-post-type.php:113
 msgid "Search Products"
-msgstr "商品を検索"
+msgstr "Search Products"
 
 #: includes/class-post-type.php:114
 msgid "No products found."
-msgstr "該当商品がありません。"
+msgstr "No products found."
 
 #: includes/class-post-type.php:115
 msgid "No products found in Trash."
-msgstr "ゴミ箱に商品はありません。"
+msgstr "No products found in Trash."
 
 #: includes/class-post-type.php:116
 msgid "Parent Products:"
-msgstr "親商品："
+msgstr "Parent Products:"
 
 #: includes/class-post-type.php:117
 msgid "All Products"
-msgstr "すべての商品"
+msgstr "All Products"
 
 #: includes/class-post-type.php:118
 msgid "Product Archives"
-msgstr "商品アーカイブ"
+msgstr "Product Archives"
 
 #: includes/class-post-type.php:119
 msgid "Insert into product"
-msgstr "商品に挿入します。"
+msgstr "Insert into product"
 
 #: includes/class-post-type.php:120
 msgid "Uploaded to this product"
-msgstr "この商品を更新しました"
+msgstr "Uploaded to this product"
 
 #: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
-msgstr "商品画像"
+msgstr "Product Image"
 
 #: includes/class-post-type.php:122
 msgid "Set product image"
-msgstr "商品画像の登録"
+msgstr "Set product image"
 
 #: includes/class-post-type.php:123
 msgid "Remove product image"
-msgstr "商品画像の削除"
+msgstr "Remove product image"
 
 #: includes/class-post-type.php:124
 msgid "Use as featured image"
-msgstr "メイン画像として使用"
+msgstr "Use as featured image"
 
 #: includes/class-post-type.php:129
 msgid "This is where you can add new products to your Reseller Store."
-msgstr "ここにリセラーストアの新しい商品を追加できます。"
+msgstr "This is where you can add new products to your Reseller Store."
 
 #: includes/class-restrictions.php:173
 msgid "No products have been added yet."
-msgstr "まだ商品が追加されていません。"
+msgstr "No products have been added yet."
 
 #: includes/class-restrictions.php:174
 msgid "Import All Products"
-msgstr "すべての商品をインポート"
+msgstr "Import All Products"
 
 #: includes/class-setup.php:84
 msgid "Reseller Store Setup"
-msgstr "リセラーストアのセットアップ"
+msgstr "Reseller Store Setup"
 
 #: includes/class-setup.php:85
 msgid "Reseller Store"
-msgstr "リセラーストア"
+msgstr "Reseller Store"
 
 #: includes/class-setup.php:157
 msgid "Let's setup your GoDaddy Reseller Store."
-msgstr "GoDaddyリセラーストアをセットアップしましょう。"
+msgstr "Let's setup your GoDaddy Reseller Store."
 
 #: includes/class-setup.php:161
 msgid "Enter your Private Label ID to get started."
-msgstr "プライベートラベルIDを入力して始めます。"
+msgstr "Enter your Private Label ID to get started."
 
 #: includes/class-setup.php:164
 msgid "Enter your Private Label ID:"
-msgstr "プライベートラベルIDを入力："
+msgstr "Enter your Private Label ID:"
 
 #: includes/class-setup.php:166
 msgid "Install Now"
-msgstr "Installa Ora"
+msgstr "Install Now"
 
 #: includes/class-setup.php:170
 msgid "Don't have an account?"
-msgstr "アカウントをお持ちではありませんか？"
+msgstr "Don't have an account?"
 
 #: includes/class-setup.php:170
 msgid "Create an account"
-msgstr "アカウントを作成"
+msgstr "Create an account"
 
 #: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "お困りですか。数々の受賞歴がある弊社のサポートチームまでお電話ください：(480) 505-8877"
+msgstr "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "申し訳ございません。このサイトにプラグインをインストールすることは許可されていません。"
+msgstr "Sorry, you are not allowed to install plugins on this site."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr "申し訳ございません。その操作は許可されていません。"
+msgstr "Sorry, you are not allowed to do that."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr "プライベートラベルIDが無効です。"
+msgstr "Private Label ID is invalid."
 
 #: includes/class-setup.php:249
 msgid "There are no products available, please try again later."
-msgstr "使用できる商品がありません。後でもう一度試してみてください。"
+msgstr "There are no products available, please try again later."
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "商品データがインポートできませんでした。後でもう一度試してみてください。"
+msgstr "Product data could not be imported, please try again later."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
-msgstr "不明なエラーが発生しました。"
+msgstr "An unknown error occurred."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
-msgstr "カテゴリを検索"
+msgstr "Search Categories"
 
 #: includes/class-taxonomy-category.php:72
 msgid "All Categories"
-msgstr "すべてのカテゴリ"
+msgstr "All Categories"
 
 #: includes/class-taxonomy-category.php:73
 msgid "Parent Category"
-msgstr "親カテゴリ"
+msgstr "Parent Category"
 
 #: includes/class-taxonomy-category.php:74
 msgid "Parent Category:"
-msgstr "親カテゴリ："
+msgstr "Parent Category:"
 
 #: includes/class-taxonomy-category.php:75
 msgid "Edit Category"
-msgstr "カテゴリを編集"
+msgstr "Edit Category"
 
 #: includes/class-taxonomy-category.php:76
 msgid "Update Category"
-msgstr "カテゴリを更新"
+msgstr "Update Category"
 
 #: includes/class-taxonomy-category.php:77
 msgid "Add New Category"
-msgstr "新規カテゴリを追加"
+msgstr "Add New Category"
 
 #: includes/class-taxonomy-category.php:78
 msgid "New Category Name"
-msgstr "新規カテゴリ名"
+msgstr "New Category Name"
 
 #: includes/class-taxonomy-category.php:79
 #: includes/class-taxonomy-category.php:83
 msgid "Categories"
-msgstr "カテゴリー"
+msgstr "Categories"
 
 #: includes/class-taxonomy-tag.php:71
 msgid "Search Tags"
-msgstr "タグを検索"
+msgstr "Search Tags"
 
 #: includes/class-taxonomy-tag.php:72
 msgid "All Tags"
-msgstr "全てのタグ"
+msgstr "All Tags"
 
 #: includes/class-taxonomy-tag.php:73
 msgid "Parent Tag"
-msgstr "親タグ"
+msgstr "Parent Tag"
 
 #: includes/class-taxonomy-tag.php:74
 msgid "Parent Tag:"
-msgstr "親タグ："
+msgstr "Parent Tag:"
 
 #: includes/class-taxonomy-tag.php:75
 msgid "Edit Tag"
-msgstr "タグを編集"
+msgstr "Edit Tag"
 
 #: includes/class-taxonomy-tag.php:76
 msgid "Update Tag"
-msgstr "タグを更新"
+msgstr "Update Tag"
 
 #: includes/class-taxonomy-tag.php:77
 msgid "Add New Tag"
-msgstr "新規タグを追加"
+msgstr "Add New Tag"
 
 #: includes/class-taxonomy-tag.php:78
 msgid "New Tag Name"
-msgstr "新規タグ名"
+msgstr "New Tag Name"
 
 #: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
 msgid "Tags"
-msgstr "タグ"
+msgstr "Tags"
 
 #: includes/widgets/class-cart.php:22
 msgid "Reseller Cart"
-msgstr "リセラーカート"
+msgstr "Reseller Cart"
 
 #: includes/widgets/class-cart.php:25
 msgid "Display the user's cart in the sidebar."
-msgstr "サイドバーにユーザーのカートが表示されます"
+msgstr "Display the user's cart in the sidebar."
 
 #: includes/widgets/class-cart.php:102
 msgid "Cart"
-msgstr "カート"
+msgstr "Cart"
 
 #: includes/widgets/class-cart.php:107
 #: includes/widgets/class-domain-search.php:112
 msgid "Title:"
-msgstr "タイトル："
+msgstr "Title:"
 
 #: includes/widgets/class-cart.php:113
 msgid "Hide if cart is empty"
-msgstr "カートが空の場合は非表示にする"
+msgstr "Hide if cart is empty"
 
 #: includes/widgets/class-domain-search.php:22
 msgid "Reseller Domain Search"
-msgstr "リセラー ドメイン検索"
+msgstr "Reseller Domain Search"
 
 #: includes/widgets/class-domain-search.php:25
 msgid "A search form for domain names."
-msgstr "ドメイン名の検索フォーム。"
+msgstr "A search form for domain names."
 
 #: includes/widgets/class-domain-search.php:83
 #: includes/widgets/class-domain-search.php:84
 msgid "Search for a domain name:"
-msgstr "ドメイン名を検索："
+msgstr "Search for a domain name:"
 
 #: includes/widgets/class-domain-search.php:88
 #: includes/widgets/class-domain-search.php:108
 msgid "Search"
-msgstr "検索"
+msgstr "Search"
 
 #: includes/widgets/class-domain-search.php:106
 msgid "Domain Search"
-msgstr "ドメイン検索"
+msgstr "Domain Search"
 
 #: includes/widgets/class-domain-search.php:107
 msgid "Find your perfect name"
-msgstr "最適な名前を見つけてください"
+msgstr "Find your perfect name"
 
 #: includes/widgets/class-domain-search.php:117
 msgid "Placeholder:"
-msgstr "プレースホルダー："
+msgstr "Placeholder:"
 
 #: includes/widgets/class-domain-search.php:122
 msgid "Button:"
-msgstr "ボタン："
+msgstr "Button:"
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
-msgstr "GoDaddyリセラーストア"
+msgstr "GoDaddy Reseller Store"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "ホスティングやドメインなどをWordPressサイトから直接再販できます。"
+msgstr "Resell hosting, domains, and more right from your WordPress site."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -395,42 +398,42 @@ msgstr "https://reseller.godaddy.com/"
 #: includes/class-butterbean.php:211
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
-msgstr "該当なし"
+msgstr "N/A"
 
 #: includes/class-import.php:67
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "`%s` は無効な商品です。"
+msgstr "`%s` is not a valid product."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr "`%s` はすでに存在します。"
+msgstr "`%s` already exists."
 
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` は、リセットする前に商品ポストとしてインポートする必要があります。"
+msgstr "`%s` must be imported as a product post before it can be reset."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "エラー：「%s」は存在しません。"
+msgstr "Error: `%s` does not exist."
 
 #: includes/class-import.php:110
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "`%s` は商品のポストタイプが無効です。"
+msgstr "`%s` is not a valid post type for products."
 
 #: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
-msgstr "サンプル商品"
+msgstr "sample-product"
 
 #: includes/class-post-type.php:58
 msgctxt "slug name"
 msgid "products"
-msgstr "製品"
+msgstr "products"
 
 #: includes/class-taxonomy-category.php:38
 msgctxt "slug name"
@@ -445,64 +448,64 @@ msgstr "product-tag"
 #: includes/class-post-type.php:103
 msgctxt "post type general name"
 msgid "Products"
-msgstr "プロダクト"
+msgstr "Products"
 
 #: includes/class-post-type.php:104
 msgctxt "post type singular name"
 msgid "Product"
-msgstr "製品"
+msgstr "Product"
 
 #: includes/class-post-type.php:105
 msgctxt "admin menu"
 msgid "Reseller Store"
-msgstr "リセラーストア"
+msgstr "Reseller Store"
 
 #: includes/class-post-type.php:106
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
-msgstr "リセラー商品"
+msgstr "Reseller Product"
 
 #: includes/class-post-type.php:107
 msgctxt "product"
 msgid "Add New"
-msgstr "新規追加"
+msgstr "Add New"
 
 #: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
-msgstr "編集：%s"
+msgstr "Edit: %s"
 
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr "エラー: %s"
+msgstr "Error: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
 msgid "Categories"
-msgstr "カテゴリー"
+msgstr "Categories"
 
 #: includes/class-taxonomy-tag.php:69
 msgctxt "taxonomy general name"
 msgid "Tags"
-msgstr "タグ"
+msgstr "Tags"
 
 #: includes/class-taxonomy-category.php:70
 msgctxt "taxonomy singular name"
 msgid "Category"
-msgstr "カテゴリ"
+msgstr "Category"
 
 #: includes/class-taxonomy-tag.php:70
 msgctxt "taxonomy singular name"
 msgid "Tag"
-msgstr "タグ"
+msgstr "Tag"
 
 #: includes/functions/template-functions.php:43
 msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
 msgid "%1$s / per %2$s"
-msgstr "%1$s/%2$s"
+msgstr "%1$s / per %2$s"
 
 #: includes/widgets/class-cart.php:84
 msgctxt "number of items in cart"
 msgid "View Cart %s"
-msgstr "カート（%s）を見る"
+msgstr "View Cart %s"

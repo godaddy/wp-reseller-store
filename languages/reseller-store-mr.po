@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-01-30 22:22:04+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -66,8 +65,9 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"प्रारंभ करणे आवश्यक आहे? आपण मूळ उत्पादन शीर्षक, सामग्री, वैशिष्ट्यीकृत प्रतिमा आणि श्रेणी "
-"असाइनमेंट पूर्वस्थित करू शकता. नोट: आपले सानुकूलीकरण गमावले जाईल."
+"प्रारंभ करणे आवश्यक आहे? आपण मूळ उत्पादन शीर्षक, सामग्री, वैशिष्ट्यीकृत "
+"प्रतिमा आणि श्रेणी असाइनमेंट पूर्वस्थित करू शकता. नोट: आपले सानुकूलीकरण "
+"गमावले जाईल."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -101,7 +101,8 @@ msgstr "विक्रेता उत्पादन परमालिंक�
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr "या सएटिंग्स विशेषतः विक्रेता स्टोअर उत्पादनासाठी परमालिंक्स नियंत्रित करतात."
+msgstr ""
+"या सएटिंग्स विशेषतः विक्रेता स्टोअर उत्पादनासाठी परमालिंक्स नियंत्रित करतात."
 
 #: includes/class-permalinks.php:123
 msgid "Default"
@@ -385,7 +386,7 @@ msgstr "GoDaddy पुनर्विक्रेता स्टोअर"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr ""
+msgstr "तुमच्या WordPress साईटवरूनच होस्टिंग, डोमेन्स आणि अधिकची पुनर्विक्री करा."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -509,6 +510,3 @@ msgstr "%1$s / प्रती %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "कार्ट पहा %s"
-
-#~ msgid "A boilerplate WordPress plugin by GoDaddy."
-#~ msgstr "GoDaddy द्वारे बॉइलरप्लेट WordPress प्लगइन."
