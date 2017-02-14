@@ -1,0 +1,14 @@
+.*
+composer.*
+Gruntfile.js
+package.json
+phpcs.ruleset.xml
+phpunit.xml.dist
+readme.md
+svn-username
+bin/
+languages/*.po
+node_modules/
+tests/
+vendor/
+wp-org-assets/

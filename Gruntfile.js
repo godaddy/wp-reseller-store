@@ -6,37 +6,12 @@ module.exports = function( grunt ) {
 
 	var pkg = grunt.file.readJSON( 'package.json' );
 
-	var BUILD_DIR    = 'build/',
-	    SVN_USERNAME = false;
-
-	if ( grunt.file.exists( 'svn-username' ) ) {
-
-		SVN_USERNAME = grunt.file.read( 'svn-username' ).trim();
-
-	}
-
 	grunt.initConfig( {
 
 		pkg: pkg,
 
 		clean: {
-			build: [ BUILD_DIR ]
-		},
-
-		compress: {
-			build: {
-				options: {
-					archive: pkg.name + '.zip'
-				},
-				files: [
-					{
-						expand: true,
-						cwd: BUILD_DIR,
-						src: [ '**/*' ],
-						dest: '/'
-					}
-				]
-			}
+			build: [ 'build/' ]
 		},
 
 		copy: {
@@ -51,26 +26,25 @@ module.exports = function( grunt ) {
 							'assets/**',
 							'includes/**',
 							'languages/*.{mo,pot}',
-							'lib/**',
-							'!**/*.{ai,DS_Store,eps,git,md,psd}'
+							'lib/**'
 						],
-						dest: BUILD_DIR
+						dest: 'build/'
 					}
 				]
 			}
 		},
 
 		cssjanus: {
-			options: {
-				swapLtrRtlInUrl: false
-			},
-			all: {
+			theme: {
+				options: {
+					swapLtrRtlInUrl: false
+				},
 				files: [
 					{
 						expand: true,
-						cwd: 'assets/css',
-						src: [ '**/*.css', '!**/*-rtl.css', '!**/*.min.css', '!**/*-rtl.min.css' ],
-						dest: 'assets/css',
+						cwd: 'assets/css/',
+						src: [ '*.css', '!*-rtl.css', '!*.min.css', '!*-rtl.min.css' ],
+						dest: 'assets/css/',
 						ext: '-rtl.css'
 					}
 				]
@@ -79,17 +53,17 @@ module.exports = function( grunt ) {
 
 		cssmin: {
 			options: {
-				shorthandCompacting: false,
-				roundingPrecision: 5,
-				processImport: false
+				processImport: false,
+				roundingPrecision: -1,
+				shorthandCompacting: false
 			},
 			all: {
 				files: [
 					{
 						expand: true,
-						cwd: 'assets/css',
+						cwd: 'assets/css/',
 						src: [ '**/*.css', '!**/*.min.css' ],
-						dest: 'assets/css',
+						dest: 'assets/css/',
 						ext: '.min.css'
 					}
 				]
@@ -97,16 +71,10 @@ module.exports = function( grunt ) {
 		},
 
 		devUpdate: {
-			options: {
-				updateType: 'force',
-				reportUpdated: false,
-				semver: true,
-				packages: {
-					devDependencies: true,
-					dependencies: false
-				},
-				packageJson: null,
-				reportOnlyPkgs: []
+			packages: {
+				options: {
+					updateType: 'force'
+				}
 			}
 		},
 
@@ -114,20 +82,23 @@ module.exports = function( grunt ) {
 			options: {
 				optimizationLevel: 3
 			},
-			all: {
-				files: [
-					{
-						expand: true,
-						cwd: '/',
-						src: [ 'assets/**/*.{gif,jpeg,jpg,png,svg}', 'wp-org-assets/**/*.{gif,jpeg,jpg,png,svg}' ],
-						dest: '/'
-					}
-				]
+			assets: {
+				expand: true,
+				cwd: 'assets/images/',
+				src: [ '**/*.{gif,jpeg,jpg,png,svg}' ],
+				dest: 'assets/images/'
+			},
+			wp_org_assets: {
+				expand: true,
+				cwd: 'wp-org-assets/',
+				src: [ '**/*.{gif,jpeg,jpg,png,svg}' ],
+				dest: 'wp-org-assets/'
 			}
 		},
 
 		jshint: {
-			all: [ 'Gruntfile.js', 'assets/js/**/*.js', '!assets/js/**/*.min.js' ]
+			assets: [ 'assets/js/**/*.js', '!assets/js/**/*.min.js' ],
+			gruntfile: [ 'Gruntfile.js' ]
 		},
 
 		makepot: {
@@ -135,7 +106,9 @@ module.exports = function( grunt ) {
 				options: {
 					domainPath: 'languages/',
 					include: [ pkg.name + '.php', 'includes/.+\.php' ],
+					mainFile: pkg.name + '.php',
 					potComments: 'Copyright (c) {year} GoDaddy Operating Company, LLC. All Rights Reserved.',
+					potFilename: pkg.name + '.pot',
 					potHeaders: {
 						'x-poedit-keywordslist': true
 					},
@@ -152,9 +125,9 @@ module.exports = function( grunt ) {
 		potomo: {
 			files: {
 				expand: true,
-				cwd: 'languages',
+				cwd: 'languages/',
 				src: [ '*.po' ],
-				dest: 'languages',
+				dest: 'languages/',
 				ext: '.mo'
 			}
 		},
@@ -172,21 +145,17 @@ module.exports = function( grunt ) {
 						to: 'Version:$1' + pkg.version
 					},
 					{
-						from: /@version(\s*?)[a-zA-Z0-9\.\-\+]+$/m,
-						to: '@version$1' + pkg.version
-					},
-					{
 						from: /@since(.*?)NEXT/mg,
 						to: '@since$1' + pkg.version
 					},
 					{
-						from: /VERSION(\s*?={1}\s*?['"]{1})[a-zA-Z0-9\.\-\+]+/mg,
-						to: 'VERSION$1' + pkg.version
+						from: /VERSION(\s*?)=(\s*?['"])[a-zA-Z0-9\.\-\+]+/mg,
+						to: 'VERSION$1=$2' + pkg.version
 					}
 				]
 			},
 			readme: {
-				src: 'readme.{md,txt}',
+				src: 'readme.*',
 				overwrite: true,
 				replacements: [
 					{
@@ -203,39 +172,74 @@ module.exports = function( grunt ) {
 			},
 			all: {
 				expand: true,
-				cwd: 'assets/js',
+				cwd: 'assets/js/',
 				src: [ '**/*.js', '!**/*.min.js' ],
-				dest: 'assets/js',
+				dest: 'assets/js/',
 				ext: '.min.js'
 			}
 		},
 
 		watch: {
-			options: {
-				nospawn: true
-			},
 			css: {
-				options: {
-					cwd: 'assets/css'
-				},
-				files: [ '**/*.css', '!**/*.min.css' ],
+				files: [ 'assets/css/**/*.css', '!assets/css/**/*.min.css' ],
 				tasks: [ 'cssjanus', 'cssmin' ]
 			},
+			images: {
+				files: [
+					'assets/images/**/*.{gif,jpeg,jpg,png,svg}',
+					'wp-org-assets/**/*.{gif,jpeg,jpg,png,svg}'
+				],
+				tasks: [ 'imagemin' ]
+			},
 			js: {
-				options: {
-					cwd: 'assets/js'
-				},
-				files: [ '**/*.js', '!**/*.min.js' ],
+				files: [ 'assets/js/**/*.js', '!assets/js/**/*.min.js' ],
 				tasks: [ 'jshint', 'uglify' ]
+			},
+			readme: {
+				files: 'readme.txt',
+				tasks: [ 'readme' ]
 			}
 		},
 
 		wp_deploy: {
+			plugin: {
+				options: {
+					assets_dir: 'wp-org-assets/',
+					build_dir: 'build/',
+					plugin_main_file: pkg.name + '.php',
+					plugin_slug: pkg.name,
+					svn_user: grunt.file.exists( 'svn-username' ) ? grunt.file.read( 'svn-username' ).trim() : false
+				}
+			}
+		},
+
+		wp_readme_to_markdown: {
 			options: {
-				plugin_slug: pkg.name,
-				build_dir: BUILD_DIR,
-				assets_dir: 'wp-org-assets',
-				svn_user: SVN_USERNAME
+				post_convert: function( readme ) {
+					var matches = readme.match( /\*\*Tags:\*\*(.*)\r?\n/ ),
+					    tags    = matches[1].trim().split( ', ' ),
+					    section = matches[0];
+
+					for ( var i = 0; i < tags.length; i++ ) {
+						section = section.replace( tags[i], '[' + tags[i] + '](https://wordpress.org/plugins/tags/' + tags[i] + '/)' );
+					}
+
+					// Tag links
+					readme = readme.replace( matches[0], section );
+
+					// Badges
+					readme = readme.replace( '## Description ##', grunt.template.process( pkg.badges.join( ' ' ) ) + "  \r\n\r\n## Description ##" );
+
+					// YouTube
+					readme = readme.replace( /\[youtube\s+(?:https?:\/\/www\.youtube\.com\/watch\?v=|https?:\/\/youtu\.be\/)(.+?)\]/g, '[![Play video on YouTube](https://img.youtube.com/vi/$1/maxresdefault.jpg)](https://www.youtube.com/watch?v=$1)' );
+
+					return readme;
+				}
+			},
+			main: {
+				files: {
+					'readme.md': 'readme.txt'
+				}
 			}
 		}
 
@@ -243,11 +247,13 @@ module.exports = function( grunt ) {
 
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
-	grunt.registerTask( 'default', [ 'cssjanus', 'cssmin', 'jshint', 'uglify', 'imagemin' ] );
-	grunt.registerTask( 'build', [ 'default', 'version', 'clean:build', 'copy:build', 'compress:build' ] );
-	grunt.registerTask( 'deploy', [ 'build', 'wp_deploy', 'clean:build' ] );
+	grunt.registerTask( 'default',    [ 'cssjanus', 'cssmin', 'jshint', 'uglify', 'imagemin', 'readme' ] );
+	grunt.registerTask( 'check',      [ 'devUpdate' ] );
+	grunt.registerTask( 'build',      [ 'default', 'clean:build', 'copy:build' ] );
+	grunt.registerTask( 'deploy',     [ 'build', 'wp_deploy', 'clean:build' ] );
+	grunt.registerTask( 'readme',     [ 'wp_readme_to_markdown' ] );
 	grunt.registerTask( 'update-pot', [ 'makepot' ] );
-	grunt.registerTask( 'update-mo', [ 'potomo' ] );
-	grunt.registerTask( 'version', [ 'replace' ] );
+	grunt.registerTask( 'update-mo',  [ 'potomo' ] );
+	grunt.registerTask( 'version',    [ 'replace', 'readme' ] );
 
 };

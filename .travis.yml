@@ -1,11 +1,18 @@
 sudo: false
 
-language:
-  - php
-  - node_js
+language: php
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+branches:
+  except:
+    - i18n
 
 php:
-  - 5.6
+  - 5.4
   - 7.1
 
 env:
@@ -18,24 +25,28 @@ matrix:
     - php: 7.1
       env: WP_VERSION=4.6 WP_MULTISITE=0
 
-install:
-  - export DEV_LIB_PATH=dev-lib
-  - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
-  - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
-  - source $DEV_LIB_PATH/travis.install.sh
-  - bash bin/install-wp-tests.sh wordpress wordpress_test root '' localhost $WP_VERSION
-
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
-  - "php /tmp/wp-cli.phar server --path=$WP_CORE_DIR > /dev/null 2>/dev/null &"
-  - sleep 3
-  - ln -s $TRAVIS_BUILD_DIR $WP_CORE_DIR/wp-content/plugins/
-  - "php /tmp/wp-cli.phar plugin activate $(basename $TRAVIS_BUILD_DIR) --path=$WP_CORE_DIR"
-  - "php /tmp/wp-cli.phar selenium start --path=$WP_CORE_DIR"
+  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+      composer global require "phpunit/phpunit=5.7.*"
+    else
+      composer global require "phpunit/phpunit=4.8.*"
+    fi
+  - |
+    composer global require wp-coding-standards/wpcs
+    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - source $DEV_LIB_PATH/travis.script.sh
+  - phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit
-  - "php /tmp/wp-cli.phar codeception run --debug --path=$WP_CORE_DIR"
+
+before_deploy:
+  - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
+  - chmod +x /tmp/wp-cli.phar
+  - export RELEASE_FOLDER=reseller-store
+  - php /tmp/wp-cli.phar package install runcommand/dist-archive
+  - cp -r ${TRAVIS_BUILD_DIR} /tmp/${RELEASE_FOLDER}
+  - mv /tmp/${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}
+  - php /tmp/wp-cli.phar dist-archive ${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}/${RELEASE_FOLDER}.zip --format=zip --debug
