@@ -226,7 +226,7 @@ module.exports = function( grunt ) {
 
 					// Banner
 					if ( grunt.file.exists( '.dev/wp-org-assets/banner-1544x500.png' ) ) {
-						readme = readme.replace( '**Contributors:**', "![Banner Image](/" + pkg.repository + "/raw/master/.dev/wp-org-assets/banner-1544x500.png)\r\n\r\n**Contributors:**" );
+						readme = readme.replace( '**Contributors:**', "![Banner Image](" + pkg.repository + ".dev/wp-org-assets/banner-1544x500.png)\r\n\r\n**Contributors:**" );
 					}
 
 					// Tag links
