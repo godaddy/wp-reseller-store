@@ -1,4 +1,6 @@
 # GoDaddy Reseller Store #
+![Banner Image](/godaddy/wp-reseller-store/raw/master/.dev/wp-org-assets/banner-1544x500.png)
+
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy)  
 **Tags:**              [admin](https://wordpress.org/plugins/tags/admin/), [posts](https://wordpress.org/plugins/tags/posts/), [users](https://wordpress.org/plugins/tags/users/)  
 **Requires at least:** 4.6  

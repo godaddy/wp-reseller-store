@@ -224,6 +224,11 @@ module.exports = function( grunt ) {
 						section = section.replace( tags[i], '[' + tags[i] + '](https://wordpress.org/plugins/tags/' + tags[i] + '/)' );
 					}
 
+					// Banner
+					if ( grunt.file.exists( '.dev/wp-org-assets/banner-1544x500.png' ) ) {
+						readme = readme.replace( '**Contributors:**', "![Banner Image](/" + pkg.repository + "/raw/master/.dev/wp-org-assets/banner-1544x500.png)\r\n\r\n**Contributors:**" );
+					}
+
 					// Tag links
 					readme = readme.replace( matches[0], section );
 
