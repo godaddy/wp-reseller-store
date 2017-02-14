@@ -3,17 +3,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-30 22:22:04+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -207,7 +208,8 @@ msgstr "Ας ρυθμίσουμε το κατάστημα μεταπωλητή �
 
 #: includes/class-setup.php:161
 msgid "Enter your Private Label ID to get started."
-msgstr "Για να ξεκινήσουμε, καταχωρήστε το αναγνωριστικό σας ιδιωτικής ετικέτας."
+msgstr ""
+"Για να ξεκινήσουμε, καταχωρήστε το αναγνωριστικό σας ιδιωτικής ετικέτας."
 
 #: includes/class-setup.php:164
 msgid "Enter your Private Label ID:"
@@ -227,11 +229,15 @@ msgstr "Δημιουργία λογαριασμού"
 
 #: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Θέλετε βοήθεια; Καλέστε τη βραβευμένη μας ομάδα υποστήριξης στον αριθμό (480) 505-8877."
+msgstr ""
+"Θέλετε βοήθεια; Καλέστε τη βραβευμένη μας ομάδα υποστήριξης στον αριθμό "
+"(480) 505-8877."
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Λυπούμαστε, δεν σας επιτρέπεται να εγκαταστήσετε προσθήκες σε αυτό τον ιστότοπο."
+msgstr ""
+"Λυπούμαστε, δεν σας επιτρέπεται να εγκαταστήσετε προσθήκες σε αυτό τον "
+"ιστότοπο."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
@@ -247,7 +253,8 @@ msgstr "Δεν υπάρχουν διαθέσιμα προϊόντα, ξαναπ�
 
 #: includes/class-setup.php:280
 msgid "Product data could not be imported, please try again later."
-msgstr "Δεν ήταν δυνατή η εισαγωγή δεδομένων προϊόντων, ξαναπροσπαθήστε αργότερα."
+msgstr ""
+"Δεν ήταν δυνατή η εισαγωγή δεδομένων προϊόντων, ξαναπροσπαθήστε αργότερα."
 
 #: includes/class-setup.php:316
 msgid "An unknown error occurred."
@@ -387,7 +394,9 @@ msgstr "Κατάστημα μεταπωλητή GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Μεταπωλήστε φιλοξενία, domains και πολλά άλλα, μέσα από τον ιστότοπό σας WordPress."
+msgstr ""
+"Μεταπωλήστε φιλοξενία, domains και πολλά άλλα, μέσα από τον ιστότοπό σας "
+"WordPress."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -415,7 +424,9 @@ msgstr "Το `%s` υπάρχει ήδη."
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "Το `%s` πρέπει να εισαχθεί ως ανάρτηση προϊόντος πριν μπορέσει να γίνει επαναφορά του."
+msgstr ""
+"Το `%s` πρέπει να εισαχθεί ως ανάρτηση προϊόντος πριν μπορέσει να γίνει "
+"επαναφορά του."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
