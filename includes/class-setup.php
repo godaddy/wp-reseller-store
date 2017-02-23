@@ -112,6 +112,9 @@ final class Setup {
 
 		?>
 		<style type="text/css">
+		.rstore-setup .notice {
+			margin-top: 2em;
+		}
 		.rstore-setup-wrapper {
 			margin: auto;
 			width: 60%;
@@ -136,6 +139,7 @@ final class Setup {
 			text-align: left;
 		}
 		.rstore-setup-body {
+			display: none;
 			margin: 40px 0;
 		}
 		.rstore-setup-body h3 {
@@ -151,6 +155,7 @@ final class Setup {
 		</style>
 
 		<div class="rstore-setup">
+			<?php $this->missing_script_notice(); ?>
 			<div class="rstore-setup-wrapper">
 				<div class="rstore-setup-header">
 					<img src="<?php echo esc_url( Plugin::assets_url( 'images/store.svg' ) ); ?>">
@@ -175,6 +180,29 @@ final class Setup {
 			</div>
 		</div>
 		<?php
+
+	}
+
+	/**
+	 * Display an error notice if the required JS is not enqueued.
+	 *
+	 * @since NEXT
+	 */
+	public function missing_script_notice() {
+
+		if ( wp_script_is( 'rstore-admin-setup', 'enqueued' ) ) {
+
+			return;
+
+		}
+
+		printf(
+			'<div id="message" class="error notice"><p>%s</p></div>',
+			sprintf(
+				esc_html_x( 'Error: Missing required script for setup %s', 'script name', 'reseller-store' ),
+				'<code>admin-setup.js</code>'
+			)
+		);
 
 	}
 
