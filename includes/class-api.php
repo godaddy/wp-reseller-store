@@ -66,7 +66,7 @@ final class API {
 
 		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
 		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
-		$this->urls['domain_search'] = $this->add_query_args( sprintf( 'https://www.%s/domains/search.aspx?checkAvail=1', $this->tld ) );
+		$this->urls['domain_api'] =  sprintf( 'https://api.%s/', $this->tld );
 
 	}
 
@@ -166,9 +166,9 @@ final class API {
 	 *
 	 * @return string
 	 */
-	public function url( $endpoint = '' ) {
+	public function url( $endpoint = '', $url_type = 'api' ) {
 
-		$url = trailingslashit( $this->urls['api'] );
+		$url = trailingslashit( $this->urls[$url_type] );
 
 		if ( $endpoint ) {
 
@@ -180,7 +180,7 @@ final class API {
 
 		}
 
-		return esc_url_raw( $this->add_query_args( trailingslashit( $url ), false ) );
+		return esc_url_raw( $this->add_query_args(  $url , false ) );
 
 	}
 
@@ -197,11 +197,14 @@ final class API {
 	 */
 	private function request( $method, $endpoint, array $args = [] ) {
 
+		$api_key = apply_filters( 'rstore_api_key', rstore_get_option( 'api_key' ) );
+
 		$defaults = [
 			'method'    => $method,
 			'sslverify' => true,
 			'headers'   => [
-				'Content-Type: application/json',
+				'Content-Type' =>  'application/json',
+				'Authorization' => $api_key
 			],
 		];
 
@@ -216,7 +219,7 @@ final class API {
 		 */
 		$args = (array) apply_filters( 'rstore_api_request_args', $args );
 
-		$response = wp_remote_request( $this->url( $endpoint ), $args );
+		$response = wp_remote_request( $endpoint, $args );
 
 		$code = wp_remote_retrieve_response_code( $response );
 
@@ -258,11 +261,13 @@ final class API {
 	 *
 	 * @return array|WP_Error
 	 */
-	public function get( $endpoint, array $args = [] ) {
+	public function get( $path, $url_type = 'api', array $args = [] ) {
 
-		$key = rstore_prefix( 'api_get-' . md5( $endpoint . serialize( $args ) ) );
+		$key = rstore_prefix( 'api_get-' . md5( $path . serialize( $args ) ) );
 
 		$results = wp_cache_get( $key );
+
+		$endpoint = $this->url( $path, $url_type);
 
 		if ( false === $results ) {
 
@@ -286,7 +291,9 @@ final class API {
 	 *
 	 * @return array|WP_Error
 	 */
-	public function post( $endpoint, array $args = [] ) {
+	public function post( $path, $url_type = 'api', array $args = [] ) {
+
+		$endpoint = $this->url( $path, $url_type);
 
 		return $this->request( 'POST', $endpoint, $args );
 
