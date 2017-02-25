@@ -369,7 +369,9 @@ final class Import {
 
 		if ( is_wp_error( $attachment_id ) ) {
 
+			// @codingStandardsIgnoreStart
 			@unlink( $file_array['tmp_name'] );
+			// @codingStandardsIgnoreEnd
 
 			return false;
 
@@ -397,7 +399,7 @@ final class Import {
 		 * circumvented the `delete_post` action, such as deleting it
 		 * manually from the database.
 		 */
-		if ( $post_id = array_search( $this->product->id, $this->imported ) ) {
+		if ( $post_id = array_search( $this->product->id, $this->imported, true ) ) {
 
 			unset( $this->imported[ $post_id ] );
 

@@ -142,7 +142,7 @@ final class API {
 			'zh-TW'  => 'zh_TW', // Chinese (Taiwan)
 		];
 
-		$market_id = array_search( $locale, $mappings );
+		$market_id = array_search( $locale, $mappings, true );
 
 		/**
 		 * Filter the market ID used in API requests.
@@ -263,7 +263,7 @@ final class API {
 	 */
 	public function get( $path, $url_type = 'api', array $args = [] ) {
 
-		$key = rstore_prefix( 'api_get-' . md5( $path . serialize( $args ) ) );
+		$key = rstore_prefix( 'api_get-' . md5( $path . maybe_serialize( $args ) ) );
 
 		$results = wp_cache_get( $key );
 

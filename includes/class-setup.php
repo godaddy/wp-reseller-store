@@ -290,7 +290,7 @@ final class Setup {
 				[
 					'redirect' => esc_url_raw(
 						add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
-					)
+					),
 				]
 			);
 

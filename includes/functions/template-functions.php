@@ -71,7 +71,7 @@ function rstore_price( $post = null, $echo = true ) {
  */
 function rstore_add_to_cart_form( $post = null, $echo = true ) {
 
-	extract( rstore_get_add_to_cart_vars( $post ) );
+	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
 	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 
@@ -116,7 +116,7 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
  */
 function rstore_add_to_cart_button( $post = null, $echo = true ) {
 
-	extract( rstore_get_add_to_cart_vars( $post ) );
+	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
 	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 
@@ -154,7 +154,7 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
  */
 function rstore_add_to_cart_link( $post = null, $echo = true ) {
 
-	extract( rstore_get_add_to_cart_vars( $post ) );
+	list( $id, $quantity, $redirect, $label, $permalink ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
 	if ( empty( $id ) || empty( $quantity ) || empty( $label ) || empty( $permalink ) ) {
 
