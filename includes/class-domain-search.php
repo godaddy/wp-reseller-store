@@ -68,38 +68,35 @@ final class Domain_Search {
 
 		add_action( 'wp_ajax_rstore_domain_search', [ __CLASS__, 'domain_search' ] );
 
-
 	}
 
 	public static function domain_search() {
 
 		$args = [
-			'query' => filter_input( INPUT_POST, 'domain_to_check' )
+			'query' => filter_input( INPUT_POST, 'domain_to_check' ),
 		];
 
-		$endpoint = add_query_arg( $args, 'v1/domains/suggest' ) ;
+		$endpoint = add_query_arg( $args, 'v1/domains/suggest' );
 
 		$response = rstore()->api->get( $endpoint, 'domain_api' );
 
 		$domains = [];
-		$count = 0;
 
-		foreach ($response as $value) {
+		for ( $i = 0; $i <= 4; $i++ ) {
+
 			$domains[] = $value->domain;
-			$count++;
-			if ($count > 4) {
-				break;
-			}
+
 		}
 
 		$args = [
-			'body' => json_encode($domains)
+			'body' => wp_json_encode( $domains ),
 		];
 
 		$endpoint = 'v1/domains/available?checkType=FAST';
 		$response = rstore()->api->post( $endpoint, 'domain_api', $args );
 
-		wp_send_json($response);
+		wp_send_json( $response );
+
 	}
 
 }

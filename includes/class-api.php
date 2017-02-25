@@ -64,9 +64,9 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
-		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
-		$this->urls['domain_api'] =  sprintf( 'https://api.%s/', $this->tld );
+		$this->urls['api']        = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
+		$this->urls['cart']       = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['domain_api'] = sprintf( 'https://api.%s/', $this->tld );
 
 	}
 
@@ -163,12 +163,13 @@ final class API {
 	 * @since NEXT
 	 *
 	 * @param  string $endpoint (optional)
+	 * @param  string $type     (optional)
 	 *
 	 * @return string
 	 */
-	public function url( $endpoint = '', $url_type = 'api' ) {
+	public function url( $endpoint = '', $type = 'api' ) {
 
-		$url = trailingslashit( $this->urls[$url_type] );
+		$url = trailingslashit( $this->urls[ $type ] );
 
 		if ( $endpoint ) {
 
@@ -180,7 +181,7 @@ final class API {
 
 		}
 
-		return esc_url_raw( $this->add_query_args(  $url , false ) );
+		return esc_url_raw( $this->add_query_args( $url , false ) );
 
 	}
 
@@ -203,8 +204,8 @@ final class API {
 			'method'    => $method,
 			'sslverify' => true,
 			'headers'   => [
-				'Content-Type' =>  'application/json',
-				'Authorization' => $api_key
+				'Content-Type'  => 'application/json',
+				'Authorization' => $api_key,
 			],
 		];
 
@@ -257,17 +258,18 @@ final class API {
 	 * @since NEXT
 	 *
 	 * @param  string $endpoint
+	 * @param  string $type     (optional)
 	 * @param  array  $args     (optional)
 	 *
 	 * @return array|WP_Error
 	 */
-	public function get( $path, $url_type = 'api', array $args = [] ) {
+	public function get( $path, $type = 'api', array $args = [] ) {
 
 		$key = rstore_prefix( 'api_get-' . md5( $path . maybe_serialize( $args ) ) );
 
 		$results = wp_cache_get( $key );
 
-		$endpoint = $this->url( $path, $url_type);
+		$endpoint = $this->url( $path, $type );
 
 		if ( false === $results ) {
 
@@ -287,13 +289,14 @@ final class API {
 	 * @since NEXT
 	 *
 	 * @param  string $endpoint
+	 * @param  string $type     (optional)
 	 * @param  array  $args     (optional)
 	 *
 	 * @return array|WP_Error
 	 */
-	public function post( $path, $url_type = 'api', array $args = [] ) {
+	public function post( $path, $type = 'api', array $args = [] ) {
 
-		$endpoint = $this->url( $path, $url_type);
+		$endpoint = $this->url( $path, $type );
 
 		return $this->request( 'POST', $endpoint, $args );
 
