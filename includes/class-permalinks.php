@@ -153,7 +153,7 @@ final class Permalinks {
 		if (
 			false === wp_verify_nonce( filter_input( INPUT_POST, '_wpnonce' ), 'update-permalink' )
 			||
-			! isset( $_POST['permalink_structure'] )
+			! isset( $_POST['permalink_structure'] ) // input var ok.
 		) {
 
 			return;

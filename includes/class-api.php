@@ -260,7 +260,7 @@ final class API {
 	 */
 	public function get( $endpoint, array $args = [] ) {
 
-		$key = rstore_prefix( 'api_get-' . md5( $endpoint . serialize( $args ) ) );
+		$key = rstore_prefix( 'api_get-' . md5( $endpoint . maybe_serialize( $args ) ) );
 
 		$results = wp_cache_get( $key );
 

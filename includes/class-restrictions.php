@@ -22,7 +22,6 @@ final class Restrictions {
 		add_action( 'admin_head',                  [ $this, 'add_product_button' ] );
 		add_action( 'wp_before_admin_bar_render',  [ $this, 'admin_bar_submenu' ] );
 		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
-//		add_action( 'manage_posts_extra_tablenav', [ $this, 'new_post_screen' ] );
 
 	}
 
