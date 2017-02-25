@@ -142,7 +142,7 @@ final class API {
 			'zh-TW'  => 'zh_TW', // Chinese (Taiwan)
 		];
 
-		$market_id = array_search( $locale, $mappings );
+		$market_id = array_search( $locale, $mappings, true );
 
 		/**
 		 * Filter the market ID used in API requests.

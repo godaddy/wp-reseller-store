@@ -41,11 +41,10 @@ final class Permalinks {
 			esc_html__( 'Reseller category base', 'reseller-store' ),
 			function () {
 
-				printf(
-					'<input name="%s" type="text" class="regular-text code" value="%s" placeholder="%s">',
-					'rstore_category_base',
-					( Taxonomy_Category::permalink_base() !== Taxonomy_Category::$default_permalink_base ) ? Taxonomy_Category::permalink_base() : '',
-					Taxonomy_Category::$default_permalink_base
+				printf( // xss ok.
+					'<input name="rstore_category_base" type="text" class="regular-text code" value="%s" placeholder="%s">',
+					( Taxonomy_Category::permalink_base() !== Taxonomy_Category::$default_permalink_base ) ? esc_attr( Taxonomy_Category::permalink_base() ) : '',
+					esc_attr( Taxonomy_Category::$default_permalink_base )
 				);
 
 			},
@@ -58,11 +57,10 @@ final class Permalinks {
 			esc_html__( 'Reseller tag base', 'reseller-store' ),
 			function () {
 
-				printf(
-					'<input name="%s" type="text" class="regular-text code" value="%s" placeholder="%s">',
-					'rstore_tag_base',
-					( Taxonomy_Tag::permalink_base() !== Taxonomy_Tag::$default_permalink_base ) ? Taxonomy_Tag::permalink_base() : '',
-					Taxonomy_Tag::$default_permalink_base
+				printf( // xss ok.
+					'<input name="rstore_tag_base" type="text" class="regular-text code" value="%s" placeholder="%s">',
+					( Taxonomy_Tag::permalink_base() !== Taxonomy_Tag::$default_permalink_base ) ? esc_attr( Taxonomy_Tag::permalink_base() ) : '',
+					esc_attr( Taxonomy_Tag::$default_permalink_base )
 				);
 
 			},
@@ -132,7 +130,7 @@ final class Permalinks {
 					<th>
 						<label>
 							<input type="radio" name="rstore_permalink_structure" id="rstore-permalink-structure-custom" value="" <?php checked( ! $is_default ); ?>>
-							<?php _e( 'Custom base', 'reseller-store' ); ?>
+							<?php esc_html_e( 'Custom base', 'reseller-store' ); ?>
 						</label>
 					</th>
 					<td>

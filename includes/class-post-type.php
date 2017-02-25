@@ -69,9 +69,23 @@ final class Post_Type {
 		add_filter( 'the_content',                             [ $this, 'append_add_to_cart_form' ] );
 		add_filter( 'the_excerpt',                             [ $this, 'append_add_to_cart_form' ] );
 
-		add_filter( 'edit_' . self::SLUG . '_per_page',                function () { return 50; } );
-		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) { return array_merge( $columns, [ 'price' => 'price' ] ); } );
-		add_filter( 'view_mode_post_types',                            function ( $post_types ) { return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] ); } );
+		add_filter( 'edit_' . self::SLUG . '_per_page', function () {
+
+			return 50;
+
+		} );
+
+		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
+
+			return array_merge( $columns, [ 'price' => 'price' ] );
+
+		} );
+
+		add_filter( 'view_mode_post_types', function ( $post_types ) {
+
+			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
+
+		} );
 
 	}
 
@@ -308,14 +322,14 @@ final class Post_Type {
 					__( 'Product Image', 'reseller-store' )
 				),
 			],
-			(int) array_search( 'title', array_values( array_flip( $columns ) ) )
+			(int) array_search( 'title', array_values( array_flip( $columns ) ), true )
 		);
 
 		// Insert after Title column
 		$columns = rstore_array_insert(
 			$columns,
 			[ 'price' => __( 'Price', 'reseller-store' ) ],
-			(int) array_search( 'title', array_values( array_flip( $columns ) ) ) + 1
+			(int) array_search( 'title', array_values( array_flip( $columns ) ), true ) + 1
 		);
 
 		return $columns;
@@ -344,7 +358,7 @@ final class Post_Type {
 			$list = rstore_get_product_meta( $post_id, 'listPrice' );
 			$sale = rstore_get_product_meta( $post_id, 'salePrice' );
 
-			printf(
+			printf( // xss ok.
 				'%s%s',
 				( $sale ) ? sprintf( '<del>%s</del><br>', esc_html( $list ) ) : '',
 				( $sale ) ? esc_html( $sale ) : esc_html( $list )

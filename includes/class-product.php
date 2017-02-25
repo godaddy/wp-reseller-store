@@ -47,7 +47,7 @@ final class Product {
 	 */
 	public function __construct( $product ) {
 
-		$this->product = json_decode( json_encode( $product ) );
+		$this->product = json_decode( wp_json_encode( $product ) );
 
 	}
 
@@ -118,7 +118,7 @@ final class Product {
 
 		if ( $imported = (array) rstore_get_option( 'imported', [] ) ) {
 
-			return array_search( $product_id, $imported );
+			return array_search( $product_id, $imported, true );
 
 		}
 

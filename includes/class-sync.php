@@ -141,7 +141,7 @@ final class Sync {
 
 		foreach ( (array) $products as $product ) {
 
-			$post_id = array_search( $product->id, $imported );
+			$post_id = array_search( $product->id, $imported, true );
 
 			if ( false === $post_id ) {
 
