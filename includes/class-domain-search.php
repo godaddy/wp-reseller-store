@@ -53,7 +53,7 @@ final class Domain_Search {
 		 *
 		 * @var string
 		 */
-		$this->tld = (string) apply_filters( 'rstore_api_tld', $this->tld );
+		$this->tld = (string) apply_filters( 'rstore_domain_api_tld', $this->tld );
 
 		/**
 		 *
@@ -62,7 +62,7 @@ final class Domain_Search {
 		 *
 		 * @var int
 		 */
-		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
+		$this->max_retries = (int) apply_filters( 'rstore_domain_api_max_retries', $this->max_retries );
 
 		$this->urls['api'] = 'https://api.dev-secureserver.net/v1/domains/suggest?query=some%20domain%20name';
 

@@ -90,6 +90,7 @@ final class Plugin {
 
 		new ButterBean;
 		new Display;
+		new Domain_Search;
 		new Embed;
 		new Permalinks;
 		new Post_Type;
@@ -97,7 +98,6 @@ final class Plugin {
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
 		new Widgets;
-		new Domain_Search;
 
 	}
 
