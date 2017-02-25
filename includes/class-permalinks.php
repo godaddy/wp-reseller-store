@@ -151,7 +151,7 @@ final class Permalinks {
 	private function save() {
 
 		if (
-			! rstore_is_admin_uri( 'options-permalink.php' )
+			false === wp_verify_nonce( filter_input( INPUT_POST, '_wpnonce' ), 'update-permalink' )
 			||
 			! isset( $_POST['permalink_structure'] )
 		) {
@@ -159,6 +159,8 @@ final class Permalinks {
 			return;
 
 		}
+
+		check_admin_referer( 'update-permalink' );
 
 		$old_permalinks = (array) rstore_get_option( 'permalinks', [] );
 		$new_permalinks = $old_permalinks;
@@ -168,7 +170,7 @@ final class Permalinks {
 		$new_permalinks['product_base']  = sanitize_title( filter_input( INPUT_POST, 'rstore_product_base' ) );
 
 		$old_structure = get_option( 'permalink_structure', '' );
-		$new_structure = (string) $_POST['permalink_structure'];
+		$new_structure = (string) filter_input( INPUT_POST, 'permalink_structure' );
 
 		if ( $new_permalinks === $old_permalinks && $old_structure === $new_structure ) {
 
