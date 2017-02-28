@@ -46,6 +46,8 @@
 
 	$( document ).ready( function( $ ) {
 
+		$( '.rstore-setup-body' ).css( 'display', 'block' ); // Form is hidden by default
+
 		$( '#rstore-setup-form' ).on( 'submit', install );
 
 	} );
