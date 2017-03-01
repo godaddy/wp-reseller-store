@@ -76,17 +76,31 @@ final class Domain_Search {
 			'query' => filter_input( INPUT_POST, 'domain_to_check' ),
 		];
 
+		$limit = absint( filter_input( INPUT_POST, 'limit' ) );
+		$limit = ( $limit > 0 ) ? $limit : 5;
+
 		$endpoint = add_query_arg( $args, 'v1/domains/suggest' );
 
 		$response = rstore()->api->get( $endpoint, 'domain_api' );
 
 		$domains = [];
+		$count = 1;
 
-		for ( $i = 0; $i <= 4; $i++ ) {
+		 if ( count( $response ) == 0 ) {
+      $no_results = [
+        'domains' => [],
+        'pl_id' => rstore_get_option( 'pl_id', '' )
+      ];
+      return wp_send_json($no_results);
+    }
 
-			$domains[] = $value->domain;
-
-		}
+		foreach ($response as $value) {
+      $domains[] = $value->domain;
+      $count++;
+      if ($count > $limit) {
+        break;
+      }
+    }
 
 		$args = [
 			'body' => wp_json_encode( $domains ),
@@ -94,6 +108,7 @@ final class Domain_Search {
 
 		$endpoint = 'v1/domains/available?checkType=FAST';
 		$response = rstore()->api->post( $endpoint, 'domain_api', $args );
+		$response->pl_id = rstore_get_option( 'pl_id', '' );
 
 		wp_send_json( $response );
 
