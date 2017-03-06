@@ -66,8 +66,6 @@ final class API {
 
 		$this->urls['api']        = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
 		$this->urls['cart']       = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
-		$this->urls['domain_api'] = sprintf( 'https://api.%s/', $this->tld );
-
 	}
 
 	/**
@@ -93,7 +91,7 @@ final class API {
 
 		}
 
-		return esc_url_raw( add_query_arg( $args, $url ) );
+		return add_query_arg( $args, $url );
 
 	}
 
@@ -181,7 +179,7 @@ final class API {
 
 		}
 
-		return esc_url_raw( $this->add_query_args( $url , false ) );
+		return $this->add_query_args( $url , false );
 
 	}
 

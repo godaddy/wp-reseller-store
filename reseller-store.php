@@ -90,7 +90,6 @@ final class Plugin {
 
 		new ButterBean;
 		new Display;
-		new Domain_Search;
 		new Embed;
 		new Permalinks;
 		new Post_Type;
