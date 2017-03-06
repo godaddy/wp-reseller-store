@@ -196,14 +196,11 @@ final class API {
 	 */
 	private function request( $method, $endpoint, array $args = [] ) {
 
-		$api_key = apply_filters( 'rstore_api_key', rstore_get_option( 'api_key' ) );
-
 		$defaults = [
 			'method'    => $method,
 			'sslverify' => true,
 			'headers'   => [
-				'Content-Type'  => 'application/json',
-				'Authorization' => $api_key,
+				'Content-Type'  => 'application/json'
 			],
 		];
 
