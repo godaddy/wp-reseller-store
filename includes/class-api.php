@@ -94,7 +94,7 @@ final class API {
 			$args['marketId']     = $this->get_market_id();
 		}
 
-		return add_query_arg( $args, $url );
+		return esc_url_raw( add_query_arg( $args, $url ) );
 
 	}
 
