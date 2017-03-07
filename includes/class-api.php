@@ -64,8 +64,10 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']        = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
-		$this->urls['cart']       = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
+		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['domain_search'] = $this->add_query_args( sprintf( 'https://www.%s/domains/search.aspx?checkAvail=1', $this->tld ) );
+
 	}
 
 	/**
@@ -80,15 +82,16 @@ final class API {
 	 */
 	public function add_query_args( $url, $add_pl_id = true ) {
 
-		$args = [
-			'currencyType' => rstore_get_option( 'currency', 'USD' ),
-			'marketId'     => $this->get_market_id(),
-		];
+		$args = [];
 
 		if ( $add_pl_id && rstore_is_setup() ) {
 
 			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
 
+		} else
+		{
+			$args['currencyType'] = rstore_get_option( 'currency', 'USD' );
+			$args['marketId']     = $this->get_market_id();
 		}
 
 		return add_query_arg( $args, $url );
@@ -161,13 +164,12 @@ final class API {
 	 * @since NEXT
 	 *
 	 * @param  string $endpoint (optional)
-	 * @param  string $type     (optional)
 	 *
 	 * @return string
 	 */
-	public function url( $endpoint = '', $type = 'api' ) {
+	public function url( $endpoint = '' ) {
 
-		$url = trailingslashit( $this->urls[ $type ] );
+		$url = trailingslashit( $this->urls['api'] );
 
 		if ( $endpoint ) {
 
@@ -179,7 +181,7 @@ final class API {
 
 		}
 
-		return $this->add_query_args( $url , false );
+		return $this->add_query_args( trailingslashit( $url ), false );
 
 	}
 
@@ -200,7 +202,7 @@ final class API {
 			'method'    => $method,
 			'sslverify' => true,
 			'headers'   => [
-				'Content-Type'  => 'application/json'
+				'Content-Type: application/json',
 			],
 		];
 
@@ -215,7 +217,7 @@ final class API {
 		 */
 		$args = (array) apply_filters( 'rstore_api_request_args', $args );
 
-		$response = wp_remote_request( $endpoint, $args );
+		$response = wp_remote_request( $this->url( $endpoint ), $args );
 
 		$code = wp_remote_retrieve_response_code( $response );
 
@@ -253,18 +255,15 @@ final class API {
 	 * @since NEXT
 	 *
 	 * @param  string $endpoint
-	 * @param  string $type     (optional)
 	 * @param  array  $args     (optional)
 	 *
 	 * @return array|WP_Error
 	 */
-	public function get( $path, $type = 'api', array $args = [] ) {
+	public function get( $endpoint, array $args = [] ) {
 
-		$key = rstore_prefix( 'api_get-' . md5( $path . maybe_serialize( $args ) ) );
+		$key = rstore_prefix( 'api_get-' . md5( $endpoint . maybe_serialize( $args ) ) );
 
 		$results = wp_cache_get( $key );
-
-		$endpoint = $this->url( $path, $type );
 
 		if ( false === $results ) {
 
@@ -284,14 +283,11 @@ final class API {
 	 * @since NEXT
 	 *
 	 * @param  string $endpoint
-	 * @param  string $type     (optional)
 	 * @param  array  $args     (optional)
 	 *
 	 * @return array|WP_Error
 	 */
-	public function post( $path, $type = 'api', array $args = [] ) {
-
-		$endpoint = $this->url( $path, $type );
+	public function post( $endpoint, array $args = [] ) {
 
 		return $this->request( 'POST', $endpoint, $args );
 

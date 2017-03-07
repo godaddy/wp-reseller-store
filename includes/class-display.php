@@ -68,7 +68,7 @@ final class Display {
 				'not_available' => esc_html__( 'Sorry that domain is taken', 'reseller-store' ),
 				'placeholder'   => esc_html__( 'Find your perfect domain name', 'reseller-store' ),
 				'view_cart'     => esc_html__( 'View cart', 'reseller-store' ),
-				'error'         => esc_html__( 'An unknown error has occurred', 'reseller-store' ),
+				'error'         => esc_html__( 'An error has occurred', 'reseller-store' ),
 
 			],
 		];

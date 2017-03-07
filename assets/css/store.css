@@ -121,10 +121,14 @@
   width: 28px;
   height: 28px;
   vertical-align: middle;
-  background-image: url('http://wp-store.cloud.phx3.gdg/wp-content/plugins/reseller-store/assets/images/loading.svg');
+  background-image: url('../images/loading.svg');
   background-size: 28px 28px;
   background-repeat: no-repeat;
   display: inline-block;
+}
+
+.rstore-loading-hidden {
+  display: none;
 }
 
 .rstore-pricing {
