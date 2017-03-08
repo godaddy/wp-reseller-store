@@ -52,7 +52,7 @@ final class Display {
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
 			'urls'    => [
 				'cart'     => rstore()->api->urls['cart'] ,
-				'cart_api' => rstore()->api->url( 'cart/{pl_id}' ),
+				'cart_api' => esc_url_raw(rstore()->api->url( 'cart/{pl_id}' )),
 				'domain_api' => rstore()->api->url( 'domains/{pl_id}' ),
 			],
 			'cookies' => [
