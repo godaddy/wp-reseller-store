@@ -336,7 +336,7 @@ msgstr "Vis brugerens indkøbsvogn i sidebjælken."
 
 #: includes/widgets/class-cart.php:102
 msgid "Cart"
-msgstr "Kurv"
+msgstr "Indkøbsvogn"
 
 #: includes/widgets/class-cart.php:107
 #: includes/widgets/class-domain-search.php:112
