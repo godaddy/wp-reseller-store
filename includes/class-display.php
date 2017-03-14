@@ -19,6 +19,23 @@ final class Display {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
 
+		/**
+		 * Register the domain search shortcode
+		 *
+		 * @shortcode [rstore-domain-search]
+		 *
+		 * @since  NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters
+		 *
+		 * @return mixed Returns the HTML markup for the domain search container.
+		 */
+		add_shortcode( 'rstore-domain-search', function( $atts ) {
+
+			return wp_kses_post( '<div class="rstore-domain-search"></div>' );
+
+		} );
+
 	}
 
 	/**
@@ -76,5 +93,4 @@ final class Display {
 		wp_localize_script( 'rstore', 'rstore', $data );
 
 	}
-
 }

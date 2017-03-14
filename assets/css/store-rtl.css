@@ -137,13 +137,17 @@
 .rstore-domain-search body.single-reseller_product .entry-meta {
   display: none;
 }
+.rstore-domain-search .result-content {
+  display: inline-block;
+	margin-bottom: 10px;
+}
 .rstore-domain-search .domain-result {
   border: 1px solid #e8e8e8;
   float: right;
   min-width: 290px;
   padding: 15px 15px 5px 20px;
   vertical-align: middle;
-  width: 99%;
+  width: 100%;
 }
 .rstore-domain-search .rstore-exact-domain-list .domain-result {
   margin-bottom: 15px;
