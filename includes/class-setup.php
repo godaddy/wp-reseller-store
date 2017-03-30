@@ -67,7 +67,9 @@ final class Setup {
 
 		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
+		// @codingStandardsIgnoreStart
 		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [ 'install_nonce' => wp_create_nonce( self::$install_nonce ) ] );
+		// @codingStandardsIgnoreEnd
 
 	}
 
@@ -199,7 +201,8 @@ final class Setup {
 		printf(
 			'<div id="message" class="error notice"><p>%s</p></div>',
 			sprintf(
-				esc_html_x( 'Error: Missing required script for setup %s', 'script name', 'reseller-store' ),
+				/* translators: name of missing script */
+				esc_html__( 'Error: Missing required script for setup %s', 'reseller-store' ),
 				'<code>admin-setup.js</code>'
 			)
 		);
@@ -354,7 +357,8 @@ final class Setup {
 
 		wp_send_json_error(
 			sprintf(
-				esc_html_x( 'Error: %s', 'error message', 'reseller-store' ),
+				/* translators: error message */
+				esc_html__( 'Error: %s', 'reseller-store' ),
 				sprintf( $message, $data )
 			)
 		);
@@ -418,7 +422,9 @@ final class Setup {
 
 		foreach ( [ Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG ] as $taxonomy ) {
 
+			// @codingStandardsIgnoreStart
 			$terms = get_terms( $taxonomy, [ 'fields' => 'ids', 'hide_empty' => false ] );
+			// @codingStandardsIgnoreEnd
 
 			if ( is_wp_error( $terms ) ) {
 

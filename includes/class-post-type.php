@@ -77,13 +77,17 @@ final class Post_Type {
 
 		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
 
+			// @codingStandardsIgnoreStart
 			return array_merge( $columns, [ 'price' => 'price' ] );
+			// @codingStandardsIgnoreEnd
 
 		} );
 
 		add_filter( 'view_mode_post_types', function ( $post_types ) {
 
+			// @codingStandardsIgnoreStart
 			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
+			// @codingStandardsIgnoreEnd
 
 		} );
 
@@ -328,7 +332,9 @@ final class Post_Type {
 		// Insert after Title column
 		$columns = rstore_array_insert(
 			$columns,
-			[ 'price' => __( 'Price', 'reseller-store' ) ],
+			// @codingStandardsIgnoreStart
+			[ 'price' => esc_html__( 'Price', 'reseller-store' ) ],
+			// @codingStandardsIgnoreEnd
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true ) + 1
 		);
 
@@ -452,7 +458,8 @@ final class Post_Type {
 
 		$title = ( $post_id > 0 ) ? rstore_get_product_meta( $post_id, 'title' ) : null;
 
-		$labels->edit_item = ( $title ) ? sprintf( esc_html_x( 'Edit: %s', 'product title', 'reseller-store' ), $title ) : $labels->edit_item;
+		/* translators: product title */
+		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
 

@@ -128,7 +128,12 @@ function rstore_get_product( $product_id, $hard = false ) {
 
 	}
 
-	return new WP_Error( 'product_not_found', esc_html_x( 'Error: `%s` does not exist.', 'product name', 'reseller-store' ), $product_id );
+	return new WP_Error(
+		'product_not_found',
+		/* translators: product name */
+		esc_html__( 'Error: `%s` does not exist.', 'reseller-store' ),
+		$product_id
+	);
 
 }
 

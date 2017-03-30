@@ -40,7 +40,8 @@ function rstore_price( $post = null, $echo = true ) {
 	if ( $term = rstore_get_product_meta( $post->ID, 'term' ) ) {
 
 		$output = sprintf(
-			esc_html_x( '%1$s / per %2$s', '1. price, 2. subscription term - e.g. $10 / per month', 'reseller-store' ),
+			/* translators: 1. price, 2. subscription term - e.g. $10 / per month */
+			esc_html_x( '%1$s / per %2$s', 'product price', 'reseller-store' ),
 			$output,
 			$term // xss ok
 		);
