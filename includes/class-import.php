@@ -64,7 +64,8 @@ final class Import {
 
 			$this->result = new WP_Error(
 				'invalid_product',
-				esc_html_x( '`%s` is not a valid product.', 'product name', 'reseller-store' ),
+				/* translators: product name */
+				esc_html__( '`%s` is not a valid product.', 'reseller-store' ),
 				$fallback_id
 			);
 
@@ -76,7 +77,8 @@ final class Import {
 
 			$this->result = new WP_Error(
 				'product_exists',
-				esc_html_x( '`%s` already exists.', 'product name', 'reseller-store' ),
+				/* translators: product name */
+				esc_html__( '`%s` already exists.', 'reseller-store' ),
 				$fallback_id
 			);
 
@@ -97,7 +99,8 @@ final class Import {
 
 				$this->result = new WP_Error(
 					'product_not_imported',
-					esc_html_x( '`%s` must be imported as a product post before it can be reset.', 'product name', 'reseller-store' ),
+					/* translators: product name */
+					esc_html__( '`%s` must be imported as a product post before it can be reset.', 'reseller-store' ),
 					$this->product->id
 				);
 
@@ -107,7 +110,12 @@ final class Import {
 
 			if ( Post_Type::SLUG !== get_post_type( $this->post_id ) ) {
 
-				$this->result = new WP_Error( 'invalid_post_type', esc_html_x( '`%s` is not a valid post type for products.', 'post type name', 'reseller-store' ), $post->post_type );
+				$this->result = new WP_Error(
+					'invalid_post_type',
+					/* translators: post type name */
+					esc_html__( '`%s` is not a valid post type for products.', 'reseller-store' ),
+					$post->post_type
+				);
 
 				return;
 
@@ -275,14 +283,16 @@ final class Import {
 	 */
 	private function add_category( $name, $post_id, $parent = 0 ) {
 
-		// Returns 0 or NULL if the term does not exist
-		// Returns an array if a term/taxonomy pairing exists
+		// Returns 0 or NULL if the term does not exist.
+		// Returns an array if a term/taxonomy pairing exists.
 		$term = term_exists( $name, Taxonomy_Category::SLUG );
 
 		if ( ! is_array( $term ) ) {
 
-			// Returns an array on success, WP_Error on failure
+			// Returns an array on success, WP_Error on failure.
+			// @codingStandardsIgnoreStart
 			$term = wp_insert_term( $name, Taxonomy_Category::SLUG, [ 'parent' => (int) $parent ] );
+			// @codingStandardsIgnoreEnd
 
 		}
 

@@ -84,7 +84,7 @@ final class Plugin {
 
 			new Setup;
 
-			return; // Bail until Setup is complete
+			return; // Bail until Setup is complete.
 
 		}
 
