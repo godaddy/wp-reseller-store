@@ -13,7 +13,7 @@ final class Display {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -24,7 +24,7 @@ final class Display {
 		 *
 		 * @shortcode [rstore-domain-search]
 		 *
-		 * @since  NEXT
+		 * @since  0.2.0
 		 *
 		 * @param  array $atts Defualt shortcode parameters
 		 *
@@ -42,7 +42,7 @@ final class Display {
 	 * Enqueue front-end scripts.
 	 *
 	 * @action wp_enqueue_scripts
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function wp_enqueue_scripts() {
 
@@ -59,7 +59,7 @@ final class Display {
 		/**
 		 * Filter the TTL for cookies (in seconds).
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var int
 		 */

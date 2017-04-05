@@ -13,7 +13,7 @@ final class Taxonomy_Category {
 	/**
 	 * Taxonomy slug.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var string
 	 */
@@ -22,7 +22,7 @@ final class Taxonomy_Category {
 	/**
 	 * Taxonomy default permalink base.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var string
 	 */
@@ -31,7 +31,7 @@ final class Taxonomy_Category {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -44,7 +44,7 @@ final class Taxonomy_Category {
 	/**
 	 * Return the taxonomy custom permalink base.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @return string
 	 */
@@ -61,7 +61,7 @@ final class Taxonomy_Category {
 	 * Register the taxonomy.
 	 *
 	 * @action init
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function register() {
 
@@ -98,7 +98,7 @@ final class Taxonomy_Category {
 		/**
 		 * Filter the category taxonomy args.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var array
 		 */

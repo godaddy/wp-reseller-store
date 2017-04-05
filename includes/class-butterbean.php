@@ -13,7 +13,7 @@ final class ButterBean {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -29,7 +29,7 @@ final class ButterBean {
 	 * Load ButterBean.
 	 *
 	 * @action plugins_loaded
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function load() {
 
@@ -47,7 +47,7 @@ final class ButterBean {
 	 * Register custom setting and control types.
 	 *
 	 * @action butterbean_register
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param ButterBean $butterbean
 	 * @param string     $post_type
@@ -81,7 +81,7 @@ final class ButterBean {
 	 * Register custom control templates.
 	 *
 	 * @filter butterbean_pre_control_template
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  string $path
 	 * @param  string $slug
@@ -114,7 +114,7 @@ final class ButterBean {
 	 * Register custom metabox and sections.
 	 *
 	 * @action butterbean_register
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param ButterBean $butterbean
 	 * @param string     $post_type
@@ -167,7 +167,7 @@ final class ButterBean {
 	/**
 	 * Register control and setting for List Price.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
@@ -195,7 +195,7 @@ final class ButterBean {
 	/**
 	 * Register control and setting for Sale Price.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
@@ -224,7 +224,7 @@ final class ButterBean {
 	/**
 	 * Register control and setting for Default Quantity.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
@@ -258,7 +258,7 @@ final class ButterBean {
 	/**
 	 * Register control and setting for Add to Cart Button Label.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
@@ -289,7 +289,7 @@ final class ButterBean {
 	/**
 	 * Register control and setting for Add to Cart Redirect.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section
@@ -318,7 +318,7 @@ final class ButterBean {
 	/**
 	 * Register control for Reset Product Data.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param ButterBean_Manager $manager
 	 * @param string             $section

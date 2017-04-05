@@ -13,7 +13,7 @@ final class Restrictions {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -29,7 +29,7 @@ final class Restrictions {
 	 * Enforce admin page restrictions by redirecting.
 	 *
 	 * @action init
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function redirects() {
 
@@ -79,7 +79,7 @@ final class Restrictions {
 	 * Remove `Add New` from the Reseller Product submenu.
 	 *
 	 * @action admin_menu
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function admin_submenu() {
 
@@ -100,7 +100,7 @@ final class Restrictions {
 	 * Remove the `Add Product` button from the Reseller Store edit screen.
 	 *
 	 * @action admin_head
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function add_product_button() {
 
@@ -123,7 +123,7 @@ final class Restrictions {
 	 *
 	 * @action wp_before_admin_bar_render
 	 * @global WP_Admin_Bar $wp_admin_bar
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function admin_bar_submenu() {
 
@@ -143,7 +143,7 @@ final class Restrictions {
 	 * Customize the edit screen when there are no products.
 	 *
 	 * @action manage_posts_extra_tablenav
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param string $which
 	 */

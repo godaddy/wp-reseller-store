@@ -13,7 +13,7 @@ trait Data {
 	/**
 	 * Data object.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var object|bool
 	 */
@@ -22,7 +22,7 @@ trait Data {
 	/**
 	 * Magic data getta.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $key
 	 *
@@ -43,7 +43,7 @@ trait Data {
 	/**
 	 * Magic data setta.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $key
 	 * @param  mixed  $value

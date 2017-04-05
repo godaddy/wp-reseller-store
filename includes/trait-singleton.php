@@ -13,7 +13,7 @@ trait Singleton {
 	/**
 	 * The plugin instance.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var Plugin
 	 */
@@ -22,7 +22,7 @@ trait Singleton {
 	/**
 	 * Return the plugin instance.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @return Plugin
 	 */
@@ -41,7 +41,7 @@ trait Singleton {
 	/**
 	 * Reset the plugin instance.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public static function reset() {
 

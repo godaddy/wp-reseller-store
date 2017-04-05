@@ -3,7 +3,7 @@
 /**
  * Display the price for a given product.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @param  int|WP_Post|null $post (optional)
  * @param  bool             $echo (optional)
@@ -63,7 +63,7 @@ function rstore_price( $post = null, $echo = true ) {
 /**
  * Display an `Add to cart` form for a given product.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @param  int|WP_Post|null $post (optional)
  * @param  bool             $echo (optional)
@@ -108,7 +108,7 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
 /**
  * Display an `Add to cart` button for a given product.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @param  int|WP_Post|null $post (optional)
  * @param  bool             $echo (optional)
@@ -146,7 +146,7 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
 /**
  * Display an `Add to cart` link for a given product.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @param  int|WP_Post|null $post (optional)
  * @param  bool             $echo (optional)

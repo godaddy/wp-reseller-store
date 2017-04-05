@@ -15,7 +15,7 @@ final class Post_Type {
 	/**
 	 * Post type slug.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var string
 	 */
@@ -24,7 +24,7 @@ final class Post_Type {
 	/**
 	 * Post type menu position.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var int
 	 */
@@ -33,7 +33,7 @@ final class Post_Type {
 	/**
 	 * Post type default permalink base.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var string
 	 */
@@ -42,7 +42,7 @@ final class Post_Type {
 	/**
 	 * Hold error object.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var WP_Error
 	 */
@@ -51,7 +51,7 @@ final class Post_Type {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -96,7 +96,7 @@ final class Post_Type {
 	/**
 	 * Return the post type custom permalink base.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @return string
 	 */
@@ -113,7 +113,7 @@ final class Post_Type {
 	 * Register the custom post type.
 	 *
 	 * @action init
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function register() {
 
@@ -163,7 +163,7 @@ final class Post_Type {
 		/**
 		 * Filter the post type args.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var array
 		 */
@@ -176,7 +176,7 @@ final class Post_Type {
 	/**
 	 * Process a product data reset in the admin.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @action admin_init
 	 */
@@ -226,7 +226,7 @@ final class Post_Type {
 	/**
 	 * Reset a product's data.
 	 *
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  int $post_id
 	 *
@@ -250,7 +250,7 @@ final class Post_Type {
 	 * Print styles for custom columns on the edit screen.
 	 *
 	 * @action admin_head
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function column_styles() {
 
@@ -309,7 +309,7 @@ final class Post_Type {
 	 * Add custom columns.
 	 *
 	 * @filter manage_{post_type}_posts_columns
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  array $columns
 	 *
@@ -346,7 +346,7 @@ final class Post_Type {
 	 * Display custom column content.
 	 *
 	 * @action manage_posts_custom_column
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param string $column
 	 * @param int    $post_id
@@ -378,7 +378,7 @@ final class Post_Type {
 	 * Mark an imported product as deleted.
 	 *
 	 * @action delete_post
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  int $post_id
 	 *
@@ -408,7 +408,7 @@ final class Post_Type {
 	 *
 	 * @filter posts_clauses
 	 * @global wpdb $wpdb
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  array    $clauses
 	 * @param  WP_Query $wp_query
@@ -440,7 +440,7 @@ final class Post_Type {
 	 * Customize the edit heading on the post screen.
 	 *
 	 * @filter post_type_labels_{post_type}
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  stdClass $labels
 	 *
@@ -470,7 +470,7 @@ final class Post_Type {
 	 *
 	 * @action the_content
 	 * @global WP_Post $post
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  string $content
 	 *

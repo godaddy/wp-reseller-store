@@ -13,7 +13,7 @@ trait Helpers {
 	/**
 	 * Return the plugin base directory path.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $path (optional)
 	 *
@@ -28,7 +28,7 @@ trait Helpers {
 	/**
 	 * Return the plugin assets URL.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $path (optional)
 	 *

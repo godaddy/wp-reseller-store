@@ -13,7 +13,7 @@ final class Cart extends \WP_Widget {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -31,7 +31,7 @@ final class Cart extends \WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param array $args
 	 * @param array $instance
@@ -41,7 +41,7 @@ final class Cart extends \WP_Widget {
 		/**
 		 * Filter classes to be appended to the Cart widget.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var array
 		 */
@@ -96,7 +96,7 @@ final class Cart extends \WP_Widget {
 	/**
 	 * Outputs the options form on admin.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param array $instance
 	 */
@@ -122,7 +122,7 @@ final class Cart extends \WP_Widget {
 	/**
 	 * Processing widget options on save.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  array $new_instance
 	 * @param  array $old_instance

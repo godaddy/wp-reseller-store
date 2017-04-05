@@ -15,7 +15,7 @@ final class Sync {
 	/**
 	 * The time to wait in between API syncs (in seconds).
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var int
 	 */
@@ -24,7 +24,7 @@ final class Sync {
 	/**
 	 * The time to wait in between API sync retries (in seconds).
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var int
 	 */
@@ -33,7 +33,7 @@ final class Sync {
 	/**
 	 * Array of product properties that should be synced.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var array
 	 */
@@ -49,7 +49,7 @@ final class Sync {
 		 *
 		 * Default: 15 min
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var int
 		 */
@@ -68,7 +68,7 @@ final class Sync {
 		 * normal TTL is lower than the retry TTL, the normal TTL will be used
 		 * between sync retries.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var int
 		 */
@@ -82,7 +82,7 @@ final class Sync {
 		 *
 		 * Default: content, listPrice, salePrice, term, title
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var array
 		 */
@@ -97,7 +97,7 @@ final class Sync {
 	 * Check if we are due for a sync.
 	 *
 	 * @action init
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function check() {
 
@@ -123,7 +123,7 @@ final class Sync {
 	/**
 	 * Sync product properties from the API to post meta.
 	 *
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @return bool
 	 */
