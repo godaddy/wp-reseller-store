@@ -15,6 +15,17 @@ TODO
 
 == Changelog ==
 
+= 0.2.0 - April 2017 =
+
+* New: Domain search shortcode
+* Tweak: Verify setup JS is enqueued
+* Fix: Stop using `INPUT_SERVER` as it is unreliable in FastCGI mode
+* Fix: Post meta not updating after sync
+* Fix: WordPress coding standards updates
+* Fix: Do admin referrer check on Permalinks save
+
+Props [@fjarrett](https://github.com/fjarrett), [@bfocht](https://github.com/bfocht), [@evanherman](https://github.com/EvanHerman)
+
 = 0.1.0 - January 2017 =
 
 * Initial release
