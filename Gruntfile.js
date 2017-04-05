@@ -53,8 +53,8 @@ module.exports = function( grunt ) {
 
 		cssmin: {
 			options: {
-				processImport: false,
-				roundingPrecision: -1,
+				inline: [ 'none' ],
+				roundingPrecision: 5,
 				shorthandCompacting: false
 			},
 			all: {
