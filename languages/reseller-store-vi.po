@@ -4,17 +4,16 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:245
 msgid "An unknown error has occurred."
@@ -66,8 +65,8 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"Cần bắt đầu lại? Bạn có thể phục hồi tiêu đề sản phẩm gốc, nội dung, hình "
-"ảnh nổi bật và phân giao hạng mục. Lưu ý: Tùy chỉnh của bạn sẽ bị mất."
+"Cần bắt đầu lại? Bạn có thể phục hồi tiêu đề sản phẩm gốc, nội dung, hình ảnh "
+"nổi bật và phân giao hạng mục. Lưu ý: Tùy chỉnh của bạn sẽ bị mất."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -227,9 +226,7 @@ msgstr "Tạo tài khoản"
 
 #: includes/class-setup.php:173
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"Cần hỗ trợ? Hãy gọi cho nhóm hỗ trợ uy tín của chúng tôi theo số (480) "
-"505-8877."
+msgstr "Cần hỗ trợ? Hãy gọi cho nhóm hỗ trợ uy tín của chúng tôi theo số (480) 505-8877."
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -389,9 +386,7 @@ msgstr "Cửa hàng đại lý của GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr ""
-"Bán lại dịch vụ lưu trữ, miền và nhiều hơn nữa, ngay từ trang WordPress của "
-"bạn."
+msgstr "Bán lại dịch vụ lưu trữ, miền và nhiều hơn nữa, ngay từ trang WordPress của bạn."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -419,9 +414,7 @@ msgstr "`%s` đã tồn tại."
 #: includes/class-import.php:100
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr ""
-"`%s` phải được nhập dưới dạng bài đăng sản phẩm trước khi nó có thể được cài "
-"đặt lại."
+msgstr "`%s` phải được nhập dưới dạng bài đăng sản phẩm trước khi nó có thể được cài đặt lại."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
