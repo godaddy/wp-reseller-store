@@ -1,9 +1,9 @@
 /* Product Post */
 .rstore-add-to-cart-form input[type="number"].rstore-quantity {
 	display: inline-block;
-	width: 4em;
 	margin-right: 10px;
 	padding: 0.5278em;
+	width: 4em;
 }
 
 .rstore-message {
@@ -35,9 +35,9 @@
 
 .rstore-loading {
 	display: inline-block;
+	vertical-align: middle;
 	width: 28px;
 	height: 28px;
-	vertical-align: middle;
 	background-image: url('../images/loading.svg');
 	background-size: 28px 28px;
 	background-repeat: no-repeat;
@@ -70,22 +70,22 @@
 
 /* Domain search widget */
 .rstore-domain-search .input-group {
-	position: relative;
 	display: table;
+	position: relative;
 	border-collapse: separate;
 }
 
 .rstore-domain-search .input-group .form-control {
-	width: 100%;
 	margin-bottom: 0;
+	width: 100%;
 }
 
 .rstore-domain-search .input-group-btn {
 	display: table-cell;
+	position: relative;
+	vertical-align: middle;
 	width: 1%;
 	white-space: nowrap;
-	vertical-align: middle;
-	position: relative;
 }
 
 .rstore-domain-search .input-group .form-control:first-child,
@@ -102,13 +102,13 @@
 
 .rstore-domain-search .form-control {
 	display: block;
+	padding: 6px 12px;
+	vertical-align: middle;
 	width: 100%;
 	height: 40px;
-	padding: 6px 12px;
 	font-size: 14px;
 	line-height: 1.42857;
 	color: #555;
-	vertical-align: middle;
 	background-color: #fff;
 	background-image: none;
 	border: 1px solid #ccc;
@@ -144,10 +144,10 @@
 }
 
 .rstore-domain-search .container {
-	padding-right: 15px;
-	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 .rstore-domain-search body.single-reseller_product .entry-meta {
@@ -160,12 +160,12 @@
 }
 
 .rstore-domain-search .domain-result {
-	border: 1px solid #e8e8e8;
 	float: left;
-	min-width: 290px;
-	padding: 15px 20px 5px 15px;
 	vertical-align: middle;
+	padding: 15px 20px 5px 15px;
 	width: 100%;
+	min-width: 290px;
+	border: 1px solid #e8e8e8;
 }
 
 .rstore-domain-search .rstore-exact-domain-list .domain-result {
@@ -177,8 +177,8 @@
 	display: inline-block;
 	vertical-align: middle;
 	vertical-align: -webkit-baseline-middle;
-	word-break: break-word;
 	padding: 10px 0;
+	word-break: break-word;
 }
 
 .rstore-domain-search .purchase-info {
@@ -188,9 +188,9 @@
 
 .rstore-domain-search .pricing {
 	display: inline-block;
+	vertical-align: middle;
 	margin-left: 10px;
 	text-align: right;
-	vertical-align: middle;
 }
 
 .rstore-domain-search .listPrice {
