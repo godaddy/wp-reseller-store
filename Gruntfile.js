@@ -257,8 +257,8 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'build',      [ 'default', 'clean:build', 'copy:build' ] );
 	grunt.registerTask( 'deploy',     [ 'build', 'wp_deploy', 'clean:build' ] );
 	grunt.registerTask( 'readme',     [ 'wp_readme_to_markdown' ] );
-	grunt.registerTask( 'update-pot', [ 'makepot' ] );
 	grunt.registerTask( 'update-mo',  [ 'potomo' ] );
+	grunt.registerTask( 'update-pot', [ 'makepot' ] );
 	grunt.registerTask( 'version',    [ 'replace', 'readme' ] );
 
 };
