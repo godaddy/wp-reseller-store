@@ -13,7 +13,7 @@ final class Permalinks {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -32,7 +32,7 @@ final class Permalinks {
 	 * Register custom section and settings for permalinks.
 	 *
 	 * @action current_screen
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function init() {
 
@@ -82,7 +82,7 @@ final class Permalinks {
 	/**
 	 * Display custom settings section.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function section() {
 
@@ -146,7 +146,7 @@ final class Permalinks {
 	/**
 	 * Save custom permalink settings.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	private function save() {
 
@@ -204,7 +204,7 @@ final class Permalinks {
 	 * Enqueue admin scripts.
 	 *
 	 * @action admin_enqueue_scripts
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function admin_enqueue_scripts() {
 

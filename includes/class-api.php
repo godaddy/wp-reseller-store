@@ -15,7 +15,7 @@ final class API {
 	/**
 	 * Top-level domain for URLs.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var string
 	 */
@@ -24,7 +24,7 @@ final class API {
 	/**
 	 * Maximum number of retries for API requests.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var int
 	 */
@@ -33,7 +33,7 @@ final class API {
 	/**
 	 * Array of URLs.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var array
 	 */
@@ -42,14 +42,14 @@ final class API {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
 		/**
 		 * Filter the base TLD.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var string
 		 */
@@ -58,7 +58,7 @@ final class API {
 		/**
 		 *
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var int
 		 */
@@ -73,7 +73,7 @@ final class API {
 	/**
 	 * Add required query args to a given URL.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $url
 	 * @param  bool   $add_pl_id (optional)
@@ -101,7 +101,7 @@ final class API {
 	/**
 	 * Return the market ID for a given locale.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $locale (optional)
 	 *
@@ -148,7 +148,7 @@ final class API {
 		/**
 		 * Filter the market ID used in API requests.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var string
 		 */
@@ -161,7 +161,7 @@ final class API {
 	/**
 	 * Return an API endpoint URL.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $endpoint (optional)
 	 *
@@ -188,7 +188,7 @@ final class API {
 	/**
 	 * Make an API request.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $method
 	 * @param  string $endpoint
@@ -211,7 +211,7 @@ final class API {
 		/**
 		 * Filter the default API request args.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var array
 		 */
@@ -252,7 +252,7 @@ final class API {
 	/**
 	 * Make a GET request to the API.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $endpoint
 	 * @param  array  $args     (optional)
@@ -280,7 +280,7 @@ final class API {
 	/**
 	 * Make a POST request to the API.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $endpoint
 	 * @param  array  $args     (optional)
@@ -296,7 +296,7 @@ final class API {
 	/**
 	 * Make a DELETE request to the API.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $endpoint
 	 * @param  array  $args     (optional)
