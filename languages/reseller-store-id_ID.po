@@ -3,19 +3,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
-#: includes/class-api.php:245
+#: includes/class-api.php:246
 msgid "An unknown error has occurred."
 msgstr "Terjadi kesalahan yang tidak diketahui."
 
@@ -31,7 +32,7 @@ msgstr "Umum"
 msgid "Advanced"
 msgstr "Lebih Lanjut"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:317
+#: includes/class-butterbean.php:182 includes/class-post-type.php:336
 msgid "Price"
 msgstr "Harga"
 
@@ -47,7 +48,8 @@ msgstr "Jumlah Default"
 msgid "Add to Cart Button Label"
 msgstr "Label Tombol Tambahkan ke Keranjang"
 
-#: includes/class-butterbean.php:275 includes/functions/helper-functions.php:64
+#: includes/class-butterbean.php:275 includes/class-display.php:83
+#: includes/functions/helper-functions.php:64
 msgid "Add to cart"
 msgstr "Masukkan ke keranjang"
 
@@ -72,184 +74,242 @@ msgstr ""
 msgid "Reset Data"
 msgstr "Reset Data"
 
-#: includes/class-display.php:64
+#: includes/class-display.php:84
+msgid "Congrats, your domain is available!"
+msgstr ""
+
+#: includes/class-display.php:85
+msgid "Sorry that domain is taken"
+msgstr ""
+
+#: includes/class-display.php:86
+#, fuzzy
+msgid "Find your perfect domain name"
+msgstr "Temukan nama sempurna untuk Anda"
+
+#: includes/class-display.php:87
 msgid "View cart"
 msgstr "Lihat keranjang"
 
-#: includes/class-display.php:65
-msgid "An unknown error has occurred"
+#: includes/class-display.php:88
+#, fuzzy
+msgid "An error has occurred"
 msgstr "Terjadi kesalahan yang tidak dikenal"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "tidak dikenal"
 
+#. translators: product name
+#: includes/class-import.php:68
+#, fuzzy
+msgid "`%s` is not a valid product."
+msgstr "`%s` bukan produk yang valid."
+
+#. translators: product name
+#: includes/class-import.php:81
+#, fuzzy
+msgid "`%s` already exists."
+msgstr "`%s` sudah ada."
+
+#. translators: product name
+#: includes/class-import.php:103
+#, fuzzy
+msgid "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` harus diimpor sebagai postingan produk agar bisa direset."
+
+#. translators: post type name
+#: includes/class-import.php:116
+#, fuzzy
+msgid "`%s` is not a valid post type for products."
+msgstr "`%s` bukan jenis postingan yang valid untuk produk."
+
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
 msgstr "Basis kategori reseller"
 
-#: includes/class-permalinks.php:58
+#: includes/class-permalinks.php:57
 msgid "Reseller tag base"
 msgstr "Basis tag reseller"
 
-#: includes/class-permalinks.php:75
+#: includes/class-permalinks.php:73
 msgid "Reseller Product Permalinks"
 msgstr "Permalink Produk Reseller"
 
-#: includes/class-permalinks.php:93
+#: includes/class-permalinks.php:91
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 msgstr ""
-"Pengaturan ini mengontrol permalink yang digunakan khusus untuk produk Toko Reseller."
+"Pengaturan ini mengontrol permalink yang digunakan khusus untuk produk Toko "
+"Reseller."
 
-#: includes/class-permalinks.php:123
+#: includes/class-permalinks.php:121
 msgid "Default"
 msgstr "Default"
 
-#: includes/class-permalinks.php:135
+#: includes/class-permalinks.php:133
 msgid "Custom base"
 msgstr "Basis kustom"
 
-#: includes/class-post-type.php:108
+#: includes/class-post-type.php:126
 msgid "Add New Products"
 msgstr "Tambah Produk Baru"
 
-#: includes/class-post-type.php:109
+#: includes/class-post-type.php:127
 msgid "Edit Product"
 msgstr "Ubah Produk"
 
-#: includes/class-post-type.php:110
+#: includes/class-post-type.php:128
 msgid "New Product"
 msgstr "Produk Baru"
 
-#: includes/class-post-type.php:111
+#: includes/class-post-type.php:129
 msgid "View Product"
 msgstr "Lihat Produk"
 
-#: includes/class-post-type.php:112
+#: includes/class-post-type.php:130
 msgid "View Products"
 msgstr "Lihat Produk"
 
-#: includes/class-post-type.php:113
+#: includes/class-post-type.php:131
 msgid "Search Products"
 msgstr "Cari Produk"
 
-#: includes/class-post-type.php:114
+#: includes/class-post-type.php:132
 msgid "No products found."
 msgstr "Tidak ditemukan produk."
 
-#: includes/class-post-type.php:115
+#: includes/class-post-type.php:133
 msgid "No products found in Trash."
 msgstr "Tidak ditemukan produk di Tempat sampah."
 
-#: includes/class-post-type.php:116
+#: includes/class-post-type.php:134
 msgid "Parent Products:"
 msgstr "Produk Induk:"
 
-#: includes/class-post-type.php:117
+#: includes/class-post-type.php:135
 msgid "All Products"
 msgstr "Semua Produk"
 
-#: includes/class-post-type.php:118
+#: includes/class-post-type.php:136
 msgid "Product Archives"
 msgstr "Arsip Produk"
 
-#: includes/class-post-type.php:119
+#: includes/class-post-type.php:137
 msgid "Insert into product"
 msgstr "Sisipkan ke dalam produk"
 
-#: includes/class-post-type.php:120
+#: includes/class-post-type.php:138
 msgid "Uploaded to this product"
 msgstr "Diunggah ke produk ini"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:308
+#: includes/class-post-type.php:139 includes/class-post-type.php:326
 msgid "Product Image"
 msgstr "Gambar Produk"
 
-#: includes/class-post-type.php:122
+#: includes/class-post-type.php:140
 msgid "Set product image"
 msgstr "Atur gambar produk"
 
-#: includes/class-post-type.php:123
+#: includes/class-post-type.php:141
 msgid "Remove product image"
 msgstr "Hapus gambar produk"
 
-#: includes/class-post-type.php:124
+#: includes/class-post-type.php:142
 msgid "Use as featured image"
 msgstr "Gunakan sebagai gambar unggulan"
 
-#: includes/class-post-type.php:129
+#: includes/class-post-type.php:147
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Di sinilah Anda bisa menambahkan produk baru ke Toko Reseller Anda."
 
-#: includes/class-restrictions.php:173
+#. translators: product title
+#: includes/class-post-type.php:462
+#, fuzzy
+msgid "Edit: %s"
+msgstr "Edit: %s"
+
+#: includes/class-restrictions.php:172
 msgid "No products have been added yet."
 msgstr "Belum ada produk yang ditambahkan."
 
-#: includes/class-restrictions.php:174
+#: includes/class-restrictions.php:173
 msgid "Import All Products"
 msgstr "Impor Semua Produk"
 
-#: includes/class-setup.php:84
+#: includes/class-setup.php:86
 msgid "Reseller Store Setup"
 msgstr "Penyiapan Toko Reseller"
 
-#: includes/class-setup.php:85
+#: includes/class-setup.php:87
 msgid "Reseller Store"
 msgstr "Toko Reseller"
 
-#: includes/class-setup.php:157
+#: includes/class-setup.php:164
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr "Mari siapkan Toko Reseller GoDaddy Anda."
 
-#: includes/class-setup.php:161
+#: includes/class-setup.php:168
 msgid "Enter your Private Label ID to get started."
 msgstr "Masukkan ID Label Pribadi Anda untuk memulai."
 
-#: includes/class-setup.php:164
+#: includes/class-setup.php:171
 msgid "Enter your Private Label ID:"
 msgstr "Masukkan ID Label Pribadi Anda:"
 
-#: includes/class-setup.php:166
+#: includes/class-setup.php:173
 msgid "Install Now"
 msgstr "Pasang sekarang"
 
-#: includes/class-setup.php:170
+#: includes/class-setup.php:177
 msgid "Don't have an account?"
 msgstr "Tidak memiliki akun?"
 
-#: includes/class-setup.php:170
+#: includes/class-setup.php:177
 msgid "Create an account"
 msgstr "Buat akun"
 
-#: includes/class-setup.php:173
+#: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Perlu bantuan? Hubungi tim dukungan peraih penghargaan kami di (480) 505-8877."
+msgstr ""
+"Perlu bantuan? Hubungi tim dukungan peraih penghargaan kami di (480) "
+"505-8877."
 
-#: includes/class-setup.php:202
+#. translators: name of missing script
+#: includes/class-setup.php:205
+msgid "Error: Missing required script for setup %s"
+msgstr ""
+
+#: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "Maaf, Anda tidak diizinkan untuk menginstal plugin di situs ini."
 
-#: includes/class-setup.php:213
+#: includes/class-setup.php:244
 msgid "Sorry, you are not allowed to do that."
 msgstr "Maaf, Anda tidak diizinkan untuk melakukannya."
 
-#: includes/class-setup.php:228
+#: includes/class-setup.php:259
 msgid "Private Label ID is invalid."
 msgstr "ID Label Pribadi tidak valid."
 
-#: includes/class-setup.php:249
+#: includes/class-setup.php:280
 msgid "There are no products available, please try again later."
 msgstr "Tidak ada produk yang tersedia. Coba lagi nanti."
 
-#: includes/class-setup.php:280
+#: includes/class-setup.php:311
 msgid "Product data could not be imported, please try again later."
 msgstr "Data produk tidak dapat diimpor. Coba lagi nanti."
 
-#: includes/class-setup.php:316
+#: includes/class-setup.php:347
 msgid "An unknown error occurred."
 msgstr "Terjadi kesalahan yang tidak dikenal."
+
+#. translators: error message
+#: includes/class-setup.php:361
+#, fuzzy
+msgid "Error: %s"
+msgstr "Kesalahan: %s"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -324,6 +384,12 @@ msgstr "Nama Tag Baru"
 msgid "Tags"
 msgstr "Tag"
 
+#. translators: product name
+#: includes/functions/product-functions.php:134
+#, fuzzy
+msgid "Error: `%s` does not exist."
+msgstr "Kesalahan: `%s` tidak ada."
+
 #: includes/widgets/class-cart.php:22
 msgid "Reseller Cart"
 msgstr "Keranjang Reseller"
@@ -332,16 +398,22 @@ msgstr "Keranjang Reseller"
 msgid "Display the user's cart in the sidebar."
 msgstr "Tampilkan keranjang pengguna di bilah samping."
 
-#: includes/widgets/class-cart.php:102
+#. translators: number of items in cart
+#: includes/widgets/class-cart.php:86
+#, fuzzy
+msgid "View Cart %s"
+msgstr "Lihat Keranjang %s"
+
+#: includes/widgets/class-cart.php:105
 msgid "Cart"
 msgstr "Keranjang"
 
-#: includes/widgets/class-cart.php:107
+#: includes/widgets/class-cart.php:110
 #: includes/widgets/class-domain-search.php:112
 msgid "Title:"
 msgstr "Judul:"
 
-#: includes/widgets/class-cart.php:113
+#: includes/widgets/class-cart.php:116
 msgid "Hide if cart is empty"
 msgstr "Sembunyikan bila keranjang kosong"
 
@@ -385,7 +457,9 @@ msgstr "Toko Reseller GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Jual kembali hosting, domain, dan banyak lagi lainnya dari situs WordPress Anda."
+msgstr ""
+"Jual kembali hosting, domain, dan banyak lagi lainnya dari situs WordPress "
+"Anda."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -400,32 +474,7 @@ msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr "T/A"
 
-#: includes/class-import.php:67
-msgctxt "product name"
-msgid "`%s` is not a valid product."
-msgstr "`%s` bukan produk yang valid."
-
-#: includes/class-import.php:79
-msgctxt "product name"
-msgid "`%s` already exists."
-msgstr "`%s` sudah ada."
-
-#: includes/class-import.php:100
-msgctxt "product name"
-msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` harus diimpor sebagai postingan produk agar bisa direset."
-
-#: includes/functions/product-functions.php:131
-msgctxt "product name"
-msgid "Error: `%s` does not exist."
-msgstr "Kesalahan: `%s` tidak ada."
-
-#: includes/class-import.php:110
-msgctxt "post type name"
-msgid "`%s` is not a valid post type for products."
-msgstr "`%s` bukan jenis postingan yang valid untuk produk."
-
-#: includes/class-permalinks.php:100
+#: includes/class-permalinks.php:98
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "produk sampel"
@@ -445,40 +494,30 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "tag-produk"
 
-#: includes/class-post-type.php:103
+#: includes/class-post-type.php:121
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Produk"
 
-#: includes/class-post-type.php:104
+#: includes/class-post-type.php:122
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Produk"
 
-#: includes/class-post-type.php:105
+#: includes/class-post-type.php:123
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Toko Reseller"
 
-#: includes/class-post-type.php:106
+#: includes/class-post-type.php:124
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Produk Reseller"
 
-#: includes/class-post-type.php:107
+#: includes/class-post-type.php:125
 msgctxt "product"
 msgid "Add New"
 msgstr "Tambahkan Baru"
-
-#: includes/class-post-type.php:441
-msgctxt "product title"
-msgid "Edit: %s"
-msgstr "Edit: %s"
-
-#: includes/class-setup.php:329
-msgctxt "error message"
-msgid "Error: %s"
-msgstr "Kesalahan: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -500,12 +539,9 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Tag"
 
-#: includes/functions/template-functions.php:43
-msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
+#: includes/functions/template-functions.php:44
+#, fuzzy
+msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / per %2$s"
-
-#: includes/widgets/class-cart.php:84
-msgctxt "number of items in cart"
-msgid "View Cart %s"
-msgstr "Lihat Keranjang %s"

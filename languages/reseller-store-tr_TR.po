@@ -3,19 +3,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
-#: includes/class-api.php:245
+#: includes/class-api.php:246
 msgid "An unknown error has occurred."
 msgstr "Bilinmeyen bir hata oluştu."
 
@@ -31,7 +32,7 @@ msgstr "Genel"
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:317
+#: includes/class-butterbean.php:182 includes/class-post-type.php:336
 msgid "Price"
 msgstr "Fiyat"
 
@@ -47,7 +48,8 @@ msgstr "Varsayılan Nicelik"
 msgid "Add to Cart Button Label"
 msgstr "Sepete Ekle Düğmesi Etiketi"
 
-#: includes/class-butterbean.php:275 includes/functions/helper-functions.php:64
+#: includes/class-butterbean.php:275 includes/class-display.php:83
+#: includes/functions/helper-functions.php:64
 msgid "Add to cart"
 msgstr "Sepete Ekle"
 
@@ -73,31 +75,69 @@ msgstr ""
 msgid "Reset Data"
 msgstr "Verileri Sıfırla"
 
-#: includes/class-display.php:64
+#: includes/class-display.php:84
+msgid "Congrats, your domain is available!"
+msgstr ""
+
+#: includes/class-display.php:85
+msgid "Sorry that domain is taken"
+msgstr ""
+
+#: includes/class-display.php:86
+#, fuzzy
+msgid "Find your perfect domain name"
+msgstr "İdeal alan adınızı bulun"
+
+#: includes/class-display.php:87
 msgid "View cart"
 msgstr "Sepeti görüntüle"
 
-#: includes/class-display.php:65
-msgid "An unknown error has occurred"
+#: includes/class-display.php:88
+#, fuzzy
+msgid "An error has occurred"
 msgstr "Bilinmeyen bir hata oluştu"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "bilinmiyor"
 
+#. translators: product name
+#: includes/class-import.php:68
+#, fuzzy
+msgid "`%s` is not a valid product."
+msgstr "`%s` geçerli bir ürün değil."
+
+#. translators: product name
+#: includes/class-import.php:81
+#, fuzzy
+msgid "`%s` already exists."
+msgstr "`%s` zaten var."
+
+#. translators: product name
+#: includes/class-import.php:103
+#, fuzzy
+msgid "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` sıfırlanmadan önce ürün olarak içe aktarılmalıdır."
+
+#. translators: post type name
+#: includes/class-import.php:116
+#, fuzzy
+msgid "`%s` is not a valid post type for products."
+msgstr "`%s` ürünler için geçerli bir gönderi türü değil."
+
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
 msgstr "Bayi kategori tabanı"
 
-#: includes/class-permalinks.php:58
+#: includes/class-permalinks.php:57
 msgid "Reseller tag base"
 msgstr "Bayi etiket tabanı"
 
-#: includes/class-permalinks.php:75
+#: includes/class-permalinks.php:73
 msgid "Reseller Product Permalinks"
 msgstr "Bayi Ürünü Kalıcı Bağlantıları"
 
-#: includes/class-permalinks.php:93
+#: includes/class-permalinks.php:91
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
@@ -105,153 +145,172 @@ msgstr ""
 "Bu ayarlar, Bayi Mağaza ürünleri için özel olarak kullanılan kalıcı "
 "bağlantıları kontrol eder."
 
-#: includes/class-permalinks.php:123
+#: includes/class-permalinks.php:121
 msgid "Default"
 msgstr "Varsayılan"
 
-#: includes/class-permalinks.php:135
+#: includes/class-permalinks.php:133
 msgid "Custom base"
 msgstr "Özelleştirilmiş taban"
 
-#: includes/class-post-type.php:108
+#: includes/class-post-type.php:126
 msgid "Add New Products"
 msgstr "Yeni Ürün Ekleyin"
 
-#: includes/class-post-type.php:109
+#: includes/class-post-type.php:127
 msgid "Edit Product"
 msgstr "Ürün Düzenle"
 
-#: includes/class-post-type.php:110
+#: includes/class-post-type.php:128
 msgid "New Product"
 msgstr "Yeni Ürün"
 
-#: includes/class-post-type.php:111
+#: includes/class-post-type.php:129
 msgid "View Product"
 msgstr "Ürünü Görüntüle"
 
-#: includes/class-post-type.php:112
+#: includes/class-post-type.php:130
 msgid "View Products"
 msgstr "Ürünleri Görüntüle"
 
-#: includes/class-post-type.php:113
+#: includes/class-post-type.php:131
 msgid "Search Products"
 msgstr "Ürünleri Ara"
 
-#: includes/class-post-type.php:114
+#: includes/class-post-type.php:132
 msgid "No products found."
 msgstr "Ürün bulunamadı."
 
-#: includes/class-post-type.php:115
+#: includes/class-post-type.php:133
 msgid "No products found in Trash."
 msgstr "Çöpte ürün bulunamadı."
 
-#: includes/class-post-type.php:116
+#: includes/class-post-type.php:134
 msgid "Parent Products:"
 msgstr "Ana Ürünler:"
 
-#: includes/class-post-type.php:117
+#: includes/class-post-type.php:135
 msgid "All Products"
 msgstr "Tüm Ürünler"
 
-#: includes/class-post-type.php:118
+#: includes/class-post-type.php:136
 msgid "Product Archives"
 msgstr "Ürün Arşivleri"
 
-#: includes/class-post-type.php:119
+#: includes/class-post-type.php:137
 msgid "Insert into product"
 msgstr "Ürüne yerleştir"
 
-#: includes/class-post-type.php:120
+#: includes/class-post-type.php:138
 msgid "Uploaded to this product"
 msgstr "Bu ürüne yüklendi"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:308
+#: includes/class-post-type.php:139 includes/class-post-type.php:326
 msgid "Product Image"
 msgstr "Ürün Resmi"
 
-#: includes/class-post-type.php:122
+#: includes/class-post-type.php:140
 msgid "Set product image"
 msgstr "Ürün resmini ayarla"
 
-#: includes/class-post-type.php:123
+#: includes/class-post-type.php:141
 msgid "Remove product image"
 msgstr "Ürün resmini kaldır"
 
-#: includes/class-post-type.php:124
+#: includes/class-post-type.php:142
 msgid "Use as featured image"
 msgstr "Öne çıkan görsel olarak kullan"
 
-#: includes/class-post-type.php:129
+#: includes/class-post-type.php:147
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Burada yeni ürünlerinizi Bayi Mağazanıza ekleyebilirsiniz."
 
-#: includes/class-restrictions.php:173
+#. translators: product title
+#: includes/class-post-type.php:462
+#, fuzzy
+msgid "Edit: %s"
+msgstr "Düzenle: %s"
+
+#: includes/class-restrictions.php:172
 msgid "No products have been added yet."
 msgstr "Henüz ürün eklenmedi."
 
-#: includes/class-restrictions.php:174
+#: includes/class-restrictions.php:173
 msgid "Import All Products"
 msgstr "Tüm Ürünlere İçe Aktar"
 
-#: includes/class-setup.php:84
+#: includes/class-setup.php:86
 msgid "Reseller Store Setup"
 msgstr "Bayi Mağaza Kurulumu"
 
-#: includes/class-setup.php:85
+#: includes/class-setup.php:87
 msgid "Reseller Store"
 msgstr "Bayi Mağazası"
 
-#: includes/class-setup.php:157
+#: includes/class-setup.php:164
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr "GoDaddy Bayi Mağazanızı kuralım."
 
-#: includes/class-setup.php:161
+#: includes/class-setup.php:168
 msgid "Enter your Private Label ID to get started."
 msgstr "Başlamak için Özel Etiket Numaranızı girin."
 
-#: includes/class-setup.php:164
+#: includes/class-setup.php:171
 msgid "Enter your Private Label ID:"
 msgstr "Özel Etiket Numaranızı girin:"
 
-#: includes/class-setup.php:166
+#: includes/class-setup.php:173
 msgid "Install Now"
 msgstr "Şimdi Yükle"
 
-#: includes/class-setup.php:170
+#: includes/class-setup.php:177
 msgid "Don't have an account?"
 msgstr "Bir hesabınız yok mu?"
 
-#: includes/class-setup.php:170
+#: includes/class-setup.php:177
 msgid "Create an account"
 msgstr "Hesap oluşturun"
 
-#: includes/class-setup.php:173
+#: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Yardıma mı ihtiyacınız var? (480) 505-8877 numaralı telefondan ödül kazanmış müşteri hizmetlerimize ulaşın."
+msgstr ""
+"Yardıma mı ihtiyacınız var? (480) 505-8877 numaralı telefondan ödül kazanmış "
+"müşteri hizmetlerimize ulaşın."
 
-#: includes/class-setup.php:202
+#. translators: name of missing script
+#: includes/class-setup.php:205
+msgid "Error: Missing required script for setup %s"
+msgstr ""
+
+#: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "Üzgünüz, bu siteye eklenti yükleyemezsiniz."
 
-#: includes/class-setup.php:213
+#: includes/class-setup.php:244
 msgid "Sorry, you are not allowed to do that."
 msgstr "Üzgünüz, bu işlem için izniniz yok."
 
-#: includes/class-setup.php:228
+#: includes/class-setup.php:259
 msgid "Private Label ID is invalid."
 msgstr "Özel Etiket Numarası geçersiz."
 
-#: includes/class-setup.php:249
+#: includes/class-setup.php:280
 msgid "There are no products available, please try again later."
 msgstr "Mevcut bir ürün yok; lütfen daha sonra tekrar deneyin."
 
-#: includes/class-setup.php:280
+#: includes/class-setup.php:311
 msgid "Product data could not be imported, please try again later."
 msgstr "Ürün verileri içe aktarılamadı, lütfen daha sonra tekrar deneyin."
 
-#: includes/class-setup.php:316
+#: includes/class-setup.php:347
 msgid "An unknown error occurred."
 msgstr "Bilinmeyen bir hata oluştu."
+
+#. translators: error message
+#: includes/class-setup.php:361
+#, fuzzy
+msgid "Error: %s"
+msgstr "Hata: %s"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -326,6 +385,12 @@ msgstr "Yeni Etiket Adı"
 msgid "Tags"
 msgstr "Etiketler"
 
+#. translators: product name
+#: includes/functions/product-functions.php:134
+#, fuzzy
+msgid "Error: `%s` does not exist."
+msgstr "Hata: `%s` mevcut değil."
+
 #: includes/widgets/class-cart.php:22
 msgid "Reseller Cart"
 msgstr "Bayi Sepeti"
@@ -334,16 +399,22 @@ msgstr "Bayi Sepeti"
 msgid "Display the user's cart in the sidebar."
 msgstr "Kullanıcının sepetini yan çubukta görüntüle."
 
-#: includes/widgets/class-cart.php:102
+#. translators: number of items in cart
+#: includes/widgets/class-cart.php:86
+#, fuzzy
+msgid "View Cart %s"
+msgstr "%s Sepetini Görüntüle"
+
+#: includes/widgets/class-cart.php:105
 msgid "Cart"
 msgstr "Sepet"
 
-#: includes/widgets/class-cart.php:107
+#: includes/widgets/class-cart.php:110
 #: includes/widgets/class-domain-search.php:112
 msgid "Title:"
 msgstr "Başlık:"
 
-#: includes/widgets/class-cart.php:113
+#: includes/widgets/class-cart.php:116
 msgid "Hide if cart is empty"
 msgstr "Sepet boş ise sakla"
 
@@ -387,7 +458,9 @@ msgstr "GoDaddy Bayi Mağazası"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Doğrudan WordPress siteniz üzerinden hosting, alan adı ve daha birçok ürünün yeniden satışını yapın."
+msgstr ""
+"Doğrudan WordPress siteniz üzerinden hosting, alan adı ve daha birçok ürünün "
+"yeniden satışını yapın."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -402,32 +475,7 @@ msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr "Yok"
 
-#: includes/class-import.php:67
-msgctxt "product name"
-msgid "`%s` is not a valid product."
-msgstr "`%s` geçerli bir ürün değil."
-
-#: includes/class-import.php:79
-msgctxt "product name"
-msgid "`%s` already exists."
-msgstr "`%s` zaten var."
-
-#: includes/class-import.php:100
-msgctxt "product name"
-msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "`%s` sıfırlanmadan önce ürün olarak içe aktarılmalıdır."
-
-#: includes/functions/product-functions.php:131
-msgctxt "product name"
-msgid "Error: `%s` does not exist."
-msgstr "Hata: `%s` mevcut değil."
-
-#: includes/class-import.php:110
-msgctxt "post type name"
-msgid "`%s` is not a valid post type for products."
-msgstr "`%s` ürünler için geçerli bir gönderi türü değil."
-
-#: includes/class-permalinks.php:100
+#: includes/class-permalinks.php:98
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "örnek-ürün"
@@ -447,40 +495,30 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "urun-etiketi"
 
-#: includes/class-post-type.php:103
+#: includes/class-post-type.php:121
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Ürünler"
 
-#: includes/class-post-type.php:104
+#: includes/class-post-type.php:122
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Ürün"
 
-#: includes/class-post-type.php:105
+#: includes/class-post-type.php:123
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Bayi Mağazası"
 
-#: includes/class-post-type.php:106
+#: includes/class-post-type.php:124
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Bayi Ürünü"
 
-#: includes/class-post-type.php:107
+#: includes/class-post-type.php:125
 msgctxt "product"
 msgid "Add New"
 msgstr "Yeni ekle"
-
-#: includes/class-post-type.php:441
-msgctxt "product title"
-msgid "Edit: %s"
-msgstr "Düzenle: %s"
-
-#: includes/class-setup.php:329
-msgctxt "error message"
-msgid "Error: %s"
-msgstr "Hata: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -502,12 +540,9 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Etiket"
 
-#: includes/functions/template-functions.php:43
-msgctxt "1. price, 2. subscription term - e.g. $10 / per month"
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
+#: includes/functions/template-functions.php:44
+#, fuzzy
+msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%2$s başına %1$s"
-
-#: includes/widgets/class-cart.php:84
-msgctxt "number of items in cart"
-msgid "View Cart %s"
-msgstr "%s Sepetini Görüntüle"
