@@ -40,7 +40,8 @@ function rstore_price( $post = null, $echo = true ) {
 	if ( $term = rstore_get_product_meta( $post->ID, 'term' ) ) {
 
 		$output = sprintf(
-			esc_html_x( '%1$s / per %2$s', '1. price, 2. subscription term - e.g. $10 / per month', 'reseller-store' ),
+			/* translators: 1. price, 2. subscription term - e.g. $10 / per month */
+			esc_html_x( '%1$s / per %2$s', 'product price', 'reseller-store' ),
 			$output,
 			$term // xss ok
 		);
@@ -71,7 +72,7 @@ function rstore_price( $post = null, $echo = true ) {
  */
 function rstore_add_to_cart_form( $post = null, $echo = true ) {
 
-	extract( rstore_get_add_to_cart_vars( $post ) );
+	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
 	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 
@@ -87,7 +88,7 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
 	<form class="rstore-add-to-cart-form">
 		<input type="hidden" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
 		<input type="submit" class="rstore-add-to-cart submit button" data-id="<?php echo esc_attr( $id ); ?>" data-quantity="<?php echo absint( $quantity ); ?>" data-redirect="<?php echo esc_attr( $redirect ); ?>" value="<?php echo esc_attr( $label ); ?>">
-		<img src="<?php echo esc_url( Reseller_Store\Plugin::assets_url( 'images/loading.svg' ) ); ?>" class="rstore-loading">
+		<div class="rstore-loading rstore-loading-hidden" ></div>
 		<div class="rstore-message"></div>
 	</form>
 	<?php
@@ -116,7 +117,7 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
  */
 function rstore_add_to_cart_button( $post = null, $echo = true ) {
 
-	extract( rstore_get_add_to_cart_vars( $post ) );
+	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
 	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 
@@ -154,7 +155,7 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
  */
 function rstore_add_to_cart_link( $post = null, $echo = true ) {
 
-	extract( rstore_get_add_to_cart_vars( $post ) );
+	list( $id, $quantity, $redirect, $label, $permalink ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
 	if ( empty( $id ) || empty( $quantity ) || empty( $label ) || empty( $permalink ) ) {
 

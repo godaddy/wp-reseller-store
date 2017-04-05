@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "ทั่วไป"
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "ราคา"
 
@@ -103,17 +103,17 @@ msgid ""
 "products."
 msgstr "การตั้งค่าเหล่านี้จะควบคุมลิงก์ถาวรที่ใช้เฉพาะสำหรับผลิตภัณฑ์ในร้านค้าตัวแทนจำหน่าย"
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "ค่าเริ่มต้น"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "พื้นฐานปรับแต่ง"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "เพิ่มสินค้าใหม่"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -163,7 +163,7 @@ msgstr "แทรกในสินค้า"
 msgid "Uploaded to this product"
 msgstr "อัปโหลดไปยังสินค้านี้"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "รูปภาพสินค้า"
 
@@ -230,30 +230,27 @@ msgstr ""
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "ขออภัย คุณไม่ได้รับอนุญาตให้ติดตั้งปลั๊กอินบนเว็บไซต์นี้"
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "ขออภัย คุณไม่ได้รับอนุญาตให้ดำเนินการดังกล่าว"
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "รหัสสินค้าเฉพาะของร้านค้าไม่ถูกต้อง"
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "ข้อผิดพลาด: ไม่มีสินค้าให้ โปรดลองอีกครั้งในภายหลัง"
+msgstr "ไม่มีสินค้าให้ โปรดลองอีกครั้งในภายหลัง"
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr "ข้อผิดพลาด: พบว่าข้อมูลสินค้าไม่ถูกต้อง โปรดลองอีกครั้งในภายหลัง"
+msgstr "ไม่สามารถนำเข้าข้อมูลผลิตภัณฑ์ได้ โปรดลองใหม่อีกครั้งในภายหลัง"
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "เกิดข้อผิดพลาดที่ไม่ทราบที่มา"
+msgstr "เกิดข้อผิดพลาดที่ไม่รู้จัก"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -388,8 +385,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "ร้านค้าตัวแทนจำหน่าย GoDaddy"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "ปลั๊กอินสำเร็จรูปของ WordPress โดย GoDaddy"
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "การขายต่อโฮสติ้ง โดเมนและสิทธิ์อื่นๆ จากเว็บไซต์ WordPress ของคุณ"
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -405,34 +402,31 @@ msgid "N/A"
 msgstr "ไม่มีข้อมูล"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "ข้อผิดพลาด: `%s` ไม่ใช่สินค้าที่ถูกต้อง"
+msgstr "`%s` ไม่ใช่ผลิตภัณฑ์ที่ถูกต้อง"
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "มี `%s` อยู่แล้ว"
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "ข้อผิดพลาด: ต้องนำเข้า `%s` เป็นสินค้าก่อนที่จะถูกรีเซ็ตได้"
+msgstr "ต้องนำเข้า `%s` เป็นผลิตภัณฑ์ที่ผ่านการลงรายการก่อน จึงจะสามารถตั้งค่าใหม่ได้"
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "ข้อผิดพลาด: ไม่มี `%s` อยู่"
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "ข้อผิดพลาด: `%s` ไม่ใช่ประเภทโพสต์ที่ถูกต้องของสินค้า"
+msgstr "`%s` ไม่ใช่ประเภทการลงรายการผลิตภัณฑ์ที่ถูกต้องของผลิตภัณฑ์"
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "ผลิตภัณฑ์ตัวอย่าง"
@@ -477,7 +471,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "เพิ่มใหม่"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "แก้ไข: %s"
@@ -485,7 +479,7 @@ msgstr "แก้ไข: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "ข้อผิดพลาด: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -516,6 +510,3 @@ msgstr "%1$s / ต่อ %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "ดูตะกร้าสินค้า %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "ข้อผิดพลาด: รหัสสินค้าเฉพาะของร้านค้าไม่ถูกต้อง"

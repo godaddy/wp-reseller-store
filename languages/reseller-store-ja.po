@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "一般"
 msgid "Advanced"
 msgstr "高度"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "価格"
 
@@ -103,17 +103,17 @@ msgid ""
 "products."
 msgstr "これらの設定で、とくにリセラーストア商品のパーマリンクを管理します。"
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "デフォルト"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "カスタムベース"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "新しい商品を追加"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -163,7 +163,7 @@ msgstr "商品に挿入します。"
 msgid "Uploaded to this product"
 msgstr "この商品を更新しました"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "商品画像"
 
@@ -232,29 +232,29 @@ msgstr ""
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
+"申し訳ございません。このサイトにプラグインをインストールすることは許可されて"
+"いません。"
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "申し訳ございません。その操作は許可されていません。"
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "プライベートラベルIDが無効です。"
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "エラー：使用できる商品がありません。後でもう一度試してみてください。"
+msgstr "使用できる商品がありません。後でもう一度試してみてください。"
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr "エラー：商品データが無効です。後でもう一度試してみてください。"
+msgstr ""
+"商品データがインポートできませんでした。後でもう一度試してみてください。"
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "不明なエラーが発生しました"
+msgstr "不明なエラーが発生しました。"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -389,8 +389,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "GoDaddyリセラーストア"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "GoDaddyがお届けするボイラープレートのWordPressプラグイン。"
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "ホスティングやドメインなどをWordPressサイトから直接再販できます。"
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -406,36 +406,32 @@ msgid "N/A"
 msgstr "該当なし"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "エラー：`%s` は無効な商品です。"
+msgstr "`%s` は無効な商品です。"
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` はすでに存在します。"
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr ""
-"エラー：`%s` は、リセットする前に商品ポストとしてインポートする必要がありま"
-"す。"
+"`%s` は、リセットする前に商品ポストとしてインポートする必要があります。"
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "エラー：「%s」は存在しません。"
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "エラー：`%s` は商品のポストタイプが無効です。"
+msgstr "`%s` は商品のポストタイプが無効です。"
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "サンプル商品"
@@ -480,7 +476,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "新規追加"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "編集：%s"
@@ -488,7 +484,7 @@ msgstr "編集：%s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "エラー: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -519,6 +515,3 @@ msgstr "%1$s/%2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "カート（%s）を見る"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "エラー：無効なプライベートラベルIDです。"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Umum"
 msgid "Advanced"
 msgstr "Lebih Lanjut"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Harga"
 
@@ -105,17 +105,17 @@ msgstr ""
 "Pengaturan ini mengontrol permalink yang digunakan khusus untuk produk Toko "
 "Reseller."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Default"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Basis kustom"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "Tambah Produk Baru"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -165,7 +165,7 @@ msgstr "Sisipkan ke dalam produk"
 msgid "Uploaded to this product"
 msgstr "Diunggah ke produk ini"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Gambar Produk"
 
@@ -233,30 +233,27 @@ msgstr ""
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "Maaf, Anda tidak diizinkan untuk menginstal plugin di situs ini."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Maaf, Anda tidak diizinkan untuk melakukannya."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "ID Label Pribadi tidak valid."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "Kesalahan: Tidak ada produk yang tersedia. Coba lagi nanti."
+msgstr "Tidak ada produk yang tersedia. Coba lagi nanti."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr "Kesalahan: Data produk ternyata tidak valid. Coba lagi nanti."
+msgstr "Data produk tidak dapat diimpor. Coba lagi nanti."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "Terjadi kesalahan yang tidak dikenal"
+msgstr "Terjadi kesalahan yang tidak dikenal."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -391,8 +388,10 @@ msgid "GoDaddy Reseller Store"
 msgstr "Toko Reseller GoDaddy"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Plugin WordPress boilerplate dari GoDaddy."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
+"Jual kembali hosting, domain, dan banyak lagi lainnya dari situs WordPress "
+"Anda."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -408,35 +407,31 @@ msgid "N/A"
 msgstr "T/A"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "Kesalahan: `%s` bukan produk yang valid."
+msgstr "`%s` bukan produk yang valid."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` sudah ada."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr ""
-"Kesalahan: `%s` harus diimpor sebagai postingan produk agar bisa direset."
+msgstr "`%s` harus diimpor sebagai postingan produk agar bisa direset."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "Kesalahan: `%s` tidak ada."
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "Kesalahan: `%s` bukan jenis postingan yang valid untuk produk."
+msgstr "`%s` bukan jenis postingan yang valid untuk produk."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "produk sampel"
@@ -481,7 +476,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Tambahkan Baru"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Edit: %s"
@@ -489,7 +484,7 @@ msgstr "Edit: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Kesalahan: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -520,6 +515,3 @@ msgstr "%1$s / per %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Lihat Keranjang %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "Kesalahan: ID Label Pribadi Tidak Valid."

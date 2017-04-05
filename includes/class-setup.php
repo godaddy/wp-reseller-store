@@ -67,7 +67,9 @@ final class Setup {
 
 		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
+		// @codingStandardsIgnoreStart
 		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [ 'install_nonce' => wp_create_nonce( self::$install_nonce ) ] );
+		// @codingStandardsIgnoreEnd
 
 	}
 
@@ -112,6 +114,9 @@ final class Setup {
 
 		?>
 		<style type="text/css">
+		.rstore-setup .notice {
+			margin-top: 2em;
+		}
 		.rstore-setup-wrapper {
 			margin: auto;
 			width: 60%;
@@ -136,6 +141,7 @@ final class Setup {
 			text-align: left;
 		}
 		.rstore-setup-body {
+			display: none;
 			margin: 40px 0;
 		}
 		.rstore-setup-body h3 {
@@ -151,6 +157,7 @@ final class Setup {
 		</style>
 
 		<div class="rstore-setup">
+			<?php $this->missing_script_notice(); ?>
 			<div class="rstore-setup-wrapper">
 				<div class="rstore-setup-header">
 					<img src="<?php echo esc_url( Plugin::assets_url( 'images/store.svg' ) ); ?>">
@@ -175,6 +182,30 @@ final class Setup {
 			</div>
 		</div>
 		<?php
+
+	}
+
+	/**
+	 * Display an error notice if the required JS is not enqueued.
+	 *
+	 * @since NEXT
+	 */
+	public function missing_script_notice() {
+
+		if ( wp_script_is( 'rstore-admin-setup', 'enqueued' ) ) {
+
+			return;
+
+		}
+
+		printf(
+			'<div id="message" class="error notice"><p>%s</p></div>',
+			sprintf(
+				/* translators: name of missing script */
+				esc_html__( 'Error: Missing required script for setup %s', 'reseller-store' ),
+				'<code>admin-setup.js</code>'
+			)
+		);
 
 	}
 
@@ -290,7 +321,7 @@ final class Setup {
 				[
 					'redirect' => esc_url_raw(
 						add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
-					)
+					),
 				]
 			);
 
@@ -326,7 +357,8 @@ final class Setup {
 
 		wp_send_json_error(
 			sprintf(
-				esc_html_x( 'Error: %s', 'error message', 'reseller-store' ),
+				/* translators: error message */
+				esc_html__( 'Error: %s', 'reseller-store' ),
 				sprintf( $message, $data )
 			)
 		);
@@ -390,7 +422,9 @@ final class Setup {
 
 		foreach ( [ Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG ] as $taxonomy ) {
 
+			// @codingStandardsIgnoreStart
 			$terms = get_terms( $taxonomy, [ 'fields' => 'ids', 'hide_empty' => false ] );
+			// @codingStandardsIgnoreEnd
 
 			if ( is_wp_error( $terms ) ) {
 

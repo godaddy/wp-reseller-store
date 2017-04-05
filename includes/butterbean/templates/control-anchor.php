@@ -1,3 +1,4 @@
+<?php // @codingStandardsIgnoreStart ?>
 <# if ( data.label ) { #>
 	<label><span class="butterbean-label">{{ data.label }}</span></label>
 <# } #>
@@ -9,3 +10,4 @@
 <# if ( data.text ) { #>
 	<span class="butterbean-anchor"><a {{{ data.attr }}}>{{{ data.text }}}</a></span>
 <# } #>
+<?php // @codingStandardsIgnoreEnd ?>

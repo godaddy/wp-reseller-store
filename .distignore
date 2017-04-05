@@ -1,0 +1,10 @@
+.*
+composer.*
+Gruntfile.js
+package.json
+readme.md
+svn-username
+languages/*.po
+node_modules/
+tests/
+vendor/

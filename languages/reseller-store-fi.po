@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Yleiset"
 msgid "Advanced"
 msgstr "Edistyneet"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Hinta"
 
@@ -106,17 +106,17 @@ msgstr ""
 "Nämä asetukset hallitsevat pysyviä linkkejä, joita käytetään erityisesti "
 "jälleenmyyjän kaupan tuotteita varten."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Oletus"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Asiakaskunta"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "Lisää uusia tuotteita"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -166,7 +166,7 @@ msgstr "Lisää tuotteeseen"
 msgid "Uploaded to this product"
 msgstr "Siirrä palvelimelle tähän tuotteeseen"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Tuotekuva"
 
@@ -234,30 +234,28 @@ msgstr ""
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
+"Pahoittelemme. Lisäosien/laajennusten (plugins) asentaminen tähän sivustoon "
+"ei ole sallittua sinulle."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Pahoittelemme. Sinulla ei ole lupaa tehdä sitä."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "Yksityisen selitteen tunnus on virheellinen."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "Virhe: Mitään tuotteita ei ole saatavilla. Yritä myöhemmin uudelleen."
+msgstr "Mitään tuotteita ei ole saatavilla. Yritä myöhemmin uudelleen."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr ""
-"Virhe: Tuotetiedot havaittiin virheellisiksi. Yritä myöhemmin uudelleen."
+msgstr "Tuotetietoja ei voitu tuoda. Yritä myöhemmin uudelleen."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "Ilmeni tuntematon virhe."
+msgstr "Määrittämätön virhe"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -392,8 +390,10 @@ msgid "GoDaddy Reseller Store"
 msgstr "GoDaddy-jälleenmyyjän kauppa"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Mallitekstin WordPress-laajennus GoDaddyltä."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
+"Myy uudelleen verkkohotellipaketteja, verkkotunnuksia ja muita tuotteita "
+"suoraan WordPress-sivustostasi."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -409,36 +409,32 @@ msgid "N/A"
 msgstr "Ei käytettävissä"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "Virhe: `%s` ei ole käypä tuote."
+msgstr "`%s` ei ole käypä tuote."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` on jo olemassa."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr ""
-"Virhe: `%s` täytyy tuoda tuotejulkaisuna, ennen kuin sitä voi asettaa "
-"uudelleen."
+"`%s` täytyy tuoda tuotejulkaisuna, ennen kuin sitä voi asettaa uudelleen."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "Virhe: %s – ei ole olemassa"
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "Virhe: `%s` ei ole käypä tuotteiden julkaisutyyppi."
+msgstr "`%s` ei ole käypä tuotteiden julkaisutyyppi."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "esimerkkituote"
@@ -483,7 +479,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Lisää uusi"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Muokkaa: %s"
@@ -491,7 +487,7 @@ msgstr "Muokkaa: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Virhe: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -522,6 +518,3 @@ msgstr "%1$s / per %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Näytä ostoskori %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "Virhe: Virheellinen yksityisen selitteen tunnus."

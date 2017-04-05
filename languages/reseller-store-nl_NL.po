@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Algemeen"
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Prijs"
 
@@ -106,17 +106,17 @@ msgstr ""
 "Met deze instellingen bepaal je de permalinks die speciaal voor producten in "
 "de Reseller-webwinkel worden gebruikt."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Standaard"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Klantenbasis"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "Nieuwe producten toevoegen"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -166,7 +166,7 @@ msgstr "Toevoegen aan product"
 msgid "Uploaded to this product"
 msgstr "Geüpload naar dit product"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Productafbeelding"
 
@@ -233,29 +233,26 @@ msgstr ""
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "Je mag geen plugins op deze site installeren."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Je mag dat niet doen."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "Privélabel-id is ongeldig."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "Fout: Er zijn geen producten beschikbaar. Probeer het later opnieuw."
+msgstr "Er zijn geen producten beschikbaar. Probeer het later opnieuw."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
 msgstr ""
-"Fout: De gevonden productgegevens zijn ongeldig. Probeer het later opnieuw."
+"Productgegevens kunnen niet worden geïmporteerd. Probeer het later opnieuw."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
 msgstr "Er is een onbekende fout opgetreden."
 
@@ -392,8 +389,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "GoDaddy Reseller-webwinkel"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Een plug-in van GoDaddy voor WordPress-boilerplates."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Verkoop hosting, domeinen en meer direct via je WordPress-site."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -409,36 +406,33 @@ msgid "N/A"
 msgstr "N.v.t."
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "Fout: %s is geen geldig product."
+msgstr "`%s` is geen geldig product."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` bestaat al."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr ""
-"Fout: %s moet worden geïmporteerd als een productpost voordat opnieuw "
-"instellen mogelijk is."
+"`%s` moet worden geïmporteerd als een productpost voordat opnieuw instellen "
+"mogelijk is."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "Fout: %s bestaat niet."
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "Fout: %s is geen geldig posttype voor producten."
+msgstr "`%s` is geen geldig posttype voor producten."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "voorbeeldproduct"
@@ -483,7 +477,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Bewerken: %s"
@@ -491,7 +485,7 @@ msgstr "Bewerken: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Fout: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -522,6 +516,3 @@ msgstr "%1$s / per %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Winkelwagen weergeven %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "Fout: Ongeldige privélabel-id"

@@ -1,3 +1,4 @@
-node_modules
-tests/codeception/_output/*
-vendor
+svn-username
+build/
+node_modules/
+vendor/

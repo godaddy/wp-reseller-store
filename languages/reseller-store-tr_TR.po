@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Genel"
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Fiyat"
 
@@ -106,17 +106,17 @@ msgstr ""
 "Bu ayarlar, Bayi Mağaza ürünleri için özel olarak kullanılan kalıcı "
 "bağlantıları kontrol eder."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Varsayılan"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Özelleştirilmiş taban"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "Yeni Ürün Ekleyin"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -166,7 +166,7 @@ msgstr "Ürüne yerleştir"
 msgid "Uploaded to this product"
 msgstr "Bu ürüne yüklendi"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Ürün Resmi"
 
@@ -234,32 +234,27 @@ msgstr ""
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "Üzgünüz, bu siteye eklenti yükleyemezsiniz."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Üzgünüz, bu işlem için izniniz yok."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "Özel Etiket Numarası geçersiz."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "Hata: Mevcut bir ürün yok; lütfen daha sonra tekrar deneyin."
+msgstr "Mevcut bir ürün yok; lütfen daha sonra tekrar deneyin."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr ""
-"Hata: Ürün verilerinin geçersiz olduğu tespit edildi; lütfen daha sonra "
-"tekrar deneyin."
+msgstr "Ürün verileri içe aktarılamadı, lütfen daha sonra tekrar deneyin."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "Bilinmeyen bir hata oluştu"
+msgstr "Bilinmeyen bir hata oluştu."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -394,8 +389,10 @@ msgid "GoDaddy Reseller Store"
 msgstr "GoDaddy Bayi Mağazası"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "GoDaddy’den WordPress ortak metin eklentisi."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
+"Doğrudan WordPress siteniz üzerinden hosting, alan adı ve daha birçok ürünün "
+"yeniden satışını yapın."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -411,34 +408,31 @@ msgid "N/A"
 msgstr "Yok"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "Hata: `%s` geçerli bir ürün değil."
+msgstr "`%s` geçerli bir ürün değil."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` zaten var."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "Hata: `%s` sıfırlanmadan önce ürün olarak içe aktarılmalıdır."
+msgstr "`%s` sıfırlanmadan önce ürün olarak içe aktarılmalıdır."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "Hata: `%s` mevcut değil."
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "Hata: `%s` ürünler için geçerli bir gönderi türü değil."
+msgstr "`%s` ürünler için geçerli bir gönderi türü değil."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "örnek-ürün"
@@ -483,7 +477,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Yeni ekle"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Düzenle: %s"
@@ -491,7 +485,7 @@ msgstr "Düzenle: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Hata: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -522,6 +516,3 @@ msgstr "%2$s başına %1$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "%s Sepetini Görüntüle"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "Hata: Geçersiz Özel Etiket Numarası."

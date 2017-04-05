@@ -35,7 +35,7 @@ final class Reseller_Product extends \WP_CLI_Command {
 
 		$results = [];
 
-		foreach( $args as $key => $post_id ) {
+		foreach ( $args as $key => $post_id ) {
 
 			$results[ $post_id ] = Post_Type::reset_product_data( $post_id );
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "General"
 msgid "Advanced"
 msgstr "Avanceret"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Pris"
 
@@ -106,17 +106,17 @@ msgstr ""
 "Disse indstillinger styrer de permalinks, som bruges specifikt til produkter "
 "i forhandlerbutikken."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Standard"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Brugerdefineret grundlag"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "Tilføj nye produkter"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -166,7 +166,7 @@ msgstr "Indsæt i produkt"
 msgid "Uploaded to this product"
 msgstr "Uploadet til dette produkt"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Produktbillede"
 
@@ -235,29 +235,27 @@ msgstr ""
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
+"Beklager, men du har ikke tilladelse til at installere plugins på dette site."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Beklager, men det har du ikke tilladelse til."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "Privat varemærke-ID er ugyldigt."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "Fejl: Der er ingen tilgængelige produkter, prøv igen senere."
+msgstr "Der er ingen tilgængelige produkter, prøv igen senere."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr "Fejl: Produktdata er ugyldigt, prøv igen senere."
+msgstr "Produktdata kunne ikke importeres. Prøv igen senere."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "Der opstod en ukendt fejl"
+msgstr "Der opstod en ukendt fejl."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -392,8 +390,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "Godaddy forhandlerbutik"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Et standard Wordpress-plugin fra Godaddy."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Videresælg hosting, domæner og mere lige her fra WordPress-site."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -409,35 +407,31 @@ msgid "N/A"
 msgstr "Ikke relevant"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "Fejl: »%s« er ikke et gyldigt produkt."
+msgstr "»%s« er ikke et gyldigt produkt."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "»%s« findes allerede."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr ""
-"Fejl: »%s« skal importeres som et produktindlæg, før det kan nulstilles."
+msgstr "»%s« skal importeres som et produktindlæg, før det kan nulstilles."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "Fejl: `%s` findes ikke."
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "Fejl: »%s« er ikke en gyldig indlægstype for produkter."
+msgstr "»%s« er ikke en gyldig indlægstype for produkter."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "eksempelprodukt"
@@ -482,7 +476,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Tilf&oslash;j ny"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Rediger: %s"
@@ -490,7 +484,7 @@ msgstr "Rediger: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Fejl: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -521,6 +515,3 @@ msgstr "%1$s per %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Vis indkøbsvogn %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "Fejl: Ugyldigt privat varemærke-ID."

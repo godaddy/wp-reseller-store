@@ -1,8 +1,13 @@
+/* Product Post */
 .rstore-add-to-cart-form input[type="number"].rstore-quantity {
 	display: inline-block;
-	width: 4em;
 	margin-left: 10px;
 	padding: 0.5278em;
+	width: 4em;
+}
+
+.rstore-message {
+	display: inline-block;
 }
 
 .rstore-add-to-cart-form .rstore-message {
@@ -29,10 +34,17 @@
 }
 
 .rstore-loading {
-	display: none;
+	display: inline-block;
+	vertical-align: middle;
 	width: 28px;
 	height: 28px;
-	vertical-align: middle;
+	background-image: url('../images/loading.svg');
+	background-size: 28px 28px;
+	background-repeat: no-repeat;
+}
+
+.rstore-loading.rstore-loading-hidden {
+	display: none;
 }
 
 .rstore-pricing {
@@ -56,6 +68,139 @@
 	font-size: 0.9em;
 }
 
-body.single-reseller_product .entry-meta {
+/* Domain search widget */
+.rstore-domain-search .input-group {
+	display: table;
+	position: relative;
+	border-collapse: separate;
+}
+
+.rstore-domain-search .input-group .form-control {
+	margin-bottom: 0;
+	width: 100%;
+}
+
+.rstore-domain-search .input-group-btn {
+	display: table-cell;
+	position: relative;
+	vertical-align: middle;
+	width: 1%;
+	white-space: nowrap;
+}
+
+.rstore-domain-search .input-group .form-control:first-child,
+.rstore-domain-search .input-group-btn:first-child > .button {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.rstore-domain-search .input-group .form-control:last-child,
+.rstore-domain-search .input-group-btn:last-child > .button {
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.rstore-domain-search .form-control {
+	display: block;
+	padding: 6px 12px;
+	vertical-align: middle;
+	width: 100%;
+	height: 40px;
+	font-size: 14px;
+	line-height: 1.42857;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	   -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	    -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.rstore-domain-search .form-control:focus {
+	border-color: #66afe9;
+	outline: 0;
+
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.rstore-domain-search .form-control:-moz-placeholder,
+.rstore-domain-search .form-control:-ms-input-placeholder,
+.rstore-domain-search .form-control::-webkit-input-placeholder {
+	color: #999;
+}
+
+.rstore-domain-search .form-control::-moz-placeholder {
+	opacity: 1;
+}
+
+.rstore-domain-search .container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.rstore-domain-search body.single-reseller_product .entry-meta {
 	display: none;
+}
+
+.rstore-domain-search .result-content {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.rstore-domain-search .domain-result {
+	float: right;
+	vertical-align: middle;
+	padding: 15px 15px 5px 20px;
+	width: 100%;
+	min-width: 290px;
+	border: 1px solid #e8e8e8;
+}
+
+.rstore-domain-search .rstore-exact-domain-list .domain-result {
+	margin-bottom: 15px;
+	border: 3px solid #e8e8e8;
+}
+
+.rstore-domain-search .domain-name {
+	display: inline-block;
+	vertical-align: middle;
+	vertical-align: -webkit-baseline-middle;
+	padding: 10px 0;
+	word-break: break-word;
+}
+
+.rstore-domain-search .purchase-info {
+	display: block;
+	float: left;
+}
+
+.rstore-domain-search .pricing {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	text-align: left;
+}
+
+.rstore-domain-search .listPrice {
+	margin-left: 7px;
+}
+
+.rstore-domain-search .rstore-domain-buy-button {
+	margin-right: 10px;
+}
+
+.rstore-domain-search .rstore-message {
+	padding: 10px;
 }

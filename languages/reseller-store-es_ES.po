@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "General"
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Precio"
 
@@ -106,17 +106,17 @@ msgstr ""
 "Estas configuraciones controlan los vínculos permanentes utilizados "
 "específicamente para los productos de la tienda del revendedor."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Predeterminado"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Base personalizada"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "Agrega nuevos productos"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -166,7 +166,7 @@ msgstr "Insertar en el producto"
 msgid "Uploaded to this product"
 msgstr "Subido a este producto"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Imagen del producto"
 
@@ -235,31 +235,29 @@ msgstr ""
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "Lo sentimos, no puedes instalar complementos en este sitio."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Lo sentimos, pero no tienes autorización para hacer eso."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "La ID de etiqueta privada no es válida."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "Error: No hay productos disponibles, inténtalo de nuevo más tarde."
+msgstr "No hay productos disponibles, inténtalo de nuevo más tarde."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
 msgstr ""
-"Error: Los datos del producto son inválidos, inténtalo de nuevo más tarde"
+"Los datos del producto no se pudieron importar, vuelve a intentarlo más "
+"tarde."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "Ha ocurrido un error desconocido."
+msgstr "Se produjo un error desconocido."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -394,8 +392,9 @@ msgid "GoDaddy Reseller Store"
 msgstr "Tienda de revendedor de GoDaddy"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Un complemento de plantilla de WordPress realizado por GoDaddy."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
+"Revende hosting, dominios y más directamente desde tu sitio de WordPress."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -411,36 +410,33 @@ msgid "N/A"
 msgstr "N/A"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "Error: `%s` no es un producto válido."
+msgstr "`%s` no es un producto válido."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` ya existe."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr ""
-"Error: `%s` debe importarse como una publicación de producto antes de que se "
-"pueda restablecer."
+"`%s` debe importarse como una publicación de producto antes de que se pueda "
+"restablecer."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "Error: `%s` no existe."
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "Error: `%s` no es un tipo de publicación válido para productos."
+msgstr "`%s` no es un tipo de publicación válido para productos."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "muestra del producto"
@@ -485,7 +481,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Añadir Nuevo"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Editar: %s"
@@ -493,7 +489,7 @@ msgstr "Editar: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Error: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -524,6 +520,3 @@ msgstr "%1$s / por %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Ver carrito %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "Error: ID de etiqueta privada inválida."

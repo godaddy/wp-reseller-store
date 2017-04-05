@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "一般"
 msgid "Advanced"
 msgstr "進階"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "價格"
 
@@ -103,17 +103,17 @@ msgid ""
 "products."
 msgstr "這些設定專門控制經銷商商店產品的永久連結。"
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "預設"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "自訂起點"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "新增產品"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -163,7 +163,7 @@ msgstr "插入產品"
 msgid "Uploaded to this product"
 msgstr "已上傳至此產品"
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "商品圖片"
 
@@ -229,30 +229,27 @@ msgstr "需要幫助嗎？請聯絡我們獲獎的支援小組：(480) 505-8877�
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "抱歉，您無法在此網站上安裝外掛程式。"
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "抱歉，您無法執行此動作。"
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "無效的自家品牌 ID。"
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "錯誤：沒有適用的產品，請稍後再試。"
+msgstr "沒有適用的產品，請稍後再試。"
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr "錯誤：系統發現產品資料無效，請稍後再試。"
+msgstr "無法匯入產品資料，請稍後再試。"
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "發生不明錯誤"
+msgstr "系統出現未知錯誤。"
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -387,8 +384,8 @@ msgid "GoDaddy Reseller Store"
 msgstr "GoDaddy 經銷商商店"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "GoDaddy 的樣板 WordPress 外掛程式。"
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "從您的 WordPress 網站直接轉售主機及網域等等。"
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -404,34 +401,31 @@ msgid "N/A"
 msgstr "N/A"
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "錯誤：`%s` 非有效產品。"
+msgstr "`%s` 非有效產品。"
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "`%s` 已存在。"
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr "錯誤： `%s` 必須當成產品貼文匯入後才可重設。"
+msgstr "`%s` 必須當成產品貼文匯入後才可重設。"
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "錯誤： `%s` 不存在"
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "錯誤：`%s` 不是產品的有效貼文類型。"
+msgstr "`%s` 不是產品的有效貼文類型。"
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "樣品產品"
@@ -476,7 +470,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "新增項目"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "編輯：%s"
@@ -484,7 +478,7 @@ msgstr "編輯：%s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "錯誤: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -515,6 +509,3 @@ msgstr "%1$s / 每 %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "檢視購物車 %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "錯誤：無效的私人標籤 ID。"

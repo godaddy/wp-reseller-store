@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-01-24 07:02:56+00:00\n"
+"POT-Creation-Date: 2017-02-14 03:44:13+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Ustawienia główne"
 msgid "Advanced"
 msgstr "Zaawansowane"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:322
+#: includes/class-butterbean.php:182 includes/class-post-type.php:317
 msgid "Price"
 msgstr "Cena"
 
@@ -105,17 +105,17 @@ msgstr ""
 "Te ustawienia kontrolują łącza trwałe używane dla produktów w sklepie "
 "odsprzedawcy."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:123
 msgid "Default"
 msgstr "Domyślne"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:135
 msgid "Custom base"
 msgstr "Niestandardowa podstawa"
 
 #: includes/class-post-type.php:108
 msgid "Add New Products"
-msgstr "Add New Products"
+msgstr "Dodaj nowe produkty"
 
 #: includes/class-post-type.php:109
 msgid "Edit Product"
@@ -165,7 +165,7 @@ msgstr "Wstaw do produktu"
 msgid "Uploaded to this product"
 msgstr "Dodane do tego produktu."
 
-#: includes/class-post-type.php:121 includes/class-post-type.php:313
+#: includes/class-post-type.php:121 includes/class-post-type.php:308
 msgid "Product Image"
 msgstr "Obrazek produktu"
 
@@ -233,31 +233,27 @@ msgstr ""
 
 #: includes/class-setup.php:202
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
+msgstr "Niestety nie masz uprawnień do instalacji wtyczek w tej witrynie."
 
 #: includes/class-setup.php:213
 msgid "Sorry, you are not allowed to do that."
-msgstr ""
+msgstr "Niestety nie możesz tego zrobić."
 
 #: includes/class-setup.php:228
 msgid "Private Label ID is invalid."
-msgstr ""
+msgstr "Identyfikator marki własnej jest nieprawidłowy."
 
 #: includes/class-setup.php:249
-#, fuzzy
 msgid "There are no products available, please try again later."
-msgstr "Błąd: Nie są dostępne żadne produkty. Spróbuj ponownie później."
+msgstr "Nie są dostępne żadne produkty. Spróbuj ponownie później."
 
 #: includes/class-setup.php:280
-#, fuzzy
 msgid "Product data could not be imported, please try again later."
-msgstr ""
-"Błąd: Dane produktu okazały się nieprawidłowe. Spróbuj ponownie później."
+msgstr "Nie udało się zaimportować danych produktów. Spróbuj ponownie później."
 
 #: includes/class-setup.php:316
-#, fuzzy
 msgid "An unknown error occurred."
-msgstr "Wystąpił nieznany błąd"
+msgstr "Wystąpił nieznany błąd."
 
 #: includes/class-taxonomy-category.php:71
 msgid "Search Categories"
@@ -392,8 +388,10 @@ msgid "GoDaddy Reseller Store"
 msgstr "Sklep odsprzedawcy GoDaddy"
 
 #. Description of the plugin/theme
-msgid "A boilerplate WordPress plugin by GoDaddy."
-msgstr "Standardowa wtyczka WordPressa od GoDaddy."
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr ""
+"Odsprzedawaj hosting, domeny i wiele więcej wprost ze swojej witryny "
+"WordPressa."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -409,35 +407,31 @@ msgid "N/A"
 msgstr "nd."
 
 #: includes/class-import.php:67
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` is not a valid product."
-msgstr "Błąd: „%s” nie jest prawidłowym produktem."
+msgstr "„%s” nie jest prawidłowym produktem."
 
 #: includes/class-import.php:79
 msgctxt "product name"
 msgid "`%s` already exists."
-msgstr ""
+msgstr "„%s” już istnieje."
 
 #: includes/class-import.php:100
-#, fuzzy
 msgctxt "product name"
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr ""
-"Błąd: przed zresetowaniem, należy zaimportować „%s” jako wpis o produkcie."
+msgstr "Przed zresetowaniem należy zaimportować „%s” jako wpis o produkcie."
 
 #: includes/functions/product-functions.php:131
 msgctxt "product name"
 msgid "Error: `%s` does not exist."
-msgstr "Error: `%s` does not exist."
+msgstr "Błąd: „%s” nie istnieje."
 
 #: includes/class-import.php:110
-#, fuzzy
 msgctxt "post type name"
 msgid "`%s` is not a valid post type for products."
-msgstr "Błąd: „%s” nie jest prawidłowym typem wpisu dla produktów."
+msgstr "„%s” nie jest prawidłowym typem wpisu dla produktów."
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:100
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "przykładowy-produkt"
@@ -482,7 +476,7 @@ msgctxt "product"
 msgid "Add New"
 msgstr "Dodaj nowe"
 
-#: includes/class-post-type.php:446
+#: includes/class-post-type.php:441
 msgctxt "product title"
 msgid "Edit: %s"
 msgstr "Edytuj: %s"
@@ -490,7 +484,7 @@ msgstr "Edytuj: %s"
 #: includes/class-setup.php:329
 msgctxt "error message"
 msgid "Error: %s"
-msgstr ""
+msgstr "Błąd: %s"
 
 #: includes/class-taxonomy-category.php:69
 msgctxt "taxonomy general name"
@@ -521,6 +515,3 @@ msgstr "%1$s / za %2$s"
 msgctxt "number of items in cart"
 msgid "View Cart %s"
 msgstr "Wyświetl koszyk %s"
-
-#~ msgid "Error: Invalid Private Label ID."
-#~ msgstr "Błąd: nieprawidłowy identyfikator marki własnej"
