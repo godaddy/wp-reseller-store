@@ -118,7 +118,7 @@
 			$this.attr( 'data-loading', 'true' );
 
 			$form.find( '.rstore-message' ).empty();
-			$form.find( '.rstore-loading' ).show();
+			$form.find( '.rstore-loading' ).removeClass('rstore-loading-hidden');
 
 			cart.addItem( id, qty, redirect, $form );
 
@@ -129,25 +129,24 @@
 			var html = '<span class="dashicons dashicons-yes rstore-success"></span> <a href="' + rstore.urls.cart + '">' + rstore.i18n.view_cart + '</a>';
 
 			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
-			$form.find( '.rstore-loading' ).hide();
+			$form.find( '.rstore-loading' ).addClass('rstore-loading-hidden');
 			$form.find( '.rstore-message' ).html( html );
 
 		},
 
 		addItemError: function( $form, response ) {
-
+			var error = response.responseJSON.error;
 			var message = rstore.i18n.error;
+			if ( undefined !== error.message ) {
 
-			if ( undefined !== response.error.statusCode && undefined !== response.error.name && undefined !== response.error.message ) {
-
-				message = response.error.statusCode + ' ' + response.error.name + ': ' + response.error.message;
+				message = error.message;
 
 			}
 
 			var html = '<span class="dashicons dashicons-warning rstore-error"></span> ' + message;
 
 			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
-			$form.find( '.rstore-loading' ).hide();
+			$form.find( '.rstore-loading' ).addClass('rstore-loading-hidden');
 			$form.find( '.rstore-message' ).html( html );
 
 		},

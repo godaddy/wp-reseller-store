@@ -82,15 +82,16 @@ final class API {
 	 */
 	public function add_query_args( $url, $add_pl_id = true ) {
 
-		$args = [
-			'currencyType' => rstore_get_option( 'currency', 'USD' ),
-			'marketId'     => $this->get_market_id(),
-		];
+		$args = [];
 
 		if ( $add_pl_id && rstore_is_setup() ) {
 
 			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
 
+		} else
+		{
+			$args['currencyType'] = rstore_get_option( 'currency', 'USD' );
+			$args['marketId']     = $this->get_market_id();
 		}
 
 		return esc_url_raw( add_query_arg( $args, $url ) );
@@ -180,7 +181,7 @@ final class API {
 
 		}
 
-		return esc_url_raw( $this->add_query_args( trailingslashit( $url ), false ) );
+		return $this->add_query_args( trailingslashit( $url ), false );
 
 	}
 

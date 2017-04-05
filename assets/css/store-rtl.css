@@ -1,61 +1,181 @@
+/* Product Post */
 .rstore-add-to-cart-form input[type="number"].rstore-quantity {
-	display: inline-block;
-	width: 4em;
-	margin-left: 10px;
-	padding: 0.5278em;
+  display: inline-block;
+  width: 4em;
+  margin-left: 10px;
+  padding: 0.5278em;
+}
+
+.rstore-message {
+  display: inline-block;
 }
 
 .rstore-add-to-cart-form .rstore-message {
-	display: inline-block;
-	margin-right: 5px;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .rstore-message span.dashicons {
-	width: 28px;
-	height: 28px;
-	font-size: 28px;
+  width: 28px;
+  height: 28px;
+  font-size: 28px;
 }
 
 .rstore-message .rstore-success {
-	color: #41a62a;
+  color: #41a62a;
 }
 
 .rstore-message .rstore-error {
-	color: #a62b2b;
+  color: #a62b2b;
 }
 
 .rstore-add-to-cart-form .rstore-loading {
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .rstore-loading {
-	display: none;
-	width: 28px;
-	height: 28px;
-	vertical-align: middle;
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  background-image: url('../images/loading.svg');
+  background-size: 28px 28px;
+  background-repeat: no-repeat;
+  display: inline-block;
 }
 
 .rstore-pricing {
-	font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 .rstore-price {
-	margin-left: 5px;
-	font-size: 1.25rem;
-	font-weight: bold;
-	color: #41a62a;
+  margin-left: 5px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #41a62a;
 }
 
 .rstore-price del {
-	font-weight: normal;
-	color: #ccc;
+  font-weight: normal;
+  color: #ccc;
 }
 
 .rstore-term {
-	margin-right: 5px;
-	font-size: 0.9em;
+  margin-right: 5px;
+  font-size: 0.9em;
 }
 
-body.single-reseller_product .entry-meta {
-	display: none;
+/* Domain search widget */
+.rstore-domain-search .input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+.rstore-domain-search .input-group .form-control {
+  width: 100%;
+  margin-bottom: 0;
+}
+.rstore-domain-search .input-group-btn {
+  display: table-cell;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+}
+.rstore-domain-search .input-group .form-control:first-child,
+.rstore-domain-search .input-group-btn:first-child > .button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.rstore-domain-search .input-group .form-control:last-child,
+.rstore-domain-search .input-group-btn:last-child > .button {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.rstore-domain-search .form-control {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.rstore-domain-search .form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.rstore-domain-search .form-control:-moz-placeholder {
+  color: #999999;
+}
+.rstore-domain-search .form-control::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+.rstore-domain-search .form-control:-ms-input-placeholder {
+  color: #999999;
+}
+.rstore-domain-search .form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+.rstore-domain-search .container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rstore-domain-search body.single-reseller_product .entry-meta {
+  display: none;
+}
+.rstore-domain-search .result-content {
+  display: inline-block;
+	margin-bottom: 10px;
+}
+.rstore-domain-search .domain-result {
+  border: 1px solid #e8e8e8;
+  float: right;
+  min-width: 290px;
+  padding: 15px 15px 5px 20px;
+  vertical-align: middle;
+  width: 100%;
+}
+.rstore-domain-search .rstore-exact-domain-list .domain-result {
+  margin-bottom: 15px;
+  border: 3px solid #e8e8e8;
+}
+.rstore-domain-search .domain-name {
+  display: inline-block;
+  vertical-align: middle;
+  vertical-align: -webkit-baseline-middle;
+  word-break: break-word;
+  padding: 10px 0;
+}
+.rstore-domain-search .purchase-info {
+  display: block;
+  float: left;
+}
+.rstore-domain-search .pricing {
+  display: inline-block;
+  margin-right: 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+.rstore-domain-search .listPrice {
+  margin-left: 7px;
+}
+.rstore-domain-search .rstore-domain-buy-button {
+  margin-right: 10px;
+}
+.rstore-domain-search .rstore-message {
+  padding: 10px;
 }
