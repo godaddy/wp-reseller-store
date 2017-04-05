@@ -15,7 +15,7 @@ final class Import {
 	/**
 	 * Product object instance.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var Product
 	 */
@@ -24,7 +24,7 @@ final class Import {
 	/**
 	 * Product post ID.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var int
 	 */
@@ -33,7 +33,7 @@ final class Import {
 	/**
 	 * Array of imported products.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var array
 	 */
@@ -146,7 +146,7 @@ final class Import {
 	/**
 	 * Return the result of the import.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @return true|WP_Error
 	 */
@@ -159,7 +159,7 @@ final class Import {
 	/**
 	 * Import product as a post.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @return int|WP_Error  Returns the post ID on success, `WP_Error` on failure.
 	 */
@@ -184,7 +184,7 @@ final class Import {
 	/**
 	 * Import product data as post meta.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	private function post_meta() {
 
@@ -214,7 +214,7 @@ final class Import {
 	/**
 	 * Import product categories.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	private function categories() {
 
@@ -236,7 +236,7 @@ final class Import {
 	/**
 	 * Process product category terms recursively and preserve heirarchy.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param array $categories
 	 * @param int   $post_id
@@ -273,7 +273,7 @@ final class Import {
 	/**
 	 * Create a product category and assign to the post.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $name
 	 * @param  int    $post_id
@@ -317,7 +317,7 @@ final class Import {
 	/**
 	 * Import image as an attachment and set as the post's featured image.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param int $attachment_id
 	 */
@@ -348,7 +348,7 @@ final class Import {
 	/**
 	 * Sideload an image and return its attachment ID.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $url
 	 * @param  string $description (optional)
@@ -394,7 +394,7 @@ final class Import {
 	/**
 	 * Mark a product as imported.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @return bool  Returns `true` on success, `false` on failure.
 	 */

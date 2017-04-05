@@ -13,7 +13,7 @@ final class Embed {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -35,7 +35,7 @@ final class Embed {
 	 * - Excludes posts with serialized data in the post content.
 	 *
 	 * @global wpdb $wpdb
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  string $search
 	 * @param  string $replace
@@ -86,7 +86,7 @@ final class Embed {
 	 *
 	 * @action embed_head
 	 * @global WP_Post $post
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function head() {
 
@@ -135,7 +135,7 @@ final class Embed {
 	 *
 	 * @filter the_excerpt_embed
 	 * @global WP_Post $post
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  string $excerpt
 	 *

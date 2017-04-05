@@ -15,7 +15,7 @@ final class Setup {
 	/**
 	 * Admin page slug.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var string
 	 */
@@ -24,7 +24,7 @@ final class Setup {
 	/**
 	 * Install nonce action name.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var string
 	 */
@@ -33,7 +33,7 @@ final class Setup {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -53,7 +53,7 @@ final class Setup {
 	 * Enqueue admin scripts.
 	 *
 	 * @action admin_enqueue_scripts
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function admin_enqueue_scripts() {
 
@@ -78,7 +78,7 @@ final class Setup {
 	 *
 	 * @action admin_menu
 	 * @global array $menu
-	 * @since  NEXT
+	 * @since  0.2.0
 	 */
 	public function page() {
 
@@ -98,7 +98,7 @@ final class Setup {
 	 * Admin page content.
 	 *
 	 * @see   $this->page()
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function content() {
 
@@ -188,7 +188,7 @@ final class Setup {
 	/**
 	 * Display an error notice if the required JS is not enqueued.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function missing_script_notice() {
 
@@ -214,7 +214,7 @@ final class Setup {
 	 *
 	 * @action wp_ajax_rstore_install
 	 * @global wpdb $wpdb
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  int $pl_id (optional)
 	 *
@@ -370,7 +370,7 @@ final class Setup {
 	 *
 	 * @global wpdb $wpdb
 	 * @see    register_uninstall_hook()
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param bool $keep_attachments (optional)
 	 */
@@ -453,7 +453,7 @@ final class Setup {
 	 * Runs on plugin deactivation.
 	 *
 	 * @see   register_deactivation_hook()
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public static function deactivate() {
 

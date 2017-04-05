@@ -13,7 +13,7 @@ final class Widgets {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 

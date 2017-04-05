@@ -13,7 +13,7 @@ final class Domain_Search extends \WP_Widget {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 */
 	public function __construct() {
 
@@ -31,7 +31,7 @@ final class Domain_Search extends \WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param array $args
 	 * @param array $instance
@@ -45,7 +45,7 @@ final class Domain_Search extends \WP_Widget {
 		 * Domain Search widget inherits any default Search widget
 		 * styles included by a theme.
 		 *
-		 * @since NEXT
+		 * @since 0.2.0
 		 *
 		 * @var array
 		 */
@@ -97,7 +97,7 @@ final class Domain_Search extends \WP_Widget {
 	/**
 	 * Outputs the options form on admin.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param array $instance
 	 */
@@ -129,7 +129,7 @@ final class Domain_Search extends \WP_Widget {
 	/**
 	 * Processing widget options on save.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  array $new_instance
 	 * @param  array $old_instance

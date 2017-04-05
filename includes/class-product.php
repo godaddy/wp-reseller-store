@@ -15,7 +15,7 @@ final class Product {
 	/**
 	 * Product object.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var stdClass
 	 */
@@ -24,7 +24,7 @@ final class Product {
 	/**
 	 * Array of required properties and validation callbacks.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @var array
 	 */
@@ -41,7 +41,7 @@ final class Product {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param stdClass $product
 	 */
@@ -54,7 +54,7 @@ final class Product {
 	/**
 	 * Return a product property.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  string $property
 	 *
@@ -69,7 +69,7 @@ final class Product {
 	/**
 	 * Check if the product object is valid.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @return bool  Returns `true` if the product object is valid, otherwise `false`.
 	 */
@@ -108,7 +108,7 @@ final class Product {
 	 * Check if a product has already been imported.
 	 *
 	 * @global wpdb $wpdb
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @return int|false  Returns the post ID if it exists, otherwise `false`.
 	 */
@@ -143,7 +143,7 @@ final class Product {
 	 * Check if an product image has already been imported.
 	 *
 	 * @global wpdb $wpdb
-	 * @since  NEXT
+	 * @since  0.2.0
 	 *
 	 * @param  string $url
 	 *
@@ -178,7 +178,7 @@ final class Product {
 	/**
 	 * Import the product.
 	 *
-	 * @since NEXT
+	 * @since 0.2.0
 	 *
 	 * @param  int $post_id
 	 *

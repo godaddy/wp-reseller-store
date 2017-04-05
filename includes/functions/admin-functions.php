@@ -3,7 +3,7 @@
 /**
  * Check if we are on a specific admin screen.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @param  string $request_uri
  * @param  bool   $strict      (optional)
@@ -23,7 +23,7 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
 /**
  * Safe redirect to any admin page.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @param string $endpoint (optional)
  * @param array  $args (optional)

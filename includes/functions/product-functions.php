@@ -9,7 +9,7 @@
  * queries on the same page load.
  *
  * @global wpdb $wpdb
- * @since  NEXT
+ * @since  0.2.0
  *
  * @return bool  Returns `true` if there are product posts, otherwise `false`.
  */
@@ -41,7 +41,7 @@ function rstore_has_products() {
 /**
  * Check if the site has imported all available products.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @return bool  Returns `true` if all available products have been imported, otherwise `false`.
  */
@@ -54,7 +54,7 @@ function rstore_has_all_products() {
 /**
  * Return an array of missing product IDs that can be imported.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @return array  Returns an array of product IDs, otherwise an empty array.
  */
@@ -140,7 +140,7 @@ function rstore_get_product( $product_id, $hard = false ) {
 /**
  * Return a product meta value, or its global setting fallback.
  *
- * @since NEXT
+ * @since 0.2.0
  *
  * @param  int    $post_id
  * @param  string $key
