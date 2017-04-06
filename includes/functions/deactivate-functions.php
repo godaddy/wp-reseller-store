@@ -9,7 +9,7 @@ function rstore_deactivate() {
 
 	if ( filter_input( INPUT_GET, 'deactivated', FILTER_SANITIZE_NUMBER_INT ) ) {
 
-		add_action( 'admin_notices', 'rstore_deactivation_notice' );
+		add_action( 'admin_notices', 'rstore_deactivate_notice' );
 
 		deactivate_plugins( RSTORE_BASENAME );
 
@@ -31,7 +31,7 @@ add_action( 'admin_init', 'rstore_deactivate' );
  *
  * @since NEXT
  */
-function rstore_deactivation_notice() {
+function rstore_deactivate_notice() {
 
 	printf(
 		'<div class="notice notice-error">
