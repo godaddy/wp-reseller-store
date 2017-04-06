@@ -37,4 +37,4 @@ if ( version_compare( '5.4.0', phpversion(), '>' ) ) {
 
 }
 
-include_once( __DIR__ . '/includes/class-rstore.php' );
+include_once( __DIR__ . '/includes/class-plugin.php' );
