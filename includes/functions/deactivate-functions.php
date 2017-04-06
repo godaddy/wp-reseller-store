@@ -5,9 +5,14 @@
  * @since NEXT
  */
 
+/**
+ * Deactivate the plugin
+ *
+ * @since NEXT
+ */
 function rstore_deactivate() {
 
-	if ( filter_input( INPUT_GET, 'deactivated', FILTER_SANITIZE_NUMBER_INT ) ) {
+	if ( filter_input( INPUT_GET, 'rstore-deactivated', FILTER_SANITIZE_NUMBER_INT ) ) {
 
 		add_action( 'admin_notices', 'rstore_deactivate_notice' );
 
@@ -17,7 +22,7 @@ function rstore_deactivate() {
 
 	}
 
-	wp_redirect( add_query_arg( 'deactivated', 1, admin_url( 'plugins.php' ) ) );
+	wp_redirect( add_query_arg( 'rstore-deactivated', 1, admin_url( 'plugins.php' ) ) );
 
 	exit;
 
@@ -25,11 +30,29 @@ function rstore_deactivate() {
 add_action( 'admin_init', 'rstore_deactivate' );
 
 /**
- * Display an admin notice as to why the plugin was deactivated
- *
- * @return mixed Markup for the admin notice
+ * Remove custom query arg from URL
  *
  * @since NEXT
+ *
+ * @param array $args Initial query arguemnts array
+ *
+ * @return array Final query argument array
+ */
+function rstore_removable_arg( $args ) {
+
+	array_push( $args, 'rstore-deactivated' );
+
+	return $args;
+
+}
+add_filter( 'removable_query_args', 'rstore_removable_arg' );
+
+/**
+ * Display an admin notice
+ *
+ * @since NEXT
+ *
+ * @return mixed Markup for the admin notice
  */
 function rstore_deactivate_notice() {
 
