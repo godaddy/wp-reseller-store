@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:246
@@ -67,9 +66,9 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"Necessita de começar do início? Pode restaurar o título, o conteúdo, a "
-"imagem em destaque e as atribuições de categoria originais do produto. Nota: "
-"As suas personalizações serão perdidas."
+"Necessita de começar do início? Pode restaurar o título, o conteúdo, a imagem "
+"em destaque e as atribuições de categoria originais do produto. Nota: As suas "
+"personalizações serão perdidas."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -77,53 +76,45 @@ msgstr "Redefinir dados"
 
 #: includes/class-display.php:84
 msgid "Congrats, your domain is available!"
-msgstr ""
+msgstr "Parabéns, o seu domínio está disponível!"
 
 #: includes/class-display.php:85
 msgid "Sorry that domain is taken"
-msgstr ""
+msgstr "Lamentamos, mas esse domínio já foi adquirido"
 
 #: includes/class-display.php:86
-#, fuzzy
 msgid "Find your perfect domain name"
-msgstr "Encontre o seu nome de domínio perfeito"
+msgstr "Encontre o domínio ideal para si"
 
 #: includes/class-display.php:87
 msgid "View cart"
 msgstr "Ver o carrinho"
 
 #: includes/class-display.php:88
-#, fuzzy
 msgid "An error has occurred"
-msgstr "Ocorreu um erro desconhecido"
+msgstr "Ocorreu um erro"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "desconhecido"
 
-#. translators: product name
 #: includes/class-import.php:68
-#, fuzzy
+#. translators: product name
 msgid "`%s` is not a valid product."
 msgstr "«%s» não é um produto válido."
 
-#. translators: product name
 #: includes/class-import.php:81
-#, fuzzy
+#. translators: product name
 msgid "`%s` already exists."
 msgstr "«%s» já existe."
 
-#. translators: product name
 #: includes/class-import.php:103
-#, fuzzy
+#. translators: product name
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr ""
-"«%s» deve ser importado como uma publicação de produto antes de poder ser "
-"redefinido."
+msgstr "«%s» deve ser importado como uma publicação de produto antes de poder ser redefinido."
 
-#. translators: post type name
 #: includes/class-import.php:116
-#, fuzzy
+#. translators: post type name
 msgid "`%s` is not a valid post type for products."
 msgstr "«%s» não é um tipo de publicação válido para os produtos."
 
@@ -225,13 +216,10 @@ msgstr "Utilizar como imagem em destaque"
 
 #: includes/class-post-type.php:147
 msgid "This is where you can add new products to your Reseller Store."
-msgstr ""
-"Este é o local onde pode adicionar novos produtos à sua Loja para "
-"revendedores."
+msgstr "Este é o local onde pode adicionar novos produtos à sua Loja para revendedores."
 
-#. translators: product title
 #: includes/class-post-type.php:462
-#, fuzzy
+#. translators: product title
 msgid "Edit: %s"
 msgstr "Editar: %s"
 
@@ -277,14 +265,12 @@ msgstr "Criar uma conta"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"Precisa de ajuda? Ligue para a nossa equipa de assistência premiada através "
-"do número (480) 505-8877."
+msgstr "Precisa de ajuda? Ligue para a nossa equipa de assistência premiada através do número (480) 505-8877."
 
-#. translators: name of missing script
 #: includes/class-setup.php:205
+#. translators: name of missing script
 msgid "Error: Missing required script for setup %s"
-msgstr ""
+msgstr "Erro: Script necessário para a configuração do %s em falta"
 
 #: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -304,16 +290,14 @@ msgstr "Não existem produtos disponíveis. Tente novamente mais tarde."
 
 #: includes/class-setup.php:311
 msgid "Product data could not be imported, please try again later."
-msgstr ""
-"Não foi possível importar os dados do produto. Tente novamente mais tarde."
+msgstr "Não foi possível importar os dados do produto. Tente novamente mais tarde."
 
 #: includes/class-setup.php:347
 msgid "An unknown error occurred."
 msgstr "Ocorreu um erro desconhecido."
 
-#. translators: error message
 #: includes/class-setup.php:361
-#, fuzzy
+#. translators: error message
 msgid "Error: %s"
 msgstr "Erro: %s"
 
@@ -390,9 +374,8 @@ msgstr "Nome da nova etiqueta"
 msgid "Tags"
 msgstr "Etiquetas"
 
-#. translators: product name
 #: includes/functions/product-functions.php:134
-#, fuzzy
+#. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr "Erro: «%s» não existe."
 
@@ -404,9 +387,8 @@ msgstr "Carrinho para revendedores"
 msgid "Display the user's cart in the sidebar."
 msgstr "Apresente o carrinho do utilizador na barra lateral."
 
-#. translators: number of items in cart
 #: includes/widgets/class-cart.php:86
-#, fuzzy
+#. translators: number of items in cart
 msgid "View Cart %s"
 msgstr "Visualizar carrinho %s"
 
@@ -463,9 +445,7 @@ msgstr "Loja para revendedores da GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr ""
-"Revenda alojamento, domínios e mais ainda diretamente a partir do seu sítio "
-"do WordPress."
+msgstr "Revenda alojamento, domínios e mais ainda diretamente a partir do seu sítio do WordPress."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -545,9 +525,8 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Etiqueta"
 
-#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 #: includes/functions/template-functions.php:44
-#, fuzzy
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s/por %2$s"

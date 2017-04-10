@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:246
@@ -67,8 +66,9 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"प्रारंभ करणे आवश्यक आहे? आपण मूळ उत्पादन शीर्षक, सामग्री, वैशिष्ट्यीकृत प्रतिमा आणि श्रेणी "
-"असाइनमेंट पूर्वस्थित करू शकता. नोट: आपले सानुकूलीकरण गमावले जाईल."
+"प्रारंभ करणे आवश्यक आहे? आपण मूळ उत्पादन शीर्षक, सामग्री, वैशिष्ट्यीकृत "
+"प्रतिमा आणि श्रेणी असाइनमेंट पूर्वस्थित करू शकता. नोट: आपले सानुकूलीकरण "
+"गमावले जाईल."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -76,51 +76,45 @@ msgstr "डेटा रिसेट करा"
 
 #: includes/class-display.php:84
 msgid "Congrats, your domain is available!"
-msgstr ""
+msgstr "अभिनंदन, आपले डोमेन उपलब्ध आहे!"
 
 #: includes/class-display.php:85
 msgid "Sorry that domain is taken"
-msgstr ""
+msgstr "क्षमस्व ते डोमेन घेतले गेले आहे"
 
 #: includes/class-display.php:86
-#, fuzzy
 msgid "Find your perfect domain name"
-msgstr "तुमचे सुयोग्य नाव शोधा"
+msgstr "आपले योग्य डोमेन नाव शोधा"
 
 #: includes/class-display.php:87
 msgid "View cart"
 msgstr "कार्ट पहा"
 
 #: includes/class-display.php:88
-#, fuzzy
 msgid "An error has occurred"
-msgstr "एक अज्ञात त्रुटी आली"
+msgstr "एक त्रुटी आली"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "अज्ञात"
 
-#. translators: product name
 #: includes/class-import.php:68
-#, fuzzy
+#. translators: product name
 msgid "`%s` is not a valid product."
 msgstr "`%s` हे वैध उत्पादन नाही."
 
-#. translators: product name
 #: includes/class-import.php:81
-#, fuzzy
+#. translators: product name
 msgid "`%s` already exists."
 msgstr "`%s` आधीपासूनच अस्तित्वात आहे."
 
-#. translators: product name
 #: includes/class-import.php:103
-#, fuzzy
+#. translators: product name
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr "`%s` पुनर्स्थित करण्यापूर्वी एक उत्पादन पोस्ट म्हणून आयात करणे आवश्यक आहे."
 
-#. translators: post type name
 #: includes/class-import.php:116
-#, fuzzy
+#. translators: post type name
 msgid "`%s` is not a valid post type for products."
 msgstr "`%s` हा उत्पादनांसाठी वैध पोस्ट प्रकार नाही."
 
@@ -140,7 +134,8 @@ msgstr "विक्रेता उत्पादन परमालिंक�
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr "या सएटिंग्स विशेषतः विक्रेता स्टोअर उत्पादनासाठी परमालिंक्स नियंत्रित करतात."
+msgstr ""
+"या सएटिंग्स विशेषतः विक्रेता स्टोअर उत्पादनासाठी परमालिंक्स नियंत्रित करतात."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -222,9 +217,8 @@ msgstr "वैशिष्ट्यीकृत प्रतिमा म्ह�
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "येथे आपण आपल्या विक्रेता स्टोअरवर नवीन उत्पादने जोडू शकता."
 
-#. translators: product title
 #: includes/class-post-type.php:462
-#, fuzzy
+#. translators: product title
 msgid "Edit: %s"
 msgstr "संपादित करा: %s"
 
@@ -272,10 +266,10 @@ msgstr "एक खाते तयार करा"
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 msgstr "मदत हवी आहे? आमच्या पुरस्कार विजेता समर्थन संघाला (480) 505-8877 येथे कॉल करा."
 
-#. translators: name of missing script
 #: includes/class-setup.php:205
+#. translators: name of missing script
 msgid "Error: Missing required script for setup %s"
-msgstr ""
+msgstr "त्रुटी: सेटअप %s साठी आवश्यक स्क्रिप्ट गहाळ आहे"
 
 #: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -301,9 +295,8 @@ msgstr "उप्तादन डेटा आयात केला जाऊ �
 msgid "An unknown error occurred."
 msgstr "एक अज्ञात त्रुटी आली."
 
-#. translators: error message
 #: includes/class-setup.php:361
-#, fuzzy
+#. translators: error message
 msgid "Error: %s"
 msgstr "त्रुटी: %s"
 
@@ -380,9 +373,8 @@ msgstr "नवीन टॅग नाव"
 msgid "Tags"
 msgstr "टॅग्स"
 
-#. translators: product name
 #: includes/functions/product-functions.php:134
-#, fuzzy
+#. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr "त्रुटी: `%s` अस्तित्वात नाही."
 
@@ -394,9 +386,8 @@ msgstr "विक्रेता कार्ट"
 msgid "Display the user's cart in the sidebar."
 msgstr "साइडबारमध्ये वापरकर्त्याचा कार्ट प्रदर्शित करा"
 
-#. translators: number of items in cart
 #: includes/widgets/class-cart.php:86
-#, fuzzy
+#. translators: number of items in cart
 msgid "View Cart %s"
 msgstr "कार्ट पहा %s"
 
@@ -533,9 +524,8 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "टॅग"
 
-#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 #: includes/functions/template-functions.php:44
-#, fuzzy
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / प्रती %2$s"

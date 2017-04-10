@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:246
@@ -67,8 +66,8 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"Cần bắt đầu lại? Bạn có thể phục hồi tiêu đề sản phẩm gốc, nội dung, hình "
-"ảnh nổi bật và phân giao hạng mục. Lưu ý: Tùy chỉnh của bạn sẽ bị mất."
+"Cần bắt đầu lại? Bạn có thể phục hồi tiêu đề sản phẩm gốc, nội dung, hình ảnh "
+"nổi bật và phân giao hạng mục. Lưu ý: Tùy chỉnh của bạn sẽ bị mất."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -76,53 +75,45 @@ msgstr "Cài đặt lại dữ liệu"
 
 #: includes/class-display.php:84
 msgid "Congrats, your domain is available!"
-msgstr ""
+msgstr "Chúc mừng, miền của bạn khả dụng!"
 
 #: includes/class-display.php:85
 msgid "Sorry that domain is taken"
-msgstr ""
+msgstr "Rất tiếc, miền đó đã được mua"
 
 #: includes/class-display.php:86
-#, fuzzy
 msgid "Find your perfect domain name"
-msgstr "Tên phù hợp nhất với bạn"
+msgstr "Tìm tên miền hoàn hảo của bạn"
 
 #: includes/class-display.php:87
 msgid "View cart"
 msgstr "Xem giỏ hàng"
 
 #: includes/class-display.php:88
-#, fuzzy
 msgid "An error has occurred"
-msgstr "Đã xảy ra một lỗi chưa xác định"
+msgstr "Có lỗi xuất hiện"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "Không xác định"
 
-#. translators: product name
 #: includes/class-import.php:68
-#, fuzzy
+#. translators: product name
 msgid "`%s` is not a valid product."
 msgstr "`%s` không phải là sản phẩm hợp lệ."
 
-#. translators: product name
 #: includes/class-import.php:81
-#, fuzzy
+#. translators: product name
 msgid "`%s` already exists."
 msgstr "`%s` đã tồn tại."
 
-#. translators: product name
 #: includes/class-import.php:103
-#, fuzzy
+#. translators: product name
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr ""
-"`%s` phải được nhập dưới dạng bài đăng sản phẩm trước khi nó có thể được cài "
-"đặt lại."
+msgstr "`%s` phải được nhập dưới dạng bài đăng sản phẩm trước khi nó có thể được cài đặt lại."
 
-#. translators: post type name
 #: includes/class-import.php:116
-#, fuzzy
+#. translators: post type name
 msgid "`%s` is not a valid post type for products."
 msgstr "`%s` không phải là loại bài đăng hợp lệ cho các sản phẩm."
 
@@ -226,9 +217,8 @@ msgstr "Sử dụng dưới dạng hình ảnh nổi bật"
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Đây là nơi bạn có thể thêm sản phẩm mới vào Cửa hàng đại lý."
 
-#. translators: product title
 #: includes/class-post-type.php:462
-#, fuzzy
+#. translators: product title
 msgid "Edit: %s"
 msgstr "Chỉnh sửa: %s"
 
@@ -274,14 +264,12 @@ msgstr "Tạo tài khoản"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"Cần hỗ trợ? Hãy gọi cho nhóm hỗ trợ uy tín của chúng tôi theo số (480) "
-"505-8877."
+msgstr "Cần hỗ trợ? Hãy gọi cho nhóm hỗ trợ uy tín của chúng tôi theo số (480) 505-8877."
 
-#. translators: name of missing script
 #: includes/class-setup.php:205
+#. translators: name of missing script
 msgid "Error: Missing required script for setup %s"
-msgstr ""
+msgstr "Lỗi: Thiếu tập lệnh được yêu cầu để thiết lập %s"
 
 #: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -307,9 +295,8 @@ msgstr "Dữ liệu sản phẩm không nhập được, vui lòng thử lại s
 msgid "An unknown error occurred."
 msgstr "Đã xảy ra một lỗi chưa xác định"
 
-#. translators: error message
 #: includes/class-setup.php:361
-#, fuzzy
+#. translators: error message
 msgid "Error: %s"
 msgstr "Lỗi: %s"
 
@@ -386,9 +373,8 @@ msgstr "Tên thẻ mới"
 msgid "Tags"
 msgstr "Từ khóa"
 
-#. translators: product name
 #: includes/functions/product-functions.php:134
-#, fuzzy
+#. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr "Lỗi: `%s` không tồn tại."
 
@@ -400,9 +386,8 @@ msgstr "Giỏ hàng của đại lý"
 msgid "Display the user's cart in the sidebar."
 msgstr "Hiển thị giỏ của người dùng ở thanh bên."
 
-#. translators: number of items in cart
 #: includes/widgets/class-cart.php:86
-#, fuzzy
+#. translators: number of items in cart
 msgid "View Cart %s"
 msgstr "Xem giỏ hàng %s"
 
@@ -459,9 +444,7 @@ msgstr "Cửa hàng đại lý của GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr ""
-"Bán lại dịch vụ lưu trữ, miền và nhiều hơn nữa, ngay từ trang WordPress của "
-"bạn."
+msgstr "Bán lại dịch vụ lưu trữ, miền và nhiều hơn nữa, ngay từ trang WordPress của bạn."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -541,9 +524,8 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Thẻ"
 
-#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 #: includes/functions/template-functions.php:44
-#, fuzzy
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / mỗi %2$s"
