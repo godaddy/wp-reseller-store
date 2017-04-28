@@ -68,7 +68,8 @@ final class Setup {
 		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
 		// @codingStandardsIgnoreStart
-		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [ 'install_nonce' => wp_create_nonce( self::$install_nonce ) ] );
+		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [ 'install_nonce' => wp_create_nonce( self::$install_nonce ),
+		  'install_site' => get_site_url() ] );
 		// @codingStandardsIgnoreEnd
 
 	}
@@ -148,11 +149,9 @@ final class Setup {
 			margin-bottom: 30px;
 			font-weight: 500;
 		}
-		.rstore-spinner {
-			visibility: hidden;
-			max-width: 20px;
-			height: auto;
-			margin-bottom: -4px;
+		.rstore-setup button {
+			min-width: 170px;
+			min-height: 50px;
 		}
 		</style>
 
@@ -165,16 +164,13 @@ final class Setup {
 					<div class="clear"></div>
 				</div>
 				<div class="rstore-setup-body">
-					<h3><?php esc_html_e( 'Enter your Private Label ID to get started.', 'reseller-store' ); ?></h3>
+					<h3><?php esc_html_e( 'Register your plugin to import your product catalog.', 'reseller-store' ); ?></h3>
 					<p>
 						<form id="rstore-setup-form">
-							<label class="screen-reader-text" for="rstore-pl-id-field"><?php esc_html_e( 'Enter your Private Label ID:', 'reseller-store' ); ?></label>
-							<input type="number" id="rstore-pl-id-field" value="<?php echo rstore_get_option( 'pl_id', '' ); // xss ok ?>" min="0" autocomplete="off" required>
-							<button type="submit" class="button button-primary"><?php esc_html_e( 'Install Now', 'reseller-store' ); ?></button>
-							<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
+							<button type="submit" class="button button-primary" ><?php esc_html_e( 'Register', 'reseller-store' ); ?></button>
 						</form>
 					</p>
-					<p><?php esc_html_e( "Don't have an account?", 'reseller-store' ); ?> <a href="https://sso.godaddy.com/account/create?path=/&app=reseller"><?php esc_html_e( 'Create an account', 'reseller-store' ); ?></a></p>
+					<p><?php esc_html_e( "Don't have a GoDaddy Reseller account?", 'reseller-store' ); ?> <a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get one', 'reseller-store' ); ?></a></p>
 				</div>
 				<div class="rstore-setup-footer">
 					<p><strong><?php esc_html_e( 'Need help? Call our award-winning support team 24/7 at (480) 505-8877.', 'reseller-store' ); ?></strong></p>

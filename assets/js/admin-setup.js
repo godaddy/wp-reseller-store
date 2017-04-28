@@ -8,39 +8,14 @@
 
 		e.preventDefault();
 
-		var $this    = $( this ),
-		    $input   = $this.find( 'input' ),
-		    $submit  = $this.find( 'button' ),
-		    $spinner = $this.find( 'img' ),
-		    data     = {
+		var data     = {
 				'action': 'rstore_install',
 				'nonce': rstore_admin_setup.install_nonce,
-				'pl_id': $input.val()
-			};
+				'site': rstore_admin_setup.install_site
+			},
+			query = $.param(data);
 
-		$input.prop( 'disabled', true );
-		$submit.prop( 'disabled', true );
-		$spinner.css( 'visibility', 'visible' );
-
-		$.post( ajaxurl, data, function( response ) {
-
-			if ( response.success ) {
-
-				window.location.replace( response.data.redirect );
-
-				return false;
-
-			}
-
-			$input.prop( 'disabled', false );
-			$submit.prop( 'disabled', false );
-			$spinner.css( 'visibility', 'hidden' );
-
-			window.console.log( response );
-
-			window.alert( response.data );
-
-		} );
+		window.location = "https://reseller.dev-godaddy.com/activate?"+query;
 
 	};
 
