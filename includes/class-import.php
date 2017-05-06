@@ -74,16 +74,8 @@ final class Import {
 		}
 
 		if ( ! $this->post_id && $product->exists() ) {
-
-			$this->result = new WP_Error(
-				'product_exists',
-				/* translators: product name */
-				esc_html__( '`%s` already exists.', 'reseller-store' ),
-				$fallback_id
-			);
-
+			//product exists so don't import it
 			return;
-
 		}
 
 		/**

@@ -67,9 +67,21 @@ final class Setup {
 
 		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
+		//work on this logic
+		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce' ), self::$install_nonce );
+		$plid = filter_input( INPUT_GET, 'rstore_plid' );
+		$error = '';
+		if ( !$nonce && $plid ) {
+			$error ='Invalid nonce token.  Please try again.';
+		}
+
 		// @codingStandardsIgnoreStart
-		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [ 'install_nonce' => wp_create_nonce( self::$install_nonce ),
-		  'install_site' => get_site_url() ] );
+		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [
+			'install_nonce' => wp_create_nonce( self::$install_nonce ),
+		  'install_site' => get_site_url(),
+		  'install_admin_url' => admin_url('admin.php'),
+			'install_error' => $error,
+		  'install_plid' => $plid ] );
 		// @codingStandardsIgnoreEnd
 
 	}
@@ -102,17 +114,6 @@ final class Setup {
 	 * @since 0.2.0
 	 */
 	public function content() {
-
-		$sso_url = add_query_arg(
-			[
-				'app'     => 'reseller',
-				'referer' => esc_url_raw(
-					add_query_arg( 'page', self::SLUG, admin_url( 'admin.php' ) )
-				),
-			],
-			'https://sso.godaddy.com/login'
-		);
-
 		?>
 		<style type="text/css">
 		.rstore-setup .notice {
@@ -149,12 +150,24 @@ final class Setup {
 			margin-bottom: 30px;
 			font-weight: 500;
 		}
+		.rstore-spinner {
+			max-width: 20px;
+			height: auto;
+			margin-bottom: -4px;
+		}
+		.rstore-status {
+			padding-top: 15px;
+			visibility: hidden;
+		}
 		.rstore-setup button {
 			min-width: 170px;
 			min-height: 50px;
 		}
+		.rstore-error {
+			color: #d9534f;
+			font-weight: 900;
+		}
 		</style>
-
 		<div class="rstore-setup">
 			<?php $this->missing_script_notice(); ?>
 			<div class="rstore-setup-wrapper">
@@ -167,13 +180,26 @@ final class Setup {
 					<h3><?php esc_html_e( 'Register your plugin to import your product catalog.', 'reseller-store' ); ?></h3>
 					<p>
 						<form id="rstore-setup-form">
-							<button type="submit" class="button button-primary" ><?php esc_html_e( 'Register', 'reseller-store' ); ?></button>
+							<button type="submit" id="rstore-activate" class="button button-primary" ><?php esc_html_e( 'Login & Activate', 'reseller-store' ); ?></button>
+							<div class="rstore-status">
+								<?php esc_html_e( 'Importing product catalog and installing', 'reseller-store' ); ?>
+								<img id="rstore-spinner" src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
+							</div>
+							<div class="rstore-error"></div>
 						</form>
 					</p>
-					<p><?php esc_html_e( "Don't have a GoDaddy Reseller account?", 'reseller-store' ); ?> <a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get one', 'reseller-store' ); ?></a></p>
+
+					<p>
+						<?php esc_html_e("A GoDaddy Account is required to activate the plugin.");?><br/>
+						<?php esc_html_e("We will provide a demo reseller plan if you don't have a reseller plan.", 'reseller-store' ); ?>&nbsp;
+						<a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get your own plan today.', 'reseller-store' ); ?></a>
+					</p>
+					<p><?php esc_html_e( "Not interested in activating right now? You will only see two demo products on a demo storefront without the benefits of having your own plan.", 'reseller-store' ); ?>
+						<a id="rstore-skip-activate" href="#"><?php esc_html_e( 'Skip activation.', 'reseller-store' ); ?></a>
+					</p>
 				</div>
 				<div class="rstore-setup-footer">
-					<p><strong><?php esc_html_e( 'Need help? Call our award-winning support team 24/7 at (480) 505-8877.', 'reseller-store' ); ?></strong></p>
+					<p><strong><?php esc_html_e( 'Need help? Call our award-winning support team 24/7 at (480) 505-8857.', 'reseller-store' ); ?></strong></p>
 				</div>
 			</div>
 		</div>
@@ -217,7 +243,7 @@ final class Setup {
 	 * @return true|WP_Error|void
 	 */
 	public static function install( $pl_id = 0 ) {
-
+		$skip_activation = false;
 		if (
 			! current_user_can( 'install_plugins' )
 			&&
@@ -243,6 +269,10 @@ final class Setup {
 			}
 
 			$pl_id = absint( filter_input( INPUT_POST, 'pl_id' ) );
+			$skip_activation = filter_input( INPUT_POST, 'skip_activation' );
+			if ( $skip_activation ){
+				$pl_id = 1592;
+			}
 
 		}
 
@@ -258,8 +288,13 @@ final class Setup {
 		}
 
 		rstore_update_option( 'pl_id', $pl_id );
-
-		$products = rstore_get_products( true );
+		$products = [];
+		if ( $skip_activation ){
+			$products = rstore_get_demo_products();
+		}
+		else {
+			$products = rstore_get_products( true );
+		}
 
 		if ( is_wp_error( $products ) ) {
 
@@ -293,9 +328,7 @@ final class Setup {
 			$result = $product->import();
 
 			if ( is_wp_error( $result ) ) {
-
 				return self::install_error( $result );
-
 			}
 
 		}

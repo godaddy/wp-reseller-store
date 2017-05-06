@@ -107,6 +107,17 @@ function rstore_get_products( $hard = false ) {
 }
 
 /**
+ * Return an array of products and cache them.
+ *
+ *
+ * @return array|WP_Error
+ */
+function rstore_get_demo_products(  ) {
+
+	return json_decode(file_get_contents( __DIR__ . '/demo.json'), true);
+}
+
+/**
  * Return a product object.
  *
  * @param  string $product_id
