@@ -31,11 +31,31 @@ final class Setup {
 	private static $install_nonce;
 
 	/**
+	 * Site for the reseller control center
+	 *
+	 * @since 0.3.0
+	 *
+	 * @var string
+	 */
+	private $rcc_site = 'https://reseller.godaddy.com';
+
+
+	/**
 	 * Class constructor.
 	 *
 	 * @since 0.2.0
 	 */
 	public function __construct() {
+
+		/**
+		 * Filter the base rcc site.
+		 *
+		 * @since 0.3.0
+		 *
+		 * @var string
+		 */
+		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
+
 
 		add_action( 'init', function () {
 
@@ -80,6 +100,7 @@ final class Setup {
 			'install_nonce' => wp_create_nonce( self::$install_nonce ),
 		  'install_site' => get_site_url(),
 		  'install_admin_url' => admin_url('admin.php'),
+		  'rcc_site' => $this->rcc_site,
 			'install_error' => $error,
 		  'install_plid' => $plid ] );
 		// @codingStandardsIgnoreEnd
