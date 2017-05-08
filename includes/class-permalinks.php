@@ -151,7 +151,7 @@ final class Permalinks {
 	private function save() {
 
 		if (
-			false === wp_verify_nonce( filter_input( INPUT_POST, '_wpnonce' ), 'update-permalink' )
+			false === wp_verify_nonce( filter_input( INPUT_POST, '_wpnonce', FILTER_SANITIZE_STRING ), 'update-permalink' )
 			||
 			! isset( $_POST['permalink_structure'] ) // input var ok.
 		) {
@@ -165,12 +165,12 @@ final class Permalinks {
 		$old_permalinks = (array) rstore_get_option( 'permalinks', [] );
 		$new_permalinks = $old_permalinks;
 
-		$new_permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base' ) );
-		$new_permalinks['tag_base']      = sanitize_title( filter_input( INPUT_POST, 'rstore_tag_base' ) );
-		$new_permalinks['product_base']  = sanitize_title( filter_input( INPUT_POST, 'rstore_product_base' ) );
+		$new_permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base', FILTER_SANITIZE_STRING ) );
+		$new_permalinks['tag_base']      = sanitize_title( filter_input( INPUT_POST, 'rstore_tag_base', FILTER_SANITIZE_STRING ) );
+		$new_permalinks['product_base']  = sanitize_title( filter_input( INPUT_POST, 'rstore_product_base', FILTER_SANITIZE_STRING ) );
 
 		$old_structure = get_option( 'permalink_structure', '' );
-		$new_structure = (string) filter_input( INPUT_POST, 'permalink_structure' );
+		$new_structure = filter_input( INPUT_POST, 'permalink_structure', FILTER_SANITIZE_STRING );
 
 		if ( $new_permalinks === $old_permalinks && $old_structure === $new_structure ) {
 

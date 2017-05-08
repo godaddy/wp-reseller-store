@@ -185,9 +185,9 @@ final class Post_Type {
 		if (
 			! rstore_is_admin_uri( 'post.php?post=' )
 			||
-			! ( $post_id = absint( filter_input( INPUT_GET, 'post' ) ) )
+			! ( $post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT ) )
 			||
-			! ( $nonce = filter_input( INPUT_GET, '_wpnonce' ) )
+			! ( $nonce = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING ) )
 			||
 			false === wp_verify_nonce( $nonce, sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() ) )
 		) {
@@ -454,7 +454,7 @@ final class Post_Type {
 
 		}
 
-		$post_id = (int) filter_input( INPUT_GET, 'post' );
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
 
 		$title = ( $post_id > 0 ) ? rstore_get_product_meta( $post_id, 'title' ) : null;
 

@@ -86,9 +86,11 @@ final class Setup {
 
 		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
-		//work on this logic
-		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce' ), self::$install_nonce );
-		$plid  = filter_input( INPUT_GET, 'rstore_plid' );
+		/**
+		 * @todo Work on this logic
+		 */
+		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce', FILTER_SANITIZE_STRING ), self::$install_nonce );
+		$plid  = filter_input( INPUT_GET, 'rstore_plid', FILTER_SANITIZE_STRING );
 		$error = '';
 
 		if ( ! $nonce && $plid ) {
@@ -284,7 +286,7 @@ final class Setup {
 
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
-			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce' ), self::$install_nonce ) ) {
+			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::$install_nonce ) ) {
 
 				return self::install_error(
 					'invalid_nonce',
@@ -293,8 +295,8 @@ final class Setup {
 
 			}
 
-			$pl_id           = absint( filter_input( INPUT_POST, 'pl_id' ) );
-			$skip_activation = filter_input( INPUT_POST, 'skip_activation' );
+			$pl_id           = filter_input( INPUT_POST, 'pl_id', FILTER_SANITIZE_NUMBER_INT );
+			$skip_activation = filter_input( INPUT_POST, 'skip_activation', FILTER_SANITIZE_STRING );
 
 			if ( $skip_activation ) {
 

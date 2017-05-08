@@ -325,7 +325,7 @@ final class ButterBean {
 	 */
 	private function reset_product_data( $manager, $section ) {
 
-		$post_id = filter_input( INPUT_GET, 'post' );
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
