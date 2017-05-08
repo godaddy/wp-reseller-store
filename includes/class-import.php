@@ -74,8 +74,10 @@ final class Import {
 		}
 
 		if ( ! $this->post_id && $product->exists() ) {
-			//product exists so don't import it
+
+			// product exists so don't import it
 			return;
+
 		}
 
 		/**

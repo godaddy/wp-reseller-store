@@ -56,7 +56,6 @@ final class Setup {
 		 */
 		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
 
-
 		add_action( 'init', function () {
 
 			self::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
@@ -89,21 +88,24 @@ final class Setup {
 
 		//work on this logic
 		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce' ), self::$install_nonce );
-		$plid = filter_input( INPUT_GET, 'rstore_plid' );
+		$plid  = filter_input( INPUT_GET, 'rstore_plid' );
 		$error = '';
-		if ( !$nonce && $plid ) {
-			$error ='Invalid nonce token.  Please try again.';
+
+		if ( ! $nonce && $plid ) {
+
+			$error = __( 'Invalid nonce token.  Please try again.', 'reseller-store' );
+
 		}
 
 		// @codingStandardsIgnoreStart
 		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [
 			'install_nonce' => wp_create_nonce( self::$install_nonce ),
-		  'install_site' => get_site_url(),
-		  'install_admin_url' => admin_url('admin.php'),
-		  'rcc_site' => $this->rcc_site,
+			'install_site' => get_site_url(),
+			'install_admin_url' => admin_url('admin.php'),
+			'rcc_site' => $this->rcc_site,
 			'install_error' => $error,
-		  'install_plid' => $plid ] );
-		// @codingStandardsIgnoreEnd
+			'install_plid' => $plid,
+		] );
 
 	}
 
@@ -211,11 +213,11 @@ final class Setup {
 					</p>
 
 					<p>
-						<?php esc_html_e("A GoDaddy Account is required to activate the plugin.");?><br/>
-						<?php esc_html_e("We will provide a demo reseller plan if you don't have a reseller plan.", 'reseller-store' ); ?>&nbsp;
+						<?php esc_html_e( 'A GoDaddy Account is required to activate the plugin.', 'reseller-store' );?><br/>
+						<?php esc_html_e( "We will provide a demo reseller plan if you don't have a reseller plan.", 'reseller-store' ); ?>&nbsp;
 						<a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get your own plan today.', 'reseller-store' ); ?></a>
 					</p>
-					<p><?php esc_html_e( "Not interested in activating right now? You will only see two demo products on a demo storefront without the benefits of having your own plan.", 'reseller-store' ); ?>
+					<p><?php esc_html_e( 'Not interested in activating right now? You will only see two demo products on a demo storefront without the benefits of having your own plan.', 'reseller-store' ); ?>
 						<a id="rstore-skip-activate" href="#"><?php esc_html_e( 'Skip activation.', 'reseller-store' ); ?></a>
 					</p>
 				</div>
@@ -264,7 +266,9 @@ final class Setup {
 	 * @return true|WP_Error|void
 	 */
 	public static function install( $pl_id = 0 ) {
+
 		$skip_activation = false;
+
 		if (
 			! current_user_can( 'install_plugins' )
 			&&
@@ -289,10 +293,13 @@ final class Setup {
 
 			}
 
-			$pl_id = absint( filter_input( INPUT_POST, 'pl_id' ) );
+			$pl_id           = absint( filter_input( INPUT_POST, 'pl_id' ) );
 			$skip_activation = filter_input( INPUT_POST, 'skip_activation' );
-			if ( $skip_activation ){
+
+			if ( $skip_activation ) {
+
 				$pl_id = 1592;
+
 			}
 
 		}
@@ -309,13 +316,10 @@ final class Setup {
 		}
 
 		rstore_update_option( 'pl_id', $pl_id );
+
 		$products = [];
-		if ( $skip_activation ){
-			$products = rstore_get_demo_products();
-		}
-		else {
-			$products = rstore_get_products( true );
-		}
+
+		$products = $skip_activation ? rstore_get_demo_products() : rstore_get_products( true );
 
 		if ( is_wp_error( $products ) ) {
 
@@ -349,7 +353,9 @@ final class Setup {
 			$result = $product->import();
 
 			if ( is_wp_error( $result ) ) {
+
 				return self::install_error( $result );
+
 			}
 
 		}
