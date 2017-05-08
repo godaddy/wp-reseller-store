@@ -16,7 +16,7 @@
 			},
 			query = $.param(data);
 
-		window.location = "https://reseller.dev-godaddy.com/activate?"+query;
+		window.location = rstore_admin_setup.rcc_site + '/activate?' + query;
 
 	};
 
