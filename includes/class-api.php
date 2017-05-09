@@ -66,7 +66,6 @@ final class API {
 
 		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
 		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
-		$this->urls['domain_search'] = $this->add_query_args( sprintf( 'https://www.%s/domains/search.aspx?checkAvail=1', $this->tld ) );
 
 	}
 
