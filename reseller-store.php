@@ -110,10 +110,3 @@ rstore();
  * @since 0.2.0
  */
 register_deactivation_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'deactivate' ] );
-
-/**
- * Register uninstall hook.
- *
- * @since 0.2.0
- */
-register_uninstall_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'uninstall' ] );

@@ -8,13 +8,13 @@
 
 		e.preventDefault();
 
-		var query = $.param( data ),
-		    data  = {
+		var data  = {
 			    'action': 'rstore_install',
 			    'nonce' : rstore_admin_setup.install_nonce,
 			    'site'  : rstore_admin_setup.install_site,
 			    'admin' : rstore_admin_setup.install_admin_url
-		    };
+		    },
+		    query = $.param( data );
 
 		window.location = rstore_admin_setup.rcc_site + '/activate?' + query;
 
