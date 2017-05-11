@@ -57,7 +57,6 @@ function rstore_clear_cache() {
 	return wp_cache_delete( $key );
 }
 
-
 /**
  * Check if the site has imported all available products.
  *
