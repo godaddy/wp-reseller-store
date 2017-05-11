@@ -33,7 +33,7 @@ final class Setup {
 	/**
 	 * Site for the reseller control center
 	 *
-	 * @since 0.3.0
+	 * @since NEXT
 	 *
 	 * @var string
 	 */
@@ -50,7 +50,7 @@ final class Setup {
 		/**
 		 * Filter the base rcc site.
 		 *
-		 * @since 0.3.0
+		 * @since NEXT
 		 *
 		 * @var string
 		 */

@@ -40,13 +40,11 @@ function rstore_has_products() {
 /**
  * Clear the product count cache.
  *
- * Ignores the `auto-draft` post status.
- *
  * Product count is cached in memory to prevent duplicate
  * queries on the same page load.
  *
  * @global wpdb $wpdb
- * @since  0.3.0
+ * @since  NEXT
  *
  * @return bool  Returns `true` on successful removal, `false` on failure
  */
