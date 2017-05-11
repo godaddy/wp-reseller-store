@@ -362,6 +362,8 @@ final class Setup {
 
 		}
 
+		rstore_clear_cache();
+
 		if ( ! rstore_has_products() ) {
 
 			return self::install_error(

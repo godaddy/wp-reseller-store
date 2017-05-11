@@ -38,6 +38,27 @@ function rstore_has_products() {
 }
 
 /**
+ * Clear the product count cache.
+ *
+ * Ignores the `auto-draft` post status.
+ *
+ * Product count is cached in memory to prevent duplicate
+ * queries on the same page load.
+ *
+ * @global wpdb $wpdb
+ * @since  0.3.0
+ *
+ * @return bool  Returns `true` on successful removal, `false` on failure
+ */
+function rstore_clear_cache() {
+
+	$key = rstore_prefix( 'products_count' );
+
+	return wp_cache_delete( $key );
+}
+
+
+/**
  * Check if the site has imported all available products.
  *
  * @since 0.2.0
