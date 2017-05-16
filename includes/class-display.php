@@ -19,6 +19,8 @@ final class Display {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
 
+		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
+
 		/**
 		 * Register the domain search shortcode
 		 *
@@ -31,6 +33,24 @@ final class Display {
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
 		add_shortcode( 'rstore-domain-search', function( $atts ) {
+
+			return wp_kses_post( '<div class="rstore-domain-search"></div>' );
+
+		} );
+
+
+		/**
+		 * Register the add to cart shortcode
+		 *
+		 * @shortcode [rstore-cart-button]
+		 *
+		 * @since  0.2.0
+		 *
+		 * @param  array $atts Defualt shortcode parameters
+		 *
+		 * @return mixed Returns the HTML markup for the domain search container.
+		 */
+		add_shortcode( 'rstore-cart-button', function( $atts ) {
 
 			return wp_kses_post( '<div class="rstore-domain-search"></div>' );
 
