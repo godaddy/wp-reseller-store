@@ -14,6 +14,12 @@ function rstore_price( $post = null, $echo = true ) {
 
 	$post = get_post( $post );
 
+	$id = rstore_get_product_meta( $post->ID, 'id' );
+
+	if ( $id === 'domain' ) {
+		return;
+	}
+
 	$list = rstore_get_product_meta( $post->ID, 'listPrice' );
 
 	if ( ! $list ) {
@@ -85,12 +91,12 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
 	ob_start();
 
 	?>
-	<form class="rstore-add-to-cart-form">
+	<div class="rstore-add-to-cart-form">
 		<input type="hidden" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
-		<input type="submit" class="rstore-add-to-cart submit button" data-id="<?php echo esc_attr( $id ); ?>" data-quantity="<?php echo absint( $quantity ); ?>" data-redirect="<?php echo esc_attr( $redirect ); ?>" value="<?php echo esc_attr( $label ); ?>">
+		<?php	rstore_add_to_cart_button( $post ); ?>
 		<div class="rstore-loading rstore-loading-hidden" ></div>
 		<div class="rstore-message"></div>
-	</form>
+	</div>
 	<?php
 
 	$output = ob_get_clean();
@@ -123,6 +129,10 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
 
 		return;
 
+	}
+
+	if ( $id === 'domain' ) {
+		return;
 	}
 
 	$output = sprintf(
