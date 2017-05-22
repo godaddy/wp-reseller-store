@@ -114,7 +114,6 @@ final class Import {
 				return;
 
 			}
-
 		}
 
 		$this->post_id = $this->post( $this->post_id );
@@ -257,9 +256,7 @@ final class Import {
 					$this->process_categories( $children, $post_id, $term_id );
 
 				}
-
 			}
-
 		}
 
 	}

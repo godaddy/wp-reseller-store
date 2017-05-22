@@ -153,7 +153,6 @@ function rstore_get_product( $product_id, $hard = false ) {
 			return $product;
 
 		}
-
 	}
 
 	return new WP_Error(

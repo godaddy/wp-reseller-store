@@ -97,7 +97,6 @@ final class Product {
 				return true;
 
 			}
-
 		}
 
 		return false;
@@ -123,7 +122,6 @@ final class Product {
 		}
 
 		// Query post meta if the imported option is missing
-
 		global $wpdb;
 
 		$post_id = (int) $wpdb->get_var(

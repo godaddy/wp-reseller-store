@@ -38,7 +38,6 @@ final class Display {
 
 		} );
 
-
 		/**
 		 * Register the add to cart shortcode
 		 *
@@ -74,7 +73,7 @@ final class Display {
 
 		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), [], '2.1.3', true );
 		wp_enqueue_script( 'rstore', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
-		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( "js/domain-search.min.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( 'js/domain-search.min.js' ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
 
 		/**
 		 * Filter the TTL for cookies (in seconds).
@@ -88,8 +87,8 @@ final class Display {
 		$data = [
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
 			'urls'    => [
-				'cart'     => rstore()->api->urls['cart'] ,
-				'cart_api' => esc_url_raw(rstore()->api->url( 'cart/{pl_id}' )),
+				'cart'     => rstore()->api->urls['cart'],
+				'cart_api' => esc_url_raw( rstore()->api->url( 'cart/{pl_id}' ) ),
 				'domain_api' => rstore()->api->url( 'domains/{pl_id}' ),
 			],
 			'cookies' => [
