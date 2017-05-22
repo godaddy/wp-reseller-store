@@ -15,7 +15,6 @@ foreach ( glob( __DIR__ . '/functions/*.php' ) as $include ) {
 		require_once $include;
 
 	}
-
 }
 
 spl_autoload_register( function( $resource ) {

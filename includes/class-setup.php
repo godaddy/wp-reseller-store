@@ -497,7 +497,6 @@ final class Setup {
 				wp_delete_term( (int) $term_id, $taxonomy );
 
 			}
-
 		}
 
 		$wpdb->query(

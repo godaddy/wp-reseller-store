@@ -64,7 +64,6 @@ final class Reseller_Product extends \WP_CLI_Command {
 				);
 
 			}
-
 		}
 
 		$no_errors = array_diff_key( $results, $errors );

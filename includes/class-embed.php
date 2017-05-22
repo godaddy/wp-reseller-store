@@ -125,7 +125,17 @@ final class Embed {
 			color: #999;
 			border: 1px solid #ccc;
 		}
+		.wp-embed
+		{
+			border:none;
+			color: #000;
+		}
+		.wp-embed-footer
+		{
+			display:none;
+		}
 		</style>
+		<base target="_parent">
 		<?php
 
 	}
@@ -151,9 +161,7 @@ final class Embed {
 
 		}
 
-		$output  = wpautop( rstore_price( $post->ID, false ) );
-		$output .= wpautop( rstore_add_to_cart_link( $post->ID, false ) );
-		$output .= wpautop( $excerpt );
+		$output = wpautop( apply_filters( 'the_content', get_post_field( 'post_content', $post->ID ) ) );
 
 		return $output;
 
