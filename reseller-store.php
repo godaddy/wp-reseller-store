@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: GoDaddy Reseller Store
- * Description: Resell hosting, domains, and more right from your WordPress site.
+ * Description: Sell hosting, domains, and more right from your WordPress site.
  * Version: 0.2.0
  * Author: GoDaddy
  * Author URI: https://reseller.godaddy.com/
@@ -110,10 +110,3 @@ rstore();
  * @since 0.2.0
  */
 register_deactivation_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'deactivate' ] );
-
-/**
- * Register uninstall hook.
- *
- * @since 0.2.0
- */
-register_uninstall_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'uninstall' ] );

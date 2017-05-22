@@ -78,17 +78,7 @@ final class Domain_Search extends \WP_Widget {
 		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : null;
 		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
 
-		?>
-		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( rstore()->api->urls['domain_search'] ); ?>" novalidate>
-			<label class="screen-reader-text" for="rstore-domain-search-field"><?php esc_html_e( 'Search for a domain name:', 'reseller-store' ); ?></label>
-			<input type="search" name="domainToCheck" id="rstore-domain-search-field" class="search-field required" placeholder="<?php echo esc_attr( $placeholder ); ?>" title="<?php esc_attr_e( 'Search for a domain name:', 'reseller-store' ); ?>" value="" required="required">
-			<?php if ( $button_label ) : ?>
-				<button type="submit" class="search-submit rstore-domain-search-submit"><?php echo esc_html( $button_label ); ?></button>
-			<?php else : ?>
-				<input type="submit" class="screen-reader-text search-submit rstore-domain-search-submit" value="<?php esc_attr_e( 'Search', 'reseller-store' ); ?>">
-			<?php endif; ?>
-		</form>
-		<?php
+		wp_kses_post( '<div class="rstore-domain-search"></div>' );
 
 		echo $args['after_widget']; // xss ok
 

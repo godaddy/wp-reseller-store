@@ -4,23 +4,34 @@
 
 	'use strict';
 
-	var install = function( e ) {
+	var activate = function( e ) {
 
 		e.preventDefault();
 
-		var $this    = $( this ),
-		    $input   = $this.find( 'input' ),
-		    $submit  = $this.find( 'button' ),
-		    $spinner = $this.find( 'img' ),
-		    data     = {
-				'action': 'rstore_install',
-				'nonce': rstore_admin_setup.install_nonce,
-				'pl_id': $input.val()
-			};
+		var data  = {
+			    'action': 'rstore_install',
+			    'nonce' : rstore_admin_setup.install_nonce,
+			    'site'  : rstore_admin_setup.install_site,
+			    'admin' : rstore_admin_setup.install_admin_url
+		    },
+		    query = $.param( data );
 
-		$input.prop( 'disabled', true );
-		$submit.prop( 'disabled', true );
-		$spinner.css( 'visibility', 'visible' );
+		window.location = rstore_admin_setup.rcc_site + '/activate?' + query;
+
+	};
+
+	var skip = function( e ) {
+
+		e.preventDefault();
+
+		var data = {
+			'action'         : 'rstore_install',
+			'nonce'          : rstore_admin_setup.install_nonce,
+			'skip_activation': true
+		};
+
+		$('#rstore-activate').prop( 'disabled', true );
+		$('.rstore-status').css( 'visibility', 'visible' );
 
 		$.post( ajaxurl, data, function( response ) {
 
@@ -32,13 +43,40 @@
 
 			}
 
-			$input.prop( 'disabled', false );
-			$submit.prop( 'disabled', false );
-			$spinner.css( 'visibility', 'hidden' );
+			$( '#rstore-activate' ).prop( 'disabled', false );
+			$( '.rstore-status' ).css( 'visibility', 'hidden' );
+			$( '.rstore-error' ).text( response.data );
 
-			window.console.log( response );
+		} );
 
-			window.alert( response.data );
+		return false;
+
+	};
+
+	var install = function() {
+
+		var data = {
+			'action': 'rstore_install',
+			'nonce' : rstore_admin_setup.install_nonce,
+			'pl_id' : rstore_admin_setup.install_plid
+		};
+
+		$( '#rstore-activate' ).prop( 'disabled', true );
+		$( '.rstore-status' ).css( 'visibility', 'visible' );
+
+		$.post( ajaxurl, data, function( response ) {
+
+			if ( response.success ) {
+
+				window.location.replace( response.data.redirect );
+
+				return false;
+
+			}
+
+			$( '#rstore-activate' ).prop( 'disabled', false );
+			$( '.rstore-status' ).css( 'visibility', 'hidden' );
+			$( '.rstore-error' ).text( response.data );
 
 		} );
 
@@ -47,8 +85,22 @@
 	$( document ).ready( function( $ ) {
 
 		$( '.rstore-setup-body' ).css( 'display', 'block' ); // Form is hidden by default
+		$( '#rstore-setup-form' ).on( 'submit', activate );
+		$( '#rstore-skip-activate' ).on( 'click', skip );
 
-		$( '#rstore-setup-form' ).on( 'submit', install );
+		if ( rstore_admin_setup.install_error ) {
+
+			$( '.rstore-error' ).text( rstore_admin_setup.install_error );
+
+			return;
+
+		}
+
+		if ( rstore_admin_setup.install_plid ) {
+
+			install();
+
+		}
 
 	} );
 

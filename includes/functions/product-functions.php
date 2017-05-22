@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Check whether products exist.
  *
@@ -36,6 +35,24 @@ function rstore_has_products() {
 
 	return ( $count > 0 );
 
+}
+
+/**
+ * Clear the product count cache.
+ *
+ * Product count is cached in memory to prevent duplicate
+ * queries on the same page load.
+ *
+ * @global wpdb $wpdb
+ * @since  NEXT
+ *
+ * @return bool  Returns `true` on successful removal, `false` on failure
+ */
+function rstore_clear_cache() {
+
+	$key = rstore_prefix( 'products_count' );
+
+	return wp_cache_delete( $key );
 }
 
 /**
@@ -103,6 +120,17 @@ function rstore_get_products( $hard = false ) {
 		return rstore()->api->get( 'catalog/{pl_id}/products' );
 
 	} );
+
+}
+
+/**
+ * Return an array of products and cache them.
+ *
+ * @return array|WP_Error
+ */
+function rstore_get_demo_products() {
+
+	return json_decode( file_get_contents( __DIR__ . '/demo.json' ), true );
 
 }
 
