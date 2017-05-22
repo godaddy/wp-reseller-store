@@ -22,7 +22,7 @@ final class Product extends \WP_Widget {
 			esc_html__( 'Reseller Product', 'reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'Product', true ),
-				'description' => esc_html__( "Display product post.", 'reseller-store' ),
+				'description' => esc_html__( 'Display product post.', 'reseller-store' ),
 			]
 		);
 
@@ -65,25 +65,13 @@ final class Product extends \WP_Widget {
 
 		echo $args['before_widget']; // xss ok
 
-		// if ( ! empty( $instance['title'] ) ) {
-
-		// 	echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok
-
-		// }
-
-
-		// <a href="http://wp-store.cloud.phx3.gdg/index.php/products/cpanel-economy/" target="_top">
-		// 		cPanel Economy			</a>
-
 		if ( ! isset( $instance['post_id'] ) ) {
 			return;
 		}
 
 		$post_id = $instance['post_id'];
 
-
-
-	  if ( isset( $instance['image_size'] ) ) {
+		if ( isset( $instance['image_size'] ) ) {
 
 			echo get_the_post_thumbnail( $post_id,  $instance['image_size'] );
 
@@ -116,9 +104,9 @@ final class Product extends \WP_Widget {
 		$image_size = isset( $instance['image_size'] ) ? $instance['image_size'] : 'thumbnail';
 
 		$query = new \WP_Query(array(
-    	'post_type' => \Reseller_Store\Post_Type::SLUG,
-    	'post_status' => 'publish',
-    	'posts_per_page' => -1
+			'post_type' => \Reseller_Store\Post_Type::SLUG,
+			'post_status' => 'publish',
+			'posts_per_page' => -1,
 		));
 
 		$products = '';
@@ -127,11 +115,11 @@ final class Product extends \WP_Widget {
 			$products .= '<option></option>';
 		}
 
-		while ($query->have_posts()) {
-		    $query->the_post();
-		    $id = get_the_ID();
-		    $title = get_the_Title();
-		    $products .= '<option value="' . $id . '" ' . selected( $post_id, $id ) . '>' . $title . '</option>';
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			$id = get_the_ID();
+			$title = get_the_Title();
+			$products .= '<option value="' . $id . '" ' . selected( $post_id, $id ) . '>' . $title . '</option>';
 		}
 
 		wp_reset_query();
@@ -139,7 +127,7 @@ final class Product extends \WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>"><?php esc_html_e( 'Product:', 'reseller' ); ?></label>
-			<select id=id="<?php echo $this->get_field_id('post_id'); ?>" name="<?php echo $this->get_field_name('post_id'); ?>" class="widefat" style="width:100%;">
+			<select id=id="<?php echo $this->get_field_id( 'post_id' ); ?>" name="<?php echo $this->get_field_name( 'post_id' ); ?>" class="widefat" style="width:100%;">
 			<?php echo $products ?>
 			</select>
 
@@ -152,7 +140,7 @@ final class Product extends \WP_Widget {
 
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>"><?php esc_html_e( 'Image size', 'reseller' ); ?></label>
-			<select id=id="<?php echo $this->get_field_id('image_size'); ?>" name="<?php echo $this->get_field_name('image_size'); ?>" class="widefat" style="width:100%;">
+			<select id=id="<?php echo $this->get_field_id( 'image_size' ); ?>" name="<?php echo $this->get_field_name( 'image_size' ); ?>" class="widefat" style="width:100%;">
 				<option value='thumbnail' <?php selected( 'thumbnail', $image_size ) ?>><?php esc_html_e( 'Thumbnail', 'reseller' ); ?></option>
 				<option value='medium' <?php selected( 'medium', $image_size ) ?>><?php esc_html_e( 'Medium resolution', 'reseller' ); ?></option>
 				<option value='large' <?php selected( 'large', $image_size ) ?>><?php esc_html_e( 'Large resolution', 'reseller' ); ?></option>

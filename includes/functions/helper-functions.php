@@ -68,15 +68,15 @@ function rstore_get_add_to_cart_vars( $post ) {
 }
 
 /**
-* Return a plugin option.
-*
-* @since 0.2.0
-*
-* @param  string $key
-* @param  mixed  $default (optional)
-*
-* @return mixed  Returns the option value if the key exists, otherwise the `$default` parameter value.
-*/
+ * Return a plugin option.
+ *
+ * @since 0.2.0
+ *
+ * @param  string $key
+ * @param  mixed  $default (optional)
+ *
+ * @return mixed  Returns the option value if the key exists, otherwise the `$default` parameter value.
+ */
 function rstore_get_option( $key, $default = false ) {
 
 	return get_option( rstore_prefix( $key ), $default );
@@ -84,15 +84,15 @@ function rstore_get_option( $key, $default = false ) {
 }
 
 /**
-* Update a plugin option.
-*
-* @since 0.2.0
-*
-* @param  string $key
-* @param  mixed  $value
-*
-* @return bool  Returns `true` on success, `false` on failure.
-*/
+ * Update a plugin option.
+ *
+ * @since 0.2.0
+ *
+ * @param  string $key
+ * @param  mixed  $value
+ *
+ * @return bool  Returns `true` on success, `false` on failure.
+ */
 function rstore_update_option( $key, $value ) {
 
 	return update_option( rstore_prefix( $key ), $value );
@@ -100,14 +100,14 @@ function rstore_update_option( $key, $value ) {
 }
 
 /**
-* Delete a plugin option.
-*
-* @since 0.2.0
-*
-* @param  string $key
-*
-* @return bool  Returns `true` on success, `false` on failure.
-*/
+ * Delete a plugin option.
+ *
+ * @since 0.2.0
+ *
+ * @param  string $key
+ *
+ * @return bool  Returns `true` on success, `false` on failure.
+ */
 function rstore_delete_option( $key ) {
 
 	return delete_option( rstore_prefix( $key ) );

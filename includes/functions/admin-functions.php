@@ -25,8 +25,8 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
  *
  * @since 0.2.0
  *
- * @param string $endpoint (optional)
- * @param array  $args (optional)
+ * @param string                   $endpoint (optional)
+ * @param array                    $args (optional)
  * @param int    status (optional)
  */
 function rstore_admin_redirect( $endpoint = '', array $args = [], $status = 302 ) {

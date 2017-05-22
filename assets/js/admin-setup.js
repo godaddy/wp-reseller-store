@@ -9,12 +9,12 @@
 		e.preventDefault();
 
 		var data  = {
-			    'action': 'rstore_install',
-			    'nonce' : rstore_admin_setup.install_nonce,
-			    'site'  : rstore_admin_setup.install_site,
-			    'admin' : rstore_admin_setup.install_admin_url
-		    },
-		    query = $.param( data );
+			'action': 'rstore_install',
+			'nonce' : rstore_admin_setup.install_nonce,
+			'site'  : rstore_admin_setup.install_site,
+			'admin' : rstore_admin_setup.install_admin_url
+		},
+			query = $.param( data );
 
 		window.location = rstore_admin_setup.rcc_site + '/activate?' + query;
 
@@ -30,8 +30,8 @@
 			'skip_activation': true
 		};
 
-		$('#rstore-activate').prop( 'disabled', true );
-		$('.rstore-status').css( 'visibility', 'visible' );
+		$( '#rstore-activate' ).prop( 'disabled', true );
+		$( '.rstore-status' ).css( 'visibility', 'visible' );
 
 		$.post( ajaxurl, data, function( response ) {
 

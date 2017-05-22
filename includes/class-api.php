@@ -87,8 +87,7 @@ final class API {
 
 			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
 
-		} else
-		{
+		} else {
 			$args['currencyType'] = rstore_get_option( 'currency', 'USD' );
 			$args['marketId']     = $this->get_market_id();
 		}
