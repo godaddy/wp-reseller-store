@@ -4,6 +4,26 @@ namespace Reseller_Store;
 
 final class TestWidget extends TestCase {
 
+  function test_basics() {
+    // Check cart widget presence
+    $this->assertTrue(
+      class_exists(  __NAMESPACE__ . '\Widgets\Cart' ),
+      'Class \Widgets\Cart is not found'
+    );
+
+    // Check Domain_Search widget presence
+    $this->assertTrue(
+      class_exists(  __NAMESPACE__ . '\Widgets\Domain_Search' ),
+      'Class \Widgets\Domain_Search is not found'
+    );
+
+    // Check Product widget presence
+    $this->assertTrue(
+      class_exists(  __NAMESPACE__ . '\Widgets\Product' ),
+      'Class \Widgets\Product is not found'
+    );
+  }
+
   /**
    * Test that all required actions and filters are added as expected
    */
@@ -20,31 +40,30 @@ final class TestWidget extends TestCase {
    */
   function test_register_widget() {
 
+    Widgets::register_widgets();
+
     global $wp_widget_factory;
 
-    // Check cart widget presence
-    $this->assertTrue(
-      class_exists(  __NAMESPACE__ . '\Widgets\Cart' ),
-      'Class \Widgets\Cart is not found'
-    );
 
-    new Widgets;
-
-
-  //   // $this->assertTrue( isset( $wp_widget_factory->widgets[__NAMESPACE__ . 'Widgets\Cart'] ) );
-
-    $widgets = array_keys( $wp_widget_factory->widgets );
-    print var_dump($widgets);
-  //   print 'adsfadfadsf';
-
-  //   // // Check social widget class presence
-  //   // $this->assertTrue(
-  //   //   class_exists( 'WPCW\Social' ),
-  //   //   'Class WPCW\Social is not found'
-  //   // );
-
-  //   // $this->assertTrue( isset( $wp_widget_factory->widgets['WPCW\Social'] ) );
 
   }
+
+
+  function test_cart_widget() {
+
+    $this->plugin = rstore();
+
+    echo var_dump($this->plugin);
+
+    $this->expectOutputRegex( '/class="wpcw-widget wpcw-widget-social"/' );
+    $this->expectOutputRegex( '/class="customizer_update"/' );
+    $this->expectOutputRegex( '/class="default-fields"/' );
+
+    $this->plugin->form( [] );
+
+  }
+
+
+
 
 }

@@ -13,7 +13,7 @@ final class TestPlugin extends TestCase {
    * Test that Plugin exists.
    */
   public function test_basics() {
-    // $this->assertTrue( class_exists( __NAMESPACE__ . 'Plugin' ) );
+    $this->assertTrue( class_exists( __NAMESPACE__ . '\Plugin' ) );
     $this->assertTrue( function_exists( 'rstore' ) );
   }
 
