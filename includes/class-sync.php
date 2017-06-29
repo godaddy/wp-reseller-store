@@ -158,7 +158,6 @@ final class Sync {
 					$meta[ $property ] = $product->{$property};
 
 				}
-
 			}
 
 			rstore_bulk_update_post_meta( $post_id, $meta );

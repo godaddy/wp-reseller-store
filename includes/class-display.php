@@ -19,6 +19,8 @@ final class Display {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
 
+		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
+
 		/**
 		 * Register the domain search shortcode
 		 *
@@ -31,6 +33,23 @@ final class Display {
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
 		add_shortcode( 'rstore-domain-search', function( $atts ) {
+
+			return wp_kses_post( '<div class="rstore-domain-search"></div>' );
+
+		} );
+
+		/**
+		 * Register the add to cart shortcode
+		 *
+		 * @shortcode [rstore-cart-button]
+		 *
+		 * @since  0.2.0
+		 *
+		 * @param  array $atts Defualt shortcode parameters
+		 *
+		 * @return mixed Returns the HTML markup for the domain search container.
+		 */
+		add_shortcode( 'rstore-cart-button', function( $atts ) {
 
 			return wp_kses_post( '<div class="rstore-domain-search"></div>' );
 
@@ -54,7 +73,7 @@ final class Display {
 
 		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), [], '2.1.3', true );
 		wp_enqueue_script( 'rstore', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
-		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( "js/domain-search.min.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( 'js/domain-search.min.js' ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
 
 		/**
 		 * Filter the TTL for cookies (in seconds).
@@ -68,8 +87,8 @@ final class Display {
 		$data = [
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
 			'urls'    => [
-				'cart'     => rstore()->api->urls['cart'] ,
-				'cart_api' => esc_url_raw(rstore()->api->url( 'cart/{pl_id}' )),
+				'cart'     => rstore()->api->urls['cart'],
+				'cart_api' => esc_url_raw( rstore()->api->url( 'cart/{pl_id}' ) ),
 				'domain_api' => rstore()->api->url( 'domains/{pl_id}' ),
 			],
 			'cookies' => [

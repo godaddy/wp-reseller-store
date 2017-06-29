@@ -23,6 +23,8 @@ final class Widgets {
 
 			register_widget( __NAMESPACE__ . '\Widgets\Domain_Search' );
 
+			register_widget( __NAMESPACE__ . '\Widgets\Product' );
+
 		} );
 
 	}
