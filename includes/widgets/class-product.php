@@ -87,9 +87,9 @@ final class Product extends \WP_Widget {
 
 		}
 
-		echo apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) );
-		echo apply_filters( 'the_content', rstore_price( $post_id, false ) );
-		echo rstore_add_to_cart_form( $post_id, false );
+		echo esc_html( apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) ) );
+		echo esc_html( apply_filters( 'the_content', rstore_price( $post_id, false ) ) );
+		echo esc_html( rstore_add_to_cart_form( $post_id, false ) );
 		echo $args['after_widget']; // xss ok.
 
 	}
@@ -110,7 +110,7 @@ final class Product extends \WP_Widget {
 		$query = new \WP_Query( [
 			'post_type' => \Reseller_Store\Post_Type::SLUG,
 			'post_status' => 'publish',
-			'posts_per_page' => -1,
+			'nopaging' => true, // get a list of every product
 		] );
 
 		$products = '';
@@ -136,7 +136,7 @@ final class Product extends \WP_Widget {
 
 		}
 
-		wp_reset_query();
+		wp_reset_postdata();
 
 		?>
 		<p>
@@ -144,7 +144,7 @@ final class Product extends \WP_Widget {
 				<?php esc_html_e( 'Product:', 'reseller' ); ?>
 			</label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_id' ) ); ?>" class="widefat" style="width:100%;">
-				<?php echo $products; ?>
+				<?php echo esc_html( $products ); ?>
 			</select>
 		</p>
 
