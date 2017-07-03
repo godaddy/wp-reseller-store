@@ -8,6 +8,7 @@
  * @return Plugin
  */
 function rstore() {
+	echo "load rstore!!!";
 
 	return Reseller_Store\Plugin::load();
 

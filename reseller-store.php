@@ -58,6 +58,8 @@ final class Plugin {
 	 */
 	private function __construct() {
 
+		echo "__construct!!!";
+
 		$this->version    = self::VERSION;
 		$this->basename   = plugin_basename( __FILE__ );
 		$this->base_dir   = plugin_dir_path( __FILE__ );
@@ -83,6 +85,7 @@ final class Plugin {
 		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
 			new Setup;
+			echo "bail!!!\n";
 
 			return; // Bail until Setup is complete.
 
@@ -97,6 +100,7 @@ final class Plugin {
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
 		new Widgets;
+		echo "loaded!!!!!!!\n";
 
 	}
 
