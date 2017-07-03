@@ -28,10 +28,6 @@ final class Domain_Search extends \WP_Widget {
 
 	}
 
-	public function test () {
-		echo 'bar';
-	}
-
 	/**
 	 * Outputs the content of the widget.
 	 *

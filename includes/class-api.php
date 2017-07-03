@@ -108,10 +108,10 @@ final class API {
 		 *
 		 * @var string
 		 */
-	  $market =  (string) apply_filters( 'rstore_api_market_id', null );
-	  if ( $market ) {
-	  	$args['marketId'] = $market;
-	  }
+		$market = (string) apply_filters( 'rstore_api_market_id', null );
+		if ( $market ) {
+			$args['marketId'] = $market;
+		}
 
 		return esc_url_raw( add_query_arg( $args, $url ) );
 

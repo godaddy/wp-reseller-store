@@ -4,17 +4,17 @@ namespace Reseller_Store;
 
 final class TestPlugin extends TestCase {
 
-  function setUp() {
+	function setUp() {
 
-    parent::setUp();
-  }
+		parent::setUp();
+	}
 
-  /**
-   * Test that Plugin exists.
-   */
-  public function test_basics() {
-    $this->assertTrue( class_exists( __NAMESPACE__ . '\Plugin' ) );
-    $this->assertTrue( function_exists( 'rstore' ) );
-  }
+	/**
+	 * Test that Plugin exists.
+	 */
+	public function test_basics() {
+		$this->assertTrue( class_exists( __NAMESPACE__ . '\Plugin' ) );
+		$this->assertTrue( function_exists( 'rstore' ) );
+	}
 
 }
