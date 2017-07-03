@@ -16,7 +16,6 @@ final class Cart extends \WP_Widget {
 	 * @since 0.2.0
 	 */
 	public function __construct() {
-		echo "cart construct";
 		parent::__construct(
 			rstore_prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),
@@ -25,8 +24,6 @@ final class Cart extends \WP_Widget {
 				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
 			]
 		);
-
-		echo "loaded2";
 
 	}
 

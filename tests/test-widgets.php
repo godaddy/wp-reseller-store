@@ -49,21 +49,18 @@ final class TestWidget extends TestCase {
   }
 
 
-  function test_cart_widget() {
+  // function test_cart_widget() {
 
-    $this->plugin = rstore();
+  //   $this->plugin = rstore();
 
-    echo var_dump($this->plugin);
+  //   echo var_dump($this->plugin);
 
-    $this->expectOutputRegex( '/class="wpcw-widget wpcw-widget-social"/' );
-    $this->expectOutputRegex( '/class="customizer_update"/' );
-    $this->expectOutputRegex( '/class="default-fields"/' );
+  //   $this->expectOutputRegex( '/class="wpcw-widget wpcw-widget-social"/' );
+  //   $this->expectOutputRegex( '/class="customizer_update"/' );
+  //   $this->expectOutputRegex( '/class="default-fields"/' );
 
-    $this->plugin->form( [] );
+  //   $this->plugin->form( [] );
 
-  }
-
-
-
+  // }
 
 }

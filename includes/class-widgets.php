@@ -16,7 +16,6 @@ final class Widgets {
 	 * @since 0.2.0
 	 */
 	public function __construct() {
-		echo "add_action( 'widgets_init'\n";
 
 		add_action( 'widgets_init', [ get_called_class(), 'register_widgets' ] );
 
