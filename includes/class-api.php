@@ -96,9 +96,13 @@ final class API {
 		 *
 		 * @var string
 		 */
-		$currency = (string) apply_filters( 'rstore_api_currency', null );
+		$currency = (string) apply_filters( 'rstore_api_currency', false );
+
 		if ( $currency ) {
+
+			wp_die( 'test' );
 			$args['currencyType'] = $currency;
+
 		}
 
 		/**
@@ -108,9 +112,12 @@ final class API {
 		 *
 		 * @var string
 		 */
-		$market = (string) apply_filters( 'rstore_api_market_id', null );
+		$market = (string) apply_filters( 'rstore_api_market_id', false );
+
 		if ( $market ) {
+
 			$args['marketId'] = $market;
+
 		}
 
 		return esc_url_raw( add_query_arg( $args, $url ) );
