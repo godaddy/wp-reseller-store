@@ -100,7 +100,6 @@ final class API {
 
 		if ( $currency ) {
 
-			wp_die( 'test' );
 			$args['currencyType'] = $currency;
 
 		}
