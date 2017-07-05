@@ -87,9 +87,9 @@ final class Product extends \WP_Widget {
 
 		}
 
-		echo esc_html( apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) ) );
-		echo esc_html( apply_filters( 'the_content', rstore_price( $post_id, false ) ) );
-		echo esc_html( rstore_add_to_cart_form( $post_id, false ) );
+		echo wp_kses_post( apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) ) );
+		echo wp_kses_post( apply_filters( 'the_content', rstore_price( $post_id, false ) ) );
+		echo wp_kses_post( rstore_add_to_cart_form( $post_id, false ) );
 		echo $args['after_widget']; // xss ok.
 
 	}
