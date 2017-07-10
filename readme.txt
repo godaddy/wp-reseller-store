@@ -17,6 +17,13 @@ With this plugin, you have the option to easily design a site with the imported 
 
 [youtube https://youtu.be/mx7sRwXh444]
 
+**Features**
+* Easily design a site that is for desktop or mobile devices in your theme
+* Imports product catalog with your pricing in your preferred currency and language
+* Update products/descriptions/images
+* Easily create pages with different layouts and products on the page
+* Add core functions to your site with domain search and cart widgets
+
 **Languages Supported**
 
 English - Dansk - Deutsch - Ελληνικά - Español - Español de México - Suomi - Français - हिन्दी - Bahasa Indonesia - Italiano - 日本語 - 한국어 - मराठी - Bahasa Melayu - Norsk bokmål - Nederlands - Polski - Português do Brasil - Português - Русский - Svenska - ไทย - Tagalog - Türkçe - Українська - Tiếng Việt - 简体中文 - 香港中文版 - 繁體中文
