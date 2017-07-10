@@ -1,5 +1,15 @@
 <?php
 /**
+ * WP Reseller Store product functions.
+ *
+ * Contains the Reseller Store product functions used throughout the plugin.
+ *
+ * @package  Reseller_Store/Plugin
+ * @author   GoDaddy
+ * @since    NEXT
+ */
+
+/**
  * Check whether products exist.
  *
  * Ignores the `auto-draft` post status.
@@ -103,7 +113,7 @@ function rstore_get_missing_products() {
 /**
  * Return an array of products and cache them.
  *
- * @param  bool $hard (optional)
+ * @param  bool $hard (optional) Whether the transients should be deleted before fetching.
  *
  * @return array|WP_Error
  */
@@ -137,8 +147,8 @@ function rstore_get_demo_products() {
 /**
  * Return a product object.
  *
- * @param  string $product_id
- * @param  bool   $hard (optional)
+ * @param  string $product_id Product ID.
+ * @param  bool   $hard      (optional) Whether the transients should be deleted before fetching.
  *
  * @return stdClass|WP_Error
  */
@@ -169,10 +179,10 @@ function rstore_get_product( $product_id, $hard = false ) {
  *
  * @since 0.2.0
  *
- * @param  int    $post_id
- * @param  string $key
- * @param  mixed  $default         (optional)
- * @param  bool   $option_fallback (optional)
+ * @param  int    $post_id         Product post ID.
+ * @param  string $key             Product meta key.
+ * @param  mixed  $default         (optional) Default meta value.
+ * @param  bool   $option_fallback (optional) Fallback value.
  *
  * @return mixed
  */

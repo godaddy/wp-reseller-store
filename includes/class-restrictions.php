@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store restriction class.
+ *
+ * Handles the Reseller Store user restrictions.
+ *
+ * @class    Reseller_Store/Restrictions
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -145,7 +156,7 @@ final class Restrictions {
 	 * @action manage_posts_extra_tablenav
 	 * @since  0.2.0
 	 *
-	 * @param string $which
+	 * @param string $which Table location.
 	 */
 	public function edit_screen( $which ) {
 

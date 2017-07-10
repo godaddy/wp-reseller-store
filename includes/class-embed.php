@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store embed class.
+ *
+ * Handles the WP Reseller Store database functionality and excerpt generation.
+ *
+ * @class    Reseller_Store/Embed
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -37,8 +48,8 @@ final class Embed {
 	 * @global wpdb $wpdb
 	 * @since  0.2.0
 	 *
-	 * @param  string $search
-	 * @param  string $replace
+	 * @param  string $search  The term to search.
+	 * @param  string $replace The term to replace our $search term with.
 	 *
 	 * @return int|false Returns the number of posts updated, `false` on error.
 	 */
@@ -76,7 +87,7 @@ final class Embed {
 
 		$results = $wpdb->query( "DELETE FROM `{$wpdb->postmeta}` WHERE `meta_key` LIKE '_oembed_%';" );
 
-		// Every cache row has an expiration row, divide by two
+		// Every cache row has an expiration row, divide by two.
 		return is_int( $results ) ? $results / 2 : $results;
 
 	}
@@ -147,7 +158,7 @@ final class Embed {
 	 * @global WP_Post $post
 	 * @since  0.2.0
 	 *
-	 * @param  string $excerpt
+	 * @param  string $excerpt The original excerpt.
 	 *
 	 * @return string
 	 */

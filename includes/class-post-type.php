@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store post types class.
+ *
+ * Handles the Reseller Store post types.
+ *
+ * @class    Reseller_Store/Post_Type
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -182,12 +193,15 @@ final class Post_Type {
 	 */
 	public function process_product_reset() {
 
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+		$nonce   = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING );
+
 		if (
 			! rstore_is_admin_uri( 'post.php?post=' )
 			||
-			! ( $post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT ) )
+			! $post_id
 			||
-			! ( $nonce = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING ) )
+			! $nonce
 			||
 			false === wp_verify_nonce( $nonce, sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() ) )
 		) {
@@ -228,7 +242,7 @@ final class Post_Type {
 	 *
 	 * @since  0.2.0
 	 *
-	 * @param  int $post_id
+	 * @param  int $post_id Product post ID.
 	 *
 	 * @return true|WP_Error
 	 */
@@ -238,7 +252,7 @@ final class Post_Type {
 
 		if ( is_wp_error( $product ) ) {
 
-			return $product; // Return the WP_Error
+			return $product; // Return the WP_Error.
 
 		}
 
@@ -311,13 +325,13 @@ final class Post_Type {
 	 * @filter manage_{post_type}_posts_columns
 	 * @since  0.2.0
 	 *
-	 * @param  array $columns
+	 * @param  array $columns Admin post columns.
 	 *
 	 * @return array
 	 */
-	public function columns( array $columns ) {
+	public function columns( $columns ) {
 
-		// Insert before Title column
+		// Insert before Title column.
 		$columns = rstore_array_insert(
 			$columns,
 			[
@@ -329,7 +343,7 @@ final class Post_Type {
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true )
 		);
 
-		// Insert after Title column
+		// Insert after Title column.
 		$columns = rstore_array_insert(
 			$columns,
 			// @codingStandardsIgnoreStart
@@ -348,8 +362,8 @@ final class Post_Type {
 	 * @action manage_posts_custom_column
 	 * @since  0.2.0
 	 *
-	 * @param string $column
-	 * @param int    $post_id
+	 * @param string $column  Admin column name.
+	 * @param int    $post_id Post ID.
 	 */
 	public function column_content( $column, $post_id ) {
 
@@ -380,7 +394,7 @@ final class Post_Type {
 	 * @action delete_post
 	 * @since  0.2.0
 	 *
-	 * @param  int $post_id
+	 * @param  int $post_id Product post ID.
 	 *
 	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
@@ -392,7 +406,7 @@ final class Post_Type {
 
 		}
 
-		// Re-fetch products from the API to ensure `rstore_has_all_products()` is accurate
+		// Re-fetch products from the API to ensure `rstore_has_all_products()` is accurate.
 		rstore_delete_transient( 'products' );
 
 		$imported = (array) rstore_get_option( 'imported', [] );
@@ -410,12 +424,12 @@ final class Post_Type {
 	 * @global wpdb $wpdb
 	 * @since  0.2.0
 	 *
-	 * @param  array    $clauses
-	 * @param  WP_Query $wp_query
+	 * @param  array  $clauses  $wpdb query clauses.
+	 * @param  object $wp_query $wp_query instance.
 	 *
 	 * @return array
 	 */
-	public function order_by_price_clause( array $clauses, $wp_query ) {
+	public function order_by_price_clause( $clauses, $wp_query ) {
 
 		global $wpdb;
 
@@ -428,7 +442,7 @@ final class Post_Type {
 				rstore_prefix( 'listPrice' )
 			);
 
-			$clauses['orderby'] = " CONVERT( REPLACE( pm.`meta_value`, '$', '' ), DECIMAL( 13, 2 ) ) {$order}"; // xss ok
+			$clauses['orderby'] = " CONVERT( REPLACE( pm.`meta_value`, '$', '' ), DECIMAL( 13, 2 ) ) {$order}"; // xss ok.
 
 		}
 
@@ -442,11 +456,11 @@ final class Post_Type {
 	 * @filter post_type_labels_{post_type}
 	 * @since  0.2.0
 	 *
-	 * @param  stdClass $labels
+	 * @param  stdClass $labels Product labels.
 	 *
 	 * @return array
 	 */
-	public function post_screen_edit_heading( stdClass $labels ) {
+	public function post_screen_edit_heading( $labels ) {
 
 		if ( ! rstore_is_admin_uri( 'post.php?post=' ) ) {
 
@@ -472,7 +486,7 @@ final class Post_Type {
 	 * @global WP_Post $post
 	 * @since  0.2.0
 	 *
-	 * @param  string $content
+	 * @param  string $content Product content.
 	 *
 	 * @return string
 	 */

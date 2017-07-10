@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store Helpers.
+ *
+ * Reseller store product helpers trait.
+ *
+ * @trait    Reseller_Store/Helpers
+ * @package  Reseller_Store/Plugin
+ * @category trait
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -15,7 +26,7 @@ trait Helpers {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $path (optional)
+	 * @param string $path (optional) Additional path.
 	 *
 	 * @return string
 	 */
@@ -30,7 +41,7 @@ trait Helpers {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $path (optional)
+	 * @param  string $path (optional) Additional path.
 	 *
 	 * @return string
 	 */

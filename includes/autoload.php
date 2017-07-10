@@ -1,4 +1,12 @@
 <?php
+/**
+ * WP Reseller Store Autoloader class.
+ *
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 

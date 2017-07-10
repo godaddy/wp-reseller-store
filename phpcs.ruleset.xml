@@ -2,9 +2,19 @@
 <ruleset name="WordPress Coding Standards for Plugins">
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
-	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-core">
+		<exclude name="Squiz.Commenting.ClassComment.Missing"></exclude>
+		<exclude name="Generic.Commenting.DocComment.MissingShort"></exclude>
+		<exclude name="WordPress.VIP.DirectDatabaseQuery.DirectQuery"></exclude>
+		<exclude name="WordPress.VIP.DirectDatabaseQuery.NoCaching"></exclude>
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"></exclude>
+		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag"></exclude>
+	</rule>
+
 	<rule ref="WordPress-Docs" />
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/butterbean/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 </ruleset>

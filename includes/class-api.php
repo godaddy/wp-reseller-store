@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy WP Reseller API class.
+ *
+ * Handles communication with the GoDaddy reseller API.
+ *
+ * @class    Reseller_Store/API
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -64,8 +75,8 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
-		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['api']  = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
+		$this->urls['cart'] = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
 
 	}
 
@@ -74,8 +85,8 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $url
-	 * @param  bool   $add_pl_id (optional)
+	 * @param  string $url        The original URL.
+	 * @param  bool   $add_pl_id (optional) 'pl_id' to add to the query.
 	 *
 	 * @return string
 	 */
@@ -128,7 +139,7 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint (optional)
+	 * @param  string $endpoint (optional) API endpoint to override the request with.
 	 *
 	 * @return string
 	 */
@@ -155,13 +166,13 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $method
-	 * @param  string $endpoint
-	 * @param  array  $args     (optional)
+	 * @param  string $method   HTTP request method.
+	 * @param  string $endpoint API endpoint.
+	 * @param  array  $args     (optional) Additional query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
-	private function request( $method, $endpoint, array $args = [] ) {
+	private function request( $method, $endpoint, $args = [] ) {
 
 		$defaults = [
 			'method'    => $method,
@@ -198,7 +209,7 @@ final class API {
 
 		if ( $errors <= $this->max_retries ) {
 
-			sleep( 1 ); // Pause between retries
+			sleep( 1 ); // Pause between retries.
 
 			return $this->request( $method, $endpoint, $args );
 
@@ -219,12 +230,12 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint
-	 * @param  array  $args     (optional)
+	 * @param  string $endpoint API endpoint to retrieve data from.
+	 * @param  array  $args     (optional) Additional query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
-	public function get( $endpoint, array $args = [] ) {
+	public function get( $endpoint, $args = [] ) {
 
 		$key = rstore_prefix( 'api_get-' . md5( $endpoint . maybe_serialize( $args ) ) );
 
@@ -247,12 +258,12 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint
-	 * @param  array  $args     (optional)
+	 * @param  string $endpoint API endpoint.
+	 * @param  array  $args     (optional) Additional query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
-	public function post( $endpoint, array $args = [] ) {
+	public function post( $endpoint, $args = [] ) {
 
 		return $this->request( 'POST', $endpoint, $args );
 
@@ -263,12 +274,12 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint
-	 * @param  array  $args     (optional)
+	 * @param  string $endpoint API endpoint.
+	 * @param  array  $args     (optional) Additional query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
-	public function delete( $endpoint, array $args = [] ) {
+	public function delete( $endpoint, $args = [] ) {
 
 		return $this->request( 'DELETE', $endpoint, $args );
 
