@@ -139,7 +139,7 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
 
 	$name = rstore_prefix( $name );
 
-	$value = get_transient( $name );
+	$value = get_site_transient( $name );
 
 	/**
 	 * 1. Transient exists: return the cached value.
@@ -181,7 +181,7 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
  */
 function rstore_set_transient( $name, $value, $expiration = 0 ) {
 
-	return set_transient( rstore_prefix( $name ), $value, absint( $expiration ) );
+	return set_site_transient( rstore_prefix( $name ), $value, absint( $expiration ) );
 
 }
 
@@ -196,7 +196,7 @@ function rstore_set_transient( $name, $value, $expiration = 0 ) {
  */
 function rstore_delete_transient( $name ) {
 
-	return delete_transient( rstore_prefix( $name ) );
+	return delete_site_transient( rstore_prefix( $name ) );
 
 }
 
