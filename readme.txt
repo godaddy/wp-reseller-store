@@ -7,13 +7,13 @@ Stable tag:        0.2.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Design your own storefront for your GoDaddy Reseller plan and have more control over your customers experience and business! 
+Design your own storefront for your GoDaddy Reseller plan and have more control over your customers experience and business!
 
 == Description ==
 
 **Note: This plugin requires PHP 5.4 or higher**
 
-With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search and cart widgets! 
+With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search and cart widgets!
 
 [youtube https://youtu.be/mx7sRwXh444]
 
@@ -52,8 +52,9 @@ Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-re
 * New: Localization settings are now set in the [Reseller Control Center](https://reseller.godaddy.com)
 * Fix: Show full post for embedded custom post type
 * Fix: No longer delete custom posts on uninstall of plugin
+* Fix: Pressing the "Enter" key now properly triggers a domain search
 
-Props [@fjarrett](https://github.com/fjarrett), [@bfocht](https://github.com/bfocht), [@evanherman](https://github.com/EvanHerman)
+Props [@fjarrett](https://github.com/fjarrett), [@bfocht](https://github.com/bfocht), [@evanherman](https://github.com/EvanHerman), [@cberesford](https://github.com/cberesford)
 
 = 0.2.0 - April 2017 =
 
