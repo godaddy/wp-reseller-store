@@ -14,7 +14,7 @@ final class Helper {
 	 *
 	 * @since NEXT
 	 */
-	public static function create_product_post() {
+	public static function create_product() {
 		$post_id = wp_insert_post( array(
 			'post_title'    => 'WordPress Hosting',
 			'post_name'     => 'wordpress-hosting',

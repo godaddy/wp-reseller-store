@@ -1,14 +1,9 @@
 <?php
 /**
- * GoDaddy WP Reseller API class.
+ * API Class.
  *
- * Handles communication with the GoDaddy reseller API.
- *
- * @class    Reseller_Store/API
- * @package  Reseller_Store/Plugin
- * @category Class
- * @author   GoDaddy
- * @since    NEXT
+ * @since   1.0.0
+ * @package Reseller_Store/Plugin
  */
 
 namespace Reseller_Store;
@@ -75,8 +70,8 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']  = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
-		$this->urls['cart'] = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['api']           = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
+		$this->urls['cart']          = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
 
 	}
 
@@ -85,8 +80,8 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $url        The original URL.
-	 * @param  bool   $add_pl_id (optional) 'pl_id' to add to the query.
+	 * @param string $url       URL to append query args onto.
+	 * @param bool   $add_pl_id (optional) Product ID.
 	 *
 	 * @return string
 	 */
@@ -139,7 +134,7 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint (optional) API endpoint to override the request with.
+	 * @param string $endpoint (optional) Endpoint URL.
 	 *
 	 * @return string
 	 */
@@ -166,9 +161,9 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $method   HTTP request method.
-	 * @param  string $endpoint API endpoint.
-	 * @param  array  $args     (optional) Additional query arguments.
+	 * @param  string $method   Post method.
+	 * @param  string $endpoint Endpoint.
+	 * @param  array  $args     (optional) Request arguments.
 	 *
 	 * @return array|WP_Error
 	 */
@@ -230,8 +225,8 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint API endpoint to retrieve data from.
-	 * @param  array  $args     (optional) Additional query arguments.
+	 * @param  string $endpoint Request endpoint.
+	 * @param  array  $args     (optional) Query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
@@ -258,8 +253,8 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint API endpoint.
-	 * @param  array  $args     (optional) Additional query arguments.
+	 * @param  string $endpoint Request endpoint.
+	 * @param  array  $args     (optional) Query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
@@ -274,8 +269,8 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint API endpoint.
-	 * @param  array  $args     (optional) Additional query arguments.
+	 * @param  string $endpoint Request endpoint.
+	 * @param  array  $args     (optional) Query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
