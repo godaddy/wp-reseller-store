@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store setup class.
+ *
+ * Handles the Reseller Store setup functionality.
+ *
+ * @class    Reseller_Store/Setup
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -502,7 +513,7 @@ final class Setup {
 		$wpdb->query(
 			$wpdb->prepare(
 				"DELETE FROM `{$wpdb->options}` WHERE `option_name` LIKE %s;",
-				'%' . rstore_prefix( '%' ) // Transients too
+				'%' . rstore_prefix( '%' ) // Transients too.
 			)
 		);
 

@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store display class.
+ *
+ * Handles the WP Reseller Store apperance.
+ *
+ * @class    Reseller_Store/Display
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -28,7 +39,7 @@ final class Display {
 		 *
 		 * @since  0.2.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters
+		 * @param  array $atts Defualt shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
@@ -45,7 +56,7 @@ final class Display {
 		 *
 		 * @since  0.2.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters
+		 * @param  array $atts Defualt shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
@@ -92,7 +103,7 @@ final class Display {
 				'domain_api' => rstore()->api->url( 'domains/{pl_id}' ),
 			],
 			'cookies' => [
-				'ttl'       => absint( $cookie_ttl ) * 1000, // Convert seconds to ms
+				'ttl'       => absint( $cookie_ttl ) * 1000, // Convert seconds to ms.
 				'cartCount' => rstore_prefix( 'cart-count', true ),
 			],
 			'product' => [

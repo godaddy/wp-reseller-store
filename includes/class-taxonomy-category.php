@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store category class.
+ *
+ * Handles the Reseller store category taxonomy.
+ *
+ * @class    Reseller_Store/Taxonomy_Category
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 

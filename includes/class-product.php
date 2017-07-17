@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store product class.
+ *
+ * Handles the Reseller Store products.
+ *
+ * @class    Reseller_Store/Product
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -43,7 +54,7 @@ final class Product {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param stdClass $product
+	 * @param stdClass $product Product instance.
 	 */
 	public function __construct( $product ) {
 
@@ -56,7 +67,7 @@ final class Product {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $property
+	 * @param  string $property Property name.
 	 *
 	 * @return mixed|null
 	 */
@@ -84,13 +95,13 @@ final class Product {
 		foreach ( $this->properties as $property => $validator ) {
 
 			if (
-				// The product must have the property
+				// The product must have the property.
 				property_exists( $this->product, $property )
 				&&
-				// The property validator must be callable
+				// The property validator must be callable.
 				is_callable( $validator )
 				&&
-				// The property value must return truthy when ran through the validator
+				// The property value must return truthy when ran through the validator.
 				$validator( $this->product->{$property} )
 			) {
 
@@ -113,15 +124,17 @@ final class Product {
 	 */
 	public function exists() {
 
-		$product_id = sanitize_title( $this->product->id ); // Product IDs are sanitized on import
+		$product_id = sanitize_title( $this->product->id ); // Product IDs are sanitized on import.
 
-		if ( $imported = (array) rstore_get_option( 'imported', [] ) ) {
+		$imported = (array) rstore_get_option( 'imported', [] );
+
+		if ( $imported ) {
 
 			return array_search( $product_id, $imported, true );
 
 		}
 
-		// Query post meta if the imported option is missing
+		// Query post meta if the imported option is missing.
 		global $wpdb;
 
 		$post_id = (int) $wpdb->get_var(
@@ -129,7 +142,7 @@ final class Product {
 				"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = %s AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
 				Post_Type::SLUG,
 				rstore_prefix( 'id' ),
-				$product_id // Already sanitized
+				$product_id // Already sanitized.
 			)
 		);
 
@@ -142,8 +155,6 @@ final class Product {
 	 *
 	 * @global wpdb $wpdb
 	 * @since  0.2.0
-	 *
-	 * @param  string $url
 	 *
 	 * @return int|false  Returns the attachment ID if it exists, otherwise `false`.
 	 */
@@ -161,7 +172,7 @@ final class Product {
 				$wpdb->prepare(
 					"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
 					rstore_prefix( 'image' ),
-					esc_url_raw( $this->product->image ) // Image URLs are sanitized on import
+					esc_url_raw( $this->product->image ) // Image URLs are sanitized on import.
 				)
 			);
 
@@ -178,7 +189,7 @@ final class Product {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  int $post_id
+	 * @param  int $post_id Product post ID.
 	 *
 	 * @return true|WP_Error  Returns `true` on success, `WP_Error` on failure.
 	 */

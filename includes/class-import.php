@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store import class.
+ *
+ * Handles importing products from the GoDaddy reseller API.
+ *
+ * @class    Reseller_Store/Embed
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -49,8 +60,8 @@ final class Import {
 	/**
 	 * Class constructor.
 	 *
-	 * @param stdClass $product
-	 * @param int      $post_id (optional)
+	 * @param stdClass $product Reseller product instance.
+	 * @param int      $post_id (optional) Post ID to map the reseller product to.
 	 */
 	public function __construct( $product, $post_id = 0 ) {
 
@@ -75,7 +86,7 @@ final class Import {
 
 		if ( ! $this->post_id && $product->exists() ) {
 
-			// product exists so don't import it
+			// product exists so don't import it.
 			return;
 
 		}
@@ -120,7 +131,7 @@ final class Import {
 
 		if ( is_wp_error( $this->post_id ) ) {
 
-			$this->result = $this->post_id; // Return the WP_Error
+			$this->result = $this->post_id; // Return the WP_Error.
 
 			return;
 
@@ -231,9 +242,9 @@ final class Import {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param array $categories
-	 * @param int   $post_id
-	 * @param int   $parent (optional)
+	 * @param array $categories        Categories to assign the product to.
+	 * @param int   $post_id           Product post ID.
+	 * @param int   $parent (optional) Product parent ID.
 	 */
 	private function process_categories( $categories, $post_id, $parent = 0 ) {
 
@@ -266,9 +277,9 @@ final class Import {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $name
-	 * @param  int    $post_id
-	 * @param  int    $parent (optional)
+	 * @param  string $name              Category name.
+	 * @param  int    $post_id           Reseller product post ID.
+	 * @param  int    $parent (optional) Reseller product parent ID.
 	 *
 	 * @return int|false  Returns a term ID on success, `false` on failure.
 	 */
@@ -310,7 +321,7 @@ final class Import {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param int $attachment_id
+	 * @param int $attachment_id Reseller product image attachment ID.
 	 */
 	private function featured_image( $attachment_id = 0 ) {
 
@@ -341,10 +352,10 @@ final class Import {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $url
-	 * @param  string $description (optional)
+	 * @param  string $url                    Reseller product featured image URL.
+	 * @param  string $description (optional) Reseller product featured image description.
 	 *
-	 * @return int|false  Returns the attachment ID on success, `false` on failure.
+	 * @return int|false  Attachment ID on success, else `false`.
 	 */
 	private function sideload_image( $url, $description = '' ) {
 
@@ -400,7 +411,9 @@ final class Import {
 		 * circumvented the `delete_post` action, such as deleting it
 		 * manually from the database.
 		 */
-		if ( $post_id = array_search( $this->product->id, $this->imported, true ) ) {
+		$post_id = array_search( $this->product->id, $this->imported, true )
+
+		if ( $post_id ) {
 
 			unset( $this->imported[ $post_id ] );
 

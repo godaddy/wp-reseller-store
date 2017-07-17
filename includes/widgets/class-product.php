@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store product widget class.
+ *
+ * Handles the Reseller store product widget.
+ *
+ * @class    Reseller_Store/Widgets/Product
+ * @package  WP_Widget
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store\Widgets;
 
@@ -99,7 +110,7 @@ final class Product extends \WP_Widget {
 	 *
 	 * @since NEXT
 	 *
-	 * @param array $instance
+	 * @param array $instance Widget instance.
 	 */
 	public function form( $instance ) {
 

@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store CLI class.
+ *
+ * Handles the Reseller store 'reseller' CLI commands.
+ *
+ * @class    Reseller_Store/CLI/Reseller
+ * @package  WP_CLI_Command
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store\CLI;
 
@@ -15,6 +26,9 @@ final class Reseller extends \WP_CLI_Command {
 
 	/**
 	 * Import and install all Reseller Store products.
+	 *
+	 * @param array $args       Reset arguments array.
+	 * @param array $assoc_args Assoc. arguments array.
 	 *
 	 * ## OPTIONS
 	 *
@@ -49,6 +63,9 @@ final class Reseller extends \WP_CLI_Command {
 
 	/**
 	 * Uninstall all plugin data.
+	 *
+	 * @param array $args       Reset arguments array.
+	 * @param array $assoc_args Assoc. arguments array.
 	 *
 	 * ## OPTIONS
 	 *

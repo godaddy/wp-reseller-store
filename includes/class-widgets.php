@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store widgets class.
+ *
+ * Handles the Reseller store widgets.
+ *
+ * @class    Reseller_Store/Taxonomy_Tag
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 

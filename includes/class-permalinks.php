@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store permalinks class.
+ *
+ * Handles the Reseller Store permalinks.
+ *
+ * @class    Reseller_Store/Permalinks
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -122,8 +133,8 @@ final class Permalinks {
 						</label>
 					</th>
 					<td>
-						<?php echo $default_example; // xss ok ?>
-						<?php echo $custom_example; // xss ok ?>
+						<?php echo $default_example; // xss ok. ?>
+						<?php echo $custom_example; // xss ok. ?>
 					</td>
 				</tr>
 				<tr>
@@ -174,7 +185,7 @@ final class Permalinks {
 
 		if ( $new_permalinks === $old_permalinks && $old_structure === $new_structure ) {
 
-			return; // There is no change, do nothing
+			return; // There is no change, do nothing.
 
 		}
 
@@ -188,10 +199,10 @@ final class Permalinks {
 
 		if ( $old_base_url !== $new_base_url ) {
 
-			// Update post content containing URLs of the old base
+			// Update post content containing URLs of the old base.
 			Embed::search_replace_post_content( $old_base_url, $new_base_url );
 
-			// Flush the oEmbed cache when the product base changes
+			// Flush the oEmbed cache when the product base changes.
 			Embed::flush_cache();
 
 		}

@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store cart widget class.
+ *
+ * Handles the Reseller store cart widget.
+ *
+ * @class    Reseller_Store/Widgets/Cart
+ * @package  WP_Widget
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store\Widgets;
 
@@ -16,6 +27,7 @@ final class Cart extends \WP_Widget {
 	 * @since 0.2.0
 	 */
 	public function __construct() {
+
 		parent::__construct(
 			rstore_prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),
@@ -32,8 +44,8 @@ final class Cart extends \WP_Widget {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param array $args
-	 * @param array $instance
+	 * @param array $args     Widget arguments.
+	 * @param array $instance Widget instance.
 	 */
 	public function widget( $args, $instance ) {
 
@@ -68,11 +80,11 @@ final class Cart extends \WP_Widget {
 
 		}
 
-		echo $args['before_widget']; // xss ok
+		echo $args['before_widget']; // xss ok.
 
 		if ( ! empty( $instance['title'] ) ) {
 
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok
+			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok.
 
 		}
 
@@ -88,7 +100,7 @@ final class Cart extends \WP_Widget {
 		</div>
 		<?php
 
-		echo $args['after_widget']; // xss ok
+		echo $args['after_widget']; // xss ok.
 
 	}
 
@@ -97,7 +109,7 @@ final class Cart extends \WP_Widget {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param array $instance
+	 * @param array $instance Widget instance.
 	 */
 	public function form( $instance ) {
 
@@ -123,8 +135,8 @@ final class Cart extends \WP_Widget {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  array $new_instance
-	 * @param  array $old_instance
+	 * @param  array $new_instance New widget instance.
+	 * @param  array $old_instance Old widget instance.
 	 *
 	 * @return array
 	 */

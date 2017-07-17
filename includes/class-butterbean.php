@@ -1,4 +1,15 @@
 <?php
+/**
+ * WP Reseller Store ButterBean class.
+ *
+ * Handles the reseller store post metaboxes.
+ *
+ * @class    Reseller_Store/Butterbean
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -49,8 +60,8 @@ final class ButterBean {
 	 * @action butterbean_register
 	 * @since  0.2.0
 	 *
-	 * @param ButterBean $butterbean
-	 * @param string     $post_type
+	 * @param object $butterbean ButterBean object.
+	 * @param string $post_type  Current post type.
 	 */
 	public function register_types( $butterbean, $post_type ) {
 
@@ -83,10 +94,10 @@ final class ButterBean {
 	 * @filter butterbean_pre_control_template
 	 * @since  0.2.0
 	 *
-	 * @param  string $path
-	 * @param  string $slug
+	 * @param  string $path Path to ButterBean template file.
+	 * @param  string $slug rstore_prefix slug.
 	 *
-	 * @return string
+	 * @return string Path to the ButterBean template file.
 	 */
 	public function control_templates( $path, $slug ) {
 
@@ -116,8 +127,8 @@ final class ButterBean {
 	 * @action butterbean_register
 	 * @since  0.2.0
 	 *
-	 * @param ButterBean $butterbean
-	 * @param string     $post_type
+	 * @param object $butterbean ButterBean instance.
+	 * @param string $post_type  Current post type.
 	 */
 	public function register_metabox( $butterbean, $post_type ) {
 
@@ -169,8 +180,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function list_price( $manager, $section ) {
 
@@ -197,8 +208,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function sale_price( $manager, $section ) {
 
@@ -226,8 +237,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function default_quantity( $manager, $section ) {
 
@@ -260,8 +271,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function add_to_cart_button_label( $manager, $section ) {
 
@@ -291,8 +302,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function add_to_cart_redirect( $manager, $section ) {
 
@@ -320,8 +331,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function reset_product_data( $manager, $section ) {
 
