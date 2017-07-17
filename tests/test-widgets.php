@@ -47,12 +47,33 @@ final class TestWidget extends TestCase {
 	}
 
 
-	// function test_cart_widget() {
-	// $this->plugin = rstore();
-	// echo var_dump($this->plugin);
-	// $this->expectOutputRegex( '/class="wpcw-widget wpcw-widget-social"/' );
-	// $this->expectOutputRegex( '/class="customizer_update"/' );
-	// $this->expectOutputRegex( '/class="default-fields"/' );
-	// $this->plugin->form( [] );
-	// }
+	function test_product_widget() {
+
+		$widget = new Widgets\Product();
+
+		$post = Tests\Helper::create_product_post();
+
+		$instance = [
+			'post_id'  => $post->ID,
+			'image_size' => 'full',
+			'show_title' => true,
+		];
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget' => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		// display title
+		$this->expectOutputRegex( '/<h3 class="widget-title">WordPress Hosting</h3>/' );
+
+		// display price
+		$this->expectOutputRegex( '/<p class="rstore-pricing"><span class="rstore-price rstore-has-sale-price"><del>$70.00<\/del> $50.00<\/span> / per year<\/p>/' );
+
+		// display button
+		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button" data-id="wordpress_hosting" data-quantity="1" data-redirect="false">Add to cart<\/button>/' );
+	}
 }
