@@ -44,7 +44,7 @@ Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-re
 
 == Changelog ==
 
-= NEXT - July 2017 =
+= @NEXT - July 2017 =
 
 * New: Plugin activation is easier with integration of the [Reseller Control Center](https://reseller.godaddy.com)
 * New: Add Product Widget
