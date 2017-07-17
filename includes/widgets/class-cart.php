@@ -16,7 +16,6 @@ final class Cart extends \WP_Widget {
 	 * @since 0.2.0
 	 */
 	public function __construct() {
-
 		parent::__construct(
 			rstore_prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),

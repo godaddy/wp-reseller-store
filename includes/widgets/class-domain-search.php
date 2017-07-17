@@ -75,10 +75,7 @@ final class Domain_Search extends \WP_Widget {
 
 		}
 
-		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : null;
-		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
-
-		wp_kses_post( '<div class="rstore-domain-search"></div>' );
+		echo '<div class="rstore-domain-search"></div>';
 
 		echo $args['after_widget']; // xss ok
 

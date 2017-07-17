@@ -87,8 +87,8 @@ final class Product extends \WP_Widget {
 
 		}
 
-		echo apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) );
-		echo apply_filters( 'the_content', rstore_price( $post_id, false ) );
+		echo wp_kses_post( apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) ) );
+		echo wp_kses_post( apply_filters( 'the_content', rstore_price( $post_id, false ) ) );
 		echo rstore_add_to_cart_form( $post_id, false );
 		echo $args['after_widget']; // xss ok.
 
@@ -103,40 +103,9 @@ final class Product extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$post_id    = isset( $instance['post_id'] ) ? $instance['post_id'] : -1;
+		$post_id    = isset( $instance['post_id'] ) ? $instance['post_id'] : false;
 		$show_title = isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true;
 		$image_size = isset( $instance['image_size'] ) ? $instance['image_size'] : 'thumbnail';
-
-		$query = new \WP_Query( [
-			'post_type' => \Reseller_Store\Post_Type::SLUG,
-			'post_status' => 'publish',
-			'posts_per_page' => -1,
-		] );
-
-		$products = '';
-
-		if ( ! isset( $instance['post_id'] ) ) {
-
-			$products .= '<option></option>';
-
-		}
-
-		while ( $query->have_posts() ) {
-
-			$query->the_post();
-
-			$id = get_the_ID();
-
-			$products .= sprintf(
-				'<option value="%1$s" %2$s>%3$s</option>',
-				esc_attr( $id ),
-				selected( $post_id, $id, false ),
-				esc_html( get_the_title() )
-			);
-
-		}
-
-		wp_reset_query();
 
 		?>
 		<p>
@@ -144,7 +113,7 @@ final class Product extends \WP_Widget {
 				<?php esc_html_e( 'Product:', 'reseller' ); ?>
 			</label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_id' ) ); ?>" class="widefat" style="width:100%;">
-				<?php echo $products; ?>
+				<?php self::get_products( $post_id ); ?>
 			</select>
 		</p>
 
@@ -192,4 +161,47 @@ final class Product extends \WP_Widget {
 
 	}
 
+	/**
+	 * Retrieve reseller products.
+	 *
+	 * @param integer $selected_product The selected product ID.
+	 *
+	 * @since NEXT
+	 *
+	 * @return mixed Markup for the product select options.
+	 */
+	private static function get_products( $selected_product ) {
+
+		$query = new \WP_Query( [
+			'post_type'   => \Reseller_Store\Post_Type::SLUG,
+			'post_status' => 'publish',
+			'nopaging'    => true, // get a list of every product.
+		] );
+
+		$products = '';
+
+		if ( ! $selected_product ) {
+
+			$products .= '<option></option>';
+
+		}
+
+		while ( $query->have_posts() ) {
+
+			$query->the_post();
+
+			$id = get_the_ID();
+
+			printf(
+				'<option value="%1$s" %2$s>%3$s</option>',
+				esc_attr( $id ),
+				selected( $selected_product, $id, false ),
+				esc_html( get_the_title() )
+			); // xss ok.
+
+		}
+
+		wp_reset_postdata();
+
+	}
 }

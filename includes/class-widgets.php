@@ -17,16 +17,20 @@ final class Widgets {
 	 */
 	public function __construct() {
 
-		add_action( 'widgets_init', function () {
+		add_action( 'widgets_init', [ get_called_class(), 'register_widgets' ] );
 
-			register_widget( __NAMESPACE__ . '\Widgets\Cart' );
+	}
 
-			register_widget( __NAMESPACE__ . '\Widgets\Domain_Search' );
+	/**
+	 * Register our custom widget using the api
+	 */
+	public static function register_widgets() {
 
-			register_widget( __NAMESPACE__ . '\Widgets\Product' );
+		register_widget( __NAMESPACE__ . '\Widgets\Cart' );
 
-		} );
+		register_widget( __NAMESPACE__ . '\Widgets\Domain_Search' );
 
+		register_widget( __NAMESPACE__ . '\Widgets\Product' );
 	}
 
 }

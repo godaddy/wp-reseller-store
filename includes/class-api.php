@@ -87,61 +87,22 @@ final class API {
 
 			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
 
-		} else {
-			$args['currencyType'] = rstore_get_option( 'currency', 'USD' );
-			$args['marketId']     = $this->get_market_id();
 		}
 
-		return esc_url_raw( add_query_arg( $args, $url ) );
+		/**
+		 * Filter the currency ID used in API requests.
+		 *
+		 * @since NEXT
+		 *
+		 * @var string
+		 */
+		$currency = (string) apply_filters( 'rstore_api_currency', false );
 
-	}
+		if ( $currency ) {
 
-	/**
-	 * Return the market ID for a given locale.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @param  string $locale (optional)
-	 *
-	 * @return string
-	 */
-	public function get_market_id( $locale = null ) {
+			$args['currencyType'] = $currency;
 
-		$locale = ( $locale ) ? $locale : get_locale();
-
-		$mappings = [
-			'da-DK'  => 'da_DK', // Danish (Denmark)
-			'de-DE'  => 'de_DE', // German
-			'el-GR'  => 'el',    // Greek
-			'es-ES'  => 'es_ES', // Spanish
-			'es-MX'  => 'es_MX', // Spanish (Mexico)
-			'fi-FI'  => 'fi',    // Finnish
-			'fil-PH' => 'tl',    // Filipino (Philippines)
-			'fr-FR'  => 'fr_FR', // French
-			'hi-IN'  => 'hi_IN', // Hindi (India)
-			'id-ID'  => 'id_ID', // Indonesian
-			'it-IT'  => 'it_IT', // Italian
-			'ja-JP'  => 'ja',    // Japanese
-			'ko-KR'  => 'ko_KR', // Korean
-			'mr-IN'  => 'mr',    // Marathi (India)
-			'ms-MY'  => 'ms_MY', // Malay (Malaysia)
-			'nb-NO'  => 'nb_NO', // Norwegian (Norway)
-			'nl-NL'  => 'nl_NL', // Dutch (Netherlands)
-			'pl-PL'  => 'pl_PL', // Polish
-			'pt-BR'  => 'pt_BR', // Portuguese (Brazil)
-			'pt-PT'  => 'pt_PT', // Portuguese (Portugal)
-			'ru-RU'  => 'ru_RU', // Russian
-			'sv-SE'  => 'sv_SE', // Swedish (Sweden)
-			'th-TH'  => 'th',    // Thai
-			'tl-PH'  => 'tl',    // Tagalog
-			'tr-TR'  => 'tr_TR', // Turkish
-			'uk-UA'  => 'uk',    // Ukranian
-			'vi-VN'  => 'vi',    // Vietnamese
-			'zh-CN'  => 'zh_CN', // Chinese
-			'zh-TW'  => 'zh_TW', // Chinese (Taiwan)
-		];
-
-		$market_id = array_search( $locale, $mappings, true );
+		}
 
 		/**
 		 * Filter the market ID used in API requests.
@@ -150,9 +111,15 @@ final class API {
 		 *
 		 * @var string
 		 */
-		$market_id = (string) apply_filters( 'rstore_api_market_id', $market_id );
+		$market = (string) apply_filters( 'rstore_api_market_id', false );
 
-		return ( $market_id ) ? $market_id : 'en-US';
+		if ( $market ) {
+
+			$args['marketId'] = $market;
+
+		}
+
+		return esc_url_raw( add_query_arg( $args, $url ) );
 
 	}
 
