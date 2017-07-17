@@ -76,4 +76,58 @@ final class TestWidget extends TestCase {
 		// display button
 		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button" data-id="wordpress_hosting" data-quantity="1" data-redirect="false">Add to cart<\/button>/' );
 	}
+
+	function test_cart_widget() {
+
+		$widget = new Widgets\Cart();
+
+		rstore_update_option( 'pl_id', 12345 );
+
+		$post = Tests\Helper::create_product_post();
+
+		$instance = [
+			'post_id'  => $post->ID,
+			'image_size' => 'full',
+			'show_title' => true,
+		];
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget' => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		// display main div tag
+		$this->expectOutputRegex( '/<div class="rstore-view-cart">/' );
+
+		// display view cart link
+		$this->expectOutputRegex( '/<a href="https:\/\/cart.secureserver.net\/">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/' );
+	}
+
+	function test_domain_search_widget() {
+
+		$widget = new Widgets\Domain_Search();
+
+		$post = Tests\Helper::create_product_post();
+
+		$instance = [
+			'post_id'  => $post->ID,
+			'image_size' => 'full',
+			'show_title' => true,
+		];
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget' => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		// display domain search
+		$this->expectOutputRegex( '/<div class="rstore-domain-search"><\/div>/' );
+
+	}
 }
