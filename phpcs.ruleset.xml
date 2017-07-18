@@ -2,7 +2,7 @@
 <ruleset name="WordPress Coding Standards for Plugins">
 	<description>Generally-applicable sniffs for WordPress plugins</description>
 
-	<rule ref="WordPress-core">
+	<rule ref="WordPress-Core">
 		<exclude name="Squiz.Commenting.ClassComment.Missing"></exclude>
 		<exclude name="Generic.Commenting.DocComment.MissingShort"></exclude>
 		<exclude name="WordPress.VIP.DirectDatabaseQuery.DirectQuery"></exclude>
