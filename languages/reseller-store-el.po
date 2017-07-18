@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:246
@@ -77,53 +76,45 @@ msgstr "Δεδομένα επαναφοράς"
 
 #: includes/class-display.php:84
 msgid "Congrats, your domain is available!"
-msgstr ""
+msgstr "Συγχαρητήρια, το domain σας είναι διαθέσιμο!"
 
 #: includes/class-display.php:85
 msgid "Sorry that domain is taken"
-msgstr ""
+msgstr "Δυστυχώς αυτό το domain δεν είναι διαθέσιμο"
 
 #: includes/class-display.php:86
-#, fuzzy
 msgid "Find your perfect domain name"
-msgstr "Βρείτε το ιδανικό όνομα domain για εσάς"
+msgstr "Βρείτε το τέλειο όνομα domain για εσάς"
 
 #: includes/class-display.php:87
 msgid "View cart"
 msgstr "Προβολή καλαθιού αγορών "
 
 #: includes/class-display.php:88
-#, fuzzy
 msgid "An error has occurred"
-msgstr "Παρουσιάστηκε άγνωστο σφάλμα"
+msgstr "Παρουσιάστηκε σφάλμα"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "άγνωστο"
 
-#. translators: product name
 #: includes/class-import.php:68
-#, fuzzy
+#. translators: product name
 msgid "`%s` is not a valid product."
 msgstr "Το `%s` δεν είναι έγκυρο προϊόν."
 
-#. translators: product name
 #: includes/class-import.php:81
-#, fuzzy
+#. translators: product name
 msgid "`%s` already exists."
 msgstr "Το `%s` υπάρχει ήδη."
 
-#. translators: product name
 #: includes/class-import.php:103
-#, fuzzy
+#. translators: product name
 msgid "`%s` must be imported as a product post before it can be reset."
-msgstr ""
-"Το `%s` πρέπει να εισαχθεί ως ανάρτηση προϊόντος πριν μπορέσει να γίνει "
-"επαναφορά του."
+msgstr "Το `%s` πρέπει να εισαχθεί ως ανάρτηση προϊόντος πριν μπορέσει να γίνει επαναφορά του."
 
-#. translators: post type name
 #: includes/class-import.php:116
-#, fuzzy
+#. translators: post type name
 msgid "`%s` is not a valid post type for products."
 msgstr "Το `%s` δεν είναι έγκυρος τύπος ανάρτησης για προϊόντα."
 
@@ -227,9 +218,8 @@ msgstr "Χρήση ως επιλεγμένης εικόνας"
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Εδώ μπορείτε να προσθέσετε νέα προϊόντα στο κατάστημα μεταπωλητή σας."
 
-#. translators: product title
 #: includes/class-post-type.php:462
-#, fuzzy
+#. translators: product title
 msgid "Edit: %s"
 msgstr "Επεξεργασία: %s"
 
@@ -255,8 +245,7 @@ msgstr "Ας ρυθμίσουμε το κατάστημα μεταπωλητή �
 
 #: includes/class-setup.php:168
 msgid "Enter your Private Label ID to get started."
-msgstr ""
-"Για να ξεκινήσουμε, καταχωρήστε το αναγνωριστικό σας ιδιωτικής ετικέτας."
+msgstr "Για να ξεκινήσουμε, καταχωρήστε το αναγνωριστικό σας ιδιωτικής ετικέτας."
 
 #: includes/class-setup.php:171
 msgid "Enter your Private Label ID:"
@@ -276,20 +265,16 @@ msgstr "Δημιουργία λογαριασμού"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"Θέλετε βοήθεια; Καλέστε τη βραβευμένη μας ομάδα υποστήριξης στον αριθμό "
-"(480) 505-8877."
+msgstr "Θέλετε βοήθεια; Καλέστε τη βραβευμένη μας ομάδα υποστήριξης στον αριθμό (480) 505-8877."
 
-#. translators: name of missing script
 #: includes/class-setup.php:205
+#. translators: name of missing script
 msgid "Error: Missing required script for setup %s"
-msgstr ""
+msgstr "Σφάλμα: Λείπει η δέσμη ενεργειών που είναι απαραίτητη για την εγκατάσταση %s"
 
 #: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
-"Λυπούμαστε, δεν σας επιτρέπεται να εγκαταστήσετε προσθήκες σε αυτό τον "
-"ιστότοπο."
+msgstr "Λυπούμαστε, δεν σας επιτρέπεται να εγκαταστήσετε προσθήκες σε αυτό τον ιστότοπο."
 
 #: includes/class-setup.php:244
 msgid "Sorry, you are not allowed to do that."
@@ -305,16 +290,14 @@ msgstr "Δεν υπάρχουν διαθέσιμα προϊόντα, ξαναπ�
 
 #: includes/class-setup.php:311
 msgid "Product data could not be imported, please try again later."
-msgstr ""
-"Δεν ήταν δυνατή η εισαγωγή δεδομένων προϊόντων, ξαναπροσπαθήστε αργότερα."
+msgstr "Δεν ήταν δυνατή η εισαγωγή δεδομένων προϊόντων, ξαναπροσπαθήστε αργότερα."
 
 #: includes/class-setup.php:347
 msgid "An unknown error occurred."
 msgstr "Παρουσιάστηκε άγνωστο σφάλμα."
 
-#. translators: error message
 #: includes/class-setup.php:361
-#, fuzzy
+#. translators: error message
 msgid "Error: %s"
 msgstr "Λάθος: %s"
 
@@ -391,9 +374,8 @@ msgstr "Όνομα νέας ετικέτας"
 msgid "Tags"
 msgstr "Ετικέτες"
 
-#. translators: product name
 #: includes/functions/product-functions.php:134
-#, fuzzy
+#. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr "Σφάλμα: Το `%s` δεν υπάρχει."
 
@@ -405,9 +387,8 @@ msgstr "Καλάθι αγορών μεταπωλητή"
 msgid "Display the user's cart in the sidebar."
 msgstr "Εμφάνιση του καλαθιού αγορών του χρήστη στην πλευρική γραμμή."
 
-#. translators: number of items in cart
 #: includes/widgets/class-cart.php:86
-#, fuzzy
+#. translators: number of items in cart
 msgid "View Cart %s"
 msgstr "Προβολή καλαθιού αγορών %s"
 
@@ -464,9 +445,7 @@ msgstr "Κατάστημα μεταπωλητή GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr ""
-"Μεταπωλήστε φιλοξενία, domains και πολλά άλλα, μέσα από τον ιστότοπό σας "
-"WordPress."
+msgstr "Μεταπωλήστε φιλοξενία, domains και πολλά άλλα, μέσα από τον ιστότοπό σας WordPress."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -546,9 +525,8 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Ετικέτα"
 
-#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 #: includes/functions/template-functions.php:44
-#, fuzzy
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / ανά %2$s"

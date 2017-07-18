@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:246
@@ -67,8 +66,7 @@ msgid ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 msgstr ""
-"처음부터 다시 시작? 원래 제품 제목, 콘텐츠, 추천 이미지, 범주 지정을 복원할 "
-"수 있습니다. 참고: 사용자가 지정한 기능은 손실됩니다."
+"처음부터 다시 시작? 원래 제품 제목, 콘텐츠, 추천 이미지, 범주 지정을 복원할 수 있습니다. 참고: 사용자가 지정한 기능은 손실됩니다."
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -76,51 +74,45 @@ msgstr "데이터 재설정"
 
 #: includes/class-display.php:84
 msgid "Congrats, your domain is available!"
-msgstr ""
+msgstr "축하 드립니다. 귀하의 도메인을 사용할 수 있습니다!"
 
 #: includes/class-display.php:85
 msgid "Sorry that domain is taken"
-msgstr ""
+msgstr "죄송합니다. 해당 도메인은 사용할 수 없습니다"
 
 #: includes/class-display.php:86
-#, fuzzy
 msgid "Find your perfect domain name"
-msgstr "가장 적합한 이름 찾기"
+msgstr "완벽한 도메인 이름 찾기"
 
 #: includes/class-display.php:87
 msgid "View cart"
 msgstr "카트 보기"
 
 #: includes/class-display.php:88
-#, fuzzy
 msgid "An error has occurred"
-msgstr "알 수 없는 오류가 발생했습니다"
+msgstr "오류가 발생했습니다"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "알 수 없음"
 
-#. translators: product name
 #: includes/class-import.php:68
-#, fuzzy
+#. translators: product name
 msgid "`%s` is not a valid product."
 msgstr "'%s'은(는) 유효한 제품이 아닙니다."
 
-#. translators: product name
 #: includes/class-import.php:81
-#, fuzzy
+#. translators: product name
 msgid "`%s` already exists."
 msgstr "'%s'은(는) 이미 존재합니다."
 
-#. translators: product name
 #: includes/class-import.php:103
-#, fuzzy
+#. translators: product name
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr "'%s'을(를) 재설정하려면 제품 게시물로 가져와야 합니다."
 
-#. translators: post type name
 #: includes/class-import.php:116
-#, fuzzy
+#. translators: post type name
 msgid "`%s` is not a valid post type for products."
 msgstr "'%s'은(는) 제품에 유효한 게시물 유형이 아닙니다."
 
@@ -140,8 +132,7 @@ msgstr "리셀러 제품 고정 링크"
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
-msgstr ""
-"이러한 설정은 리셀러 상점 제품에 대해서만 사용되는 고정 링크를 제어합니다."
+msgstr "이러한 설정은 리셀러 상점 제품에 대해서만 사용되는 고정 링크를 제어합니다."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -223,9 +214,8 @@ msgstr "추천 이미지로 사용"
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "여기에서 리셀러 상점에 새 제품을 추가할 수 있습니다."
 
-#. translators: product title
 #: includes/class-post-type.php:462
-#, fuzzy
+#. translators: product title
 msgid "Edit: %s"
 msgstr "편집: %s"
 
@@ -271,14 +261,12 @@ msgstr "계정 만들기"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"도움이 필요하신가요? +1 (480) 505-8877 번호로 최고 수준의 지원 팀에 문의하시"
-"기 바랍니다."
+msgstr "도움이 필요하신가요? +1 (480) 505-8877 번호로 최고 수준의 지원 팀에 문의하시기 바랍니다."
 
-#. translators: name of missing script
 #: includes/class-setup.php:205
+#. translators: name of missing script
 msgid "Error: Missing required script for setup %s"
-msgstr ""
+msgstr "오류: 설치 %s에 필요한 스크립트가 없습니다"
 
 #: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -304,9 +292,8 @@ msgstr "제품 데이터를 가져올 수 없습니다. 나중에 다시 시도�
 msgid "An unknown error occurred."
 msgstr "알 수 없는 오류가 발생했습니다."
 
-#. translators: error message
 #: includes/class-setup.php:361
-#, fuzzy
+#. translators: error message
 msgid "Error: %s"
 msgstr "에러: %s"
 
@@ -383,9 +370,8 @@ msgstr "새 태그 이름"
 msgid "Tags"
 msgstr "태그"
 
-#. translators: product name
 #: includes/functions/product-functions.php:134
-#, fuzzy
+#. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr "오류: ‘%s’이(가) 존재하지 않습니다."
 
@@ -397,9 +383,8 @@ msgstr "리셀러 카트"
 msgid "Display the user's cart in the sidebar."
 msgstr "사이드바에 사용자의 장바구니 보이기."
 
-#. translators: number of items in cart
 #: includes/widgets/class-cart.php:86
-#, fuzzy
+#. translators: number of items in cart
 msgid "View Cart %s"
 msgstr "%s 카트 보기"
 
@@ -456,8 +441,7 @@ msgstr "GoDaddy 리셀러 상점"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr ""
-"호스팅, 도메인 등을 고객님의 워드프레스 사이트에서 곧바로 판매할 수 있습니다."
+msgstr "호스팅, 도메인 등을 고객님의 워드프레스 사이트에서 곧바로 판매할 수 있습니다."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -537,9 +521,8 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "태그"
 
-#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 #: includes/functions/template-functions.php:44
-#, fuzzy
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / %2$s"
