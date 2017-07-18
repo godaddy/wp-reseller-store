@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:246
@@ -66,9 +65,7 @@ msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
-msgstr ""
-"要重新開始嗎？您可以還原原始產品標題、內容、特色圖片及類別分配項目。注意：您"
-"的自訂項目將會遺失。"
+msgstr "要重新開始嗎？您可以還原原始產品標題、內容、特色圖片及類別分配項目。注意：您的自訂項目將會遺失。"
 
 #: includes/class-butterbean.php:337
 msgid "Reset Data"
@@ -76,51 +73,45 @@ msgstr "重設資料"
 
 #: includes/class-display.php:84
 msgid "Congrats, your domain is available!"
-msgstr ""
+msgstr "恭喜！您可以使用此網域！"
 
 #: includes/class-display.php:85
 msgid "Sorry that domain is taken"
-msgstr ""
+msgstr "很抱歉該網域無法使用"
 
 #: includes/class-display.php:86
-#, fuzzy
 msgid "Find your perfect domain name"
-msgstr "尋找您理想中的網域名稱"
+msgstr "尋找您的完美網域名稱"
 
 #: includes/class-display.php:87
 msgid "View cart"
 msgstr "檢視購物車"
 
 #: includes/class-display.php:88
-#, fuzzy
 msgid "An error has occurred"
-msgstr "發生不明錯誤"
+msgstr "發生錯誤"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "未知"
 
-#. translators: product name
 #: includes/class-import.php:68
-#, fuzzy
+#. translators: product name
 msgid "`%s` is not a valid product."
 msgstr "`%s` 非有效產品。"
 
-#. translators: product name
 #: includes/class-import.php:81
-#, fuzzy
+#. translators: product name
 msgid "`%s` already exists."
 msgstr "`%s` 已存在。"
 
-#. translators: product name
 #: includes/class-import.php:103
-#, fuzzy
+#. translators: product name
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr "`%s` 必須當成產品貼文匯入後才可重設。"
 
-#. translators: post type name
 #: includes/class-import.php:116
-#, fuzzy
+#. translators: post type name
 msgid "`%s` is not a valid post type for products."
 msgstr "`%s` 不是產品的有效貼文類型。"
 
@@ -222,9 +213,8 @@ msgstr "使用為特色圖片"
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "您可以在這裡將新產品加入經銷商商店。"
 
-#. translators: product title
 #: includes/class-post-type.php:462
-#, fuzzy
+#. translators: product title
 msgid "Edit: %s"
 msgstr "編輯：%s"
 
@@ -272,10 +262,10 @@ msgstr "建立帳戶"
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 msgstr "需要幫助嗎？請聯絡我們獲獎的支援小組：(480) 505-8877。"
 
-#. translators: name of missing script
 #: includes/class-setup.php:205
+#. translators: name of missing script
 msgid "Error: Missing required script for setup %s"
-msgstr ""
+msgstr "錯誤：設定 %s 時少了必要的指令碼"
 
 #: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
@@ -301,9 +291,8 @@ msgstr "無法匯入產品資料，請稍後再試。"
 msgid "An unknown error occurred."
 msgstr "系統出現未知錯誤。"
 
-#. translators: error message
 #: includes/class-setup.php:361
-#, fuzzy
+#. translators: error message
 msgid "Error: %s"
 msgstr "錯誤: %s"
 
@@ -380,9 +369,8 @@ msgstr "新增標籤名稱"
 msgid "Tags"
 msgstr "標籤"
 
-#. translators: product name
 #: includes/functions/product-functions.php:134
-#, fuzzy
+#. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr "錯誤： `%s` 不存在"
 
@@ -394,9 +382,8 @@ msgstr "經銷商購物車"
 msgid "Display the user's cart in the sidebar."
 msgstr "在側邊欄顯示使用者的購物車."
 
-#. translators: number of items in cart
 #: includes/widgets/class-cart.php:86
-#, fuzzy
+#. translators: number of items in cart
 msgid "View Cart %s"
 msgstr "檢視購物車 %s"
 
@@ -533,9 +520,8 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "標籤"
 
-#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 #: includes/functions/template-functions.php:44
-#, fuzzy
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / 每 %2$s"

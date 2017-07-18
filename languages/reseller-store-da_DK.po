@@ -4,16 +4,15 @@ msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
 "POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
-"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: includes/class-api.php:246
@@ -77,51 +76,45 @@ msgstr "Nulstil data"
 
 #: includes/class-display.php:84
 msgid "Congrats, your domain is available!"
-msgstr ""
+msgstr "Tillykke, dit domæne er ledigt!"
 
 #: includes/class-display.php:85
 msgid "Sorry that domain is taken"
-msgstr ""
+msgstr "Det domæne er taget"
 
 #: includes/class-display.php:86
-#, fuzzy
 msgid "Find your perfect domain name"
-msgstr "Find dit perfekte navn"
+msgstr "Find dit perfekte domænenavn"
 
 #: includes/class-display.php:87
 msgid "View cart"
 msgstr "Vis indkøbsvogn"
 
 #: includes/class-display.php:88
-#, fuzzy
 msgid "An error has occurred"
-msgstr "Der opstod en ukendt fejl"
+msgstr "Der opstod en fejl"
 
 #: includes/class-import.php:61
 msgid "unknown"
 msgstr "ukendt"
 
-#. translators: product name
 #: includes/class-import.php:68
-#, fuzzy
+#. translators: product name
 msgid "`%s` is not a valid product."
 msgstr "»%s« er ikke et gyldigt produkt."
 
-#. translators: product name
 #: includes/class-import.php:81
-#, fuzzy
+#. translators: product name
 msgid "`%s` already exists."
 msgstr "»%s« findes allerede."
 
-#. translators: product name
 #: includes/class-import.php:103
-#, fuzzy
+#. translators: product name
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr "»%s« skal importeres som et produktindlæg, før det kan nulstilles."
 
-#. translators: post type name
 #: includes/class-import.php:116
-#, fuzzy
+#. translators: post type name
 msgid "`%s` is not a valid post type for products."
 msgstr "»%s« er ikke en gyldig indlægstype for produkter."
 
@@ -225,9 +218,8 @@ msgstr "Brug som interessant billede"
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Det er her du kan tilføje nye produkter til din forhandlerbutik."
 
-#. translators: product title
 #: includes/class-post-type.php:462
-#, fuzzy
+#. translators: product title
 msgid "Edit: %s"
 msgstr "Rediger: %s"
 
@@ -273,19 +265,16 @@ msgstr "Opret en konto"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr ""
-"Har du brug for hjælp? Ring til vores prisbelønnede supportteam på (480) "
-"505-8877."
+msgstr "Har du brug for hjælp? Ring til vores prisbelønnede supportteam på (480) 505-8877."
 
-#. translators: name of missing script
 #: includes/class-setup.php:205
+#. translators: name of missing script
 msgid "Error: Missing required script for setup %s"
-msgstr ""
+msgstr "Fejl: Mangler obligatorisk script til konfiguration %s"
 
 #: includes/class-setup.php:233
 msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
-"Beklager, men du har ikke tilladelse til at installere plugins på dette site."
+msgstr "Beklager, men du har ikke tilladelse til at installere plugins på dette site."
 
 #: includes/class-setup.php:244
 msgid "Sorry, you are not allowed to do that."
@@ -307,9 +296,8 @@ msgstr "Produktdata kunne ikke importeres. Prøv igen senere."
 msgid "An unknown error occurred."
 msgstr "Der opstod en ukendt fejl."
 
-#. translators: error message
 #: includes/class-setup.php:361
-#, fuzzy
+#. translators: error message
 msgid "Error: %s"
 msgstr "Fejl: %s"
 
@@ -386,9 +374,8 @@ msgstr "Nyt tag-navn"
 msgid "Tags"
 msgstr "Tags"
 
-#. translators: product name
 #: includes/functions/product-functions.php:134
-#, fuzzy
+#. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr "Fejl: `%s` findes ikke."
 
@@ -400,9 +387,8 @@ msgstr "Forhandlerindkøbsvogn"
 msgid "Display the user's cart in the sidebar."
 msgstr "Vis brugerens indkøbsvogn i sidebjælken."
 
-#. translators: number of items in cart
 #: includes/widgets/class-cart.php:86
-#, fuzzy
+#. translators: number of items in cart
 msgid "View Cart %s"
 msgstr "Vis indkøbsvogn %s"
 
@@ -539,9 +525,8 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Tag"
 
-#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 #: includes/functions/template-functions.php:44
-#, fuzzy
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s per %2$s"
