@@ -411,7 +411,7 @@ final class Import {
 		 * circumvented the `delete_post` action, such as deleting it
 		 * manually from the database.
 		 */
-		$post_id = array_search( $this->product->id, $this->imported, true )
+		$post_id = array_search( $this->product->id, $this->imported, true );
 
 		if ( $post_id ) {
 

@@ -85,8 +85,8 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $url        The original URL.
-	 * @param  bool   $add_pl_id (optional) 'pl_id' to add to the query.
+	 * @param string $url        The original URL.
+	 * @param bool   $add_pl_id (optional) 'pl_id' to add to the query.
 	 *
 	 * @return string
 	 */
@@ -139,7 +139,7 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $endpoint (optional) API endpoint to override the request with.
+	 * @param string $endpoint (optional) API endpoint to override the request with.
 	 *
 	 * @return string
 	 */
@@ -259,7 +259,7 @@ final class API {
 	 * @since 0.2.0
 	 *
 	 * @param  string $endpoint API endpoint.
-	 * @param  array  $args     (optional) Additional query arguments.
+	 * @param  array  $args     Additional query arguments.
 	 *
 	 * @return array|WP_Error
 	 */
@@ -275,7 +275,7 @@ final class API {
 	 * @since 0.2.0
 	 *
 	 * @param  string $endpoint API endpoint.
-	 * @param  array  $args     (optional) Additional query arguments.
+	 * @param  array  $args     Additional query arguments.
 	 *
 	 * @return array|WP_Error
 	 */

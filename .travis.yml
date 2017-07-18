@@ -9,15 +9,22 @@ notifications:
 
 branches:
   only:
+    - /^v\d.*$/
     - master
     - develop
 
+cache:
+  directories:
+    - node_modules
+    - vendor
+    - $HOME/.composer/cache
+
 php:
-  - 5.4
+  - 5.6
   - 7.1
 
 env:
-  - WP_VERSION=4.6 WP_MULTISITE=0
+  - WP_VERSION=4.4 WP_MULTISITE=0
   - WP_VERSION=latest WP_MULTISITE=0
   - WP_VERSION=trunk WP_MULTISITE=0
 
@@ -25,30 +32,36 @@ matrix:
   fast_finish: true
   exclude:
     - php: 7.1
-      env: WP_VERSION=4.6 WP_MULTISITE=0
+      env: WP_VERSION=4.4 WP_MULTISITE=0
 
-before_script:
-  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - |
-    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
-      composer global require "phpunit/phpunit=5.7.*"
-    else
-      composer global require "phpunit/phpunit=4.8.*"
-    fi
-  - |
-    composer global require wp-coding-standards/wpcs
-    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+before_install:
+  - phpenv config-rm xdebug.ini
+
+install:
+  - export DEV_LIB_PATH=dev-lib
+  - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
+  - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
+  - source $DEV_LIB_PATH/travis.install.sh
 
 script:
-  - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit -c .dev/phpunit.xml.dist
+  - source $DEV_LIB_PATH/travis.script.sh
 
 before_deploy:
-  - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
-  - chmod +x /tmp/wp-cli.phar
-  - export RELEASE_FOLDER=reseller-store
+  - export RELEASE_FOLDER=gd-reseller-store
   - php /tmp/wp-cli.phar package install runcommand/dist-archive
   - cp -r ${TRAVIS_BUILD_DIR} /tmp/${RELEASE_FOLDER}
   - mv /tmp/${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}
   - php /tmp/wp-cli.phar dist-archive ${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}/${RELEASE_FOLDER}.zip --format=zip --debug
+
+deploy:
+  provider: releases
+  api_key:
+    secure: hTzKtQQc8LifJd59j17aZaD3HH+EG2ilmg15msuTriJmJC98IIGb13q0VqQGmPRomk4HcnoXsrMJvyWwvNiWobza8hnRvc1jTZFHPrgOYdUtwyKwRrqzdnhaJuTz4KoPJeushanIwKyzbJI4Wfd6G/ghSB3NZf2wwPrWfTq80qfvkCxqVBxqTMt8TS4sb2eGEHQKoHk2JQm8q2WiDbOezETS7njqU+RwOoZsz7qR6XkI0H42VPjhtwqu1a/PLrie+yEKDizVTooMO7f+Q2ZKExT45sM+dPaRUlOPGckDdh16zwZEPKjSVNZ/ytptc8aLygjd09e0tYkyEQuGEG0Sc5LXIuTLiHBgYEQSmeBFKlR8ky/C47vGnnEG+S+gg4YAS462ffofHDEINPFd4qWOhrd1G2bpDtnyK4thU/Oy+B3el/9Zk5HuGr04igwRI2P5c1TcpJqvuO3UFk7FjogD++52s0Me58JRJ2DRGRkMkdAm5L/nKMEn//meKohaW+G5irveeOAqRnrddCwqUsgm8QNuytsSJzoYeTlZO6b3vkBIu0Yjp8wcAb4Qdc1lt9OparSWgaHdjQeSkzqxtgxi6kcZ3Lr9PxdQPEY+4X1JAGU4MJ4wXiBKSDloG1V1mN7sJT0lyncPoXrKlLrVsRSTp6NDSVzmUw2z915Ty+jHFvY=
+  file: $RELEASE_FOLDER.zip
+  on:
+    tags: true
+    repo: godaddy/wp-reseller-store
+    php: '7.1'
+    condition: "$WP_VERSION=trunk"
+  skip_cleanup: true
+  overwrite: true
