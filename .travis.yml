@@ -42,6 +42,8 @@ install:
   - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
   - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
   - source $DEV_LIB_PATH/travis.install.sh
+  - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
+  - chmod +x /tmp/wp-cli.phar
 
 script:
   - source $DEV_LIB_PATH/travis.script.sh
@@ -56,7 +58,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: hTzKtQQc8LifJd59j17aZaD3HH+EG2ilmg15msuTriJmJC98IIGb13q0VqQGmPRomk4HcnoXsrMJvyWwvNiWobza8hnRvc1jTZFHPrgOYdUtwyKwRrqzdnhaJuTz4KoPJeushanIwKyzbJI4Wfd6G/ghSB3NZf2wwPrWfTq80qfvkCxqVBxqTMt8TS4sb2eGEHQKoHk2JQm8q2WiDbOezETS7njqU+RwOoZsz7qR6XkI0H42VPjhtwqu1a/PLrie+yEKDizVTooMO7f+Q2ZKExT45sM+dPaRUlOPGckDdh16zwZEPKjSVNZ/ytptc8aLygjd09e0tYkyEQuGEG0Sc5LXIuTLiHBgYEQSmeBFKlR8ky/C47vGnnEG+S+gg4YAS462ffofHDEINPFd4qWOhrd1G2bpDtnyK4thU/Oy+B3el/9Zk5HuGr04igwRI2P5c1TcpJqvuO3UFk7FjogD++52s0Me58JRJ2DRGRkMkdAm5L/nKMEn//meKohaW+G5irveeOAqRnrddCwqUsgm8QNuytsSJzoYeTlZO6b3vkBIu0Yjp8wcAb4Qdc1lt9OparSWgaHdjQeSkzqxtgxi6kcZ3Lr9PxdQPEY+4X1JAGU4MJ4wXiBKSDloG1V1mN7sJT0lyncPoXrKlLrVsRSTp6NDSVzmUw2z915Ty+jHFvY=
+    secure: KV1wbho8gF+xGgZcFkB6Jn7VqwHj+XtIB9IEh0Jq469zVb4Mhxrp+6n1ZyuRbtTq3NaTFoRz0lTGZLkwaEub1Wrb9M5wxG31cLZciSP36fV5wu/Pu5CQe/Q6+MofdSQVbXEL6eVe2H9spvjLg6/ituEK6llKjx3a8OdhL376W8AzwwyUYX1F2/cDcPdMUDpex8iezfiMnLtagxaUF5IRySCPNv6YIcDbNXWhFOw5Glb4z5KbZEKuHFSs3hnCCfSGKean4GV6KCS2l2Y+yDUcJxFJaS+8+xjCb2RK5cmGWbnGxwj8SMPZVyoq5s6KPSaAcLXx5BZsbED7HLxmRf2Vm7/3FIQ/qy4kSQmkzukRsUUICZiErclVAdy41Z7HljO3K3iJJb22yuJfXfNICCKdjNmnlGvvft/hi5KgQ58WopNqX5W4Rydz+2zldzXApl81HSnTFxD0msdRaYSDHp5I2j4SCI8jb+FbaYx2MnLmxl5QkRhcP/AQJm+Snde28Sg6i/c9m1q2wSmjf6cf6Ihp866R6kxfvla7W1xyAnOZ+HiKfzNHCuC3WEPO13mJ2ASE+T7jOa+/H6TifqrDiDtLPCvDgAl4SUQ48Lcrq8rby3KXmTmhvAxnB5iZXLqqMowttGjTyxTE1PRJbdhFfzJfaY9UUYQneWFwmV3fLaBrC94=
   file: $RELEASE_FOLDER.zip
   on:
     tags: true
