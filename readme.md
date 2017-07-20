@@ -52,8 +52,14 @@ Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-re
 
 * New: Plugin activation is easier with integration of the [Reseller Control Center](https://reseller.godaddy.com)
 * New: Add Product Widget
+* New: Add demo reseller
+* New: Add product widget
 * New: Unit tests
+* New: Add filters for language and currency settings
 * New: Localization settings are now set in the [Reseller Control Center](https://reseller.godaddy.com)
+* Tweak: Default language and currency settings from the RCC instead of WordPress user settings
+* Tweak: Don't delete posts on uninstall
+* Tweak: Language updates
 * Fix: Show full post for embedded custom post type
 * Fix: No longer delete custom posts on uninstall of plugin
 * Fix: Pressing the "Enter" key now properly triggers a domain search
