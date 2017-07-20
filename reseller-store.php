@@ -66,7 +66,7 @@ final class Plugin {
 
 		add_action( 'plugins_loaded', function () {
 
-			load_plugin_textdomain( 'godaddy-reseller-store', false, dirname( $this->basename ) . '/languages' );
+			load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
 
 		} );
 
