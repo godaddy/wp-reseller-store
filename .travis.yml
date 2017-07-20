@@ -38,7 +38,7 @@ before_install:
   - phpenv config-rm xdebug.ini
 
 install:
-  - export DEV_LIB_PATH=dev-lib
+  - export DEV_LIB_PATH=.dev/dev-lib
   - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
   - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
   - source $DEV_LIB_PATH/travis.install.sh
@@ -49,7 +49,7 @@ script:
   - source $DEV_LIB_PATH/travis.script.sh
 
 before_deploy:
-  - export RELEASE_FOLDER=gd-reseller-store
+  - export RELEASE_FOLDER=reseller-store
   - php /tmp/wp-cli.phar package install git@github.com:wp-cli/dist-archive-command.git
   - cp -r ${TRAVIS_BUILD_DIR} /tmp/${RELEASE_FOLDER}
   - mv /tmp/${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}
