@@ -1,6 +1,9 @@
 .*
 composer.*
 Gruntfile.js
+package*.json
+phpcs.ruleset.xml
+phpunit.xml.dist
 package.json
 readme.md
 svn-username
