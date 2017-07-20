@@ -30,10 +30,10 @@ final class Product extends \WP_Widget {
 
 		parent::__construct(
 			rstore_prefix( 'Product' ),
-			esc_html__( 'Reseller Product', 'reseller-store' ),
+			esc_html__( 'Reseller Product', 'godaddy-reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'Product', true ),
-				'description' => esc_html__( 'Display product post.', 'reseller-store' ),
+				'description' => esc_html__( 'Display product post.', 'godaddy-reseller-store' ),
 			]
 		);
 

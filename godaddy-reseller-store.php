@@ -7,7 +7,7 @@
  * Author URI: https://reseller.godaddy.com/
  * License: GPL-2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: reseller-store
+ * Text Domain: godaddy-reseller-store
  * Domain Path: /languages
  *
  * This plugin, like WordPress, is licensed under the GPL.
@@ -66,7 +66,7 @@ final class Plugin {
 
 		add_action( 'plugins_loaded', function () {
 
-			load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
+			load_plugin_textdomain( 'godaddy-reseller-store', false, dirname( $this->basename ) . '/languages' );
 
 		} );
 

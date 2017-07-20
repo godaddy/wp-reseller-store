@@ -219,7 +219,7 @@ final class API {
 
 		$message = is_wp_error( $response ) ? $response->get_error_message() : wp_remote_retrieve_response_message( $response );
 		$message = trim( $message );
-		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'reseller-store' );
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'godaddy-reseller-store' );
 
 		return new WP_Error( $code, $message );
 

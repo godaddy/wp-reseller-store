@@ -168,7 +168,7 @@ function rstore_get_product( $product_id, $hard = false ) {
 	return new WP_Error(
 		'product_not_found',
 		/* translators: product name */
-		esc_html__( 'Error: `%s` does not exist.', 'reseller-store' ),
+		esc_html__( 'Error: `%s` does not exist.', 'godaddy-reseller-store' ),
 		$product_id
 	);
 

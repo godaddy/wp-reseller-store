@@ -30,10 +30,10 @@ final class Domain_Search extends \WP_Widget {
 
 		parent::__construct(
 			rstore_prefix( 'domain-search' ),
-			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
+			esc_html__( 'Reseller Domain Search', 'godaddy-reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'domain-search', true ),
-				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
+				'description' => esc_html__( 'A search form for domain names.', 'godaddy-reseller-store' ),
 			]
 		);
 
@@ -101,9 +101,9 @@ final class Domain_Search extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$title        = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Domain Search', 'reseller-store' );
-		$placeholder  = isset( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Find your perfect name', 'reseller-store' );
-		$button_label = isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Search', 'reseller-store' );
+		$title        = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Domain Search', 'godaddy-reseller-store' );
+		$placeholder  = isset( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Find your perfect name', 'godaddy-reseller-store' );
+		$button_label = isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Search', 'godaddy-reseller-store' );
 
 		?>
 		<p>
