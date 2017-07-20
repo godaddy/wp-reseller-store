@@ -9,5 +9,6 @@ readme.md
 svn-username
 languages/*.po
 node_modules/
+bin/
 tests/
 vendor/
