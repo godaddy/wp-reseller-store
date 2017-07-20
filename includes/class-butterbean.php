@@ -141,7 +141,7 @@ final class ButterBean {
 		$butterbean->register_manager(
 			'product_options',
 			[
-				'label'     => esc_html__( 'Product Options', 'reseller-store' ),
+				'label'     => esc_html__( 'Product Options', 'godaddy-reseller-store' ),
 				'post_type' => Post_Type::SLUG,
 				'context'   => 'normal',
 				'priority'  => 'high',
@@ -153,7 +153,7 @@ final class ButterBean {
 		$manager->register_section(
 			'general',
 			[
-				'label' => esc_html__( 'General', 'reseller-store' ),
+				'label' => esc_html__( 'General', 'godaddy-reseller-store' ),
 				'icon'  => 'dashicons-admin-tools',
 			]
 		);
@@ -166,7 +166,7 @@ final class ButterBean {
 		$manager->register_section(
 			'advanced',
 			[
-				'label' => esc_html__( 'Advanced', 'reseller-store' ),
+				'label' => esc_html__( 'Advanced', 'godaddy-reseller-store' ),
 				'icon'  => 'dashicons-admin-settings',
 			]
 		);
@@ -190,7 +190,7 @@ final class ButterBean {
 			[
 				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
-				'label'   => esc_html__( 'Price', 'reseller-store' ),
+				'label'   => esc_html__( 'Price', 'godaddy-reseller-store' ),
 			]
 		);
 
@@ -218,8 +218,8 @@ final class ButterBean {
 			[
 				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
-				'label'   => esc_html__( 'Sale Price', 'reseller-store' ),
-				'default' => esc_html_x( 'N/A', 'abbreviation for not applicable', 'reseller-store' ),
+				'label'   => esc_html__( 'Sale Price', 'godaddy-reseller-store' ),
+				'default' => esc_html_x( 'N/A', 'abbreviation for not applicable', 'godaddy-reseller-store' ),
 			]
 		);
 
@@ -247,7 +247,7 @@ final class ButterBean {
 			[
 				'type'    => 'number',
 				'section' => $section,
-				'label'   => esc_html__( 'Default Quantity', 'reseller-store' ),
+				'label'   => esc_html__( 'Default Quantity', 'godaddy-reseller-store' ),
 				'attr'    => [
 					'min'         => 1,
 					'placeholder' => absint( rstore_get_option( __FUNCTION__, 1 ) ),
@@ -281,9 +281,9 @@ final class ButterBean {
 			[
 				'type'    => 'text',
 				'section' => $section,
-				'label'   => esc_html__( 'Add to Cart Button Label', 'reseller-store' ),
+				'label'   => esc_html__( 'Add to Cart Button Label', 'godaddy-reseller-store' ),
 				'attr'    => [
-					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'reseller-store' ) ) ),
+					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'godaddy-reseller-store' ) ) ),
 				],
 			]
 		);
@@ -310,7 +310,7 @@ final class ButterBean {
 		$args = [
 			'type'    => 'checkbox',
 			'section' => $section,
-			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
+			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'godaddy-reseller-store' ),
 		];
 
 		$manager->register_control( rstore_prefix( __FUNCTION__ ), $args );
@@ -343,9 +343,9 @@ final class ButterBean {
 			[
 				'type'        => rstore_prefix( 'anchor', true ),
 				'section'     => $section,
-				'label'       => esc_html__( 'Restore Product Data', 'reseller-store' ),
-				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),
-				'text'        => esc_html__( 'Reset Data', 'reseller-store' ),
+				'label'       => esc_html__( 'Restore Product Data', 'godaddy-reseller-store' ),
+				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'godaddy-reseller-store' ),
+				'text'        => esc_html__( 'Reset Data', 'godaddy-reseller-store' ),
 				'attr'        => [
 					'class' => 'button button-primary',
 					'href'  => esc_url(

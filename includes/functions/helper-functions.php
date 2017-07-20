@@ -70,7 +70,7 @@ function rstore_get_add_to_cart_vars( $post ) {
 		'id'        => rstore_get_product_meta( $post->ID, 'id' ),
 		'quantity'  => 1, // @TODO Future release.
 		'redirect'  => (bool) rstore_get_product_meta( $post->ID, 'add_to_cart_redirect', false, true ),
-		'label'     => rstore_get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
+		'label'     => rstore_get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'godaddy-reseller-store' ), true ),
 		'permalink' => get_permalink( $post->ID ),
 	];
 

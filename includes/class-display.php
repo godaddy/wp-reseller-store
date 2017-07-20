@@ -110,12 +110,12 @@ final class Display {
 				'id' => ( Post_Type::SLUG === get_post_type() ) ? rstore_get_product_meta( get_the_ID(), 'id', '' ) : '',
 			],
 			'i18n'    => [
-				'add_to_cart'   => esc_html__( 'Add to cart', 'reseller-store' ),
-				'available'     => esc_html__( 'Congrats, your domain is available!', 'reseller-store' ),
-				'not_available' => esc_html__( 'Sorry that domain is taken', 'reseller-store' ),
-				'placeholder'   => esc_html__( 'Find your perfect domain name', 'reseller-store' ),
-				'view_cart'     => esc_html__( 'View cart', 'reseller-store' ),
-				'error'         => esc_html__( 'An error has occurred', 'reseller-store' ),
+				'add_to_cart'   => esc_html__( 'Add to cart', 'godaddy-reseller-store' ),
+				'available'     => esc_html__( 'Congrats, your domain is available!', 'godaddy-reseller-store' ),
+				'not_available' => esc_html__( 'Sorry that domain is taken', 'godaddy-reseller-store' ),
+				'placeholder'   => esc_html__( 'Find your perfect domain name', 'godaddy-reseller-store' ),
+				'view_cart'     => esc_html__( 'View cart', 'godaddy-reseller-store' ),
+				'error'         => esc_html__( 'An error has occurred', 'godaddy-reseller-store' ),
 
 			],
 		];
