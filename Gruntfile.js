@@ -173,8 +173,8 @@ module.exports = function( grunt ) {
 				overwrite: true,
 				replacements: [
 					{
-						from: /@NEXT/g,
-						to: '<%= pkg.version %>'
+						from: /@since(.*?)NEXT/mg,
+						to: '@since <%= pkg.version %>'
 					}
 				]
 			}
