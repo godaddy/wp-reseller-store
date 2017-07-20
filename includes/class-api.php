@@ -1,6 +1,6 @@
 <?php
 /**
- * GoDaddy WP Reseller API class.
+ * GoDaddy Reseller Store API class.
  *
  * Handles communication with the GoDaddy reseller API.
  *
