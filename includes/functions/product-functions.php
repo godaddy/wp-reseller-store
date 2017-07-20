@@ -6,7 +6,7 @@
  *
  * @package  Reseller_Store/Plugin
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.0.0
  */
 
 /**
@@ -54,7 +54,7 @@ function rstore_has_products() {
  * queries on the same page load.
  *
  * @global wpdb $wpdb
- * @since  NEXT
+ * @since  1.0.0
  *
  * @return bool  Returns `true` on successful removal, `false` on failure
  */

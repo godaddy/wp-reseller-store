@@ -9,7 +9,7 @@
  * @package  Reseller_Store/Plugin
  * @category trait
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.0.0
  */
 
 namespace Reseller_Store;

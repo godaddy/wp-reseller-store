@@ -8,7 +8,7 @@
  * @package  WP_Widget
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.0.0
  */
 
 namespace Reseller_Store\Widgets;
