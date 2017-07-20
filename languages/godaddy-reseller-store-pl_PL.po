@@ -1,0 +1,530 @@
+# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
+"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
+
+#: includes/class-api.php:246
+msgid "An unknown error has occurred."
+msgstr "Wystąpił nieznany błąd."
+
+#: includes/class-butterbean.php:133
+msgid "Product Options"
+msgstr "Opcje produktu"
+
+#: includes/class-butterbean.php:145
+msgid "General"
+msgstr "Ustawienia główne"
+
+#: includes/class-butterbean.php:158
+msgid "Advanced"
+msgstr "Zaawansowane"
+
+#: includes/class-butterbean.php:182 includes/class-post-type.php:336
+msgid "Price"
+msgstr "Cena"
+
+#: includes/class-butterbean.php:210
+msgid "Sale Price"
+msgstr "Cena promocyjna"
+
+#: includes/class-butterbean.php:239
+msgid "Default Quantity"
+msgstr "Domyślna ilość"
+
+#: includes/class-butterbean.php:273
+msgid "Add to Cart Button Label"
+msgstr "Etykieta przycisku „Dodaj do koszyka”"
+
+#: includes/class-butterbean.php:275 includes/class-display.php:83
+#: includes/functions/helper-functions.php:64
+msgid "Add to cart"
+msgstr "Dodaj do koszyka"
+
+#: includes/class-butterbean.php:302
+msgid "Redirect to the cart immediately after adding"
+msgstr "Po dodaniu przejdź bezpośrednio do koszyka"
+
+#: includes/class-butterbean.php:335
+msgid "Restore Product Data"
+msgstr "Przywróć dane produktu"
+
+#: includes/class-butterbean.php:336
+msgid ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be "
+"lost."
+msgstr ""
+"Musisz zacząć od nowa? Możesz przywrócić początkową nazwę, ilość, zawartość, "
+"zdjęcie i kategorie produktu. Uwaga: Personalizacja zostanie utracona."
+
+#: includes/class-butterbean.php:337
+msgid "Reset Data"
+msgstr "Zresetuj dane"
+
+#: includes/class-display.php:84
+msgid "Congrats, your domain is available!"
+msgstr "Gratulujemy, Twoja domena jest dostępna!"
+
+#: includes/class-display.php:85
+msgid "Sorry that domain is taken"
+msgstr "Niestety, ta domena jest zajęta"
+
+#: includes/class-display.php:86
+msgid "Find your perfect domain name"
+msgstr "Znajdź idealną nazwę domeny"
+
+#: includes/class-display.php:87
+msgid "View cart"
+msgstr "Wyświetl koszyk"
+
+#: includes/class-display.php:88
+msgid "An error has occurred"
+msgstr "Wystąpił błąd"
+
+#: includes/class-import.php:61
+msgid "unknown"
+msgstr "nieznany"
+
+#: includes/class-import.php:68
+#. translators: product name
+msgid "`%s` is not a valid product."
+msgstr "„%s” nie jest prawidłowym produktem."
+
+#: includes/class-import.php:81
+#. translators: product name
+msgid "`%s` already exists."
+msgstr "„%s” już istnieje."
+
+#: includes/class-import.php:103
+#. translators: product name
+msgid "`%s` must be imported as a product post before it can be reset."
+msgstr "Przed zresetowaniem należy zaimportować „%s” jako wpis o produkcie."
+
+#: includes/class-import.php:116
+#. translators: post type name
+msgid "`%s` is not a valid post type for products."
+msgstr "„%s” nie jest prawidłowym typem wpisu dla produktów."
+
+#: includes/class-permalinks.php:41
+msgid "Reseller category base"
+msgstr "Podstawowa kategoria odsprzedawcy"
+
+#: includes/class-permalinks.php:57
+msgid "Reseller tag base"
+msgstr "Podstawowy tag odsprzedawcy"
+
+#: includes/class-permalinks.php:73
+msgid "Reseller Product Permalinks"
+msgstr "Łącza trwałe produktów odsprzedawcy"
+
+#: includes/class-permalinks.php:91
+msgid ""
+"These settings control the permalinks used specifically for Reseller Store "
+"products."
+msgstr ""
+"Te ustawienia kontrolują łącza trwałe używane dla produktów w sklepie odsprzedawcy."
+
+#: includes/class-permalinks.php:121
+msgid "Default"
+msgstr "Domyślne"
+
+#: includes/class-permalinks.php:133
+msgid "Custom base"
+msgstr "Niestandardowa podstawa"
+
+#: includes/class-post-type.php:126
+msgid "Add New Products"
+msgstr "Dodaj nowe produkty"
+
+#: includes/class-post-type.php:127
+msgid "Edit Product"
+msgstr "Edytuj produkt"
+
+#: includes/class-post-type.php:128
+msgid "New Product"
+msgstr "Nowy produkt"
+
+#: includes/class-post-type.php:129
+msgid "View Product"
+msgstr "Zobacz produkt"
+
+#: includes/class-post-type.php:130
+msgid "View Products"
+msgstr "Wyświetl produkty"
+
+#: includes/class-post-type.php:131
+msgid "Search Products"
+msgstr "Szukaj produktów"
+
+#: includes/class-post-type.php:132
+msgid "No products found."
+msgstr "Nie znaleziono produktów."
+
+#: includes/class-post-type.php:133
+msgid "No products found in Trash."
+msgstr "W koszu nie ma żadnych produktów."
+
+#: includes/class-post-type.php:134
+msgid "Parent Products:"
+msgstr "Produkty nadrzędne:"
+
+#: includes/class-post-type.php:135
+msgid "All Products"
+msgstr "Wszystkie produkty"
+
+#: includes/class-post-type.php:136
+msgid "Product Archives"
+msgstr "Archiwa produktów"
+
+#: includes/class-post-type.php:137
+msgid "Insert into product"
+msgstr "Wstaw do produktu"
+
+#: includes/class-post-type.php:138
+msgid "Uploaded to this product"
+msgstr "Dodane do tego produktu."
+
+#: includes/class-post-type.php:139 includes/class-post-type.php:326
+msgid "Product Image"
+msgstr "Obrazek produktu"
+
+#: includes/class-post-type.php:140
+msgid "Set product image"
+msgstr "Ustaw obrazek produktu"
+
+#: includes/class-post-type.php:141
+msgid "Remove product image"
+msgstr "Usuń obrazek produktu"
+
+#: includes/class-post-type.php:142
+msgid "Use as featured image"
+msgstr "Użyj jako wyróżnione zdjęcie"
+
+#: includes/class-post-type.php:147
+msgid "This is where you can add new products to your Reseller Store."
+msgstr "Tu możesz dodawać nowe produkty do swojego sklepu odsprzedawcy."
+
+#: includes/class-post-type.php:462
+#. translators: product title
+msgid "Edit: %s"
+msgstr "Edytuj: %s"
+
+#: includes/class-restrictions.php:172
+msgid "No products have been added yet."
+msgstr "Nie dodano jeszcze żadnych produktów."
+
+#: includes/class-restrictions.php:173
+msgid "Import All Products"
+msgstr "Zaimportuj wszystkie produkty"
+
+#: includes/class-setup.php:86
+msgid "Reseller Store Setup"
+msgstr "Konfiguracja sklepu odsprzedawcy"
+
+#: includes/class-setup.php:87
+msgid "Reseller Store"
+msgstr "Sklep odsprzedawcy"
+
+#: includes/class-setup.php:164
+msgid "Let's setup your GoDaddy Reseller Store."
+msgstr "Skonfigurujmy Twój sklep odsprzedawcy GoDaddy."
+
+#: includes/class-setup.php:168
+msgid "Enter your Private Label ID to get started."
+msgstr "Aby rozpocząć, wprowadź swój identyfikator marki własnej."
+
+#: includes/class-setup.php:171
+msgid "Enter your Private Label ID:"
+msgstr "Wprowadź swój identyfikator marki własnej:"
+
+#: includes/class-setup.php:173
+msgid "Install Now"
+msgstr "Instaluj"
+
+#: includes/class-setup.php:177
+msgid "Don't have an account?"
+msgstr "Nie masz konta?"
+
+#: includes/class-setup.php:177
+msgid "Create an account"
+msgstr "Utwórz konto"
+
+#: includes/class-setup.php:180
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "Potrzebujesz pomocy? Zadzwoń do naszego nagradzanego zespołu pomocy technicznej pod numer (480) 505-8877."
+
+#: includes/class-setup.php:205
+#. translators: name of missing script
+msgid "Error: Missing required script for setup %s"
+msgstr "Błąd: Brak wymaganego skryptu do konfiguracji %s"
+
+#: includes/class-setup.php:233
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr "Niestety nie masz uprawnień do instalacji wtyczek w tej witrynie."
+
+#: includes/class-setup.php:244
+msgid "Sorry, you are not allowed to do that."
+msgstr "Niestety nie możesz tego zrobić."
+
+#: includes/class-setup.php:259
+msgid "Private Label ID is invalid."
+msgstr "Identyfikator marki własnej jest nieprawidłowy."
+
+#: includes/class-setup.php:280
+msgid "There are no products available, please try again later."
+msgstr "Nie są dostępne żadne produkty. Spróbuj ponownie później."
+
+#: includes/class-setup.php:311
+msgid "Product data could not be imported, please try again later."
+msgstr "Nie udało się zaimportować danych produktów. Spróbuj ponownie później."
+
+#: includes/class-setup.php:347
+msgid "An unknown error occurred."
+msgstr "Wystąpił nieznany błąd."
+
+#: includes/class-setup.php:361
+#. translators: error message
+msgid "Error: %s"
+msgstr "Błąd: %s"
+
+#: includes/class-taxonomy-category.php:71
+msgid "Search Categories"
+msgstr "Wyszukaj kategorie"
+
+#: includes/class-taxonomy-category.php:72
+msgid "All Categories"
+msgstr "Wszystkie kategorie"
+
+#: includes/class-taxonomy-category.php:73
+msgid "Parent Category"
+msgstr "Kategoria nadrzędna"
+
+#: includes/class-taxonomy-category.php:74
+msgid "Parent Category:"
+msgstr "Kategoria nadrzędna:"
+
+#: includes/class-taxonomy-category.php:75
+msgid "Edit Category"
+msgstr "Edytuj kategorię"
+
+#: includes/class-taxonomy-category.php:76
+msgid "Update Category"
+msgstr "Zaktualizuj kategorię"
+
+#: includes/class-taxonomy-category.php:77
+msgid "Add New Category"
+msgstr "Dodaj nową kategorię"
+
+#: includes/class-taxonomy-category.php:78
+msgid "New Category Name"
+msgstr "Nazwa nowej kategorii"
+
+#: includes/class-taxonomy-category.php:79
+#: includes/class-taxonomy-category.php:83
+msgid "Categories"
+msgstr "Kategorie"
+
+#: includes/class-taxonomy-tag.php:71
+msgid "Search Tags"
+msgstr "Wyszukaj tagi"
+
+#: includes/class-taxonomy-tag.php:72
+msgid "All Tags"
+msgstr "Wszystkie tagi"
+
+#: includes/class-taxonomy-tag.php:73
+msgid "Parent Tag"
+msgstr "Tag nadrzędny"
+
+#: includes/class-taxonomy-tag.php:74
+msgid "Parent Tag:"
+msgstr "Tag nadrzędny:"
+
+#: includes/class-taxonomy-tag.php:75
+msgid "Edit Tag"
+msgstr "Edytuj tag"
+
+#: includes/class-taxonomy-tag.php:76
+msgid "Update Tag"
+msgstr "Zaktualizuj tag"
+
+#: includes/class-taxonomy-tag.php:77
+msgid "Add New Tag"
+msgstr "Dodaj nowy tag"
+
+#: includes/class-taxonomy-tag.php:78
+msgid "New Tag Name"
+msgstr "Nazwa nowego tagu"
+
+#: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
+msgid "Tags"
+msgstr "Tagi"
+
+#: includes/functions/product-functions.php:134
+#. translators: product name
+msgid "Error: `%s` does not exist."
+msgstr "Błąd: „%s” nie istnieje."
+
+#: includes/widgets/class-cart.php:22
+msgid "Reseller Cart"
+msgstr "Koszyk odsprzedawcy"
+
+#: includes/widgets/class-cart.php:25
+msgid "Display the user's cart in the sidebar."
+msgstr "Wyświetl koszyk użytkownika na pasku bocznym."
+
+#: includes/widgets/class-cart.php:86
+#. translators: number of items in cart
+msgid "View Cart %s"
+msgstr "Wyświetl koszyk %s"
+
+#: includes/widgets/class-cart.php:105
+msgid "Cart"
+msgstr "Koszyk"
+
+#: includes/widgets/class-cart.php:110
+#: includes/widgets/class-domain-search.php:112
+msgid "Title:"
+msgstr "Tytuł:"
+
+#: includes/widgets/class-cart.php:116
+msgid "Hide if cart is empty"
+msgstr "Schowaj jeśli koszyk jest pusty"
+
+#: includes/widgets/class-domain-search.php:22
+msgid "Reseller Domain Search"
+msgstr "Wyszukiwanie domeny odsprzedawcy"
+
+#: includes/widgets/class-domain-search.php:25
+msgid "A search form for domain names."
+msgstr "Formularz wyszukiwania nazw domen."
+
+#: includes/widgets/class-domain-search.php:83
+#: includes/widgets/class-domain-search.php:84
+msgid "Search for a domain name:"
+msgstr "Wyszukaj nazwę domeny:"
+
+#: includes/widgets/class-domain-search.php:88
+#: includes/widgets/class-domain-search.php:108
+msgid "Search"
+msgstr "Szukaj"
+
+#: includes/widgets/class-domain-search.php:106
+msgid "Domain Search"
+msgstr "Wyszukiwanie domen"
+
+#: includes/widgets/class-domain-search.php:107
+msgid "Find your perfect name"
+msgstr "Znajdź idealną nazwę"
+
+#: includes/widgets/class-domain-search.php:117
+msgid "Placeholder:"
+msgstr "Symbol zastępczy:"
+
+#: includes/widgets/class-domain-search.php:122
+msgid "Button:"
+msgstr "Przycisk:"
+
+#. Plugin Name of the plugin/theme
+msgid "GoDaddy Reseller Store"
+msgstr "Sklep odsprzedawcy GoDaddy"
+
+#. Description of the plugin/theme
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Odsprzedawaj hosting, domeny i wiele więcej wprost ze swojej witryny WordPressa."
+
+#. Author of the plugin/theme
+msgid "GoDaddy"
+msgstr "GoDaddy"
+
+#. Author URI of the plugin/theme
+msgid "https://reseller.godaddy.com/"
+msgstr "https://reseller.godaddy.com/"
+
+#: includes/class-butterbean.php:211
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr "nd."
+
+#: includes/class-permalinks.php:98
+msgctxt "slug name"
+msgid "sample-product"
+msgstr "przykładowy-produkt"
+
+#: includes/class-post-type.php:58
+msgctxt "slug name"
+msgid "products"
+msgstr "produkty"
+
+#: includes/class-taxonomy-category.php:38
+msgctxt "slug name"
+msgid "product-category"
+msgstr "kategoria-produktu"
+
+#: includes/class-taxonomy-tag.php:38
+msgctxt "slug name"
+msgid "product-tag"
+msgstr "tag-produktu"
+
+#: includes/class-post-type.php:121
+msgctxt "post type general name"
+msgid "Products"
+msgstr "Produkty"
+
+#: includes/class-post-type.php:122
+msgctxt "post type singular name"
+msgid "Product"
+msgstr "Produkt"
+
+#: includes/class-post-type.php:123
+msgctxt "admin menu"
+msgid "Reseller Store"
+msgstr "Sklep odsprzedawcy"
+
+#: includes/class-post-type.php:124
+msgctxt "add new on admin bar"
+msgid "Reseller Product"
+msgstr "Katalog produktów odsprzedawcy"
+
+#: includes/class-post-type.php:125
+msgctxt "product"
+msgid "Add New"
+msgstr "Dodaj nowe"
+
+#: includes/class-taxonomy-category.php:69
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "Kategorie"
+
+#: includes/class-taxonomy-tag.php:69
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "Tagi"
+
+#: includes/class-taxonomy-category.php:70
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "Kategoria"
+
+#: includes/class-taxonomy-tag.php:70
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "Tag"
+
+#: includes/functions/template-functions.php:44
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
+msgctxt "product price"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / za %2$s"

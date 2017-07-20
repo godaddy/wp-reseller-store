@@ -1,4 +1,13 @@
 <?php
+/**
+ * GoDaddy Reseller Store product functions.
+ *
+ * Contains the Reseller Store product functions used throughout the plugin.
+ *
+ * @package  Reseller_Store/Plugin
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 /**
  * Check whether products exist.
@@ -36,6 +45,24 @@ function rstore_has_products() {
 
 	return ( $count > 0 );
 
+}
+
+/**
+ * Clear the product count cache.
+ *
+ * Product count is cached in memory to prevent duplicate
+ * queries on the same page load.
+ *
+ * @global wpdb $wpdb
+ * @since  NEXT
+ *
+ * @return bool  Returns `true` on successful removal, `false` on failure
+ */
+function rstore_clear_cache() {
+
+	$key = rstore_prefix( 'products_count' );
+
+	return wp_cache_delete( $key );
 }
 
 /**
@@ -86,7 +113,7 @@ function rstore_get_missing_products() {
 /**
  * Return an array of products and cache them.
  *
- * @param  bool $hard (optional)
+ * @param  bool $hard (optional) Whether the transients should be deleted before fetching.
  *
  * @return array|WP_Error
  */
@@ -107,10 +134,21 @@ function rstore_get_products( $hard = false ) {
 }
 
 /**
+ * Return an array of products and cache them.
+ *
+ * @return array|WP_Error
+ */
+function rstore_get_demo_products() {
+
+	return json_decode( file_get_contents( __DIR__ . '/demo.json' ), true ); // @codingStandardsIgnoreLine
+
+}
+
+/**
  * Return a product object.
  *
- * @param  string $product_id
- * @param  bool   $hard (optional)
+ * @param  string $product_id Product ID.
+ * @param  bool   $hard      (optional) Whether the transients should be deleted before fetching.
  *
  * @return stdClass|WP_Error
  */
@@ -125,13 +163,12 @@ function rstore_get_product( $product_id, $hard = false ) {
 			return $product;
 
 		}
-
 	}
 
 	return new WP_Error(
 		'product_not_found',
 		/* translators: product name */
-		esc_html__( 'Error: `%s` does not exist.', 'reseller-store' ),
+		esc_html__( 'Error: `%s` does not exist.', 'godaddy-reseller-store' ),
 		$product_id
 	);
 
@@ -142,10 +179,10 @@ function rstore_get_product( $product_id, $hard = false ) {
  *
  * @since 0.2.0
  *
- * @param  int    $post_id
- * @param  string $key
- * @param  mixed  $default         (optional)
- * @param  bool   $option_fallback (optional)
+ * @param  int    $post_id         Product post ID.
+ * @param  string $key             Product meta key.
+ * @param  mixed  $default         (optional) Default meta value.
+ * @param  bool   $option_fallback (optional) Fallback value.
  *
  * @return mixed
  */

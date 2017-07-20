@@ -1,0 +1,532 @@
+# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
+"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
+
+#: includes/class-api.php:246
+msgid "An unknown error has occurred."
+msgstr "On tapahtunut tuntematon virhe."
+
+#: includes/class-butterbean.php:133
+msgid "Product Options"
+msgstr "Tuotevaihtoehdot"
+
+#: includes/class-butterbean.php:145
+msgid "General"
+msgstr "Yleiset"
+
+#: includes/class-butterbean.php:158
+msgid "Advanced"
+msgstr "Edistyneet"
+
+#: includes/class-butterbean.php:182 includes/class-post-type.php:336
+msgid "Price"
+msgstr "Hinta"
+
+#: includes/class-butterbean.php:210
+msgid "Sale Price"
+msgstr "Tarjoushinta"
+
+#: includes/class-butterbean.php:239
+msgid "Default Quantity"
+msgstr "Oletusmäärä"
+
+#: includes/class-butterbean.php:273
+msgid "Add to Cart Button Label"
+msgstr "Lisää ostoskoriin -painikkeen selite"
+
+#: includes/class-butterbean.php:275 includes/class-display.php:83
+#: includes/functions/helper-functions.php:64
+msgid "Add to cart"
+msgstr "Lisää ostoskoriin"
+
+#: includes/class-butterbean.php:302
+msgid "Redirect to the cart immediately after adding"
+msgstr "Siirry lisäämisen jälkeen välittömästi ostoskoriin"
+
+#: includes/class-butterbean.php:335
+msgid "Restore Product Data"
+msgstr "Palauta tuotetiedot"
+
+#: includes/class-butterbean.php:336
+msgid ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be "
+"lost."
+msgstr ""
+"Haluatko aloittaa uudelleen alusta? Voit palauttaa alkuperäisen tuotenimen, "
+"sisällön, käytetyn kuvan sekä määritetyt luokat. Huomautus: Tekemäsi "
+"mukautukset menetetään."
+
+#: includes/class-butterbean.php:337
+msgid "Reset Data"
+msgstr "Nollaa tiedot"
+
+#: includes/class-display.php:84
+msgid "Congrats, your domain is available!"
+msgstr "Onnittelut! Verkkotunnuksesi on saatavilla!"
+
+#: includes/class-display.php:85
+msgid "Sorry that domain is taken"
+msgstr "Valitettavasti tämä verkkotunnus on jo käytössä"
+
+#: includes/class-display.php:86
+msgid "Find your perfect domain name"
+msgstr "Löydä täydellinen verkkotunnusnimesi"
+
+#: includes/class-display.php:87
+msgid "View cart"
+msgstr "Tarkastele ostoskoria"
+
+#: includes/class-display.php:88
+msgid "An error has occurred"
+msgstr "On tapahtunut virhe"
+
+#: includes/class-import.php:61
+msgid "unknown"
+msgstr "tuntematon"
+
+#: includes/class-import.php:68
+#. translators: product name
+msgid "`%s` is not a valid product."
+msgstr "`%s` ei ole käypä tuote."
+
+#: includes/class-import.php:81
+#. translators: product name
+msgid "`%s` already exists."
+msgstr "`%s` on jo olemassa."
+
+#: includes/class-import.php:103
+#. translators: product name
+msgid "`%s` must be imported as a product post before it can be reset."
+msgstr "`%s` täytyy tuoda tuotejulkaisuna, ennen kuin sitä voi asettaa uudelleen."
+
+#: includes/class-import.php:116
+#. translators: post type name
+msgid "`%s` is not a valid post type for products."
+msgstr "`%s` ei ole käypä tuotteiden julkaisutyyppi."
+
+#: includes/class-permalinks.php:41
+msgid "Reseller category base"
+msgstr "Jälleenmyyjän luokan perusta"
+
+#: includes/class-permalinks.php:57
+msgid "Reseller tag base"
+msgstr "Jälleenmyyjän tunnisteen perusta"
+
+#: includes/class-permalinks.php:73
+msgid "Reseller Product Permalinks"
+msgstr "Jälleenmyyjän tuotteiden pysyvät linkit"
+
+#: includes/class-permalinks.php:91
+msgid ""
+"These settings control the permalinks used specifically for Reseller Store "
+"products."
+msgstr ""
+"Nämä asetukset hallitsevat pysyviä linkkejä, joita käytetään erityisesti "
+"jälleenmyyjän kaupan tuotteita varten."
+
+#: includes/class-permalinks.php:121
+msgid "Default"
+msgstr "Oletus"
+
+#: includes/class-permalinks.php:133
+msgid "Custom base"
+msgstr "Asiakaskunta"
+
+#: includes/class-post-type.php:126
+msgid "Add New Products"
+msgstr "Lisää uusia tuotteita"
+
+#: includes/class-post-type.php:127
+msgid "Edit Product"
+msgstr "Muokkaa tuotetta"
+
+#: includes/class-post-type.php:128
+msgid "New Product"
+msgstr "Uusi tuote"
+
+#: includes/class-post-type.php:129
+msgid "View Product"
+msgstr "Tarkastele tuotetta"
+
+#: includes/class-post-type.php:130
+msgid "View Products"
+msgstr "Näytä tuotteet"
+
+#: includes/class-post-type.php:131
+msgid "Search Products"
+msgstr "Etsi tuotteita"
+
+#: includes/class-post-type.php:132
+msgid "No products found."
+msgstr "Tuotteita ei löytynyt."
+
+#: includes/class-post-type.php:133
+msgid "No products found in Trash."
+msgstr "Roskakorista ei löydetty tuotteita."
+
+#: includes/class-post-type.php:134
+msgid "Parent Products:"
+msgstr "Ylätason tuotteet:"
+
+#: includes/class-post-type.php:135
+msgid "All Products"
+msgstr "Kaikki tuotteet"
+
+#: includes/class-post-type.php:136
+msgid "Product Archives"
+msgstr "Tuotearkistot"
+
+#: includes/class-post-type.php:137
+msgid "Insert into product"
+msgstr "Lisää tuotteeseen"
+
+#: includes/class-post-type.php:138
+msgid "Uploaded to this product"
+msgstr "Siirrä palvelimelle tähän tuotteeseen"
+
+#: includes/class-post-type.php:139 includes/class-post-type.php:326
+msgid "Product Image"
+msgstr "Tuotekuva"
+
+#: includes/class-post-type.php:140
+msgid "Set product image"
+msgstr "Aseta tuotekuva"
+
+#: includes/class-post-type.php:141
+msgid "Remove product image"
+msgstr "Poista tuotekuva"
+
+#: includes/class-post-type.php:142
+msgid "Use as featured image"
+msgstr "Käytä pääkuvana"
+
+#: includes/class-post-type.php:147
+msgid "This is where you can add new products to your Reseller Store."
+msgstr "Tässä voit lisätä uusia tuotteita jälleenmyyjän kauppaasi."
+
+#: includes/class-post-type.php:462
+#. translators: product title
+msgid "Edit: %s"
+msgstr "Muokkaa: %s"
+
+#: includes/class-restrictions.php:172
+msgid "No products have been added yet."
+msgstr "Mitään tuotteita ei ole vielä lisätty."
+
+#: includes/class-restrictions.php:173
+msgid "Import All Products"
+msgstr "Tuo kaikki tuotteet"
+
+#: includes/class-setup.php:86
+msgid "Reseller Store Setup"
+msgstr "Jälleenmyyjän kaupan asetukset"
+
+#: includes/class-setup.php:87
+msgid "Reseller Store"
+msgstr "Jälleenmyyjän kauppa"
+
+#: includes/class-setup.php:164
+msgid "Let's setup your GoDaddy Reseller Store."
+msgstr "Luodaanpa GoDaddy-jälleenmyyjäkauppasi valmiiksi."
+
+#: includes/class-setup.php:168
+msgid "Enter your Private Label ID to get started."
+msgstr "Aloita antamalla yksityisen selitteen tunnuksesi."
+
+#: includes/class-setup.php:171
+msgid "Enter your Private Label ID:"
+msgstr "Anna yksityisen selitteen tunnuksesi:"
+
+#: includes/class-setup.php:173
+msgid "Install Now"
+msgstr "Asenna nyt"
+
+#: includes/class-setup.php:177
+msgid "Don't have an account?"
+msgstr "Eikö sinulla ole tiliä?"
+
+#: includes/class-setup.php:177
+msgid "Create an account"
+msgstr "Luo tili"
+
+#: includes/class-setup.php:180
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "Tarvitsetko apua? Soita palkitulle tukitiimillemme numeroon +1 480 505 8877."
+
+#: includes/class-setup.php:205
+#. translators: name of missing script
+msgid "Error: Missing required script for setup %s"
+msgstr "Virhe: Vaadittu merkkijono puuttuu määritystä varten: %s"
+
+#: includes/class-setup.php:233
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr "Pahoittelemme. Lisäosien/laajennusten (plugins) asentaminen tähän sivustoon ei ole sallittua sinulle."
+
+#: includes/class-setup.php:244
+msgid "Sorry, you are not allowed to do that."
+msgstr "Pahoittelemme. Sinulla ei ole lupaa tehdä sitä."
+
+#: includes/class-setup.php:259
+msgid "Private Label ID is invalid."
+msgstr "Yksityisen selitteen tunnus on virheellinen."
+
+#: includes/class-setup.php:280
+msgid "There are no products available, please try again later."
+msgstr "Mitään tuotteita ei ole saatavilla. Yritä myöhemmin uudelleen."
+
+#: includes/class-setup.php:311
+msgid "Product data could not be imported, please try again later."
+msgstr "Tuotetietoja ei voitu tuoda. Yritä myöhemmin uudelleen."
+
+#: includes/class-setup.php:347
+msgid "An unknown error occurred."
+msgstr "Määrittämätön virhe"
+
+#: includes/class-setup.php:361
+#. translators: error message
+msgid "Error: %s"
+msgstr "Virhe: %s"
+
+#: includes/class-taxonomy-category.php:71
+msgid "Search Categories"
+msgstr "Haku luokista"
+
+#: includes/class-taxonomy-category.php:72
+msgid "All Categories"
+msgstr "Kaikki luokat"
+
+#: includes/class-taxonomy-category.php:73
+msgid "Parent Category"
+msgstr "Ylätason luokka"
+
+#: includes/class-taxonomy-category.php:74
+msgid "Parent Category:"
+msgstr "Ylätason luokka:"
+
+#: includes/class-taxonomy-category.php:75
+msgid "Edit Category"
+msgstr "Muokkaa luokkaa"
+
+#: includes/class-taxonomy-category.php:76
+msgid "Update Category"
+msgstr "Päivitä luokka"
+
+#: includes/class-taxonomy-category.php:77
+msgid "Add New Category"
+msgstr "Lisää uusi luokka"
+
+#: includes/class-taxonomy-category.php:78
+msgid "New Category Name"
+msgstr "Uusi luokan nimi"
+
+#: includes/class-taxonomy-category.php:79
+#: includes/class-taxonomy-category.php:83
+msgid "Categories"
+msgstr "Osastot"
+
+#: includes/class-taxonomy-tag.php:71
+msgid "Search Tags"
+msgstr "Haku tunnisteista"
+
+#: includes/class-taxonomy-tag.php:72
+msgid "All Tags"
+msgstr "Kaikki tunnisteet"
+
+#: includes/class-taxonomy-tag.php:73
+msgid "Parent Tag"
+msgstr "Ylätason tunniste"
+
+#: includes/class-taxonomy-tag.php:74
+msgid "Parent Tag:"
+msgstr "Ylätason tunniste:"
+
+#: includes/class-taxonomy-tag.php:75
+msgid "Edit Tag"
+msgstr "Muokkaa tunnistetta"
+
+#: includes/class-taxonomy-tag.php:76
+msgid "Update Tag"
+msgstr "Päivitä tunniste"
+
+#: includes/class-taxonomy-tag.php:77
+msgid "Add New Tag"
+msgstr "Lisää uusi tunniste"
+
+#: includes/class-taxonomy-tag.php:78
+msgid "New Tag Name"
+msgstr "Uusi tunnisteen nimi"
+
+#: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
+msgid "Tags"
+msgstr "Avainsanat"
+
+#: includes/functions/product-functions.php:134
+#. translators: product name
+msgid "Error: `%s` does not exist."
+msgstr "Virhe: %s – ei ole olemassa"
+
+#: includes/widgets/class-cart.php:22
+msgid "Reseller Cart"
+msgstr "Jälleenmyyjän ostoskori"
+
+#: includes/widgets/class-cart.php:25
+msgid "Display the user's cart in the sidebar."
+msgstr "Näytä käyttäjän ostoskori sivupalkissa."
+
+#: includes/widgets/class-cart.php:86
+#. translators: number of items in cart
+msgid "View Cart %s"
+msgstr "Näytä ostoskori %s"
+
+#: includes/widgets/class-cart.php:105
+msgid "Cart"
+msgstr "Ostoskori"
+
+#: includes/widgets/class-cart.php:110
+#: includes/widgets/class-domain-search.php:112
+msgid "Title:"
+msgstr "Otsikko:"
+
+#: includes/widgets/class-cart.php:116
+msgid "Hide if cart is empty"
+msgstr "Piilota ostoskori jos tyhjä"
+
+#: includes/widgets/class-domain-search.php:22
+msgid "Reseller Domain Search"
+msgstr "Haku jälleenmyyjän verkkotunnuksesta"
+
+#: includes/widgets/class-domain-search.php:25
+msgid "A search form for domain names."
+msgstr "Hakulomake verkkotunnuksia varten"
+
+#: includes/widgets/class-domain-search.php:83
+#: includes/widgets/class-domain-search.php:84
+msgid "Search for a domain name:"
+msgstr "Etsi verkkotunnusta:"
+
+#: includes/widgets/class-domain-search.php:88
+#: includes/widgets/class-domain-search.php:108
+msgid "Search"
+msgstr "Haku"
+
+#: includes/widgets/class-domain-search.php:106
+msgid "Domain Search"
+msgstr "Verkkotunnushaku"
+
+#: includes/widgets/class-domain-search.php:107
+msgid "Find your perfect name"
+msgstr "Löydä itsellesi sopiva tunnus"
+
+#: includes/widgets/class-domain-search.php:117
+msgid "Placeholder:"
+msgstr "Paikkamerkki:"
+
+#: includes/widgets/class-domain-search.php:122
+msgid "Button:"
+msgstr "Painike:"
+
+#. Plugin Name of the plugin/theme
+msgid "GoDaddy Reseller Store"
+msgstr "GoDaddy-jälleenmyyjän kauppa"
+
+#. Description of the plugin/theme
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Myy uudelleen verkkohotellipaketteja, verkkotunnuksia ja muita tuotteita suoraan WordPress-sivustostasi."
+
+#. Author of the plugin/theme
+msgid "GoDaddy"
+msgstr "GoDaddy"
+
+#. Author URI of the plugin/theme
+msgid "https://reseller.godaddy.com/"
+msgstr "https://reseller.godaddy.com/"
+
+#: includes/class-butterbean.php:211
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr "Ei käytettävissä"
+
+#: includes/class-permalinks.php:98
+msgctxt "slug name"
+msgid "sample-product"
+msgstr "esimerkkituote"
+
+#: includes/class-post-type.php:58
+msgctxt "slug name"
+msgid "products"
+msgstr "tuotteet"
+
+#: includes/class-taxonomy-category.php:38
+msgctxt "slug name"
+msgid "product-category"
+msgstr "tuote-osasto"
+
+#: includes/class-taxonomy-tag.php:38
+msgctxt "slug name"
+msgid "product-tag"
+msgstr "tuote-avainsana"
+
+#: includes/class-post-type.php:121
+msgctxt "post type general name"
+msgid "Products"
+msgstr "Tuotteet"
+
+#: includes/class-post-type.php:122
+msgctxt "post type singular name"
+msgid "Product"
+msgstr "Tuote"
+
+#: includes/class-post-type.php:123
+msgctxt "admin menu"
+msgid "Reseller Store"
+msgstr "Jälleenmyyjän kauppa"
+
+#: includes/class-post-type.php:124
+msgctxt "add new on admin bar"
+msgid "Reseller Product"
+msgstr "Jälleenmyyjän tuote"
+
+#: includes/class-post-type.php:125
+msgctxt "product"
+msgid "Add New"
+msgstr "Lisää uusi"
+
+#: includes/class-taxonomy-category.php:69
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "Osastot"
+
+#: includes/class-taxonomy-tag.php:69
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "Avainsanat"
+
+#: includes/class-taxonomy-category.php:70
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "Luokka"
+
+#: includes/class-taxonomy-tag.php:70
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "Tunniste"
+
+#: includes/functions/template-functions.php:44
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
+msgctxt "product price"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / per %2$s"

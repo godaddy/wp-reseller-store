@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy Reseller Store restriction class.
+ *
+ * Handles the Reseller Store user restrictions.
+ *
+ * @class    Reseller_Store/Restrictions
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -145,7 +156,7 @@ final class Restrictions {
 	 * @action manage_posts_extra_tablenav
 	 * @since  0.2.0
 	 *
-	 * @param string $which
+	 * @param string $which Table location.
 	 */
 	public function edit_screen( $which ) {
 
@@ -169,8 +180,8 @@ final class Restrictions {
 		.tablenav a.rstore-blank-button { display: inline-block; }
 		</style>
 		<div class="rstore-blank">
-			<h2 class="rstore-blank-message"><?php esc_html_e( 'No products have been added yet.', 'reseller-store' ); ?></h2>
-			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>
+			<h2 class="rstore-blank-message"><?php esc_html_e( 'No products have been added yet.', 'godaddy-reseller-store' ); ?></h2>
+			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'godaddy-reseller-store' ); ?></a></p>
 		</div>
 		<?php
 

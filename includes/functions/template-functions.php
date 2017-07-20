@@ -1,18 +1,35 @@
 <?php
+/**
+ * GoDaddy Reseller Store template functions.
+ *
+ * Contains the Reseller Store template functions used to display product data.
+ *
+ * @package  Reseller_Store/Plugin
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 /**
  * Display the price for a given product.
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional)
- * @param  bool             $echo (optional)
+ * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
+ * @param  bool             $echo (optional) Whether or not the value should be echoed.
  *
  * @return string|null
  */
 function rstore_price( $post = null, $echo = true ) {
 
 	$post = get_post( $post );
+
+	$id = rstore_get_product_meta( $post->ID, 'id' );
+
+	if ( 'domain' === $id ) {
+
+		return;
+
+	}
 
 	$list = rstore_get_product_meta( $post->ID, 'listPrice' );
 
@@ -27,7 +44,9 @@ function rstore_price( $post = null, $echo = true ) {
 		esc_html( $list )
 	);
 
-	if ( $sale = rstore_get_product_meta( $post->ID, 'salePrice' ) ) {
+	$sale = rstore_get_product_meta( $post->ID, 'salePrice' );
+
+	if ( $sale ) {
 
 		$output = sprintf(
 			'<span class="rstore-price rstore-has-sale-price"><del>%s</del> %s</span>',
@@ -37,13 +56,15 @@ function rstore_price( $post = null, $echo = true ) {
 
 	}
 
-	if ( $term = rstore_get_product_meta( $post->ID, 'term' ) ) {
+	$term = rstore_get_product_meta( $post->ID, 'term' );
+
+	if ( $term ) {
 
 		$output = sprintf(
 			/* translators: 1. price, 2. subscription term - e.g. $10 / per month */
-			esc_html_x( '%1$s / per %2$s', 'product price', 'reseller-store' ),
+			esc_html_x( '%1$s / per %2$s', 'product price', 'godaddy-reseller-store' ),
 			$output,
-			$term // xss ok
+			$term // xss ok.
 		);
 
 	}
@@ -56,7 +77,7 @@ function rstore_price( $post = null, $echo = true ) {
 
 	}
 
-	echo $output; // xss ok
+	echo $output; // xss ok.
 
 }
 
@@ -65,8 +86,8 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional)
- * @param  bool             $echo (optional)
+ * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
+ * @param  bool             $echo (optional) Whether or not the form should be echoed.
  *
  * @return string|null
  */
@@ -85,12 +106,12 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
 	ob_start();
 
 	?>
-	<form class="rstore-add-to-cart-form">
+	<div class="rstore-add-to-cart-form">
 		<input type="hidden" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
-		<input type="submit" class="rstore-add-to-cart submit button" data-id="<?php echo esc_attr( $id ); ?>" data-quantity="<?php echo absint( $quantity ); ?>" data-redirect="<?php echo esc_attr( $redirect ); ?>" value="<?php echo esc_attr( $label ); ?>">
+		<?php	rstore_add_to_cart_button( $post ); ?>
 		<div class="rstore-loading rstore-loading-hidden" ></div>
 		<div class="rstore-message"></div>
-	</form>
+	</div>
 	<?php
 
 	$output = ob_get_clean();
@@ -101,7 +122,7 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
 
 	}
 
-	echo $output; // xss ok
+	echo $output; // xss ok.
 
 }
 
@@ -110,8 +131,8 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional)
- * @param  bool             $echo (optional)
+ * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
+ * @param  bool             $echo (optional) Whether or not the add to cart button should be echoed.
  *
  * @return string|null
  */
@@ -120,6 +141,12 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
 	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
 	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
+
+		return;
+
+	}
+
+	if ( 'domain' === $id ) {
 
 		return;
 
@@ -139,7 +166,7 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
 
 	}
 
-	echo $output; // xss ok
+	echo $output; // xss ok.
 
 }
 
@@ -148,8 +175,8 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional)
- * @param  bool             $echo (optional)
+ * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
+ * @param  bool             $echo (optional) Whether or not the add to cart link should be echoed.
  *
  * @return string|null
  */
@@ -176,6 +203,6 @@ function rstore_add_to_cart_link( $post = null, $echo = true ) {
 
 	}
 
-	echo $output; // xss ok
+	echo $output; // xss ok.
 
 }

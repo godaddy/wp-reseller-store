@@ -1,4 +1,13 @@
 <?php
+/**
+ * GoDaddy Reseller Store helper functions.
+ *
+ * Contains the Reseller Store helper functions used throughout the plugin.
+ *
+ * @package  Reseller_Store/Plugin
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 /**
  * Returns the plugin instance.
@@ -18,8 +27,8 @@ function rstore() {
  *
  * @since 0.2.0
  *
- * @param  string $string
- * @param  bool   $use_dashes (optional)
+ * @param  string $string      Reseller store prefix.
+ * @param  bool   $use_dashes (optional) Whether the prefix should use dashes.
  *
  * @return string  Returns a string prepended with the plugin prefix.
  */
@@ -36,7 +45,7 @@ function rstore_prefix( $string, $use_dashes = false ) {
  *
  * @since 0.2.0
  *
- * @return bool  Returns `true` if a private label ID exists, otherwise `false`.
+ * @return bool Returns `true` if a private label ID exists, otherwise `false`.
  */
 function rstore_is_setup() {
 
@@ -49,7 +58,7 @@ function rstore_is_setup() {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post
+ * @param int|WP_Post|null $post Post object, post ID or null.
  *
  * @return array
  */
@@ -59,24 +68,24 @@ function rstore_get_add_to_cart_vars( $post ) {
 
 	return [
 		'id'        => rstore_get_product_meta( $post->ID, 'id' ),
-		'quantity'  => 1, // TODO: Future release
+		'quantity'  => 1, // @TODO Future release.
 		'redirect'  => (bool) rstore_get_product_meta( $post->ID, 'add_to_cart_redirect', false, true ),
-		'label'     => rstore_get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
+		'label'     => rstore_get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'godaddy-reseller-store' ), true ),
 		'permalink' => get_permalink( $post->ID ),
 	];
 
 }
 
 /**
-* Return a plugin option.
-*
-* @since 0.2.0
-*
-* @param  string $key
-* @param  mixed  $default (optional)
-*
-* @return mixed  Returns the option value if the key exists, otherwise the `$default` parameter value.
-*/
+ * Return a plugin option.
+ *
+ * @since 0.2.0
+ *
+ * @param  string $key      Option key to retrieve.
+ * @param  mixed  $default (optional) Default option value.
+ *
+ * @return mixed  Returns the option value if the key exists, otherwise the `$default` parameter value.
+ */
 function rstore_get_option( $key, $default = false ) {
 
 	return get_option( rstore_prefix( $key ), $default );
@@ -84,15 +93,15 @@ function rstore_get_option( $key, $default = false ) {
 }
 
 /**
-* Update a plugin option.
-*
-* @since 0.2.0
-*
-* @param  string $key
-* @param  mixed  $value
-*
-* @return bool  Returns `true` on success, `false` on failure.
-*/
+ * Update a plugin option.
+ *
+ * @since 0.2.0
+ *
+ * @param  string $key   Option key to update.
+ * @param  mixed  $value New option value.
+ *
+ * @return bool  Returns `true` on success, `false` on failure.
+ */
 function rstore_update_option( $key, $value ) {
 
 	return update_option( rstore_prefix( $key ), $value );
@@ -100,14 +109,14 @@ function rstore_update_option( $key, $value ) {
 }
 
 /**
-* Delete a plugin option.
-*
-* @since 0.2.0
-*
-* @param  string $key
-*
-* @return bool  Returns `true` on success, `false` on failure.
-*/
+ * Delete a plugin option.
+ *
+ * @since 0.2.0
+ *
+ * @param  string $key Option key to delete.
+ *
+ * @return bool Returns `true` on success, `false` on failure.
+ */
 function rstore_delete_option( $key ) {
 
 	return delete_option( rstore_prefix( $key ) );
@@ -119,10 +128,10 @@ function rstore_delete_option( $key ) {
  *
  * @since 0.2.0
  *
- * @param  string       $name
- * @param  mixed        $default    (optional)
- * @param  string|array $callback   (optional)
- * @param  int          $expiration (optional)
+ * @param  string       $name       Transient name to retrieve.
+ * @param  mixed        $default    (optional) Default transient value.
+ * @param  string|array $callback   (optional) Callback function.
+ * @param  int          $expiration (optional) Transient expiration.
  *
  * @return mixed|WP_Error
  */
@@ -133,8 +142,8 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
 	$value = get_transient( $name );
 
 	/**
-	 * 1. Transient exists: return the cached value
-	 * 2. Transient doesn't exist and the callback isn't valid: return the default value
+	 * 1. Transient exists: return the cached value.
+	 * 2. Transient doesn't exist and the callback isn't valid: return the default value.
 	 */
 	if ( false !== $value || ! is_callable( $callback ) ) {
 
@@ -146,13 +155,13 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
 
 	if ( is_wp_error( $value ) ) {
 
-		return $value; // Return the WP_Error
+		return $value; // Return the WP_Error.
 
 	}
 
 	$value = ( $value ) ? $value : $default;
 
-	// Always set, even when the value is empty
+	// Always set, even when the value is empty.
 	rstore_set_transient( $name, $value, $expiration );
 
 	return $value;
@@ -164,9 +173,9 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
  *
  * @since 0.2.0
  *
- * @param  string $name
- * @param  mixed  $value
- * @param  int    $expiration (optional)
+ * @param  string $name        Transient name to set.
+ * @param  mixed  $value       Transient value to set.
+ * @param  int    $expiration (optional) Transient expiration.
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
@@ -181,7 +190,7 @@ function rstore_set_transient( $name, $value, $expiration = 0 ) {
  *
  * @since 0.2.0
  *
- * @param  string $name
+ * @param  string $name Transient to delete.
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
@@ -196,9 +205,9 @@ function rstore_delete_transient( $name ) {
  *
  * @since 0.2.0
  *
- * @param  int                 $post_id
- * @param  string|array|object $key
- * @param  mixed               $value   (optional)
+ * @param  int                 $post_id Post ID.
+ * @param  string|array|object $key     Post meta name.
+ * @param  mixed               $value   (optional) Post meta value.
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
@@ -220,8 +229,8 @@ function rstore_update_post_meta( $post_id, $key, $value = '' ) {
  *
  * @since 0.2.0
  *
- * @param  int          $post_id
- * @param  array|object $meta
+ * @param  int          $post_id Post ID.
+ * @param  array|object $meta    Post meta.
  *
  * @return bool  Returns `true` on success of _all_ post meta, `false` on failure of _any_ post meta.
  */
@@ -244,14 +253,14 @@ function rstore_bulk_update_post_meta( $post_id, $meta ) {
  *
  * @since 0.2.0
  *
- * @param  array $array
- * @param  mixed $var
- * @param  int   $index
- * @param  bool  $preserve_keys (optional)
+ * @param  array $array          Array to insert value into.
+ * @param  mixed $var            Value to insert into array.
+ * @param  int   $index          Location in array to insert at.
+ * @param  bool  $preserve_keys (optional) Whether or not the array keys should be preserved.
  *
  * @return array
  */
-function rstore_array_insert( array $array, $var, $index, $preserve_keys = true ) {
+function rstore_array_insert( $array, $var, $index, $preserve_keys = true ) {
 
 	if ( 0 === $index ) {
 

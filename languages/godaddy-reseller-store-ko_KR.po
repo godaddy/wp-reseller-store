@@ -1,0 +1,528 @@
+# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
+"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
+
+#: includes/class-api.php:246
+msgid "An unknown error has occurred."
+msgstr "알 수 없는 오류가 발생했습니다."
+
+#: includes/class-butterbean.php:133
+msgid "Product Options"
+msgstr "제품 옵션"
+
+#: includes/class-butterbean.php:145
+msgid "General"
+msgstr "일반"
+
+#: includes/class-butterbean.php:158
+msgid "Advanced"
+msgstr "고급"
+
+#: includes/class-butterbean.php:182 includes/class-post-type.php:336
+msgid "Price"
+msgstr "가격"
+
+#: includes/class-butterbean.php:210
+msgid "Sale Price"
+msgstr "세일 가격"
+
+#: includes/class-butterbean.php:239
+msgid "Default Quantity"
+msgstr "기본 수량"
+
+#: includes/class-butterbean.php:273
+msgid "Add to Cart Button Label"
+msgstr "카트에 추가 버튼 레이블"
+
+#: includes/class-butterbean.php:275 includes/class-display.php:83
+#: includes/functions/helper-functions.php:64
+msgid "Add to cart"
+msgstr "장바구니"
+
+#: includes/class-butterbean.php:302
+msgid "Redirect to the cart immediately after adding"
+msgstr "추가 후에 즉시 카트로 리디렉션"
+
+#: includes/class-butterbean.php:335
+msgid "Restore Product Data"
+msgstr "제품 데이터 복원"
+
+#: includes/class-butterbean.php:336
+msgid ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be "
+"lost."
+msgstr ""
+"처음부터 다시 시작? 원래 제품 제목, 콘텐츠, 추천 이미지, 범주 지정을 복원할 수 있습니다. 참고: 사용자가 지정한 기능은 손실됩니다."
+
+#: includes/class-butterbean.php:337
+msgid "Reset Data"
+msgstr "데이터 재설정"
+
+#: includes/class-display.php:84
+msgid "Congrats, your domain is available!"
+msgstr "축하 드립니다. 귀하의 도메인을 사용할 수 있습니다!"
+
+#: includes/class-display.php:85
+msgid "Sorry that domain is taken"
+msgstr "죄송합니다. 해당 도메인은 사용할 수 없습니다"
+
+#: includes/class-display.php:86
+msgid "Find your perfect domain name"
+msgstr "완벽한 도메인 이름 찾기"
+
+#: includes/class-display.php:87
+msgid "View cart"
+msgstr "카트 보기"
+
+#: includes/class-display.php:88
+msgid "An error has occurred"
+msgstr "오류가 발생했습니다"
+
+#: includes/class-import.php:61
+msgid "unknown"
+msgstr "알 수 없음"
+
+#: includes/class-import.php:68
+#. translators: product name
+msgid "`%s` is not a valid product."
+msgstr "'%s'은(는) 유효한 제품이 아닙니다."
+
+#: includes/class-import.php:81
+#. translators: product name
+msgid "`%s` already exists."
+msgstr "'%s'은(는) 이미 존재합니다."
+
+#: includes/class-import.php:103
+#. translators: product name
+msgid "`%s` must be imported as a product post before it can be reset."
+msgstr "'%s'을(를) 재설정하려면 제품 게시물로 가져와야 합니다."
+
+#: includes/class-import.php:116
+#. translators: post type name
+msgid "`%s` is not a valid post type for products."
+msgstr "'%s'은(는) 제품에 유효한 게시물 유형이 아닙니다."
+
+#: includes/class-permalinks.php:41
+msgid "Reseller category base"
+msgstr "리셀러 범주 기초"
+
+#: includes/class-permalinks.php:57
+msgid "Reseller tag base"
+msgstr "리셀러 태그 기초"
+
+#: includes/class-permalinks.php:73
+msgid "Reseller Product Permalinks"
+msgstr "리셀러 제품 고정 링크"
+
+#: includes/class-permalinks.php:91
+msgid ""
+"These settings control the permalinks used specifically for Reseller Store "
+"products."
+msgstr "이러한 설정은 리셀러 상점 제품에 대해서만 사용되는 고정 링크를 제어합니다."
+
+#: includes/class-permalinks.php:121
+msgid "Default"
+msgstr "기본"
+
+#: includes/class-permalinks.php:133
+msgid "Custom base"
+msgstr "사용자 정의 기준"
+
+#: includes/class-post-type.php:126
+msgid "Add New Products"
+msgstr "새 제품 추가"
+
+#: includes/class-post-type.php:127
+msgid "Edit Product"
+msgstr "상품 편집"
+
+#: includes/class-post-type.php:128
+msgid "New Product"
+msgstr "새 상품"
+
+#: includes/class-post-type.php:129
+msgid "View Product"
+msgstr "상품 보기"
+
+#: includes/class-post-type.php:130
+msgid "View Products"
+msgstr "제품 보기"
+
+#: includes/class-post-type.php:131
+msgid "Search Products"
+msgstr "상품 검색"
+
+#: includes/class-post-type.php:132
+msgid "No products found."
+msgstr "상품을 찾을 수 없습니다."
+
+#: includes/class-post-type.php:133
+msgid "No products found in Trash."
+msgstr "휴지통에 제품이 없습니다."
+
+#: includes/class-post-type.php:134
+msgid "Parent Products:"
+msgstr "부모 제품:"
+
+#: includes/class-post-type.php:135
+msgid "All Products"
+msgstr "모든 상품"
+
+#: includes/class-post-type.php:136
+msgid "Product Archives"
+msgstr "제품 보관"
+
+#: includes/class-post-type.php:137
+msgid "Insert into product"
+msgstr "제품에 삽입"
+
+#: includes/class-post-type.php:138
+msgid "Uploaded to this product"
+msgstr "이 제품에 업로드됨"
+
+#: includes/class-post-type.php:139 includes/class-post-type.php:326
+msgid "Product Image"
+msgstr "상품 이미지"
+
+#: includes/class-post-type.php:140
+msgid "Set product image"
+msgstr "상품 이미지 설정"
+
+#: includes/class-post-type.php:141
+msgid "Remove product image"
+msgstr "상품 이미지 제거"
+
+#: includes/class-post-type.php:142
+msgid "Use as featured image"
+msgstr "추천 이미지로 사용"
+
+#: includes/class-post-type.php:147
+msgid "This is where you can add new products to your Reseller Store."
+msgstr "여기에서 리셀러 상점에 새 제품을 추가할 수 있습니다."
+
+#: includes/class-post-type.php:462
+#. translators: product title
+msgid "Edit: %s"
+msgstr "편집: %s"
+
+#: includes/class-restrictions.php:172
+msgid "No products have been added yet."
+msgstr "아직 추가된 제품이 없습니다."
+
+#: includes/class-restrictions.php:173
+msgid "Import All Products"
+msgstr "모든 제품 가져오기"
+
+#: includes/class-setup.php:86
+msgid "Reseller Store Setup"
+msgstr "리셀러 상점 설정"
+
+#: includes/class-setup.php:87
+msgid "Reseller Store"
+msgstr "리셀러 상점"
+
+#: includes/class-setup.php:164
+msgid "Let's setup your GoDaddy Reseller Store."
+msgstr "GoDaddy 리셀러 상점을 설정합시다."
+
+#: includes/class-setup.php:168
+msgid "Enter your Private Label ID to get started."
+msgstr "시작하려면 비공개 레이블 ID를 입력하세요."
+
+#: includes/class-setup.php:171
+msgid "Enter your Private Label ID:"
+msgstr "비공개 레이블 ID 입력:"
+
+#: includes/class-setup.php:173
+msgid "Install Now"
+msgstr "지금 설치"
+
+#: includes/class-setup.php:177
+msgid "Don't have an account?"
+msgstr "계정을 갖고 있지 않습니까?"
+
+#: includes/class-setup.php:177
+msgid "Create an account"
+msgstr "계정 만들기"
+
+#: includes/class-setup.php:180
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "도움이 필요하신가요? +1 (480) 505-8877 번호로 최고 수준의 지원 팀에 문의하시기 바랍니다."
+
+#: includes/class-setup.php:205
+#. translators: name of missing script
+msgid "Error: Missing required script for setup %s"
+msgstr "오류: 설치 %s에 필요한 스크립트가 없습니다"
+
+#: includes/class-setup.php:233
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr "죄송합니다. 귀하는 이 사이트에 플러그인을 설치할 수 없습니다."
+
+#: includes/class-setup.php:244
+msgid "Sorry, you are not allowed to do that."
+msgstr "죄송합니다. 귀하는 그렇게 할 수 없습니다."
+
+#: includes/class-setup.php:259
+msgid "Private Label ID is invalid."
+msgstr "잘못된 비공개 레이블 ID입니다."
+
+#: includes/class-setup.php:280
+msgid "There are no products available, please try again later."
+msgstr "이용할 수 있는 제품이 없습니다. 나중에 다시 시도해 주세요."
+
+#: includes/class-setup.php:311
+msgid "Product data could not be imported, please try again later."
+msgstr "제품 데이터를 가져올 수 없습니다. 나중에 다시 시도해 주세요."
+
+#: includes/class-setup.php:347
+msgid "An unknown error occurred."
+msgstr "알 수 없는 오류가 발생했습니다."
+
+#: includes/class-setup.php:361
+#. translators: error message
+msgid "Error: %s"
+msgstr "에러: %s"
+
+#: includes/class-taxonomy-category.php:71
+msgid "Search Categories"
+msgstr "범주 검색"
+
+#: includes/class-taxonomy-category.php:72
+msgid "All Categories"
+msgstr "모든 범주"
+
+#: includes/class-taxonomy-category.php:73
+msgid "Parent Category"
+msgstr "부모 범위"
+
+#: includes/class-taxonomy-category.php:74
+msgid "Parent Category:"
+msgstr "부모 범위:"
+
+#: includes/class-taxonomy-category.php:75
+msgid "Edit Category"
+msgstr "범주 편집"
+
+#: includes/class-taxonomy-category.php:76
+msgid "Update Category"
+msgstr "범주 업데이트"
+
+#: includes/class-taxonomy-category.php:77
+msgid "Add New Category"
+msgstr "새 범주 추가"
+
+#: includes/class-taxonomy-category.php:78
+msgid "New Category Name"
+msgstr "새 범주 이름"
+
+#: includes/class-taxonomy-category.php:79
+#: includes/class-taxonomy-category.php:83
+msgid "Categories"
+msgstr "카테고리"
+
+#: includes/class-taxonomy-tag.php:71
+msgid "Search Tags"
+msgstr "검색 태그"
+
+#: includes/class-taxonomy-tag.php:72
+msgid "All Tags"
+msgstr "모든 태그"
+
+#: includes/class-taxonomy-tag.php:73
+msgid "Parent Tag"
+msgstr "부모 태그"
+
+#: includes/class-taxonomy-tag.php:74
+msgid "Parent Tag:"
+msgstr "부모 태그:"
+
+#: includes/class-taxonomy-tag.php:75
+msgid "Edit Tag"
+msgstr "태그 편집"
+
+#: includes/class-taxonomy-tag.php:76
+msgid "Update Tag"
+msgstr "태그 업데이트"
+
+#: includes/class-taxonomy-tag.php:77
+msgid "Add New Tag"
+msgstr "새 태그 추가"
+
+#: includes/class-taxonomy-tag.php:78
+msgid "New Tag Name"
+msgstr "새 태그 이름"
+
+#: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
+msgid "Tags"
+msgstr "태그"
+
+#: includes/functions/product-functions.php:134
+#. translators: product name
+msgid "Error: `%s` does not exist."
+msgstr "오류: ‘%s’이(가) 존재하지 않습니다."
+
+#: includes/widgets/class-cart.php:22
+msgid "Reseller Cart"
+msgstr "리셀러 카트"
+
+#: includes/widgets/class-cart.php:25
+msgid "Display the user's cart in the sidebar."
+msgstr "사이드바에 사용자의 장바구니 보이기."
+
+#: includes/widgets/class-cart.php:86
+#. translators: number of items in cart
+msgid "View Cart %s"
+msgstr "%s 카트 보기"
+
+#: includes/widgets/class-cart.php:105
+msgid "Cart"
+msgstr "장바구니"
+
+#: includes/widgets/class-cart.php:110
+#: includes/widgets/class-domain-search.php:112
+msgid "Title:"
+msgstr "제목:"
+
+#: includes/widgets/class-cart.php:116
+msgid "Hide if cart is empty"
+msgstr "장바구니가 비어있으면 감추기"
+
+#: includes/widgets/class-domain-search.php:22
+msgid "Reseller Domain Search"
+msgstr "리셀러 도메인 검색"
+
+#: includes/widgets/class-domain-search.php:25
+msgid "A search form for domain names."
+msgstr "도메인 이름 검색 폼"
+
+#: includes/widgets/class-domain-search.php:83
+#: includes/widgets/class-domain-search.php:84
+msgid "Search for a domain name:"
+msgstr "도메인 이름 검색:"
+
+#: includes/widgets/class-domain-search.php:88
+#: includes/widgets/class-domain-search.php:108
+msgid "Search"
+msgstr "검색"
+
+#: includes/widgets/class-domain-search.php:106
+msgid "Domain Search"
+msgstr "도메인 검색"
+
+#: includes/widgets/class-domain-search.php:107
+msgid "Find your perfect name"
+msgstr "가장 적합한 이름 찾기"
+
+#: includes/widgets/class-domain-search.php:117
+msgid "Placeholder:"
+msgstr "자리 표시자:"
+
+#: includes/widgets/class-domain-search.php:122
+msgid "Button:"
+msgstr "버튼:"
+
+#. Plugin Name of the plugin/theme
+msgid "GoDaddy Reseller Store"
+msgstr "GoDaddy 리셀러 상점"
+
+#. Description of the plugin/theme
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "호스팅, 도메인 등을 고객님의 워드프레스 사이트에서 곧바로 판매할 수 있습니다."
+
+#. Author of the plugin/theme
+msgid "GoDaddy"
+msgstr "GoDaddy"
+
+#. Author URI of the plugin/theme
+msgid "https://reseller.godaddy.com/"
+msgstr "https://reseller.godaddy.com/"
+
+#: includes/class-butterbean.php:211
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr "해당 없음"
+
+#: includes/class-permalinks.php:98
+msgctxt "slug name"
+msgid "sample-product"
+msgstr "샘플 제품"
+
+#: includes/class-post-type.php:58
+msgctxt "slug name"
+msgid "products"
+msgstr "제품"
+
+#: includes/class-taxonomy-category.php:38
+msgctxt "slug name"
+msgid "product-category"
+msgstr "상품-카테고리"
+
+#: includes/class-taxonomy-tag.php:38
+msgctxt "slug name"
+msgid "product-tag"
+msgstr "상품-태그"
+
+#: includes/class-post-type.php:121
+msgctxt "post type general name"
+msgid "Products"
+msgstr "상품"
+
+#: includes/class-post-type.php:122
+msgctxt "post type singular name"
+msgid "Product"
+msgstr "제품"
+
+#: includes/class-post-type.php:123
+msgctxt "admin menu"
+msgid "Reseller Store"
+msgstr "리셀러 상점"
+
+#: includes/class-post-type.php:124
+msgctxt "add new on admin bar"
+msgid "Reseller Product"
+msgstr "리셀러 제품"
+
+#: includes/class-post-type.php:125
+msgctxt "product"
+msgid "Add New"
+msgstr "새로 추가"
+
+#: includes/class-taxonomy-category.php:69
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "카테고리"
+
+#: includes/class-taxonomy-tag.php:69
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "태그"
+
+#: includes/class-taxonomy-category.php:70
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "범주"
+
+#: includes/class-taxonomy-tag.php:70
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "태그"
+
+#: includes/functions/template-functions.php:44
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
+msgctxt "product price"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / %2$s"

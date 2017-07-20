@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy Reseller Store sync class.
+ *
+ * Handles the Reseller Store syncing.
+ *
+ * @class    Reseller_Store/Sync
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -74,7 +85,7 @@ final class Sync {
 		 */
 		$this->retry_ttl = (int) apply_filters( 'rstore_sync_retry_ttl', $this->retry_ttl );
 
-		// Always use the shortest TTL available for retries
+		// Always use the shortest TTL available for retries.
 		$this->retry_ttl = ( $this->retry_ttl > $this->ttl ) ? $this->ttl : $this->retry_ttl;
 
 		/**
@@ -88,7 +99,7 @@ final class Sync {
 		 */
 		$this->properties = (array) apply_filters( 'rstore_sync_properties', $this->properties );
 
-		// After the post type and taxonomies are registered
+		// After the post type and taxonomies are registered.
 		add_action( 'init', [ $this, 'check' ], 11 );
 
 	}
@@ -107,10 +118,12 @@ final class Sync {
 
 		}
 
-		// Use the retry TTL by default in case this sync returns `false`
+		// Use the retry TTL by default in case this sync returns `false`.
 		rstore_update_option( 'next_sync', time() + $this->retry_ttl );
 
-		if ( $synced = $this->sync_product_meta() ) {
+		$synced = $this->sync_product_meta();
+
+		if ( $synced ) {
 
 			rstore_update_option( 'last_sync', time() );
 
@@ -158,7 +171,6 @@ final class Sync {
 					$meta[ $property ] = $product->{$property};
 
 				}
-
 			}
 
 			rstore_bulk_update_post_meta( $post_id, $meta );

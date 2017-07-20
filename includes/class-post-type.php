@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy Reseller Store post types class.
+ *
+ * Handles the Reseller Store post types.
+ *
+ * @class    Reseller_Store/Post_Type
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -55,7 +66,7 @@ final class Post_Type {
 	 */
 	public function __construct() {
 
-		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'godaddy-reseller-store' ) );
 
 		add_action( 'init',                         [ $this, 'register' ] );
 		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
@@ -118,33 +129,33 @@ final class Post_Type {
 	public function register() {
 
 		$labels = [
-			'name'                  => esc_html_x( 'Products', 'post type general name', 'reseller-store' ),
-			'singular_name'         => esc_html_x( 'Product', 'post type singular name', 'reseller-store' ),
-			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'reseller-store' ),
-			'name_admin_bar'        => esc_html_x( 'Reseller Product', 'add new on admin bar', 'reseller-store' ),
-			'add_new'               => esc_html_x( 'Add New', 'product', 'reseller-store' ),
-			'add_new_item'          => esc_html__( 'Add New Products', 'reseller-store' ),
-			'edit_item'             => esc_html__( 'Edit Product', 'reseller-store' ),
-			'new_item'              => esc_html__( 'New Product', 'reseller-store' ),
-			'view_item'             => esc_html__( 'View Product', 'reseller-store' ),
-			'view_items'            => esc_html__( 'View Products', 'reseller-store' ),
-			'search_items'          => esc_html__( 'Search Products', 'reseller-store' ),
-			'not_found'             => esc_html__( 'No products found.', 'reseller-store' ),
-			'not_found_in_trash'    => esc_html__( 'No products found in Trash.', 'reseller-store' ),
-			'parent_item_colon'     => esc_html__( 'Parent Products:', 'reseller-store' ),
-			'all_items'             => esc_html__( 'All Products', 'reseller-store' ),
-			'archives'              => esc_html__( 'Product Archives', 'reseller-store' ),
-			'insert_into_item'      => esc_html__( 'Insert into product', 'reseller-store' ),
-			'uploaded_to_this_item' => esc_html__( 'Uploaded to this product', 'reseller-store' ),
-			'featured_image'        => esc_html__( 'Product Image', 'reseller-store' ),
-			'set_featured_image'    => esc_html__( 'Set product image', 'reseller-store' ),
-			'remove_featured_image' => esc_html__( 'Remove product image', 'reseller-store' ),
-			'use_featured_image'    => esc_html__( 'Use as featured image', 'reseller-store' ),
+			'name'                  => esc_html_x( 'Products', 'post type general name', 'godaddy-reseller-store' ),
+			'singular_name'         => esc_html_x( 'Product', 'post type singular name', 'godaddy-reseller-store' ),
+			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'godaddy-reseller-store' ),
+			'name_admin_bar'        => esc_html_x( 'Reseller Product', 'add new on admin bar', 'godaddy-reseller-store' ),
+			'add_new'               => esc_html_x( 'Add New', 'product', 'godaddy-reseller-store' ),
+			'add_new_item'          => esc_html__( 'Add New Products', 'godaddy-reseller-store' ),
+			'edit_item'             => esc_html__( 'Edit Product', 'godaddy-reseller-store' ),
+			'new_item'              => esc_html__( 'New Product', 'godaddy-reseller-store' ),
+			'view_item'             => esc_html__( 'View Product', 'godaddy-reseller-store' ),
+			'view_items'            => esc_html__( 'View Products', 'godaddy-reseller-store' ),
+			'search_items'          => esc_html__( 'Search Products', 'godaddy-reseller-store' ),
+			'not_found'             => esc_html__( 'No products found.', 'godaddy-reseller-store' ),
+			'not_found_in_trash'    => esc_html__( 'No products found in Trash.', 'godaddy-reseller-store' ),
+			'parent_item_colon'     => esc_html__( 'Parent Products:', 'godaddy-reseller-store' ),
+			'all_items'             => esc_html__( 'All Products', 'godaddy-reseller-store' ),
+			'archives'              => esc_html__( 'Product Archives', 'godaddy-reseller-store' ),
+			'insert_into_item'      => esc_html__( 'Insert into product', 'godaddy-reseller-store' ),
+			'uploaded_to_this_item' => esc_html__( 'Uploaded to this product', 'godaddy-reseller-store' ),
+			'featured_image'        => esc_html__( 'Product Image', 'godaddy-reseller-store' ),
+			'set_featured_image'    => esc_html__( 'Set product image', 'godaddy-reseller-store' ),
+			'remove_featured_image' => esc_html__( 'Remove product image', 'godaddy-reseller-store' ),
+			'use_featured_image'    => esc_html__( 'Use as featured image', 'godaddy-reseller-store' ),
 		];
 
 		$args = [
 			'labels'        => $labels,
-			'description'   => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
+			'description'   => esc_html__( 'This is where you can add new products to your Reseller Store.', 'godaddy-reseller-store' ),
 			'menu_icon'     => 'dashicons-cart',
 			'menu_position' => self::MENU_POSITION,
 			'public'        => true,
@@ -182,12 +193,15 @@ final class Post_Type {
 	 */
 	public function process_product_reset() {
 
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+		$nonce   = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING );
+
 		if (
 			! rstore_is_admin_uri( 'post.php?post=' )
 			||
-			! ( $post_id = absint( filter_input( INPUT_GET, 'post' ) ) )
+			! $post_id
 			||
-			! ( $nonce = filter_input( INPUT_GET, '_wpnonce' ) )
+			! $nonce
 			||
 			false === wp_verify_nonce( $nonce, sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() ) )
 		) {
@@ -228,7 +242,7 @@ final class Post_Type {
 	 *
 	 * @since  0.2.0
 	 *
-	 * @param  int $post_id
+	 * @param  int $post_id Product post ID.
 	 *
 	 * @return true|WP_Error
 	 */
@@ -238,7 +252,7 @@ final class Post_Type {
 
 		if ( is_wp_error( $product ) ) {
 
-			return $product; // Return the WP_Error
+			return $product; // Return the WP_Error.
 
 		}
 
@@ -311,29 +325,29 @@ final class Post_Type {
 	 * @filter manage_{post_type}_posts_columns
 	 * @since  0.2.0
 	 *
-	 * @param  array $columns
+	 * @param  array $columns Admin post columns.
 	 *
 	 * @return array
 	 */
-	public function columns( array $columns ) {
+	public function columns( $columns ) {
 
-		// Insert before Title column
+		// Insert before Title column.
 		$columns = rstore_array_insert(
 			$columns,
 			[
 				'image' => sprintf(
 					'<span class="rstore-image dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
-					__( 'Product Image', 'reseller-store' )
+					__( 'Product Image', 'godaddy-reseller-store' )
 				),
 			],
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true )
 		);
 
-		// Insert after Title column
+		// Insert after Title column.
 		$columns = rstore_array_insert(
 			$columns,
 			// @codingStandardsIgnoreStart
-			[ 'price' => esc_html__( 'Price', 'reseller-store' ) ],
+			[ 'price' => esc_html__( 'Price', 'godaddy-reseller-store' ) ],
 			// @codingStandardsIgnoreEnd
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true ) + 1
 		);
@@ -348,8 +362,8 @@ final class Post_Type {
 	 * @action manage_posts_custom_column
 	 * @since  0.2.0
 	 *
-	 * @param string $column
-	 * @param int    $post_id
+	 * @param string $column  Admin column name.
+	 * @param int    $post_id Post ID.
 	 */
 	public function column_content( $column, $post_id ) {
 
@@ -380,7 +394,7 @@ final class Post_Type {
 	 * @action delete_post
 	 * @since  0.2.0
 	 *
-	 * @param  int $post_id
+	 * @param  int $post_id Product post ID.
 	 *
 	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
@@ -392,7 +406,7 @@ final class Post_Type {
 
 		}
 
-		// Re-fetch products from the API to ensure `rstore_has_all_products()` is accurate
+		// Re-fetch products from the API to ensure `rstore_has_all_products()` is accurate.
 		rstore_delete_transient( 'products' );
 
 		$imported = (array) rstore_get_option( 'imported', [] );
@@ -410,12 +424,12 @@ final class Post_Type {
 	 * @global wpdb $wpdb
 	 * @since  0.2.0
 	 *
-	 * @param  array    $clauses
-	 * @param  WP_Query $wp_query
+	 * @param  array  $clauses  $wpdb query clauses.
+	 * @param  object $wp_query $wp_query instance.
 	 *
 	 * @return array
 	 */
-	public function order_by_price_clause( array $clauses, $wp_query ) {
+	public function order_by_price_clause( $clauses, $wp_query ) {
 
 		global $wpdb;
 
@@ -428,7 +442,7 @@ final class Post_Type {
 				rstore_prefix( 'listPrice' )
 			);
 
-			$clauses['orderby'] = " CONVERT( REPLACE( pm.`meta_value`, '$', '' ), DECIMAL( 13, 2 ) ) {$order}"; // xss ok
+			$clauses['orderby'] = " CONVERT( REPLACE( pm.`meta_value`, '$', '' ), DECIMAL( 13, 2 ) ) {$order}"; // xss ok.
 
 		}
 
@@ -442,11 +456,11 @@ final class Post_Type {
 	 * @filter post_type_labels_{post_type}
 	 * @since  0.2.0
 	 *
-	 * @param  stdClass $labels
+	 * @param  stdClass $labels Product labels.
 	 *
 	 * @return array
 	 */
-	public function post_screen_edit_heading( stdClass $labels ) {
+	public function post_screen_edit_heading( $labels ) {
 
 		if ( ! rstore_is_admin_uri( 'post.php?post=' ) ) {
 
@@ -454,12 +468,12 @@ final class Post_Type {
 
 		}
 
-		$post_id = (int) filter_input( INPUT_GET, 'post' );
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
 
 		$title = ( $post_id > 0 ) ? rstore_get_product_meta( $post_id, 'title' ) : null;
 
 		/* translators: product title */
-		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $title ) : $labels->edit_item;
+		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'godaddy-reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
 
@@ -472,7 +486,7 @@ final class Post_Type {
 	 * @global WP_Post $post
 	 * @since  0.2.0
 	 *
-	 * @param  string $content
+	 * @param  string $content Product content.
 	 *
 	 * @return string
 	 */

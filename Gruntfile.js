@@ -21,12 +21,12 @@ module.exports = function( grunt ) {
 						expand: true,
 						src: [
 							pkg.name + '.php',
-							'license.txt',
-							'readme.txt',
+							'*.txt',
 							'assets/**',
 							'includes/**',
 							'languages/*.{mo,pot}',
-							'lib/**'
+							'lib/**',
+							'!lib/**/*.md'
 						],
 						dest: 'build/'
 					}
@@ -161,6 +161,20 @@ module.exports = function( grunt ) {
 					{
 						from: /^(\*\*|)Stable tag:(\*\*|)(\s*?)[a-zA-Z0-9.-]+(\s*?)$/mi,
 						to: '$1Stable tag:$2$3<%= pkg.version %>$4'
+					},
+					{
+						from: /@NEXT/g,
+						to: '<%= pkg.version %>'
+					}
+				]
+			},
+			tests: {
+				src: 'tests/**/*.php',
+				overwrite: true,
+				replacements: [
+					{
+						from: /@since(.*?)NEXT/mg,
+						to: '@since <%= pkg.version %>'
 					}
 				]
 			}

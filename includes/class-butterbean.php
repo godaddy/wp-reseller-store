@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy Reseller Store ButterBean class.
+ *
+ * Handles the reseller store post metaboxes.
+ *
+ * @class    Reseller_Store/Butterbean
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -49,8 +60,8 @@ final class ButterBean {
 	 * @action butterbean_register
 	 * @since  0.2.0
 	 *
-	 * @param ButterBean $butterbean
-	 * @param string     $post_type
+	 * @param object $butterbean ButterBean object.
+	 * @param string $post_type  Current post type.
 	 */
 	public function register_types( $butterbean, $post_type ) {
 
@@ -83,10 +94,10 @@ final class ButterBean {
 	 * @filter butterbean_pre_control_template
 	 * @since  0.2.0
 	 *
-	 * @param  string $path
-	 * @param  string $slug
+	 * @param  string $path Path to ButterBean template file.
+	 * @param  string $slug rstore_prefix slug.
 	 *
-	 * @return string
+	 * @return string Path to the ButterBean template file.
 	 */
 	public function control_templates( $path, $slug ) {
 
@@ -116,8 +127,8 @@ final class ButterBean {
 	 * @action butterbean_register
 	 * @since  0.2.0
 	 *
-	 * @param ButterBean $butterbean
-	 * @param string     $post_type
+	 * @param object $butterbean ButterBean instance.
+	 * @param string $post_type  Current post type.
 	 */
 	public function register_metabox( $butterbean, $post_type ) {
 
@@ -130,7 +141,7 @@ final class ButterBean {
 		$butterbean->register_manager(
 			'product_options',
 			[
-				'label'     => esc_html__( 'Product Options', 'reseller-store' ),
+				'label'     => esc_html__( 'Product Options', 'godaddy-reseller-store' ),
 				'post_type' => Post_Type::SLUG,
 				'context'   => 'normal',
 				'priority'  => 'high',
@@ -142,7 +153,7 @@ final class ButterBean {
 		$manager->register_section(
 			'general',
 			[
-				'label' => esc_html__( 'General', 'reseller-store' ),
+				'label' => esc_html__( 'General', 'godaddy-reseller-store' ),
 				'icon'  => 'dashicons-admin-tools',
 			]
 		);
@@ -155,7 +166,7 @@ final class ButterBean {
 		$manager->register_section(
 			'advanced',
 			[
-				'label' => esc_html__( 'Advanced', 'reseller-store' ),
+				'label' => esc_html__( 'Advanced', 'godaddy-reseller-store' ),
 				'icon'  => 'dashicons-admin-settings',
 			]
 		);
@@ -169,8 +180,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function list_price( $manager, $section ) {
 
@@ -179,7 +190,7 @@ final class ButterBean {
 			[
 				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
-				'label'   => esc_html__( 'Price', 'reseller-store' ),
+				'label'   => esc_html__( 'Price', 'godaddy-reseller-store' ),
 			]
 		);
 
@@ -197,8 +208,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function sale_price( $manager, $section ) {
 
@@ -207,8 +218,8 @@ final class ButterBean {
 			[
 				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
-				'label'   => esc_html__( 'Sale Price', 'reseller-store' ),
-				'default' => esc_html_x( 'N/A', 'abbreviation for not applicable', 'reseller-store' ),
+				'label'   => esc_html__( 'Sale Price', 'godaddy-reseller-store' ),
+				'default' => esc_html_x( 'N/A', 'abbreviation for not applicable', 'godaddy-reseller-store' ),
 			]
 		);
 
@@ -226,8 +237,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function default_quantity( $manager, $section ) {
 
@@ -236,7 +247,7 @@ final class ButterBean {
 			[
 				'type'    => 'number',
 				'section' => $section,
-				'label'   => esc_html__( 'Default Quantity', 'reseller-store' ),
+				'label'   => esc_html__( 'Default Quantity', 'godaddy-reseller-store' ),
 				'attr'    => [
 					'min'         => 1,
 					'placeholder' => absint( rstore_get_option( __FUNCTION__, 1 ) ),
@@ -260,8 +271,8 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function add_to_cart_button_label( $manager, $section ) {
 
@@ -270,9 +281,9 @@ final class ButterBean {
 			[
 				'type'    => 'text',
 				'section' => $section,
-				'label'   => esc_html__( 'Add to Cart Button Label', 'reseller-store' ),
+				'label'   => esc_html__( 'Add to Cart Button Label', 'godaddy-reseller-store' ),
 				'attr'    => [
-					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'reseller-store' ) ) ),
+					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'godaddy-reseller-store' ) ) ),
 				],
 			]
 		);
@@ -291,15 +302,15 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function add_to_cart_redirect( $manager, $section ) {
 
 		$args = [
 			'type'    => 'checkbox',
 			'section' => $section,
-			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
+			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'godaddy-reseller-store' ),
 		];
 
 		$manager->register_control( rstore_prefix( __FUNCTION__ ), $args );
@@ -320,21 +331,21 @@ final class ButterBean {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param ButterBean_Manager $manager
-	 * @param string             $section
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
 	 */
 	private function reset_product_data( $manager, $section ) {
 
-		$post_id = filter_input( INPUT_GET, 'post' );
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
 			[
 				'type'        => rstore_prefix( 'anchor', true ),
 				'section'     => $section,
-				'label'       => esc_html__( 'Restore Product Data', 'reseller-store' ),
-				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),
-				'text'        => esc_html__( 'Reset Data', 'reseller-store' ),
+				'label'       => esc_html__( 'Restore Product Data', 'godaddy-reseller-store' ),
+				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'godaddy-reseller-store' ),
+				'text'        => esc_html__( 'Reset Data', 'godaddy-reseller-store' ),
 				'attr'        => [
 					'class' => 'button button-primary',
 					'href'  => esc_url(

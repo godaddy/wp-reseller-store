@@ -1,12 +1,21 @@
 <?php
+/**
+ * GoDaddy Reseller Store admin functionality.
+ *
+ * Contains the Reseller Store admin side functions.
+ *
+ * @package  Reseller_Store/Plugin
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 /**
  * Check if we are on a specific admin screen.
  *
  * @since 0.2.0
  *
- * @param  string $request_uri
- * @param  bool   $strict      (optional)
+ * @param  string $request_uri Request URL to check.
+ * @param  bool   $strict      (optional) strict check.
  *
  * @return bool  Returns `true` if the current admin URL contains the specified URI, otherwise `false`.
  */
@@ -25,13 +34,13 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
  *
  * @since 0.2.0
  *
- * @param string $endpoint (optional)
- * @param array  $args (optional)
- * @param int    status (optional)
+ * @param string  $endpoint (optional) Endpoint to check.
+ * @param array   $args     (optional) Arguments array.
+ * @param integer $status   The redierct status to use.
  */
-function rstore_admin_redirect( $endpoint = '', array $args = [], $status = 302 ) {
+function rstore_admin_redirect( $endpoint = '', $args = [], $status = 302 ) {
 
-	// Allow full admin URL to be passed as $endpoint
+	// Allow full admin URL to be passed as $endpoint.
 	$endpoint = preg_replace( '/^.*\/wp-admin(\/|$)/', '', $endpoint );
 
 	wp_safe_redirect(

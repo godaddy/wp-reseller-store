@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy Reseller Store CLI class.
+ *
+ * Handles the Reseller store 'product' CLI commands.
+ *
+ * @class    Reseller_Store/CLI/Reseller_Product
+ * @package  WP_CLI_Command
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store\CLI;
 
@@ -15,6 +26,9 @@ final class Reseller_Product extends \WP_CLI_Command {
 
 	/**
 	 * Reset reseller product data on a post.
+	 *
+	 * @param array $args       Reset arguments array.
+	 * @param array $assoc_args Assoc. arguments array.
 	 *
 	 * ## OPTIONS
 	 *
@@ -64,7 +78,6 @@ final class Reseller_Product extends \WP_CLI_Command {
 				);
 
 			}
-
 		}
 
 		$no_errors = array_diff_key( $results, $errors );

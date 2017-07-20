@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy Reseller Store domain search widget class.
+ *
+ * Handles the Reseller store domain search widget.
+ *
+ * @class    Reseller_Store/Widgets/Domain_Search
+ * @package  WP_Widget
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store\Widgets;
 
@@ -19,10 +30,10 @@ final class Domain_Search extends \WP_Widget {
 
 		parent::__construct(
 			rstore_prefix( 'domain-search' ),
-			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
+			esc_html__( 'Reseller Domain Search', 'godaddy-reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'domain-search', true ),
-				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
+				'description' => esc_html__( 'A search form for domain names.', 'godaddy-reseller-store' ),
 			]
 		);
 
@@ -33,8 +44,8 @@ final class Domain_Search extends \WP_Widget {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param array $args
-	 * @param array $instance
+	 * @param array $args     Widget arguments.
+	 * @param array $instance Widget instance.
 	 */
 	public function widget( $args, $instance ) {
 
@@ -67,30 +78,17 @@ final class Domain_Search extends \WP_Widget {
 
 		}
 
-		echo $args['before_widget']; // xss ok
+		echo $args['before_widget']; // xss ok.
 
 		if ( ! empty( $instance['title'] ) ) {
 
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok
+			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok.
 
 		}
 
-		$placeholder  = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : null;
-		$button_label = ! empty( $instance['button_label'] ) ? $instance['button_label'] : null;
+		echo '<div class="rstore-domain-search"></div>';
 
-		?>
-		<form role="search" method="post" class="search-form rstore-domain-search-form" action="<?php echo esc_url( rstore()->api->urls['domain_search'] ); ?>" novalidate>
-			<label class="screen-reader-text" for="rstore-domain-search-field"><?php esc_html_e( 'Search for a domain name:', 'reseller-store' ); ?></label>
-			<input type="search" name="domainToCheck" id="rstore-domain-search-field" class="search-field required" placeholder="<?php echo esc_attr( $placeholder ); ?>" title="<?php esc_attr_e( 'Search for a domain name:', 'reseller-store' ); ?>" value="" required="required">
-			<?php if ( $button_label ) : ?>
-				<button type="submit" class="search-submit rstore-domain-search-submit"><?php echo esc_html( $button_label ); ?></button>
-			<?php else : ?>
-				<input type="submit" class="screen-reader-text search-submit rstore-domain-search-submit" value="<?php esc_attr_e( 'Search', 'reseller-store' ); ?>">
-			<?php endif; ?>
-		</form>
-		<?php
-
-		echo $args['after_widget']; // xss ok
+		echo $args['after_widget']; // xss ok.
 
 	}
 
@@ -99,13 +97,13 @@ final class Domain_Search extends \WP_Widget {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param array $instance
+	 * @param array $instance Widget instance.
 	 */
 	public function form( $instance ) {
 
-		$title        = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Domain Search', 'reseller-store' );
-		$placeholder  = isset( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Find your perfect name', 'reseller-store' );
-		$button_label = isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Search', 'reseller-store' );
+		$title        = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Domain Search', 'godaddy-reseller-store' );
+		$placeholder  = isset( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Find your perfect name', 'godaddy-reseller-store' );
+		$button_label = isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Search', 'godaddy-reseller-store' );
 
 		?>
 		<p>
@@ -131,8 +129,8 @@ final class Domain_Search extends \WP_Widget {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  array $new_instance
-	 * @param  array $old_instance
+	 * @param  array $new_instance New widget instance.
+	 * @param  array $old_instance Old widget instance.
 	 *
 	 * @return array
 	 */

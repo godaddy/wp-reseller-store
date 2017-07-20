@@ -8,6 +8,12 @@
 
 		init: function() {
 
+			if ( window.self !== window.top ) {
+
+				return;
+
+			}
+
 			var value = parseInt( Cookies.get( rstore.cookies.cartCount ), 10 );
 
 			cart.updateCount( value );
@@ -21,6 +27,36 @@
 				} );
 
 			}
+
+			//window listener
+			var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
+			var eventer = window[eventMethod];
+			var messageEvent = eventMethod == 'attachEvent' ? 'onmessage' : 'message';
+			eventer(messageEvent,function(e) {
+
+				if (e.data) {
+
+					if ( e.data.message === 'link' && cart.validateSecret( e.data.secret ) ) {
+						window.location = e.data.value;
+
+					}
+
+					if ( e.data.message === 'addItemSuccess' && cart.validateSecret( e.data.secret ) ) {
+
+						cart.updateCount( e.data.value );
+					}
+				}
+			}, false);
+
+		},
+
+		validateSecret: function( secret ) {
+
+			return $('iframe.wp-embedded-content').filter(function( index, item ) {
+
+				 return ( $( item ).data('secret') === secret );
+
+			}).length;
 
 		},
 
@@ -84,27 +120,38 @@
 
 		updateCount: function( value ) {
 
-			value = ( undefined !== value.cartCount ) ? value.cartCount : value;
-			value = ( value ) ? parseInt( value, 10 ) : 0;
+			if ( window.self !== window.top ) {
 
-			Cookies.set( rstore.cookies.cartCount, value, { expires: new Date( new Date().getTime() + rstore.cookies.ttl ), path: '/' } );
+				var secret = window.location.hash.replace( /.*secret=([\d\w]{10}).*/, '$1' );
+				window.parent.postMessage( {
+					message: 'addItemSuccess',
+					value: value,
+					secret: secret
+				}, '*' );
 
-			$( '.rstore-cart-count' ).text( value );
+			} else {
 
-			$( '.widget.rstore-cart' ).each( function() {
+				value = ( undefined !== value.cartCount ) ? value.cartCount : value;
+				value = ( value ) ? parseInt( value, 10 ) : 0;
 
-				$( this ).toggle( ! $( this ).hasClass( 'hide-empty' ) || value > 0 );
+				Cookies.set( rstore.cookies.cartCount, value, { expires: new Date( new Date().getTime() + rstore.cookies.ttl ), path: '/' } );
 
-			} );
+				$( '.rstore-cart-count' ).text( value );
+
+				$( '.widget.rstore-cart' ).each( function() {
+
+					$( this ).toggle( ! $( this ).hasClass( 'hide-empty' ) || value > 0 );
+
+				} );
+			}
 
 		},
 
 		addItemButton: function( e ) {
-
 			e.preventDefault();
 
 			var $this    = $( this ),
-			    $form    = $this.closest( 'form' ),
+			    $form    = $this.closest( '.rstore-add-to-cart-form' ),
 			    id       = $this.attr( 'data-id' ),
 			    qty      = parseInt( $this.attr( 'data-quantity' ), 10 ),
 			    redirect = ( 'true' === $this.attr( 'data-redirect' ) );
@@ -126,11 +173,13 @@
 
 		addItemSuccess: function( $form ) {
 
-			var html = '<span class="dashicons dashicons-yes rstore-success"></span> <a href="' + rstore.urls.cart + '">' + rstore.i18n.view_cart + '</a>';
+			var html = '<span class="dashicons dashicons-yes rstore-success"></span> <a href="' + rstore.urls.cart + '" >' + rstore.i18n.view_cart + '</a>';
 
 			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
 			$form.find( '.rstore-loading' ).addClass('rstore-loading-hidden');
 			$form.find( '.rstore-message' ).html( html );
+
+			return;
 
 		},
 
@@ -174,7 +223,7 @@
 
 		cart.init();
 
-		$( document ).on( 'click', '.rstore-add-to-cart', cart.addItemButton );
+		$( '.rstore-add-to-cart' ).on( 'click', cart.addItemButton );
 
 	} );
 

@@ -1,4 +1,12 @@
 <?php
+/**
+ * GoDaddy Reseller Store Autoloader class.
+ *
+ * @package  Reseller_Store/Plugin
+ * @category Class
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -15,7 +23,6 @@ foreach ( glob( __DIR__ . '/functions/*.php' ) as $include ) {
 		require_once $include;
 
 	}
-
 }
 
 spl_autoload_register( function( $resource ) {

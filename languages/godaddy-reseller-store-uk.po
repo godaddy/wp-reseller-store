@@ -1,0 +1,531 @@
+# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
+"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Generator: grunt-wp-i18n1.0.0\n"
+
+#: includes/class-api.php:246
+msgid "An unknown error has occurred."
+msgstr "Сталася невідома помилка."
+
+#: includes/class-butterbean.php:133
+msgid "Product Options"
+msgstr "Варіанти продуктів"
+
+#: includes/class-butterbean.php:145
+msgid "General"
+msgstr "Загальні"
+
+#: includes/class-butterbean.php:158
+msgid "Advanced"
+msgstr "Додатково"
+
+#: includes/class-butterbean.php:182 includes/class-post-type.php:336
+msgid "Price"
+msgstr "Ціна"
+
+#: includes/class-butterbean.php:210
+msgid "Sale Price"
+msgstr "Ціна зі знижкою"
+
+#: includes/class-butterbean.php:239
+msgid "Default Quantity"
+msgstr "Кількість за промовчанням"
+
+#: includes/class-butterbean.php:273
+msgid "Add to Cart Button Label"
+msgstr "Напис на кнопці додавання до кошика"
+
+#: includes/class-butterbean.php:275 includes/class-display.php:83
+#: includes/functions/helper-functions.php:64
+msgid "Add to cart"
+msgstr "Додати у кошик"
+
+#: includes/class-butterbean.php:302
+msgid "Redirect to the cart immediately after adding"
+msgstr "Переходити до кошика одразу після додавання"
+
+#: includes/class-butterbean.php:335
+msgid "Restore Product Data"
+msgstr "Відновити дані продуктів"
+
+#: includes/class-butterbean.php:336
+msgid ""
+"Need to start over? You can restore the original product title, content, "
+"featured image, and category assignments. Note: Your customizations will be "
+"lost."
+msgstr ""
+"Бажаєте почати з початку? Можна відновити вихідну назву, вміст продукту, "
+"рекомендоване зображення та категорії. Примітка. Ваші індивідуальні настройки "
+"буде втрачено."
+
+#: includes/class-butterbean.php:337
+msgid "Reset Data"
+msgstr "Скинути дані"
+
+#: includes/class-display.php:84
+msgid "Congrats, your domain is available!"
+msgstr "Вітаємо, ваш домен доступний!"
+
+#: includes/class-display.php:85
+msgid "Sorry that domain is taken"
+msgstr "На жаль, цей домен зайнятий"
+
+#: includes/class-display.php:86
+msgid "Find your perfect domain name"
+msgstr "Знайти ідеальне для вас ім’я домену"
+
+#: includes/class-display.php:87
+msgid "View cart"
+msgstr "Переглянути кошик"
+
+#: includes/class-display.php:88
+msgid "An error has occurred"
+msgstr "Сталася помилка"
+
+#: includes/class-import.php:61
+msgid "unknown"
+msgstr "невідомо"
+
+#: includes/class-import.php:68
+#. translators: product name
+msgid "`%s` is not a valid product."
+msgstr "«%s» не є дозволеним продуктом."
+
+#: includes/class-import.php:81
+#. translators: product name
+msgid "`%s` already exists."
+msgstr "«%s» уже існує."
+
+#: includes/class-import.php:103
+#. translators: product name
+msgid "`%s` must be imported as a product post before it can be reset."
+msgstr "«%s» слід імпортувати як публікацію про продукт перед скиданням."
+
+#: includes/class-import.php:116
+#. translators: post type name
+msgid "`%s` is not a valid post type for products."
+msgstr "«%s» не має дозволеного типу публікації для продуктів."
+
+#: includes/class-permalinks.php:41
+msgid "Reseller category base"
+msgstr "Скинути базу категорій"
+
+#: includes/class-permalinks.php:57
+msgid "Reseller tag base"
+msgstr "Скинути базу тегів"
+
+#: includes/class-permalinks.php:73
+msgid "Reseller Product Permalinks"
+msgstr "Постійні посилання на продукти для реселерів"
+
+#: includes/class-permalinks.php:91
+msgid ""
+"These settings control the permalinks used specifically for Reseller Store "
+"products."
+msgstr ""
+"Ці настройки керують постійними посиланнями, призначеними для реселерів."
+
+#: includes/class-permalinks.php:121
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: includes/class-permalinks.php:133
+msgid "Custom base"
+msgstr "Довільна база"
+
+#: includes/class-post-type.php:126
+msgid "Add New Products"
+msgstr "Додати нові продукти"
+
+#: includes/class-post-type.php:127
+msgid "Edit Product"
+msgstr "Редагувати товар"
+
+#: includes/class-post-type.php:128
+msgid "New Product"
+msgstr "Новий товар"
+
+#: includes/class-post-type.php:129
+msgid "View Product"
+msgstr "Переглянути товар"
+
+#: includes/class-post-type.php:130
+msgid "View Products"
+msgstr "Переглянути продукти"
+
+#: includes/class-post-type.php:131
+msgid "Search Products"
+msgstr "Шукати товари"
+
+#: includes/class-post-type.php:132
+msgid "No products found."
+msgstr "Товарів не знайдено."
+
+#: includes/class-post-type.php:133
+msgid "No products found in Trash."
+msgstr "У кошику немає продуктів."
+
+#: includes/class-post-type.php:134
+msgid "Parent Products:"
+msgstr "Батьківські продукти:"
+
+#: includes/class-post-type.php:135
+msgid "All Products"
+msgstr "Всі товари"
+
+#: includes/class-post-type.php:136
+msgid "Product Archives"
+msgstr "Архіви продуктів"
+
+#: includes/class-post-type.php:137
+msgid "Insert into product"
+msgstr "Вставити в товар"
+
+#: includes/class-post-type.php:138
+msgid "Uploaded to this product"
+msgstr "Завантажено до товару"
+
+#: includes/class-post-type.php:139 includes/class-post-type.php:326
+msgid "Product Image"
+msgstr "Зображення товару"
+
+#: includes/class-post-type.php:140
+msgid "Set product image"
+msgstr "Встановити зображення товару"
+
+#: includes/class-post-type.php:141
+msgid "Remove product image"
+msgstr "Видалити зображення товару"
+
+#: includes/class-post-type.php:142
+msgid "Use as featured image"
+msgstr "Використовувати як рекомендоване зображення"
+
+#: includes/class-post-type.php:147
+msgid "This is where you can add new products to your Reseller Store."
+msgstr "Тут можна додавати нові продукти до магазину для реселерів."
+
+#: includes/class-post-type.php:462
+#. translators: product title
+msgid "Edit: %s"
+msgstr "Змінити: %s"
+
+#: includes/class-restrictions.php:172
+msgid "No products have been added yet."
+msgstr "Продукти ще не додано."
+
+#: includes/class-restrictions.php:173
+msgid "Import All Products"
+msgstr "Імпортувати всі продукти"
+
+#: includes/class-setup.php:86
+msgid "Reseller Store Setup"
+msgstr "Настройка магазину для реселерів"
+
+#: includes/class-setup.php:87
+msgid "Reseller Store"
+msgstr "Магазин для реселерів"
+
+#: includes/class-setup.php:164
+msgid "Let's setup your GoDaddy Reseller Store."
+msgstr "Налаштуємо ваш магазин для реселерів GoDaddy."
+
+#: includes/class-setup.php:168
+msgid "Enter your Private Label ID to get started."
+msgstr "Спочатку введіть свій код фірмової торгової марки."
+
+#: includes/class-setup.php:171
+msgid "Enter your Private Label ID:"
+msgstr "Введіть свій код фірмової торгової марки."
+
+#: includes/class-setup.php:173
+msgid "Install Now"
+msgstr "Встановити"
+
+#: includes/class-setup.php:177
+msgid "Don't have an account?"
+msgstr "Не маєте акаунта?"
+
+#: includes/class-setup.php:177
+msgid "Create an account"
+msgstr "Створити акаунт"
+
+#: includes/class-setup.php:180
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "Потрібна допомога? Зателефонуйте до нашої служби підтримки за номером (480) 505-8877."
+
+#: includes/class-setup.php:205
+#. translators: name of missing script
+msgid "Error: Missing required script for setup %s"
+msgstr "Помилка. Немає обов’язкового сценарію для настроювання %s"
+
+#: includes/class-setup.php:233
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr "На жаль, вам не дозволено інсталювати плагіни на цьому сайті."
+
+#: includes/class-setup.php:244
+msgid "Sorry, you are not allowed to do that."
+msgstr "На жаль, вам не дозволено робити це."
+
+#: includes/class-setup.php:259
+msgid "Private Label ID is invalid."
+msgstr "Код фірмової торгової марки неправильний."
+
+#: includes/class-setup.php:280
+msgid "There are no products available, please try again later."
+msgstr "Немає доступних продуктів, повторіть спробу пізніше."
+
+#: includes/class-setup.php:311
+msgid "Product data could not be imported, please try again later."
+msgstr "Не вдалося імпортувати дані продуктів, повторіть спробу пізніше."
+
+#: includes/class-setup.php:347
+msgid "An unknown error occurred."
+msgstr "Виникла невідома помилка."
+
+#: includes/class-setup.php:361
+#. translators: error message
+msgid "Error: %s"
+msgstr "Помилка: %s"
+
+#: includes/class-taxonomy-category.php:71
+msgid "Search Categories"
+msgstr "Пошук у категоріях"
+
+#: includes/class-taxonomy-category.php:72
+msgid "All Categories"
+msgstr "Усі категорії"
+
+#: includes/class-taxonomy-category.php:73
+msgid "Parent Category"
+msgstr "Батьківська категорія"
+
+#: includes/class-taxonomy-category.php:74
+msgid "Parent Category:"
+msgstr "Батьківська категорія:"
+
+#: includes/class-taxonomy-category.php:75
+msgid "Edit Category"
+msgstr "Змінити категорію"
+
+#: includes/class-taxonomy-category.php:76
+msgid "Update Category"
+msgstr "Оновити категорію"
+
+#: includes/class-taxonomy-category.php:77
+msgid "Add New Category"
+msgstr "Додати нову категорію"
+
+#: includes/class-taxonomy-category.php:78
+msgid "New Category Name"
+msgstr "Ім’я нової категорії"
+
+#: includes/class-taxonomy-category.php:79
+#: includes/class-taxonomy-category.php:83
+msgid "Categories"
+msgstr "Категорії"
+
+#: includes/class-taxonomy-tag.php:71
+msgid "Search Tags"
+msgstr "Пошук у тегах"
+
+#: includes/class-taxonomy-tag.php:72
+msgid "All Tags"
+msgstr "Усі теги"
+
+#: includes/class-taxonomy-tag.php:73
+msgid "Parent Tag"
+msgstr "Батьківський тег"
+
+#: includes/class-taxonomy-tag.php:74
+msgid "Parent Tag:"
+msgstr "Батьківський тег:"
+
+#: includes/class-taxonomy-tag.php:75
+msgid "Edit Tag"
+msgstr "Змінити тег"
+
+#: includes/class-taxonomy-tag.php:76
+msgid "Update Tag"
+msgstr "Оновити тег"
+
+#: includes/class-taxonomy-tag.php:77
+msgid "Add New Tag"
+msgstr "Додати новий тег"
+
+#: includes/class-taxonomy-tag.php:78
+msgid "New Tag Name"
+msgstr "Назва нового тегу"
+
+#: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
+msgid "Tags"
+msgstr "Позначки"
+
+#: includes/functions/product-functions.php:134
+#. translators: product name
+msgid "Error: `%s` does not exist."
+msgstr "Помилка: «%s» не існує."
+
+#: includes/widgets/class-cart.php:22
+msgid "Reseller Cart"
+msgstr "Кошик реселера"
+
+#: includes/widgets/class-cart.php:25
+msgid "Display the user's cart in the sidebar."
+msgstr "Показувати кошик користувача на бічній панелі."
+
+#: includes/widgets/class-cart.php:86
+#. translators: number of items in cart
+msgid "View Cart %s"
+msgstr "Переглянути вміст кошика %s"
+
+#: includes/widgets/class-cart.php:105
+msgid "Cart"
+msgstr "Кошик"
+
+#: includes/widgets/class-cart.php:110
+#: includes/widgets/class-domain-search.php:112
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: includes/widgets/class-cart.php:116
+msgid "Hide if cart is empty"
+msgstr "Приховати, якщо кошик порожній"
+
+#: includes/widgets/class-domain-search.php:22
+msgid "Reseller Domain Search"
+msgstr "Пошук у доменах реселерів"
+
+#: includes/widgets/class-domain-search.php:25
+msgid "A search form for domain names."
+msgstr "Форма пошуку доменних імен."
+
+#: includes/widgets/class-domain-search.php:83
+#: includes/widgets/class-domain-search.php:84
+msgid "Search for a domain name:"
+msgstr "Шукати доменне ім’я:"
+
+#: includes/widgets/class-domain-search.php:88
+#: includes/widgets/class-domain-search.php:108
+msgid "Search"
+msgstr "Пошук"
+
+#: includes/widgets/class-domain-search.php:106
+msgid "Domain Search"
+msgstr "Пошук доменів"
+
+#: includes/widgets/class-domain-search.php:107
+msgid "Find your perfect name"
+msgstr "Знайдіть своє ідеальне ім’я"
+
+#: includes/widgets/class-domain-search.php:117
+msgid "Placeholder:"
+msgstr "Заповнювач:"
+
+#: includes/widgets/class-domain-search.php:122
+msgid "Button:"
+msgstr "Кнопка:"
+
+#. Plugin Name of the plugin/theme
+msgid "GoDaddy Reseller Store"
+msgstr "Магазин для реселерів GoDaddy"
+
+#. Description of the plugin/theme
+msgid "Resell hosting, domains, and more right from your WordPress site."
+msgstr "Продавайте хостинг, домени тощо просто з вашого сайту WordPress."
+
+#. Author of the plugin/theme
+msgid "GoDaddy"
+msgstr "GoDaddy"
+
+#. Author URI of the plugin/theme
+msgid "https://reseller.godaddy.com/"
+msgstr "https://reseller.godaddy.com/"
+
+#: includes/class-butterbean.php:211
+msgctxt "abbreviation for not applicable"
+msgid "N/A"
+msgstr "Немає даних"
+
+#: includes/class-permalinks.php:98
+msgctxt "slug name"
+msgid "sample-product"
+msgstr "зразок-продукту"
+
+#: includes/class-post-type.php:58
+msgctxt "slug name"
+msgid "products"
+msgstr "продукти"
+
+#: includes/class-taxonomy-category.php:38
+msgctxt "slug name"
+msgid "product-category"
+msgstr "product-category"
+
+#: includes/class-taxonomy-tag.php:38
+msgctxt "slug name"
+msgid "product-tag"
+msgstr "product-tag"
+
+#: includes/class-post-type.php:121
+msgctxt "post type general name"
+msgid "Products"
+msgstr "Товари"
+
+#: includes/class-post-type.php:122
+msgctxt "post type singular name"
+msgid "Product"
+msgstr "Продукт"
+
+#: includes/class-post-type.php:123
+msgctxt "admin menu"
+msgid "Reseller Store"
+msgstr "Магазин для реселерів"
+
+#: includes/class-post-type.php:124
+msgctxt "add new on admin bar"
+msgid "Reseller Product"
+msgstr "Продукт для реселерів"
+
+#: includes/class-post-type.php:125
+msgctxt "product"
+msgid "Add New"
+msgstr "Додати новий"
+
+#: includes/class-taxonomy-category.php:69
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "Категорії"
+
+#: includes/class-taxonomy-tag.php:69
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "Позначки"
+
+#: includes/class-taxonomy-category.php:70
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "Категорія"
+
+#: includes/class-taxonomy-tag.php:70
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "Тег"
+
+#: includes/functions/template-functions.php:44
+#. translators: 1. price, 2. subscription term - e.g. $10 / per month
+msgctxt "product price"
+msgid "%1$s / per %2$s"
+msgstr "%1$s / на %2$s"

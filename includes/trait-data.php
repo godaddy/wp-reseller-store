@@ -1,4 +1,15 @@
 <?php
+/**
+ * GoDaddy Reseller Store Data.
+ *
+ * Reseller store product data trait.
+ *
+ * @trait    Reseller_Store/Data
+ * @package  Reseller_Store/Plugin
+ * @category trait
+ * @author   GoDaddy
+ * @since    NEXT
+ */
 
 namespace Reseller_Store;
 
@@ -20,11 +31,11 @@ trait Data {
 	protected $data = false;
 
 	/**
-	 * Magic data getta.
+	 * Magic data getter.
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $key
+	 * @param string $key Object name to get.
 	 *
 	 * @return mixed
 	 */
@@ -41,12 +52,12 @@ trait Data {
 	}
 
 	/**
-	 * Magic data setta.
+	 * Magic data setter.
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param  string $key
-	 * @param  mixed  $value
+	 * @param string $key   Object name to set.
+	 * @param mixed  $value Object value to set.
 	 *
 	 * @return mixed
 	 */
