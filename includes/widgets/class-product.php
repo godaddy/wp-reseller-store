@@ -8,7 +8,7 @@
  * @package  WP_Widget
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.0.0
  */
 
 namespace Reseller_Store\Widgets;
@@ -24,7 +24,7 @@ final class Product extends \WP_Widget {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 
@@ -42,7 +42,7 @@ final class Product extends \WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 *
 	 * @param array  $args     Widget arguments array.
 	 * @param object $instance Instance object.
@@ -54,7 +54,7 @@ final class Product extends \WP_Widget {
 		/**
 		 * Filter classes to be appended to the Product widget.
 		 *
-		 * @since NEXT
+		 * @since 1.0.0
 		 *
 		 * @var array
 		 */
@@ -108,7 +108,7 @@ final class Product extends \WP_Widget {
 	/**
 	 * Outputs the options form on admin.
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 *
 	 * @param array $instance Widget instance.
 	 */
@@ -158,7 +158,7 @@ final class Product extends \WP_Widget {
 	 * @param array $new_instance New widget options array.
 	 * @param array $old_instance New widget options array.
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 *
 	 * @return array              Final array of widget options.
 	 */
@@ -177,7 +177,7 @@ final class Product extends \WP_Widget {
 	 *
 	 * @param integer $selected_product The selected product ID.
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 *
 	 * @return mixed Markup for the product select options.
 	 */

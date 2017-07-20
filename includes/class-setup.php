@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.0.0
  */
 
 namespace Reseller_Store;
@@ -44,7 +44,7 @@ final class Setup {
 	/**
 	 * Site for the reseller control center
 	 *
-	 * @since NEXT
+	 * @since 1.0.0
 	 *
 	 * @var string
 	 */
@@ -61,7 +61,7 @@ final class Setup {
 		/**
 		 * Filter the base rcc site.
 		 *
-		 * @since NEXT
+		 * @since 1.0.0
 		 *
 		 * @var string
 		 */

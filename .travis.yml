@@ -32,7 +32,23 @@ matrix:
   fast_finish: true
   exclude:
     - php: 7.1
-      env: WP_VERSION=4.4 WP_MULTISITE=0
+      env: WP_VERSION=4.6 WP_MULTISITE=0
+
+before_install:
+  - phpenv config-rm xdebug.ini
+
+before_script:
+  - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+      composer global require "phpunit/phpunit=5.7.*"
+    else
+      composer global require "phpunit/phpunit=4.8.*"
+    fi
+  - |
+    composer global require wp-coding-standards/wpcs
+    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 before_install:
   - phpenv config-rm xdebug.ini
@@ -44,13 +60,8 @@ install:
   - source $DEV_LIB_PATH/travis.install.sh
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
   - chmod +x /tmp/wp-cli.phar
-
-script:
-  - source $DEV_LIB_PATH/travis.script.sh
-
-before_deploy:
-  - export RELEASE_FOLDER=gd-reseller-store
-  - php /tmp/wp-cli.phar package install runcommand/dist-archive
+  - php /tmp/wp-cli.phar package install git@github.com:wp-cli/dist-archive-command.git
+  - export RELEASE_FOLDER=reseller-store
   - cp -r ${TRAVIS_BUILD_DIR} /tmp/${RELEASE_FOLDER}
   - mv /tmp/${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}
   - php /tmp/wp-cli.phar dist-archive ${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}/${RELEASE_FOLDER}.zip --format=zip --debug
