@@ -50,7 +50,7 @@ script:
 
 before_deploy:
   - export RELEASE_FOLDER=gd-reseller-store
-  - php /tmp/wp-cli.phar package install runcommand/dist-archive
+  - php /tmp/wp-cli.phar package install git@github.com:wp-cli/dist-archive-command.git
   - cp -r ${TRAVIS_BUILD_DIR} /tmp/${RELEASE_FOLDER}
   - mv /tmp/${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}
   - php /tmp/wp-cli.phar dist-archive ${RELEASE_FOLDER} ${TRAVIS_BUILD_DIR}/${RELEASE_FOLDER}.zip --format=zip --debug
