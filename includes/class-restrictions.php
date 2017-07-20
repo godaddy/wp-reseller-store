@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store restriction class.
+ * GoDaddy Reseller Store restriction class.
  *
  * Handles the Reseller Store user restrictions.
  *

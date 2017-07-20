@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store ButterBean class.
+ * GoDaddy Reseller Store ButterBean class.
  *
  * Handles the reseller store post metaboxes.
  *

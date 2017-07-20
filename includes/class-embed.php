@@ -1,8 +1,8 @@
 <?php
 /**
- * WP Reseller Store embed class.
+ * GoDaddy Reseller Store embed class.
  *
- * Handles the WP Reseller Store database functionality and excerpt generation.
+ * Handles the GoDaddy Reseller Store database functionality and excerpt generation.
  *
  * @class    Reseller_Store/Embed
  * @package  Reseller_Store/Plugin

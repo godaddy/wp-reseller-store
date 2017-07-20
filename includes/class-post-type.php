@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store post types class.
+ * GoDaddy Reseller Store post types class.
  *
  * Handles the Reseller Store post types.
  *

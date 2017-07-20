@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store sync class.
+ * GoDaddy Reseller Store sync class.
  *
  * Handles the Reseller Store syncing.
  *

@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store permalinks class.
+ * GoDaddy Reseller Store permalinks class.
  *
  * Handles the Reseller Store permalinks.
  *

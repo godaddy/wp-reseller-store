@@ -1,8 +1,8 @@
 <?php
 /**
- * WP Reseller Store display class.
+ * GoDaddy Reseller Store display class.
  *
- * Handles the WP Reseller Store apperance.
+ * Handles the GoDaddy Reseller Store apperance.
  *
  * @class    Reseller_Store/Display
  * @package  Reseller_Store/Plugin

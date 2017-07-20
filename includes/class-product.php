@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store product class.
+ * GoDaddy Reseller Store product class.
  *
  * Handles the Reseller Store products.
  *

@@ -21,12 +21,12 @@ module.exports = function( grunt ) {
 						expand: true,
 						src: [
 							pkg.name + '.php',
-							'license.txt',
-							'readme.txt',
+							'*.txt',
 							'assets/**',
 							'includes/**',
 							'languages/*.{mo,pot}',
-							'lib/**'
+							'lib/**',
+							'!lib/**/*.md'
 						],
 						dest: 'build/'
 					}

@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store tag class.
+ * GoDaddy Reseller Store tag class.
  *
  * Handles the Reseller store tag taxonomy.
  *

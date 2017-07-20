@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store CLI class.
+ * GoDaddy Reseller Store CLI class.
  *
  * Handles the Reseller store 'product' CLI commands.
  *
