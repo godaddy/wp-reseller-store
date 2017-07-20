@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.0.0
  */
 
 namespace Reseller_Store;
@@ -103,7 +103,7 @@ final class API {
 		/**
 		 * Filter the currency ID used in API requests.
 		 *
-		 * @since NEXT
+		 * @since 1.0.0
 		 *
 		 * @var string
 		 */
