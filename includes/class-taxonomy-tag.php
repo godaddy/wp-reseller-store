@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 namespace Reseller_Store;
@@ -46,7 +46,7 @@ final class Taxonomy_Tag {
 	 */
 	public function __construct() {
 
-		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-tag', 'slug name', 'godaddy-reseller-store' ) );
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-tag', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init', [ $this, 'register' ] );
 
@@ -77,21 +77,21 @@ final class Taxonomy_Tag {
 	public function register() {
 
 		$labels = [
-			'name'              => esc_html_x( 'Tags', 'taxonomy general name', 'godaddy-reseller-store' ),
-			'singular_name'     => esc_html_x( 'Tag', 'taxonomy singular name', 'godaddy-reseller-store' ),
-			'search_items'      => esc_html__( 'Search Tags', 'godaddy-reseller-store' ),
-			'all_items'         => esc_html__( 'All Tags', 'godaddy-reseller-store' ),
-			'parent_item'       => esc_html__( 'Parent Tag', 'godaddy-reseller-store' ),
-			'parent_item_colon' => esc_html__( 'Parent Tag:', 'godaddy-reseller-store' ),
-			'edit_item'         => esc_html__( 'Edit Tag', 'godaddy-reseller-store' ),
-			'update_item'       => esc_html__( 'Update Tag', 'godaddy-reseller-store' ),
-			'add_new_item'      => esc_html__( 'Add New Tag', 'godaddy-reseller-store' ),
-			'new_item_name'     => esc_html__( 'New Tag Name', 'godaddy-reseller-store' ),
-			'menu_name'         => esc_html__( 'Tags', 'godaddy-reseller-store' ),
+			'name'              => esc_html_x( 'Tags', 'taxonomy general name', 'reseller-store' ),
+			'singular_name'     => esc_html_x( 'Tag', 'taxonomy singular name', 'reseller-store' ),
+			'search_items'      => esc_html__( 'Search Tags', 'reseller-store' ),
+			'all_items'         => esc_html__( 'All Tags', 'reseller-store' ),
+			'parent_item'       => esc_html__( 'Parent Tag', 'reseller-store' ),
+			'parent_item_colon' => esc_html__( 'Parent Tag:', 'reseller-store' ),
+			'edit_item'         => esc_html__( 'Edit Tag', 'reseller-store' ),
+			'update_item'       => esc_html__( 'Update Tag', 'reseller-store' ),
+			'add_new_item'      => esc_html__( 'Add New Tag', 'reseller-store' ),
+			'new_item_name'     => esc_html__( 'New Tag Name', 'reseller-store' ),
+			'menu_name'         => esc_html__( 'Tags', 'reseller-store' ),
 		];
 
 		$args = [
-			'label'             => esc_html__( 'Tags', 'godaddy-reseller-store' ),
+			'label'             => esc_html__( 'Tags', 'reseller-store' ),
 			'labels'            => $labels,
 			'show_admin_column' => true,
 			'show_ui'           => true,

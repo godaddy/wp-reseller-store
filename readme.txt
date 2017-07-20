@@ -3,7 +3,7 @@ Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              admin, posts, users
 Requires at least: 4.6
 Tested up to:      4.8
-Stable tag:        1.0.0
+Stable tag:        0.2.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,7 +44,7 @@ Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-re
 
 == Changelog ==
 
-= 1.0.0 - July 2017 =
+= @NEXT - July 2017 =
 
 * New: Plugin activation is easier with integration of the [Reseller Control Center](https://reseller.godaddy.com)
 * New: Add Product Widget

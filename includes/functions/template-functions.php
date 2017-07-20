@@ -6,7 +6,7 @@
  *
  * @package  Reseller_Store/Plugin
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 /**
@@ -62,7 +62,7 @@ function rstore_price( $post = null, $echo = true ) {
 
 		$output = sprintf(
 			/* translators: 1. price, 2. subscription term - e.g. $10 / per month */
-			esc_html_x( '%1$s / per %2$s', 'product price', 'godaddy-reseller-store' ),
+			esc_html_x( '%1$s / per %2$s', 'product price', 'reseller-store' ),
 			$output,
 			$term // xss ok.
 		);

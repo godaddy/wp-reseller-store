@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 namespace Reseller_Store;
@@ -69,14 +69,14 @@ final class Import {
 		$this->post_id  = absint( $post_id );
 		$this->imported = (array) rstore_get_option( 'imported', [] );
 
-		$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'godaddy-reseller-store' ) );
+		$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) );
 
 		if ( ! $product->is_valid() ) {
 
 			$this->result = new WP_Error(
 				'invalid_product',
 				/* translators: product name */
-				esc_html__( '`%s` is not a valid product.', 'godaddy-reseller-store' ),
+				esc_html__( '`%s` is not a valid product.', 'reseller-store' ),
 				$fallback_id
 			);
 
@@ -105,7 +105,7 @@ final class Import {
 				$this->result = new WP_Error(
 					'product_not_imported',
 					/* translators: product name */
-					esc_html__( '`%s` must be imported as a product post before it can be reset.', 'godaddy-reseller-store' ),
+					esc_html__( '`%s` must be imported as a product post before it can be reset.', 'reseller-store' ),
 					$this->product->id
 				);
 
@@ -118,7 +118,7 @@ final class Import {
 				$this->result = new WP_Error(
 					'invalid_post_type',
 					/* translators: post type name */
-					esc_html__( '`%s` is not a valid post type for products.', 'godaddy-reseller-store' ),
+					esc_html__( '`%s` is not a valid post type for products.', 'reseller-store' ),
 					$post->post_type
 				);
 

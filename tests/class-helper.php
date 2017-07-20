@@ -12,7 +12,7 @@ final class Helper {
 	/**
 	 * Create a product post.
 	 *
-	 * @since 1.0.0
+	 * @since NEXT
 	 */
 	public static function create_product() {
 		$post_id = wp_insert_post( [

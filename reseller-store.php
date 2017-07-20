@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GoDaddy Reseller Store
  * Description: Sell hosting, domains, and more right from your WordPress site.
- * Version: 1.0.0
+ * Version: 0.2.0
  * Author: GoDaddy
  * Author URI: https://reseller.godaddy.com/
  * License: GPL-2.0
@@ -40,7 +40,7 @@ final class Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '0.2.0';
 
 	/**
 	 * Plugin prefix.
@@ -66,7 +66,7 @@ final class Plugin {
 
 		add_action( 'plugins_loaded', function () {
 
-			load_plugin_textdomain( 'godaddy-reseller-store', false, dirname( $this->basename ) . '/languages' );
+			load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
 
 		} );
 

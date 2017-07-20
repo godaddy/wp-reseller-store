@@ -6,7 +6,7 @@
  *
  * @package  Reseller_Store/Plugin
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 /**
@@ -54,7 +54,7 @@ function rstore_has_products() {
  * queries on the same page load.
  *
  * @global wpdb $wpdb
- * @since  1.0.0
+ * @since  NEXT
  *
  * @return bool  Returns `true` on successful removal, `false` on failure
  */
@@ -168,7 +168,7 @@ function rstore_get_product( $product_id, $hard = false ) {
 	return new WP_Error(
 		'product_not_found',
 		/* translators: product name */
-		esc_html__( 'Error: `%s` does not exist.', 'godaddy-reseller-store' ),
+		esc_html__( 'Error: `%s` does not exist.', 'reseller-store' ),
 		$product_id
 	);
 

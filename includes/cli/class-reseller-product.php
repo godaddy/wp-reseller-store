@@ -8,7 +8,7 @@
  * @package  WP_CLI_Command
  * @category Class
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 namespace Reseller_Store\CLI;

@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 namespace Reseller_Store;
@@ -66,7 +66,7 @@ final class Post_Type {
 	 */
 	public function __construct() {
 
-		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'godaddy-reseller-store' ) );
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                         [ $this, 'register' ] );
 		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
@@ -129,33 +129,33 @@ final class Post_Type {
 	public function register() {
 
 		$labels = [
-			'name'                  => esc_html_x( 'Products', 'post type general name', 'godaddy-reseller-store' ),
-			'singular_name'         => esc_html_x( 'Product', 'post type singular name', 'godaddy-reseller-store' ),
-			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'godaddy-reseller-store' ),
-			'name_admin_bar'        => esc_html_x( 'Reseller Product', 'add new on admin bar', 'godaddy-reseller-store' ),
-			'add_new'               => esc_html_x( 'Add New', 'product', 'godaddy-reseller-store' ),
-			'add_new_item'          => esc_html__( 'Add New Products', 'godaddy-reseller-store' ),
-			'edit_item'             => esc_html__( 'Edit Product', 'godaddy-reseller-store' ),
-			'new_item'              => esc_html__( 'New Product', 'godaddy-reseller-store' ),
-			'view_item'             => esc_html__( 'View Product', 'godaddy-reseller-store' ),
-			'view_items'            => esc_html__( 'View Products', 'godaddy-reseller-store' ),
-			'search_items'          => esc_html__( 'Search Products', 'godaddy-reseller-store' ),
-			'not_found'             => esc_html__( 'No products found.', 'godaddy-reseller-store' ),
-			'not_found_in_trash'    => esc_html__( 'No products found in Trash.', 'godaddy-reseller-store' ),
-			'parent_item_colon'     => esc_html__( 'Parent Products:', 'godaddy-reseller-store' ),
-			'all_items'             => esc_html__( 'All Products', 'godaddy-reseller-store' ),
-			'archives'              => esc_html__( 'Product Archives', 'godaddy-reseller-store' ),
-			'insert_into_item'      => esc_html__( 'Insert into product', 'godaddy-reseller-store' ),
-			'uploaded_to_this_item' => esc_html__( 'Uploaded to this product', 'godaddy-reseller-store' ),
-			'featured_image'        => esc_html__( 'Product Image', 'godaddy-reseller-store' ),
-			'set_featured_image'    => esc_html__( 'Set product image', 'godaddy-reseller-store' ),
-			'remove_featured_image' => esc_html__( 'Remove product image', 'godaddy-reseller-store' ),
-			'use_featured_image'    => esc_html__( 'Use as featured image', 'godaddy-reseller-store' ),
+			'name'                  => esc_html_x( 'Products', 'post type general name', 'reseller-store' ),
+			'singular_name'         => esc_html_x( 'Product', 'post type singular name', 'reseller-store' ),
+			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'reseller-store' ),
+			'name_admin_bar'        => esc_html_x( 'Reseller Product', 'add new on admin bar', 'reseller-store' ),
+			'add_new'               => esc_html_x( 'Add New', 'product', 'reseller-store' ),
+			'add_new_item'          => esc_html__( 'Add New Products', 'reseller-store' ),
+			'edit_item'             => esc_html__( 'Edit Product', 'reseller-store' ),
+			'new_item'              => esc_html__( 'New Product', 'reseller-store' ),
+			'view_item'             => esc_html__( 'View Product', 'reseller-store' ),
+			'view_items'            => esc_html__( 'View Products', 'reseller-store' ),
+			'search_items'          => esc_html__( 'Search Products', 'reseller-store' ),
+			'not_found'             => esc_html__( 'No products found.', 'reseller-store' ),
+			'not_found_in_trash'    => esc_html__( 'No products found in Trash.', 'reseller-store' ),
+			'parent_item_colon'     => esc_html__( 'Parent Products:', 'reseller-store' ),
+			'all_items'             => esc_html__( 'All Products', 'reseller-store' ),
+			'archives'              => esc_html__( 'Product Archives', 'reseller-store' ),
+			'insert_into_item'      => esc_html__( 'Insert into product', 'reseller-store' ),
+			'uploaded_to_this_item' => esc_html__( 'Uploaded to this product', 'reseller-store' ),
+			'featured_image'        => esc_html__( 'Product Image', 'reseller-store' ),
+			'set_featured_image'    => esc_html__( 'Set product image', 'reseller-store' ),
+			'remove_featured_image' => esc_html__( 'Remove product image', 'reseller-store' ),
+			'use_featured_image'    => esc_html__( 'Use as featured image', 'reseller-store' ),
 		];
 
 		$args = [
 			'labels'        => $labels,
-			'description'   => esc_html__( 'This is where you can add new products to your Reseller Store.', 'godaddy-reseller-store' ),
+			'description'   => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
 			'menu_icon'     => 'dashicons-cart',
 			'menu_position' => self::MENU_POSITION,
 			'public'        => true,
@@ -337,7 +337,7 @@ final class Post_Type {
 			[
 				'image' => sprintf(
 					'<span class="rstore-image dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
-					__( 'Product Image', 'godaddy-reseller-store' )
+					__( 'Product Image', 'reseller-store' )
 				),
 			],
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true )
@@ -347,7 +347,7 @@ final class Post_Type {
 		$columns = rstore_array_insert(
 			$columns,
 			// @codingStandardsIgnoreStart
-			[ 'price' => esc_html__( 'Price', 'godaddy-reseller-store' ) ],
+			[ 'price' => esc_html__( 'Price', 'reseller-store' ) ],
 			// @codingStandardsIgnoreEnd
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true ) + 1
 		);
@@ -473,7 +473,7 @@ final class Post_Type {
 		$title = ( $post_id > 0 ) ? rstore_get_product_meta( $post_id, 'title' ) : null;
 
 		/* translators: product title */
-		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'godaddy-reseller-store' ), $title ) : $labels->edit_item;
+		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
 

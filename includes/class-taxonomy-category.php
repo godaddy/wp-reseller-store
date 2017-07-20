@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 namespace Reseller_Store;
@@ -46,7 +46,7 @@ final class Taxonomy_Category {
 	 */
 	public function __construct() {
 
-		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-category', 'slug name', 'godaddy-reseller-store' ) );
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-category', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init', [ $this, 'register' ] );
 
@@ -77,21 +77,21 @@ final class Taxonomy_Category {
 	public function register() {
 
 		$labels = [
-			'name'              => esc_html_x( 'Categories', 'taxonomy general name', 'godaddy-reseller-store' ),
-			'singular_name'     => esc_html_x( 'Category', 'taxonomy singular name', 'godaddy-reseller-store' ),
-			'search_items'      => esc_html__( 'Search Categories', 'godaddy-reseller-store' ),
-			'all_items'         => esc_html__( 'All Categories', 'godaddy-reseller-store' ),
-			'parent_item'       => esc_html__( 'Parent Category', 'godaddy-reseller-store' ),
-			'parent_item_colon' => esc_html__( 'Parent Category:', 'godaddy-reseller-store' ),
-			'edit_item'         => esc_html__( 'Edit Category', 'godaddy-reseller-store' ),
-			'update_item'       => esc_html__( 'Update Category', 'godaddy-reseller-store' ),
-			'add_new_item'      => esc_html__( 'Add New Category', 'godaddy-reseller-store' ),
-			'new_item_name'     => esc_html__( 'New Category Name', 'godaddy-reseller-store' ),
-			'menu_name'         => esc_html__( 'Categories', 'godaddy-reseller-store' ),
+			'name'              => esc_html_x( 'Categories', 'taxonomy general name', 'reseller-store' ),
+			'singular_name'     => esc_html_x( 'Category', 'taxonomy singular name', 'reseller-store' ),
+			'search_items'      => esc_html__( 'Search Categories', 'reseller-store' ),
+			'all_items'         => esc_html__( 'All Categories', 'reseller-store' ),
+			'parent_item'       => esc_html__( 'Parent Category', 'reseller-store' ),
+			'parent_item_colon' => esc_html__( 'Parent Category:', 'reseller-store' ),
+			'edit_item'         => esc_html__( 'Edit Category', 'reseller-store' ),
+			'update_item'       => esc_html__( 'Update Category', 'reseller-store' ),
+			'add_new_item'      => esc_html__( 'Add New Category', 'reseller-store' ),
+			'new_item_name'     => esc_html__( 'New Category Name', 'reseller-store' ),
+			'menu_name'         => esc_html__( 'Categories', 'reseller-store' ),
 		];
 
 		$args = [
-			'label'             => esc_html__( 'Categories', 'godaddy-reseller-store' ),
+			'label'             => esc_html__( 'Categories', 'reseller-store' ),
 			'labels'            => $labels,
 			'show_admin_column' => true,
 			'show_ui'           => true,

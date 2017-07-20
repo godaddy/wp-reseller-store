@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 namespace Reseller_Store;
@@ -103,7 +103,7 @@ final class API {
 		/**
 		 * Filter the currency ID used in API requests.
 		 *
-		 * @since 1.0.0
+		 * @since NEXT
 		 *
 		 * @var string
 		 */
@@ -219,7 +219,7 @@ final class API {
 
 		$message = is_wp_error( $response ) ? $response->get_error_message() : wp_remote_retrieve_response_message( $response );
 		$message = trim( $message );
-		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'godaddy-reseller-store' );
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'reseller-store' );
 
 		return new WP_Error( $code, $message );
 

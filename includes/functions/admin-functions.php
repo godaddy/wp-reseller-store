@@ -6,7 +6,7 @@
  *
  * @package  Reseller_Store/Plugin
  * @author   GoDaddy
- * @since    1.0.0
+ * @since    NEXT
  */
 
 /**
