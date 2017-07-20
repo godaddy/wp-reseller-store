@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store Data.
+ * GoDaddy Reseller Store Data.
  *
  * Reseller store product data trait.
  *

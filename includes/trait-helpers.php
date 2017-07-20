@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store Helpers.
+ * GoDaddy Reseller Store Helpers.
  *
  * Reseller store product helpers trait.
  *

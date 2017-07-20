@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store domain search widget class.
+ * GoDaddy Reseller Store domain search widget class.
  *
  * Handles the Reseller store domain search widget.
  *

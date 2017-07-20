@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store template functions.
+ * GoDaddy Reseller Store template functions.
  *
  * Contains the Reseller Store template functions used to display product data.
  *

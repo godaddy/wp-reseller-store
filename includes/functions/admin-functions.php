@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store admin functionality.
+ * GoDaddy Reseller Store admin functionality.
  *
  * Contains the Reseller Store admin side functions.
  *

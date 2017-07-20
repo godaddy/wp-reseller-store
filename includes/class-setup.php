@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store setup class.
+ * GoDaddy Reseller Store setup class.
  *
  * Handles the Reseller Store setup functionality.
  *

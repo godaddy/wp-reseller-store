@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store Autoloader class.
+ * GoDaddy Reseller Store Autoloader class.
  *
  * @package  Reseller_Store/Plugin
  * @category Class

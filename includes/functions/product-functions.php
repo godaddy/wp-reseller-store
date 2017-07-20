@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store product functions.
+ * GoDaddy Reseller Store product functions.
  *
  * Contains the Reseller Store product functions used throughout the plugin.
  *

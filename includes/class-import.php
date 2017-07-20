@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store import class.
+ * GoDaddy Reseller Store import class.
  *
  * Handles importing products from the GoDaddy reseller API.
  *

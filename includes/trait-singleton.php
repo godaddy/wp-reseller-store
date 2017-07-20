@@ -1,9 +1,9 @@
 <?php
 /**
- * WP Reseller Store Singleton.
+ * GoDaddy Reseller Store Singleton.
  *
  * Reseller store product singleton trait. Ensures only one instance of the
- * WP Reseller Store plugin is instantiated at any given time.
+ * GoDaddy Reseller Store plugin is instantiated at any given time.
  *
  * @trait    Reseller_Store/Singleton
  * @package  Reseller_Store/Plugin

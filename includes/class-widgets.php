@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store widgets class.
+ * GoDaddy Reseller Store widgets class.
  *
  * Handles the Reseller store widgets.
  *

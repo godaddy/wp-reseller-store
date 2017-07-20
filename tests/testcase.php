@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Reseller Store Widget test cases.
+ * GoDaddy Reseller Store Widget test cases.
  */
 
 namespace Reseller_Store;
