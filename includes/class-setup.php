@@ -106,7 +106,7 @@ final class Setup {
 
 		if ( ! $nonce && $plid ) {
 
-			$error = __( 'Invalid nonce token.  Please try again.', 'godaddy-reseller-store' );
+			$error = __( 'Invalid nonce token.  Please try again.', 'reseller-store' );
 
 		}
 
@@ -132,8 +132,8 @@ final class Setup {
 	public function page() {
 
 		add_menu_page(
-			esc_html__( 'Reseller Store Setup', 'godaddy-reseller-store' ),
-			esc_html__( 'Reseller Store', 'godaddy-reseller-store' ),
+			esc_html__( 'Reseller Store Setup', 'reseller-store' ),
+			esc_html__( 'Reseller Store', 'reseller-store' ),
 			'activate_plugins',
 			self::SLUG,
 			[ $this, 'content' ],
@@ -209,16 +209,16 @@ final class Setup {
 			<div class="rstore-setup-wrapper">
 				<div class="rstore-setup-header">
 					<img src="<?php echo esc_url( Plugin::assets_url( 'images/store.svg' ) ); ?>">
-					<h2><?php esc_html_e( "Let's setup your GoDaddy Reseller Store.", 'godaddy-reseller-store' ); ?></h2>
+					<h2><?php esc_html_e( "Let's setup your GoDaddy Reseller Store.", 'reseller-store' ); ?></h2>
 					<div class="clear"></div>
 				</div>
 				<div class="rstore-setup-body">
-					<h3><?php esc_html_e( 'Register your plugin to import your product catalog.', 'godaddy-reseller-store' ); ?></h3>
+					<h3><?php esc_html_e( 'Register your plugin to import your product catalog.', 'reseller-store' ); ?></h3>
 					<p>
 						<form id="rstore-setup-form">
-							<button type="submit" id="rstore-activate" class="button button-primary" ><?php esc_html_e( 'Login & Activate', 'godaddy-reseller-store' ); ?></button>
+							<button type="submit" id="rstore-activate" class="button button-primary" ><?php esc_html_e( 'Login & Activate', 'reseller-store' ); ?></button>
 							<div class="rstore-status">
-								<?php esc_html_e( 'Importing product catalog and installing', 'godaddy-reseller-store' ); ?>
+								<?php esc_html_e( 'Importing product catalog and installing', 'reseller-store' ); ?>
 								<img id="rstore-spinner" src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
 							</div>
 							<div class="rstore-error"></div>
@@ -226,16 +226,16 @@ final class Setup {
 					</p>
 
 					<p>
-						<?php esc_html_e( 'A GoDaddy Account is required to activate the plugin.', 'godaddy-reseller-store' );?><br/>
-						<?php esc_html_e( "We will provide a demo reseller plan if you don't have a reseller plan.", 'godaddy-reseller-store' ); ?>&nbsp;
-						<a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get your own plan today.', 'godaddy-reseller-store' ); ?></a>
+						<?php esc_html_e( 'A GoDaddy Account is required to activate the plugin.', 'reseller-store' );?><br/>
+						<?php esc_html_e( "We will provide a demo reseller plan if you don't have a reseller plan.", 'reseller-store' ); ?>&nbsp;
+						<a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get your own plan today.', 'reseller-store' ); ?></a>
 					</p>
-					<p><?php esc_html_e( 'Not interested in activating right now? You will only see two demo products on a demo storefront without the benefits of having your own plan.', 'godaddy-reseller-store' ); ?>
-						<a id="rstore-skip-activate" href="#"><?php esc_html_e( 'Skip activation.', 'godaddy-reseller-store' ); ?></a>
+					<p><?php esc_html_e( 'Not interested in activating right now? You will only see two demo products on a demo storefront without the benefits of having your own plan.', 'reseller-store' ); ?>
+						<a id="rstore-skip-activate" href="#"><?php esc_html_e( 'Skip activation.', 'reseller-store' ); ?></a>
 					</p>
 				</div>
 				<div class="rstore-setup-footer">
-					<p><strong><?php esc_html_e( 'Need help? Call our award-winning support team 24/7 at (480) 505-8857.', 'godaddy-reseller-store' ); ?></strong></p>
+					<p><strong><?php esc_html_e( 'Need help? Call our award-winning support team 24/7 at (480) 505-8857.', 'reseller-store' ); ?></strong></p>
 				</div>
 			</div>
 		</div>
@@ -260,7 +260,7 @@ final class Setup {
 			'<div id="message" class="error notice"><p>%s</p></div>',
 			sprintf(
 				/* translators: name of missing script */
-				esc_html__( 'Error: Missing required script for setup %s', 'godaddy-reseller-store' ),
+				esc_html__( 'Error: Missing required script for setup %s', 'reseller-store' ),
 				'<code>admin-setup.js</code>'
 			)
 		);
@@ -290,7 +290,7 @@ final class Setup {
 
 			return self::install_error(
 				'invalid_permissions',
-				esc_html__( 'Sorry, you are not allowed to install plugins on this site.', 'godaddy-reseller-store' ) // Use core translation
+				esc_html__( 'Sorry, you are not allowed to install plugins on this site.', 'reseller-store' ) // Use core translation
 			);
 
 		}
@@ -301,7 +301,7 @@ final class Setup {
 
 				return self::install_error(
 					'invalid_nonce',
-					esc_html__( 'Sorry, you are not allowed to do that.', 'godaddy-reseller-store' ) // Use core translation
+					esc_html__( 'Sorry, you are not allowed to do that.', 'reseller-store' ) // Use core translation
 				);
 
 			}
@@ -323,7 +323,7 @@ final class Setup {
 
 			return self::install_error(
 				'invalid_pl_id',
-				esc_html__( 'Private Label ID is invalid.', 'godaddy-reseller-store' )
+				esc_html__( 'Private Label ID is invalid.', 'reseller-store' )
 			);
 
 		}
@@ -346,7 +346,7 @@ final class Setup {
 
 			return self::install_error(
 				'no_products_found',
-				esc_html__( 'There are no products available, please try again later.', 'godaddy-reseller-store' )
+				esc_html__( 'There are no products available, please try again later.', 'reseller-store' )
 			);
 
 		}
@@ -379,7 +379,7 @@ final class Setup {
 
 			return self::install_error(
 				'products_import_failure',
-				esc_html__( 'Product data could not be imported, please try again later.', 'godaddy-reseller-store' )
+				esc_html__( 'Product data could not be imported, please try again later.', 'reseller-store' )
 			);
 
 		}
@@ -415,7 +415,7 @@ final class Setup {
 
 		$wp_error = is_wp_error( $code ) ? $code : false;
 
-		$message = ( $message ) ? $message : esc_html__( 'An unknown error occurred.', 'godaddy-reseller-store' ); // Use core translation
+		$message = ( $message ) ? $message : esc_html__( 'An unknown error occurred.', 'reseller-store' ); // Use core translation
 
 		if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
 
@@ -429,7 +429,7 @@ final class Setup {
 		wp_send_json_error(
 			sprintf(
 				/* translators: error message */
-				esc_html__( 'Error: %s', 'godaddy-reseller-store' ),
+				esc_html__( 'Error: %s', 'reseller-store' ),
 				sprintf( $message, $data )
 			)
 		);

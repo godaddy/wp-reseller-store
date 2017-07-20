@@ -180,8 +180,8 @@ final class Restrictions {
 		.tablenav a.rstore-blank-button { display: inline-block; }
 		</style>
 		<div class="rstore-blank">
-			<h2 class="rstore-blank-message"><?php esc_html_e( 'No products have been added yet.', 'godaddy-reseller-store' ); ?></h2>
-			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'godaddy-reseller-store' ); ?></a></p>
+			<h2 class="rstore-blank-message"><?php esc_html_e( 'No products have been added yet.', 'reseller-store' ); ?></h2>
+			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>
 		</div>
 		<?php
 

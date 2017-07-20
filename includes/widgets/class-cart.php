@@ -30,10 +30,10 @@ final class Cart extends \WP_Widget {
 
 		parent::__construct(
 			rstore_prefix( 'cart' ),
-			esc_html__( 'Reseller Cart', 'godaddy-reseller-store' ),
+			esc_html__( 'Reseller Cart', 'reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'cart', true ),
-				'description' => esc_html__( "Display the user's cart in the sidebar.", 'godaddy-reseller-store' ),
+				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
 			]
 		);
 
@@ -94,7 +94,7 @@ final class Cart extends \WP_Widget {
 			<a href="<?php echo esc_url( rstore()->api->urls['cart'] ); ?>">
 				<?php
 				/* translators: number of items in cart */
-				printf( esc_html__( 'View Cart %s', 'godaddy-reseller-store' ), '(<span class="rstore-cart-count">0</span>)' );
+				printf( esc_html__( 'View Cart %s', 'reseller-store' ), '(<span class="rstore-cart-count">0</span>)' );
 				?>
 			</a>
 		</div>
@@ -113,7 +113,7 @@ final class Cart extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$title      = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Cart', 'godaddy-reseller-store' );
+		$title      = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Cart', 'reseller-store' );
 		$hide_empty = ! empty( $instance['hide_empty'] );
 
 		?>
