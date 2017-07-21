@@ -1,8 +1,6 @@
 <?php
 /**
  * GoDaddy Reseller Store Base Tests
- *
- * reseller-store.php
  */
 
 namespace Reseller_Store;
