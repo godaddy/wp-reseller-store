@@ -37,4 +37,15 @@ final class TestBase extends TestCase {
 
 	}
 
+	/**
+	 * Test i18n.
+	 */
+	public function test_i18n() {
+
+		wp_die( dirname( $this->basename ) . '/languages' );
+
+		load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
+
+	}
+
 }
