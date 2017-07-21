@@ -1,6 +1,6 @@
 <?php
 /**
- * GoDaddy Reseller Store Base Tests
+ * GoDaddy Reseller Helper Function Tests
  */
 
 namespace Reseller_Store;
@@ -13,6 +13,15 @@ final class TestHelperFunctions extends TestCase {
 	function setUp() {
 
 		parent::setUp();
+
+	}
+
+	/**
+	 * Tear Down.
+	 */
+	function tearDown() {
+
+		parent::tearDown();
 
 	}
 
@@ -83,7 +92,7 @@ final class TestHelperFunctions extends TestCase {
 
 		$now = strtotime( 'now' );
 
-		update_option( 'rstore_last_sync', $now );
+		rstore_update_option( 'last_sync', $now );
 
 		$this->assertEquals( $now, rstore_get_option( 'last_sync' ) );
 
@@ -94,11 +103,11 @@ final class TestHelperFunctions extends TestCase {
 	 */
 	public function test_rstore_update_option() {
 
-		$this->assertFalse( get_option( 'rstore_random_option' ) );
+		$this->assertFalse( rstore_get_option( 'random_option' ) );
 
 		rstore_update_option( 'random_option', 'string' );
 
-		$this->assertEquals( 'string', get_option( 'rstore_random_option' ) );
+		$this->assertEquals( 'string', rstore_get_option( 'random_option' ) );
 
 	}
 
@@ -107,15 +116,13 @@ final class TestHelperFunctions extends TestCase {
 	 */
 	public function test_rstore_delete_option() {
 
-		$this->assertFalse( get_option( 'rstore_random_option' ) );
+		rstore_update_option( 'random_option', 'string' );
 
-		update_option( 'rstore_random_option', 'string' );
-
-		$this->assertEquals( 'string', get_option( 'rstore_random_option' ) );
+		$this->assertEquals( 'string', rstore_get_option( 'random_option' ) );
 
 		rstore_delete_option( 'random_option' );
 
-		$this->assertFalse( get_option( 'rstore_random_option' ) );
+		$this->assertFalse( get_option( 'random_option' ) );
 
 	}
 
@@ -124,21 +131,100 @@ final class TestHelperFunctions extends TestCase {
 	 */
 	public function test_rstore_get_transient() {
 
-		$this->assertFalse( get_transient( 'rstore_products' ) );
+		$this->assertFalse( get_transient( 'rstore_transient' ) );
 
 		// Test a non-existing transient with no callback function.
-		$rstore_transient = rstore_get_transient( 'products' );
+		$rstore_transient = rstore_get_transient( 'transient' );
 
 		$this->assertNull( $rstore_transient );
 
 		// Test a non-existing transient with a callback.
-		$test_transient = rstore_get_transient( 'products', [], function() {
+		$test_transient = rstore_get_transient( 'transient', [], function() {
 
 			return 'transient results';
 
 		} );
 
 		$this->assertEquals( 'transient results', $test_transient );
+		$this->assertEquals( 'transient results', rstore_get_transient( 'transient' ) );
+
+	}
+
+	/**
+	 * Test the rstore_set_transient() method.
+	 */
+	public function test_rstore_set_transient() {
+
+		$this->assertNull( rstore_get_transient( 'transient' ) );
+
+		$this->assertTrue( rstore_set_transient( 'transient', 'value' ) );
+
+		$this->assertEquals( 'value', rstore_get_transient( 'transient' ) );
+
+	}
+
+	/**
+	 * Test the rstore_update_post_meta() method.
+	 */
+	public function test_rstore_update_post_meta() {
+
+		$product = Tests\Helper::create_product();
+
+		rstore_update_post_meta( $product->ID, 'listPrice', '$10.00' );
+
+		$this->assertEquals( '$10.00', get_post_meta( $product->ID, rstore_prefix( 'listPrice' ), true ) );
+
+	}
+
+	/**
+	 * Test the rstore_bulk_update_post_meta() method.
+	 */
+	public function test_rstore_bulk_update_post_meta() {
+
+		$product = Tests\Helper::create_product();
+
+		$this->assertEquals( 'year', get_post_meta( $product->ID, rstore_prefix( 'term' ), true ) );
+		$this->assertEquals( '$70.00', get_post_meta( $product->ID, rstore_prefix( 'listPrice' ), true ) );
+
+		$meta = [
+			'term'      => 'hello-world',
+			'listPrice' => '$50.00',
+		];
+
+		rstore_bulk_update_post_meta( $product->ID, $meta );
+
+		$this->assertEquals( 'hello-world', get_post_meta( $product->ID, rstore_prefix( 'term' ), true ) );
+		$this->assertEquals( '$50.00', get_post_meta( $product->ID, rstore_prefix( 'listPrice' ), true ) );
+
+	}
+
+	/**
+	 * Test the test_rstore_array_insert() method.
+	 */
+	public function test_rstore_array_insert() {
+
+		$array = [
+			'cb'    => '<input type="checkbox" />',
+			'title' => 'Title',
+			'cat'   => 'Categories',
+			'term'  => 'Tags',
+			'date'  => 'Date',
+		];
+
+		$this->assertArrayNotHasKey( 'custom', $array );
+
+		$inject = [
+			'image' => sprintf(
+				'<span class="rstore-image dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
+				__( 'Product Image', 'reseller-store' )
+			),
+		];
+
+		$array = rstore_array_insert( $array, $inject, 3 );
+		$keys  = array_keys( $array );
+
+		$this->assertArrayHasKey( 'image', $array );
+		$this->assertEquals( 'image', $keys[3] );
 
 	}
 
