@@ -47,13 +47,18 @@ before_script:
       composer global require "phpunit/phpunit=4.8.*"
     fi
   - |
-    composer require satooshi/php-coveralls '~1.0'
     composer global require wp-coding-standards/wpcs
+    composer require satooshi/php-coveralls
     phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
   - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
+  - |
+    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
+      phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
+    else
+      phpunit -c .dev/phpunit.xml.dist
+    fi
 
 after_script:
   - travis_retry php vendor/bin/coveralls -v
