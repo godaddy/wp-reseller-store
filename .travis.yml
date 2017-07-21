@@ -45,12 +45,6 @@ script:
   - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit -c .dev/phpunit.xml.dist
 
-after_script:
-  - |
-    if [[ $WP_VERSION == "latest" && ${TRAVIS_PHP_VERSION:0:2} == "7." ]];
-      then travis_retry php vendor/bin/coveralls -v
-    fi
-
 jobs:
   fast_finish: true
   exclude:
@@ -61,9 +55,14 @@ jobs:
       php: 7.1
       env: WP_VERSION=latest
       install:
+        - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+        - export PATH="$HOME/.composer/vendor/bin:$PATH"
+        - composer global require "phpunit/phpunit=5.7.*"
         - composer require satooshi/php-coveralls
       script:
         - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
+      after_script:
+        - travis_retry php vendor/bin/coveralls -v
 
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
