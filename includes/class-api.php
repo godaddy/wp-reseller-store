@@ -11,15 +11,15 @@
  * @since    1.0.0
  */
 
-namespace Reseller_Store;
-
-use WP_Error;
-
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
 
 }
+
+namespace Reseller_Store;
+
+use WP_Error;
 
 final class API {
 
