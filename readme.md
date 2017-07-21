@@ -11,7 +11,7 @@
 
 Design your own storefront for your GoDaddy Reseller plan and have more control over your customers experience and business!
 
-[![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![devDependencies Status](https://david-dm.org/godaddy/wp-reseller-store/master/dev-status.svg)](https://david-dm.org/godaddy/wp-reseller-store/master?type=dev) [![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/godaddy/wp-reseller-store/blob/master/license.txt) [![PHP >= 5.4](https://img.shields.io/badge/php-%3E=%205.4-8892bf.svg)](https://secure.php.net/supported-versions.php) [![WordPress >= 4.6](https://img.shields.io/badge/wordpress-%3E=%204.6-blue.svg)](https://wordpress.org/download/release-archive/)  
+[![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![Coverage Status](https://coveralls.io/repos/github/godaddy/wp-reseller-store/badge.svg?branch=develop)](https://coveralls.io/github/godaddy/wp-reseller-store?branch=develop) [![devDependencies Status](https://david-dm.org/godaddy/wp-reseller-store/master/dev-status.svg)](https://david-dm.org/godaddy/wp-reseller-store/master?type=dev) [![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/godaddy/wp-reseller-store/blob/master/license.txt) [![PHP >= 5.4](https://img.shields.io/badge/php-%3E=%205.4-8892bf.svg)](https://secure.php.net/supported-versions.php) [![WordPress >= 4.6](https://img.shields.io/badge/wordpress-%3E=%204.6-blue.svg)](https://wordpress.org/download/release-archive/)  
 
 ## Description ##
 
