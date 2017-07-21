@@ -38,13 +38,27 @@ final class TestBase extends TestCase {
 	}
 
 	/**
-	 * Test i18n.
+	 * Test the required classes are instantiated.
 	 */
-	public function test_i18n() {
+	public function test_classes_exist() {
 
-		wp_die( dirname( $this->basename ) . '/languages' );
+		$classes = [
+			'ButterBean',
+			'Display',
+			'Embed',
+			'Permalinks',
+			'Post_Type',
+			'Sync',
+			'Taxonomy_Category',
+			'Taxonomy_Tag',
+			'Widgets',
+		];
 
-		load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
+		array_map( function( $class ) {
+
+			$this->assertTrue( class_exists( __NAMESPACE__ . '\\' . $class ) );
+
+		}, $classes );
 
 	}
 
