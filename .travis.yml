@@ -55,6 +55,9 @@ script:
   - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
   - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
 
+after_script:
+  - php vendor/bin/coveralls -v
+
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
   - chmod +x /tmp/wp-cli.phar
