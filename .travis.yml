@@ -56,7 +56,7 @@ script:
   - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
 
 after_script:
-  - php vendor/bin/coveralls -v
+  - travis_retry php vendor/bin/coveralls -v
 
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
