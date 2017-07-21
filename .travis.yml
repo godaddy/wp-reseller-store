@@ -47,12 +47,13 @@ before_script:
       composer global require "phpunit/phpunit=4.8.*"
     fi
   - |
+    composer global require satooshi/php-coveralls:dev-master
     composer global require wp-coding-standards/wpcs
     phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
   - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit -c .dev/phpunit.xml.dist
+  - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
 
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
