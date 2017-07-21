@@ -103,14 +103,12 @@ final class ButterBean {
 
 		switch ( $slug ) {
 
-			case rstore_prefix( 'anchor', true ) :
-
+			case rstore_prefix( 'anchor', true ):
 				$path = Plugin::base_dir( 'includes/butterbean/templates/control-anchor.php' );
 
 				break;
 
-			case rstore_prefix( 'plain-text', true ) :
-
+			case rstore_prefix( 'plain-text', true ):
 				$path = Plugin::base_dir( 'includes/butterbean/templates/control-plain-text.php' );
 
 				break;
