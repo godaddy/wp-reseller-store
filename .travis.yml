@@ -1,17 +1,9 @@
 sudo: false
 
-language: php
-
 notifications:
   email:
     on_success: never
     on_failure: change
-
-branches:
-  only:
-    - /.*/
-    - master
-    - develop
 
 cache:
   directories:
@@ -19,22 +11,25 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
+language: php
+
 php:
   - 5.4
   - 7.1
 
+branches:
+  only:
+    - /.*/
+    - master
+    - develop
+
 env:
-  - WP_VERSION=4.6 WP_MULTISITE=0
-  - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=trunk WP_MULTISITE=0
+  matrix:
+  - WP_VERSION=4.6
+  - WP_VERSION=latest
+  - WP_VERSION=trunk
 
-matrix:
-  fast_finish: true
-  exclude:
-    - php: 7.1
-      env: WP_VERSION=4.6 WP_MULTISITE=0
-
-before_script:
+install:
   - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
@@ -43,17 +38,31 @@ before_script:
     else
       composer global require "phpunit/phpunit=4.8.*"
     fi
-  - |
-    composer global require wp-coding-standards/wpcs
-    composer require satooshi/php-coveralls '~1.0'
-    phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+  - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
   - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
+  - phpunit -c .dev/phpunit.xml.dist
 
 after_script:
   - travis_retry php vendor/bin/coveralls -v
+
+jobs:
+  fast_finish: true
+  exclude:
+    - php: 5.4
+      env: WP_VERSION=trunk
+    - php: 7.1
+      env: WP_VERSION=4.4
+  include:
+    - stage: code coverage
+      php: 7.1
+      env: WP_VERSION=latest
+      install:
+        - composer require satooshi/php-coveralls
+      script:
+        - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
+      after_script: true # skip by returning true
 
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
