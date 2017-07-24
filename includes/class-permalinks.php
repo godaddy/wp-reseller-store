@@ -133,8 +133,10 @@ final class Permalinks {
 						</label>
 					</th>
 					<td>
-						<?php echo $default_example; // xss ok. ?>
-						<?php echo $custom_example; // xss ok. ?>
+						<?php
+							echo $default_example; // xss ok.
+							echo $custom_example; // xss ok.
+						?>
 					</td>
 				</tr>
 				<tr>
