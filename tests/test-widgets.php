@@ -40,6 +40,7 @@ final class TestWidget extends TestCase {
 		new Widgets;
 
 		$this->do_action_validation( 'widgets_init', [ __NAMESPACE__ . '\Widgets', 'register_widgets' ] );
+
 	}
 
 
@@ -68,6 +69,7 @@ final class TestWidget extends TestCase {
 			'image_size' => 'full',
 			'show_title' => true,
 		];
+
 		$args = [
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',

@@ -129,7 +129,7 @@ final class Product extends \WP_Widget {
 		</p>
 
 		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_title' ) ); ?>" value="1" class="checkbox" <?php checked( $show_title, true ) ?>>
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_title' ) ); ?>" value="1" class="checkbox" <?php checked( $show_title, true ); ?>>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>">
 				<?php esc_html_e( 'Show product title', 'reseller' ); ?>
 			</label>
@@ -140,11 +140,11 @@ final class Product extends \WP_Widget {
 				<?php esc_html_e( 'Image size', 'reseller' ); ?>
 			</label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" class="widefat" style="width:100%;">
-				<option value='thumbnail' <?php selected( 'thumbnail', $image_size ) ?>><?php esc_html_e( 'Thumbnail', 'reseller' ); ?></option>
-				<option value='medium' <?php selected( 'medium', $image_size ) ?>><?php esc_html_e( 'Medium resolution', 'reseller' ); ?></option>
-				<option value='large' <?php selected( 'large', $image_size ) ?>><?php esc_html_e( 'Large resolution', 'reseller' ); ?></option>
-				<option value='full' <?php selected( 'full', $image_size ) ?>><?php esc_html_e( 'Original resolution', 'reseller' ); ?></option>
-				<option value='none' <?php selected( 'none', $image_size ) ?>><?php esc_html_e( 'Hide Image', 'reseller' ); ?></option>
+				<option value='thumbnail' <?php selected( 'thumbnail', $image_size ); ?>><?php esc_html_e( 'Thumbnail', 'reseller' ); ?></option>
+				<option value='medium' <?php selected( 'medium', $image_size ); ?>><?php esc_html_e( 'Medium resolution', 'reseller' ); ?></option>
+				<option value='large' <?php selected( 'large', $image_size ); ?>><?php esc_html_e( 'Large resolution', 'reseller' ); ?></option>
+				<option value='full' <?php selected( 'full', $image_size ); ?>><?php esc_html_e( 'Original resolution', 'reseller' ); ?></option>
+				<option value='none' <?php selected( 'none', $image_size ); ?>><?php esc_html_e( 'Hide Image', 'reseller' ); ?></option>
 			</select>
 		</p>
 

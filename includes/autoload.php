@@ -36,7 +36,7 @@ spl_autoload_register( function( $resource ) {
 	$resource = strtolower(
 		str_replace(
 			[ __NAMESPACE__ . '\\', '_' ],
-			[ '',                   '-' ],
+			[ '', '-' ],
 			$resource
 		)
 	);
