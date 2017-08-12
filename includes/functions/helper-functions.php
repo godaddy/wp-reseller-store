@@ -18,7 +18,7 @@
  */
 function rstore() {
 
-	return new Reseller_Store\Plugin();
+	return Reseller_Store\Plugin::load();
 
 }
 

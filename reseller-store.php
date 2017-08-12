@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ . '/includes/autoload.php';
 
-final class Plugin {
+final class Plugin extends Singleton {
 
 	/**
 	 * Plugin version.
