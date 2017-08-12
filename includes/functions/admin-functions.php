@@ -38,7 +38,7 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
  * @param array   $args     (optional) Arguments array.
  * @param integer $status   The redierct status to use.
  */
-function rstore_admin_redirect( $endpoint = '', $args = [], $status = 302 ) {
+function rstore_admin_redirect( $endpoint = '', $args = array(), $status = 302 ) {
 
 	// Allow full admin URL to be passed as $endpoint.
 	$endpoint = preg_replace( '/^.*\/wp-admin(\/|$)/', '', $endpoint );

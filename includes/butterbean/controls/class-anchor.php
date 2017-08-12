@@ -14,7 +14,7 @@ final class Anchor extends \ButterBean_Control {
 
 	public $text;
 
-	public function __construct( $manager, $name, $args = [] ) {
+	public function __construct( $manager, $name, $args = array() ) {
 
 		parent::__construct( $manager, $name, $args );
 

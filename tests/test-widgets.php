@@ -37,7 +37,7 @@ final class TestWidget extends TestCase {
 	 */
 	function test_init() {
 
-		new Widgets;
+		new Widgets();
 
 		$this->do_action_validation( 'widgets_init', [ __NAMESPACE__ . '\Widgets', 'register_widgets' ] );
 

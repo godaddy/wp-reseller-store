@@ -28,9 +28,9 @@ final class Display {
 	 */
 	public function __construct() {
 
-		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
+		add_action( 'enqueue_embed_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
 		/**
 		 * Register the domain search shortcode
@@ -80,11 +80,11 @@ final class Display {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'rstore', Plugin::assets_url( "css/store{$rtl}{$suffix}.css" ), [ 'dashicons' ], rstore()->version );
+		wp_enqueue_style( 'rstore', Plugin::assets_url( "css/store{$rtl}{$suffix}.css" ), array( 'dashicons' ), rstore()->version );
 
-		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), [], '2.1.3', true );
-		wp_enqueue_script( 'rstore', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
-		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( 'js/domain-search.min.js' ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
+		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), array(), '2.1.3', true );
+		wp_enqueue_script( 'rstore', Plugin::assets_url( "js/store{$suffix}.js" ), array( 'jquery', 'js-cookie' ), rstore()->version, true );
+		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( 'js/domain-search.min.js' ), array( 'jquery', 'js-cookie' ), rstore()->version, true );
 
 		/**
 		 * Filter the TTL for cookies (in seconds).
@@ -95,21 +95,21 @@ final class Display {
 		 */
 		$cookie_ttl = (int) apply_filters( 'rstore_cookie_ttl', DAY_IN_SECONDS * 30 );
 
-		$data = [
+		$data = array(
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
-			'urls'    => [
+			'urls'    => array(
 				'cart'     => rstore()->api->urls['cart'],
 				'cart_api' => esc_url_raw( rstore()->api->url( 'cart/{pl_id}' ) ),
 				'domain_api' => rstore()->api->url( 'domains/{pl_id}' ),
-			],
-			'cookies' => [
+			),
+			'cookies' => array(
 				'ttl'       => absint( $cookie_ttl ) * 1000, // Convert seconds to ms.
 				'cartCount' => rstore_prefix( 'cart-count', true ),
-			],
-			'product' => [
+			),
+			'product' => array(
 				'id' => ( Post_Type::SLUG === get_post_type() ) ? rstore_get_product_meta( get_the_ID(), 'id', '' ) : '',
-			],
-			'i18n'    => [
+			),
+			'i18n'    => array(
 				'add_to_cart'   => esc_html__( 'Add to cart', 'reseller-store' ),
 				'available'     => esc_html__( 'Congrats, your domain is available!', 'reseller-store' ),
 				'not_available' => esc_html__( 'Sorry that domain is taken', 'reseller-store' ),
@@ -117,8 +117,8 @@ final class Display {
 				'view_cart'     => esc_html__( 'View cart', 'reseller-store' ),
 				'error'         => esc_html__( 'An error has occurred', 'reseller-store' ),
 
-			],
-		];
+			),
+		);
 
 		wp_localize_script( 'rstore', 'rstore', $data );
 

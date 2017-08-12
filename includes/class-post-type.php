@@ -68,17 +68,17 @@ final class Post_Type {
 
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
-		add_action( 'init',                         [ $this, 'register' ] );
-		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
-		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
-		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
-		add_action( 'delete_post',                  [ $this, 'delete_imported_product' ] );
+		add_action( 'init',                         array( $this, 'register' ) );
+		add_action( 'admin_init',                   array( $this, 'process_product_reset' ) );
+		add_action( 'admin_head',                   array( $this, 'column_styles' ) );
+		add_action( 'manage_posts_custom_column',   array( $this, 'column_content' ), 10, 2 );
+		add_action( 'delete_post',                  array( $this, 'delete_imported_product' ) );
 
-		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
-		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
-		add_filter( 'post_type_labels_' . self::SLUG,          [ $this, 'post_screen_edit_heading' ] );
-		add_filter( 'the_content',                             [ $this, 'append_add_to_cart_form' ] );
-		add_filter( 'the_excerpt',                             [ $this, 'append_add_to_cart_form' ] );
+		add_filter( 'manage_' . self::SLUG . '_posts_columns', array( $this, 'columns' ) );
+		add_filter( 'posts_clauses',                           array( $this, 'order_by_price_clause' ), 10, 2 );
+		add_filter( 'post_type_labels_' . self::SLUG,          array( $this, 'post_screen_edit_heading' ) );
+		add_filter( 'the_content',                             array( $this, 'append_add_to_cart_form' ) );
+		add_filter( 'the_excerpt',                             array( $this, 'append_add_to_cart_form' ) );
 
 		add_filter( 'edit_' . self::SLUG . '_per_page', function () {
 
@@ -89,7 +89,7 @@ final class Post_Type {
 		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
 
 			// @codingStandardsIgnoreStart
-			return array_merge( $columns, [ 'price' => 'price' ] );
+			return array_merge( $columns, array( 'price' => 'price' ) );
 			// @codingStandardsIgnoreEnd
 
 		} );
@@ -97,7 +97,7 @@ final class Post_Type {
 		add_filter( 'view_mode_post_types', function ( $post_types ) {
 
 			// @codingStandardsIgnoreStart
-			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
+			return array_diff_key( $post_types, array( Post_Type::SLUG => Post_Type::SLUG ) );
 			// @codingStandardsIgnoreEnd
 
 		} );
@@ -113,7 +113,7 @@ final class Post_Type {
 	 */
 	public static function permalink_base() {
 
-		$permalinks     = (array) rstore_get_option( 'permalinks', [] );
+		$permalinks     = (array) rstore_get_option( 'permalinks', array() );
 		$permalink_base = ! empty( $permalinks['product_base'] ) ? $permalinks['product_base'] : self::$default_permalink_base;
 
 		return sanitize_title( $permalink_base );
@@ -128,7 +128,7 @@ final class Post_Type {
 	 */
 	public function register() {
 
-		$labels = [
+		$labels = array(
 			'name'                  => esc_html_x( 'Products', 'post type general name', 'reseller-store' ),
 			'singular_name'         => esc_html_x( 'Product', 'post type singular name', 'reseller-store' ),
 			'menu_name'             => esc_html_x( 'Reseller Store', 'admin menu', 'reseller-store' ),
@@ -151,9 +151,9 @@ final class Post_Type {
 			'set_featured_image'    => esc_html__( 'Set product image', 'reseller-store' ),
 			'remove_featured_image' => esc_html__( 'Remove product image', 'reseller-store' ),
 			'use_featured_image'    => esc_html__( 'Use as featured image', 'reseller-store' ),
-		];
+		);
 
-		$args = [
+		$args = array(
 			'labels'        => $labels,
 			'description'   => esc_html__( 'This is where you can add new products to your Reseller Store.', 'reseller-store' ),
 			'menu_icon'     => 'dashicons-cart',
@@ -163,13 +163,13 @@ final class Post_Type {
 			'rest_base'     => self::permalink_base(),
 			'query_var'     => self::permalink_base(),
 			'has_archive'   => true,
-			'supports'      => [ 'title', 'editor', 'thumbnail' ],
-			'rewrite'       => [
+			'supports'      => array( 'title', 'editor', 'thumbnail' ),
+			'rewrite'       => array(
 				'slug'       => self::permalink_base(),
 				'with_front' => false,
 				'feeds'      => true,
-			],
-		];
+			),
+		);
 
 		/**
 		 * Filter the post type args.
@@ -334,12 +334,12 @@ final class Post_Type {
 		// Insert before Title column.
 		$columns = rstore_array_insert(
 			$columns,
-			[
+			array(
 				'image' => sprintf(
 					'<span class="rstore-image dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
 					__( 'Product Image', 'reseller-store' )
 				),
-			],
+			),
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true )
 		);
 
@@ -347,7 +347,7 @@ final class Post_Type {
 		$columns = rstore_array_insert(
 			$columns,
 			// @codingStandardsIgnoreStart
-			[ 'price' => esc_html__( 'Price', 'reseller-store' ) ],
+			array( 'price' => esc_html__( 'Price', 'reseller-store' ) ),
 			// @codingStandardsIgnoreEnd
 			(int) array_search( 'title', array_values( array_flip( $columns ) ), true ) + 1
 		);
@@ -369,7 +369,7 @@ final class Post_Type {
 
 		if ( 'image' === $column ) {
 
-			echo get_the_post_thumbnail( $post_id, [ 40, 40 ] );
+			echo get_the_post_thumbnail( $post_id, array( 40, 40 ) );
 
 		}
 
@@ -409,7 +409,7 @@ final class Post_Type {
 		// Re-fetch products from the API to ensure `rstore_has_all_products()` is accurate.
 		rstore_delete_transient( 'products' );
 
-		$imported = (array) rstore_get_option( 'imported', [] );
+		$imported = (array) rstore_get_option( 'imported', array() );
 
 		unset( $imported[ $post_id ] );
 

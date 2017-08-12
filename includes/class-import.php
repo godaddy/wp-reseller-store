@@ -48,7 +48,7 @@ final class Import {
 	 *
 	 * @var array
 	 */
-	private $imported = [];
+	private $imported = array();
 
 	/**
 	 * The result of the import.
@@ -67,7 +67,7 @@ final class Import {
 
 		$this->product  = $product->product;
 		$this->post_id  = absint( $post_id );
-		$this->imported = (array) rstore_get_option( 'imported', [] );
+		$this->imported = (array) rstore_get_option( 'imported', array() );
 
 		$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) );
 
@@ -170,14 +170,14 @@ final class Import {
 	private function post() {
 
 		$post_id = wp_insert_post(
-			[
+			array(
 				'ID'           => absint( $this->post_id ),
 				'post_type'    => Post_Type::SLUG,
 				'post_status'  => 'publish',
 				'post_title'   => sanitize_text_field( $this->product->title ),
 				'post_name'    => sanitize_title( $this->product->title ),
 				'post_content' => wp_filter_post_kses( $this->product->content ),
-			],
+			),
 			true
 		);
 
@@ -293,7 +293,7 @@ final class Import {
 
 			// Returns an array on success, WP_Error on failure.
 			// @codingStandardsIgnoreStart
-			$term = wp_insert_term( $name, Taxonomy_Category::SLUG, [ 'parent' => (int) $parent ] );
+			$term = wp_insert_term( $name, Taxonomy_Category::SLUG, array( 'parent' => (int) $parent ) );
 			// @codingStandardsIgnoreEnd
 
 		}
@@ -337,11 +337,11 @@ final class Import {
 
 		set_post_thumbnail( $this->post_id, $attachment_id );
 
-		$meta = [
+		$meta = array(
 			'id'      => sanitize_title( $this->product->id ),
 			'image'   => esc_url_raw( $url ),
 			'post_id' => $this->post_id,
-		];
+		);
 
 		rstore_bulk_update_post_meta( $attachment_id, $meta );
 
@@ -365,10 +365,10 @@ final class Import {
 
 		}
 
-		$file_array = [
+		$file_array = array(
 			'name'     => basename( $url ),
 			'tmp_name' => download_url( $url ),
-		];
+		);
 
 		if ( ! function_exists( 'media_handle_sideload' ) ) {
 

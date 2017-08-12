@@ -29,9 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ . '/includes/autoload.php';
 
-final class Plugin {
-
-	use Singleton, Data, Helpers;
+final class Plugin extends Singleton {
 
 	/**
 	 * Plugin version.
@@ -56,19 +54,23 @@ final class Plugin {
 	 *
 	 * @since 0.2.0
 	 */
-	private function __construct() {
+	public function __construct() {
 
 		$this->version    = self::VERSION;
 		$this->basename   = plugin_basename( __FILE__ );
 		$this->base_dir   = plugin_dir_path( __FILE__ );
 		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
-		$this->api        = new API;
+		$this->api        = new API();
 
-		add_action( 'plugins_loaded', function () {
+		add_action(
+			'plugins_loaded', function () {
 
-			load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
+				$basename = plugin_basename( __FILE__ );
 
-		} );
+				load_plugin_textdomain( 'reseller-store', false, dirname( $basename ) . '/languages' );
+
+			}
+		);
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
@@ -78,25 +80,55 @@ final class Plugin {
 
 		}
 
-		new Restrictions;
+		new Restrictions();
 
 		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
-			new Setup;
+			new Setup();
 
 			return; // Bail until Setup is complete.
 
 		}
 
-		new ButterBean;
-		new Display;
-		new Embed;
-		new Permalinks;
-		new Post_Type;
-		new Sync;
-		new Taxonomy_Category;
-		new Taxonomy_Tag;
-		new Widgets;
+		new ButterBean();
+		new Display();
+		new Embed();
+		new Permalinks();
+		new Post_Type();
+		new Sync();
+		new Taxonomy_Category();
+		new Taxonomy_Tag();
+		new Widgets();
+
+	}
+
+	/**
+	 * Return the plugin base directory path.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @param string $path (optional) Additional path.
+	 *
+	 * @return string
+	 */
+	public static function base_dir( $path = '' ) {
+
+		return rstore()->base_dir . $path;
+
+	}
+
+	/**
+	 * Return the plugin assets URL.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @param  string $path (optional) Additional path.
+	 *
+	 * @return string
+	 */
+	public static function assets_url( $path = '' ) {
+
+		return rstore()->assets_url . $path;
 
 	}
 
@@ -109,4 +141,6 @@ rstore();
  *
  * @since 0.2.0
  */
-register_deactivation_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'deactivate' ] );
+
+$function = array( __NAMESPACE__ . '\Setup', 'deactivate' );
+register_deactivation_hook( __FILE__,  $function );

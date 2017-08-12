@@ -39,7 +39,7 @@ final class Setup {
 	 *
 	 * @var string
 	 */
-	private static $install_nonce;
+	public static $install_nonce;
 
 	/**
 	 * Site for the reseller control center
@@ -67,16 +67,17 @@ final class Setup {
 		 */
 		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
 
-		add_action( 'init', function () {
+		add_action(
+			'init', function () {
 
-			self::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
+				Setup::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
 
-		} );
+			}
+		);
 
-		add_action( 'admin_enqueue_scripts',  [ $this, 'admin_enqueue_scripts' ] );
-		add_action( 'admin_menu',             [ $this, 'page' ], 9 );
-		add_action( 'wp_ajax_rstore_install', [ __CLASS__, 'install' ] );
-
+		add_action( 'admin_enqueue_scripts',  array( $this, 'admin_enqueue_scripts' ) );
+		add_action( 'admin_menu',             array( $this, 'page' ), 9 );
+		add_action( 'wp_ajax_rstore_install', array( __CLASS__, 'install' ) );
 	}
 
 	/**
@@ -95,7 +96,7 @@ final class Setup {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), array( 'jquery' ), rstore()->version, true );
 
 		/**
 		 * @todo Work on this logic
@@ -111,14 +112,14 @@ final class Setup {
 		}
 
 		// @codingStandardsIgnoreStart
-		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [
+		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', array(
 			'install_nonce' => wp_create_nonce( self::$install_nonce ),
 			'install_site' => get_site_url(),
 			'install_admin_url' => admin_url('admin.php'),
 			'rcc_site' => $this->rcc_site,
 			'install_error' => $error,
 			'install_plid' => $plid,
-		] );
+		) );
 
 	}
 
@@ -136,7 +137,7 @@ final class Setup {
 			esc_html__( 'Reseller Store', 'reseller-store' ),
 			'activate_plugins',
 			self::SLUG,
-			[ $this, 'content' ],
+			array( $this, 'content' ),
 			'dashicons-cart',
 			Post_Type::MENU_POSITION
 		);
@@ -330,7 +331,7 @@ final class Setup {
 
 		rstore_update_option( 'pl_id', $pl_id );
 
-		$products = [];
+		$products = array();
 
 		$products = $skip_activation ? rstore_get_demo_products() : rstore_get_products( true );
 
@@ -389,11 +390,11 @@ final class Setup {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
 			wp_send_json_success(
-				[
+				array(
 					'redirect' => esc_url_raw(
 						add_query_arg( 'post_type', Post_Type::SLUG, admin_url( 'edit.php' ) )
 					),
-				]
+				)
 			);
 
 		}
@@ -491,10 +492,10 @@ final class Setup {
 
 		}
 
-		foreach ( [ Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG ] as $taxonomy ) {
+		foreach ( array( Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG ) as $taxonomy ) {
 
 			// @codingStandardsIgnoreStart
-			$terms = get_terms( $taxonomy, [ 'fields' => 'ids', 'hide_empty' => false ] );
+			$terms = get_terms( $taxonomy, array( 'fields' => 'ids', 'hide_empty' => false ) );
 			// @codingStandardsIgnoreEnd
 
 			if ( is_wp_error( $terms ) ) {

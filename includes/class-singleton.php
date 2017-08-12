@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-trait Singleton {
+class Singleton {
 
 	/**
 	 * The plugin instance.
@@ -29,7 +29,7 @@ trait Singleton {
 	 *
 	 * @var Plugin
 	 */
-	private static $instance = null;
+	protected static $instance = null;
 
 	/**
 	 * Return the plugin instance.
@@ -42,7 +42,7 @@ trait Singleton {
 
 		if ( ! static::$instance ) {
 
-			static::$instance = new self();
+			static::$instance = new static();
 
 		}
 

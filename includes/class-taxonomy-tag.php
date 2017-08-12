@@ -48,7 +48,7 @@ final class Taxonomy_Tag {
 
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-tag', 'slug name', 'reseller-store' ) );
 
-		add_action( 'init', [ $this, 'register' ] );
+		add_action( 'init', array( $this, 'register' ) );
 
 	}
 
@@ -61,7 +61,7 @@ final class Taxonomy_Tag {
 	 */
 	public static function permalink_base() {
 
-		$permalinks     = (array) rstore_get_option( 'permalinks', [] );
+		$permalinks     = (array) rstore_get_option( 'permalinks', array() );
 		$permalink_base = ! empty( $permalinks['tag_base'] ) ? $permalinks['tag_base'] : self::$default_permalink_base;
 
 		return sanitize_title( $permalink_base );
@@ -76,7 +76,7 @@ final class Taxonomy_Tag {
 	 */
 	public function register() {
 
-		$labels = [
+		$labels = array(
 			'name'              => esc_html_x( 'Tags', 'taxonomy general name', 'reseller-store' ),
 			'singular_name'     => esc_html_x( 'Tag', 'taxonomy singular name', 'reseller-store' ),
 			'search_items'      => esc_html__( 'Search Tags', 'reseller-store' ),
@@ -88,9 +88,9 @@ final class Taxonomy_Tag {
 			'add_new_item'      => esc_html__( 'Add New Tag', 'reseller-store' ),
 			'new_item_name'     => esc_html__( 'New Tag Name', 'reseller-store' ),
 			'menu_name'         => esc_html__( 'Tags', 'reseller-store' ),
-		];
+		);
 
-		$args = [
+		$args = array(
 			'label'             => esc_html__( 'Tags', 'reseller-store' ),
 			'labels'            => $labels,
 			'show_admin_column' => true,
@@ -99,12 +99,12 @@ final class Taxonomy_Tag {
 			'show_in_rest'      => true,
 			'query_var'         => true,
 			'hierarchical'      => false,
-			'rewrite'           => [
+			'rewrite'           => array(
 				'slug'         => self::permalink_base(),
 				'with_front'   => false,
 				'hierarchical' => false,
-			],
-		];
+			),
+		);
 
 		/**
 		 * Filter the tag taxonomy args.

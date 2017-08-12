@@ -47,7 +47,7 @@ final class Reseller_Product extends \WP_CLI_Command {
 
 		WP_CLI::confirm( 'Are you sure you want to reset product data? Any customizations will be lost.', $assoc_args );
 
-		$results = [];
+		$results = array();
 
 		foreach ( $args as $key => $post_id ) {
 

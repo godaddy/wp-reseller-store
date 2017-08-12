@@ -48,7 +48,7 @@ final class API {
 	 *
 	 * @var array
 	 */
-	public $urls = [];
+	public $urls = array();
 
 	/**
 	 * Class constructor.
@@ -92,7 +92,7 @@ final class API {
 	 */
 	public function add_query_args( $url, $add_pl_id = true ) {
 
-		$args = [];
+		$args = array();
 
 		if ( $add_pl_id && rstore_is_setup() ) {
 
@@ -172,15 +172,15 @@ final class API {
 	 *
 	 * @return array|WP_Error
 	 */
-	private function request( $method, $endpoint, $args = [] ) {
+	private function request( $method, $endpoint, $args = array() ) {
 
-		$defaults = [
+		$defaults = array(
 			'method'    => $method,
 			'sslverify' => true,
-			'headers'   => [
+			'headers'   => array(
 				'Content-Type: application/json',
-			],
-		];
+			),
+		);
 
 		$args = wp_parse_args( $args, $defaults );
 
@@ -235,7 +235,7 @@ final class API {
 	 *
 	 * @return array|WP_Error
 	 */
-	public function get( $endpoint, $args = [] ) {
+	public function get( $endpoint, $args = array() ) {
 
 		$key = rstore_prefix( 'api_get-' . md5( $endpoint . maybe_serialize( $args ) ) );
 
@@ -263,7 +263,7 @@ final class API {
 	 *
 	 * @return array|WP_Error
 	 */
-	public function post( $endpoint, $args = [] ) {
+	public function post( $endpoint, $args = array() ) {
 
 		return $this->request( 'POST', $endpoint, $args );
 
@@ -279,7 +279,7 @@ final class API {
 	 *
 	 * @return array|WP_Error
 	 */
-	public function delete( $endpoint, $args = [] ) {
+	public function delete( $endpoint, $args = array() ) {
 
 		return $this->request( 'DELETE', $endpoint, $args );
 

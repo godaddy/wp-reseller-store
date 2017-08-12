@@ -89,7 +89,7 @@ function rstore_get_missing_products() {
 
 	if ( ! rstore_is_setup() ) {
 
-		return [];
+		return array();
 
 	}
 
@@ -97,16 +97,16 @@ function rstore_get_missing_products() {
 
 	if ( is_wp_error( $products ) || empty( $products[0]->id ) ) {
 
-		return [];
+		return array();
 
 	}
 
 	$missing = array_diff(
 		wp_list_pluck( $products, 'id' ),
-		(array) rstore_get_option( 'imported', [] )
+		(array) rstore_get_option( 'imported', array() )
 	);
 
-	return ( $missing ) ? $missing : [];
+	return ( $missing ) ? $missing : array();
 
 }
 
@@ -125,7 +125,7 @@ function rstore_get_products( $hard = false ) {
 
 	}
 
-	return rstore_get_transient( 'products', [], function () {
+	return rstore_get_transient( 'products', array(), function () {
 
 		return rstore()->api->get( 'catalog/{pl_id}/products' );
 

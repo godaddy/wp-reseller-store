@@ -31,10 +31,10 @@ final class Domain_Search extends \WP_Widget {
 		parent::__construct(
 			rstore_prefix( 'domain-search' ),
 			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
-			[
+			array(
 				'classname'   => rstore_prefix( 'domain-search', true ),
 				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
-			]
+			)
 		);
 
 	}
@@ -60,7 +60,7 @@ final class Domain_Search extends \WP_Widget {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', [ 'widget_search' ] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', array( 'widget_search' ) ) );
 
 		if ( $classes ) {
 
