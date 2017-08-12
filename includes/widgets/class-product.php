@@ -183,11 +183,13 @@ final class Product extends \WP_Widget {
 	 */
 	private static function get_products( $selected_product ) {
 
-		$query = new \WP_Query( array(
-			'post_type'   => \Reseller_Store\Post_Type::SLUG,
-			'post_status' => 'publish',
-			'nopaging'    => true, // get a list of every product.
-		) );
+		$query = new \WP_Query(
+			array(
+				'post_type'   => \Reseller_Store\Post_Type::SLUG,
+				'post_status' => 'publish',
+				'nopaging'    => true, // get a list of every product.
+			)
+		);
 
 		$products = '';
 

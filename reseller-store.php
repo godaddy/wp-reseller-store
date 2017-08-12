@@ -60,15 +60,17 @@ final class Plugin extends Singleton {
 		$this->basename   = plugin_basename( __FILE__ );
 		$this->base_dir   = plugin_dir_path( __FILE__ );
 		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
-		$this->api        = new API;
+		$this->api        = new API();
 
-		add_action( 'plugins_loaded', function () {
+		add_action(
+			'plugins_loaded', function () {
 
-			$basename = plugin_basename( __FILE__ );
+				$basename = plugin_basename( __FILE__ );
 
-			load_plugin_textdomain( 'reseller-store', false, dirname( $basename ) . '/languages' );
+				load_plugin_textdomain( 'reseller-store', false, dirname( $basename ) . '/languages' );
 
-		} );
+			}
+		);
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
@@ -78,25 +80,25 @@ final class Plugin extends Singleton {
 
 		}
 
-		new Restrictions;
+		new Restrictions();
 
 		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
-			new Setup;
+			new Setup();
 
 			return; // Bail until Setup is complete.
 
 		}
 
-		new ButterBean;
-		new Display;
-		new Embed;
-		new Permalinks;
-		new Post_Type;
-		new Sync;
-		new Taxonomy_Category;
-		new Taxonomy_Tag;
-		new Widgets;
+		new ButterBean();
+		new Display();
+		new Embed();
+		new Permalinks();
+		new Post_Type();
+		new Sync();
+		new Taxonomy_Category();
+		new Taxonomy_Tag();
+		new Widgets();
 
 	}
 

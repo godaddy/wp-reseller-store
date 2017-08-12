@@ -67,11 +67,13 @@ final class Setup {
 		 */
 		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
 
-		add_action( 'init', function () {
+		add_action(
+			'init', function () {
 
-			Setup::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
+				Setup::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
 
-		} );
+			}
+		);
 
 		add_action( 'admin_enqueue_scripts',  array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_menu',             array( $this, 'page' ), 9 );
