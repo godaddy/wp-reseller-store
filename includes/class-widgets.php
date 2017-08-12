@@ -28,7 +28,7 @@ final class Widgets {
 	 */
 	public function __construct() {
 
-		add_action( 'widgets_init', [ get_called_class(), 'register_widgets' ] );
+		add_action( 'widgets_init', array( get_called_class(), 'register_widgets' ) );
 
 	}
 

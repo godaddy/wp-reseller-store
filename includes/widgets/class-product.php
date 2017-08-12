@@ -31,10 +31,10 @@ final class Product extends \WP_Widget {
 		parent::__construct(
 			rstore_prefix( 'Product' ),
 			esc_html__( 'Reseller Product', 'reseller-store' ),
-			[
+			array(
 				'classname'   => rstore_prefix( 'Product', true ),
 				'description' => esc_html__( 'Display product post.', 'reseller-store' ),
-			]
+			)
 		);
 
 	}
@@ -58,7 +58,7 @@ final class Product extends \WP_Widget {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_product_widget_classes', [] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_product_widget_classes', array() ) );
 
 		if ( $classes ) {
 
@@ -183,11 +183,11 @@ final class Product extends \WP_Widget {
 	 */
 	private static function get_products( $selected_product ) {
 
-		$query = new \WP_Query( [
+		$query = new \WP_Query( array(
 			'post_type'   => \Reseller_Store\Post_Type::SLUG,
 			'post_status' => 'publish',
 			'nopaging'    => true, // get a list of every product.
-		] );
+		) );
 
 		$products = '';
 

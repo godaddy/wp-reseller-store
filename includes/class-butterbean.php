@@ -28,11 +28,11 @@ final class ButterBean {
 	 */
 	public function __construct() {
 
-		add_action( 'plugins_loaded',      [ $this, 'load' ] );
-		add_action( 'butterbean_register', [ $this, 'register_types' ], 10, 2 );
-		add_action( 'butterbean_register', [ $this, 'register_metabox' ], 10, 2 );
+		add_action( 'plugins_loaded',      array( $this, 'load' ) );
+		add_action( 'butterbean_register', array( $this, 'register_types' ), 10, 2 );
+		add_action( 'butterbean_register', array( $this, 'register_metabox' ), 10, 2 );
 
-		add_filter( 'butterbean_pre_control_template', [ $this, 'control_templates' ], 10, 2 );
+		add_filter( 'butterbean_pre_control_template', array( $this, 'control_templates' ), 10, 2 );
 
 	}
 
@@ -138,22 +138,22 @@ final class ButterBean {
 
 		$butterbean->register_manager(
 			'product_options',
-			[
+			array(
 				'label'     => esc_html__( 'Product Options', 'reseller-store' ),
 				'post_type' => Post_Type::SLUG,
 				'context'   => 'normal',
 				'priority'  => 'high',
-			]
+			)
 		);
 
 		$manager = $butterbean->get_manager( 'product_options' );
 
 		$manager->register_section(
 			'general',
-			[
+			array(
 				'label' => esc_html__( 'General', 'reseller-store' ),
 				'icon'  => 'dashicons-admin-tools',
-			]
+			)
 		);
 
 		$this->list_price( $manager, 'general' );
@@ -163,10 +163,10 @@ final class ButterBean {
 
 		$manager->register_section(
 			'advanced',
-			[
+			array(
 				'label' => esc_html__( 'Advanced', 'reseller-store' ),
 				'icon'  => 'dashicons-admin-settings',
-			]
+			)
 		);
 
 		$this->reset_product_data( $manager, 'advanced' );
@@ -185,18 +185,18 @@ final class ButterBean {
 
 		$manager->register_control(
 			rstore_prefix( 'listPrice' ),
-			[
+			array(
 				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
 				'label'   => esc_html__( 'Price', 'reseller-store' ),
-			]
+			)
 		);
 
 		$manager->register_setting(
 			rstore_prefix( 'listPrice' ),
-			[
+			array(
 				'type' => rstore_prefix( 'read-only', true ),
-			]
+			)
 		);
 
 	}
@@ -213,19 +213,19 @@ final class ButterBean {
 
 		$manager->register_control(
 			rstore_prefix( 'salePrice' ),
-			[
+			array(
 				'type'    => rstore_prefix( 'plain-text', true ),
 				'section' => $section,
 				'label'   => esc_html__( 'Sale Price', 'reseller-store' ),
 				'default' => esc_html_x( 'N/A', 'abbreviation for not applicable', 'reseller-store' ),
-			]
+			)
 		);
 
 		$manager->register_setting(
 			rstore_prefix( 'salePrice' ),
-			[
+			array(
 				'type' => rstore_prefix( 'read-only', true ),
-			]
+			)
 		);
 
 	}
@@ -242,24 +242,24 @@ final class ButterBean {
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
-			[
+			array(
 				'type'    => 'number',
 				'section' => $section,
 				'label'   => esc_html__( 'Default Quantity', 'reseller-store' ),
-				'attr'    => [
+				'attr'    => array(
 					'min'         => 1,
 					'placeholder' => absint( rstore_get_option( __FUNCTION__, 1 ) ),
-				],
-			]
+				),
+			)
 		);
 
 		$manager->register_setting(
 			rstore_prefix( __FUNCTION__ ),
-			[
+			array(
 				'sanitize_callback' => function ( $value ) {
 					return ( 0 !== absint( $value ) ) ? absint( $value ) : null;
 				},
-			]
+			)
 		);
 
 	}
@@ -276,21 +276,21 @@ final class ButterBean {
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
-			[
+			array(
 				'type'    => 'text',
 				'section' => $section,
 				'label'   => esc_html__( 'Add to Cart Button Label', 'reseller-store' ),
-				'attr'    => [
+				'attr'    => array(
 					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'reseller-store' ) ) ),
-				],
-			]
+				),
+			)
 		);
 
 		$manager->register_setting(
 			rstore_prefix( __FUNCTION__ ),
-			[
+			array(
 				'sanitize_callback' => 'sanitize_text_field',
-			]
+			)
 		);
 
 	}
@@ -305,21 +305,21 @@ final class ButterBean {
 	 */
 	private function add_to_cart_redirect( $manager, $section ) {
 
-		$args = [
+		$args = array(
 			'type'    => 'checkbox',
 			'section' => $section,
 			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
-		];
+		);
 
 		$manager->register_control( rstore_prefix( __FUNCTION__ ), $args );
 
 		$manager->register_setting(
 			rstore_prefix( __FUNCTION__ ),
-			[
+			array(
 				'sanitize_callback' => function ( $value ) {
 					return ( 'true' === $value ) ? 'true' : '';
 				},
-			]
+			)
 		);
 
 	}
@@ -338,13 +338,13 @@ final class ButterBean {
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
-			[
+			array(
 				'type'        => rstore_prefix( 'anchor', true ),
 				'section'     => $section,
 				'label'       => esc_html__( 'Restore Product Data', 'reseller-store' ),
 				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),
 				'text'        => esc_html__( 'Reset Data', 'reseller-store' ),
-				'attr'        => [
+				'attr'        => array(
 					'class' => 'button button-primary',
 					'href'  => esc_url(
 						add_query_arg(
@@ -354,8 +354,8 @@ final class ButterBean {
 							)
 						)
 					),
-				],
-			]
+				),
+			)
 		);
 
 	}

@@ -39,7 +39,7 @@ final class Product {
 	 *
 	 * @var array
 	 */
-	private $properties = [
+	private $properties = array(
 		'id'         => 'strlen',
 		'categories' => 'is_array',
 		'image'      => 'strlen',
@@ -47,7 +47,7 @@ final class Product {
 		'listPrice'  => 'strlen',
 		'title'      => 'strlen',
 		'content'    => 'strlen',
-	];
+	);
 
 	/**
 	 * Class constructor.
@@ -126,7 +126,7 @@ final class Product {
 
 		$product_id = sanitize_title( $this->product->id ); // Product IDs are sanitized on import.
 
-		$imported = (array) rstore_get_option( 'imported', [] );
+		$imported = (array) rstore_get_option( 'imported', array() );
 
 		if ( $imported ) {
 

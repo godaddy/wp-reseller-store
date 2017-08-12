@@ -14,7 +14,7 @@ final class Plain_Text extends \ButterBean_Control {
 
 	public $default;
 
-	public function __construct( $manager, $name, $args = [] ) {
+	public function __construct( $manager, $name, $args = array() ) {
 
 		parent::__construct( $manager, $name, $args );
 

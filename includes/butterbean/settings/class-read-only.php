@@ -12,7 +12,7 @@ final class Read_Only extends \ButterBean_Setting {
 
 	public $type = 'read-only';
 
-	public function __construct( $manager, $name, $args = [] ) {
+	public function __construct( $manager, $name, $args = array() ) {
 
 		parent::__construct( $manager, $name, $args );
 

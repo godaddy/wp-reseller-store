@@ -31,10 +31,10 @@ final class Cart extends \WP_Widget {
 		parent::__construct(
 			rstore_prefix( 'cart' ),
 			esc_html__( 'Reseller Cart', 'reseller-store' ),
-			[
+			array(
 				'classname'   => rstore_prefix( 'cart', true ),
 				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
-			]
+			)
 		);
 
 	}
@@ -56,11 +56,11 @@ final class Cart extends \WP_Widget {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_cart_widget_classes', [] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_cart_widget_classes', array() ) );
 
 		if ( ! empty( $instance['hide_empty'] ) ) {
 
-			$classes[] = 'hide-empty';
+			$classes = array('hide-empty');
 
 		}
 

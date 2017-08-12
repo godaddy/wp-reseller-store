@@ -25,7 +25,7 @@ final class Helper {
 
 		$meta = [
 			'rstore_id'         => 'wordpress_hosting',
-			'rstore_categories' => [],
+			'rstore_categories' => array(),
 			'rstore_image'      => 'http://image',
 			'rstore_term'       => 'year',
 			'rstore_listPrice'  => '$70.00',

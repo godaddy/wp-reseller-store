@@ -139,7 +139,7 @@ final class TestHelperFunctions extends TestCase {
 		$this->assertNull( $rstore_transient );
 
 		// Test a non-existing transient with a callback.
-		$test_transient = rstore_get_transient( 'transient', [], function() {
+		$test_transient = rstore_get_transient( 'transient', array(), function() {
 
 			return 'transient results';
 

@@ -18,7 +18,7 @@
  */
 function rstore() {
 
-	return Reseller_Store\Plugin::load();
+	return new Reseller_Store\Plugin();
 
 }
 
@@ -66,13 +66,13 @@ function rstore_get_add_to_cart_vars( $post ) {
 
 	$post = get_post( $post );
 
-	return [
+	return array(
 		'id'        => rstore_get_product_meta( $post->ID, 'id' ),
 		'quantity'  => 1, // @TODO Future release.
 		'redirect'  => (bool) rstore_get_product_meta( $post->ID, 'add_to_cart_redirect', false, true ),
 		'label'     => rstore_get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
 		'permalink' => get_permalink( $post->ID ),
-	];
+	);
 
 }
 
@@ -236,11 +236,11 @@ function rstore_update_post_meta( $post_id, $key, $value = '' ) {
  */
 function rstore_bulk_update_post_meta( $post_id, $meta ) {
 
-	$results = [];
+	$results = array();
 
 	foreach ( $meta as $key => $value ) {
 
-		$results[] = rstore_update_post_meta( (int) $post_id, $key, $value );
+		$results = array( rstore_update_post_meta( (int) $post_id, $key, $value ) );
 
 	}
 
@@ -278,7 +278,7 @@ function rstore_array_insert( $array, $var, $index, $preserve_keys = true ) {
 
 	return array_merge(
 		array_slice( $array, 0, $index, $preserve_keys ),
-		is_array( $var ) ? $var : [ $var ],
+		is_array( $var ) ? $var : array( $var ),
 		array_slice( $array, $index, count( $array ) - $index, $preserve_keys )
 	);
 

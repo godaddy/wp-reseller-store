@@ -31,8 +31,6 @@ require_once __DIR__ . '/includes/autoload.php';
 
 final class Plugin {
 
-	use Singleton, Data, Helpers;
-
 	/**
 	 * Plugin version.
 	 *
@@ -56,7 +54,7 @@ final class Plugin {
 	 *
 	 * @since 0.2.0
 	 */
-	private function __construct() {
+	public function __construct() {
 
 		$this->version    = self::VERSION;
 		$this->basename   = plugin_basename( __FILE__ );
@@ -66,7 +64,9 @@ final class Plugin {
 
 		add_action( 'plugins_loaded', function () {
 
-			load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
+			$basename = plugin_basename( __FILE__ );
+
+			load_plugin_textdomain( 'reseller-store', false, dirname( $basename ) . '/languages' );
 
 		} );
 
@@ -100,6 +100,36 @@ final class Plugin {
 
 	}
 
+	/**
+	 * Return the plugin base directory path.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @param string $path (optional) Additional path.
+	 *
+	 * @return string
+	 */
+	public static function base_dir( $path = '' ) {
+
+		return rstore()->base_dir . $path;
+
+	}
+
+	/**
+	 * Return the plugin assets URL.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @param  string $path (optional) Additional path.
+	 *
+	 * @return string
+	 */
+	public static function assets_url( $path = '' ) {
+
+		return rstore()->assets_url . $path;
+
+	}
+
 }
 
 rstore();
@@ -109,4 +139,6 @@ rstore();
  *
  * @since 0.2.0
  */
-register_deactivation_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'deactivate' ] );
+
+$function = array( __NAMESPACE__ . '\Setup', 'deactivate' );
+register_deactivation_hook( __FILE__,  $function);

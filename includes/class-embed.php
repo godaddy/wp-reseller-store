@@ -28,9 +28,9 @@ final class Embed {
 	 */
 	public function __construct() {
 
-		add_action( 'embed_head', [ $this, 'head' ] );
+		add_action( 'embed_head', array( $this, 'head' ) );
 
-		add_filter( 'the_excerpt_embed', [ $this, 'excerpt' ] );
+		add_filter( 'the_excerpt_embed', array( $this, 'excerpt' ) );
 
 	}
 
