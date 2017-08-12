@@ -141,4 +141,4 @@ rstore();
  */
 
 $function = array( __NAMESPACE__ . '\Setup', 'deactivate' );
-register_deactivation_hook( __FILE__,  $function);
+register_deactivation_hook( __FILE__,  $function );

@@ -60,7 +60,7 @@ final class Cart extends \WP_Widget {
 
 		if ( ! empty( $instance['hide_empty'] ) ) {
 
-			$classes = array('hide-empty');
+			$classes = array( 'hide-empty' );
 
 		}
 
