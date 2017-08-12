@@ -49,6 +49,11 @@ final class TestWidget extends TestCase {
 	 */
 	function test_register_widget() {
 
+		$this->assertTrue(
+			method_exists( __NAMESPACE__ . '\Widgets', 'register_widgets' ),
+			'Method Widgets::register_widgets is not found'
+		);
+
 		Widgets::register_widgets();
 
 		global $wp_widget_factory;
