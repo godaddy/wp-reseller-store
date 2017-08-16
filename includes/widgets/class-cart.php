@@ -48,7 +48,6 @@ final class Cart extends \WP_Widget {
 	 * @param array $instance Widget instance.
 	 */
 	public function widget( $args, $instance ) {
-
 		/**
 		 * Filter classes to be appended to the Cart widget.
 		 *
@@ -57,12 +56,6 @@ final class Cart extends \WP_Widget {
 		 * @var array
 		 */
 		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_cart_widget_classes', [] ) );
-
-		if ( ! empty( $instance['hide_empty'] ) ) {
-
-			$classes[] = 'hide-empty';
-
-		}
 
 		if ( $classes ) {
 
@@ -88,16 +81,16 @@ final class Cart extends \WP_Widget {
 
 		}
 
+		$data = $this->get_data( $instance );
+
 		?>
+
 		<div class="rstore-view-cart">
-			<span class="dashicons dashicons-cart"></span>
 			<a href="<?php echo esc_url( rstore()->api->urls['cart'] ); ?>">
-				<?php
-				/* translators: number of items in cart */
-				printf( esc_html__( 'View Cart %s', 'reseller-store' ), '(<span class="rstore-cart-count">0</span>)' );
-				?>
+				<?php echo $data['button_label']; ?> (<span class="rstore-cart-count">0</span>)
 			</a>
 		</div>
+
 		<?php
 
 		echo $args['after_widget']; // xss ok.
@@ -112,19 +105,17 @@ final class Cart extends \WP_Widget {
 	 * @param array $instance Widget instance.
 	 */
 	public function form( $instance ) {
-
-		$title      = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Cart', 'reseller-store' );
-		$hide_empty = ! empty( $instance['hide_empty'] );
+		$data = $this->get_data( $instance );
 
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>" class="widefat">
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $data['title'] ); ?>" class="widefat">
 		</p>
 
 		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'hide_empty' ) ); ?>" value="1" class="checkbox" <?php checked( $hide_empty ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>"><?php esc_html_e( 'Hide if cart is empty', 'reseller' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>"><?php esc_html_e( 'Button Label:', 'reseller' ); ?></label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_label' ) ); ?>" value="<?php echo esc_attr( $data['button_label'] ); ?>" class="widefat">
 		</p>
 		<?php
 
@@ -143,10 +134,25 @@ final class Cart extends \WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance['title']      = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
-		$instance['hide_empty'] = isset( $new_instance['hide_empty'] ) ? (bool) absint( $new_instance['hide_empty'] ) : false;
-
+		$instance['button_label']  = isset( $new_instance['button_label'] ) ? wp_kses_post( $new_instance['button_label'] ) : null;
 		return $instance;
 
+	}
+
+	/**
+	 * Set data from instance or default value.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  array $instance Widget instance.
+	 *
+	 * @return array
+	 */
+	private function get_data( $instance ) {
+		return array(
+			'title'           => isset( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'reseller-store' ),
+			'button_label'    => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'View Cart', 'reseller-store' ),
+		);
 	}
 
 }

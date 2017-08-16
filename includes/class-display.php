@@ -32,40 +32,6 @@ final class Display {
 
 		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
 
-		/**
-		 * Register the domain search shortcode
-		 *
-		 * @shortcode [rstore-domain-search]
-		 *
-		 * @since  0.2.0
-		 *
-		 * @param  array $atts Defualt shortcode parameters.
-		 *
-		 * @return mixed Returns the HTML markup for the domain search container.
-		 */
-		add_shortcode( 'rstore-domain-search', function( $atts ) {
-
-			return wp_kses_post( '<div class="rstore-domain-search"></div>' );
-
-		} );
-
-		/**
-		 * Register the add to cart shortcode
-		 *
-		 * @shortcode [rstore-cart-button]
-		 *
-		 * @since  0.2.0
-		 *
-		 * @param  array $atts Defualt shortcode parameters.
-		 *
-		 * @return mixed Returns the HTML markup for the domain search container.
-		 */
-		add_shortcode( 'rstore-cart-button', function( $atts ) {
-
-			return wp_kses_post( '<div class="rstore-domain-search"></div>' );
-
-		} );
-
 	}
 
 	/**
@@ -105,6 +71,7 @@ final class Display {
 			'cookies' => [
 				'ttl'       => absint( $cookie_ttl ) * 1000, // Convert seconds to ms.
 				'cartCount' => rstore_prefix( 'cart-count', true ),
+				'shopperId' => 'ShopperId' . rstore_get_option( 'pl_id' ),
 			],
 			'product' => [
 				'id' => ( Post_Type::SLUG === get_post_type() ) ? rstore_get_product_meta( get_the_ID(), 'id', '' ) : '',

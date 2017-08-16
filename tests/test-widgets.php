@@ -37,7 +37,7 @@ final class TestWidget extends TestCase {
 	 */
 	function test_init() {
 
-		new Widgets;
+		new Widgets();
 
 		$this->do_action_validation( 'widgets_init', [ __NAMESPACE__ . '\Widgets', 'register_widgets' ] );
 
@@ -130,7 +130,7 @@ final class TestWidget extends TestCase {
 	}
 
 	/**
-	 * Test the domain search widget.
+	 * @testdox Test the domain search widget.
 	 */
 	function test_domain_search_widget() {
 
@@ -158,4 +158,32 @@ final class TestWidget extends TestCase {
 
 	}
 
+
+	/**
+	 * @testdox Test login widget
+	 */
+	function test_login_widget() {
+
+		$widget = new Widgets\Login();
+
+		$instance = [
+			'title'    => 'login',
+			'welcome_message' => 'Welcome',
+			'login_button_text' => 'log in',
+			'login_button_text' => 'log out',
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget' => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		// display domain search.
+		$this->expectOutputRegex( '/<span class="rstore-welcome-message">Welcome<\/span>/' );
+		$this->expectOutputRegex( '/<a class="rstore-logout-button" href="https:\/\/sso.secureserver.net\/logout\/\?plid=0&realm=idp&app=www" rel="nofollow">Log Out<\/a>/' );
+	}
 }

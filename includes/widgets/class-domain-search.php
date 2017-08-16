@@ -137,8 +137,8 @@ final class Domain_Search extends \WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
-		$instance['placeholder']  = isset( $new_instance['placeholder'] ) ? sanitize_text_field( $new_instance['placeholder'] ) : null;
-		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : null;
+		$instance['placeholder']  = isset( $new_instance['placeholder'] ) ? wp_kses_post( $new_instance['placeholder'] ) : null;
+		$instance['button_label'] = isset( $new_instance['button_label'] ) ? wp_kses_post( $new_instance['button_label'] ) : null;
 
 		return $instance;
 

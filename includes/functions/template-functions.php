@@ -88,10 +88,11 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
  * @param  bool             $echo (optional) Whether or not the form should be echoed.
+ * @param  string           $button_label (optional) Text to display in the button
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post = null, $echo = true ) {
+function rstore_add_to_cart_form( $post = null, $echo = true, $button_label ) {
 
 	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
 
@@ -108,7 +109,7 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
 	?>
 	<div class="rstore-add-to-cart-form">
 		<input type="hidden" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
-		<?php	rstore_add_to_cart_button( $post ); ?>
+		<?php	rstore_add_to_cart_button( $post, $button_label ); ?>
 		<div class="rstore-loading rstore-loading-hidden" ></div>
 		<div class="rstore-message"></div>
 	</div>
@@ -132,13 +133,18 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
  * @since 0.2.0
  *
  * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
+ * @param  string           $button_label (optional) Text to display in the button
  * @param  bool             $echo (optional) Whether or not the add to cart button should be echoed.
  *
  * @return string|null
  */
-function rstore_add_to_cart_button( $post = null, $echo = true ) {
+function rstore_add_to_cart_button( $post = null, $button_label = null, $echo = true ) {
 
 	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
+
+	if ( ! empty( $button_label ) ) {
+		$label = $button_label;
+	}
 
 	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 

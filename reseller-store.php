@@ -78,25 +78,26 @@ final class Plugin {
 
 		}
 
-		new Restrictions;
+		new Restrictions();
 
 		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
-			new Setup;
+			new Setup();
 
 			return; // Bail until Setup is complete.
 
 		}
 
-		new ButterBean;
-		new Display;
-		new Embed;
-		new Permalinks;
-		new Post_Type;
-		new Sync;
-		new Taxonomy_Category;
-		new Taxonomy_Tag;
-		new Widgets;
+		new ButterBean();
+		new Display();
+		new Embed();
+		new Permalinks();
+		new Post_Type();
+		new Sync();
+		new Taxonomy_Category();
+		new Taxonomy_Tag();
+		new Widgets();
+		new Shortcodes();
 
 	}
 

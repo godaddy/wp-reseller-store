@@ -80,6 +80,35 @@ final class API {
 
 	}
 
+
+	/**
+	 * Build a SSO login or logout url.
+	 *
+	 * @since NEXT
+	 *
+	 * @param bool login        Generate a Login or Logout URL.
+	 *
+	 * @return string
+	 */
+	public function get_sso_url( $login = true ) {
+
+		$args = [
+			'plid'  => (int) rstore_get_option( 'pl_id' ),
+			'realm' => 'idp',
+			'app'   => 'www',
+
+		];
+
+		$url = sprintf(
+			'https://sso.%s/%s/',
+			$this->tld,
+			$login ? 'login' : 'logout'
+		);
+
+		return esc_url_raw( add_query_arg( $args, $url ) );
+
+	}
+
 	/**
 	 * Add required query args to a given URL.
 	 *

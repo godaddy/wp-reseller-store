@@ -14,10 +14,10 @@ final class Helper {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function create_product() {
+	public static function create_product( $post_title = 'WordPress Hosting' ) {
 
 		$post_id = wp_insert_post( [
-			'post_title'  => 'WordPress Hosting',
+			'post_title'  => $post_title,
 			'post_name'   => 'wordpress-hosting',
 			'post_type'   => 'reseller_product',
 			'post_status' => 'publish',
