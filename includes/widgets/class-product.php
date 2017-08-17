@@ -115,7 +115,7 @@ final class Product extends \WP_Widget {
 
 		if ( ! empty( $data['button_label'] ) ) {
 
-			echo rstore_add_to_cart_form( $post_id, false, $data['button_label'] ); // xss ok.
+			echo rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['redirect'] ); // xss ok.
 
 		}
 		echo $args['after_widget']; // xss ok.
@@ -178,9 +178,16 @@ final class Product extends \WP_Widget {
 		</p>
 
 		<p>
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'redirect' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'redirect' ) ); ?>" value="1" class="checkbox" <?php checked( $data['redirect'], true ); ?>>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'redirect' ) ); ?>">
+				<?php esc_html_e( 'Redirect to cart after adding item', 'reseller' ); ?>
+			</label>
+		</p>
+
+		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>"><?php esc_html_e( 'Button Label:', 'reseller' ); ?></label>
 			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_label' ) ); ?>" value="<?php echo esc_attr( $data['button_label'] ); ?>" class="widefat">
-			<span class="description" >Leave blank to hide button.</span>
+			<span class="description" ><?php esc_html_e( 'Leave blank to hide button', 'reseller' ); ?></span>
 		</p>
 
 		<?php
@@ -203,6 +210,7 @@ final class Product extends \WP_Widget {
 		$instance['show_title'] = isset( $new_instance['show_title'] ) ? (bool) absint( $new_instance['show_title'] ) : false;
 		$instance['show_content'] = isset( $new_instance['show_content'] ) ? (bool) absint( $new_instance['show_content'] ) : false;
 		$instance['show_price'] = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
+		$instance['redirect'] = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
 		$instance['image_size'] = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'post-thumbnail';
 		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
 
@@ -271,6 +279,7 @@ final class Product extends \WP_Widget {
 			'show_title' => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
 			'show_content' => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : true,
 			'show_price' => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
+			'redirect' => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : false,
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
 			'image_size' => isset( $instance['image_size'] ) ? $instance['image_size'] : 'post-thumbnail',
 		];

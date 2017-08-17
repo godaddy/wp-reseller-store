@@ -110,7 +110,41 @@ final class TestShortcodes extends TestCase {
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '//' );
+		$this->expectOutputString( '' );
+	}
+
+	/**
+	 * @testdox Given a valid product shortcode with redirct=1 params it should redirect truthy data attribute
+	 */
+	function test_product_with_redirect_1_param() {
+
+		$post = Tests\Helper::create_product( 'Another Product good' );
+
+		$content = '[rstore-product
+      post_id=' . $post->ID . ',
+      redirect=1
+      ]';
+
+		do_shortcode( $content );
+
+		$this->expectOutputRegex( '/data-redirect="true"/' );
+	}
+
+	/**
+	 * @testdox Given a valid product shortcode with redirect=0 params it should redirect falsy data attribute
+	 */
+	function test_product_with_redirect_0_param() {
+
+		$post = Tests\Helper::create_product( 'Another Product good' );
+
+		$content = '[rstore-product
+      post_id=' . $post->ID . ',
+      redirect=0
+      ]';
+
+		do_shortcode( $content );
+
+		$this->expectOutputRegex( '/data-redirect="false"/' );
 	}
 
 }
