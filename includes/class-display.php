@@ -67,6 +67,7 @@ final class Display {
 				'cart'     => rstore()->api->urls['cart'],
 				'cart_api' => esc_url_raw( rstore()->api->url( 'cart/{pl_id}' ) ),
 				'domain_api' => rstore()->api->url( 'domains/{pl_id}' ),
+				'gui' => rstore()->api->urls['gui'],
 			],
 			'cookies' => [
 				'ttl'       => absint( $cookie_ttl ) * 1000, // Convert seconds to ms.

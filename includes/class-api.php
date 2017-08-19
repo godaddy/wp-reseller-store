@@ -77,6 +77,7 @@ final class API {
 
 		$this->urls['api']  = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
 		$this->urls['cart'] = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['gui'] = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
 
 	}
 
@@ -100,9 +101,10 @@ final class API {
 		];
 
 		$url = sprintf(
-			'https://sso.%s/%s/',
+			'https://%s.%s/%s',
+			$login ? 'mya' : 'sso',
 			$this->tld,
-			$login ? 'login' : 'logout'
+			$login ? '' : 'logout'
 		);
 
 		return esc_url_raw( add_query_arg( $args, $url ) );

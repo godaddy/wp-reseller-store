@@ -14,20 +14,6 @@
 
       }
 
-      var value = parseInt( Cookies.get( rstore.cookies.cartCount ), 10 );
-
-      cart.updateCount( value );
-
-      if ( value > 0 ) {
-
-        cart.api( 'get', {}, function( response ) {
-
-          cart.updateCount( response );
-
-        } );
-
-      }
-
       //window listener
       var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
       var eventer = window[eventMethod];
@@ -134,8 +120,6 @@
         value = ( undefined !== value.cartCount ) ? value.cartCount : value;
         value = ( value ) ? parseInt( value, 10 ) : 0;
 
-        Cookies.set( rstore.cookies.cartCount, value, { expires: new Date( new Date().getTime() + rstore.cookies.ttl ), path: '/' } );
-
         $( '.rstore-cart-count' ).text( value );
 
         $( '.widget.rstore-cart' ).each( function() {
@@ -226,11 +210,12 @@
 
       }
 
-      var plid = rstore.pl_id;
-      var sid = Cookies.get( rstore.cookies.shopperId );
+      var plid = rstore.pl_id,
+        sid = Cookies.get( rstore.cookies.shopperId ),
+        url = rstore.urls.gui;
 
       $.ajax({
-        url: "https://gui.secureserver.net//pcjson/standardheaderfooter",
+        url: url,
         jsonp: "callback",
         dataType: "jsonp",
         data: {
@@ -251,6 +236,10 @@
               $( this ).hide();
             });
           }
+
+          cart.updateCount( response.carttotal );
+
+
         }
       });
     }
