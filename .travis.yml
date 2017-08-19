@@ -45,7 +45,7 @@ install:
   - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
+  - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php' -not -path './includes/butterbean/*')
   - phpunit -c .dev/phpunit.xml.dist
 
 jobs:

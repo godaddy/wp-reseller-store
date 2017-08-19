@@ -78,11 +78,11 @@ final class Plugin {
 
 		}
 
-		new Restrictions();
+		new Restrictions;
 
 		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
-			new Setup();
+			new Setup;
 
 			return; // Bail until Setup is complete.
 
