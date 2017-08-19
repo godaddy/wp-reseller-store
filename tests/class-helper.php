@@ -13,6 +13,10 @@ final class Helper {
 	 * Create a product post.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @param string $post_title     The title of the custom post.
+	 *
+	 * @return array                 The post that was just created.
 	 */
 	public static function create_product( $post_title = 'WordPress Hosting' ) {
 

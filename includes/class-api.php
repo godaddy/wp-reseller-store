@@ -87,7 +87,7 @@ final class API {
 	 *
 	 * @since NEXT
 	 *
-	 * @param bool login        Generate a Login or Logout URL.
+	 * @param bool $login        Generate a Login or Logout URL.
 	 *
 	 * @return string
 	 */

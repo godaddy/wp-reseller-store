@@ -21,6 +21,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class Shortcodes {
 
+	/**
+	 * Widgets args.
+	 *
+	 * @since NEXT
+	 *
+	 * @var array
+	 */
 	private $args = [
 		'before_widget' => '',
 		'before_title' => '',
@@ -76,6 +83,13 @@ final class Shortcodes {
 
 	}
 
+	/**
+	 * Render the domain search widget.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts        The shortcode attributes.
+	 */
 	public function domain_search( $atts ) {
 
 		$domain = new Widgets\Domain_Search();
@@ -84,6 +98,13 @@ final class Shortcodes {
 
 	}
 
+	/**
+	 * Render the cart button widget.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts        The shortcode attributes.
+	 */
 	public function cart_button( $atts ) {
 
 		$cart = new Widgets\Cart();
@@ -92,6 +113,13 @@ final class Shortcodes {
 
 	}
 
+	/**
+	 * Render the domain search widget.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts        The shortcode attributes.
+	 */
 	public function product( $atts ) {
 
 		$product = new Widgets\Product();

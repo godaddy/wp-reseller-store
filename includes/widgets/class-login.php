@@ -174,7 +174,7 @@ final class Login extends \WP_Widget {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'              => isset( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'reseller-store' ),
+			'title'              => isset( $instance['title'] ) ? $instance['title'] : '',
 			'welcome_message'    => isset( $instance['welcome_message'] ) ? $instance['welcome_message'] : esc_html__( 'Welcome Back', 'reseller-store' ),
 			'login_button_text'  => isset( $instance['login_button_text'] ) ? $instance['login_button_text'] : esc_html__( 'Log In', 'reseller-store' ),
 			'logout_button_text' => isset( $instance['logout_button_text'] ) ? $instance['logout_button_text'] : esc_html__( 'Log Out', 'reseller-store' ),

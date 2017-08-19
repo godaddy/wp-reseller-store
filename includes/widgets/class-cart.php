@@ -150,7 +150,7 @@ final class Cart extends \WP_Widget {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'           => isset( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'reseller-store' ),
+			'title'           => isset( $instance['title'] ) ? $instance['title'] : '',
 			'button_label'    => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'View Cart', 'reseller-store' ),
 		);
 	}

@@ -88,8 +88,8 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
  * @param  bool             $echo (optional) Whether or not the form should be echoed.
- * @param  string           $label (optional) Text to display in the button
- * @param  bool             $param_redirect (optional) Redirect to cart after adding item
+ * @param  string           $label (optional) Text to display in the button.
+ * @param  bool             $redirect (optional) Redirect to cart after adding item.
  *
  * @return string|null
  */
@@ -123,8 +123,8 @@ function rstore_add_to_cart_form( $post = null, $echo = true, $label = null, $re
  * @since 0.2.0
  *
  * @param  int|WP_Post|null $post (required) Product WP_Post instance.
- * @param  string           $param_label (optional) Text to display in the button
- * @param  bool             $param_redirect (optional) Redirect to cart after adding item
+ * @param  string           $param_label (optional) Text to display in the button.
+ * @param  bool             $param_redirect (optional) Redirect to cart after adding item.
  * @param  bool             $echo (optional) Whether or not the add to cart button should be echoed.
  *
  * @return string|null

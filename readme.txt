@@ -3,7 +3,7 @@ Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              admin, posts, users
 Requires at least: 4.6
 Tested up to:      4.8
-Stable tag:        1.0.0
+Stable tag:        0.2.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ Design your own storefront for your GoDaddy Reseller plan and have more control 
 
 With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search and cart widgets!
 
-[youtube https://youtu.be/mx7sRwXh444]
+[youtube https://youtu.be/3vMnghv3XcY]
 
 **Features**
 * Easily design a site that is for desktop or mobile devices in your theme

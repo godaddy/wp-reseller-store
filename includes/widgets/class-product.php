@@ -90,7 +90,7 @@ final class Product extends \WP_Widget {
 
 		}
 
-		if ( $data['image_size'] !== 'none' ) {
+		if ( 'none' !== $data['image_size'] ) {
 
 				echo get_the_post_thumbnail( $post_id,  $data['image_size'] );
 
@@ -144,19 +144,6 @@ final class Product extends \WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>">
-				<?php esc_html_e( 'Image size: ', 'reseller' ); ?>
-			</label>
-			<select id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" class="widefat" style="width:100%;">
-				<option value='thumbnail' <?php selected( 'thumbnail', $data['image_size'] ); ?>><?php esc_html_e( 'Thumbnail', 'reseller' ); ?></option>
-				<option value='medium' <?php selected( 'medium', $data['image_size'] ); ?>><?php esc_html_e( 'Medium resolution', 'reseller' ); ?></option>
-				<option value='large' <?php selected( 'large', $data['image_size'] ); ?>><?php esc_html_e( 'Large resolution', 'reseller' ); ?></option>
-				<option value='full' <?php selected( 'full', $data['image_size'] ); ?>><?php esc_html_e( 'Original resolution', 'reseller' ); ?></option>
-				<option value='none' <?php selected( 'none', $data['image_size'] ); ?>><?php esc_html_e( 'Hide Image', 'reseller' ); ?></option>
-			</select>
-		</p>
-
-		<p>
 			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_title' ) ); ?>" value="1" class="checkbox" <?php checked( $data['show_title'], true ); ?>>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>">
 				<?php esc_html_e( 'Show product title', 'reseller' ); ?>
@@ -188,6 +175,16 @@ final class Product extends \WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>"><?php esc_html_e( 'Button Label:', 'reseller' ); ?></label>
 			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_label' ) ); ?>" value="<?php echo esc_attr( $data['button_label'] ); ?>" class="widefat">
 			<span class="description" ><?php esc_html_e( 'Leave blank to hide button', 'reseller' ); ?></span>
+		</p>
+
+		</p>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" class="widefat" style="width:100%;">
+				<option value='thumbnail' <?php selected( 'thumbnail', $image_size ); ?>><?php esc_html_e( 'Thumbnail', 'reseller' ); ?></option>
+				<option value='medium' <?php selected( 'medium', $image_size ); ?>><?php esc_html_e( 'Medium resolution', 'reseller' ); ?></option>
+				<option value='large' <?php selected( 'large', $image_size ); ?>><?php esc_html_e( 'Large resolution', 'reseller' ); ?></option>
+				<option value='full' <?php selected( 'full', $image_size ); ?>><?php esc_html_e( 'Original resolution', 'reseller' ); ?></option>
+				<option value='none' <?php selected( 'none', $image_size ); ?>><?php esc_html_e( 'Hide Image', 'reseller' ); ?></option>
+			</select>
 		</p>
 
 		<?php
