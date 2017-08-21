@@ -43,43 +43,56 @@ final class Shortcodes {
 	public function __construct() {
 
 		/**
-	 * Register the domain search shortcode
-	 *
-	 * @shortcode [rstore-domain-search]
-	 *
-	 * @since  NEXT
-	 *
-	 * @param  array $atts Defualt shortcode parameters.
-	 *
-	 * @return mixed Returns the HTML markup for the domain search container.
-	 */
+		 * Register the domain search shortcode
+		 *
+		 * @shortcode [rstore-domain-search]
+		 *
+		 * @since  NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the domain search container.
+		 */
 		add_shortcode( 'rstore-domain-search', [ $this, 'domain_search' ] );
 
-		/**
-	 * Register the add to cart shortcode
-	 *
-	 * @shortcode [rstore-cart-button]
-	 *
-	 * @since  NEXT
-	 *
-	 * @param  array $atts Defualt shortcode parameters.
-	 *
-	 * @return mixed Returns the HTML markup for the cart button
-	 */
+		 /**
+		 * Register the add to cart shortcode
+		 *
+		 * @shortcode [rstore-cart-button]
+		 *
+		 * @since  NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the cart button
+		 */
 		add_shortcode( 'rstore-cart-button', [ $this, 'cart_button' ] );
 
-		/**
-	 * Register the add to product shortcode
-	 *
-	 * @shortcode [rstore-product]
-	 *
-	 * @since  NEXT
-	 *
-	 * @param  array $atts Defualt shortcode parameters.
-	 *
-	 * @return mixed Returns the HTML markup for the product pod
-	 */
+		 /**
+		 * Register the add to product shortcode
+		 *
+		 * @shortcode [rstore-product]
+		 *
+		 * @since  NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the product pod
+		 */
 		add_shortcode( 'rstore-product', [ $this, 'product' ] );
+
+		 /**
+		 * Register the login shortcode
+		 *
+		 * @shortcode [rstore-login]
+		 *
+		 * @since  NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the product pod
+		 */
+		add_shortcode( 'rstore-login', [ $this, 'login' ] );
 
 	}
 
@@ -125,6 +138,21 @@ final class Shortcodes {
 		$product = new Widgets\Product();
 
 		$product->widget( $this->args, $atts );
+
+	}
+
+	/**
+	 * Render the login widget.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts        The shortcode attributes.
+	 */
+	public function login( $atts ) {
+
+		$login = new Widgets\Login();
+
+		$login->widget( $this->args, $atts );
 
 	}
 

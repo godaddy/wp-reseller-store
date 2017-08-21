@@ -15,7 +15,7 @@ Design your own storefront for your GoDaddy Reseller plan and have more control 
 
 With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search and cart widgets!
 
-[youtube https://youtu.be/3vMnghv3XcY]
+[youtube https://youtu.be/mx7sRwXh444]
 
 **Features**
 * Easily design a site that is for desktop or mobile devices in your theme
@@ -43,6 +43,15 @@ You can call our support team at (480) 505-8857
 Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). If you believe you have found a bug, or have a killer feature idea, please open a [open a new issue](https://github.com/godaddy/wp-reseller-store/issues) there. Pull requests on existing issues are also welcome!
 
 == Changelog ==
+
+= NEXT - August 2017 =
+*  New: Shopper lgoin widget  
+*  New: Add more options including _cart redirect_ to the product widget
+*  New: Move shortcodes to a new class and add new shortcodes. Support shortcodes are \[rstore-domain-search\], \[rstore-cart-button\], \[rstore-product\], \[rstore-login\] 
+*  Fix: No longer store cart count in a cookie
+*  Fix: Image size on the product widget
+*  Fix: Display error if post id cannot be found on product widget
+*  Fix: No longer remove html from widget labels
 
 = 1.0.0 - July 2017 =
 

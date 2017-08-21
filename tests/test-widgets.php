@@ -184,6 +184,6 @@ final class TestWidget extends TestCase {
 
 		// display domain search.
 		$this->expectOutputRegex( '/<span class="rstore-welcome-message">Welcome<\/span>/' );
-		$this->expectOutputRegex( '/<a class="rstore-logout-button" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">Log Out<\/a>/' );
+		$this->expectOutputRegex( '/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">Log Out<\/a>/' );
 	}
 }

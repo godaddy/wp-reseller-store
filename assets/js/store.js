@@ -224,15 +224,18 @@
         },
         success: function( response ) {
           if (response.status === 'partial') {
-            $( '.rstore-welcome-name' ).each( function() {
+            $( '.rstore-welcome-block span.firstname' ).each( function() {
               $( this ).text( response.name );
+            });
+            $( '.rstore-welcome-block span.lastname' ).each( function() {
+              $( this ).text( response.lastname );
             });
 
             $( '.rstore-welcome-block' ).each( function() {
               $( this ).show();
             });
 
-            $( '.rstore-login-button' ).each( function() {
+            $( '.rstore-login-block' ).each( function() {
               $( this ).hide();
             });
           }

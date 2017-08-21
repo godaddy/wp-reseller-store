@@ -48,6 +48,15 @@ Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-re
 
 ## Changelog ##
 
+### NEXT - August 2017 ###
+*  New: Shopper lgoin widget  
+*  New: Add more options including _cart redirect_ to the product widget
+*  New: Move shortcodes to a new class and add new shortcodes. Support shortcodes are \[rstore-domain-search\], \[rstore-cart-button\], \[rstore-product\], \[rstore-login\] 
+*  Fix: No longer store cart count in a cookie
+*  Fix: Image size on the product widget
+*  Fix: Display error if post id cannot be found on product widget
+*  Fix: No longer remove html from widget labels
+
 ### 1.0.0 - July 2017 ###
 
 * New: Plugin activation is easier with integration of the [Reseller Control Center](https://reseller.godaddy.com)

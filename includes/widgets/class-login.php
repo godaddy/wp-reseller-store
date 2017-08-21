@@ -89,17 +89,17 @@ final class Login extends \WP_Widget {
 		$data = $this->get_data( $instance );
 
 		?>
-		<div class="rstore-login-block">
+		<div class="rstore-login-block" style="display: block;">
 			<!-- Show login button -->
-			<div class="rstore-login-button" style="display: block;">
-			<a href="<?php echo rstore()->api->get_sso_url(); ?>" rel="nofollow"><?php echo $data['login_button_text']; ?></a>
-			</div>
+			<a class="login-link" href="<?php echo rstore()->api->get_sso_url(); ?>" rel="nofollow"><?php echo $data['login_button_text']; ?></a>
+		</div>
+
+		<div  class="rstore-welcome-block" style="display: none;">
 			<!--- Show welcome message -->
-			<div  class="rstore-welcome-block" style="display: none;">
-				<span class="rstore-welcome-message"><?php echo $data['welcome_message']; ?></span>
-				<span class="rstore-welcome-name"></span>
-				<a class="rstore-logout-button" href="<?php echo rstore()->api->get_sso_url( false ); ?>" rel="nofollow"><?php echo $data['logout_button_text']; ?></a>
-			</div>
+			<span class="welcome-message"><?php echo $data['welcome_message']; ?></span>
+			<span class="firstname"></span>
+			<span class="lastname"></span>
+			<a class="logout-link" href="<?php echo rstore()->api->get_sso_url( false ); ?>" rel="nofollow"><?php echo $data['logout_button_text']; ?></a>
 		</div>
 
 		<?php

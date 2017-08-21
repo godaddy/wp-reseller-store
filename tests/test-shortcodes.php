@@ -121,7 +121,7 @@ final class TestShortcodes extends TestCase {
 		$post = Tests\Helper::create_product( 'Another Product good' );
 
 		$content = '[rstore-product
-      post_id=' . $post->ID . ',
+      post_id=' . $post->ID . '
       redirect=1
       ]';
 
@@ -138,13 +138,34 @@ final class TestShortcodes extends TestCase {
 		$post = Tests\Helper::create_product( 'Another Product good' );
 
 		$content = '[rstore-product
-      post_id=' . $post->ID . ',
+      post_id=' . $post->ID . '
       redirect=0
       ]';
 
 		do_shortcode( $content );
 
 		$this->expectOutputRegex( '/data-redirect="false"/' );
+	}
+
+	/**
+	 * @testdox Given a valid login shortcode it should generate the login html
+	 */
+	function test_login() {
+
+		$post = Tests\Helper::create_product( 'Another Product good' );
+
+		$content = '[rstore-login
+      welcome_message="aaaa"
+      login_button_text="bbbb"
+      logout_button_text="cccc"
+      ]';
+
+		do_shortcode( $content );
+
+		$this->expectOutputRegex( '/<a class="login-link" href="https:\/\/mya.secureserver.net\/\?plid=0&realm=idp&app=www"/' );
+		$this->expectOutputRegex( '/<span class="welcome-message">aaaa<\/span>/' );
+		$this->expectOutputRegex( '/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">cccc<\/a>/' );
+
 	}
 
 }
