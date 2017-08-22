@@ -15,6 +15,9 @@ namespace Reseller_Store\Widgets;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	/**
+	* @codeCoverageIgnore
+	*/
 	exit;
 
 }
