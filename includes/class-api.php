@@ -117,15 +117,14 @@ final class API {
 	 * @since 0.2.0
 	 *
 	 * @param string $url        The original URL.
-	 * @param bool   $add_pl_id (optional) 'pl_id' to add to the query.
 	 *
 	 * @return string
 	 */
-	public function add_query_args( $url, $add_pl_id = true ) {
+	public function add_query_args( $url ) {
 
 		$args = [];
 
-		if ( $add_pl_id && rstore_is_setup() ) {
+		if ( rstore_is_setup() ) {
 
 			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
 
@@ -188,7 +187,7 @@ final class API {
 
 		}
 
-		return $this->add_query_args( trailingslashit( $url ), false );
+		return $this->add_query_args( trailingslashit( $url ) );
 
 	}
 
