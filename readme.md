@@ -19,7 +19,7 @@ Design your own storefront for your GoDaddy Reseller plan and have more control 
 
 With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search and cart widgets!
 
-[![Play video on YouTube](https://img.youtube.com/vi/mx7sRwXh444/maxresdefault.jpg)](https://www.youtube.com/watch?v=mx7sRwXh444)
+[![Play video on YouTube](https://img.youtube.com/vi/DKFZGitRKek/maxresdefault.jpg)](https://www.youtube.com/watch?v=DKFZGitRKek)
 
 **Features**
 * Easily design a site that is for desktop or mobile devices in your theme
