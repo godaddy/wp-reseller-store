@@ -36,13 +36,16 @@
     "grunt-dev-update": "^2.2.0",
     "grunt-potomo": "^3.5.0",
     "grunt-text-replace": "^0.4.0",
-    "grunt-wp-i18n": "^1.0.0",
     "grunt-wp-deploy": "^1.2.1",
+    "grunt-wp-i18n": "^1.0.0",
     "grunt-wp-readme-to-markdown": "^2.0.1",
     "matchdep": "^1.0.1"
   },
   "scripts": {
     "version": "grunt version && git add -A .",
     "postversion": "git push && git push --tags"
+  },
+  "dependencies": {
+    "domain-search": "^1.0.1"
   }
 }
