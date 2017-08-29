@@ -46,6 +46,6 @@
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "domain-search": "^1.0.1"
+    "domain-search": "^1.0.2"
   }
 }
