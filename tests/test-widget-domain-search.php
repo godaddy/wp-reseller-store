@@ -25,13 +25,17 @@ final class TestWidgetDomainSearch extends TestCase {
 	function test_widget() {
 
 		$widget = new Widgets\Domain_Search();
-
-		$post = Tests\Helper::create_product();
+		rstore_update_option( 'pl_id', 12345 );
 
 		$instance = [
 			'title'    => '',
 			'placeholder' => '',
-			'button_label' => '',
+			'search' => '',
+			'available'    => '',
+			'not-available' => '',
+			'cart' => '',
+			'select'    => '',
+			'selected' => '',
 		];
 
 		$args = [
@@ -44,7 +48,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget->widget( $args, $instance );
 
 		// display domain search.
-		$this->expectOutputRegex( '/<div class="rstore-domain-search"><\/div>/' );
+		$this->expectOutputRegex( '/div class="rstore-domain-search" data-plid=12345><\/div>/' );
 
 	}
 
@@ -55,16 +59,17 @@ final class TestWidgetDomainSearch extends TestCase {
 
 		$widget = new Widgets\Domain_Search();
 
-		$old_instance = [
-			'title'    => '',
-			'placeholder' => '',
-			'button_label' => '',
-		];
+		$old_instance = [];
 
 		$new_instance = [
-			'title'    => 'title 1',
-			'placeholder' => 'placeholder 1',
-			'button_label' => 'button_label 1',
+			'title'    => 'title',
+			'placeholder' => 'placeholder',
+			'search' => 'search',
+			'available'    => 'available',
+			'not-available' => 'not-available',
+			'cart' => 'cart',
+			'select'    => 'select',
+			'selected' => 'selected',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
@@ -85,13 +90,18 @@ final class TestWidgetDomainSearch extends TestCase {
 		$instance = [
 			'title'    => 'title',
 			'placeholder' => 'placeholder',
-			'button_label' => 'button_label',
+			'search' => 'search',
+			'available'    => 'available',
+			'not-available' => 'not-available',
+			'cart' => 'cart',
+			'select'    => 'select',
+			'selected' => 'selected',
 		];
 
 		$widget->form( $instance );
 
 		foreach ( $instance as $key => $value ) {
-			$this->expectOutputRegex( '/<input type="text" id="widget-rstore_domain-search--' . $key . '" name="widget-rstore_domain-search\[\]\[' . $key . '\]" value="' . $value . '" class="widefat">/' );
+			$this->expectOutputRegex( '/<input type="text" id="widget-rstore_search--' . $key . '" name="widget-rstore_search\[\]\[' . $key . '\]" value="' . $value . '" class="widefat">/' );
 		}
 
 	}

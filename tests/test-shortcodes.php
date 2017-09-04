@@ -22,11 +22,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_domain_search() {
 
-		$content = '[rstore-domain-search placeholder="Search for a new domain" button_label="Search" title="domain search box" ]';
+		$content = '[rstore-domain-search]';
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '/<div class="rstore-domain-search"><\/div>/' );
+		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-text-placeholder="Find your perfect domain name" data-text-search="Search" data-text-available="Congrats, your domain is available!" data-text-not-available="Sorry that domain is taken" data-text-cart="Continue to Cart" data-text-select="Select" data-text-selected="Selected"><\/div>/' );
 	}
 
 	/**

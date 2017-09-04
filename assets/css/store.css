@@ -181,6 +181,12 @@
 	word-break: break-word;
 }
 
+.rstore-domain-search .continue-block {
+  display: block;
+  float: right;
+  padding-bottom: 15px;
+}
+
 .rstore-domain-search .purchase-info {
 	display: block;
 	float: right;

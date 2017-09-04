@@ -32,10 +32,10 @@ final class Domain_Search extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			rstore_prefix( 'domain-search' ),
+			rstore_prefix( 'search' ),
 			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
 			[
-				'classname'   => rstore_prefix( 'domain-search', true ),
+				'classname'   => rstore_prefix( 'search', true ),
 				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
 			]
 		);
@@ -89,7 +89,18 @@ final class Domain_Search extends \WP_Widget {
 
 		}
 
-		echo '<div class="rstore-domain-search"></div>';
+		$data = $this->get_data( $instance );
+
+		echo '<div class="rstore-domain-search"';
+		echo ' data-plid=' . rstore_get_option( 'pl_id' );
+
+		foreach ( $data as $key => $text ) {
+			if ( ! empty( $text ) ) {
+				echo ' data-text-' . $key . '="' . $text . '"';
+			}
+		}
+
+		echo '></div>';
 
 		echo $args['after_widget']; // xss ok.
 
@@ -103,28 +114,33 @@ final class Domain_Search extends \WP_Widget {
 	 * @param array $instance Widget instance.
 	 */
 	public function form( $instance ) {
+		$data = $this->get_data( $instance );
+		$this->display_form_input( 'title', $data['title'], esc_html_e( 'Title:', 'reseller' ) );
+		$this->display_form_input( 'placeholder', $data['placeholder'], esc_html_e( 'Placeholder:', 'reseller' ) );
+		$this->display_form_input( 'search', $data['search'], esc_html_e( 'Search Button:', 'reseller' ) );
+		$this->display_form_input( 'available', $data['available'], esc_html_e( 'Available Text:', 'reseller' ) );
+		$this->display_form_input( 'not-available', $data['not-available'], esc_html_e( 'Not Available Text:', 'reseller' ) );
+		$this->display_form_input( 'cart', $data['cart'], esc_html_e( 'Cart Button Text:', 'reseller' ) );
+		$this->display_form_input( 'select', $data['select'], esc_html_e( 'Select Button Text:', 'reseller' ) );
+		$this->display_form_input( 'selected', $data['selected'], esc_html_e( 'Unselect Button Text:', 'reseller' ) );
+	}
 
-		$title        = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Domain Search', 'reseller-store' );
-		$placeholder  = isset( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Find your perfect name', 'reseller-store' );
-		$button_label = isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Search', 'reseller-store' );
-
+	/**
+	 * Display form input field
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $field Feield name.
+	 * @param  array  $value Value of the field.
+	 * @param  array  $label Form label text.
+	 */
+	private function display_form_input( $field, $value, $label ) {
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $title ); ?>" class="widefat">
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>"><?php esc_html_e( 'Placeholder:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" value="<?php echo esc_attr( $placeholder ); ?>" class="widefat">
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>"><?php esc_html_e( 'Button:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_label' ) ); ?>" value="<?php echo esc_attr( $button_label ); ?>" class="widefat">
+			<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"><?php $label; ?></label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $field ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="widefat">
 		</p>
 		<?php
-
 	}
 
 	/**
@@ -141,10 +157,37 @@ final class Domain_Search extends \WP_Widget {
 
 		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
 		$instance['placeholder']  = isset( $new_instance['placeholder'] ) ? wp_kses_post( $new_instance['placeholder'] ) : null;
-		$instance['button_label'] = isset( $new_instance['button_label'] ) ? wp_kses_post( $new_instance['button_label'] ) : null;
+		$instance['search']  = isset( $new_instance['search'] ) ? wp_kses_post( $new_instance['search'] ) : null;
+		$instance['available']  = isset( $new_instance['available'] ) ? wp_kses_post( $new_instance['available'] ) : null;
+		$instance['not-available']  = isset( $new_instance['not-available'] ) ? wp_kses_post( $new_instance['not-available'] ) : null;
+		$instance['cart']  = isset( $new_instance['cart'] ) ? wp_kses_post( $new_instance['cart'] ) : null;
+		$instance['select']  = isset( $new_instance['select'] ) ? wp_kses_post( $new_instance['select'] ) : null;
+		$instance['selected']  = isset( $new_instance['selected'] ) ? wp_kses_post( $new_instance['selected'] ) : null;
 
 		return $instance;
 
+	}
+
+	/**
+	 * Set data from instance or default value.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  array $instance Widget instance.
+	 *
+	 * @return array
+	 */
+	private function get_data( $instance ) {
+		return array(
+			'title'           => isset( $instance['title'] ) ? $instance['title'] : '',
+			'placeholder'     => isset( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Find your perfect domain name', 'reseller-store' ),
+			'search'          => isset( $instance['search'] ) ? $instance['search'] : esc_html__( 'Search', 'reseller-store' ),
+			'available'       => isset( $instance['available'] ) ? $instance['available'] : esc_html__( 'Congrats, your domain is available!', 'reseller-store' ),
+			'not-available'   => isset( $instance['not-available'] ) ? $instance['not-available'] : esc_html__( 'Sorry that domain is taken', 'reseller-store' ),
+			'cart'            => isset( $instance['cart'] ) ? $instance['cart'] : esc_html__( 'Continue to Cart', 'reseller-store' ),
+			'select'   => isset( $instance['select'] ) ? $instance['select'] : esc_html__( 'Select', 'reseller-store' ),
+			'selected' => isset( $instance['selected'] ) ? $instance['selected'] : esc_html__( 'Selected', 'reseller-store' ),
+		);
 	}
 
 }
