@@ -50,28 +50,16 @@ final class Display {
 
 		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), [], '2.1.3', true );
 		wp_enqueue_script( 'rstore', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
-		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( 'js/domain-search.min.js' ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
-
-		/**
-		 * Filter the TTL for cookies (in seconds).
-		 *
-		 * @since 0.2.0
-		 *
-		 * @var int
-		 */
-		$cookie_ttl = (int) apply_filters( 'rstore_cookie_ttl', DAY_IN_SECONDS * 30 );
+		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( 'js/domain-search.min.js' ), [], rstore()->version, true );
 
 		$data = [
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
 			'urls'    => [
 				'cart'     => rstore()->api->urls['cart'],
 				'cart_api' => esc_url_raw( rstore()->api->url( 'cart/{pl_id}' ) ),
-				'domain_api' => rstore()->api->url( 'domains/{pl_id}' ),
 				'gui' => rstore()->api->urls['gui'],
 			],
 			'cookies' => [
-				'ttl'       => absint( $cookie_ttl ) * 1000, // Convert seconds to ms.
-				'cartCount' => rstore_prefix( 'cart-count', true ),
 				'shopperId' => 'ShopperId' . rstore_get_option( 'pl_id' ),
 			],
 			'product' => [

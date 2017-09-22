@@ -8,6 +8,7 @@
 
 .rstore-message {
 	display: inline-block;
+	height: 48px;
 }
 
 .rstore-add-to-cart-form .rstore-message {
@@ -162,7 +163,7 @@
 .rstore-domain-search .domain-result {
 	float: left;
 	vertical-align: middle;
-	padding: 15px 20px 5px 15px;
+	padding: 10px 20px 10px 15px;
 	width: 100%;
 	min-width: 290px;
 	border: 1px solid #e8e8e8;
@@ -171,32 +172,34 @@
 .rstore-domain-search .rstore-exact-domain-list .domain-result {
 	margin-bottom: 15px;
 	border: 3px solid #e8e8e8;
+	font-size: 1.5rem;
+	padding: 10px 20px 22px 15px
+}
+
+.rstore-domain-search .rstore-exact-domain-list h4 {
+  padding-top: 37px
+}
+
+.rstore-domain-search .rstore-exact-domain-list a.rstore-domain-buy-button.submit.button.select {
+    vertical-align: middle;
 }
 
 .rstore-domain-search .domain-name {
 	display: inline-block;
 	vertical-align: middle;
 	vertical-align: -webkit-baseline-middle;
-	padding: 10px 0;
 	word-break: break-word;
 }
 
 .rstore-domain-search .continue-block {
   display: block;
   float: right;
-  padding-bottom: 15px;
+  padding: 14px 0 14px 0;
 }
 
 .rstore-domain-search .purchase-info {
 	display: block;
 	float: right;
-}
-
-.rstore-domain-search .pricing {
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 10px;
-	text-align: right;
 }
 
 .rstore-domain-search .listPrice {

@@ -101,7 +101,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget->form( $instance );
 
 		foreach ( $instance as $key => $value ) {
-			$this->expectOutputRegex( '/<input type="text" id="widget-rstore_search--' . $key . '" name="widget-rstore_search\[\]\[' . $key . '\]" value="' . $value . '" class="widefat">/' );
+			$this->expectOutputRegex( '/<input type="text" id="widget-rstore_domain--' . $key . '" name="widget-rstore_domain\[\]\[' . $key . '\]" value="' . $value . '" class="widefat">/' );
 		}
 
 	}
