@@ -45,7 +45,7 @@ msgstr "Standardanzahl"
 
 #: includes/class-butterbean.php:273
 msgid "Add to Cart Button Label"
-msgstr "Beschriftung der Schaltfläche „In den Einkaufswagen“"
+msgstr "Beschriftung der Schaltfläche „In den Warenkorb legen“"
 
 #: includes/class-butterbean.php:275 includes/class-display.php:83
 #: includes/functions/helper-functions.php:64
@@ -265,7 +265,7 @@ msgstr "Konto einrichten"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Brauchen Sie Hilfe? Rufen Sie unser preisgekröntes Supportteam unter (480) 505-8877 an."
+msgstr "Brauchen Sie Hilfe? Rufen Sie unser exzellentes Supportteam unter (480) 505-8877 an."
 
 #: includes/class-setup.php:205
 #. translators: name of missing script
