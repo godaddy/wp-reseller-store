@@ -47,7 +47,7 @@ final class Shortcodes {
 		 *
 		 * @shortcode [rstore-domain-search]
 		 *
-		 * @since  NEXT
+		 * @since  1.0.0
 		 *
 		 * @param  array $atts Defualt shortcode parameters.
 		 *
@@ -55,10 +55,23 @@ final class Shortcodes {
 		 */
 		add_shortcode( 'rstore-domain-search', [ $this, 'domain_search' ] );
 
+		/**
+		 * Register the domain search shortcode
+		 *
+		 * @shortcode [rstore_domain_search]
+		 *
+		 * @since  NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the domain search container.
+		 */
+		add_shortcode( 'rstore_domain_search', [ $this, 'domain_search' ] );
+
 		 /**
 		 * Register the add to cart shortcode
 		 *
-		 * @shortcode [rstore-cart-button]
+		 * @shortcode [rstore_cart_button]
 		 *
 		 * @since  NEXT
 		 *
@@ -66,12 +79,12 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the cart button
 		 */
-		add_shortcode( 'rstore-cart-button', [ $this, 'cart_button' ] );
+		add_shortcode( 'rstore_cart_button', [ $this, 'cart_button' ] );
 
 		 /**
 		 * Register the add to product shortcode
 		 *
-		 * @shortcode [rstore-product]
+		 * @shortcode [rstore_product]
 		 *
 		 * @since  NEXT
 		 *
@@ -79,12 +92,12 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the product pod
 		 */
-		add_shortcode( 'rstore-product', [ $this, 'product' ] );
+		add_shortcode( 'rstore_product', [ $this, 'product' ] );
 
 		 /**
 		 * Register the login shortcode
 		 *
-		 * @shortcode [rstore-login]
+		 * @shortcode [rstore_login]
 		 *
 		 * @since  NEXT
 		 *
@@ -92,7 +105,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the product pod
 		 */
-		add_shortcode( 'rstore-login', [ $this, 'login' ] );
+		add_shortcode( 'rstore_login', [ $this, 'login' ] );
 
 	}
 

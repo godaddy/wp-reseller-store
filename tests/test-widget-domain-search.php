@@ -32,7 +32,7 @@ final class TestWidgetDomainSearch extends TestCase {
 			'placeholder' => '',
 			'search' => '',
 			'available'    => '',
-			'not-available' => '',
+			'not_available' => '',
 			'cart' => '',
 			'select'    => '',
 			'selected' => '',
@@ -48,7 +48,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget->widget( $args, $instance );
 
 		// display domain search.
-		$this->expectOutputRegex( '/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page-size="5" data-text-placeholder="Find your perfect domain name" data-text-search="Search" data-text-available="Congrats, your domain is available!" data-text-not-available="Sorry that domain is taken" data-text-cart="Continue to Cart" data-text-select="Select" data-text-selected="Selected"><\/div><\/div>/' );
+		$this->expectOutputRegex( '/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to Cart" data-text_select="Select" data-text_selected="Selected">Domain Search<\/div><\/div>/' );
 
 	}
 
@@ -63,14 +63,14 @@ final class TestWidgetDomainSearch extends TestCase {
 
 		$new_instance = [
 			'title'    => 'title',
-			'page-size' => 10,
-			'text-placeholder' => 'placeholder',
-			'text-search' => 'search',
-			'text-available'    => 'available',
-			'text-not-available' => 'not-available',
-			'text-cart' => 'cart',
-			'text-select'    => 'select',
-			'text-selected' => 'selected',
+			'page_size' => 10,
+			'text_placeholder' => 'placeholder',
+			'text_search' => 'search',
+			'text_available'    => 'available',
+			'text_not_available' => 'not available',
+			'text_cart' => 'cart',
+			'text_select'    => 'select',
+			'text_selected' => 'selected',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
@@ -90,14 +90,14 @@ final class TestWidgetDomainSearch extends TestCase {
 
 		$instance = [
 			'title'    => 'title',
-			'page-size' => 5,
-			'text-placeholder' => 'placeholder',
-			'text-search' => 'search',
-			'text-available'    => 'available',
-			'text-not-available' => 'not-available',
-			'text-cart' => 'cart',
-			'text-select'    => 'select',
-			'text-selected' => 'selected',
+			'page_size' => 5,
+			'text_placeholder' => 'placeholder',
+			'text_search' => 'search',
+			'text_available'    => 'available',
+			'text_not_available' => 'not available',
+			'text_cart' => 'cart',
+			'text_select'    => 'select',
+			'text_selected' => 'selected',
 		];
 
 		$widget->form( $instance );
