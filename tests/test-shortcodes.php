@@ -26,7 +26,7 @@ final class TestShortcodes extends TestCase {
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-text-placeholder="Find your perfect domain name" data-text-search="Search" data-text-available="Congrats, your domain is available!" data-text-not-available="Sorry that domain is taken" data-text-cart="Continue to Cart" data-text-select="Select" data-text-selected="Selected"><\/div>/' );
+		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page-size="5" data-text-placeholder="Find your perfect domain name" data-text-search="Search" data-text-available="Congrats, your domain is available!" data-text-not-available="Sorry that domain is taken" data-text-cart="Continue to Cart" data-text-select="Select" data-text-selected="Selected"><\/div>/' );
 	}
 
 	/**
