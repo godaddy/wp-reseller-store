@@ -68,6 +68,7 @@ final class TestWidgetProduct extends TestCase {
 			'show_price' => true,
 			'redirect' => true,
 			'button_label' => '',
+			'text_cart' => '',
 			'image_size' => '',
 		];
 
@@ -78,6 +79,7 @@ final class TestWidgetProduct extends TestCase {
 			'show_price' => false,
 			'redirect' => false,
 			'button_label' => 'button_label 1',
+			'text_cart' => 'text_cart 1',
 			'image_size' => 'image_size 1',
 		];
 

@@ -34,6 +34,10 @@
 	margin-right: 5px;
 }
 
+.rstore-cart {
+	display: inline-block;
+}
+
 .rstore-loading {
 	display: inline-block;
 	vertical-align: middle;
@@ -44,7 +48,8 @@
 	background-repeat: no-repeat;
 }
 
-.rstore-loading.rstore-loading-hidden {
+.rstore-loading.rstore-loading-hidden,
+.rstore-cart.rstore-cart-hidden {
 	display: none;
 }
 

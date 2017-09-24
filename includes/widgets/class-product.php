@@ -118,7 +118,7 @@ final class Product extends \WP_Widget {
 
 		if ( ! empty( $data['button_label'] ) ) {
 
-			echo rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['redirect'] ); // xss ok.
+			echo rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
 
 		}
 		echo $args['after_widget']; // xss ok.
@@ -193,6 +193,12 @@ final class Product extends \WP_Widget {
 			<span class="description" ><?php esc_html_e( 'Leave blank to hide button', 'reseller' ); ?></span>
 		</p>
 
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'text_cart' ) ); ?>"><?php esc_html_e( 'Cart Text:', 'reseller' ); ?></label>
+			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'text_cart' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text_cart' ) ); ?>" value="<?php echo esc_attr( $data['text_cart'] ); ?>" class="widefat">
+			<span class="description" ><?php esc_html_e( 'Cart link text', 'reseller' ); ?></span>
+		</p>
+
 		<?php
 
 	}
@@ -216,6 +222,7 @@ final class Product extends \WP_Widget {
 		$instance['redirect'] = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
 		$instance['image_size'] = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'post-thumbnail';
 		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
+		$instance['text_cart'] = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
 
 		return $instance;
 
@@ -284,6 +291,7 @@ final class Product extends \WP_Widget {
 			'show_price' => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
 			'redirect' => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : false,
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
+			'text_cart' => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'image_size' => isset( $instance['image_size'] ) ? $instance['image_size'] : 'post-thumbnail',
 		];
 	}

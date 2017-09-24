@@ -73,19 +73,19 @@ While we strive to make the plugin compatible many themes and plugins, our plugi
 While we recommend  you use our Widgets for your storefront, we do have a shortcodes for each widget.
 #### Domain Search
 ```
-[rstore-domain-search page-size="5" text-placeholder="Find your perfect domain name" text-search="Search" text-available="Congrats, your domain is available!" text-not-available="Sorry that domain is taken" text-cart="Continue to Cart" text-select="Select" text-selected="Selected"]
+[rstore_domain_search page_size="5" text_placeholder="Find your perfect domain name" text_search="Search" text_available="Congrats, your domain is available!" text_not_available="Sorry that domain is taken" text_cart="Continue to Cart" text_select="Select" text_selected="Selected"]
 ```
 #### View Cart Button
 ```
-[rstore-cart-button title="Cart" button_label="View Cart" ]
+[rstore_cart_button title="Cart" button_label="View Cart" ]
 ```
 #### Product Pod
 ```
-[rstore-product post_id=10 show_title=1 show_content=1 show_price=1 button_label="View Cart" image_size="full" ]
+[rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="full" ]
 ```
 #### Log in/out Button
 ```
-[rstore-login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out"]
+[rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out"]
 ```
 
 

@@ -80,15 +80,13 @@
 
         if ( redirect ) {
 
-          window.location.href = rstore.urls.cart;
+          window.location.href = $form.find( '.rstore-cart' ).find('a').attr('href');
+          return;
 
         }
 
-        if ( $form && ! redirect ) {
+        cart.addItemSuccess( $form );
 
-          cart.addItemSuccess( $form );
-
-        }
 
       }, function( response ) {
 
@@ -156,12 +154,9 @@
     },
 
     addItemSuccess: function( $form ) {
-
-      var html = '<span class="dashicons dashicons-yes rstore-success"></span> <a href="' + rstore.urls.cart + '" >' + rstore.i18n.view_cart + '</a>';
-
       $form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
       $form.find( '.rstore-loading' ).addClass('rstore-loading-hidden');
-      $form.find( '.rstore-message' ).html( html );
+      $form.find( '.rstore-cart' ).removeClass('rstore-cart-hidden');
 
       return;
 

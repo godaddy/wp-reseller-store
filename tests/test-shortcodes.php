@@ -22,11 +22,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_domain_search_legacy() {
 
-		$content = '[rstore_domain_search]';
+		$content = '[rstore-domain-search]';
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to Cart" data-text_select="Select" data-text_selected="Selected">Domain Search<\/div>/' );
+		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search<\/div>/' );
 	}
 
 	/**
@@ -38,7 +38,7 @@ final class TestShortcodes extends TestCase {
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to Cart" data-text_select="Select" data-text_selected="Selected">Domain Search<\/div>/' );
+		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search<\/div>/' );
 	}
 
 	/**
@@ -107,7 +107,7 @@ final class TestShortcodes extends TestCase {
 	/**
 	 * @testdox Given a valid product shortcode with all blank params it should generate nothing
 	 */
-	function test_product_with_all_params() {
+	function test_product_with_all_blank_params() {
 
 		$post = Tests\Helper::create_product( 'Another Product' );
 
@@ -116,7 +116,9 @@ final class TestShortcodes extends TestCase {
       show_title=0
       show_content=0
       show_price=0
+      redirect = 0
       button_label=""
+      text_cart=""
       image_size=none
       ]';
 

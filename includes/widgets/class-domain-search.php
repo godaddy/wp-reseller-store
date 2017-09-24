@@ -189,7 +189,7 @@ final class Domain_Search extends \WP_Widget {
 			'text_search'          => isset( $instance['text_search'] ) ? $instance['text_search'] : esc_html__( 'Search', 'reseller-store' ),
 			'text_available'       => isset( $instance['text_available'] ) ? $instance['text_available'] : esc_html__( 'Congrats, your domain is available!', 'reseller-store' ),
 			'text_not_available'   => isset( $instance['text_not_available'] ) ? $instance['text_not_available'] : esc_html__( 'Sorry that domain is taken', 'reseller-store' ),
-			'text_cart'            => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to Cart', 'reseller-store' ),
+			'text_cart'            => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'text_select'   => isset( $instance['text_select'] ) ? $instance['text_select'] : esc_html__( 'Select', 'reseller-store' ),
 			'text_selected' => isset( $instance['text_selected'] ) ? $instance['text_selected'] : esc_html__( 'Selected', 'reseller-store' ),
 		);

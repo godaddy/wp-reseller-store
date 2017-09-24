@@ -77,7 +77,7 @@ While we recommend  you use our Widgets for your storefront, we do have a shortc
 ```
 #### Product Pod
 ```
-[rstore_product post_id=10 show_title=1 show_content=1 show_price=1 button_label="View Cart" image_size="full" ]
+[rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="full" ]
 ```
 #### Log in/out Button
 ```

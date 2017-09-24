@@ -86,21 +86,29 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
- * @param  bool             $echo (optional) Whether or not the form should be echoed.
- * @param  string           $label (optional) Text to display in the button.
- * @param  bool             $redirect (optional) Redirect to cart after adding item.
+ * @param  int|WP_Post|null $post Product WP_Post instance.
+ * @param  bool             $echo Whether or not the form should be echoed.
+ * @param  string           $button_label Text to display in the button.
+ * @param  string           $text_cart Text to display in the cart link.
+ * @param  bool             $redirect Redirect to cart after adding item.
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post = null, $echo = true, $label = null, $redirect = null ) {
+function rstore_add_to_cart_form( $post, $echo, $button_label, $text_cart, $redirect) {
+
+	$cart_link = sprintf(
+		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
+		rstore()->api->urls['cart'],
+		esc_html( $text_cart )
+	);
 
 	ob_start();
 
 	?>
 	<div class="rstore-add-to-cart-form">
-		<?php	rstore_add_to_cart_button( $post, $label, $redirect ); ?>
+		<?php	rstore_add_to_cart_button( $post, $button_label, $redirect ); ?>
 		<div class="rstore-loading rstore-loading-hidden" ></div>
+		<div class="rstore-cart rstore-cart-hidden" ><?php echo $cart_link; ?></div>
 		<div class="rstore-message"></div>
 	</div>
 	<?php
