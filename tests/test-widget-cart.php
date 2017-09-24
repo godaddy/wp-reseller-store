@@ -99,7 +99,7 @@ final class TestWidgetCart extends TestCase {
 	}
 
 	/**
-	 * @testdox Given an a cart widdget classes filter it should render
+	 * @testdox Given an a cart widget classes filter it should render
 	 */
 	function test_widget_filter() {
 

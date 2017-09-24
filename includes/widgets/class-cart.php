@@ -13,13 +13,11 @@
 
 namespace Reseller_Store\Widgets;
 
-/**
-* @codeCoverageIgnore
-*/
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Cart extends \WP_Widget {
