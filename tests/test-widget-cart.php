@@ -98,5 +98,42 @@ final class TestWidgetCart extends TestCase {
 
 	}
 
+	/**
+	 * @testdox Given an a cart widdget classes filter it should render
+	 */
+	function test_widget_filter() {
+
+		add_filter(
+			'rstore_cart_widget_classes', function( $title ) {
+				return [ 'cart' ];
+			}
+		);
+
+		$widget = new Widgets\Cart();
+
+		rstore_update_option( 'pl_id', 12345 );
+
+		$post = Tests\Helper::create_product();
+
+		$instance = [
+			'post_id'    => $post->ID,
+			'image_size' => 'full',
+			'show_title' => true,
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		// display main div tag.
+		$this->expectOutputRegex( '/<div class="before_widget cart">/' );
+
+	}
+
 
 }

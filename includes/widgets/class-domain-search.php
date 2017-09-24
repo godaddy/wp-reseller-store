@@ -13,11 +13,11 @@
 
 namespace Reseller_Store\Widgets;
 
+/**
+* @codeCoverageIgnore
+*/
 if ( ! defined( 'ABSPATH' ) ) {
 
-	/**
-	* @codeCoverageIgnore
-	*/
 	exit;
 
 }
@@ -99,7 +99,7 @@ final class Domain_Search extends \WP_Widget {
 			}
 		}
 
-		$domain_html .= '>'. esc_html__( 'Domain Search', 'reseller' ) .'</div>';
+		$domain_html .= '>' . esc_html__( 'Domain Search', 'reseller' ) . '</div>';
 
 		echo apply_filters( 'rstore_domain_html', $domain_html );
 

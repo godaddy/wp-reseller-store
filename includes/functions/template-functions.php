@@ -94,7 +94,7 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $echo, $button_label, $text_cart, $redirect) {
+function rstore_add_to_cart_form( $post, $echo, $button_label, $text_cart, $redirect ) {
 
 	$cart_link = sprintf(
 		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
