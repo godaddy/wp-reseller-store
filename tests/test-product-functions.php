@@ -37,7 +37,7 @@ final class TestProductFunctions extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a cahce restore_clear_cache should return true.
+	 * @testdox Given a cache restore_clear_cache should return true.
 	 */
 	public function test_restore_clear_cache() {
 

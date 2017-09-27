@@ -231,9 +231,11 @@ final class Import {
 		 * post and product category terms, it does not delete the
 		 * terms themselves.
 		 */
-		wp_delete_object_term_relationships( $this->post_id, Taxonomy_Category::SLUG );
+		$taxonomies = array( Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG );
+		wp_delete_object_term_relationships( $this->post_id, $taxonomies );
 
 		$this->process_categories( $this->product->categories, $this->post_id );
+		$this->process_tags( $this->product->tags, $this->post_id );
 
 	}
 
@@ -309,6 +311,73 @@ final class Import {
 		if ( $term_id ) {
 
 			wp_set_object_terms( (int) $post_id, $term_id, Taxonomy_Category::SLUG, true );
+
+		}
+
+		return $term_id;
+
+	}
+
+	/**
+	 * Process product tag terms.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $tags        tags to assign the product to.
+	 * @param int   $post_id           Product post ID.
+	 * @param int   $parent (optional) Product parent ID.
+	 */
+	private function process_tags( $tags, $post_id, $parent = 0 ) {
+
+		foreach ( $tags as $tag ) {
+
+			if ( is_string( $tag ) ) {
+
+				$this->add_tag( $tag, $post_id, $parent );
+
+				continue;
+
+			}
+		}
+	}
+
+	/**
+	 * Create a product tag and assign to the post.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $name              tag name.
+	 * @param  int    $post_id           Reseller product post ID.
+	 * @param  int    $parent (optional) Reseller product parent ID.
+	 *
+	 * @return int|false  Returns a term ID on success, `false` on failure.
+	 */
+	private function add_tag( $name, $post_id, $parent = 0 ) {
+
+		// Returns 0 or NULL if the term does not exist.
+		// Returns an array if a term/taxonomy pairing exists.
+		$term = term_exists( $name, Taxonomy_Tag::SLUG );
+
+		if ( ! is_array( $term ) ) {
+
+			// Returns an array on success, WP_Error on failure.
+			// @codingStandardsIgnoreStart
+			$term = wp_insert_term( $name, Taxonomy_Tag::SLUG, [ 'parent' => (int) $parent ] );
+			// @codingStandardsIgnoreEnd
+
+		}
+
+		if ( is_wp_error( $term ) ) {
+
+			return false;
+
+		}
+
+		$term_id = isset( $term['term_id'] ) ? (int) $term['term_id'] : false;
+
+		if ( $term_id ) {
+
+			wp_set_object_terms( (int) $post_id, $term_id, Taxonomy_Tag::SLUG, true );
 
 		}
 

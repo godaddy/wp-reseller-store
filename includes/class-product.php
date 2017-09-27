@@ -42,6 +42,7 @@ final class Product {
 	private $properties = [
 		'id'         => 'strlen',
 		'categories' => 'is_array',
+		'tags'       => 'is_array',
 		'image'      => 'strlen',
 		'term'       => 'strlen',
 		'listPrice'  => 'strlen',

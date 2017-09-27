@@ -91,6 +91,11 @@ While we recommend  you use our Widgets for your storefront, we do have a shortc
 
 ## Changelog ##
 
+### NEXT - September 2017 ###
+* Import tags
+* Update to domain search widget 2.0
+* Fix issue with shortcodes and Visual Composer
+
 ### NEXT - August 2017 ###
 *  New: Shopper login widget  
 *  New: Add more options including _cart redirect_ to the product widget
