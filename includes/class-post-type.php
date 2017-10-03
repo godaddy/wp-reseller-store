@@ -17,8 +17,9 @@ use stdClass;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Post_Type {
@@ -69,7 +70,6 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                         [ $this, 'register' ] );
-		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
 		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
 		add_action( 'delete_post',                  [ $this, 'delete_imported_product' ] );
@@ -80,27 +80,91 @@ final class Post_Type {
 		add_filter( 'the_content',                             [ $this, 'append_add_to_cart_form' ] );
 		add_filter( 'the_excerpt',                             [ $this, 'append_add_to_cart_form' ] );
 
-		add_filter( 'edit_' . self::SLUG . '_per_page', function () {
+		add_filter(
+			'edit_' . self::SLUG . '_per_page', function () {
 
-			return 50;
+				return 50;
 
-		} );
+			}
+		);
 
-		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
+		add_filter(
+			'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
 
 			// @codingStandardsIgnoreStart
 			return array_merge( $columns, [ 'price' => 'price' ] );
 			// @codingStandardsIgnoreEnd
 
-		} );
+			}
+		);
 
-		add_filter( 'view_mode_post_types', function ( $post_types ) {
+		add_filter(
+			'view_mode_post_types', function ( $post_types ) {
 
 			// @codingStandardsIgnoreStart
 			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
 			// @codingStandardsIgnoreEnd
 
-		} );
+			}
+		);
+
+		add_action(
+			'add_meta_boxes', function () {
+
+				add_meta_box( 'restore-' . self::SLUG, esc_html__( 'Reset Product', 'reseller-store' ), [ $this, 'render_checkbox' ],  self::SLUG, 'side', 'high' );
+			}
+		);
+
+		add_action( 'save_post', [ $this, 'republish_metabox_callback' ] );
+
+	}
+
+	/**
+	 * Render the reset checkbox meta_box
+	 *
+	 * @since 0.2.0
+	 */
+	public function render_checkbox() {
+		?>
+			 <div>
+				<input type="checkbox" id="republish_product" name="republish_product" >
+				<label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
+			</div>
+		<?php
+	}
+
+	/**
+	 * Republishes the product post from the catalog api
+	 *
+	 * @since NEXT
+	 *
+	 * @param int $post_id Product post ID.
+	 */
+	public function republish_metabox_callback( $post_id ) {
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['republish_product'] ) ) {
+			return;
+		}
+
+		if ( isset( $_POST['post_type'] ) && self::SLUG === $_POST['post_type'] ) {
+
+				// Unhook this function so it doesn't loop infinitely.
+				remove_action( 'save_post', [ $this, 'republish_metabox_callback' ] );
+
+				$this->reset_product_data( $post_id );
+
+				// Re-hook this function.
+				add_action( 'save_post', [ $this, 'republish_metabox_callback' ] );
+
+		}
 
 	}
 
@@ -185,59 +249,6 @@ final class Post_Type {
 	}
 
 	/**
-	 * Process a product data reset in the admin.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @action admin_init
-	 */
-	public function process_product_reset() {
-
-		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
-		$nonce   = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING );
-
-		if (
-			! rstore_is_admin_uri( 'post.php?post=' )
-			||
-			! $post_id
-			||
-			! $nonce
-			||
-			false === wp_verify_nonce( $nonce, sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() ) )
-		) {
-
-			return;
-
-		}
-
-		$result = $this->reset_product_data( $post_id );
-
-		if ( ! is_wp_error( $result ) ) {
-
-			return;
-
-		}
-
-		/**
-		 * If there is an error, display it in an admin notice.
-		 */
-		add_action( 'edit_form_top', function () use ( $result ) {
-
-			printf(
-				'<div class="notice notice-error is-dismissible"><p>%s</p></div>',
-				esc_html(
-					sprintf(
-						$result->get_error_message(),
-						$result->get_error_data( $result->get_error_code() )
-					)
-				)
-			);
-
-		} );
-
-	}
-
-	/**
 	 * Reset a product's data.
 	 *
 	 * @since  0.2.0
@@ -256,7 +267,32 @@ final class Post_Type {
 
 		}
 
-		return $product->import( $post_id );
+		$import = new Import( $product, $post_id );
+
+		if ( ! is_wp_error( $import ) ) {
+
+			return $import->import_product();
+
+		}
+
+		/**
+		 * If there is an error, display it in an admin notice.
+		 */
+		add_action(
+			'edit_form_top', function () use ( $result ) {
+
+				printf(
+					'<div class="notice notice-error is-dismissible"><p>%s</p></div>',
+					esc_html(
+						sprintf(
+							$result->get_error_message(),
+							$result->get_error_data( $result->get_error_code() )
+						)
+					)
+				);
+
+			}
+		);
 
 	}
 

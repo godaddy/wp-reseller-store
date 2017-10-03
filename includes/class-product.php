@@ -123,7 +123,7 @@ final class Product {
 	 *
 	 * @return int|false  Returns the post ID if it exists, otherwise `false`.
 	 */
-	public function exists() {
+	private function exists() {
 
 		$product_id = sanitize_title( $this->product->id ); // Product IDs are sanitized on import.
 
@@ -152,40 +152,6 @@ final class Product {
 	}
 
 	/**
-	 * Check if an product image has already been imported.
-	 *
-	 * @global wpdb $wpdb
-	 * @since  0.2.0
-	 *
-	 * @return int|false  Returns the attachment ID if it exists, otherwise `false`.
-	 */
-	public function image_exists() {
-
-		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->image ) );
-
-		$attachment_id = (int) wp_cache_get( $key );
-
-		if ( ! $attachment_id ) {
-
-			global $wpdb;
-
-			$attachment_id = (int) $wpdb->get_var(
-				$wpdb->prepare(
-					"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
-					rstore_prefix( 'image' ),
-					esc_url_raw( $this->product->image ) // Image URLs are sanitized on import.
-				)
-			);
-
-			wp_cache_set( $key, $attachment_id );
-
-		}
-
-		return ( $attachment_id > 0 ) ? $attachment_id : false;
-
-	}
-
-	/**
 	 * Import the product.
 	 *
 	 * @since 0.2.0
@@ -196,10 +162,11 @@ final class Product {
 	 */
 	public function import( $post_id = 0 ) {
 
-		$import = new Import( $this, $post_id );
-
-		return $import->result();
-
+		if ( ! $this->exists() ) {
+			$import = new Import( $this, $post_id );
+			return $import->import_product();
+		} else {
+			return false;
+		}
 	}
-
 }

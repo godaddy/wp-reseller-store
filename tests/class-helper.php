@@ -10,6 +10,38 @@ namespace Reseller_Store\Tests;
 final class Helper {
 
 	/**
+	 * Product fixture.
+	 *
+	 * @since NEXT
+	 *
+	 * @var string
+	 */
+	public static  $fixture = '{
+    "id": "wordpress-basic",
+    "categories": [
+      {
+        "Hosting": [
+          "WordPress"
+        ]
+      },
+      "Websites"
+    ],
+    "tags": [
+      "hosting",
+      "WordPress",
+      "websites"
+    ],
+    "title": "WordPress Basic",
+    "content": "<p>Think basic sites and blogs and startups.</p>\n<ul>\n<li>1 website</li>\n<li>10GB SSD storage</li>\n<li>25,000 monthly visitors</li>\n<li>SFTP</li>\n</ul>\n",
+    "term": "month",
+    "image": "https://img1.wsimg.com/rcc/products/banner/46.png",
+    "imageId": "46",
+    "listPrice": "$7.99",
+    "salePrice": false
+  }';
+
+
+	/**
 	 * Create a product post.
 	 *
 	 * @since 1.0.0
@@ -30,7 +62,7 @@ final class Helper {
 		);
 
 		$meta = [
-			'rstore_id'         => 'wordpress_hosting',
+			'rstore_id'         => 'wordpress-basic',
 			'rstore_categories' => [],
 			'rstore_image'      => 'http://image',
 			'rstore_term'       => 'year',

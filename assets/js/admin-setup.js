@@ -82,11 +82,43 @@
 
 	};
 
+	var republish = function( e ) {
+    e.preventDefault();
+
+
+
+    var $this    = $( this ),
+        $form    = $this.closest( 'form' );
+
+    if ($form.length > 0) {
+    	$form[0].children.hiddenaction.value='rstore_republish';
+    }
+
+    // if ( $this.attr( 'data-loading' ) ) {
+
+    //   return false;
+
+    // }
+
+    // $this.attr( 'data-loading', 'true' );
+
+    // $form.find( '.rstore-message' ).empty();
+    // $form.find( '.rstore-loading' ).removeClass('rstore-loading-hidden');
+
+    // cart.addItem( id, qty, redirect, $form );
+
+  };
+
 	$( document ).ready( function( $ ) {
 
 		$( '.rstore-setup-body' ).css( 'display', 'block' ); // Form is hidden by default
 		$( '#rstore-setup-form' ).on( 'submit', activate );
 		$( '#rstore-skip-activate' ).on( 'click', skip );
+		// $( '#republish-product' ).on( 'change', republish );
+
+		if ( ! window.rstore_admin_setup ) {
+			return;
+		}
 
 		if ( rstore_admin_setup.install_error ) {
 

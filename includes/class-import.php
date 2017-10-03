@@ -64,7 +64,6 @@ final class Import {
 	 * @param int      $post_id (optional) Post ID to map the reseller product to.
 	 */
 	public function __construct( $product, $post_id = 0 ) {
-
 		$this->product  = $product->product;
 		$this->post_id  = absint( $post_id );
 		$this->imported = (array) rstore_get_option( 'imported', [] );
@@ -83,13 +82,14 @@ final class Import {
 			return;
 
 		}
+	}
 
-		if ( ! $this->post_id && $product->exists() ) {
-
-			// product exists so don't import it.
-			return;
-
-		}
+	/**
+	 * Import the product.
+	 *
+	 * @return bool|WP_Error
+	 */
+	public function import_product() {
 
 		/**
 		 * Validate product data reset.
@@ -102,27 +102,23 @@ final class Import {
 
 			if ( ! array_key_exists( $this->post_id, $this->imported ) ) {
 
-				$this->result = new WP_Error(
+				return new WP_Error(
 					'product_not_imported',
 					/* translators: product name */
 					esc_html__( '`%s` must be imported as a product post before it can be reset.', 'reseller-store' ),
 					$this->product->id
 				);
 
-				return;
-
 			}
 
 			if ( Post_Type::SLUG !== get_post_type( $this->post_id ) ) {
 
-				$this->result = new WP_Error(
+				return new WP_Error(
 					'invalid_post_type',
 					/* translators: post type name */
 					esc_html__( '`%s` is not a valid post type for products.', 'reseller-store' ),
 					$post->post_type
 				);
-
-				return;
 
 			}
 		}
@@ -131,33 +127,17 @@ final class Import {
 
 		if ( is_wp_error( $this->post_id ) ) {
 
-			$this->result = $this->post_id; // Return the WP_Error.
-
-			return;
+			return $this->post_id; // Return the WP_Error.
 
 		}
 
 		$this->post_meta();
 
-		$this->categories();
+		$this->taxonomies();
 
-		$this->featured_image( $product->image_exists() );
+		$this->featured_image( $this->image_exists() );
 
-		$this->result = $this->mark_as_imported(); // Success!
-
-	}
-
-	/**
-	 * Return the result of the import.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @return true|WP_Error
-	 */
-	public function result() {
-
-		return $this->result;
-
+		return $this->mark_as_imported(); // Success!
 	}
 
 	/**
@@ -168,6 +148,8 @@ final class Import {
 	 * @return int|WP_Error  Returns the post ID on success, `WP_Error` on failure.
 	 */
 	private function post() {
+
+		wp_reset_postdata();
 
 		$post_id = wp_insert_post(
 			[
@@ -203,6 +185,7 @@ final class Import {
 		 * the Product::import() method, we'll need to make sure
 		 * all post meta with our plugin's prefix is deleted.
 		 */
+
 		$wpdb->query(
 			$wpdb->prepare(
 				"DELETE FROM `{$wpdb->postmeta}` WHERE `post_id` = %d AND `meta_key` LIKE %s;",
@@ -216,11 +199,11 @@ final class Import {
 	}
 
 	/**
-	 * Import product categories.
+	 * Import product taxonomies.
 	 *
 	 * @since 0.2.0
 	 */
-	private function categories() {
+	private function taxonomies() {
 
 		/**
 		 * Since the `Restore Product Data` button triggers the
@@ -233,7 +216,6 @@ final class Import {
 		 */
 		$taxonomies = array( Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG );
 		wp_delete_object_term_relationships( $this->post_id, $taxonomies );
-
 		$this->process_categories( $this->product->categories, $this->post_id );
 		$this->process_tags( $this->product->tags, $this->post_id );
 
@@ -386,11 +368,47 @@ final class Import {
 	}
 
 	/**
+	 * Check if an product image has already been imported.
+	 *
+	 * @global wpdb $wpdb
+	 * @since  0.2.0
+	 *
+	 * @return int|false  Returns the attachment ID if it exists, otherwise `false`.
+	 */
+	private function image_exists() {
+
+		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->image ) );
+
+		$attachment_id = (int) wp_cache_get( $key );
+
+		if ( ! $attachment_id ) {
+
+			global $wpdb;
+
+			$attachment_id = (int) $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
+					rstore_prefix( 'image' ),
+					esc_url_raw( $this->product->image ) // Image URLs are sanitized on import.
+				)
+			);
+
+			wp_cache_set( $key, $attachment_id );
+
+		}
+
+		return ( $attachment_id > 0 ) ? $attachment_id : false;
+
+	}
+
+	/**
 	 * Import image as an attachment and set as the post's featured image.
 	 *
 	 * @since 0.2.0
 	 *
 	 * @param int $attachment_id Reseller product image attachment ID.
+	 *
+	 * @return bool
 	 */
 	private function featured_image( $attachment_id = 0 ) {
 

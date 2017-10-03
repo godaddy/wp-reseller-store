@@ -50,7 +50,7 @@ final class TestWidgetProduct extends TestCase {
 		$this->expectOutputRegex( '/<p class="rstore-pricing"><span class="rstore-price rstore-has-sale-price"><del>$70.00<\/del> $50.00<\/span> / per year<\/p>/' );
 
 		// display button.
-		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button" data-id="wordpress_hosting" data-quantity="1" data-redirect="false">Add to cart<\/button>/' );
+		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button" data-id="wordpress-basic" data-quantity="1" data-redirect="false">Add to cart<\/button>/' );
 
 	}
 

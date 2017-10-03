@@ -8,37 +8,6 @@ namespace Reseller_Store;
 final class TestProduct extends TestCase {
 
 	/**
-	 * Product fixture.
-	 *
-	 * @since NEXT
-	 *
-	 * @var string
-	 */
-	private $fixture = '{
-    "id": "wordpress-basic",
-    "categories": [
-      {
-        "Hosting": [
-          "WordPress"
-        ]
-      },
-      "Websites"
-    ],
-    "tags": [
-      "hosting",
-      "WordPress",
-      "websites"
-    ],
-    "title": "WordPress Basic",
-    "content": "<p>Think basic sites and blogs and startups.</p>\n<ul>\n<li>1 website</li>\n<li>10GB SSD storage</li>\n<li>25,000 monthly visitors</li>\n<li>SFTP</li>\n</ul>\n",
-    "term": "month",
-    "image": "https://img1.wsimg.com/rcc/products/banner/46.png",
-    "imageId": "46",
-    "listPrice": "$7.99",
-    "salePrice": false
-  }';
-
-	/**
 	 * Setup.
 	 */
 	function setUp() {
@@ -69,7 +38,7 @@ final class TestProduct extends TestCase {
 	 */
 	public function test_new_product() {
 
-		$product = new Product( json_decode( $this->fixture ) );
+		$product = new Product( json_decode( Tests\Helper::$fixture ) );
 
 		$this->assertEquals( 'WordPress Basic', $product->title );
 		$this->assertEquals( 'wordpress-basic', $product->id );
@@ -89,7 +58,7 @@ final class TestProduct extends TestCase {
 
 		do_action( 'init' );
 
-		$product = new Product( json_decode( $this->fixture ) );
+		$product = new Product( json_decode( Tests\Helper::$fixture ) );
 		$result = $product->import();
 
 		$this->assertTrue( $result );

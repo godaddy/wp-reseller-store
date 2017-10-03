@@ -52,7 +52,7 @@ final class TestProductFunctions extends TestCase {
 	 */
 	public function test_rstore_has_all_products() {
 
-		rstore_update_option( 'pl_id', 483636 );
+		rstore_update_option( 'pl_id', 1592 );
 
 		$this->assertFalse( rstore_has_all_products() );
 
@@ -63,7 +63,7 @@ final class TestProductFunctions extends TestCase {
 	 */
 	public function test_rstore_get_demo_products() {
 
-		rstore_update_option( 'pl_id', 483636 );
+		rstore_update_option( 'pl_id', 1592 );
 
 		$products = rstore_get_demo_products();
 
