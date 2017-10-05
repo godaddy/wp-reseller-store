@@ -125,12 +125,13 @@ final class Post_Type {
 	 * @since 0.2.0
 	 */
 	public function render_reset_button() {
+		// Button value cannot be translated.
 		?>
 			 <div>
 				 <p>
 					 <label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
 				 </p>
-				 <input type="submit" class="button button-large" id="republish_product" name="republish_product" value="reset"><?php esc_html_e( 'Reset Product', 'reseller-store' ); ?></input>
+				 <input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">
 			</div>
 		<?php
 	}
@@ -158,7 +159,7 @@ final class Post_Type {
 			return;
 		}
 
-		if ( ! isset( $_POST['republish_product'] ) || ! 'reset' === $_POST['republish_product'] ) {
+		if ( ! isset( $_POST['republish_product'] ) || ! 'Reset' === $_POST['republish_product'] ) {
 			return;
 		}
 

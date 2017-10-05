@@ -79,7 +79,7 @@ final class TestPostType extends TestCase {
 		$post_type = new Post_Type();
 		$post_type->render_reset_button();
 
-		$this->expectOutputRegex( '/<input type="submit" class="button button-large" id="republish_product" name="republish_product" value="reset">Reset Product<\/input>/' );
+		$this->expectOutputRegex( '/ <input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">/' );
 
 	}
 
