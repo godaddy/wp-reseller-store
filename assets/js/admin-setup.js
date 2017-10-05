@@ -82,30 +82,16 @@
 
 	};
 
-	var republish = function( e ) {
-    e.preventDefault();
-
-
-
-    var $this    = $( this ),
-        $form    = $this.closest( 'form' );
-
-    if ($form.length > 0) {
-    	$form[0].children.hiddenaction.value='rstore_republish';
-    }
-
-  };
-
 	$( document ).ready( function( $ ) {
+
+		//check if we are on the admin setup page
+        if ( ! window.rstore_admin_setup ) {
+            return;
+        }
 
 		$( '.rstore-setup-body' ).css( 'display', 'block' ); // Form is hidden by default
 		$( '#rstore-setup-form' ).on( 'submit', activate );
 		$( '#rstore-skip-activate' ).on( 'click', skip );
-		// $( '#republish-product' ).on( 'change', republish );
-
-		if ( ! window.rstore_admin_setup ) {
-			return;
-		}
 
 		if ( rstore_admin_setup.install_error ) {
 
