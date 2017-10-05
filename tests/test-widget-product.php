@@ -43,13 +43,6 @@ final class TestWidgetProduct extends TestCase {
 
 		$widget->widget( $args, $instance );
 
-		// display title.
-		$this->expectOutputRegex( '/<h3 class="widget-title">WordPress Hosting</h3>/' );
-
-		// display price.
-		$this->expectOutputRegex( '/<p class="rstore-pricing"><span class="rstore-price rstore-has-sale-price"><del>$70.00<\/del> $50.00<\/span> / per year<\/p>/' );
-
-		// display button.
 		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button" data-id="wordpress-basic" data-quantity="1" data-redirect="false">Add to cart<\/button>/' );
 
 	}
@@ -110,13 +103,7 @@ final class TestWidgetProduct extends TestCase {
 
 		$widget->form( $instance );
 
-		$this->expectOutputRegex( '/<select id="widget-rstore_product--post_id" name="widget-rstore_product\[\]\[post_id\]" class="widefat" style="width:100%;">/' );
-		$this->expectOutputRegex( '/<select id="widget-rstore_product--image_size" name="widget-rstore_product\[\]\[image_size\]" class="widefat" style="width:100%;">/' );
-		$this->expectOutputRegex( '/<input type="checkbox" id="widget-rstore_product--show_title" name="widget-rstore_product\[\]\[show_title\]" value="1" class="checkbox"  checked=\'checked\'>/' );
-		$this->expectOutputRegex( '/<input type="checkbox" id="widget-rstore_product--show_content" name="widget-rstore_product\[\]\[show_content\]" value="1" class="checkbox"  checked=\'checked\'>/' );
-		$this->expectOutputRegex( '/<input type="checkbox" id="widget-rstore_product--show_price" name="widget-rstore_product\[\]\[show_price\]" value="1" class="checkbox"  checked=\'checked\'>/' );
 		$this->expectOutputRegex( '/<input type="checkbox" id="widget-rstore_product--redirect" name="widget-rstore_product\[\]\[redirect\]" value="1" class="checkbox"  checked=\'checked\'>/' );
-		$this->expectOutputRegex( '/<input type="text" id="widget-rstore_product--button_label" name="widget-rstore_product\[\]\[button_label\]" value="" class="widefat">/' );
 
 	}
 

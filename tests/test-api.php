@@ -46,17 +46,18 @@ final class TestAPI extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a valid currency filter it should return query args.
+	 * @testdox Given a valid query args filter it should return query args.
 	 */
-	public function test_add_query_args_currency_filter() {
+	public function rstore_api_query_args() {
 
 		$api = new API();
 		$url = 'https://api.secureserver.net';
 
 		add_filter(
-			'rstore_api_currency', function() {
+			'rstore_api_query_args', function( $args ) {
 
-				return 'USD';
+				$args['currencyType'] = 'USD';
+				return $args;
 
 			}
 		);
@@ -64,28 +65,6 @@ final class TestAPI extends TestCase {
 		$query_string = $api->add_query_args( $url, false );
 
 		$this->assertEquals( $url . '?currencyType=USD' , $query_string );
-
-	}
-
-	/**
-	 * @testdox Given a valid market filter it should return query args.
-	 */
-	public function test_add_query_args_marketId_filter() {
-
-		$api = new API();
-		$url = 'https://api.secureserver.net';
-
-		add_filter(
-			'rstore_api_market_id', function() {
-
-				return 'fr-FR';
-
-			}
-		);
-
-		$query_string = $api->add_query_args( $url, false );
-
-		$this->assertEquals( $url . '?marketId=fr-FR' , $query_string );
 
 	}
 

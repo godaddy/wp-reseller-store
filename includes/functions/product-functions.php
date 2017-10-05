@@ -125,11 +125,13 @@ function rstore_get_products( $hard = false ) {
 
 	}
 
-	return rstore_get_transient( 'products', [], function () {
+	return rstore_get_transient(
+		'products', [], function () {
 
-		return rstore()->api->get( 'catalog/{pl_id}/products' );
+			return rstore()->api->get( 'catalog/{pl_id}/products' );
 
-	} );
+		}
+	);
 
 }
 

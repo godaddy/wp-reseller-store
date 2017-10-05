@@ -111,11 +111,11 @@ final class Post_Type {
 		add_action(
 			'add_meta_boxes', function () {
 
-				add_meta_box( 'restore-' . self::SLUG, esc_html__( 'Reset Product', 'reseller-store' ), [ $this, 'render_checkbox' ],  self::SLUG, 'side', 'high' );
+				add_meta_box( 'restore-' . self::SLUG, esc_html__( 'Reset Product', 'reseller-store' ), [ $this, 'render_reset_button' ],  self::SLUG, 'side', 'high' );
 			}
 		);
 
-		add_action( 'save_post', [ $this, 'republish_metabox_callback' ] );
+		add_action( 'save_post', [ $this, 'republish_post' ] );
 
 	}
 
@@ -124,11 +124,13 @@ final class Post_Type {
 	 *
 	 * @since 0.2.0
 	 */
-	public function render_checkbox() {
+	public function render_reset_button() {
 		?>
 			 <div>
-				<input type="checkbox" id="republish_product" name="republish_product" >
-				<label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
+				 <p>
+					 <label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
+				 </p>
+				 <input type="submit" class="button button-large" id="republish_product" name="republish_product" value="reset"><?php esc_html_e( 'Reset Product', 'reseller-store' ); ?></input>
 			</div>
 		<?php
 	}
@@ -139,10 +141,16 @@ final class Post_Type {
 	 * @since NEXT
 	 *
 	 * @param int $post_id Product post ID.
+	 *
+	 * @return void
 	 */
-	public function republish_metabox_callback( $post_id ) {
+	public function republish_post( $post_id ) {
 
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( get_post_status( $post_id ) !== 'publish' ) {
 			return;
 		}
 
@@ -150,21 +158,46 @@ final class Post_Type {
 			return;
 		}
 
-		if ( ! isset( $_POST['republish_product'] ) ) {
+		if ( ! isset( $_POST['republish_product'] ) || ! 'reset' === $_POST['republish_product'] ) {
 			return;
 		}
 
-		if ( isset( $_POST['post_type'] ) && self::SLUG === $_POST['post_type'] ) {
+		if ( ! isset( $_POST['post_type'] ) || ! self::SLUG === $_POST['post_type'] ) {
+			return;
+		}
 
-				// Unhook this function so it doesn't loop infinitely.
-				remove_action( 'save_post', [ $this, 'republish_metabox_callback' ] );
+		// Unhook this function so it doesn't loop infinitely.
+		remove_action( 'save_post', [ $this, 'republish_post' ] );
 
-				$this->reset_product_data( $post_id );
+		$result = $this->reset_product_data( $post_id );
 
-				// Re-hook this function.
-				add_action( 'save_post', [ $this, 'republish_metabox_callback' ] );
+		// Re-hook this function.
+		add_action( 'save_post', [ $this, 'republish_post' ] );
+
+		if ( ! is_wp_error( $result ) ) {
+
+			return;
 
 		}
+
+		/**
+		 * If there is an error, display it in an admin notice.
+		 */
+		add_action(
+			'edit_form_top', function () use ( $result ) {
+
+				echo printf(
+					'<div class="notice notice-error is-dismissible"><p>Error: %s</p></div>',
+					esc_html(
+						sprintf(
+							$result->get_error_message(),
+							$result->get_error_data( $result->get_error_code() )
+						)
+					)
+				);
+
+			}, 0
+		);
 
 	}
 
@@ -255,44 +288,35 @@ final class Post_Type {
 	 *
 	 * @param  int $post_id Product post ID.
 	 *
-	 * @return true|WP_Error
+	 * @return true|\WP_Error
 	 */
 	public function reset_product_data( $post_id ) {
 
-		$product = rstore_get_product( rstore_get_product_meta( $post_id, 'id' ) );
+		$product_id = rstore_get_product_meta( $post_id, 'id' );
+
+		if ( false === $product_id ) {
+
+			return new \WP_Error(
+				'invalid_product_id',
+				esc_html__( 'Product id not found or invalid.', 'reseller-store' )
+			);
+
+		}
+
+		$product = rstore_get_product( $product_id );
 
 		if ( is_wp_error( $product ) ) {
-
-			return $product; // Return the WP_Error.
-
+			return $product;
 		}
 
 		$import = new Import( $product, $post_id );
 
-		if ( ! is_wp_error( $import ) ) {
-
-			return $import->import_product();
+		if ( is_wp_error( $import ) ) {
+			return $import;
 
 		}
 
-		/**
-		 * If there is an error, display it in an admin notice.
-		 */
-		add_action(
-			'edit_form_top', function () use ( $result ) {
-
-				printf(
-					'<div class="notice notice-error is-dismissible"><p>%s</p></div>',
-					esc_html(
-						sprintf(
-							$result->get_error_message(),
-							$result->get_error_data( $result->get_error_code() )
-						)
-					)
-				);
-
-			}
-		);
+		return $import->import_product();
 
 	}
 

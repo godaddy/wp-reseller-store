@@ -94,19 +94,6 @@
     	$form[0].children.hiddenaction.value='rstore_republish';
     }
 
-    // if ( $this.attr( 'data-loading' ) ) {
-
-    //   return false;
-
-    // }
-
-    // $this.attr( 'data-loading', 'true' );
-
-    // $form.find( '.rstore-message' ).empty();
-    // $form.find( '.rstore-loading' ).removeClass('rstore-loading-hidden');
-
-    // cart.addItem( id, qty, redirect, $form );
-
   };
 
 	$( document ).ready( function( $ ) {

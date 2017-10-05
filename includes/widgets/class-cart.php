@@ -76,13 +76,13 @@ final class Cart extends \WP_Widget {
 
 		echo $args['before_widget']; // xss ok.
 
-		if ( ! empty( $instance['title'] ) ) {
+		$data = $this->get_data( $instance );
 
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok.
+		if ( ! empty( $data['title'] ) ) {
+
+			echo $args['before_title'] . apply_filters( 'widget_title', $data['title'] ) . $args['after_title']; // xss ok.
 
 		}
-
-		$data = $this->get_data( $instance );
 
 		?>
 

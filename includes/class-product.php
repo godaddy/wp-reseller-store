@@ -30,7 +30,7 @@ final class Product {
 	 *
 	 * @var stdClass
 	 */
-	public $product;
+	public $fields;
 
 	/**
 	 * Array of required properties and validation callbacks.
@@ -59,7 +59,7 @@ final class Product {
 	 */
 	public function __construct( $product ) {
 
-		$this->product = json_decode( wp_json_encode( $product ) );
+		$this->fields = json_decode( wp_json_encode( $product ) );
 
 	}
 
@@ -74,7 +74,7 @@ final class Product {
 	 */
 	public function __get( $property ) {
 
-		return isset( $this->product->{$property} ) ? $this->product->{$property} : null;
+		return isset( $this->fields->{$property} ) ? $this->fields->{$property} : null;
 
 	}
 
@@ -87,7 +87,7 @@ final class Product {
 	 */
 	public function is_valid() {
 
-		if ( ! is_a( $this->product, 'stdClass' ) ) {
+		if ( ! is_a( $this->fields, 'stdClass' ) ) {
 
 			return false;
 
@@ -97,13 +97,13 @@ final class Product {
 
 			if (
 				// The product must have the property.
-				property_exists( $this->product, $property )
+				property_exists( $this->fields, $property )
 				&&
 				// The property validator must be callable.
 				is_callable( $validator )
 				&&
 				// The property value must return truthy when ran through the validator.
-				$validator( $this->product->{$property} )
+				$validator( $this->fields->{$property} )
 			) {
 
 				return true;
@@ -125,7 +125,7 @@ final class Product {
 	 */
 	private function exists() {
 
-		$product_id = sanitize_title( $this->product->id ); // Product IDs are sanitized on import.
+		$product_id = sanitize_title( $this->fields->id ); // Product IDs are sanitized on import.
 
 		$imported = (array) rstore_get_option( 'imported', [] );
 

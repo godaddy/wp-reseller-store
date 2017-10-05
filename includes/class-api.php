@@ -130,37 +130,9 @@ final class API {
 
 		}
 
-		/**
-		 * Filter the currency ID used in API requests.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @var string
-		 */
-		$currency = (string) apply_filters( 'rstore_api_currency', false );
+		$args = (array) apply_filters( 'rstore_api_query_args', $args );
 
-		if ( $currency ) {
-
-			$args['currencyType'] = $currency;
-
-		}
-
-		/**
-		 * Filter the market ID used in API requests.
-		 *
-		 * @since 0.2.0
-		 *
-		 * @var string
-		 */
-		$market = (string) apply_filters( 'rstore_api_market_id', false );
-
-		if ( $market ) {
-
-			$args['marketId'] = $market;
-
-		}
-
-		return esc_url_raw( add_query_arg( $args, $url ) );
+		return  esc_url_raw( add_query_arg( $args, $url ) );
 
 	}
 

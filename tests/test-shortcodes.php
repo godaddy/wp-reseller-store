@@ -176,8 +176,6 @@ final class TestShortcodes extends TestCase {
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '/<a class="login-link" href="https:\/\/mya.secureserver.net\/\?plid=0&realm=idp&app=www"/' );
-		$this->expectOutputRegex( '/<span class="welcome-message">aaaa<\/span>/' );
 		$this->expectOutputRegex( '/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">cccc<\/a>/' );
 
 	}

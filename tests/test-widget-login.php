@@ -42,7 +42,6 @@ final class TestWidgetLogin extends TestCase {
 
 		$widget->widget( $args, $instance );
 
-		$this->expectOutputRegex( '/<span class="rstore-welcome-message">Welcome<\/span>/' );
 		$this->expectOutputRegex( '/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">Log Out<\/a>/' );
 	}
 

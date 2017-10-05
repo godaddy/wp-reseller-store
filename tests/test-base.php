@@ -29,11 +29,13 @@ final class TestBase extends TestCase {
 			'api',
 		];
 
-		array_map( function( $attr ) {
+		array_map(
+			function( $attr ) {
 
-			$this->assertNotNull( rstore()->$attr );
+					$this->assertNotNull( rstore()->$attr );
 
-		}, $static_attributes );
+			}, $static_attributes
+		);
 
 	}
 
@@ -54,11 +56,13 @@ final class TestBase extends TestCase {
 			'Widgets',
 		];
 
-		array_map( function( $class ) {
+		array_map(
+			function( $class ) {
 
-			$this->assertTrue( class_exists( __NAMESPACE__ . '\\' . $class ) );
+					$this->assertTrue( class_exists( __NAMESPACE__ . '\\' . $class ) );
 
-		}, $classes );
+			}, $classes
+		);
 
 	}
 

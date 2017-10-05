@@ -8,15 +8,6 @@ namespace Reseller_Store;
 final class TestProductFunctions extends TestCase {
 
 	/**
-	 * Setup.
-	 */
-	function setUp() {
-
-		parent::setUp();
-
-	}
-
-	/**
 	 * @testdox Given rstore does not have products it should return false.
 	 */
 	public function test_restore_has_products_false() {
