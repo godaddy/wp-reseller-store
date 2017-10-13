@@ -54,7 +54,7 @@ msgstr "In den Warenkorb"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"
-msgstr "Nach dem Hinzufügen sofort zum Einkaufswagen weiterleiten"
+msgstr "Nach dem Hinzufügen sofort zum Warenkorb weiterleiten"
 
 #: includes/class-butterbean.php:335
 msgid "Restore Product Data"
@@ -88,7 +88,7 @@ msgstr "Finden Sie den für Sie perfekten Domainnamen"
 
 #: includes/class-display.php:87
 msgid "View cart"
-msgstr "Einkaufswagen anzeigen"
+msgstr "Warenkorb anzeigen"
 
 #: includes/class-display.php:88
 msgid "An error has occurred"
@@ -381,16 +381,16 @@ msgstr "Fehler: ‚%s‘ ist nicht vorhanden."
 
 #: includes/widgets/class-cart.php:22
 msgid "Reseller Cart"
-msgstr "Wiederverkäufer-Einkaufswagen"
+msgstr "Wiederverkäufer-Warenkorb"
 
 #: includes/widgets/class-cart.php:25
 msgid "Display the user's cart in the sidebar."
-msgstr "Einkaufswagen des Benutzers in der Seitenleiste anzeigen"
+msgstr "Warenkorb des Benutzers in der Seitenleiste anzeigen"
 
 #: includes/widgets/class-cart.php:86
 #. translators: number of items in cart
 msgid "View Cart %s"
-msgstr "Einkaufswagen anzeigen %s"
+msgstr "Warenkorb anzeigen %s"
 
 #: includes/widgets/class-cart.php:105
 msgid "Cart"
