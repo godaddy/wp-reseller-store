@@ -26,7 +26,7 @@ final class TestShortcodes extends TestCase {
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify" data-text_disclaimer="Taxes and ICANN fee not included in price displayed....Additional charges and registration restrictions may apply.">Domain Search<\/div>/' );
+		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div>/' );
 	}
 
 	/**
@@ -38,7 +38,7 @@ final class TestShortcodes extends TestCase {
 
 		do_shortcode( $content );
 
-		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify" data-text_disclaimer="Taxes and ICANN fee not included in price displayed....Additional charges and registration restrictions may apply.">Domain Search<\/div>/' );
+		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div>/' );
 	}
 
 	/**

@@ -195,7 +195,7 @@ final class Domain_Search extends \WP_Widget {
 			'text_select'   => isset( $instance['text_select'] ) ? $instance['text_select'] : esc_html__( 'Select', 'reseller-store' ),
 			'text_selected' => isset( $instance['text_selected'] ) ? $instance['text_selected'] : esc_html__( 'Selected', 'reseller-store' ),
 			'text_verify' => isset( $instance['text_verify'] ) ? $instance['text_verify'] : esc_html__( 'Verify', 'reseller-store' ),
-			'text_disclaimer' => isset( $instance['text_disclaimer'] ) ? $instance['text_disclaimer'] : esc_html__( 'Taxes and ICANN fee not included in price displayed.\n*Additional charges and registration restrictions may apply.', 'reseller-store' ),
+			'text_disclaimer' => isset( $instance['text_disclaimer'] ) ? $instance['text_disclaimer'] : '',
 		);
 	}
 

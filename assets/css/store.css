@@ -196,3 +196,14 @@
 .rstore-domain-search .rstore-disclaimer {
   clear: both;
 }
+
+.rstore-domain-search .rstore-disclaimer pre {
+    font-family: sans-serif;
+    background: none;
+    border: none;
+    font-size: 10px;
+    font-weight: 100;
+    margin: 0px;
+    padding: 0px;
+    white-space: pre-wrap;
+}

@@ -92,12 +92,14 @@ While we recommend  you use our Widgets for your storefront, we do have a shortc
 ## Changelog ##
 
 ### NEXT - September 2017 ###
-* Import tags
-* Update to domain search widget 2.0
-* Fix issue with shortcodes and Visual Composer
-* Add `rstore_api_query_args` filter
-* Remove `rstore_api_currency` and `rstore_api_market_id` filters
-* Add Reset button to product page
+* New: Import tags
+* Update: Domain search widget 2.1.0
+* Fix: Issue with shortcodes and Visual Composer
+* New: Add `rstore_api_query_args` filter
+* Remove: `rstore_api_currency` and `rstore_api_market_id` filters
+* New: Add Reset button to product page
+* Tweak: Add span tags to product pricing
+* New: Add empty index.php to every directory
 
 ### 1.0.3 - August 2017 ###
 *  New: Shopper login widget  

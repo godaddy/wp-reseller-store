@@ -48,7 +48,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget->widget( $args, $instance );
 
 		// display domain search.
-		$this->expectOutputRegex( '/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify" data-text_disclaimer="Taxes and ICANN fee not included in price displayed....Additional charges and registration restrictions may apply.">Domain Search<\/div><\/div>/' );
+		$this->expectOutputRegex( '/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div><\/div>/' );
 
 	}
 
