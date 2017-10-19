@@ -95,8 +95,11 @@ While we recommend  you use our Widgets for your storefront, we do have a shortc
 * Import tags
 * Update to domain search widget 2.0
 * Fix issue with shortcodes and Visual Composer
+* Add `rstore_api_query_args` filter
+* Remove `rstore_api_currency` and `rstore_api_market_id` filters
+* Add Reset button to product page
 
-### NEXT - August 2017 ###
+### 1.0.3 - August 2017 ###
 *  New: Shopper login widget  
 *  New: Add more options including _cart redirect_ to the product widget
 *  New: Move shortcodes to a new class and add new shortcodes.

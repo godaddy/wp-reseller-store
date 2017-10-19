@@ -49,7 +49,7 @@ function rstore_price( $post = null, $echo = true ) {
 	if ( $sale ) {
 
 		$output = sprintf(
-			'<span class="rstore-price rstore-has-sale-price"><del>%s</del> %s</span>',
+			'<span class="rstore-retail-price">%s</span><span class="rstore-price rstore-has-sale-price">%s</span>',
 			esc_html( $list ),
 			esc_html( $sale )
 		);

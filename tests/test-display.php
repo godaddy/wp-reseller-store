@@ -8,15 +8,6 @@ namespace Reseller_Store;
 final class TestClassDisplay extends TestCase {
 
 	/**
-	 * Setup.
-	 */
-	function setUp() {
-
-		parent::setUp();
-
-	}
-
-	/**
 	 * @testdox Test that Display class exists.
 	 */
 	public function test_basics() {

@@ -123,6 +123,8 @@ final class Domain_Search extends \WP_Widget {
 		$this->display_form_input( 'text_cart', $data['text_cart'], esc_html_e( 'Cart Button Text:', 'reseller' ) );
 		$this->display_form_input( 'text_select', $data['text_select'], esc_html_e( 'Select Button Text:', 'reseller' ) );
 		$this->display_form_input( 'text_selected', $data['text_selected'], esc_html_e( 'Unselect Button Text:', 'reseller' ) );
+		$this->display_form_input( 'text_verify', $data['text_verify'], esc_html_e( 'Verify Button Text:', 'reseller' ) );
+		$this->display_form_input( 'text_disclaimer', $data['text_disclaimer'], esc_html_e( 'Domain disclaimer notice', 'reseller' ) );
 	}
 
 	/**
@@ -165,6 +167,8 @@ final class Domain_Search extends \WP_Widget {
 		$instance['text_cart']  = isset( $new_instance['text_cart'] ) ? wp_kses_post( $new_instance['text_cart'] ) : null;
 		$instance['text_select']  = isset( $new_instance['text_select'] ) ? wp_kses_post( $new_instance['text_select'] ) : null;
 		$instance['text_selected']  = isset( $new_instance['text_selected'] ) ? wp_kses_post( $new_instance['text_selected'] ) : null;
+		$instance['text_verify']  = isset( $new_instance['text_verify'] ) ? wp_kses_post( $new_instance['text_verify'] ) : null;
+		$instance['text_disclaimer']  = isset( $new_instance['text_disclaimer'] ) ? wp_kses_post( $new_instance['text_disclaimer'] ) : null;
 
 		return $instance;
 
@@ -190,6 +194,8 @@ final class Domain_Search extends \WP_Widget {
 			'text_cart'            => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'text_select'   => isset( $instance['text_select'] ) ? $instance['text_select'] : esc_html__( 'Select', 'reseller-store' ),
 			'text_selected' => isset( $instance['text_selected'] ) ? $instance['text_selected'] : esc_html__( 'Selected', 'reseller-store' ),
+			'text_verify' => isset( $instance['text_verify'] ) ? $instance['text_verify'] : esc_html__( 'Verify', 'reseller-store' ),
+			'text_disclaimer' => isset( $instance['text_disclaimer'] ) ? $instance['text_disclaimer'] : esc_html__( 'Taxes and ICANN fee not included in price displayed.\n*Additional charges and registration restrictions may apply.', 'reseller-store' ),
 		);
 	}
 

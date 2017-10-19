@@ -18,4 +18,5 @@
 	<exclude-pattern>../lib/butterbean</exclude-pattern>
 	<exclude-pattern>*/butterbean/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>index.php</exclude-pattern>
 </ruleset>
