@@ -31,9 +31,9 @@ final class TestPermalinks extends TestCase {
 	}
 
 	/**
-	 * @testdox Test admin init function.
+	 * @testdox Test admin init function saves permalinks.
 	 */
-	public function test_admin_init_action() {
+	public function test_init() {
 
 		new Post_Type();
 		do_action( 'init' );
@@ -48,7 +48,7 @@ final class TestPermalinks extends TestCase {
 
 		$_REQUEST['_wpnonce'] = wp_create_nonce( 'update-permalink' );
 
-		$_POST['permalink_structure'] = 'products';
+		$_POST['permalink_structure'] = 'new-products';
 
 		rstore_update_option( 'permalinks', [
 			'product_base' => 'products',
@@ -56,7 +56,42 @@ final class TestPermalinks extends TestCase {
 
 		$permalinks = new Permalinks();
 
-		do_action( 'admin_init' );
+		$permalinks->init();
+
+		$options = rstore_get_option( 'permalinks', [] );
+
+		$this->assertEquals( '',  $options['product_base'] );
+
+	}
+
+	/**
+	 * @testdox Given no nonce init should not update permalinks.
+	 */
+	public function test_invalid_init() {
+
+		rstore_update_option( 'permalinks', [
+			'product_base' => 'original-value',
+		] );
+
+		$permalinks = new Permalinks();
+
+		$permalinks->init();
+
+		$options = rstore_get_option( 'permalinks', [] );
+
+		$this->assertEquals( 'original-value',  $options['product_base'] );
+
+	}
+
+	/**
+	 * @testdox Given section function should render.
+	 */
+	public function test_section_function() {
+
+		new Post_Type();
+		do_action( 'init' );
+
+		$permalinks = new Permalinks();
 
 		$permalinks->section();
 
