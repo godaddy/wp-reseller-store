@@ -287,7 +287,7 @@ final class Product extends \WP_Widget {
 			'show_title' => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
 			'show_content' => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : true,
 			'show_price' => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
-			'redirect' => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : false,
+			'redirect' => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
 			'text_cart' => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'image_size' => isset( $instance['image_size'] ) ? $instance['image_size'] : 'post-thumbnail',
