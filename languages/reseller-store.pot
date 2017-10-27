@@ -1,9 +1,9 @@
 # Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
+"Project-Id-Version: GoDaddy Reseller Store 1.0.5\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
+"POT-Creation-Date: 2017-10-27 17:57:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
