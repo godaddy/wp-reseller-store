@@ -64,31 +64,27 @@ final class Import {
 	 * @param int      $post_id (optional) Post ID to map the reseller product to.
 	 */
 	public function __construct( $product, $post_id = 0 ) {
-
-		$this->product  = $product->product;
+		$this->product  = $product;
 		$this->post_id  = absint( $post_id );
 		$this->imported = (array) rstore_get_option( 'imported', [] );
+	}
 
-		$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->id ) ) ? $this->product->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) );
+	/**
+	 * Import the product.
+	 *
+	 * @return bool|WP_Error
+	 */
+	public function import_product() {
 
-		if ( ! $product->is_valid() ) {
+		$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->fields->id ) ) ? $this->product->fields->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) );
 
-			$this->result = new WP_Error(
+		if ( ! $this->product->is_valid() ) {
+			return new WP_Error(
 				'invalid_product',
 				/* translators: product name */
 				esc_html__( '`%s` is not a valid product.', 'reseller-store' ),
 				$fallback_id
 			);
-
-			return;
-
-		}
-
-		if ( ! $this->post_id && $product->exists() ) {
-
-			// product exists so don't import it.
-			return;
-
 		}
 
 		/**
@@ -102,62 +98,42 @@ final class Import {
 
 			if ( ! array_key_exists( $this->post_id, $this->imported ) ) {
 
-				$this->result = new WP_Error(
+				return new WP_Error(
 					'product_not_imported',
 					/* translators: product name */
 					esc_html__( '`%s` must be imported as a product post before it can be reset.', 'reseller-store' ),
-					$this->product->id
+					$this->product->fields->id
 				);
-
-				return;
 
 			}
 
 			if ( Post_Type::SLUG !== get_post_type( $this->post_id ) ) {
 
-				$this->result = new WP_Error(
+				return new WP_Error(
 					'invalid_post_type',
 					/* translators: post type name */
 					esc_html__( '`%s` is not a valid post type for products.', 'reseller-store' ),
 					$post->post_type
 				);
 
-				return;
-
 			}
 		}
 
-		$this->post_id = $this->post( $this->post_id );
+		$this->post_id = $this->insert_post();
 
 		if ( is_wp_error( $this->post_id ) ) {
 
-			$this->result = $this->post_id; // Return the WP_Error.
-
-			return;
+			return $this->post_id; // Return the WP_Error.
 
 		}
 
 		$this->post_meta();
 
-		$this->categories();
+		$this->taxonomies();
 
-		$this->featured_image( $product->image_exists() );
+		$this->featured_image( $this->image_exists() );
 
-		$this->result = $this->mark_as_imported(); // Success!
-
-	}
-
-	/**
-	 * Return the result of the import.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @return true|WP_Error
-	 */
-	public function result() {
-
-		return $this->result;
-
+		return $this->mark_as_imported(); // Success!
 	}
 
 	/**
@@ -167,16 +143,18 @@ final class Import {
 	 *
 	 * @return int|WP_Error  Returns the post ID on success, `WP_Error` on failure.
 	 */
-	private function post() {
+	private function insert_post() {
+
+		wp_reset_postdata();
 
 		$post_id = wp_insert_post(
 			[
 				'ID'           => absint( $this->post_id ),
 				'post_type'    => Post_Type::SLUG,
 				'post_status'  => 'publish',
-				'post_title'   => sanitize_text_field( $this->product->title ),
-				'post_name'    => sanitize_title( $this->product->title ),
-				'post_content' => wp_filter_post_kses( $this->product->content ),
+				'post_title'   => sanitize_text_field( $this->product->fields->title ),
+				'post_name'    => sanitize_title( $this->product->fields->title ),
+				'post_content' => wp_filter_post_kses( $this->product->fields->content ),
 			],
 			true
 		);
@@ -192,35 +170,16 @@ final class Import {
 	 */
 	private function post_meta() {
 
-		global $wpdb;
-
-		/**
-		 * The custom post meta values in ButterBean are added
-		 * by the user, they are not part of the Product object
-		 * that comes from the Storefront API.
-		 *
-		 * And since the `Restore Product Data` button triggers
-		 * the Product::import() method, we'll need to make sure
-		 * all post meta with our plugin's prefix is deleted.
-		 */
-		$wpdb->query(
-			$wpdb->prepare(
-				"DELETE FROM `{$wpdb->postmeta}` WHERE `post_id` = %d AND `meta_key` LIKE %s;",
-				$this->post_id,
-				rstore_prefix( '%' )
-			)
-		);
-
-		rstore_bulk_update_post_meta( $this->post_id, $this->product );
+		rstore_bulk_update_post_meta( $this->post_id, $this->product->fields );
 
 	}
 
 	/**
-	 * Import product categories.
+	 * Import product taxonomies.
 	 *
 	 * @since 0.2.0
 	 */
-	private function categories() {
+	private function taxonomies() {
 
 		/**
 		 * Since the `Restore Product Data` button triggers the
@@ -231,9 +190,10 @@ final class Import {
 		 * post and product category terms, it does not delete the
 		 * terms themselves.
 		 */
-		wp_delete_object_term_relationships( $this->post_id, Taxonomy_Category::SLUG );
-
-		$this->process_categories( $this->product->categories, $this->post_id );
+		$taxonomies = array( Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG );
+		wp_delete_object_term_relationships( $this->post_id, $taxonomies );
+		$this->process_categories( $this->product->fields->categories, $this->post_id );
+		$this->process_tags( $this->product->fields->tags, $this->post_id );
 
 	}
 
@@ -317,17 +277,120 @@ final class Import {
 	}
 
 	/**
+	 * Process product tag terms.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $tags        tags to assign the product to.
+	 * @param int   $post_id           Product post ID.
+	 * @param int   $parent (optional) Product parent ID.
+	 */
+	private function process_tags( $tags, $post_id, $parent = 0 ) {
+
+		foreach ( $tags as $tag ) {
+
+			if ( is_string( $tag ) ) {
+
+				$this->add_tag( $tag, $post_id, $parent );
+
+				continue;
+
+			}
+		}
+	}
+
+	/**
+	 * Create a product tag and assign to the post.
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $name              tag name.
+	 * @param  int    $post_id           Reseller product post ID.
+	 * @param  int    $parent (optional) Reseller product parent ID.
+	 *
+	 * @return int|false  Returns a term ID on success, `false` on failure.
+	 */
+	private function add_tag( $name, $post_id, $parent = 0 ) {
+
+		// Returns 0 or NULL if the term does not exist.
+		// Returns an array if a term/taxonomy pairing exists.
+		$term = term_exists( $name, Taxonomy_Tag::SLUG );
+
+		if ( ! is_array( $term ) ) {
+
+			// Returns an array on success, WP_Error on failure.
+			// @codingStandardsIgnoreStart
+			$term = wp_insert_term( $name, Taxonomy_Tag::SLUG, [ 'parent' => (int) $parent ] );
+			// @codingStandardsIgnoreEnd
+
+		}
+
+		if ( is_wp_error( $term ) ) {
+
+			return false;
+
+		}
+
+		$term_id = isset( $term['term_id'] ) ? (int) $term['term_id'] : false;
+
+		if ( $term_id ) {
+
+			wp_set_object_terms( (int) $post_id, $term_id, Taxonomy_Tag::SLUG, true );
+
+		}
+
+		return $term_id;
+
+	}
+
+	/**
+	 * Check if an product image has already been imported.
+	 *
+	 * @global wpdb $wpdb
+	 * @since  0.2.0
+	 *
+	 * @return int|false  Returns the attachment ID if it exists, otherwise `false`.
+	 */
+	private function image_exists() {
+
+		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->fields->image ) );
+
+		$attachment_id = (int) wp_cache_get( $key );
+
+		if ( ! $attachment_id ) {
+
+			global $wpdb;
+
+			$attachment_id = (int) $wpdb->get_var(
+				$wpdb->prepare(
+					"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
+					rstore_prefix( 'image' ),
+					esc_url_raw( $this->product->fields->image ) // Image URLs are sanitized on import.
+				)
+			);
+
+			wp_cache_set( $key, $attachment_id );
+
+		}
+
+		return ( $attachment_id > 0 ) ? $attachment_id : false;
+
+	}
+
+	/**
 	 * Import image as an attachment and set as the post's featured image.
 	 *
 	 * @since 0.2.0
 	 *
 	 * @param int $attachment_id Reseller product image attachment ID.
+	 *
+	 * @return bool
 	 */
 	private function featured_image( $attachment_id = 0 ) {
 
-		$url = esc_url_raw( $this->product->image );
+		$url = esc_url_raw( $this->product->fields->image );
 
-		$attachment_id = ( $attachment_id > 0 ) ? (int) $attachment_id : $this->sideload_image( $url, $this->product->title );
+		$attachment_id = ( $attachment_id > 0 ) ? (int) $attachment_id : $this->sideload_image( $url, $this->product->fields->title );
 
 		if ( ! $attachment_id ) {
 
@@ -338,9 +401,7 @@ final class Import {
 		set_post_thumbnail( $this->post_id, $attachment_id );
 
 		$meta = [
-			'id'      => sanitize_title( $this->product->id ),
 			'image'   => esc_url_raw( $url ),
-			'post_id' => $this->post_id,
 		];
 
 		rstore_bulk_update_post_meta( $attachment_id, $meta );
@@ -411,7 +472,7 @@ final class Import {
 		 * circumvented the `delete_post` action, such as deleting it
 		 * manually from the database.
 		 */
-		$post_id = array_search( $this->product->id, $this->imported, true );
+		$post_id = array_search( $this->product->fields->id, $this->imported, true );
 
 		if ( $post_id ) {
 
@@ -419,7 +480,7 @@ final class Import {
 
 		}
 
-		$this->imported[ $this->post_id ] = $this->product->id;
+		$this->imported[ $this->post_id ] = $this->product->fields->id;
 
 		return rstore_update_option( 'imported', $this->imported );
 

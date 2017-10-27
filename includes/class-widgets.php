@@ -15,8 +15,9 @@ namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Widgets {
@@ -40,6 +41,8 @@ final class Widgets {
 		register_widget( __NAMESPACE__ . '\Widgets\Cart' );
 
 		register_widget( __NAMESPACE__ . '\Widgets\Domain_Search' );
+
+		register_widget( __NAMESPACE__ . '\Widgets\Login' );
 
 		register_widget( __NAMESPACE__ . '\Widgets\Product' );
 	}

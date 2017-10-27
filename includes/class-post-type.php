@@ -17,8 +17,9 @@ use stdClass;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Post_Type {
@@ -69,7 +70,6 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init',                         [ $this, 'register' ] );
-		add_action( 'admin_init',                   [ $this, 'process_product_reset' ] );
 		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
 		add_action( 'delete_post',                  [ $this, 'delete_imported_product' ] );
@@ -80,27 +80,125 @@ final class Post_Type {
 		add_filter( 'the_content',                             [ $this, 'append_add_to_cart_form' ] );
 		add_filter( 'the_excerpt',                             [ $this, 'append_add_to_cart_form' ] );
 
-		add_filter( 'edit_' . self::SLUG . '_per_page', function () {
+		add_filter(
+			'edit_' . self::SLUG . '_per_page', function () {
 
-			return 50;
+				return 50;
 
-		} );
+			}
+		);
 
-		add_filter( 'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
+		add_filter(
+			'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
 
 			// @codingStandardsIgnoreStart
 			return array_merge( $columns, [ 'price' => 'price' ] );
 			// @codingStandardsIgnoreEnd
 
-		} );
+			}
+		);
 
-		add_filter( 'view_mode_post_types', function ( $post_types ) {
+		add_filter(
+			'view_mode_post_types', function ( $post_types ) {
 
 			// @codingStandardsIgnoreStart
 			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
 			// @codingStandardsIgnoreEnd
 
-		} );
+			}
+		);
+
+		add_action(
+			'add_meta_boxes', function () {
+
+				add_meta_box( 'restore-' . self::SLUG, esc_html__( 'Reset Product', 'reseller-store' ), [ $this, 'render_reset_button' ],  self::SLUG, 'side', 'high' );
+			}
+		);
+
+		add_action( 'save_post', [ $this, 'republish_post' ] );
+
+	}
+
+	/**
+	 * Render the reset checkbox meta_box
+	 *
+	 * @since 0.2.0
+	 */
+	public function render_reset_button() {
+		// Button value cannot be translated.
+		?>
+			 <div>
+				 <p>
+					 <label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
+				 </p>
+				 <input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">
+			</div>
+		<?php
+	}
+
+	/**
+	 * Republishes the product post from the catalog api
+	 *
+	 * @since NEXT
+	 *
+	 * @param int $post_id Product post ID.
+	 *
+	 * @return void
+	 */
+	public function republish_post( $post_id ) {
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( get_post_status( $post_id ) !== 'publish' ) {
+			return;
+		}
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['republish_product'] ) || ! 'Reset' === $_POST['republish_product'] ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['post_type'] ) || ! self::SLUG === $_POST['post_type'] ) {
+			return;
+		}
+
+		// Unhook this function so it doesn't loop infinitely.
+		remove_action( 'save_post', [ $this, 'republish_post' ] );
+
+		$result = $this->reset_product_data( $post_id );
+
+		// Re-hook this function.
+		add_action( 'save_post', [ $this, 'republish_post' ] );
+
+		if ( ! is_wp_error( $result ) ) {
+
+			return;
+
+		}
+
+		/**
+		 * If there is an error, display it in an admin notice.
+		 */
+		add_action(
+			'edit_form_top', function () use ( $result ) {
+
+				echo printf(
+					'<div class="notice notice-error is-dismissible"><p>Error: %s</p></div>',
+					esc_html(
+						sprintf(
+							$result->get_error_message(),
+							$result->get_error_data( $result->get_error_code() )
+						)
+					)
+				);
+
+			}, 0
+		);
 
 	}
 
@@ -185,78 +283,41 @@ final class Post_Type {
 	}
 
 	/**
-	 * Process a product data reset in the admin.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @action admin_init
-	 */
-	public function process_product_reset() {
-
-		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
-		$nonce   = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING );
-
-		if (
-			! rstore_is_admin_uri( 'post.php?post=' )
-			||
-			! $post_id
-			||
-			! $nonce
-			||
-			false === wp_verify_nonce( $nonce, sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() ) )
-		) {
-
-			return;
-
-		}
-
-		$result = $this->reset_product_data( $post_id );
-
-		if ( ! is_wp_error( $result ) ) {
-
-			return;
-
-		}
-
-		/**
-		 * If there is an error, display it in an admin notice.
-		 */
-		add_action( 'edit_form_top', function () use ( $result ) {
-
-			printf(
-				'<div class="notice notice-error is-dismissible"><p>%s</p></div>',
-				esc_html(
-					sprintf(
-						$result->get_error_message(),
-						$result->get_error_data( $result->get_error_code() )
-					)
-				)
-			);
-
-		} );
-
-	}
-
-	/**
 	 * Reset a product's data.
 	 *
 	 * @since  0.2.0
 	 *
 	 * @param  int $post_id Product post ID.
 	 *
-	 * @return true|WP_Error
+	 * @return true|\WP_Error
 	 */
 	public function reset_product_data( $post_id ) {
 
-		$product = rstore_get_product( rstore_get_product_meta( $post_id, 'id' ) );
+		$product_id = rstore_get_product_meta( $post_id, 'id' );
 
-		if ( is_wp_error( $product ) ) {
+		if ( false === $product_id ) {
 
-			return $product; // Return the WP_Error.
+			return new \WP_Error(
+				'invalid_product_id',
+				esc_html__( 'Product id not found or invalid.', 'reseller-store' )
+			);
 
 		}
 
-		return $product->import( $post_id );
+		$product = rstore_get_product( $product_id );
+
+		if ( is_wp_error( $product ) ) {
+			return $product;
+		}
+
+		$import = new Import( $product, $post_id );
+
+		if ( is_wp_error( $import ) ) {
+			return $import;
+
+		}
+
+		return $import->import_product();
 
 	}
 
@@ -498,8 +559,10 @@ final class Post_Type {
 
 		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
+			$button_label = esc_html__( 'Add to cart', 'reseller-store' );
+			$cart_text = esc_html__( 'View cart', 'reseller-store' );
 			$content .= wpautop( rstore_price( $post->ID, false ) );
-			$content .= rstore_add_to_cart_form( $post->ID, false );
+			$content .= rstore_add_to_cart_form( $post->ID, false, $button_label, $cart_text, true );
 
 		}
 

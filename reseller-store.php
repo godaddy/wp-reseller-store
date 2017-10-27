@@ -97,6 +97,7 @@ final class Plugin {
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
 		new Widgets;
+		new Shortcodes;
 
 	}
 

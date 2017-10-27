@@ -67,11 +67,13 @@ final class Setup {
 		 */
 		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
 
-		add_action( 'init', function () {
+		add_action(
+			'init', function () {
 
-			self::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
+				self::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
 
-		} );
+			}
+		);
 
 		add_action( 'admin_enqueue_scripts',  [ $this, 'admin_enqueue_scripts' ] );
 		add_action( 'admin_menu',             [ $this, 'page' ], 9 );
@@ -276,7 +278,7 @@ final class Setup {
 	 *
 	 * @param  int $pl_id (optional)
 	 *
-	 * @return true|WP_Error|void
+	 * @return true|\WP_Error|void
 	 */
 	public static function install( $pl_id = 0 ) {
 
@@ -359,15 +361,15 @@ final class Setup {
 
 		flush_rewrite_rules();
 
-		foreach ( (array) $products as $product ) {
+		foreach ( (array) $products as $productData ) {
 
-			$product = new Product( $product );
+			$product = new Product( $productData );
 
 			$result = $product->import();
 
 			if ( is_wp_error( $result ) ) {
 
-				return self::install_error( $result );
+                return self::install_error( $result );
 
 			}
 
@@ -377,7 +379,7 @@ final class Setup {
 
 		if ( ! rstore_has_products() ) {
 
-			return self::install_error(
+            return self::install_error(
 				'products_import_failure',
 				esc_html__( 'Product data could not be imported, please try again later.', 'reseller-store' )
 			);
@@ -397,19 +399,16 @@ final class Setup {
 			);
 
 		}
-
-		return true;
-
 	}
 
 	/**
 	 * Return an install error.
 	 *
-	 * @param  string|WP_Error $code
+	 * @param  string|\WP_Error $code
 	 * @param  string          $message
 	 * @param  string          $data
 	 *
-	 * @return WP_Error|void  Returns a `WP_Error`, or prints an error as JSON and dies when called during an AJAX request.
+	 * @return \WP_Error|void  Returns a `WP_Error`, or prints an error as JSON and dies when called during an AJAX request.
 	 */
 	private static function install_error( $code = '', $message = '', $data = '' ) {
 
@@ -419,7 +418,7 @@ final class Setup {
 
 		if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
 
-			return ( $wp_error ) ? $wp_error : new WP_Error( $code, $message, $data );
+			return ( $wp_error ) ? $wp_error : new \WP_Error( $code, $message, $data );
 
 		}
 

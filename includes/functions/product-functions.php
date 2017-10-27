@@ -125,11 +125,13 @@ function rstore_get_products( $hard = false ) {
 
 	}
 
-	return rstore_get_transient( 'products', [], function () {
+	return rstore_get_transient(
+		'products', [], function () {
 
-		return rstore()->api->get( 'catalog/{pl_id}/products' );
+			return rstore()->api->get( 'catalog/{pl_id}/products' );
 
-	} );
+		}
+	);
 
 }
 
@@ -145,24 +147,22 @@ function rstore_get_demo_products() {
 }
 
 /**
- * Return a product object.
+ * Return a product object from catalog.
  *
  * @param  string $product_id Product ID.
- * @param  bool   $hard      (optional) Whether the transients should be deleted before fetching.
  *
  * @return stdClass|WP_Error
  */
-function rstore_get_product( $product_id, $hard = false ) {
+function rstore_get_product( $product_id ) {
 
-	foreach ( rstore_get_products( $hard ) as $product ) {
+	$response = rstore()->api->get( 'catalog/{pl_id}/products/' . $product_id );
 
-		$product = new Reseller_Store\Product( $product );
+	$product = new Reseller_Store\Product( $response );
 
-		if ( $product->is_valid() && $product->id === $product_id ) {
+	if ( $product->is_valid() && $product->id === $product_id ) {
 
-			return $product;
+		return $product;
 
-		}
 	}
 
 	return new WP_Error(

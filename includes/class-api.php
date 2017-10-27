@@ -77,6 +77,37 @@ final class API {
 
 		$this->urls['api']  = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
 		$this->urls['cart'] = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
+		$this->urls['gui'] = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
+
+	}
+
+
+	/**
+	 * Build a SSO login or logout url.
+	 *
+	 * @since NEXT
+	 *
+	 * @param bool $login        Generate a Login or Logout URL.
+	 *
+	 * @return string
+	 */
+	public function get_sso_url( $login = true ) {
+
+		$args = [
+			'plid'  => (int) rstore_get_option( 'pl_id' ),
+			'realm' => 'idp',
+			'app'   => 'www',
+
+		];
+
+		$url = sprintf(
+			'https://%s.%s/%s',
+			$login ? 'mya' : 'sso',
+			$this->tld,
+			$login ? '' : 'logout'
+		);
+
+		return esc_url_raw( add_query_arg( $args, $url ) );
 
 	}
 
@@ -86,51 +117,22 @@ final class API {
 	 * @since 0.2.0
 	 *
 	 * @param string $url        The original URL.
-	 * @param bool   $add_pl_id (optional) 'pl_id' to add to the query.
 	 *
 	 * @return string
 	 */
-	public function add_query_args( $url, $add_pl_id = true ) {
+	public function add_query_args( $url ) {
 
 		$args = [];
 
-		if ( $add_pl_id && rstore_is_setup() ) {
+		if ( rstore_is_setup() ) {
 
 			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
 
 		}
 
-		/**
-		 * Filter the currency ID used in API requests.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @var string
-		 */
-		$currency = (string) apply_filters( 'rstore_api_currency', false );
+		$args = (array) apply_filters( 'rstore_api_query_args', $args );
 
-		if ( $currency ) {
-
-			$args['currencyType'] = $currency;
-
-		}
-
-		/**
-		 * Filter the market ID used in API requests.
-		 *
-		 * @since 0.2.0
-		 *
-		 * @var string
-		 */
-		$market = (string) apply_filters( 'rstore_api_market_id', false );
-
-		if ( $market ) {
-
-			$args['marketId'] = $market;
-
-		}
-
-		return esc_url_raw( add_query_arg( $args, $url ) );
+		return  esc_url_raw( add_query_arg( $args, $url ) );
 
 	}
 
@@ -157,7 +159,7 @@ final class API {
 
 		}
 
-		return $this->add_query_args( trailingslashit( $url ), false );
+		return $this->add_query_args( trailingslashit( $url ) );
 
 	}
 

@@ -52,6 +52,8 @@ jobs:
   fast_finish: true
   exclude:
     - php: 7.1
+      env: WP_VERSION=4.6
+    - php: 7.1
       env: WP_VERSION=latest
   include:
     - stage: code coverage
