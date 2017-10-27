@@ -159,16 +159,6 @@ final class Product extends \WP_Widget {
 
 		<p>
 			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_title' ) ); ?>" value="1" class="checkbox" <?php checked( $data['show_title'], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>">
-				<?php esc_html_e( 'Show product title', 'reseller' ); ?>
-			</label>
-		</p>
-
-		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_content' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_content' ) ); ?>" value="1" class="checkbox" <?php checked( $data['show_content'], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'show_content' ) ); ?>">
-				<?php esc_html_e( 'Show post text', 'reseller' ); ?>
-			</label>
 		</p>
 
 		<p>

@@ -95,6 +95,4 @@ final class TestWidgetLogin extends TestCase {
 		}
 
 	}
-
-
 }

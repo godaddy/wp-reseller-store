@@ -82,7 +82,6 @@ final class TestHelperFunctions extends TestCase {
 
 			}, $defaults
 		);
-
 	}
 
 	/**

@@ -45,9 +45,6 @@ final class TestWidgetCart extends TestCase {
 
 		$widget->widget( $args, $instance );
 
-		// display main div tag.
-		$this->expectOutputRegex( '/<div class="rstore-view-cart">/' );
-
 		// display view cart link.
 		$this->expectOutputRegex( '/<a href="https:\/\/cart.secureserver.net\/">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/' );
 
