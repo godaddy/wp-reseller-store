@@ -681,7 +681,7 @@ msgstr "经销商产品"
 #: includes/class-post-type.php:234
 msgctxt "product"
 msgid "Add New"
-msgstr "添加新的搜索项"
+msgstr "新增产品"
 
 #: includes/class-taxonomy-category.php:80
 msgctxt "taxonomy general name"

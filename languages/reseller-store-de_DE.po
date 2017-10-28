@@ -46,7 +46,7 @@ msgstr "Standardanzahl"
 
 #: includes/class-butterbean.php:282
 msgid "Add to Cart Button Label"
-msgstr "Beschriftung der Schaltfläche „In den Einkaufswagen“"
+msgstr "Beschriftung der Schaltfläche „In den Warenkorb legen“"
 
 #: includes/class-butterbean.php:284 includes/class-post-type.php:562
 #: includes/functions/helper-functions.php:73
@@ -56,7 +56,7 @@ msgstr "In den Warenkorb"
 
 #: includes/class-butterbean.php:311
 msgid "Redirect to the cart immediately after adding"
-msgstr "Nach dem Hinzufügen sofort zum Einkaufswagen weiterleiten"
+msgstr "Nach dem Hinzufügen sofort zum Warenkorb weiterleiten"
 
 #: includes/class-butterbean.php:344
 msgid "Restore Product Data"
@@ -406,11 +406,11 @@ msgstr "Fehler: ‚%s‘ ist nicht vorhanden."
 
 #: includes/widgets/class-cart.php:34
 msgid "Reseller Cart"
-msgstr "Wiederverkäufer-Einkaufswagen"
+msgstr "Wiederverkäufer-Warenkorb"
 
 #: includes/widgets/class-cart.php:37
 msgid "Display the user's cart in the sidebar."
-msgstr "Einkaufswagen des Benutzers in der Seitenleiste anzeigen"
+msgstr "Warenkorb des Benutzers in der Seitenleiste anzeigen"
 
 #: includes/widgets/class-cart.php:113
 #: includes/widgets/class-domain-search.php:117
@@ -426,7 +426,7 @@ msgstr "Schaltfläche:"
 #: includes/widgets/class-cart.php:155
 #, fuzzy
 msgid "View Cart"
-msgstr "Einkaufswagen anzeigen"
+msgstr "Warenkorb anzeigen"
 
 #: includes/widgets/class-domain-search.php:34
 msgid "Reseller Domain Search"
