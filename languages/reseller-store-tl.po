@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-10-27 17:57:57+00:00\n"
+"POT-Creation-Date: 2017-10-28 02:07:56+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "Add to Cart Button Label"
 
 #: includes/class-butterbean.php:284 includes/class-post-type.php:562
 #: includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:291
+#: includes/widgets/class-product.php:281
 msgid "Add to cart"
 msgstr "Add to cart"
 
@@ -412,7 +412,7 @@ msgstr "Display the user's cart in the sidebar."
 msgid "Title:"
 msgstr "Title:"
 
-#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:189
+#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:179
 #, fuzzy
 msgid "Button Label:"
 msgstr "Button:"
@@ -493,7 +493,7 @@ msgid "Sorry that domain is taken"
 msgstr "Sorry that domain is taken"
 
 #: includes/widgets/class-domain-search.php:194
-#: includes/widgets/class-product.php:292
+#: includes/widgets/class-product.php:282
 msgid "Continue to cart"
 msgstr ""
 
@@ -588,34 +588,25 @@ msgstr ""
 msgid "Hide Image"
 msgstr "Product Image"
 
-#: includes/widgets/class-product.php:163
-#, fuzzy
-msgid "Show product title"
-msgstr "Set product image"
-
-#: includes/widgets/class-product.php:170
-msgid "Show post text"
-msgstr ""
-
-#: includes/widgets/class-product.php:177
+#: includes/widgets/class-product.php:167
 #, fuzzy
 msgid "Show product price"
 msgstr "Set product image"
 
-#: includes/widgets/class-product.php:184
+#: includes/widgets/class-product.php:174
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "Redirect to the cart immediately after adding"
 
-#: includes/widgets/class-product.php:191
+#: includes/widgets/class-product.php:181
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/widgets/class-product.php:195
+#: includes/widgets/class-product.php:185
 msgid "Cart Text:"
 msgstr ""
 
-#: includes/widgets/class-product.php:197
+#: includes/widgets/class-product.php:187
 msgid "Cart link text"
 msgstr ""
 
@@ -711,6 +702,10 @@ msgstr "Tag"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / per %2$s"
+
+#, fuzzy
+#~ msgid "Show product title"
+#~ msgstr "Set product image"
 
 #~ msgid "`%s` already exists."
 #~ msgstr "`%s` already exists."
