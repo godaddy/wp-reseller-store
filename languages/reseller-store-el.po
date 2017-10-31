@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-10-28 02:07:56+00:00\n"
+"POT-Creation-Date: 2017-10-31 20:53:15+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "Ετικέτα κουμπιού προσθήκης στο καλάθι �
 
 #: includes/class-butterbean.php:284 includes/class-post-type.php:562
 #: includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:281
+#: includes/widgets/class-product.php:291
 msgid "Add to cart"
 msgstr "Προσθήκη στο καλάθι"
 
@@ -420,7 +420,7 @@ msgstr "Εμφάνιση του καλαθιού αγορών του χρήστ�
 msgid "Title:"
 msgstr "Τίτλος:"
 
-#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:179
+#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:189
 #, fuzzy
 msgid "Button Label:"
 msgstr "Κουμπί:"
@@ -501,7 +501,7 @@ msgid "Sorry that domain is taken"
 msgstr "Δυστυχώς αυτό το domain δεν είναι διαθέσιμο"
 
 #: includes/widgets/class-domain-search.php:194
-#: includes/widgets/class-product.php:282
+#: includes/widgets/class-product.php:292
 msgid "Continue to cart"
 msgstr ""
 
@@ -596,25 +596,35 @@ msgstr ""
 msgid "Hide Image"
 msgstr "Εικόνα Προϊόντος"
 
-#: includes/widgets/class-product.php:167
+#: includes/widgets/class-product.php:163
+#, fuzzy
+msgid "Show product title"
+msgstr "Όρισε εικόνα προϊόντος"
+
+#: includes/widgets/class-product.php:170
+#, fuzzy
+msgid "Show post text"
+msgstr "Όρισε εικόνα προϊόντος"
+
+#: includes/widgets/class-product.php:177
 #, fuzzy
 msgid "Show product price"
 msgstr "Όρισε εικόνα προϊόντος"
 
-#: includes/widgets/class-product.php:174
+#: includes/widgets/class-product.php:184
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "Ανακατεύθυνση στο καλάθι αγορών αμέσως μετά την προσθήκη"
 
-#: includes/widgets/class-product.php:181
+#: includes/widgets/class-product.php:191
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/widgets/class-product.php:185
+#: includes/widgets/class-product.php:195
 msgid "Cart Text:"
 msgstr ""
 
-#: includes/widgets/class-product.php:187
+#: includes/widgets/class-product.php:197
 msgid "Cart link text"
 msgstr ""
 
@@ -712,10 +722,6 @@ msgstr "Ετικέτα"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / ανά %2$s"
-
-#, fuzzy
-#~ msgid "Show product title"
-#~ msgstr "Όρισε εικόνα προϊόντος"
 
 #~ msgid "`%s` already exists."
 #~ msgstr "Το `%s` υπάρχει ήδη."

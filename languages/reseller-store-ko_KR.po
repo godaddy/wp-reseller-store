@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-10-28 02:07:56+00:00\n"
+"POT-Creation-Date: 2017-10-31 20:53:15+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr "카트에 추가 버튼 레이블"
 
 #: includes/class-butterbean.php:284 includes/class-post-type.php:562
 #: includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:281
+#: includes/widgets/class-product.php:291
 msgid "Add to cart"
 msgstr "장바구니"
 
@@ -412,7 +412,7 @@ msgstr "사이드바에 사용자의 장바구니 보이기."
 msgid "Title:"
 msgstr "제목:"
 
-#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:179
+#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:189
 #, fuzzy
 msgid "Button Label:"
 msgstr "버튼:"
@@ -493,7 +493,7 @@ msgid "Sorry that domain is taken"
 msgstr "죄송합니다. 해당 도메인은 사용할 수 없습니다"
 
 #: includes/widgets/class-domain-search.php:194
-#: includes/widgets/class-product.php:282
+#: includes/widgets/class-product.php:292
 msgid "Continue to cart"
 msgstr ""
 
@@ -588,25 +588,35 @@ msgstr ""
 msgid "Hide Image"
 msgstr "상품 이미지"
 
-#: includes/widgets/class-product.php:167
+#: includes/widgets/class-product.php:163
+#, fuzzy
+msgid "Show product title"
+msgstr "상품 이미지 설정"
+
+#: includes/widgets/class-product.php:170
+#, fuzzy
+msgid "Show post text"
+msgstr "상품 이미지 설정"
+
+#: includes/widgets/class-product.php:177
 #, fuzzy
 msgid "Show product price"
 msgstr "상품 이미지 설정"
 
-#: includes/widgets/class-product.php:174
+#: includes/widgets/class-product.php:184
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "추가 후에 즉시 카트로 리디렉션"
 
-#: includes/widgets/class-product.php:181
+#: includes/widgets/class-product.php:191
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/widgets/class-product.php:185
+#: includes/widgets/class-product.php:195
 msgid "Cart Text:"
 msgstr ""
 
-#: includes/widgets/class-product.php:187
+#: includes/widgets/class-product.php:197
 msgid "Cart link text"
 msgstr ""
 
@@ -703,10 +713,6 @@ msgstr "태그"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / %2$s"
-
-#, fuzzy
-#~ msgid "Show product title"
-#~ msgstr "상품 이미지 설정"
 
 #~ msgid "`%s` already exists."
 #~ msgstr "'%s'은(는) 이미 존재합니다."
