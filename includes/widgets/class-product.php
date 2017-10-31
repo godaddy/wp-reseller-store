@@ -52,6 +52,20 @@ final class Product extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		global $wp_current_filter;
+
+		$data = $this->get_data( $instance );
+
+		$post_id = $data['post_id'];
+
+		if ( get_post_status( $post_id ) !== 'publish' ||
+			get_post_type( $post_id ) !== \Reseller_Store\Post_Type::SLUG ) {
+
+			esc_html_e( 'Post id is not valid.', 'reseller' );
+			return;
+
+		}
+
 		/**
 		 * Filter classes to be appended to the Product widget.
 		 *
@@ -67,59 +81,62 @@ final class Product extends \WP_Widget {
 
 		}
 
+		$content;
+
 		if ( ! empty( $matches[0] ) && ! empty( $matches[1] ) ) {
 
-			$args['before_widget'] = str_replace(
+			$content = str_replace(
 				$matches[0],
 				sprintf( 'class="%s"', implode( ' ', array_merge( explode( ' ', $matches[1] ), $classes ) ) ),
 				$args['before_widget']
 			);
 
-		}
+		} else {
 
-		echo $args['before_widget']; // xss ok.
-
-		$data = $this->get_data( $instance );
-
-		$post_id = $data['post_id'];
-
-		if ( get_post_status( $post_id ) !== 'publish' ||
-			get_post_type( $post_id ) !== \Reseller_Store\Post_Type::SLUG ) {
-
-			esc_html_e( 'Post id is not valid.', 'reseller' );
-			return;
+			$content = $args['before_widget']; // xss ok.
 
 		}
 
 		if ( 'none' !== $data['image_size'] ) {
 
-			echo get_the_post_thumbnail( $post_id, $data['image_size'] );
+			$content .= get_the_post_thumbnail( $post_id, $data['image_size'] );
 
 		}
 
 		if ( $data['show_title'] ) {
 
-			echo $args['before_title'] . apply_filters( 'widget_title', get_the_title( $post_id ) ) . $args['after_title']; // xss ok.
+			$content .= $args['before_title'] . apply_filters( 'widget_title', get_the_title( $post_id ) ) . $args['after_title']; // xss ok.
 
 		}
 
 		if ( $data['show_content'] ) {
 
-			echo wp_kses_post( apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) ) );
+			$content .= wp_kses_post( get_post_field( 'post_content', $post_id ) );
+
 		}
 
 		if ( $data['show_price'] ) {
 
-			echo wp_kses_post( apply_filters( 'the_content', rstore_price( $post_id, false ) ) );
+			$content .= wp_kses_post( rstore_price( $post_id, false ) );
 
 		}
 
 		if ( ! empty( $data['button_label'] ) ) {
 
-			echo rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
+			$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
 
 		}
-		echo $args['after_widget']; // xss ok.
+		$content .= $args['after_widget']; // xss ok.
+
+		if ( in_array( 'the_content', $wp_current_filter, true ) ) {
+
+			echo $content;
+
+		} else {
+
+			echo apply_filters( 'the_content', $content );
+
+		}
 
 	}
 
