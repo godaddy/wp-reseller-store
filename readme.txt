@@ -63,7 +63,7 @@ While we can't test every theme with our plugin, we try our best to make the plu
 = I am getting an error while trying to activate the plugin. What should I do? =
 If you are having an issue, we recommend you deactivate your other plugins and then try to activate the Reseller Store plugin. You can also try changing to another theme and the try re activating the plugin. Before making any of these changes, we recommend you make a backup of your site and database.
 
-While we strive to make the plugin compatible many themes and plugins, our plugin creates a custom post type which can cause some themes and custom builder plugins to interfere with the registration of the custom post type.
+While we strive to make the plugin compatible with many themes and plugins, our plugin creates a custom post type which can cause some themes and custom builder plugins to interfere with the registration of the custom post type.
 
 = What shortcodes are supported? =
 While we recommend you use our widgets for your storefront, we do have a shortcodes for each widget.
@@ -98,7 +98,7 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 * New: Add empty index.php to every directory
 
 = 1.0.3 - August 2017 =
-*  New: Shopper login widget  
+*  New: Shopper login widget
 *  New: Add more options including _cart redirect_ to the product widget
 *  New: Move shortcodes to a new class and add new shortcodes.
 *  Fix: No longer store cart count in a cookie
