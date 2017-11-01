@@ -401,7 +401,7 @@ final class Import {
 		set_post_thumbnail( $this->post_id, $attachment_id );
 
 		$meta = [
-			'image'   => esc_url_raw( $url ),
+			'image' => esc_url_raw( $url ),
 		];
 
 		rstore_bulk_update_post_meta( $attachment_id, $meta );

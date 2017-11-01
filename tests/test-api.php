@@ -26,7 +26,7 @@ final class TestAPI extends TestCase {
 
 		$query_string = $api->add_query_args( $url );
 
-		$this->assertEquals( $url , $query_string );
+		$this->assertEquals( $url, $query_string );
 
 	}
 
@@ -41,7 +41,7 @@ final class TestAPI extends TestCase {
 
 		$url = $api->add_query_args( 'https://www.secureserver.net' );
 
-		$this->assertEquals( 'https://www.secureserver.net?pl_id=12345' , $url );
+		$this->assertEquals( 'https://www.secureserver.net?pl_id=12345', $url );
 
 	}
 
@@ -64,7 +64,7 @@ final class TestAPI extends TestCase {
 
 		$query_string = $api->add_query_args( $url, false );
 
-		$this->assertEquals( $url . '?currencyType=USD' , $query_string );
+		$this->assertEquals( $url . '?currencyType=USD', $query_string );
 
 	}
 
@@ -79,7 +79,7 @@ final class TestAPI extends TestCase {
 
 		$url = $api->get_sso_url( true );
 
-		$this->assertEquals( 'https://mya.secureserver.net/?plid=12345&realm=idp&app=www' , $url );
+		$this->assertEquals( 'https://mya.secureserver.net/?plid=12345&realm=idp&app=www', $url );
 
 	}
 
@@ -94,7 +94,7 @@ final class TestAPI extends TestCase {
 
 		$url = $api->get_sso_url( false );
 
-		$this->assertEquals( 'https://sso.secureserver.net/logout?plid=12345&realm=idp&app=www' , $url );
+		$this->assertEquals( 'https://sso.secureserver.net/logout?plid=12345&realm=idp&app=www', $url );
 
 	}
 

@@ -27,15 +27,15 @@ final class TestWidgetLogin extends TestCase {
 		$widget = new Widgets\Login();
 
 		$instance = [
-			'title'    => 'login',
-			'welcome_message' => 'Welcome',
+			'title'             => 'login',
+			'welcome_message'   => 'Welcome',
 			'login_button_text' => 'log in',
 			'login_button_text' => 'log out',
 		];
 
 		$args = [
 			'before_widget' => '<div class="before_widget">',
-			'after_widget' => '</div>',
+			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		];
@@ -53,23 +53,23 @@ final class TestWidgetLogin extends TestCase {
 		$widget = new Widgets\Login();
 
 		$old_instance = [
-			'title'    => '',
-			'welcome_message' => '',
-			'login_button_text' => '',
+			'title'              => '',
+			'welcome_message'    => '',
+			'login_button_text'  => '',
 			'logout_button_text' => '',
 		];
 
 		$new_instance = [
-			'title'    => 'aaa',
-			'welcome_message' => 'bbb',
-			'login_button_text' => 'ccc',
+			'title'              => 'aaa',
+			'welcome_message'    => 'bbb',
+			'login_button_text'  => 'ccc',
 			'logout_button_text' => 'ddd',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
 		foreach ( $instance as $key => $value ) {
-			$this->assertEquals( $instance[ $key ],  $new_instance[ $key ] );
+			$this->assertEquals( $instance[ $key ], $new_instance[ $key ] );
 		}
 
 	}
@@ -82,9 +82,9 @@ final class TestWidgetLogin extends TestCase {
 		$widget = new Widgets\Login();
 
 		$instance = [
-			'title'    => 'aaa',
-			'welcome_message' => 'bbb',
-			'login_button_text' => 'ccc',
+			'title'              => 'aaa',
+			'welcome_message'    => 'bbb',
+			'login_button_text'  => 'ccc',
 			'logout_button_text' => 'ddd',
 		];
 

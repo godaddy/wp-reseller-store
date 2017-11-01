@@ -35,7 +35,7 @@ final class Permalinks {
 
 		}
 
-		add_action( 'admin_init',            [ $this, 'init' ] );
+		add_action( 'admin_init', [ $this, 'init' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 
 	}

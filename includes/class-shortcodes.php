@@ -30,9 +30,9 @@ final class Shortcodes {
 	 */
 	private $args = [
 		'before_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
-		'after_widget' => '',
+		'before_title'  => '',
+		'after_title'   => '',
+		'after_widget'  => '',
 	];
 
 	/**
@@ -68,7 +68,7 @@ final class Shortcodes {
 		 */
 		add_shortcode( 'rstore_domain_search', [ $this, 'domain_search' ] );
 
-		 /**
+		/**
 		 * Register the add to cart shortcode
 		 *
 		 * @shortcode [rstore_cart_button]
@@ -81,7 +81,7 @@ final class Shortcodes {
 		 */
 		add_shortcode( 'rstore_cart_button', [ $this, 'cart_button' ] );
 
-		 /**
+		/**
 		 * Register the add to product shortcode
 		 *
 		 * @shortcode [rstore_product]
@@ -94,7 +94,7 @@ final class Shortcodes {
 		 */
 		add_shortcode( 'rstore_product', [ $this, 'product' ] );
 
-		 /**
+		/**
 		 * Register the login shortcode
 		 *
 		 * @shortcode [rstore_login]

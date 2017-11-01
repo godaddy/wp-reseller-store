@@ -59,7 +59,7 @@ final class TestProduct extends TestCase {
 		do_action( 'init' );
 
 		$product = new Product( json_decode( Tests\Helper::$fixture ) );
-		$result = $product->import();
+		$result  = $product->import();
 
 		$this->assertTrue( $result );
 

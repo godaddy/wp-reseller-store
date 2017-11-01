@@ -93,7 +93,7 @@ final class Product extends \WP_Widget {
 
 		if ( 'none' !== $data['image_size'] ) {
 
-			echo get_the_post_thumbnail( $post_id,  $data['image_size'] );
+			echo get_the_post_thumbnail( $post_id, $data['image_size'] );
 
 		}
 
@@ -213,14 +213,14 @@ final class Product extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$instance['post_id']    = isset( $new_instance['post_id'] ) ? sanitize_text_field( $new_instance['post_id'] ) : null;
-		$instance['show_title'] = isset( $new_instance['show_title'] ) ? (bool) absint( $new_instance['show_title'] ) : false;
+		$instance['post_id']      = isset( $new_instance['post_id'] ) ? sanitize_text_field( $new_instance['post_id'] ) : null;
+		$instance['show_title']   = isset( $new_instance['show_title'] ) ? (bool) absint( $new_instance['show_title'] ) : false;
 		$instance['show_content'] = isset( $new_instance['show_content'] ) ? (bool) absint( $new_instance['show_content'] ) : false;
-		$instance['show_price'] = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
-		$instance['redirect'] = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
-		$instance['image_size'] = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'post-thumbnail';
+		$instance['show_price']   = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
+		$instance['redirect']     = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
+		$instance['image_size']   = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'post-thumbnail';
 		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
-		$instance['text_cart'] = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
+		$instance['text_cart']    = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
 
 		return $instance;
 
@@ -283,14 +283,14 @@ final class Product extends \WP_Widget {
 	 */
 	private function get_data( $instance ) {
 		return [
-			'post_id'    => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
-			'show_title' => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
+			'post_id'      => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
+			'show_title'   => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
 			'show_content' => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : true,
-			'show_price' => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
-			'redirect' => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
+			'show_price'   => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
+			'redirect'     => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
-			'text_cart' => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
-			'image_size' => isset( $instance['image_size'] ) ? $instance['image_size'] : 'post-thumbnail',
+			'text_cart'    => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
+			'image_size'   => isset( $instance['image_size'] ) ? $instance['image_size'] : 'post-thumbnail',
 		];
 	}
 }

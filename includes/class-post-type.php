@@ -69,16 +69,16 @@ final class Post_Type {
 
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
-		add_action( 'init',                         [ $this, 'register' ] );
-		add_action( 'admin_head',                   [ $this, 'column_styles' ] );
-		add_action( 'manage_posts_custom_column',   [ $this, 'column_content' ], 10, 2 );
-		add_action( 'delete_post',                  [ $this, 'delete_imported_product' ] );
+		add_action( 'init', [ $this, 'register' ] );
+		add_action( 'admin_head', [ $this, 'column_styles' ] );
+		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
+		add_action( 'delete_post', [ $this, 'delete_imported_product' ] );
 
 		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
-		add_filter( 'posts_clauses',                           [ $this, 'order_by_price_clause' ], 10, 2 );
-		add_filter( 'post_type_labels_' . self::SLUG,          [ $this, 'post_screen_edit_heading' ] );
-		add_filter( 'the_content',                             [ $this, 'append_add_to_cart_form' ] );
-		add_filter( 'the_excerpt',                             [ $this, 'append_add_to_cart_form' ] );
+		add_filter( 'posts_clauses', [ $this, 'order_by_price_clause' ], 10, 2 );
+		add_filter( 'post_type_labels_' . self::SLUG, [ $this, 'post_screen_edit_heading' ] );
+		add_filter( 'the_content', [ $this, 'append_add_to_cart_form' ] );
+		add_filter( 'the_excerpt', [ $this, 'append_add_to_cart_form' ] );
 
 		add_filter(
 			'edit_' . self::SLUG . '_per_page', function () {
@@ -111,7 +111,7 @@ final class Post_Type {
 		add_action(
 			'add_meta_boxes', function () {
 
-				add_meta_box( 'restore-' . self::SLUG, esc_html__( 'Reset Product', 'reseller-store' ), [ $this, 'render_reset_button' ],  self::SLUG, 'side', 'high' );
+				add_meta_box( 'restore-' . self::SLUG, esc_html__( 'Reset Product', 'reseller-store' ), [ $this, 'render_reset_button' ], self::SLUG, 'side', 'high' );
 			}
 		);
 
@@ -127,12 +127,12 @@ final class Post_Type {
 	public function render_reset_button() {
 		// Button value cannot be translated.
 		?>
-			 <div>
-				 <p>
-					 <label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
-				 </p>
-				 <input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">
-			</div>
+		<div>
+			<p>
+				<label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
+			</p>
+			<input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">
+		</div>
 		<?php
 	}
 
@@ -343,7 +343,7 @@ final class Post_Type {
 			font-size: inherit;
 			line-height: inherit;
 
-			 -webkit-font-smoothing: auto;
+			-webkit-font-smoothing: auto;
 			-moz-osx-font-smoothing: auto;
 		}
 		#screen-options-wrap .rstore-image:before {
@@ -560,9 +560,9 @@ final class Post_Type {
 		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
 			$button_label = esc_html__( 'Add to cart', 'reseller-store' );
-			$cart_text = esc_html__( 'View cart', 'reseller-store' );
-			$content .= wpautop( rstore_price( $post->ID, false ) );
-			$content .= rstore_add_to_cart_form( $post->ID, false, $button_label, $cart_text, true );
+			$cart_text    = esc_html__( 'View cart', 'reseller-store' );
+			$content     .= wpautop( rstore_price( $post->ID, false ) );
+			$content     .= rstore_add_to_cart_form( $post->ID, false, $button_label, $cart_text, true );
 
 		}
 

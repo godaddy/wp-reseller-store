@@ -155,9 +155,9 @@ final class Login extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
-		$instance['welcome_message']  = isset( $new_instance['welcome_message'] ) ? wp_kses_post( $new_instance['welcome_message'] ) : null;
-		$instance['login_button_text'] = isset( $new_instance['login_button_text'] ) ? wp_kses_post( $new_instance['login_button_text'] ) : null;
+		$instance['title']              = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
+		$instance['welcome_message']    = isset( $new_instance['welcome_message'] ) ? wp_kses_post( $new_instance['welcome_message'] ) : null;
+		$instance['login_button_text']  = isset( $new_instance['login_button_text'] ) ? wp_kses_post( $new_instance['login_button_text'] ) : null;
 		$instance['logout_button_text'] = isset( $new_instance['logout_button_text'] ) ? wp_kses_post( $new_instance['logout_button_text'] ) : null;
 
 		return $instance;

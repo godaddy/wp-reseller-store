@@ -58,19 +58,19 @@ final class TestWidgetCart extends TestCase {
 		$widget = new Widgets\Cart();
 
 		$old_instance = [
-			'title'    => '',
+			'title'        => '',
 			'button_label' => '',
 		];
 
 		$new_instance = [
-			'title'    => 'title 1',
+			'title'        => 'title 1',
 			'button_label' => 'button_label 1',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
 		foreach ( $instance as $key => $value ) {
-			$this->assertEquals( $instance[ $key ],  $new_instance[ $key ] );
+			$this->assertEquals( $instance[ $key ], $new_instance[ $key ] );
 		}
 
 	}
@@ -83,7 +83,7 @@ final class TestWidgetCart extends TestCase {
 		$widget = new Widgets\Cart();
 
 		$instance = [
-			'title'    => 'aaa',
+			'title'        => 'aaa',
 			'button_label' => 'bbb',
 		];
 

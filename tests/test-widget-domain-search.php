@@ -28,19 +28,19 @@ final class TestWidgetDomainSearch extends TestCase {
 		rstore_update_option( 'pl_id', 12345 );
 
 		$instance = [
-			'title'    => '',
-			'placeholder' => '',
-			'search' => '',
-			'available'    => '',
+			'title'         => '',
+			'placeholder'   => '',
+			'search'        => '',
+			'available'     => '',
 			'not_available' => '',
-			'cart' => '',
-			'select'    => '',
-			'selected' => '',
+			'cart'          => '',
+			'select'        => '',
+			'selected'      => '',
 		];
 
 		$args = [
 			'before_widget' => '<div class="before_widget">',
-			'after_widget' => '</div>',
+			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		];
@@ -62,23 +62,23 @@ final class TestWidgetDomainSearch extends TestCase {
 		$old_instance = [];
 
 		$new_instance = [
-			'title'    => 'title',
-			'page_size' => 10,
-			'text_placeholder' => 'placeholder',
-			'text_search' => 'search',
-			'text_available'    => 'available',
+			'title'              => 'title',
+			'page_size'          => 10,
+			'text_placeholder'   => 'placeholder',
+			'text_search'        => 'search',
+			'text_available'     => 'available',
 			'text_not_available' => 'not available',
-			'text_cart' => 'cart',
-			'text_select'    => 'select',
-			'text_selected' => 'selected',
-			'text_verify' => 'verify',
-			'text_disclaimer' => 'disclaimer',
+			'text_cart'          => 'cart',
+			'text_select'        => 'select',
+			'text_selected'      => 'selected',
+			'text_verify'        => 'verify',
+			'text_disclaimer'    => 'disclaimer',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
 		foreach ( $instance as $key => $value ) {
-			$this->assertEquals( $instance[ $key ],  $new_instance[ $key ] );
+			$this->assertEquals( $instance[ $key ], $new_instance[ $key ] );
 		}
 
 	}
@@ -91,15 +91,15 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget = new Widgets\Domain_Search();
 
 		$instance = [
-			'title'    => 'title',
-			'page_size' => 5,
-			'text_placeholder' => 'placeholder',
-			'text_search' => 'search',
-			'text_available'    => 'available',
+			'title'              => 'title',
+			'page_size'          => 5,
+			'text_placeholder'   => 'placeholder',
+			'text_search'        => 'search',
+			'text_available'     => 'available',
 			'text_not_available' => 'not available',
-			'text_cart' => 'cart',
-			'text_select'    => 'select',
-			'text_selected' => 'selected',
+			'text_cart'          => 'cart',
+			'text_select'        => 'select',
+			'text_selected'      => 'selected',
 		];
 
 		$widget->form( $instance );

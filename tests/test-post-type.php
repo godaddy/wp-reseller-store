@@ -79,7 +79,7 @@ final class TestPostType extends TestCase {
 		$post_type = new Post_Type();
 		$post_type->render_reset_button();
 
-		$this->expectOutputRegex( '/ <input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">/' );
+		$this->expectOutputRegex( '/<input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">/' );
 
 	}
 
@@ -135,7 +135,7 @@ final class TestPostType extends TestCase {
 		);
 
 		$_POST['republish_product'] = true;
-		$_POST['post_type'] = 'reseller_product';
+		$_POST['post_type']         = 'reseller_product';
 
 		$value = $post_type->republish_post( $post->ID );
 
@@ -150,7 +150,7 @@ final class TestPostType extends TestCase {
 	public function test_republish_post_without_parameter() {
 
 		$post_type = new Post_Type();
-		$user_id = $this->factory->user->create(
+		$user_id   = $this->factory->user->create(
 			array(
 				'role' => 'administrator',
 			)
@@ -170,13 +170,13 @@ final class TestPostType extends TestCase {
 	public function test_republish_post_wrong_post_type() {
 
 		$post_type = new Post_Type();
-		$user_id = $this->factory->user->create(
+		$user_id   = $this->factory->user->create(
 			array(
 				'role' => 'administrator',
 			)
 		);
 		wp_set_current_user( $user_id );
-		$post_id = $this->factory->post->create(
+		$post_id                    = $this->factory->post->create(
 			array(
 				'post_title' => 'test',
 			)
@@ -195,14 +195,14 @@ final class TestPostType extends TestCase {
 	public function test_republish_post_invalid() {
 
 		$post_type = new Post_Type();
-		$user_id = $this->factory->user->create(
+		$user_id   = $this->factory->user->create(
 			array(
 				'role' => 'administrator',
 			)
 		);
 		wp_set_current_user( $user_id );
 		$_POST['republish_product'] = true;
-		$_POST['post_type'] = 'reseller_product';
+		$_POST['post_type']         = 'reseller_product';
 
 		$post_id = wp_insert_post(
 			[
@@ -227,7 +227,7 @@ final class TestPostType extends TestCase {
 	public function test_republish_post_unpublished() {
 
 		$post_type = new Post_Type();
-		$user_id = $this->factory->user->create(
+		$user_id   = $this->factory->user->create(
 			array(
 				'role' => 'administrator',
 			)

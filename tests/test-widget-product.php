@@ -55,31 +55,31 @@ final class TestWidgetProduct extends TestCase {
 		$widget = new Widgets\Product();
 
 		$old_instance = [
-			'post_id'    => 0,
-			'show_title' => true,
+			'post_id'      => 0,
+			'show_title'   => true,
 			'show_content' => true,
-			'show_price' => true,
-			'redirect' => true,
+			'show_price'   => true,
+			'redirect'     => true,
 			'button_label' => '',
-			'text_cart' => '',
-			'image_size' => '',
+			'text_cart'    => '',
+			'image_size'   => '',
 		];
 
 		$new_instance = [
-			'post_id'    => 100,
-			'show_title' => false,
+			'post_id'      => 100,
+			'show_title'   => false,
 			'show_content' => false,
-			'show_price' => false,
-			'redirect' => false,
+			'show_price'   => false,
+			'redirect'     => false,
 			'button_label' => 'button_label 1',
-			'text_cart' => 'text_cart 1',
-			'image_size' => 'image_size 1',
+			'text_cart'    => 'text_cart 1',
+			'image_size'   => 'image_size 1',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
 		foreach ( $instance as $key => $value ) {
-			$this->assertEquals( $instance[ $key ],  $new_instance[ $key ] );
+			$this->assertEquals( $instance[ $key ], $new_instance[ $key ] );
 		}
 
 	}
@@ -92,13 +92,13 @@ final class TestWidgetProduct extends TestCase {
 		$widget = new Widgets\Product();
 
 		$instance = [
-			'post_id'    => 0,
-			'show_title' => true,
+			'post_id'      => 0,
+			'show_title'   => true,
 			'show_content' => true,
-			'show_price' => true,
-			'redirect' => true,
+			'show_price'   => true,
+			'redirect'     => true,
 			'button_label' => '',
-			'image_size' => '',
+			'image_size'   => '',
 		];
 
 		$widget->form( $instance );

@@ -50,9 +50,11 @@ final class TestPermalinks extends TestCase {
 
 		$_POST['permalink_structure'] = 'new-products';
 
-		rstore_update_option( 'permalinks', [
-			'product_base' => 'products',
-		] );
+		rstore_update_option(
+			'permalinks', [
+				'product_base' => 'products',
+			]
+		);
 
 		$permalinks = new Permalinks();
 
@@ -60,7 +62,7 @@ final class TestPermalinks extends TestCase {
 
 		$options = rstore_get_option( 'permalinks', [] );
 
-		$this->assertEquals( '',  $options['product_base'] );
+		$this->assertEquals( '', $options['product_base'] );
 
 	}
 
@@ -69,9 +71,11 @@ final class TestPermalinks extends TestCase {
 	 */
 	public function test_invalid_init() {
 
-		rstore_update_option( 'permalinks', [
-			'product_base' => 'original-value',
-		] );
+		rstore_update_option(
+			'permalinks', [
+				'product_base' => 'original-value',
+			]
+		);
 
 		$permalinks = new Permalinks();
 
@@ -79,7 +83,7 @@ final class TestPermalinks extends TestCase {
 
 		$options = rstore_get_option( 'permalinks', [] );
 
-		$this->assertEquals( 'original-value',  $options['product_base'] );
+		$this->assertEquals( 'original-value', $options['product_base'] );
 
 	}
 

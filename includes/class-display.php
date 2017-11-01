@@ -57,7 +57,7 @@ final class Display {
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
 			'urls'    => [
 				'cart_api' => esc_url_raw( rstore()->api->url( 'cart/{pl_id}' ) ),
-				'gui' => rstore()->api->urls['gui'],
+				'gui'      => rstore()->api->urls['gui'],
 			],
 			'cookies' => [
 				'shopperId' => 'ShopperId' . rstore_get_option( 'pl_id' ),
@@ -66,7 +66,7 @@ final class Display {
 				'id' => ( Post_Type::SLUG === get_post_type() ) ? rstore_get_product_meta( get_the_ID(), 'id', '' ) : '',
 			],
 			'i18n'    => [
-				'error'         => esc_html__( 'An error has occurred', 'reseller-store' ),
+				'error' => esc_html__( 'An error has occurred', 'reseller-store' ),
 			],
 		];
 

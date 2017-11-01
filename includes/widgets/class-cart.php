@@ -134,8 +134,8 @@ final class Cart extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$instance['title']      = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
-		$instance['button_label']  = isset( $new_instance['button_label'] ) ? wp_kses_post( $new_instance['button_label'] ) : null;
+		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
+		$instance['button_label'] = isset( $new_instance['button_label'] ) ? wp_kses_post( $new_instance['button_label'] ) : null;
 		return $instance;
 
 	}
@@ -151,8 +151,8 @@ final class Cart extends \WP_Widget {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'           => isset( $instance['title'] ) ? $instance['title'] : '',
-			'button_label'    => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'View Cart', 'reseller-store' ),
+			'title'        => isset( $instance['title'] ) ? $instance['title'] : '',
+			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'View Cart', 'reseller-store' ),
 		);
 	}
 
