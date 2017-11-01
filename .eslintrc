@@ -1,0 +1,62 @@
+{
+  "extends": "eslint:recommended",
+
+  "env": {
+    "es6": true,
+    "mocha": true,
+    "node": true,
+    "browser": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 5,
+    "sourceType": "module"
+  },
+
+  "rules": {
+    "array-bracket-spacing": [2, "never"],
+    "block-scoped-var": 2,
+    "brace-style": [2, "stroustrup"],
+    "callback-return": [2, ["cb", "callback", "next", "done"]],
+    "camelcase": 0,
+    "curly": 2,
+    "eqeqeq": [2, "allow-null"],
+    "handle-callback-err": [2, "^err(or)?$"],
+    "jsx-quotes": 2,
+    "key-spacing": 2,
+    "keyword-spacing": [2, { "before": true }],
+    "new-cap": 2,
+    "new-parens": 2,
+    "no-bitwise": 2,
+    "no-cond-assign": [2, "always"],
+    "no-console": 0,
+    "no-dupe-keys": 2,
+    "no-else-return": 2,
+    "no-empty": [2, { "allowEmptyCatch": true }],
+    "no-extra-semi": 2,
+    "no-mixed-spaces-and-tabs": 2,
+    "no-multiple-empty-lines": 2,
+    "no-multi-spaces": 2,
+    "no-nested-ternary": 2,
+    "no-new": 2,
+    "no-restricted-syntax": ["error", "CallExpression > MemberExpression > Identifier[name = 'includes']"],
+    "no-sequences": 2,
+    "no-spaced-func": 2,
+    "no-trailing-spaces": 2,
+    "no-unreachable": 2,
+    "no-use-before-define": 2,
+    "no-whitespace-before-property": 2,
+    "object-curly-spacing": [2, "always"],
+    "padded-blocks": [2, "never"],
+    "prefer-const": 2,
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "semi": 2,
+    "semi-spacing": 2,
+    "space-before-blocks": 2,
+    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+    "spaced-comment": 2,
+    "vars-on-top": 2,
+    "wrap-iife": 2,
+    "yoda": 2
+  }
+}

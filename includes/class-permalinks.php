@@ -15,8 +15,9 @@ namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Permalinks {
@@ -34,7 +35,7 @@ final class Permalinks {
 
 		}
 
-		add_action( 'admin_init',            [ $this, 'init' ] );
+		add_action( 'admin_init', [ $this, 'init' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 
 	}

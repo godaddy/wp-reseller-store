@@ -49,7 +49,7 @@ function rstore_price( $post = null, $echo = true ) {
 	if ( $sale ) {
 
 		$output = sprintf(
-			'<span class="rstore-price rstore-has-sale-price"><del>%s</del> %s</span>',
+			'<span class="rstore-retail-price">%s</span><span class="rstore-price rstore-has-sale-price">%s</span>',
 			esc_html( $list ),
 			esc_html( $sale )
 		);
@@ -86,30 +86,29 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
- * @param  bool             $echo (optional) Whether or not the form should be echoed.
+ * @param  int|WP_Post|null $post Product WP_Post instance.
+ * @param  bool             $echo Whether or not the form should be echoed.
+ * @param  string           $button_label Text to display in the button.
+ * @param  string           $text_cart Text to display in the cart link.
+ * @param  bool             $redirect Redirect to cart after adding item.
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post = null, $echo = true ) {
+function rstore_add_to_cart_form( $post, $echo, $button_label, $text_cart, $redirect ) {
 
-	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
-
-	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
-
-		return;
-
-	}
-
-	$redirect = ( $redirect ) ? 'true' : 'false';
+	$cart_link = sprintf(
+		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
+		rstore()->api->urls['cart'],
+		esc_html( $text_cart )
+	);
 
 	ob_start();
 
 	?>
 	<div class="rstore-add-to-cart-form">
-		<input type="hidden" class="rstore-quantity" value="<?php echo absint( $quantity ); ?>" min="1" required>
-		<?php	rstore_add_to_cart_button( $post ); ?>
+		<?php rstore_add_to_cart_button( $post, $button_label, $redirect ); ?>
 		<div class="rstore-loading rstore-loading-hidden" ></div>
+		<div class="rstore-cart rstore-cart-hidden" ><?php echo $cart_link; ?></div>
 		<div class="rstore-message"></div>
 	</div>
 	<?php
@@ -131,14 +130,24 @@ function rstore_add_to_cart_form( $post = null, $echo = true ) {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
+ * @param  int|WP_Post|null $post (required) Product WP_Post instance.
+ * @param  string           $param_label (optional) Text to display in the button.
+ * @param  bool             $param_redirect (optional) Redirect to cart after adding item.
  * @param  bool             $echo (optional) Whether or not the add to cart button should be echoed.
  *
  * @return string|null
  */
-function rstore_add_to_cart_button( $post = null, $echo = true ) {
+function rstore_add_to_cart_button( $post, $param_label = null, $param_redirect = null, $echo = true ) {
 
 	list( $id, $quantity, $redirect, $label ) = array_values( rstore_get_add_to_cart_vars( $post ) );
+
+	if ( ! empty( $param_label ) ) {
+		$label = $param_label;
+	}
+
+	if ( ! empty( $param_redirect ) ) {
+		$redirect = $param_redirect;
+	}
 
 	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
 
@@ -157,43 +166,6 @@ function rstore_add_to_cart_button( $post = null, $echo = true ) {
 		esc_attr( $id ),
 		absint( $quantity ),
 		( $redirect ) ? 'true' : 'false',
-		esc_html( $label )
-	);
-
-	if ( ! $echo ) {
-
-		return $output;
-
-	}
-
-	echo $output; // xss ok.
-
-}
-
-/**
- * Display an `Add to cart` link for a given product.
- *
- * @since 0.2.0
- *
- * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
- * @param  bool             $echo (optional) Whether or not the add to cart link should be echoed.
- *
- * @return string|null
- */
-function rstore_add_to_cart_link( $post = null, $echo = true ) {
-
-	list( $id, $quantity, $redirect, $label, $permalink ) = array_values( rstore_get_add_to_cart_vars( $post ) );
-
-	if ( empty( $id ) || empty( $quantity ) || empty( $label ) || empty( $permalink ) ) {
-
-		return;
-
-	}
-
-	$output = sprintf(
-		'<a href="%s" class="rstore-add-to-cart" data-id="%s">%s</a>',
-		esc_url( add_query_arg( 'add-to-cart', absint( $quantity ), $permalink ) ),
-		esc_attr( $id ),
 		esc_html( $label )
 	);
 

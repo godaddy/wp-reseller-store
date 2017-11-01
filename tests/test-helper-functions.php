@@ -75,12 +75,13 @@ final class TestHelperFunctions extends TestCase {
 
 		$vars = rstore_get_add_to_cart_vars( Tests\Helper::create_product() );
 
-		array_map( function( $key ) use ( $vars ) {
+		array_map(
+			function( $key ) use ( $vars ) {
 
-			$this->assertArrayHasKey( $key, $vars );
+					$this->assertArrayHasKey( $key, $vars );
 
-		}, $defaults );
-
+			}, $defaults
+		);
 	}
 
 	/**
@@ -139,11 +140,13 @@ final class TestHelperFunctions extends TestCase {
 		$this->assertNull( $rstore_transient );
 
 		// Test a non-existing transient with a callback.
-		$test_transient = rstore_get_transient( 'transient', [], function() {
+		$test_transient = rstore_get_transient(
+			'transient', [], function() {
 
-			return 'transient results';
+				return 'transient results';
 
-		} );
+			}
+		);
 
 		$this->assertEquals( 'transient results', $test_transient );
 		$this->assertEquals( 'transient results', rstore_get_transient( 'transient' ) );

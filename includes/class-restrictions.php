@@ -28,10 +28,10 @@ final class Restrictions {
 	 */
 	public function __construct() {
 
-		add_action( 'init',                        [ $this, 'redirects' ], 1 );
-		add_action( 'admin_menu',                  [ $this, 'admin_submenu' ] );
-		add_action( 'admin_head',                  [ $this, 'add_product_button' ] );
-		add_action( 'wp_before_admin_bar_render',  [ $this, 'admin_bar_submenu' ] );
+		add_action( 'init', [ $this, 'redirects' ], 1 );
+		add_action( 'admin_menu', [ $this, 'admin_submenu' ] );
+		add_action( 'admin_head', [ $this, 'add_product_button' ] );
+		add_action( 'wp_before_admin_bar_render', [ $this, 'admin_bar_submenu' ] );
 		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
 
 	}

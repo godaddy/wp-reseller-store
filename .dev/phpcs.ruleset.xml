@@ -14,6 +14,9 @@
 	<rule ref="WordPress-Docs" />
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>../includes/butterbean</exclude-pattern>
+	<exclude-pattern>../lib/butterbean</exclude-pattern>
 	<exclude-pattern>*/butterbean/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>index.php</exclude-pattern>
 </ruleset>

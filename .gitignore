@@ -1,4 +1,10 @@
 svn-username
-build/
 node_modules/
 vendor/
+
+.DS_Store
+.idea/
+
+# plugin build files
+build/
+reseller-store.zip

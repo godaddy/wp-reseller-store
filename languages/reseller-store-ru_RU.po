@@ -3,64 +3,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-04-05 21:16:56+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2017-10-31 20:53:15+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
-#: includes/class-api.php:246
+#: includes/class-api.php:224
 msgid "An unknown error has occurred."
 msgstr "Произошла неизвестная ошибка."
 
-#: includes/class-butterbean.php:133
+#: includes/class-butterbean.php:142
 msgid "Product Options"
 msgstr "Варианты продуктов"
 
-#: includes/class-butterbean.php:145
+#: includes/class-butterbean.php:154
 msgid "General"
 msgstr "Основные"
 
-#: includes/class-butterbean.php:158
+#: includes/class-butterbean.php:167
 msgid "Advanced"
 msgstr "Дополнительно"
 
-#: includes/class-butterbean.php:182 includes/class-post-type.php:336
+#: includes/class-butterbean.php:191 includes/class-post-type.php:411
 msgid "Price"
 msgstr "Цена"
 
-#: includes/class-butterbean.php:210
+#: includes/class-butterbean.php:219
 msgid "Sale Price"
 msgstr "Цена распродажи"
 
-#: includes/class-butterbean.php:239
+#: includes/class-butterbean.php:248
 msgid "Default Quantity"
 msgstr "Количество по умолчанию"
 
-#: includes/class-butterbean.php:273
+#: includes/class-butterbean.php:282
 msgid "Add to Cart Button Label"
 msgstr "Надпись на кнопке добавления в корзину"
 
-#: includes/class-butterbean.php:275 includes/class-display.php:83
-#: includes/functions/helper-functions.php:64
+#: includes/class-butterbean.php:284 includes/class-post-type.php:562
+#: includes/functions/helper-functions.php:73
+#: includes/widgets/class-product.php:291
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: includes/class-butterbean.php:302
+#: includes/class-butterbean.php:311
 msgid "Redirect to the cart immediately after adding"
 msgstr "Переходить к корзине сразу после добавления"
 
-#: includes/class-butterbean.php:335
+#: includes/class-butterbean.php:344
 msgid "Restore Product Data"
 msgstr "Восстановить данные продуктов"
 
-#: includes/class-butterbean.php:336
+#: includes/class-butterbean.php:345
 msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
@@ -70,381 +72,564 @@ msgstr ""
 "продукта, рекомендованное изображение и категории. Примечание. Ваши "
 "индивидуальные настройки будут утрачены."
 
-#: includes/class-butterbean.php:337
+#: includes/class-butterbean.php:346
 msgid "Reset Data"
 msgstr "Сбросить данные"
 
-#: includes/class-display.php:84
-msgid "Congrats, your domain is available!"
-msgstr "Поздравляем, ваш домен доступен!"
-
-#: includes/class-display.php:85
-msgid "Sorry that domain is taken"
-msgstr "К сожалению, этот домен занят"
-
-#: includes/class-display.php:86
-msgid "Find your perfect domain name"
-msgstr "Найдите идеальное имя для своего домена"
-
-#: includes/class-display.php:87
-msgid "View cart"
-msgstr "Просмотреть корзину."
-
-#: includes/class-display.php:88
+#: includes/class-display.php:69
 msgid "An error has occurred"
 msgstr "Произошла ошибка"
 
-#: includes/class-import.php:61
+#: includes/class-import.php:79
 msgid "unknown"
 msgstr "неизвестно"
 
-#: includes/class-import.php:68
 #. translators: product name
+#: includes/class-import.php:85
 msgid "`%s` is not a valid product."
 msgstr "«%s» не является допустимым продуктом."
 
-#: includes/class-import.php:81
 #. translators: product name
-msgid "`%s` already exists."
-msgstr "«%s» уже существует."
-
-#: includes/class-import.php:103
-#. translators: product name
+#: includes/class-import.php:104
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr "«%s» следует импортировать как публикацию о продукте перед сбросом."
 
-#: includes/class-import.php:116
 #. translators: post type name
+#: includes/class-import.php:115
 msgid "`%s` is not a valid post type for products."
 msgstr "«%s» не имеет допустимого типа публикации для продуктов."
 
-#: includes/class-permalinks.php:41
+#: includes/class-permalinks.php:53
 msgid "Reseller category base"
 msgstr "Сбросить базу категорий"
 
-#: includes/class-permalinks.php:57
+#: includes/class-permalinks.php:69
 msgid "Reseller tag base"
 msgstr "Сбросить базу тегов"
 
-#: includes/class-permalinks.php:73
+#: includes/class-permalinks.php:85
 msgid "Reseller Product Permalinks"
 msgstr "Постоянные ссылки на продукты для реселлеров"
 
-#: includes/class-permalinks.php:91
+#: includes/class-permalinks.php:103
 msgid ""
 "These settings control the permalinks used specifically for Reseller Store "
 "products."
 msgstr ""
-"Эти настройки управляют постоянными ссылками, предназначенными для реселлеров."
+"Эти настройки управляют постоянными ссылками, предназначенными для "
+"реселлеров."
 
-#: includes/class-permalinks.php:121
+#: includes/class-permalinks.php:133
 msgid "Default"
 msgstr "По умолчанию"
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:147
 msgid "Custom base"
 msgstr "Произвольная база"
 
-#: includes/class-post-type.php:126
+#: includes/class-post-type.php:114
+#, fuzzy
+msgid "Reset Product"
+msgstr "Продукт для реселлеров"
+
+#: includes/class-post-type.php:132
+msgid ""
+"Republish your product data with the latest version. This will overwrite any "
+"changes you have made."
+msgstr ""
+
+#: includes/class-post-type.php:235
 msgid "Add New Products"
 msgstr "Добавить новые продукты"
 
-#: includes/class-post-type.php:127
+#: includes/class-post-type.php:236
 msgid "Edit Product"
 msgstr "Изменить товар"
 
-#: includes/class-post-type.php:128
+#: includes/class-post-type.php:237
 msgid "New Product"
 msgstr "Новый товар"
 
-#: includes/class-post-type.php:129
+#: includes/class-post-type.php:238
 msgid "View Product"
 msgstr "Просмотреть товар"
 
-#: includes/class-post-type.php:130
+#: includes/class-post-type.php:239
 msgid "View Products"
 msgstr "Посмотреть продукты"
 
-#: includes/class-post-type.php:131
+#: includes/class-post-type.php:240
 msgid "Search Products"
 msgstr "Поиск по товарам"
 
-#: includes/class-post-type.php:132
+#: includes/class-post-type.php:241
 msgid "No products found."
 msgstr "Товары не найдены."
 
-#: includes/class-post-type.php:133
+#: includes/class-post-type.php:242
 msgid "No products found in Trash."
 msgstr "В корзине нет продуктов."
 
-#: includes/class-post-type.php:134
+#: includes/class-post-type.php:243
 msgid "Parent Products:"
 msgstr "Родительские продукты:"
 
-#: includes/class-post-type.php:135
+#: includes/class-post-type.php:244
 msgid "All Products"
 msgstr "Все товары"
 
-#: includes/class-post-type.php:136
+#: includes/class-post-type.php:245
 msgid "Product Archives"
 msgstr "Архивы продуктов"
 
-#: includes/class-post-type.php:137
+#: includes/class-post-type.php:246
 msgid "Insert into product"
 msgstr "Вставьте в товар"
 
-#: includes/class-post-type.php:138
+#: includes/class-post-type.php:247
 msgid "Uploaded to this product"
 msgstr "Загружено в товар"
 
-#: includes/class-post-type.php:139 includes/class-post-type.php:326
+#: includes/class-post-type.php:248 includes/class-post-type.php:401
 msgid "Product Image"
 msgstr "Изображение товара"
 
-#: includes/class-post-type.php:140
+#: includes/class-post-type.php:249
 msgid "Set product image"
 msgstr "Задать изображение товара"
 
-#: includes/class-post-type.php:141
+#: includes/class-post-type.php:250
 msgid "Remove product image"
 msgstr "Удалить изображение товара"
 
-#: includes/class-post-type.php:142
+#: includes/class-post-type.php:251
 msgid "Use as featured image"
 msgstr "Использовать как рекомендованное изображение"
 
-#: includes/class-post-type.php:147
+#: includes/class-post-type.php:256
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Здесь можно добавлять новые продукты в магазин для реселлеров."
 
-#: includes/class-post-type.php:462
+#: includes/class-post-type.php:302
+msgid "Product id not found or invalid."
+msgstr ""
+
 #. translators: product title
+#: includes/class-post-type.php:537
 msgid "Edit: %s"
 msgstr "Изменить: %s"
 
-#: includes/class-restrictions.php:172
+#: includes/class-post-type.php:563
+msgid "View cart"
+msgstr "Просмотреть корзину."
+
+#: includes/class-restrictions.php:183
 msgid "No products have been added yet."
 msgstr "Продукты еще не добавлены."
 
-#: includes/class-restrictions.php:173
+#: includes/class-restrictions.php:184
 msgid "Import All Products"
 msgstr "Импортировать все продукты"
 
-#: includes/class-setup.php:86
+#: includes/class-setup.php:111
+msgid "Invalid nonce token.  Please try again."
+msgstr ""
+
+#: includes/class-setup.php:137
 msgid "Reseller Store Setup"
 msgstr "Настройка магазина для реселлеров"
 
-#: includes/class-setup.php:87
+#: includes/class-setup.php:138
 msgid "Reseller Store"
 msgstr "Магазин для реселлеров"
 
-#: includes/class-setup.php:164
+#: includes/class-setup.php:214
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr "Давайте настроим ваш магазин для реселлеров GoDaddy."
 
-#: includes/class-setup.php:168
-msgid "Enter your Private Label ID to get started."
-msgstr "Сначала введите код своей торговой марки."
+#: includes/class-setup.php:218
+msgid "Register your plugin to import your product catalog."
+msgstr ""
 
-#: includes/class-setup.php:171
-msgid "Enter your Private Label ID:"
-msgstr "Введите код своей торговой марки:"
+#: includes/class-setup.php:221
+msgid "Login & Activate"
+msgstr ""
 
-#: includes/class-setup.php:173
-msgid "Install Now"
-msgstr "Установить сейчас"
+#: includes/class-setup.php:223
+msgid "Importing product catalog and installing"
+msgstr ""
 
-#: includes/class-setup.php:177
-msgid "Don't have an account?"
-msgstr "Не зарегистрированы?"
+#: includes/class-setup.php:231
+msgid "A GoDaddy Account is required to activate the plugin."
+msgstr ""
 
-#: includes/class-setup.php:177
-msgid "Create an account"
-msgstr "Создать аккаунт"
+#: includes/class-setup.php:232
+msgid "We will provide a demo reseller plan if you don't have a reseller plan."
+msgstr ""
 
-#: includes/class-setup.php:180
-msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Нужна помощь? Позвоните в нашу службу поддержки по телефону (480) 505-8877."
+#: includes/class-setup.php:233
+msgid "Get your own plan today."
+msgstr ""
 
-#: includes/class-setup.php:205
+#: includes/class-setup.php:235
+msgid ""
+"Not interested in activating right now? You will only see two demo products "
+"on a demo storefront without the benefits of having your own plan."
+msgstr ""
+
+#: includes/class-setup.php:236
+msgid "Skip activation."
+msgstr ""
+
+#: includes/class-setup.php:240
+#, fuzzy
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
+msgstr ""
+"Нужна помощь? Позвоните в нашу службу поддержки по телефону (480) 505-8877."
+
 #. translators: name of missing script
+#: includes/class-setup.php:265
 msgid "Error: Missing required script for setup %s"
 msgstr "Ошибка: Отсутствует сценарий, необходимый для настройки %s"
 
-#: includes/class-setup.php:233
+#: includes/class-setup.php:295
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "К сожалению, вам не разрешено устанавливать плагины на этом сайте."
 
-#: includes/class-setup.php:244
+#: includes/class-setup.php:306
 msgid "Sorry, you are not allowed to do that."
 msgstr "К сожалению, вам не разрешено делать это."
 
-#: includes/class-setup.php:259
+#: includes/class-setup.php:328
 msgid "Private Label ID is invalid."
 msgstr "Неверный код торговой марки."
 
-#: includes/class-setup.php:280
+#: includes/class-setup.php:351
 msgid "There are no products available, please try again later."
 msgstr "Нет доступных продуктов, повторите попытку позже."
 
-#: includes/class-setup.php:311
+#: includes/class-setup.php:384
 msgid "Product data could not be imported, please try again later."
 msgstr "Не удалось импортировать данные продуктов, повторите попытку позже."
 
-#: includes/class-setup.php:347
+#: includes/class-setup.php:417
 msgid "An unknown error occurred."
 msgstr "Неизвестная ошибка."
 
-#: includes/class-setup.php:361
 #. translators: error message
+#: includes/class-setup.php:431
 msgid "Error: %s"
 msgstr "Ошибка: %s"
 
-#: includes/class-taxonomy-category.php:71
+#: includes/class-taxonomy-category.php:82
 msgid "Search Categories"
 msgstr "Поиск в категориях"
 
-#: includes/class-taxonomy-category.php:72
+#: includes/class-taxonomy-category.php:83
 msgid "All Categories"
 msgstr "Все категории"
 
-#: includes/class-taxonomy-category.php:73
+#: includes/class-taxonomy-category.php:84
 msgid "Parent Category"
 msgstr "Родительская категория"
 
-#: includes/class-taxonomy-category.php:74
+#: includes/class-taxonomy-category.php:85
 msgid "Parent Category:"
 msgstr "Родительская категория:"
 
-#: includes/class-taxonomy-category.php:75
+#: includes/class-taxonomy-category.php:86
 msgid "Edit Category"
 msgstr "Изменить категорию"
 
-#: includes/class-taxonomy-category.php:76
+#: includes/class-taxonomy-category.php:87
 msgid "Update Category"
 msgstr "Обновить категорию"
 
-#: includes/class-taxonomy-category.php:77
+#: includes/class-taxonomy-category.php:88
 msgid "Add New Category"
 msgstr "Добавить новую категорию"
 
-#: includes/class-taxonomy-category.php:78
+#: includes/class-taxonomy-category.php:89
 msgid "New Category Name"
 msgstr "Имя новой категории"
 
-#: includes/class-taxonomy-category.php:79
-#: includes/class-taxonomy-category.php:83
+#: includes/class-taxonomy-category.php:90
+#: includes/class-taxonomy-category.php:94
 msgid "Categories"
 msgstr "Категории"
 
-#: includes/class-taxonomy-tag.php:71
+#: includes/class-taxonomy-tag.php:82
 msgid "Search Tags"
 msgstr "Поиск в тегах"
 
-#: includes/class-taxonomy-tag.php:72
+#: includes/class-taxonomy-tag.php:83
 msgid "All Tags"
 msgstr "Все теги"
 
-#: includes/class-taxonomy-tag.php:73
+#: includes/class-taxonomy-tag.php:84
 msgid "Parent Tag"
 msgstr "Родительский тег"
 
-#: includes/class-taxonomy-tag.php:74
+#: includes/class-taxonomy-tag.php:85
 msgid "Parent Tag:"
 msgstr "Родительский тег:"
 
-#: includes/class-taxonomy-tag.php:75
+#: includes/class-taxonomy-tag.php:86
 msgid "Edit Tag"
 msgstr "Изменить тег"
 
-#: includes/class-taxonomy-tag.php:76
+#: includes/class-taxonomy-tag.php:87
 msgid "Update Tag"
 msgstr "Обновить тег"
 
-#: includes/class-taxonomy-tag.php:77
+#: includes/class-taxonomy-tag.php:88
 msgid "Add New Tag"
 msgstr "Добавить новый тег"
 
-#: includes/class-taxonomy-tag.php:78
+#: includes/class-taxonomy-tag.php:89
 msgid "New Tag Name"
 msgstr "Имя нового тега"
 
-#: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
+#: includes/class-taxonomy-tag.php:90 includes/class-taxonomy-tag.php:94
 msgid "Tags"
 msgstr "Метки"
 
-#: includes/functions/product-functions.php:134
 #. translators: product name
+#: includes/functions/product-functions.php:171
 msgid "Error: `%s` does not exist."
 msgstr "Ошибка: \"%s\" не существует."
 
-#: includes/widgets/class-cart.php:22
+#: includes/widgets/class-cart.php:34
 msgid "Reseller Cart"
 msgstr "Корзина реселлера"
 
-#: includes/widgets/class-cart.php:25
+#: includes/widgets/class-cart.php:37
 msgid "Display the user's cart in the sidebar."
 msgstr "Показывать корзину пользователя на боковой панели."
 
-#: includes/widgets/class-cart.php:86
-#. translators: number of items in cart
-msgid "View Cart %s"
-msgstr "Просмотреть корзину %s"
-
-#: includes/widgets/class-cart.php:105
-msgid "Cart"
-msgstr "Корзина"
-
-#: includes/widgets/class-cart.php:110
-#: includes/widgets/class-domain-search.php:112
+#: includes/widgets/class-cart.php:113
+#: includes/widgets/class-domain-search.php:117
+#: includes/widgets/class-login.php:123
 msgid "Title:"
 msgstr "Заголовок:"
 
-#: includes/widgets/class-cart.php:116
-msgid "Hide if cart is empty"
-msgstr "Прятать корзину если она пуста"
+#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:189
+#, fuzzy
+msgid "Button Label:"
+msgstr "Кнопка:"
 
-#: includes/widgets/class-domain-search.php:22
+#: includes/widgets/class-cart.php:155
+#, fuzzy
+msgid "View Cart"
+msgstr "Просмотреть корзину."
+
+#: includes/widgets/class-domain-search.php:34
 msgid "Reseller Domain Search"
 msgstr "Поиск в доменах реселлеров"
 
-#: includes/widgets/class-domain-search.php:25
+#: includes/widgets/class-domain-search.php:37
 msgid "A search form for domain names."
 msgstr "Форма поиска доменных имен."
 
-#: includes/widgets/class-domain-search.php:83
-#: includes/widgets/class-domain-search.php:84
-msgid "Search for a domain name:"
-msgstr "Искать доменное имя:"
-
-#: includes/widgets/class-domain-search.php:88
-#: includes/widgets/class-domain-search.php:108
-msgid "Search"
-msgstr "Поиск"
-
-#: includes/widgets/class-domain-search.php:106
+#: includes/widgets/class-domain-search.php:100
 msgid "Domain Search"
 msgstr "Поиск домена"
 
-#: includes/widgets/class-domain-search.php:107
-msgid "Find your perfect name"
-msgstr "Найдите свое идеальное имя"
+#: includes/widgets/class-domain-search.php:118
+msgid "Domain result page size:"
+msgstr ""
 
-#: includes/widgets/class-domain-search.php:117
+#: includes/widgets/class-domain-search.php:119
 msgid "Placeholder:"
 msgstr "Заполнитель:"
 
-#: includes/widgets/class-domain-search.php:122
-msgid "Button:"
+#: includes/widgets/class-domain-search.php:120
+#, fuzzy
+msgid "Search Button:"
 msgstr "Кнопка:"
+
+#: includes/widgets/class-domain-search.php:121
+msgid "Available Text:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:122
+msgid "Not Available Text:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:123
+#, fuzzy
+msgid "Cart Button Text:"
+msgstr "Надпись на кнопке добавления в корзину"
+
+#: includes/widgets/class-domain-search.php:124
+msgid "Select Button Text:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:125
+msgid "Unselect Button Text:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:126
+msgid "Verify Button Text:"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:127
+msgid "Domain disclaimer notice"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:190
+msgid "Find your perfect domain name"
+msgstr "Найдите идеальное имя для своего домена"
+
+#: includes/widgets/class-domain-search.php:191
+msgid "Search"
+msgstr "Поиск"
+
+#: includes/widgets/class-domain-search.php:192
+msgid "Congrats, your domain is available!"
+msgstr "Поздравляем, ваш домен доступен!"
+
+#: includes/widgets/class-domain-search.php:193
+msgid "Sorry that domain is taken"
+msgstr "К сожалению, этот домен занят"
+
+#: includes/widgets/class-domain-search.php:194
+#: includes/widgets/class-product.php:292
+msgid "Continue to cart"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:195
+msgid "Select"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:196
+msgid "Selected"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:197
+msgid "Verify"
+msgstr ""
+
+#: includes/widgets/class-login.php:34
+#, fuzzy
+msgid "Reseller Shopper Login"
+msgstr "Магазин для реселлеров"
+
+#: includes/widgets/class-login.php:37
+msgid "A shopper login status"
+msgstr ""
+
+#: includes/widgets/class-login.php:128
+#, fuzzy
+msgid "Log In Button:"
+msgstr "Кнопка:"
+
+#: includes/widgets/class-login.php:133
+#, fuzzy
+msgid "Log Out Button:"
+msgstr "Кнопка:"
+
+#: includes/widgets/class-login.php:138
+msgid "Welcome Message:"
+msgstr ""
+
+#: includes/widgets/class-login.php:179
+msgid "Welcome Back"
+msgstr ""
+
+#: includes/widgets/class-login.php:180
+msgid "Log In"
+msgstr ""
+
+#: includes/widgets/class-login.php:181
+msgid "Log Out"
+msgstr ""
+
+#: includes/widgets/class-product.php:34
+#, fuzzy
+msgid "Reseller Product"
+msgstr "Продукт для реселлеров"
+
+#: includes/widgets/class-product.php:37
+msgid "Display product post."
+msgstr ""
+
+#: includes/widgets/class-product.php:89
+#, fuzzy
+msgid "Post id is not valid."
+msgstr "«%s» не является допустимым продуктом."
+
+#: includes/widgets/class-product.php:140
+#, fuzzy
+msgid "Product: "
+msgstr "Продукт"
+
+#: includes/widgets/class-product.php:149
+msgid "Image size: "
+msgstr ""
+
+#: includes/widgets/class-product.php:152
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/widgets/class-product.php:153
+msgid "Medium resolution"
+msgstr ""
+
+#: includes/widgets/class-product.php:154
+msgid "Large resolution"
+msgstr ""
+
+#: includes/widgets/class-product.php:155
+msgid "Original resolution"
+msgstr ""
+
+#: includes/widgets/class-product.php:156
+#, fuzzy
+msgid "Hide Image"
+msgstr "Изображение товара"
+
+#: includes/widgets/class-product.php:163
+#, fuzzy
+msgid "Show product title"
+msgstr "Задать изображение товара"
+
+#: includes/widgets/class-product.php:170
+#, fuzzy
+msgid "Show post text"
+msgstr "Задать изображение товара"
+
+#: includes/widgets/class-product.php:177
+#, fuzzy
+msgid "Show product price"
+msgstr "Задать изображение товара"
+
+#: includes/widgets/class-product.php:184
+#, fuzzy
+msgid "Redirect to cart after adding item"
+msgstr "Переходить к корзине сразу после добавления"
+
+#: includes/widgets/class-product.php:191
+msgid "Leave blank to hide button"
+msgstr ""
+
+#: includes/widgets/class-product.php:195
+msgid "Cart Text:"
+msgstr ""
+
+#: includes/widgets/class-product.php:197
+msgid "Cart link text"
+msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
 msgstr "Магазин для реселлеров GoDaddy"
 
 #. Description of the plugin/theme
-msgid "Resell hosting, domains, and more right from your WordPress site."
-msgstr "Продавайте хостинг, домены и другие ресурсы прямо с вашего сайта WordPress."
+#, fuzzy
+msgid "Sell hosting, domains, and more right from your WordPress site."
+msgstr ""
+"Продавайте хостинг, домены и другие ресурсы прямо с вашего сайта WordPress."
 
 #. Author of the plugin/theme
 msgid "GoDaddy"
@@ -454,78 +639,111 @@ msgstr "GoDaddy"
 msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
-#: includes/class-butterbean.php:211
+#: includes/class-butterbean.php:220
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr "Нет данных"
 
-#: includes/class-permalinks.php:98
+#: includes/class-permalinks.php:110
 msgctxt "slug name"
 msgid "sample-product"
 msgstr "образец-продукта"
 
-#: includes/class-post-type.php:58
+#: includes/class-post-type.php:70
 msgctxt "slug name"
 msgid "products"
 msgstr "продукты"
 
-#: includes/class-taxonomy-category.php:38
+#: includes/class-taxonomy-category.php:49
 msgctxt "slug name"
 msgid "product-category"
 msgstr "product-category"
 
-#: includes/class-taxonomy-tag.php:38
+#: includes/class-taxonomy-tag.php:49
 msgctxt "slug name"
 msgid "product-tag"
 msgstr "product-tag"
 
-#: includes/class-post-type.php:121
+#: includes/class-post-type.php:230
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Товары"
 
-#: includes/class-post-type.php:122
+#: includes/class-post-type.php:231
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Продукт"
 
-#: includes/class-post-type.php:123
+#: includes/class-post-type.php:232
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Магазин для реселлеров"
 
-#: includes/class-post-type.php:124
+#: includes/class-post-type.php:233
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Продукт для реселлеров"
 
-#: includes/class-post-type.php:125
+#: includes/class-post-type.php:234
 msgctxt "product"
 msgid "Add New"
 msgstr "Добавить новое"
 
-#: includes/class-taxonomy-category.php:69
+#: includes/class-taxonomy-category.php:80
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr "Категории"
 
-#: includes/class-taxonomy-tag.php:69
+#: includes/class-taxonomy-tag.php:80
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr "Метки"
 
-#: includes/class-taxonomy-category.php:70
+#: includes/class-taxonomy-category.php:81
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr "Категория"
 
-#: includes/class-taxonomy-tag.php:70
+#: includes/class-taxonomy-tag.php:81
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Тег"
 
-#: includes/functions/template-functions.php:44
 #. translators: 1. price, 2. subscription term - e.g. $10 / per month
+#: includes/functions/template-functions.php:65
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s за %2$s"
+
+#~ msgid "`%s` already exists."
+#~ msgstr "«%s» уже существует."
+
+#~ msgid "Enter your Private Label ID to get started."
+#~ msgstr "Сначала введите код своей торговой марки."
+
+#~ msgid "Enter your Private Label ID:"
+#~ msgstr "Введите код своей торговой марки:"
+
+#~ msgid "Install Now"
+#~ msgstr "Установить сейчас"
+
+#~ msgid "Don't have an account?"
+#~ msgstr "Не зарегистрированы?"
+
+#~ msgid "Create an account"
+#~ msgstr "Создать аккаунт"
+
+#~ msgid "View Cart %s"
+#~ msgstr "Просмотреть корзину %s"
+
+#~ msgid "Cart"
+#~ msgstr "Корзина"
+
+#~ msgid "Hide if cart is empty"
+#~ msgstr "Прятать корзину если она пуста"
+
+#~ msgid "Search for a domain name:"
+#~ msgstr "Искать доменное имя:"
+
+#~ msgid "Find your perfect name"
+#~ msgstr "Найдите свое идеальное имя"

@@ -28,7 +28,7 @@ final class ButterBean {
 	 */
 	public function __construct() {
 
-		add_action( 'plugins_loaded',      [ $this, 'load' ] );
+		add_action( 'plugins_loaded', [ $this, 'load' ] );
 		add_action( 'butterbean_register', [ $this, 'register_types' ], 10, 2 );
 		add_action( 'butterbean_register', [ $this, 'register_metabox' ], 10, 2 );
 
