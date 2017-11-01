@@ -5,11 +5,11 @@
 
 	var activate = function ( e ) {
 		var data = {
-			'action': 'rstore_install',
-			'nonce': rstore_admin_setup.install_nonce,
-			'site': rstore_admin_setup.install_site,
-			'admin': rstore_admin_setup.install_admin_url
-		},
+				'action': 'rstore_install',
+				'nonce': rstore_admin_setup.install_nonce,
+				'site': rstore_admin_setup.install_site,
+				'admin': rstore_admin_setup.install_admin_url
+			},
 			query = $.param( data );
 
 		e.preventDefault();
@@ -67,9 +67,9 @@
 
 	$( document ).ready( function ( $ ) {
 		// check if we are on the admin setup page
-        if ( ! window.rstore_admin_setup ) {
-            return;
-        }
+		if ( ! window.rstore_admin_setup ) {
+			return;
+		}
 
 		$( '.rstore-setup-body' ).css( 'display', 'block' ); // Form is hidden by default
 		$( '#rstore-setup-form' ).on( 'submit', activate );

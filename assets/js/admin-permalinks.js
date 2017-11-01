@@ -4,9 +4,9 @@
 	'use strict';
 
 	var $default = $( '#rstore-permalink-structure-default' ),
-			$custom = $( '#rstore-permalink-structure-custom' ),
-			$input = $( '#rstore-product-base' ),
-			$inputs = $( '.rstore-permalink-structure' ).find( 'input' );
+		$custom = $( '#rstore-permalink-structure-custom' ),
+		$input = $( '#rstore-product-base' ),
+		$inputs = $( '.rstore-permalink-structure' ).find( 'input' );
 
 	var permalinks = {
 
