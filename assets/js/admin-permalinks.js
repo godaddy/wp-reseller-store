@@ -1,6 +1,6 @@
 /* global jQuery */
 
-( function ( $ ) {
+( function( $ ) {
 	'use strict';
 
 	var $default = $( '#rstore-permalink-structure-default' ),
@@ -10,7 +10,7 @@
 
 	var permalinks = {
 
-		init: function () {
+		init: function() {
 			var hasStructure = ( $( this ).val() !== '' );
 
 			if ( ! hasStructure ) {
@@ -23,7 +23,7 @@
 			$inputs.prop( 'disabled', ! hasStructure );
 		},
 
-		radioSelect: function () {
+		radioSelect: function() {
 			var value = $( this ).val();
 
 			$input.attr( 'placeholder', value );
@@ -37,11 +37,11 @@
 			}
 		},
 
-		forceCustom: function () {
+		forceCustom: function() {
 			$custom.click();
 		},
 
-		forceDefault: function () {
+		forceDefault: function() {
 			var value = $.trim( $input.val() );
 
 			if ( ! value || $default.val() === value ) {
@@ -51,7 +51,7 @@
 
 	};
 
-	$( document ).ready( function ( $ ) {
+	$( document ).ready( function( $ ) {
 		$inputs.prop( 'disabled', ! $( '#permalink_structure' ).val() );
 
 		$( '.permalink-structure input' ).on( 'change', permalinks.init );

@@ -1,11 +1,11 @@
 /* global Cookies, jQuery, rstore */
 
-( function ( $ ) {
+( function( $ ) {
 	'use strict';
 
 	var cart = {
 
-		init: function () {
+		init: function() {
 			var eventMethod, eventer, messageEvent;
 			if ( window.self !== window.top ) {
 				return;
@@ -15,7 +15,7 @@
 			eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
 			eventer = window[eventMethod];
 			messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
-			eventer(messageEvent,function (e) {
+			eventer(messageEvent,function(e) {
 				if (e.data) {
 					if ( e.data.message === 'link' && cart.validateSecret( e.data.secret ) ) {
 						window.location = e.data.value;
@@ -28,13 +28,13 @@
 			}, false);
 		},
 
-		validateSecret: function ( secret ) {
-			return $('iframe.wp-embedded-content').filter(function ( index, item ) {
+		validateSecret: function( secret ) {
+			return $('iframe.wp-embedded-content').filter(function( index, item ) {
 				return ( $( item ).data('secret') === secret );
 			}).length;
 		},
 
-		addItemApi: function ( data, success, error ) {
+		addItemApi: function( data, success, error ) {
 			var param = '&cart='+JSON.stringify(data);
 			var settings = {
 				type: 'GET',
@@ -42,23 +42,23 @@
 				dataType: 'jsonp'
 			};
 
-			success = $.isFunction( success ) ? success : function () {
+			success = $.isFunction( success ) ? success : function() {
 				return;
 			};
-			error = $.isFunction( error ) ? error : function () {
+			error = $.isFunction( error ) ? error : function() {
 				return;
 			};
 
 			$.ajax( settings ).done( success ).fail( error );
 		},
 
-		addItem: function ( id, qty, redirect, $form ) {
+		addItem: function( id, qty, redirect, $form ) {
 			var data = { items: [{
 				id: id,
 				quantity: ( qty > 0 ) ? qty : 1 // Must be greater than 0
 			}] };
 
-			cart.addItemApi(data, function ( response ) {
+			cart.addItemApi(data, function( response ) {
 				if (response.error) {
 					return cart.addItemError( $form, response );
 				}
@@ -71,7 +71,7 @@
 				}
 
 				cart.addItemSuccess( $form );
-			}, function ( response ) {
+			}, function( response ) {
 				window.console.log( response );
 
 				if ( $form ) {
@@ -80,7 +80,7 @@
 			} );
 		},
 
-		updateCount: function ( value ) {
+		updateCount: function( value ) {
 			var secret;
 			if ( window.self !== window.top ) {
 				secret = window.location.hash.replace( /.*secret=([\d\w]{10}).*/, '$1' );
@@ -96,13 +96,13 @@
 
 				$( '.rstore-cart-count' ).text( value );
 
-				$( '.widget.rstore-cart' ).each( function () {
+				$( '.widget.rstore-cart' ).each( function() {
 					$( this ).toggle( ! $( this ).hasClass( 'hide-empty' ) || value > 0 );
 				} );
 			}
 		},
 
-		addItemButton: function ( e ) {
+		addItemButton: function( e ) {
 			var $this = $( this ),
 				$form = $this.closest( '.rstore-add-to-cart-form' ),
 				id = $this.attr( 'data-id' ),
@@ -122,7 +122,7 @@
 			cart.addItem( id, qty, redirect, $form );
 		},
 
-		addItemSuccess: function ( $form ) {
+		addItemSuccess: function( $form ) {
 			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
 			$form.find( '.rstore-loading' ).addClass('rstore-loading-hidden');
 			$form.find( '.rstore-cart' ).removeClass('rstore-cart-hidden');
@@ -130,7 +130,7 @@
 			return;
 		},
 
-		addItemError: function ( $form, response ) {
+		addItemError: function( $form, response ) {
 			var error, message, html;
 
 			error = response.error;
@@ -146,7 +146,7 @@
 			$form.find( '.rstore-message' ).html( html );
 		},
 
-		addItemParam: function () {
+		addItemParam: function() {
 			var arg = window.location.search.match( /(\?|&)add-to-cart=(.*?)(&|$)/i );
 
 			if ( arg !== null && rstore.product.id ) {
@@ -160,7 +160,7 @@
 	};
 
 	var login = {
-		init: function () {
+		init: function() {
 			var plid, sid, url;
 			if ( window.self !== window.top ) {
 				return;
@@ -178,20 +178,20 @@
 					plid: plid,
 					sid: sid
 				},
-				success: function ( response ) {
+				success: function( response ) {
 					if (response.status === 'partial') {
-						$( '.rstore-welcome-block span.firstname' ).each( function () {
+						$( '.rstore-welcome-block span.firstname' ).each( function() {
 							$( this ).text( response.name );
 						});
-						$( '.rstore-welcome-block span.lastname' ).each( function () {
+						$( '.rstore-welcome-block span.lastname' ).each( function() {
 							$( this ).text( response.lastname );
 						});
 
-						$( '.rstore-welcome-block' ).each( function () {
+						$( '.rstore-welcome-block' ).each( function() {
 							$( this ).show();
 						});
 
-						$( '.rstore-login-block' ).each( function () {
+						$( '.rstore-login-block' ).each( function() {
 							$( this ).hide();
 						});
 					}
@@ -202,7 +202,7 @@
 		}
 	};
 
-	$( document ).ready( function ( $ ) {
+	$( document ).ready( function( $ ) {
 		cart.addItemParam();
 
 		cart.init();

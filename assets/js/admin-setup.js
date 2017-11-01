@@ -1,9 +1,9 @@
 /* global ajaxurl, jQuery, rstore_admin_setup */
 
-( function ( $ ) {
+( function( $ ) {
 	'use strict';
 
-	var activate = function ( e ) {
+	var activate = function( e ) {
 		var data = {
 				'action': 'rstore_install',
 				'nonce': rstore_admin_setup.install_nonce,
@@ -16,7 +16,7 @@
 		window.location = rstore_admin_setup.rcc_site + '/activate?' + query;
 	};
 
-	var skip = function ( e ) {
+	var skip = function( e ) {
 		var data = {
 			'action': 'rstore_install',
 			'nonce': rstore_admin_setup.install_nonce,
@@ -27,7 +27,7 @@
 		$( '#rstore-activate' ).prop( 'disabled', true );
 		$( '.rstore-status' ).css( 'visibility', 'visible' );
 
-		$.post( ajaxurl, data, function ( response ) {
+		$.post( ajaxurl, data, function( response ) {
 			if ( response.success ) {
 				window.location.replace( response.data.redirect );
 
@@ -42,7 +42,7 @@
 		return false;
 	};
 
-	var install = function () {
+	var install = function() {
 		var data = {
 			'action': 'rstore_install',
 			'nonce': rstore_admin_setup.install_nonce,
@@ -52,7 +52,7 @@
 		$( '#rstore-activate' ).prop( 'disabled', true );
 		$( '.rstore-status' ).css( 'visibility', 'visible' );
 
-		$.post( ajaxurl, data, function ( response ) {
+		$.post( ajaxurl, data, function( response ) {
 			if ( response.success ) {
 				window.location.replace( response.data.redirect );
 
@@ -65,7 +65,7 @@
 		} );
 	};
 
-	$( document ).ready( function ( $ ) {
+	$( document ).ready( function( $ ) {
 		// check if we are on the admin setup page
 		if ( ! window.rstore_admin_setup ) {
 			return;

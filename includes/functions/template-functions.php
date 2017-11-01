@@ -106,7 +106,7 @@ function rstore_add_to_cart_form( $post, $echo, $button_label, $text_cart, $redi
 
 	?>
 	<div class="rstore-add-to-cart-form">
-		<?php	rstore_add_to_cart_button( $post, $button_label, $redirect ); ?>
+		<?php rstore_add_to_cart_button( $post, $button_label, $redirect ); ?>
 		<div class="rstore-loading rstore-loading-hidden" ></div>
 		<div class="rstore-cart rstore-cart-hidden" ><?php echo $cart_link; ?></div>
 		<div class="rstore-message"></div>
