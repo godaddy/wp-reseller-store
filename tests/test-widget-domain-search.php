@@ -59,8 +59,8 @@ final class TestWidgetDomainSearch extends TestCase {
 
 		add_filter(
 			'rstore_login_widget_classes', function( $title ) {
-			return [ 'login' ];
-		}
+				return [ 'login' ];
+			}
 		);
 
 		$widget = new Widgets\Domain_Search();

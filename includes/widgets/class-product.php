@@ -132,8 +132,9 @@ final class Product extends \WP_Widget {
 
 		if ( ! in_array( 'the_content', $wp_current_filter, true ) ) {
 
-			$original_post = $post;
-			$post          = $product;
+			$original_post       = $post;
+			$post                = $product;
+			$post->rstore_widget = true;
 			setup_postdata( $product );
 
 			$content = apply_filters( 'the_content', $content );

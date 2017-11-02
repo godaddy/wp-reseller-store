@@ -557,11 +557,11 @@ final class Post_Type {
 
 		$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
 
-		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
+		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request && ! $post->rstore_widget ) {
 
 			$button_label = esc_html__( 'Add to cart', 'reseller-store' );
 			$cart_text    = esc_html__( 'View cart', 'reseller-store' );
-			$content     .= wpautop( rstore_price( $post->ID, false ) );
+			$content     .= rstore_price( $post->ID, false );
 			$content     .= rstore_add_to_cart_form( $post->ID, false, $button_label, $cart_text, true );
 
 		}

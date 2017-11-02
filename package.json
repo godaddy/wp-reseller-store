@@ -48,6 +48,6 @@
     "lint": "eslint --ext .js ./assets/js/"
   },
   "dependencies": {
-    "domain-search": "^2.1.0"
+    "domain-search": "^2.1.1"
   }
 }
