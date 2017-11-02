@@ -130,7 +130,7 @@ final class Domain_Search extends \WP_Widget {
 	/**
 	 * Display form input field
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param  string $field Feield name.
 	 * @param  array  $value Value of the field.
@@ -177,7 +177,7 @@ final class Domain_Search extends \WP_Widget {
 	/**
 	 * Set data from instance or default value.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param  array $instance Widget instance.
 	 *

@@ -85,7 +85,7 @@ final class API {
 	/**
 	 * Build a SSO login or logout url.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param bool $login        Generate a Login or Logout URL.
 	 *

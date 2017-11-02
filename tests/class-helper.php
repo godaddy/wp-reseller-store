@@ -12,7 +12,7 @@ final class Helper {
 	/**
 	 * Product fixture.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @var string
 	 */

@@ -279,7 +279,7 @@ final class Import {
 	/**
 	 * Process product tag terms.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param array $tags        tags to assign the product to.
 	 * @param int   $post_id           Product post ID.
@@ -302,7 +302,7 @@ final class Import {
 	/**
 	 * Create a product tag and assign to the post.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param  string $name              tag name.
 	 * @param  int    $post_id           Reseller product post ID.

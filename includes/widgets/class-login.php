@@ -25,7 +25,7 @@ final class Login extends \WP_Widget {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 */
 	public function __construct() {
 
@@ -43,7 +43,7 @@ final class Login extends \WP_Widget {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Widget instance.
@@ -57,7 +57,7 @@ final class Login extends \WP_Widget {
 		 * Domain Search widget inherits any default Search widget
 		 * styles included by a theme.
 		 *
-		 * @since NEXT
+		 * @since 1.1.0
 		 *
 		 * @var array
 		 */
@@ -112,7 +112,7 @@ final class Login extends \WP_Widget {
 	/**
 	 * Outputs the options form on admin.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param array $instance Widget instance.
 	 */
@@ -146,7 +146,7 @@ final class Login extends \WP_Widget {
 	/**
 	 * Processing widget options on save.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param  array $new_instance New widget instance.
 	 * @param  array $old_instance Old widget instance.
@@ -167,7 +167,7 @@ final class Login extends \WP_Widget {
 	/**
 	 * Set data from instance or default value.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param  array $instance Widget instance.
 	 *
