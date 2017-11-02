@@ -53,6 +53,45 @@ final class TestWidgetDomainSearch extends TestCase {
 	}
 
 	/**
+	 * @testdox Given a title filter the widget should render
+	 */
+	function test_widget_title_filter() {
+
+		add_filter(
+			'rstore_login_widget_classes', function( $title ) {
+			return [ 'login' ];
+		}
+		);
+
+		$widget = new Widgets\Domain_Search();
+		rstore_update_option( 'pl_id', 12345 );
+
+		$instance = [
+			'title'         => '',
+			'placeholder'   => '',
+			'search'        => '',
+			'available'     => '',
+			'not_available' => '',
+			'cart'          => '',
+			'select'        => '',
+			'selected'      => '',
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		// display domain search.
+		$this->expectOutputRegex( '/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div><\/div>/' );
+
+	}
+
+	/**
 	 * @testdox Given a new instance the instance should update
 	 */
 	function test_widget_update() {

@@ -52,14 +52,16 @@ final class Product extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		global $wp_current_filter;
+		global $wp_current_filter, $post;
 
 		$data = $this->get_data( $instance );
 
 		$post_id = $data['post_id'];
 
-		if ( get_post_status( $post_id ) !== 'publish' ||
-			get_post_type( $post_id ) !== \Reseller_Store\Post_Type::SLUG ) {
+		$product = get_post( $post_id );
+
+		if ( null === $product || 'publish' !== $product->post_status ||
+			\Reseller_Store\Post_Type::SLUG !== $product->post_type ) {
 
 			esc_html_e( 'Post id is not valid.', 'reseller' );
 			return;
@@ -81,7 +83,7 @@ final class Product extends \WP_Widget {
 
 		}
 
-		$content;
+		$content = null;
 
 		if ( ! empty( $matches[0] ) && ! empty( $matches[1] ) ) {
 
@@ -105,19 +107,19 @@ final class Product extends \WP_Widget {
 
 		if ( $data['show_title'] ) {
 
-			$content .= $args['before_title'] . apply_filters( 'widget_title', get_the_title( $post_id ) ) . $args['after_title']; // xss ok.
+			$content .= $args['before_title'] . apply_filters( 'widget_title', $product->post_title ) . $args['after_title']; // xss ok.
 
 		}
 
 		if ( $data['show_content'] ) {
 
-			$content .= wp_kses_post( get_post_field( 'post_content', $post_id ) );
+			$content .= $product->post_content;
 
 		}
 
 		if ( $data['show_price'] ) {
 
-			$content .= wp_kses_post( rstore_price( $post_id, false ) );
+			$content .= rstore_price( $post_id, false );
 
 		}
 
@@ -128,15 +130,20 @@ final class Product extends \WP_Widget {
 		}
 		$content .= $args['after_widget']; // xss ok.
 
-		if ( in_array( 'the_content', $wp_current_filter, true ) ) {
+		if ( ! in_array( 'the_content', $wp_current_filter, true ) ) {
 
-			echo $content;
+			$original_post = $post;
+			$post          = $product;
+			setup_postdata( $product );
 
-		} else {
+			$content = apply_filters( 'the_content', $content );
 
-			echo apply_filters( 'the_content', $content );
+			$post = $original_post;
+			wp_reset_postdata();
 
 		}
+
+		echo $content;
 
 	}
 
