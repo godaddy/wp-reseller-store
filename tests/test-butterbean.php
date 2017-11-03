@@ -25,9 +25,8 @@ final class TestButterBean extends TestCase {
 
 	}
 
-
 	/**
-	 * @testdox Given Product Post_Type ButterBean should render.
+	 * @testdox Given reseller_product Post_Type ButterBean should render.
 	 */
 	public function test_butterbean_renders() {
 
@@ -46,7 +45,7 @@ final class TestButterBean extends TestCase {
 		$butter_bean = new ButterBean();
 		$butter_bean->load();
 
-		butterbean_loader_100();
+		do_action( 'init' );
 
 		do_action( $this->load_post_php );
 		do_action( 'admin_footer' );
@@ -70,12 +69,12 @@ final class TestButterBean extends TestCase {
 		wp_set_current_user( $user_id );
 
 		set_current_screen( 'edit-post' );
-		$current_screen->post_type = 'Post';
+		$current_screen->post_type = 'post';
 
 		$butter_bean = new ButterBean();
 		$butter_bean->load();
 
-		butterbean_loader_100();
+		do_action( 'init' );
 
 		do_action( $this->load_post_php );
 		do_action( 'admin_footer' );
