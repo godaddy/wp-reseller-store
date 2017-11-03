@@ -108,32 +108,8 @@ final class Post_Type {
 			}
 		);
 
-		add_action(
-			'add_meta_boxes', function () {
-
-				add_meta_box( 'restore-' . self::SLUG, esc_html__( 'Reset Product', 'reseller-store' ), [ $this, 'render_reset_button' ], self::SLUG, 'side', 'high' );
-			}
-		);
-
 		add_action( 'save_post', [ $this, 'republish_post' ] );
 
-	}
-
-	/**
-	 * Render the reset checkbox meta_box
-	 *
-	 * @since 0.2.0
-	 */
-	public function render_reset_button() {
-		// Button value cannot be translated.
-		?>
-		<div>
-			<p>
-				<label for="restore_product"><?php esc_html_e( 'Republish your product data with the latest version. This will overwrite any changes you have made.', 'reseller-store' ); ?></label>
-			</p>
-			<input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">
-		</div>
-		<?php
 	}
 
 	/**
@@ -559,10 +535,8 @@ final class Post_Type {
 
 		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request && ! $post->rstore_widget ) {
 
-			$button_label = esc_html__( 'Add to cart', 'reseller-store' );
-			$cart_text    = esc_html__( 'View cart', 'reseller-store' );
-			$content     .= rstore_price( $post->ID, false );
-			$content     .= rstore_add_to_cart_form( $post->ID, false, $button_label, $cart_text, true );
+			$content .= rstore_price( $post->ID, false );
+			$content .= rstore_add_to_cart_form( $post->ID, false );
 
 		}
 

@@ -88,13 +88,13 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @param  int|WP_Post|null $post Product WP_Post instance.
  * @param  bool             $echo Whether or not the form should be echoed.
- * @param  string           $button_label Text to display in the button.
- * @param  string           $text_cart Text to display in the cart link.
- * @param  bool             $redirect Redirect to cart after adding item.
+ * @param  string           $button_label (optional) Text to display in the button.
+ * @param  string           $text_cart (optional) Text to display in the cart link.
+ * @param  bool             $redirect (optional) Redirect to cart after adding item.
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $echo, $button_label, $text_cart, $redirect ) {
+function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart = null, $redirect = false ) {
 
 	$cart_link = sprintf(
 		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',

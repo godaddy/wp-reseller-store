@@ -343,18 +343,6 @@ final class ButterBean {
 				'section'     => $section,
 				'label'       => esc_html__( 'Restore Product Data', 'reseller-store' ),
 				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),
-				'text'        => esc_html__( 'Reset Data', 'reseller-store' ),
-				'attr'        => [
-					'class' => 'button button-primary',
-					'href'  => esc_url(
-						add_query_arg(
-							'_wpnonce',
-							wp_create_nonce(
-								sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() )
-							)
-						)
-					),
-				],
 			]
 		);
 
