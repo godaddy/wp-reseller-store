@@ -143,7 +143,7 @@ final class Cart extends \WP_Widget {
 	/**
 	 * Set data from instance or default value.
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param  array $instance Widget instance.
 	 *

@@ -139,7 +139,7 @@ final class Post_Type {
 	/**
 	 * Republishes the product post from the catalog api
 	 *
-	 * @since NEXT
+	 * @since 1.1.0
 	 *
 	 * @param int $post_id Product post ID.
 	 *
