@@ -61,17 +61,6 @@ final class TestPostType extends TestCase {
 	}
 
 	/**
-	 * @testdox Given do_action add_meta_boxes should add_meta_box.
-	 */
-	public function test_add_meta_boxes() {
-
-		new Post_Type();
-		do_action( 'add_meta_boxes' );
-		$this->AssertTrue( true );
-
-	}
-
-	/**
 	 * @testdox Given a valid post_id reset_product_data should reset the product.
 	 */
 	public function test_reset_product_data() {
