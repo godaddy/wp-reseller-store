@@ -53,21 +53,15 @@ final class TestWidgetDomainSearch extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a title filter the widget should render
+	 * @testdox Given a title the widget should render
 	 */
-	function test_widget_title_filter() {
-
-		add_filter(
-			'rstore_login_widget_classes', function( $title ) {
-				return [ 'login' ];
-			}
-		);
+	function test_widget_title() {
 
 		$widget = new Widgets\Domain_Search();
 		rstore_update_option( 'pl_id', 12345 );
 
 		$instance = [
-			'title'         => '',
+			'title'         => 'this is the title',
 			'placeholder'   => '',
 			'search'        => '',
 			'available'     => '',
@@ -86,8 +80,7 @@ final class TestWidgetDomainSearch extends TestCase {
 
 		$widget->widget( $args, $instance );
 
-		// display domain search.
-		$this->expectOutputRegex( '/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div><\/div>/' );
+		$this->expectOutputRegex( '/<div class="before_widget widget_search"><h3 class="widget-title">this is the title<\/h3><div class="rstore-domain-search" data-plid=12345/' );
 
 	}
 

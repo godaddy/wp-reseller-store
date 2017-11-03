@@ -159,6 +159,7 @@ final class ButterBean {
 		$this->list_price( $manager, 'general' );
 		$this->sale_price( $manager, 'general' );
 		$this->add_to_cart_button_label( $manager, 'general' );
+		$this->cart_link_text( $manager, 'general' );
 		$this->add_to_cart_redirect( $manager, 'general' );
 
 		$manager->register_section(
@@ -282,6 +283,37 @@ final class ButterBean {
 				'label'   => esc_html__( 'Add to Cart Button Label', 'reseller-store' ),
 				'attr'    => [
 					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Add to cart', 'reseller-store' ) ) ),
+				],
+			]
+		);
+
+		$manager->register_setting(
+			rstore_prefix( __FUNCTION__ ),
+			[
+				'sanitize_callback' => 'sanitize_text_field',
+			]
+		);
+
+	}
+
+	/**
+	 * Register control and setting for Cart Link Text.
+	 *
+	 * @since NEXT
+	 *
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
+	 */
+	private function cart_link_text( $manager, $section ) {
+
+		$manager->register_control(
+			rstore_prefix( __FUNCTION__ ),
+			[
+				'type'    => 'text',
+				'section' => $section,
+				'label'   => esc_html__( 'Cart link text', 'reseller-store' ),
+				'attr'    => [
+					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Continue to cart', 'reseller-store' ) ) ),
 				],
 			]
 		);
