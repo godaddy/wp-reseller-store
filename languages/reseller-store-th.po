@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-10-31 20:53:15+00:00\n"
+"POT-Creation-Date: 2017-11-03 23:41:29+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,49 +20,58 @@ msgstr ""
 msgid "An unknown error has occurred."
 msgstr "เกิดข้อผิดพลาดที่ไม่รู้จัก"
 
-#: includes/class-butterbean.php:142
+#: includes/class-butterbean.php:143
 msgid "Product Options"
 msgstr "ตัวเลือกผลิตภัณฑ์"
 
-#: includes/class-butterbean.php:154
+#: includes/class-butterbean.php:155
 msgid "General"
 msgstr "ทั่วไป"
 
-#: includes/class-butterbean.php:167
+#: includes/class-butterbean.php:169
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: includes/class-butterbean.php:191 includes/class-post-type.php:411
+#: includes/class-butterbean.php:193 includes/class-post-type.php:387
 msgid "Price"
 msgstr "ราคา"
 
-#: includes/class-butterbean.php:219
+#: includes/class-butterbean.php:221
 msgid "Sale Price"
 msgstr "ราคาที่ลด"
 
-#: includes/class-butterbean.php:248
+#: includes/class-butterbean.php:250
 msgid "Default Quantity"
 msgstr "ค่าเริ่มต้นสำหรับคุณภาพ"
 
-#: includes/class-butterbean.php:282
+#: includes/class-butterbean.php:284
 msgid "Add to Cart Button Label"
 msgstr "เพิ่มไปยังฉลากปุ่มตะกร้าสินค้า"
 
-#: includes/class-butterbean.php:284 includes/class-post-type.php:562
-#: includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:291
+#: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
+#: includes/widgets/class-product.php:316
 msgid "Add to cart"
 msgstr "หยิบใส่ตะกร้า"
 
-#: includes/class-butterbean.php:311
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:222
+msgid "Cart link text"
+msgstr ""
+
+#: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
+#: includes/widgets/class-domain-search.php:194
+#: includes/widgets/class-product.php:317
+msgid "Continue to cart"
+msgstr ""
+
+#: includes/class-butterbean.php:344
 msgid "Redirect to the cart immediately after adding"
 msgstr "เปลี่ยนเส้นทางไปยังตะกร้าสินค้าทันทีหลังจากที่เพิ่มแล้ว"
 
-#: includes/class-butterbean.php:344
+#: includes/class-butterbean.php:377
 msgid "Restore Product Data"
 msgstr "กู้คืนข้อมูลผลิตภัณฑ์"
 
-#: includes/class-butterbean.php:345
+#: includes/class-butterbean.php:378
 msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
@@ -70,10 +79,6 @@ msgid ""
 msgstr ""
 "ต้องการเริ่มต้นใหม่หรือไม่ คุณสามารถกู้คืนหัวข้อผลิตภัณฑ์เดิม เนื้อหา "
 "รูปภาพที่น่าสนใจและการกำหนดหมวดหมู่ได้ หมายเหตุ: การกำหนดค่าด้วยตัวเองของคุณจะสูญหายไป"
-
-#: includes/class-butterbean.php:346
-msgid "Reset Data"
-msgstr "รีเซ็ตข้อมูล"
 
 #: includes/class-display.php:69
 msgid "An error has occurred"
@@ -124,101 +129,86 @@ msgstr "ค่าเริ่มต้น"
 msgid "Custom base"
 msgstr "พื้นฐานปรับแต่ง"
 
-#: includes/class-post-type.php:114
-#, fuzzy
-msgid "Reset Product"
-msgstr "ผลิตภัณฑ์ตัวแทนจำหน่าย"
-
-#: includes/class-post-type.php:132
-msgid ""
-"Republish your product data with the latest version. This will overwrite any "
-"changes you have made."
-msgstr ""
-
-#: includes/class-post-type.php:235
+#: includes/class-post-type.php:211
 msgid "Add New Products"
 msgstr "เพิ่มสินค้าใหม่"
 
-#: includes/class-post-type.php:236
+#: includes/class-post-type.php:212
 msgid "Edit Product"
 msgstr "แก้ไขสินค้า"
 
-#: includes/class-post-type.php:237
+#: includes/class-post-type.php:213
 msgid "New Product"
 msgstr "สินค้าใหม่"
 
-#: includes/class-post-type.php:238
+#: includes/class-post-type.php:214
 msgid "View Product"
 msgstr "ดูสินค้า"
 
-#: includes/class-post-type.php:239
+#: includes/class-post-type.php:215
 msgid "View Products"
 msgstr "ดูผลิตภัณฑ์"
 
-#: includes/class-post-type.php:240
+#: includes/class-post-type.php:216
 msgid "Search Products"
 msgstr "ค้นหาสินค้า"
 
-#: includes/class-post-type.php:241
+#: includes/class-post-type.php:217
 msgid "No products found."
 msgstr "ไม่พบสินค้า"
 
-#: includes/class-post-type.php:242
+#: includes/class-post-type.php:218
 msgid "No products found in Trash."
 msgstr "ไม่พบผลิตภัณฑ์ในถังขยะ"
 
-#: includes/class-post-type.php:243
+#: includes/class-post-type.php:219
 msgid "Parent Products:"
 msgstr "ผลิตภัณฑ์หลัก:"
 
-#: includes/class-post-type.php:244
+#: includes/class-post-type.php:220
 msgid "All Products"
 msgstr "สินค้าทั้งหมด"
 
-#: includes/class-post-type.php:245
+#: includes/class-post-type.php:221
 msgid "Product Archives"
 msgstr "ที่เก็บข้อมูลถาวรสำหรับผลิตภัณฑ์"
 
-#: includes/class-post-type.php:246
+#: includes/class-post-type.php:222
 msgid "Insert into product"
 msgstr "แทรกในสินค้า"
 
-#: includes/class-post-type.php:247
+#: includes/class-post-type.php:223
 msgid "Uploaded to this product"
 msgstr "อัปโหลดไปยังสินค้านี้"
 
-#: includes/class-post-type.php:248 includes/class-post-type.php:401
+#: includes/class-post-type.php:224 includes/class-post-type.php:377
 msgid "Product Image"
 msgstr "รูปภาพสินค้า"
 
-#: includes/class-post-type.php:249
+#: includes/class-post-type.php:225
 msgid "Set product image"
 msgstr "ใส่รูปสินค้า"
 
-#: includes/class-post-type.php:250
+#: includes/class-post-type.php:226
 msgid "Remove product image"
 msgstr "ลบรูปสินค้า"
 
-#: includes/class-post-type.php:251
+#: includes/class-post-type.php:227
 msgid "Use as featured image"
 msgstr "ใช้เป็นรูปภาพที่น่าสนใจ"
 
-#: includes/class-post-type.php:256
+#: includes/class-post-type.php:232
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "คุณสามารถเพิ่มผลิตภัณฑ์ใหม่ไปยังร้านค้าตัวแทนจำหน่ายได้ที่นี่"
 
-#: includes/class-post-type.php:302
+#: includes/class-post-type.php:278
 msgid "Product id not found or invalid."
 msgstr ""
 
 #. translators: product title
-#: includes/class-post-type.php:537
+#: includes/class-post-type.php:513
 msgid "Edit: %s"
 msgstr "แก้ไข: %s"
-
-#: includes/class-post-type.php:563
-msgid "View cart"
-msgstr "ดูตะกร้าสินค้า"
 
 #: includes/class-restrictions.php:183
 msgid "No products have been added yet."
@@ -410,7 +400,7 @@ msgstr "แสดงรถเข็นของยูซเซอร์ที่
 msgid "Title:"
 msgstr "ชื่อเรื่อง:"
 
-#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:189
+#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:214
 #, fuzzy
 msgid "Button Label:"
 msgstr "ปุ่ม:"
@@ -490,11 +480,6 @@ msgstr "ยินดีด้วย โดเมนของคุณยัง�
 msgid "Sorry that domain is taken"
 msgstr "ขออภัย โดเมนนั้นมีคนเป็นเจ้าของแล้ว"
 
-#: includes/widgets/class-domain-search.php:194
-#: includes/widgets/class-product.php:292
-msgid "Continue to cart"
-msgstr ""
-
 #: includes/widgets/class-domain-search.php:195
 msgid "Select"
 msgstr ""
@@ -551,71 +536,67 @@ msgstr "ผลิตภัณฑ์ตัวแทนจำหน่าย"
 msgid "Display product post."
 msgstr ""
 
-#: includes/widgets/class-product.php:89
+#: includes/widgets/class-product.php:66
 #, fuzzy
 msgid "Post id is not valid."
 msgstr "`%s` ไม่ใช่ผลิตภัณฑ์ที่ถูกต้อง"
 
-#: includes/widgets/class-product.php:140
+#: includes/widgets/class-product.php:165
 #, fuzzy
 msgid "Product: "
 msgstr "ผลิตภัณฑ์"
 
-#: includes/widgets/class-product.php:149
+#: includes/widgets/class-product.php:174
 msgid "Image size: "
 msgstr ""
 
-#: includes/widgets/class-product.php:152
+#: includes/widgets/class-product.php:177
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/widgets/class-product.php:153
+#: includes/widgets/class-product.php:178
 msgid "Medium resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:154
+#: includes/widgets/class-product.php:179
 msgid "Large resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:155
+#: includes/widgets/class-product.php:180
 msgid "Original resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:156
+#: includes/widgets/class-product.php:181
 #, fuzzy
 msgid "Hide Image"
 msgstr "รูปภาพสินค้า"
 
-#: includes/widgets/class-product.php:163
+#: includes/widgets/class-product.php:188
 #, fuzzy
 msgid "Show product title"
 msgstr "ใส่รูปสินค้า"
 
-#: includes/widgets/class-product.php:170
+#: includes/widgets/class-product.php:195
 #, fuzzy
 msgid "Show post text"
 msgstr "ใส่รูปสินค้า"
 
-#: includes/widgets/class-product.php:177
+#: includes/widgets/class-product.php:202
 #, fuzzy
 msgid "Show product price"
 msgstr "ใส่รูปสินค้า"
 
-#: includes/widgets/class-product.php:184
+#: includes/widgets/class-product.php:209
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "เปลี่ยนเส้นทางไปยังตะกร้าสินค้าทันทีหลังจากที่เพิ่มแล้ว"
 
-#: includes/widgets/class-product.php:191
+#: includes/widgets/class-product.php:216
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/widgets/class-product.php:195
+#: includes/widgets/class-product.php:220
 msgid "Cart Text:"
-msgstr ""
-
-#: includes/widgets/class-product.php:197
-msgid "Cart link text"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -635,7 +616,7 @@ msgstr "GoDaddy"
 msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
-#: includes/class-butterbean.php:220
+#: includes/class-butterbean.php:222
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr "ไม่มีข้อมูล"
@@ -660,27 +641,27 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "product-tag"
 
-#: includes/class-post-type.php:230
+#: includes/class-post-type.php:206
 msgctxt "post type general name"
 msgid "Products"
 msgstr "สินค้า"
 
-#: includes/class-post-type.php:231
+#: includes/class-post-type.php:207
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "ผลิตภัณฑ์"
 
-#: includes/class-post-type.php:232
+#: includes/class-post-type.php:208
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "ร้านค้าตัวแทนจำหน่าย"
 
-#: includes/class-post-type.php:233
+#: includes/class-post-type.php:209
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "ผลิตภัณฑ์ตัวแทนจำหน่าย"
 
-#: includes/class-post-type.php:234
+#: includes/class-post-type.php:210
 msgctxt "product"
 msgid "Add New"
 msgstr "เพิ่มใหม่"
@@ -710,6 +691,16 @@ msgstr "แท็ก"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / ต่อ %2$s"
+
+#~ msgid "Reset Data"
+#~ msgstr "รีเซ็ตข้อมูล"
+
+#, fuzzy
+#~ msgid "Reset Product"
+#~ msgstr "ผลิตภัณฑ์ตัวแทนจำหน่าย"
+
+#~ msgid "View cart"
+#~ msgstr "ดูตะกร้าสินค้า"
 
 #~ msgid "`%s` already exists."
 #~ msgstr "มี `%s` อยู่แล้ว"
