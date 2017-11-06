@@ -91,7 +91,7 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 ## Changelog ##
 
-### NEXT - September 2017 ###
+### 1.1.0 - November 2017 ###
 * New: Import tags
 * Update: Domain search widget 2.1.0
 * Fix: Issue with shortcodes and Visual Composer
