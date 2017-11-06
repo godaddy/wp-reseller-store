@@ -10,7 +10,7 @@ final class TestButterBean extends TestCase {
 	/**
 	 * Load post action name.
 	 *
-	 * @since NEXT
+	 * @since 1.1.1
 	 *
 	 * @var string
 	 */

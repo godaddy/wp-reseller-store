@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.1.1
  */
 
 namespace Reseller_Store\ButterBean\Settings;
@@ -24,7 +24,7 @@ final class Read_Only extends \ButterBean_Setting {
 	/**
 	 * The type of control.
 	 *
-	 * @since  NEXT
+	 * @since  1.1.1
 	 * @access public
 	 * @var    string
 	 */
@@ -33,7 +33,7 @@ final class Read_Only extends \ButterBean_Setting {
 	/**
 	 * Creates a new control object.
 	 *
-	 * @since  NEXT
+	 * @since  1.1.1
 	 * @access public
 	 * @param  object $manager ButterBean_Manager instance.
 	 * @param  string $name    Setting Name.
@@ -50,7 +50,7 @@ final class Read_Only extends \ButterBean_Setting {
 	/**
 	 * Saves the value of the setting.
 	 *
-	 * @since  NEXT
+	 * @since  1.1.1
 	 * @access public
 	 * @return void
 	 */

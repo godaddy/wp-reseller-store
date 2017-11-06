@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.1.1
  */
 
 namespace Reseller_Store\ButterBean\Controls;
@@ -24,7 +24,7 @@ final class Plain_Text extends \ButterBean_Control {
 	/**
 	 * The type of control.
 	 *
-	 * @since  NEXT
+	 * @since  1.1.1
 	 * @access public
 	 * @var    string
 	 */
@@ -33,7 +33,7 @@ final class Plain_Text extends \ButterBean_Control {
 	/**
 	 * The default value to display.
 	 *
-	 * @since  NEXT
+	 * @since  1.1.1
 	 * @access public
 	 * @var    string
 	 */
@@ -42,7 +42,7 @@ final class Plain_Text extends \ButterBean_Control {
 	/**
 	 * Creates a new control object.
 	 *
-	 * @since NEXT
+	 * @since 1.1.1
 	 * @access public
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $name    Setting Name.
@@ -59,7 +59,7 @@ final class Plain_Text extends \ButterBean_Control {
 	/**
 	 * Adds custom data to the json array. This data is passed to the Underscore template.
 	 *
-	 * @since  NEXT
+	 * @since  1.1.1
 	 * @access public
 	 * @return void
 	 */

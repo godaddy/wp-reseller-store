@@ -300,7 +300,7 @@ final class ButterBean {
 	/**
 	 * Register control and setting for Cart Link Text.
 	 *
-	 * @since NEXT
+	 * @since 1.1.1
 	 *
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.

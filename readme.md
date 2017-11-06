@@ -5,7 +5,7 @@
 **Tags:**              [admin](https://wordpress.org/plugins/tags/admin/), [posts](https://wordpress.org/plugins/tags/posts/), [users](https://wordpress.org/plugins/tags/users/)  
 **Requires at least:** 4.6  
 **Tested up to:**      4.8  
-**Stable tag:**        1.1.0  
+**Stable tag:**        1.1.1  
 **License:**           GPL-2.0  
 **License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -91,7 +91,14 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 ## Changelog ##
 
-### 1.1.0 - November 2017 ###
+### 1.1.1 - November 2017 ###
+
+* Fix: Compatibility issues with Page Builder by SiteOrigin
+* New: Add Product Options to Edit Product Screen
+* Tweak: Moved reset button meta box to Product Options
+
+### 1.1.0 - October 2017 ###
+
 * New: Import tags
 * Update: Domain search widget 2.1.0
 * Fix: Issue with shortcodes and Visual Composer
@@ -102,6 +109,7 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 * New: Add empty index.php to every directory
 
 ### 1.0.3 - August 2017 ###
+
 *  New: Shopper login widget
 *  New: Add more options including _cart redirect_ to the product widget
 *  New: Move shortcodes to a new class and add new shortcodes.
