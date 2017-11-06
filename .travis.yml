@@ -88,6 +88,6 @@ deploy:
     tags: true
     repo: godaddy/wp-reseller-store
     php: '7.1'
-    condition: "$WP_VERSION=trunk"
+    condition: "$WP_VERSION=latest"
   skip_cleanup: true
   overwrite: true
