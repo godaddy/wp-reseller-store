@@ -63,6 +63,7 @@ jobs:
       install:
         - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
         - export PATH="$HOME/.composer/vendor/bin:$PATH"
+        - composer config --global github-protocols 'https'
         - composer global require "phpunit/phpunit=5.7.*"
         - composer require satooshi/php-coveralls
       script:
@@ -88,6 +89,6 @@ deploy:
     tags: true
     repo: godaddy/wp-reseller-store
     php: '7.1'
-    condition: "$WP_VERSION=latest"
+    condition:  $WP_VERSION = latest
   skip_cleanup: true
   overwrite: true
