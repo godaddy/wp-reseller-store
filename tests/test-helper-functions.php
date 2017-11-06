@@ -8,24 +8,6 @@ namespace Reseller_Store;
 final class TestHelperFunctions extends TestCase {
 
 	/**
-	 * Setup.
-	 */
-	function setUp() {
-
-		parent::setUp();
-
-	}
-
-	/**
-	 * Tear Down.
-	 */
-	function tearDown() {
-
-		parent::tearDown();
-
-	}
-
-	/**
 	 * Test the rstore_prefix() method, without underscores.
 	 */
 	public function test_rstore_prefix_no_dashes() {

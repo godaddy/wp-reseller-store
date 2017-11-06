@@ -53,6 +53,38 @@ final class TestWidgetDomainSearch extends TestCase {
 	}
 
 	/**
+	 * @testdox Given a title the widget should render
+	 */
+	function test_widget_title() {
+
+		$widget = new Widgets\Domain_Search();
+		rstore_update_option( 'pl_id', 12345 );
+
+		$instance = [
+			'title'         => 'this is the title',
+			'placeholder'   => '',
+			'search'        => '',
+			'available'     => '',
+			'not_available' => '',
+			'cart'          => '',
+			'select'        => '',
+			'selected'      => '',
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		$this->expectOutputRegex( '/<div class="before_widget widget_search"><h3 class="widget-title">this is the title<\/h3><div class="rstore-domain-search" data-plid=12345/' );
+
+	}
+
+	/**
 	 * @testdox Given a new instance the instance should update
 	 */
 	function test_widget_update() {

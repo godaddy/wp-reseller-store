@@ -86,6 +86,9 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 
 == Changelog ==
+= NEXT =
+* Fix: Compatibility issues with Page Builder by SiteOrigin
+* New: Add Product Options to Edit Product Screen
 
 = 1.1.0 - November 2017 =
 * New: Import tags

@@ -89,6 +89,32 @@ final class TestWidgetProduct extends TestCase {
 	 */
 	function test_widget_form() {
 
+		$post = Tests\Helper::create_product( 'product one' );
+		Tests\Helper::create_product( 'product two' );
+
+		$widget = new Widgets\Product();
+
+		$instance = [
+			'post_id'      => $post->ID,
+			'show_title'   => true,
+			'show_content' => true,
+			'show_price'   => true,
+			'redirect'     => true,
+			'button_label' => '',
+			'image_size'   => '',
+		];
+
+		$widget->form( $instance );
+
+		$this->expectOutputRegex( '/<input type="checkbox" id="widget-rstore_product--redirect" name="widget-rstore_product\[\]\[redirect\]" value="1" class="checkbox"  checked=\'checked\'>/' );
+
+	}
+
+	/**
+	 * @testdox Given an instance without any products the form should render
+	 */
+	function test_widget_form_no_product() {
+
 		$widget = new Widgets\Product();
 
 		$instance = [
@@ -108,7 +134,7 @@ final class TestWidgetProduct extends TestCase {
 	}
 
 	/**
-	 * @testdox Given an a product widget classes filter it should render
+	 * @testdox Given a product widget classes filter it should render
 	 */
 	function test_widget_filter() {
 
@@ -142,5 +168,44 @@ final class TestWidgetProduct extends TestCase {
 
 	}
 
+	/**
+	 * @testdox Given `the_content` filter the product widget should render
+	 */
+	function test_widget_in_content_filter() {
+
+		add_filter(
+			'the_content', function() {
+
+				$widget = new Widgets\Product();
+
+				$post = Tests\Helper::create_product();
+
+				$instance = [
+					'post_id'    => $post->ID,
+					'image_size' => 'full',
+					'show_title' => true,
+				];
+
+				$args = [
+					'before_widget' => '<div class="before_widget">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<h3 class="widget-title">',
+					'after_title'   => '</h3>',
+				];
+
+				ob_start();
+
+				$widget->widget( $args, $instance );
+
+				return ob_get_clean();
+
+			}
+		);
+
+		echo apply_filters( 'the_content', 'test' );
+
+		$this->expectOutputRegex( '/<h3 class="widget-title">WordPress Hosting<\/h3>/' );
+
+	}
 
 }
