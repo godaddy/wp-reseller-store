@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-10-31 20:53:15+00:00\n"
+"POT-Creation-Date: 2017-11-03 23:41:29+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,49 +20,58 @@ msgstr ""
 msgid "An unknown error has occurred."
 msgstr "Сталася невідома помилка."
 
-#: includes/class-butterbean.php:142
+#: includes/class-butterbean.php:143
 msgid "Product Options"
 msgstr "Варіанти продуктів"
 
-#: includes/class-butterbean.php:154
+#: includes/class-butterbean.php:155
 msgid "General"
 msgstr "Загальні"
 
-#: includes/class-butterbean.php:167
+#: includes/class-butterbean.php:169
 msgid "Advanced"
 msgstr "Додатково"
 
-#: includes/class-butterbean.php:191 includes/class-post-type.php:411
+#: includes/class-butterbean.php:193 includes/class-post-type.php:387
 msgid "Price"
 msgstr "Ціна"
 
-#: includes/class-butterbean.php:219
+#: includes/class-butterbean.php:221
 msgid "Sale Price"
 msgstr "Ціна зі знижкою"
 
-#: includes/class-butterbean.php:248
+#: includes/class-butterbean.php:250
 msgid "Default Quantity"
 msgstr "Кількість за промовчанням"
 
-#: includes/class-butterbean.php:282
+#: includes/class-butterbean.php:284
 msgid "Add to Cart Button Label"
 msgstr "Напис на кнопці додавання до кошика"
 
-#: includes/class-butterbean.php:284 includes/class-post-type.php:562
-#: includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:291
+#: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
+#: includes/widgets/class-product.php:316
 msgid "Add to cart"
 msgstr "Додати у кошик"
 
-#: includes/class-butterbean.php:311
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:222
+msgid "Cart link text"
+msgstr ""
+
+#: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
+#: includes/widgets/class-domain-search.php:194
+#: includes/widgets/class-product.php:317
+msgid "Continue to cart"
+msgstr ""
+
+#: includes/class-butterbean.php:344
 msgid "Redirect to the cart immediately after adding"
 msgstr "Переходити до кошика одразу після додавання"
 
-#: includes/class-butterbean.php:344
+#: includes/class-butterbean.php:377
 msgid "Restore Product Data"
 msgstr "Відновити дані продуктів"
 
-#: includes/class-butterbean.php:345
+#: includes/class-butterbean.php:378
 msgid ""
 "Need to start over? You can restore the original product title, content, "
 "featured image, and category assignments. Note: Your customizations will be "
@@ -71,10 +80,6 @@ msgstr ""
 "Бажаєте почати з початку? Можна відновити вихідну назву, вміст продукту, "
 "рекомендоване зображення та категорії. Примітка. Ваші індивідуальні "
 "настройки буде втрачено."
-
-#: includes/class-butterbean.php:346
-msgid "Reset Data"
-msgstr "Скинути дані"
 
 #: includes/class-display.php:69
 msgid "An error has occurred"
@@ -126,101 +131,86 @@ msgstr "За замовчуванням"
 msgid "Custom base"
 msgstr "Довільна база"
 
-#: includes/class-post-type.php:114
-#, fuzzy
-msgid "Reset Product"
-msgstr "Продукт для реселерів"
-
-#: includes/class-post-type.php:132
-msgid ""
-"Republish your product data with the latest version. This will overwrite any "
-"changes you have made."
-msgstr ""
-
-#: includes/class-post-type.php:235
+#: includes/class-post-type.php:211
 msgid "Add New Products"
 msgstr "Додати нові продукти"
 
-#: includes/class-post-type.php:236
+#: includes/class-post-type.php:212
 msgid "Edit Product"
 msgstr "Редагувати товар"
 
-#: includes/class-post-type.php:237
+#: includes/class-post-type.php:213
 msgid "New Product"
 msgstr "Новий товар"
 
-#: includes/class-post-type.php:238
+#: includes/class-post-type.php:214
 msgid "View Product"
 msgstr "Переглянути товар"
 
-#: includes/class-post-type.php:239
+#: includes/class-post-type.php:215
 msgid "View Products"
 msgstr "Переглянути продукти"
 
-#: includes/class-post-type.php:240
+#: includes/class-post-type.php:216
 msgid "Search Products"
 msgstr "Шукати товари"
 
-#: includes/class-post-type.php:241
+#: includes/class-post-type.php:217
 msgid "No products found."
 msgstr "Товарів не знайдено."
 
-#: includes/class-post-type.php:242
+#: includes/class-post-type.php:218
 msgid "No products found in Trash."
 msgstr "У кошику немає продуктів."
 
-#: includes/class-post-type.php:243
+#: includes/class-post-type.php:219
 msgid "Parent Products:"
 msgstr "Батьківські продукти:"
 
-#: includes/class-post-type.php:244
+#: includes/class-post-type.php:220
 msgid "All Products"
 msgstr "Всі товари"
 
-#: includes/class-post-type.php:245
+#: includes/class-post-type.php:221
 msgid "Product Archives"
 msgstr "Архіви продуктів"
 
-#: includes/class-post-type.php:246
+#: includes/class-post-type.php:222
 msgid "Insert into product"
 msgstr "Вставити в товар"
 
-#: includes/class-post-type.php:247
+#: includes/class-post-type.php:223
 msgid "Uploaded to this product"
 msgstr "Завантажено до товару"
 
-#: includes/class-post-type.php:248 includes/class-post-type.php:401
+#: includes/class-post-type.php:224 includes/class-post-type.php:377
 msgid "Product Image"
 msgstr "Зображення товару"
 
-#: includes/class-post-type.php:249
+#: includes/class-post-type.php:225
 msgid "Set product image"
 msgstr "Встановити зображення товару"
 
-#: includes/class-post-type.php:250
+#: includes/class-post-type.php:226
 msgid "Remove product image"
 msgstr "Видалити зображення товару"
 
-#: includes/class-post-type.php:251
+#: includes/class-post-type.php:227
 msgid "Use as featured image"
 msgstr "Використовувати як рекомендоване зображення"
 
-#: includes/class-post-type.php:256
+#: includes/class-post-type.php:232
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Тут можна додавати нові продукти до магазину для реселерів."
 
-#: includes/class-post-type.php:302
+#: includes/class-post-type.php:278
 msgid "Product id not found or invalid."
 msgstr ""
 
 #. translators: product title
-#: includes/class-post-type.php:537
+#: includes/class-post-type.php:513
 msgid "Edit: %s"
 msgstr "Змінити: %s"
-
-#: includes/class-post-type.php:563
-msgid "View cart"
-msgstr "Переглянути кошик"
 
 #: includes/class-restrictions.php:183
 msgid "No products have been added yet."
@@ -413,7 +403,7 @@ msgstr "Показувати кошик користувача на бічній
 msgid "Title:"
 msgstr "Заголовок:"
 
-#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:189
+#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:214
 #, fuzzy
 msgid "Button Label:"
 msgstr "Кнопка:"
@@ -493,11 +483,6 @@ msgstr "Вітаємо, ваш домен доступний!"
 msgid "Sorry that domain is taken"
 msgstr "На жаль, цей домен зайнятий"
 
-#: includes/widgets/class-domain-search.php:194
-#: includes/widgets/class-product.php:292
-msgid "Continue to cart"
-msgstr ""
-
 #: includes/widgets/class-domain-search.php:195
 msgid "Select"
 msgstr ""
@@ -554,71 +539,67 @@ msgstr "Продукт для реселерів"
 msgid "Display product post."
 msgstr ""
 
-#: includes/widgets/class-product.php:89
+#: includes/widgets/class-product.php:66
 #, fuzzy
 msgid "Post id is not valid."
 msgstr "«%s» не є дозволеним продуктом."
 
-#: includes/widgets/class-product.php:140
+#: includes/widgets/class-product.php:165
 #, fuzzy
 msgid "Product: "
 msgstr "Продукт"
 
-#: includes/widgets/class-product.php:149
+#: includes/widgets/class-product.php:174
 msgid "Image size: "
 msgstr ""
 
-#: includes/widgets/class-product.php:152
+#: includes/widgets/class-product.php:177
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/widgets/class-product.php:153
+#: includes/widgets/class-product.php:178
 msgid "Medium resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:154
+#: includes/widgets/class-product.php:179
 msgid "Large resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:155
+#: includes/widgets/class-product.php:180
 msgid "Original resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:156
+#: includes/widgets/class-product.php:181
 #, fuzzy
 msgid "Hide Image"
 msgstr "Зображення товару"
 
-#: includes/widgets/class-product.php:163
+#: includes/widgets/class-product.php:188
 #, fuzzy
 msgid "Show product title"
 msgstr "Встановити зображення товару"
 
-#: includes/widgets/class-product.php:170
+#: includes/widgets/class-product.php:195
 #, fuzzy
 msgid "Show post text"
 msgstr "Встановити зображення товару"
 
-#: includes/widgets/class-product.php:177
+#: includes/widgets/class-product.php:202
 #, fuzzy
 msgid "Show product price"
 msgstr "Встановити зображення товару"
 
-#: includes/widgets/class-product.php:184
+#: includes/widgets/class-product.php:209
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "Переходити до кошика одразу після додавання"
 
-#: includes/widgets/class-product.php:191
+#: includes/widgets/class-product.php:216
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/widgets/class-product.php:195
+#: includes/widgets/class-product.php:220
 msgid "Cart Text:"
-msgstr ""
-
-#: includes/widgets/class-product.php:197
-msgid "Cart link text"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -638,7 +619,7 @@ msgstr "GoDaddy"
 msgid "https://reseller.godaddy.com/"
 msgstr "https://reseller.godaddy.com/"
 
-#: includes/class-butterbean.php:220
+#: includes/class-butterbean.php:222
 msgctxt "abbreviation for not applicable"
 msgid "N/A"
 msgstr "Немає даних"
@@ -663,27 +644,27 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "product-tag"
 
-#: includes/class-post-type.php:230
+#: includes/class-post-type.php:206
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Товари"
 
-#: includes/class-post-type.php:231
+#: includes/class-post-type.php:207
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Продукт"
 
-#: includes/class-post-type.php:232
+#: includes/class-post-type.php:208
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Магазин для реселерів"
 
-#: includes/class-post-type.php:233
+#: includes/class-post-type.php:209
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Продукт для реселерів"
 
-#: includes/class-post-type.php:234
+#: includes/class-post-type.php:210
 msgctxt "product"
 msgid "Add New"
 msgstr "Додати новий"
@@ -713,6 +694,16 @@ msgstr "Тег"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / на %2$s"
+
+#~ msgid "Reset Data"
+#~ msgstr "Скинути дані"
+
+#, fuzzy
+#~ msgid "Reset Product"
+#~ msgstr "Продукт для реселерів"
+
+#~ msgid "View cart"
+#~ msgstr "Переглянути кошик"
 
 #~ msgid "`%s` already exists."
 #~ msgstr "«%s» уже існує."

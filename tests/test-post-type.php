@@ -61,29 +61,6 @@ final class TestPostType extends TestCase {
 	}
 
 	/**
-	 * @testdox Given do_action add_meta_boxes should add_meta_box.
-	 */
-	public function test_add_meta_boxes() {
-
-		new Post_Type();
-		do_action( 'add_meta_boxes' );
-		$this->AssertTrue( true );
-
-	}
-
-	/**
-	 * @testdox Given render_reset_button function should render a checkbox.
-	 */
-	public function render_reset_button() {
-
-		$post_type = new Post_Type();
-		$post_type->render_reset_button();
-
-		$this->expectOutputRegex( '/<input type="submit" class="button button-large" id="republish_product" name="republish_product" value="Reset">/' );
-
-	}
-
-	/**
 	 * @testdox Given a valid post_id reset_product_data should reset the product.
 	 */
 	public function test_reset_product_data() {

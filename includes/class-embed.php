@@ -15,8 +15,9 @@ namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Embed {
@@ -164,7 +165,7 @@ final class Embed {
 	 */
 	public function excerpt( $excerpt ) {
 
-		global $post;
+		global $post, $wp_current_filter;
 
 		if ( Post_Type::SLUG !== $post->post_type ) {
 
@@ -172,7 +173,14 @@ final class Embed {
 
 		}
 
-		$output = wpautop( apply_filters( 'the_content', get_post_field( 'post_content', $post->ID ) ) );
+		if ( in_array( 'the_content', $wp_current_filter, true ) ) {
+
+			$output = wpautop( get_post_field( 'post_content', $post->ID ) );
+
+		} else {
+
+			$output = wpautop( apply_filters( 'the_content', get_post_field( 'post_content', $post->ID ) ) );
+		}
 
 		return $output;
 

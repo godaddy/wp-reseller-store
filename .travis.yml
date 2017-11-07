@@ -63,6 +63,7 @@ jobs:
       install:
         - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
         - export PATH="$HOME/.composer/vendor/bin:$PATH"
+        - composer config --global github-protocols 'https'
         - composer global require "phpunit/phpunit=5.7.*"
         - composer require satooshi/php-coveralls
       script:
@@ -82,12 +83,12 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: KV1wbho8gF+xGgZcFkB6Jn7VqwHj+XtIB9IEh0Jq469zVb4Mhxrp+6n1ZyuRbtTq3NaTFoRz0lTGZLkwaEub1Wrb9M5wxG31cLZciSP36fV5wu/Pu5CQe/Q6+MofdSQVbXEL6eVe2H9spvjLg6/ituEK6llKjx3a8OdhL376W8AzwwyUYX1F2/cDcPdMUDpex8iezfiMnLtagxaUF5IRySCPNv6YIcDbNXWhFOw5Glb4z5KbZEKuHFSs3hnCCfSGKean4GV6KCS2l2Y+yDUcJxFJaS+8+xjCb2RK5cmGWbnGxwj8SMPZVyoq5s6KPSaAcLXx5BZsbED7HLxmRf2Vm7/3FIQ/qy4kSQmkzukRsUUICZiErclVAdy41Z7HljO3K3iJJb22yuJfXfNICCKdjNmnlGvvft/hi5KgQ58WopNqX5W4Rydz+2zldzXApl81HSnTFxD0msdRaYSDHp5I2j4SCI8jb+FbaYx2MnLmxl5QkRhcP/AQJm+Snde28Sg6i/c9m1q2wSmjf6cf6Ihp866R6kxfvla7W1xyAnOZ+HiKfzNHCuC3WEPO13mJ2ASE+T7jOa+/H6TifqrDiDtLPCvDgAl4SUQ48Lcrq8rby3KXmTmhvAxnB5iZXLqqMowttGjTyxTE1PRJbdhFfzJfaY9UUYQneWFwmV3fLaBrC94=
+    secure: c3265EWr9S9YQY2afcAwsnSVC7jTTMV2jUk9PJtPSutfkQzapgkbclyEjQj9xdHpr+bIr5hW5HU3KhtbfEIr8GhLGw1HMlhe6I7eo1NR7SDhPnozZ0Ag5yQBMCFRykZNyBgMkmZrzNciQScldiPV75LhyH9qPTe7TejkOiVDpWn/2KTX3qUDHe0YWS8W4XDVVjIbzwpWOAjEEx1LY5pqYdyS75oGb0rrQu/5OBu9bo0a70rw0v8p7YEMdpVaVKu3NP0wPvTSyWR86AConwhuil2/8ojbkLfMxgwv6tpsThID8MipCuwqx1l6Etue2NZzbxOaprsQoDQmOLXfkixz2xdm1gUmOX/n0O/1Q3xrofL704g9Fet7nyE4vApMpMlSI23uzoTrKBSyEa90egd344u6kXX1z1KYjSQuLzmlBkezAyvJzWPEo0FbgiboveNNEUh/8Y2GIrWu11jIAbDac7a4EZoJQeH1kbkusAE7p+yov854uj5XXOQPIPpfh89xfB/4BSBp/u30JXFkUWvtNfqBZ2aZyUGxQvULn4Qxj41ugTKjoi9U1jgScj1fH+NLnGe55/A542j6OSiViwmCjQGHNICdIz13S2gHVSo55vqZst3DGlktEJ6zStN/8c4TL5yFJf/dkVZZhrKHtUNXpHYwHhOa598PRvM+gIdIUIA=
   file: $RELEASE_FOLDER.zip
   on:
     tags: true
     repo: godaddy/wp-reseller-store
     php: '7.1'
-    condition: "$WP_VERSION=trunk"
+    condition:  $WP_VERSION = latest
   skip_cleanup: true
   overwrite: true

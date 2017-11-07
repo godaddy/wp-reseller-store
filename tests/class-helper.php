@@ -54,10 +54,11 @@ final class Helper {
 
 		$post_id = wp_insert_post(
 			[
-				'post_title'  => $post_title,
-				'post_name'   => 'wordpress-hosting',
-				'post_type'   => 'reseller_product',
-				'post_status' => 'publish',
+				'post_title'   => $post_title,
+				'post_name'    => 'wordpress-hosting',
+				'post_type'    => 'reseller_product',
+				'post_status'  => 'publish',
+				'post_content' => 'this is a product',
 			]
 		);
 

@@ -15,8 +15,9 @@ namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class ButterBean {
@@ -159,6 +160,7 @@ final class ButterBean {
 		$this->list_price( $manager, 'general' );
 		$this->sale_price( $manager, 'general' );
 		$this->add_to_cart_button_label( $manager, 'general' );
+		$this->cart_link_text( $manager, 'general' );
 		$this->add_to_cart_redirect( $manager, 'general' );
 
 		$manager->register_section(
@@ -296,6 +298,37 @@ final class ButterBean {
 	}
 
 	/**
+	 * Register control and setting for Cart Link Text.
+	 *
+	 * @since 1.1.1
+	 *
+	 * @param object $manager ButterBean_Manager instance.
+	 * @param string $section The section to register the settings to.
+	 */
+	private function cart_link_text( $manager, $section ) {
+
+		$manager->register_control(
+			rstore_prefix( __FUNCTION__ ),
+			[
+				'type'    => 'text',
+				'section' => $section,
+				'label'   => esc_html__( 'Cart link text', 'reseller-store' ),
+				'attr'    => [
+					'placeholder' => esc_attr( rstore_get_option( __FUNCTION__, esc_attr__( 'Continue to cart', 'reseller-store' ) ) ),
+				],
+			]
+		);
+
+		$manager->register_setting(
+			rstore_prefix( __FUNCTION__ ),
+			[
+				'sanitize_callback' => 'sanitize_text_field',
+			]
+		);
+
+	}
+
+	/**
 	 * Register control and setting for Add to Cart Redirect.
 	 *
 	 * @since 0.2.0
@@ -343,18 +376,6 @@ final class ButterBean {
 				'section'     => $section,
 				'label'       => esc_html__( 'Restore Product Data', 'reseller-store' ),
 				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),
-				'text'        => esc_html__( 'Reset Data', 'reseller-store' ),
-				'attr'        => [
-					'class' => 'button button-primary',
-					'href'  => esc_url(
-						add_query_arg(
-							'_wpnonce',
-							wp_create_nonce(
-								sprintf( 'rstore_reset_product_nonce-%d-%d', $post_id, get_current_user_id() )
-							)
-						)
-					),
-				],
 			]
 		);
 

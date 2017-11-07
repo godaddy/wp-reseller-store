@@ -46,6 +46,38 @@ final class TestWidgetLogin extends TestCase {
 	}
 
 	/**
+	 * @testdox Given a login_widget_classes filter the widget should render
+	 */
+	function test_widget_filter() {
+
+		add_filter(
+			'rstore_login_widget_classes', function( $title ) {
+				return [ 'login' ];
+			}
+		);
+
+		$widget = new Widgets\Login();
+
+		$instance = [
+			'title'             => 'login',
+			'welcome_message'   => 'Welcome',
+			'login_button_text' => 'log in',
+			'login_button_text' => 'log out',
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		$this->expectOutputRegex( '/<div class="before_widget login"><h3 class="widget-title">login<\/h3>/' );
+	}
+
+	/**
 	 * @testdox Given a new instance the instance should update
 	 */
 	function test_widget_update() {
