@@ -87,6 +87,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 == Changelog ==
 
+= 1.2.0 - November 2017 =
+
+* Update: Domain search 2.1.2
+
 = 1.1.1 - November 2017 =
 
 * Fix: Compatibility issues with Page Builder by SiteOrigin
