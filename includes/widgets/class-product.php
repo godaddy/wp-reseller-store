@@ -13,6 +13,8 @@
 
 namespace Reseller_Store\Widgets;
 
+use Reseller_Store\Shortcodes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	// @codeCoverageIgnoreStart
@@ -144,8 +146,8 @@ final class Product extends \WP_Widget {
 
 		}
 
-		// If ID key isset, this is a widget.
-		if ( isset( $args['id'] ) ) {
+
+		if ( Shortcodes::is_widget( $args ) ) {
 
 			echo $content;
 

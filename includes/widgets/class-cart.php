@@ -13,6 +13,8 @@
 
 namespace Reseller_Store\Widgets;
 
+use Reseller_Store\Shortcodes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	// @codeCoverageIgnoreStart
@@ -74,6 +76,8 @@ final class Cart extends \WP_Widget {
 
 		}
 
+		ob_start();
+
 		echo $args['before_widget']; // xss ok.
 
 		$data = $this->get_data( $instance );
@@ -95,6 +99,17 @@ final class Cart extends \WP_Widget {
 		<?php
 
 		echo $args['after_widget']; // xss ok.
+
+		$cart_widget = ob_get_contents();
+		ob_get_clean();
+
+		if ( Shortcodes::is_widget( $args ) ) {
+
+			echo $cart_widget;
+
+		}
+
+		return $cart_widget;
 
 	}
 
