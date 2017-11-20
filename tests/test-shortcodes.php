@@ -183,4 +183,24 @@ final class TestShortcodes extends TestCase {
 
 	}
 
+	/**
+	 * @testdox Test invalid widget.
+	 */
+	function test_invalid_widget() {
+
+		$this->assertFalse( Shortcodes::is_widget() );
+
+	}
+
+	/**
+	 * @testdox Test valid widget.
+	 */
+	function test_valid_widget() {
+
+		$this->assertTrue( Shortcodes::is_widget( [
+			'id' => 'test',
+		] ) );
+
+	}
+
 }
