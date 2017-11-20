@@ -146,7 +146,6 @@ final class Product extends \WP_Widget {
 
 		}
 
-
 		if ( Shortcodes::is_widget( $args ) ) {
 
 			echo $content;

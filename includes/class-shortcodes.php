@@ -172,9 +172,11 @@ final class Shortcodes {
 	/**
 	 * Checks if the shortcode is being rendered as a widget.
 	 *
-	 * @param  array   $atts Shortcode attributes.
+	 * @since NEXT
 	 *
-	 * @return boolean       True is id key is set, else false.
+	 * @param array $atts Shortcode attributes.
+	 *
+	 * @return boolean    True is id key is set, else false.
 	 */
 	public static function is_widget( $atts = [] ) {
 
