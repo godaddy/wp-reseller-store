@@ -22,11 +22,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_domain_search_legacy() {
 
-		$content = '[rstore-domain-search]';
+		$this->assertContains(
+			do_shortcode( '[rstore-domain-search]' ),
+			'<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div>'
+		);
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div>/' );
 	}
 
 	/**
@@ -34,11 +34,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_domain_search() {
 
-		$content = '[rstore_domain_search]';
+		$this->assertContains(
+			do_shortcode( '[rstore_domain_search]' ),
+			'<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div>'
+		);
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div>/' );
 	}
 
 	/**
@@ -46,11 +46,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_view_cart() {
 
-		$content = '[rstore_cart_button]';
+		$this->assertRegExp(
+			'/<a href="https:\/\/cart\.secureserver\.net\/">\n.*View Cart \(<span class="rstore-cart-count">0<\/span>\)/',
+			do_shortcode( '[rstore_cart_button]' )
+		);
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/<a href="https:\/\/cart\.secureserver\.net\/">\n.*View Cart \(<span class="rstore-cart-count">0<\/span>\)/' );
 	}
 
 	/**
@@ -58,11 +58,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_view_cart_with_params() {
 
-		$content = '[rstore_cart_button title="Cart" button_label="button label"]';
+		$this->assertRegExp(
+			'/<a href="https:\/\/cart\.secureserver\.net\/">\n.*button label \(<span class="rstore-cart-count">0<\/span>\)/',
+			do_shortcode( '[rstore_cart_button title="Cart" button_label="button label"]' )
+		);
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/<a href="https:\/\/cart\.secureserver\.net\/">\n.*button label \(<span class="rstore-cart-count">0<\/span>\)/' );
 	}
 
 
@@ -71,11 +71,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_product_without_params() {
 
-		$content = '[rstore_product]';
+		$this->expectOutputRegex(
+			'/Post id is not valid\./',
+			do_shortcode( '[rstore_product]' )
+		);
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/Post id is not valid\./' );
 	}
 
 	/**
@@ -83,11 +83,11 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_product_with_invalid_post_id() {
 
-		$content = '[rstore_product post_id=12]';
+		$this->expectOutputRegex(
+			'/Post id is not valid\./',
+			do_shortcode( '[rstore_product post_id=12]' )
+		);
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/Post id is not valid\./' );
 	}
 
 	/**
@@ -97,11 +97,11 @@ final class TestShortcodes extends TestCase {
 
 		$post = Tests\Helper::create_product( 'Test Product' );
 
-		$content = '[rstore_product post_id=' . $post->ID . ']';
+		$this->assertRegExp(
+			'/Test Product/',
+			do_shortcode( '[rstore_product post_id=' . $post->ID . ']' )
+		);
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/Test Product/' );
 	}
 
 	/**
@@ -139,9 +139,11 @@ final class TestShortcodes extends TestCase {
       redirect=1
       ]';
 
-		do_shortcode( $content );
+		$this->assertRegExp(
+			'/data-redirect="true"/',
+			do_shortcode( $content )
+		);
 
-		$this->expectOutputRegex( '/data-redirect="true"/' );
 	}
 
 	/**
@@ -156,9 +158,11 @@ final class TestShortcodes extends TestCase {
       redirect=0
       ]';
 
-		do_shortcode( $content );
+		$this->assertRegExp(
+			'/data-redirect="false"/',
+			do_shortcode( $content )
+		);
 
-		$this->expectOutputRegex( '/data-redirect="false"/' );
 	}
 
 	/**
@@ -166,17 +170,16 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_login() {
 
-		$post = Tests\Helper::create_product( 'Another Product good' );
-
 		$content = '[rstore_login
       welcome_message="aaaa"
       login_button_text="bbbb"
       logout_button_text="cccc"
       ]';
 
-		do_shortcode( $content );
-
-		$this->expectOutputRegex( '/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">cccc<\/a>/' );
+		$this->assertRegExp(
+			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">cccc<\/a>/',
+			do_shortcode( $content )
+		);
 
 	}
 
