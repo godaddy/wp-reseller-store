@@ -73,8 +73,8 @@ final class Setup {
 
 		} );
 
-		add_action( 'admin_enqueue_scripts',  [ $this, 'admin_enqueue_scripts' ] );
-		add_action( 'admin_menu',             [ $this, 'page' ], PHP_INT_MAX - 1997 );
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
+		add_action( 'admin_menu', [ $this, 'page' ], PHP_INT_MAX - 100 );
 		add_action( 'wp_ajax_rstore_install', [ __CLASS__, 'install' ] );
 
 	}
