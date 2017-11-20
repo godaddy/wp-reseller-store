@@ -150,7 +150,7 @@ final class Shortcodes {
 
 		$product = new Widgets\Product();
 
-		$product->widget( $this->args, $atts );
+		return $product->widget( $this->args, $atts );
 
 	}
 

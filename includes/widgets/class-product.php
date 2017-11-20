@@ -144,7 +144,14 @@ final class Product extends \WP_Widget {
 
 		}
 
-		echo $content;
+		// If ID key isset, this is a widget.
+		if ( isset( $args['id'] ) ) {
+
+			echo $content;
+
+		}
+
+		return $content;
 
 	}
 
