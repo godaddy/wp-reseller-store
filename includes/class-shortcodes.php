@@ -180,7 +180,7 @@ final class Shortcodes {
 	 */
 	public static function is_widget( $atts = [] ) {
 
-		return isset( $atts['id'] );
+		return ( isset( $atts['id'] ) || isset( $atts['widget_id'] ) );
 
 	}
 
