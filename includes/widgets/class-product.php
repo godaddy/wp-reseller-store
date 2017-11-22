@@ -65,8 +65,13 @@ final class Product extends \WP_Widget {
 		if ( null === $product || 'publish' !== $product->post_status ||
 			\Reseller_Store\Post_Type::SLUG !== $product->post_type ) {
 
-			esc_html_e( 'Post id is not valid.', 'reseller' );
-			return;
+			if ( Shortcodes::is_widget( $args ) ) {
+
+				esc_html_e( 'Post id is not valid.', 'reseller' );
+
+			}
+
+			return esc_html__( 'Post id is not valid.', 'reseller' );
 
 		}
 

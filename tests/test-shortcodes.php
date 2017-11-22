@@ -198,7 +198,7 @@ final class TestShortcodes extends TestCase {
 	function test_valid_widget() {
 
 		$this->assertTrue( Shortcodes::is_widget( [
-			'id' => 'test',
+			'widget_id' => 'widget-id-123',
 		] ) );
 
 	}
