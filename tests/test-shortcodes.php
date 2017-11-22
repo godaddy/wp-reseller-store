@@ -71,9 +71,16 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_product_without_params() {
 
-		$this->expectOutputRegex(
-			'/Post id is not valid\./',
-			do_shortcode( '[rstore_product]' )
+		ob_start();
+
+		echo do_shortcode( '[rstore_product]' );
+
+		$contents = ob_get_contents();
+		ob_get_clean();
+
+		$this->assertEquals(
+			$contents,
+			'Post id is not valid.'
 		);
 
 	}
@@ -83,9 +90,16 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_product_with_invalid_post_id() {
 
-		$this->expectOutputRegex(
-			'/Post id is not valid\./',
-			do_shortcode( '[rstore_product post_id=12]' )
+		ob_start();
+
+		echo do_shortcode( '[rstore_product post_id=12]' );
+
+		$contents = ob_get_contents();
+		ob_get_clean();
+
+		$this->assertEquals(
+			$contents,
+			'Post id is not valid.'
 		);
 
 	}
