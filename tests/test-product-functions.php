@@ -49,17 +49,4 @@ final class TestProductFunctions extends TestCase {
 
 	}
 
-	/**
-	 * @testdox rstore_get_demo_products should return a list of demo products
-	 */
-	public function test_rstore_get_demo_products() {
-
-		rstore_update_option( 'pl_id', 1592 );
-
-		$products = rstore_get_demo_products();
-
-		$this->assertTrue( count( $products ) === 2 );
-
-	}
-
 }
