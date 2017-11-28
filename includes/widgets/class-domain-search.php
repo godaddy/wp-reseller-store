@@ -13,6 +13,8 @@
 
 namespace Reseller_Store\Widgets;
 
+use Reseller_Store\Shortcodes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	// @codeCoverageIgnoreStart
@@ -79,6 +81,8 @@ final class Domain_Search extends \WP_Widget {
 
 		}
 
+		ob_start();
+
 		echo $args['before_widget']; // xss ok.
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -102,6 +106,17 @@ final class Domain_Search extends \WP_Widget {
 		echo apply_filters( 'rstore_domain_html', $domain_html );
 
 		echo $args['after_widget']; // xss ok.
+
+		$domain_search_widget = ob_get_contents();
+		ob_get_clean();
+
+		if ( Shortcodes::is_widget( $args ) ) {
+
+			echo $domain_search_widget;
+
+		}
+
+		return $domain_search_widget;
 
 	}
 

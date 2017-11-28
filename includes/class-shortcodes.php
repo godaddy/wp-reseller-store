@@ -120,7 +120,7 @@ final class Shortcodes {
 
 		$domain = new Widgets\Domain_Search();
 
-		$domain->widget( $this->args, $atts );
+		return $domain->widget( $this->args, $atts );
 
 	}
 
@@ -135,7 +135,7 @@ final class Shortcodes {
 
 		$cart = new Widgets\Cart();
 
-		$cart->widget( $this->args, $atts );
+		return $cart->widget( $this->args, $atts );
 
 	}
 
@@ -150,7 +150,7 @@ final class Shortcodes {
 
 		$product = new Widgets\Product();
 
-		$product->widget( $this->args, $atts );
+		return $product->widget( $this->args, $atts );
 
 	}
 
@@ -165,7 +165,22 @@ final class Shortcodes {
 
 		$login = new Widgets\Login();
 
-		$login->widget( $this->args, $atts );
+		return $login->widget( $this->args, $atts );
+
+	}
+
+	/**
+	 * Checks if the shortcode is being rendered as a widget.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts Shortcode attributes.
+	 *
+	 * @return boolean    True is id key is set, else false.
+	 */
+	public static function is_widget( $atts = [] ) {
+
+		return isset( $atts['widget_id'] );
 
 	}
 

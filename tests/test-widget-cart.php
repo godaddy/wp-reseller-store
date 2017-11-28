@@ -43,10 +43,10 @@ final class TestWidgetCart extends TestCase {
 			'after_title'   => '</h3>',
 		];
 
-		$widget->widget( $args, $instance );
-
-		// display view cart link.
-		$this->expectOutputRegex( '/<a href="https:\/\/cart.secureserver.net\/">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/' );
+		$this->assertRegExp(
+			'/<a href="https:\/\/cart.secureserver.net\/">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/',
+			$widget->widget( $args, $instance )
+		);
 
 	}
 
@@ -125,10 +125,10 @@ final class TestWidgetCart extends TestCase {
 			'after_title'   => '</h3>',
 		];
 
-		$widget->widget( $args, $instance );
-
-		// display main div tag.
-		$this->expectOutputRegex( '/<div class="before_widget cart">/' );
+		$this->assertRegExp(
+			'/<div class="before_widget cart">/',
+			$widget->widget( $args, $instance )
+		);
 
 	}
 

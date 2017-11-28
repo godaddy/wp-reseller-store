@@ -41,7 +41,7 @@ final class TestWidgetProduct extends TestCase {
 			'after_title'   => '</h3>',
 		];
 
-		$widget->widget( $args, $instance );
+		echo $widget->widget( $args, $instance );
 
 		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button>/' );
 
@@ -161,7 +161,7 @@ final class TestWidgetProduct extends TestCase {
 			'after_title'   => '</h3>',
 		];
 
-		$widget->widget( $args, $instance );
+		echo $widget->widget( $args, $instance );
 
 		// display main div tag.
 		$this->expectOutputRegex( '/<div class="before_widget product">/' );
@@ -195,7 +195,7 @@ final class TestWidgetProduct extends TestCase {
 
 				ob_start();
 
-				$widget->widget( $args, $instance );
+				echo $widget->widget( $args, $instance );
 
 				return ob_get_clean();
 
