@@ -33,6 +33,15 @@ final class Setup {
 	const SLUG = 'reseller-store-setup';
 
 	/**
+	 * POST TYPE SLUG
+	 *
+	 * @since NEXT
+	 *
+	 * @var string
+	 */
+	const PAGE_SLUG = 'edit.php?post_type=reseller_product';
+
+	/**
 	 * Install nonce action name.
 	 *
 	 * @since 0.2.0
@@ -133,14 +142,13 @@ final class Setup {
 	 */
 	public function page() {
 
-		add_menu_page(
+		add_submenu_page(
+			self::PAGE_SLUG,
 			esc_html__( 'Reseller Store Setup', 'reseller-store' ),
-			esc_html__( 'Reseller Store', 'reseller-store' ),
+			esc_html__( 'Setup', 'reseller-store' ),
 			'activate_plugins',
 			self::SLUG,
-			[ $this, 'content' ],
-			'dashicons-cart',
-			Post_Type::MENU_POSITION
+			[ $this, 'content' ]
 		);
 
 	}
