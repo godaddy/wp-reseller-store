@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.3.0
  */
 
 namespace Reseller_Store;
@@ -25,7 +25,7 @@ final class Admin_Notices {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 1.3.0
 	 */
 	public function __construct() {
 
@@ -54,7 +54,7 @@ final class Admin_Notices {
 	 * Get the key used to generate the nonce.
 	 *
 	 * @return string Generated nonce key.
-	 * @since  NEXT
+	 * @since  1.3.0
 	 */
 	private static function nonce_key() {
 		return  rstore_prefix( 'notice-' . get_current_user_id() );
@@ -64,7 +64,7 @@ final class Admin_Notices {
 	 * Enqueue admin scripts.
 	 *
 	 * @action admin_enqueue_scripts
-	 * @since  NEXT
+	 * @since  1.3.0
 	 */
 	public function admin_enqueue_scripts() {
 
@@ -85,7 +85,7 @@ final class Admin_Notices {
 	/**
 	 * Display restore notices
 	 *
-	 * @since  NEXT
+	 * @since  1.3.0
 	 */
 	public function restore_notice() {
 
@@ -105,7 +105,7 @@ final class Admin_Notices {
 	/**
 	 * Display admin notices
 	 *
-	 * @since  NEXT
+	 * @since  1.3.0
 	 */
 	public function error_notices() {
 
@@ -122,7 +122,7 @@ final class Admin_Notices {
 	/**
 	 * Handles Ajax request to persist notices dismissal.
 	 *
-	 * @since  NEXT
+	 * @since  1.3.0
 	 */
 	public static function dismiss_admin_notice() {
 

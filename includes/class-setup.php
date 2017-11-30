@@ -35,7 +35,7 @@ final class Setup {
 	/**
 	 * POST TYPE SLUG
 	 *
-	 * @since NEXT
+	 * @since 1.3.0
 	 *
 	 * @var string
 	 */

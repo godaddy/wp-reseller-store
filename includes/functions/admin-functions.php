@@ -32,7 +32,7 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
 /**
  * Add error to error list for display.
  *
- * @since NEXT
+ * @since 1.3.0
  *
  * @param  WP_Error $error    Add error to item list.
  *

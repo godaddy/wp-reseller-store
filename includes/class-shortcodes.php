@@ -172,7 +172,7 @@ final class Shortcodes {
 	/**
 	 * Checks if the shortcode is being rendered as a widget.
 	 *
-	 * @since NEXT
+	 * @since 1.3.0
 	 *
 	 * @param array $atts Shortcode attributes.
 	 *

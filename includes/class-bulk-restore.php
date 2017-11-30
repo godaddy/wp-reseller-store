@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.3.0
  */
 
 namespace Reseller_Store;
@@ -25,7 +25,7 @@ final class Bulk_Restore {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 1.3.0
 	 */
 	public function __construct() {
 
@@ -43,7 +43,7 @@ final class Bulk_Restore {
 	/**
 	 * Action handler for bulk resetting product posts
 	 *
-	 * @since  NEXT
+	 * @since  1.3.0
 	 *
 	 * @param string $redirect_to  The redirect URL.
 	 * @param string $do_action    The action being taken.
@@ -136,7 +136,7 @@ final class Bulk_Restore {
 	/**
 	 * Find the product from the array by id.
 	 *
-	 * @since  NEXT
+	 * @since  1.3.0
 	 *
 	 * @param string $id       The product id (i.e. the needle).
 	 * @param array  $products Array of products (i.e the haystack).

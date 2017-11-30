@@ -3,7 +3,7 @@ Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              godaddy, reseller, program, storefront, store, products, responsive, shortcode
 Requires at least: 4.6
 Tested up to:      4.9
-Stable tag:        1.2.0
+Stable tag:        1.3.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
