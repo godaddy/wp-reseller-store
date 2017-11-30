@@ -9,7 +9,7 @@
 			var $this = $(this);
 
 			var data = {
-				'action': 'rstore_admin_notice',
+				'action': 'rstore_dismiss_admin_notice',
 				'nonce': rstore_admin_notice.nonce
 			};
 

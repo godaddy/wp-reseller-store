@@ -29,7 +29,7 @@ final class Admin_Notices {
 	 */
 	public function __construct() {
 
-		add_action( 'rstore_dismiss_admin_notice', [ __CLASS__, 'dismiss_admin_notice' ] );
+		add_action( 'wp_ajax_rstore_dismiss_admin_notice', [ __CLASS__, 'dismiss_admin_notice' ] );
 
 		$is_post_type_screen = rstore_is_admin_uri( 'post_type=' . Post_Type::SLUG, false );
 		if ( ! $is_post_type_screen ) {
@@ -126,22 +126,17 @@ final class Admin_Notices {
 	 */
 	public static function dismiss_admin_notice() {
 
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::nonce_key() ) ) {
 
-			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::nonce_key() ) ) {
+			$data = esc_html__( 'Sorry, you are not allowed to do that.', 'reseller-store' );
 
-				$data = esc_html__( 'Sorry, you are not allowed to do that.', 'reseller-store' );
+			wp_send_json_error( $data );
 
-				wp_send_json_error( $data );
-
-			}
-
-			rstore_delete_option( 'errors' );
-
-			wp_send_json_success();
 		}
+
+		rstore_delete_option( 'errors' );
+
+		wp_send_json_success();
 	}
-
-
 
 }
