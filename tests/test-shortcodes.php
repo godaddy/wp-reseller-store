@@ -67,7 +67,7 @@ final class TestShortcodes extends TestCase {
 
 
 	/**
-	 * @testdox Given a prouct shortcode without params it should display message
+	 * @testdox Given a product shortcode without params it should display message
 	 */
 	function test_product_without_params() {
 
@@ -79,7 +79,7 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a prouct shortcode with invalid post id it should display message
+	 * @testdox Given a product shortcode with invalid post id it should display message
 	 */
 	function test_product_with_invalid_post_id() {
 
@@ -91,7 +91,7 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a valid prouct shortcode it should generate html
+	 * @testdox Given a valid product shortcode it should generate html
 	 */
 	function test_product_with_valid_post_id() {
 
@@ -197,9 +197,13 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_valid_widget() {
 
-		$this->assertTrue( Shortcodes::is_widget( [
-			'widget_id' => 'widget-id-123',
-		] ) );
+		$this->assertTrue(
+			Shortcodes::is_widget(
+				[
+					'widget_id' => 'widget-id-123',
+				]
+			)
+		);
 
 	}
 

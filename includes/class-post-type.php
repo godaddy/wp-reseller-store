@@ -109,7 +109,6 @@ final class Post_Type {
 		);
 
 		add_action( 'save_post', [ $this, 'republish_post' ] );
-
 	}
 
 	/**
@@ -531,9 +530,19 @@ final class Post_Type {
 
 		global $post;
 
+		if ( ! isset( $post ) ) {
+			return $content;
+		}
+
 		$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
 
-		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request && ! $post->rstore_widget ) {
+		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
+
+			if ( property_exists( $post, 'rstore_widget' ) && true === $post->rstore_widget ) {
+
+				return $content;
+
+			}
 
 			$content .= rstore_price( $post->ID, false );
 			$content .= rstore_add_to_cart_form( $post->ID, false );

@@ -87,6 +87,12 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 == Changelog ==
 
+= NEXT - December 2017 =
+
+* New: Bulk restore product post
+* Fix: Compatibility issues with other themes/plugins
+* Fix: Short codes render in wrong place
+
 = 1.2.0 - November 2017 =
 
 * Update: Domain search 2.1.2
