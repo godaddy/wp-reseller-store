@@ -31,7 +31,7 @@ final class Bulk_Restore {
 
 		add_filter(
 			'bulk_actions-edit-' . Post_Type::SLUG, function ( $bulk_actions ) {
-				$bulk_actions['restore_product_data'] = __( 'Restore Product Data', 'restore_product_data' );
+				$bulk_actions['restore_product_data'] = esc_html__( 'Restore Product Data', 'reseller-store' );
 				return $bulk_actions;
 			}
 		);
