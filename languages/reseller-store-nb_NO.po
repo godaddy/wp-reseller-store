@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-11-30 04:11:53+00:00\n"
+"POT-Creation-Date: 2017-11-30 19:48:12+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid_plural "Finished restoring products. %s products updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-admin-notices.php:131 includes/class-setup.php:301
+#: includes/class-admin-notices.php:131 includes/class-setup.php:309
 msgid "Sorry, you are not allowed to do that."
 msgstr "Beklager, men du har ikke tillatelse til å gjøre dette."
 
@@ -242,80 +242,80 @@ msgstr "Ingen produkter er blitt lagt til ennå."
 msgid "Import All Products"
 msgstr "Importer alle produkter"
 
-#: includes/class-setup.php:111
+#: includes/class-setup.php:120
 msgid "Invalid nonce token.  Please try again."
 msgstr ""
 
-#: includes/class-setup.php:137
+#: includes/class-setup.php:147
 msgid "Reseller Store Setup"
 msgstr "Konfigurering av forhandlerbutikk"
 
-#: includes/class-setup.php:138
-msgid "Reseller Store"
-msgstr "Forhandlerbutikk"
+#: includes/class-setup.php:148
+msgid "Setup"
+msgstr ""
 
-#: includes/class-setup.php:214
+#: includes/class-setup.php:222
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr "La oss konfigurere din GoDaddy Forhandlerbutikk."
 
-#: includes/class-setup.php:218
+#: includes/class-setup.php:226
 msgid "Register your plugin to import your product catalog."
 msgstr ""
 
-#: includes/class-setup.php:221
+#: includes/class-setup.php:229
 msgid "Login & Activate"
 msgstr ""
 
-#: includes/class-setup.php:223
+#: includes/class-setup.php:231
 msgid "Importing product catalog and installing"
 msgstr ""
 
-#: includes/class-setup.php:231
+#: includes/class-setup.php:239
 msgid "A GoDaddy Account is required to activate the plugin."
 msgstr ""
 
-#: includes/class-setup.php:232
+#: includes/class-setup.php:240
 msgid "We will provide a demo reseller plan if you don't have a reseller plan."
 msgstr ""
 
-#: includes/class-setup.php:233
+#: includes/class-setup.php:241
 msgid "Get your own plan today."
 msgstr ""
 
-#: includes/class-setup.php:237
+#: includes/class-setup.php:245
 #, fuzzy
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
 msgstr "Trenger du hjelp? Ring vårt prisbelønte støtteteam på (480) 505-8877."
 
 #. translators: name of missing script
-#: includes/class-setup.php:262
+#: includes/class-setup.php:270
 msgid "Error: Missing required script for setup %s"
 msgstr "Feil: Påkrevd skript mangler for konfigurering %s"
 
-#: includes/class-setup.php:290
+#: includes/class-setup.php:298
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 "Beklager, men du har ikke tillatelse til å installere plugins på dette "
 "nettstedet."
 
-#: includes/class-setup.php:323
+#: includes/class-setup.php:331
 msgid "Private Label ID is invalid."
 msgstr "Ugyldig privat etikett-ID."
 
-#: includes/class-setup.php:344
+#: includes/class-setup.php:352
 msgid "There are no products available, please try again later."
 msgstr "Ingen tilgjengelige produkter. Prøv på nytt senere."
 
-#: includes/class-setup.php:369
+#: includes/class-setup.php:377
 msgid "Product data could not be imported, please try again later."
 msgstr "Kan ikke importere produktdata. Prøv på nytt senere."
 
-#: includes/class-setup.php:402
+#: includes/class-setup.php:410
 msgid "An unknown error occurred."
 msgstr "Det oppstod en ukjent feil."
 
 #. translators: error message
-#: includes/class-setup.php:416
+#: includes/class-setup.php:424
 msgid "Error: %s"
 msgstr "Feil: %s"
 
@@ -702,6 +702,9 @@ msgstr "Tagg"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / per %2$s"
+
+#~ msgid "Reseller Store"
+#~ msgstr "Forhandlerbutikk"
 
 #~ msgid "Reset Data"
 #~ msgstr "Tilbakestill data"
