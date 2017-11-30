@@ -87,11 +87,11 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 == Changelog ==
 
-= NEXT - November 2017 =
+= NEXT - December 2017 =
 
 * New: Bulk restore product post
-* Fixed: Theme compatibility issues
-
+* Fix: Compatibility issues with other themes/plugins
+* Fix: Short codes render in wrong place
 
 = 1.2.0 - November 2017 =
 

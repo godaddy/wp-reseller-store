@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-11-03 23:41:29+00:00\n"
+"POT-Creation-Date: 2017-11-30 04:11:53+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,39 @@ msgstr ""
 "esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
+#. translators: product count
+#: includes/class-admin-notices.php:96
+msgid "Finished restoring products. %s product updated."
+msgid_plural "Finished restoring products. %s products updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-admin-notices.php:131 includes/class-setup.php:301
+msgid "Sorry, you are not allowed to do that."
+msgstr "Beklager, men det har du ikke tilladelse til."
+
 #: includes/class-api.php:224
 msgid "An unknown error has occurred."
 msgstr "Der opstod en ukendt fejl."
+
+#: includes/class-bulk-restore.php:34 includes/class-butterbean.php:377
+msgid "Restore Product Data"
+msgstr "Gendan produktdata"
+
+#: includes/class-bulk-restore.php:73
+msgid "Current user cannot modify post."
+msgstr ""
+
+#. translators: product name
+#: includes/class-bulk-restore.php:88
+#, fuzzy
+msgid "`%s` does not have a valid product id."
+msgstr "»%s« er ikke et gyldigt produkt."
+
+#. translators: product name
+#: includes/class-bulk-restore.php:104 includes/class-import.php:86
+msgid "`%s` is not a valid product."
+msgstr "»%s« er ikke et gyldigt produkt."
 
 #: includes/class-butterbean.php:143
 msgid "Product Options"
@@ -32,7 +62,7 @@ msgstr "General"
 msgid "Advanced"
 msgstr "Avanceret"
 
-#: includes/class-butterbean.php:193 includes/class-post-type.php:387
+#: includes/class-butterbean.php:193 includes/class-post-type.php:386
 msgid "Price"
 msgstr "Pris"
 
@@ -49,27 +79,23 @@ msgid "Add to Cart Button Label"
 msgstr "Tekst på knappen »Tilføj til indkøbsvogn«"
 
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:316
+#: includes/widgets/class-product.php:329
 msgid "Add to cart"
 msgstr "Tilføj til kurv"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:222
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
 msgid "Cart link text"
 msgstr ""
 
 #: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
-#: includes/widgets/class-domain-search.php:194
-#: includes/widgets/class-product.php:317
+#: includes/widgets/class-domain-search.php:209
+#: includes/widgets/class-product.php:330
 msgid "Continue to cart"
 msgstr ""
 
 #: includes/class-butterbean.php:344
 msgid "Redirect to the cart immediately after adding"
 msgstr "Send videre til indkøbsvognen umiddelbart efter tilføjelse"
-
-#: includes/class-butterbean.php:377
-msgid "Restore Product Data"
-msgstr "Gendan produktdata"
 
 #: includes/class-butterbean.php:378
 msgid ""
@@ -85,22 +111,17 @@ msgstr ""
 msgid "An error has occurred"
 msgstr "Der opstod en fejl"
 
-#: includes/class-import.php:79
+#: includes/class-import.php:81
 msgid "unknown"
 msgstr "ukendt"
 
 #. translators: product name
-#: includes/class-import.php:85
-msgid "`%s` is not a valid product."
-msgstr "»%s« er ikke et gyldigt produkt."
-
-#. translators: product name
-#: includes/class-import.php:104
+#: includes/class-import.php:105
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr "»%s« skal importeres som et produktindlæg, før det kan nulstilles."
 
 #. translators: post type name
-#: includes/class-import.php:115
+#: includes/class-import.php:116
 msgid "`%s` is not a valid post type for products."
 msgstr "»%s« er ikke en gyldig indlægstype for produkter."
 
@@ -132,84 +153,84 @@ msgstr "Standard"
 msgid "Custom base"
 msgstr "Brugerdefineret grundlag"
 
-#: includes/class-post-type.php:211
+#: includes/class-post-type.php:210
 msgid "Add New Products"
 msgstr "Tilføj nye produkter"
 
-#: includes/class-post-type.php:212
+#: includes/class-post-type.php:211
 msgid "Edit Product"
 msgstr "Rediger produkt"
 
-#: includes/class-post-type.php:213
+#: includes/class-post-type.php:212
 msgid "New Product"
 msgstr "Nyt produkt"
 
-#: includes/class-post-type.php:214
+#: includes/class-post-type.php:213
 msgid "View Product"
 msgstr "Vis produkt"
 
-#: includes/class-post-type.php:215
+#: includes/class-post-type.php:214
 msgid "View Products"
 msgstr "Vis produkter"
 
-#: includes/class-post-type.php:216
+#: includes/class-post-type.php:215
 msgid "Search Products"
 msgstr "Produktsøgning"
 
-#: includes/class-post-type.php:217
+#: includes/class-post-type.php:216
 msgid "No products found."
 msgstr "Ingen produkter fundet"
 
-#: includes/class-post-type.php:218
+#: includes/class-post-type.php:217
 msgid "No products found in Trash."
 msgstr "Ingen produkter fundet i skraldespand"
 
-#: includes/class-post-type.php:219
+#: includes/class-post-type.php:218
 msgid "Parent Products:"
 msgstr "Overordnede produkter:"
 
-#: includes/class-post-type.php:220
+#: includes/class-post-type.php:219
 msgid "All Products"
 msgstr "Alle produkter"
 
-#: includes/class-post-type.php:221
+#: includes/class-post-type.php:220
 msgid "Product Archives"
 msgstr "Produktarkiver"
 
-#: includes/class-post-type.php:222
+#: includes/class-post-type.php:221
 msgid "Insert into product"
 msgstr "Indsæt i produkt"
 
-#: includes/class-post-type.php:223
+#: includes/class-post-type.php:222
 msgid "Uploaded to this product"
 msgstr "Uploadet til dette produkt"
 
-#: includes/class-post-type.php:224 includes/class-post-type.php:377
+#: includes/class-post-type.php:223 includes/class-post-type.php:376
 msgid "Product Image"
 msgstr "Produktbillede"
 
-#: includes/class-post-type.php:225
+#: includes/class-post-type.php:224
 msgid "Set product image"
 msgstr "Indsæt produkt billede"
 
-#: includes/class-post-type.php:226
+#: includes/class-post-type.php:225
 msgid "Remove product image"
 msgstr "Fjern produkt billede"
 
-#: includes/class-post-type.php:227
+#: includes/class-post-type.php:226
 msgid "Use as featured image"
 msgstr "Brug som interessant billede"
 
-#: includes/class-post-type.php:232
+#: includes/class-post-type.php:231
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Det er her du kan tilføje nye produkter til din forhandlerbutik."
 
-#: includes/class-post-type.php:278
+#: includes/class-post-type.php:277
 msgid "Product id not found or invalid."
 msgstr ""
 
 #. translators: product title
-#: includes/class-post-type.php:513
+#: includes/class-post-type.php:512
 msgid "Edit: %s"
 msgstr "Rediger: %s"
 
@@ -261,17 +282,7 @@ msgstr ""
 msgid "Get your own plan today."
 msgstr ""
 
-#: includes/class-setup.php:235
-msgid ""
-"Not interested in activating right now? You will only see two demo products "
-"on a demo storefront without the benefits of having your own plan."
-msgstr ""
-
-#: includes/class-setup.php:236
-msgid "Skip activation."
-msgstr ""
-
-#: includes/class-setup.php:240
+#: includes/class-setup.php:237
 #, fuzzy
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
 msgstr ""
@@ -279,37 +290,33 @@ msgstr ""
 "505-8877."
 
 #. translators: name of missing script
-#: includes/class-setup.php:265
+#: includes/class-setup.php:262
 msgid "Error: Missing required script for setup %s"
 msgstr "Fejl: Mangler obligatorisk script til konfiguration %s"
 
-#: includes/class-setup.php:295
+#: includes/class-setup.php:290
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 "Beklager, men du har ikke tilladelse til at installere plugins på dette site."
 
-#: includes/class-setup.php:306
-msgid "Sorry, you are not allowed to do that."
-msgstr "Beklager, men det har du ikke tilladelse til."
-
-#: includes/class-setup.php:328
+#: includes/class-setup.php:323
 msgid "Private Label ID is invalid."
 msgstr "Privat varemærke-ID er ugyldigt."
 
-#: includes/class-setup.php:351
+#: includes/class-setup.php:344
 msgid "There are no products available, please try again later."
 msgstr "Der er ingen tilgængelige produkter, prøv igen senere."
 
-#: includes/class-setup.php:384
+#: includes/class-setup.php:369
 msgid "Product data could not be imported, please try again later."
 msgstr "Produktdata kunne ikke importeres. Prøv igen senere."
 
-#: includes/class-setup.php:417
+#: includes/class-setup.php:402
 msgid "An unknown error occurred."
 msgstr "Der opstod en ukendt fejl."
 
 #. translators: error message
-#: includes/class-setup.php:431
+#: includes/class-setup.php:416
 msgid "Error: %s"
 msgstr "Fejl: %s"
 
@@ -387,220 +394,220 @@ msgid "Tags"
 msgstr "Tags"
 
 #. translators: product name
-#: includes/functions/product-functions.php:171
+#: includes/functions/product-functions.php:160
 msgid "Error: `%s` does not exist."
 msgstr "Fejl: `%s` findes ikke."
 
-#: includes/widgets/class-cart.php:34
+#: includes/widgets/class-cart.php:36
 msgid "Reseller Cart"
 msgstr "Forhandlerindkøbsvogn"
 
-#: includes/widgets/class-cart.php:37
+#: includes/widgets/class-cart.php:39
 msgid "Display the user's cart in the sidebar."
 msgstr "Vis brugerens indkøbsvogn i sidebjælken."
 
-#: includes/widgets/class-cart.php:113
-#: includes/widgets/class-domain-search.php:117
-#: includes/widgets/class-login.php:123
+#: includes/widgets/class-cart.php:128
+#: includes/widgets/class-domain-search.php:132
+#: includes/widgets/class-login.php:138
 msgid "Title:"
 msgstr "Titel:"
 
-#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:214
+#: includes/widgets/class-cart.php:133 includes/widgets/class-product.php:227
 #, fuzzy
 msgid "Button Label:"
 msgstr "Knap:"
 
-#: includes/widgets/class-cart.php:155
+#: includes/widgets/class-cart.php:170
 #, fuzzy
 msgid "View Cart"
 msgstr "Vis indkøbsvogn"
 
-#: includes/widgets/class-domain-search.php:34
+#: includes/widgets/class-domain-search.php:36
 msgid "Reseller Domain Search"
 msgstr "Forhandlerdomænesøgning"
 
-#: includes/widgets/class-domain-search.php:37
+#: includes/widgets/class-domain-search.php:39
 msgid "A search form for domain names."
 msgstr "En søgeformular til domænenavne."
 
-#: includes/widgets/class-domain-search.php:100
+#: includes/widgets/class-domain-search.php:104
 msgid "Domain Search"
 msgstr "Domænesøgning"
 
-#: includes/widgets/class-domain-search.php:118
+#: includes/widgets/class-domain-search.php:133
 msgid "Domain result page size:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:119
+#: includes/widgets/class-domain-search.php:134
 msgid "Placeholder:"
 msgstr "Pladsholder:"
 
-#: includes/widgets/class-domain-search.php:120
+#: includes/widgets/class-domain-search.php:135
 #, fuzzy
 msgid "Search Button:"
 msgstr "Knap:"
 
-#: includes/widgets/class-domain-search.php:121
+#: includes/widgets/class-domain-search.php:136
 msgid "Available Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:122
+#: includes/widgets/class-domain-search.php:137
 msgid "Not Available Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:123
+#: includes/widgets/class-domain-search.php:138
 #, fuzzy
 msgid "Cart Button Text:"
 msgstr "Tekst på knappen »Tilføj til indkøbsvogn«"
 
-#: includes/widgets/class-domain-search.php:124
+#: includes/widgets/class-domain-search.php:139
 msgid "Select Button Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:125
+#: includes/widgets/class-domain-search.php:140
 msgid "Unselect Button Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:126
+#: includes/widgets/class-domain-search.php:141
 msgid "Verify Button Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:127
+#: includes/widgets/class-domain-search.php:142
 msgid "Domain disclaimer notice"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:190
+#: includes/widgets/class-domain-search.php:205
 msgid "Find your perfect domain name"
 msgstr "Find dit perfekte domænenavn"
 
-#: includes/widgets/class-domain-search.php:191
+#: includes/widgets/class-domain-search.php:206
 msgid "Search"
 msgstr "Søg"
 
-#: includes/widgets/class-domain-search.php:192
+#: includes/widgets/class-domain-search.php:207
 msgid "Congrats, your domain is available!"
 msgstr "Tillykke, dit domæne er ledigt!"
 
-#: includes/widgets/class-domain-search.php:193
+#: includes/widgets/class-domain-search.php:208
 msgid "Sorry that domain is taken"
 msgstr "Det domæne er taget"
 
-#: includes/widgets/class-domain-search.php:195
+#: includes/widgets/class-domain-search.php:210
 msgid "Select"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:196
+#: includes/widgets/class-domain-search.php:211
 msgid "Selected"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:197
+#: includes/widgets/class-domain-search.php:212
 msgid "Verify"
 msgstr ""
 
-#: includes/widgets/class-login.php:34
+#: includes/widgets/class-login.php:36
 #, fuzzy
 msgid "Reseller Shopper Login"
 msgstr "Forhandlerbutik"
 
-#: includes/widgets/class-login.php:37
+#: includes/widgets/class-login.php:39
 msgid "A shopper login status"
 msgstr ""
 
-#: includes/widgets/class-login.php:128
+#: includes/widgets/class-login.php:143
 #, fuzzy
 msgid "Log In Button:"
 msgstr "Knap:"
 
-#: includes/widgets/class-login.php:133
+#: includes/widgets/class-login.php:148
 #, fuzzy
 msgid "Log Out Button:"
 msgstr "Knap:"
 
-#: includes/widgets/class-login.php:138
+#: includes/widgets/class-login.php:153
 msgid "Welcome Message:"
 msgstr ""
 
-#: includes/widgets/class-login.php:179
+#: includes/widgets/class-login.php:194
 msgid "Welcome Back"
 msgstr ""
 
-#: includes/widgets/class-login.php:180
+#: includes/widgets/class-login.php:195
 msgid "Log In"
 msgstr ""
 
-#: includes/widgets/class-login.php:181
+#: includes/widgets/class-login.php:196
 msgid "Log Out"
 msgstr ""
 
-#: includes/widgets/class-product.php:34
+#: includes/widgets/class-product.php:36
 #, fuzzy
 msgid "Reseller Product"
 msgstr "Forhandlerprodukt"
 
-#: includes/widgets/class-product.php:37
+#: includes/widgets/class-product.php:39
 msgid "Display product post."
 msgstr ""
 
-#: includes/widgets/class-product.php:66
+#: includes/widgets/class-product.php:70 includes/widgets/class-product.php:74
 #, fuzzy
 msgid "Post id is not valid."
 msgstr "»%s« er ikke et gyldigt produkt."
 
-#: includes/widgets/class-product.php:165
+#: includes/widgets/class-product.php:178
 #, fuzzy
 msgid "Product: "
 msgstr "Produkt"
 
-#: includes/widgets/class-product.php:174
+#: includes/widgets/class-product.php:187
 msgid "Image size: "
 msgstr ""
 
-#: includes/widgets/class-product.php:177
+#: includes/widgets/class-product.php:190
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/widgets/class-product.php:178
+#: includes/widgets/class-product.php:191
 msgid "Medium resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:179
+#: includes/widgets/class-product.php:192
 msgid "Large resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:180
+#: includes/widgets/class-product.php:193
 msgid "Original resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:181
+#: includes/widgets/class-product.php:194
 #, fuzzy
 msgid "Hide Image"
 msgstr "Produktbillede"
 
-#: includes/widgets/class-product.php:188
+#: includes/widgets/class-product.php:201
 #, fuzzy
 msgid "Show product title"
 msgstr "Indsæt produkt billede"
 
-#: includes/widgets/class-product.php:195
+#: includes/widgets/class-product.php:208
 #, fuzzy
 msgid "Show post text"
 msgstr "Indsæt produkt billede"
 
-#: includes/widgets/class-product.php:202
+#: includes/widgets/class-product.php:215
 #, fuzzy
 msgid "Show product price"
 msgstr "Indsæt produkt billede"
 
-#: includes/widgets/class-product.php:209
+#: includes/widgets/class-product.php:222
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "Send videre til indkøbsvognen umiddelbart efter tilføjelse"
 
-#: includes/widgets/class-product.php:216
+#: includes/widgets/class-product.php:229
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/widgets/class-product.php:220
+#: includes/widgets/class-product.php:233
 msgid "Cart Text:"
 msgstr ""
 
@@ -646,27 +653,27 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "produkt-tag"
 
-#: includes/class-post-type.php:206
+#: includes/class-post-type.php:205
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Produkter"
 
-#: includes/class-post-type.php:207
+#: includes/class-post-type.php:206
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Produkt"
 
-#: includes/class-post-type.php:208
+#: includes/class-post-type.php:207
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Forhandlerbutik"
 
-#: includes/class-post-type.php:209
+#: includes/class-post-type.php:208
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Forhandlerprodukt"
 
-#: includes/class-post-type.php:210
+#: includes/class-post-type.php:209
 msgctxt "product"
 msgid "Add New"
 msgstr "Tilf&oslash;j ny"

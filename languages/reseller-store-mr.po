@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-11-03 23:41:29+00:00\n"
+"POT-Creation-Date: 2017-11-30 04:11:53+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,39 @@ msgstr ""
 "esc_html_x:1,2c;\n"
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
+#. translators: product count
+#: includes/class-admin-notices.php:96
+msgid "Finished restoring products. %s product updated."
+msgid_plural "Finished restoring products. %s products updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-admin-notices.php:131 includes/class-setup.php:301
+msgid "Sorry, you are not allowed to do that."
+msgstr "क्षमस्व, आपल्याला ते करण्याची अनुमती नाही."
+
 #: includes/class-api.php:224
 msgid "An unknown error has occurred."
 msgstr "एक अज्ञात त्रुटी आली."
+
+#: includes/class-bulk-restore.php:34 includes/class-butterbean.php:377
+msgid "Restore Product Data"
+msgstr "उत्पादन डेटा पूर्वस्थित करा"
+
+#: includes/class-bulk-restore.php:73
+msgid "Current user cannot modify post."
+msgstr ""
+
+#. translators: product name
+#: includes/class-bulk-restore.php:88
+#, fuzzy
+msgid "`%s` does not have a valid product id."
+msgstr "`%s` हे वैध उत्पादन नाही."
+
+#. translators: product name
+#: includes/class-bulk-restore.php:104 includes/class-import.php:86
+msgid "`%s` is not a valid product."
+msgstr "`%s` हे वैध उत्पादन नाही."
 
 #: includes/class-butterbean.php:143
 msgid "Product Options"
@@ -32,7 +62,7 @@ msgstr "सामान्य"
 msgid "Advanced"
 msgstr "प्रगत"
 
-#: includes/class-butterbean.php:193 includes/class-post-type.php:387
+#: includes/class-butterbean.php:193 includes/class-post-type.php:386
 msgid "Price"
 msgstr "किंमत"
 
@@ -49,27 +79,23 @@ msgid "Add to Cart Button Label"
 msgstr "कार्ट बटण लेबलवर जोडा"
 
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:316
+#: includes/widgets/class-product.php:329
 msgid "Add to cart"
 msgstr "कार्टला जोडा"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:222
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
 msgid "Cart link text"
 msgstr ""
 
 #: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
-#: includes/widgets/class-domain-search.php:194
-#: includes/widgets/class-product.php:317
+#: includes/widgets/class-domain-search.php:209
+#: includes/widgets/class-product.php:330
 msgid "Continue to cart"
 msgstr ""
 
 #: includes/class-butterbean.php:344
 msgid "Redirect to the cart immediately after adding"
 msgstr "जोडल्यानंतर त्वरित कार्टवर पुननिर्देशित करा"
-
-#: includes/class-butterbean.php:377
-msgid "Restore Product Data"
-msgstr "उत्पादन डेटा पूर्वस्थित करा"
 
 #: includes/class-butterbean.php:378
 msgid ""
@@ -84,22 +110,17 @@ msgstr ""
 msgid "An error has occurred"
 msgstr "एक त्रुटी आली"
 
-#: includes/class-import.php:79
+#: includes/class-import.php:81
 msgid "unknown"
 msgstr "अज्ञात"
 
 #. translators: product name
-#: includes/class-import.php:85
-msgid "`%s` is not a valid product."
-msgstr "`%s` हे वैध उत्पादन नाही."
-
-#. translators: product name
-#: includes/class-import.php:104
+#: includes/class-import.php:105
 msgid "`%s` must be imported as a product post before it can be reset."
 msgstr "`%s` पुनर्स्थित करण्यापूर्वी एक उत्पादन पोस्ट म्हणून आयात करणे आवश्यक आहे."
 
 #. translators: post type name
-#: includes/class-import.php:115
+#: includes/class-import.php:116
 msgid "`%s` is not a valid post type for products."
 msgstr "`%s` हा उत्पादनांसाठी वैध पोस्ट प्रकार नाही."
 
@@ -129,84 +150,84 @@ msgstr "डिफॉल्ट"
 msgid "Custom base"
 msgstr "सानुकूल आधारित"
 
-#: includes/class-post-type.php:211
+#: includes/class-post-type.php:210
 msgid "Add New Products"
 msgstr "नवीन उत्पादने जोडा"
 
-#: includes/class-post-type.php:212
+#: includes/class-post-type.php:211
 msgid "Edit Product"
 msgstr "उत्पादन संपादित करा"
 
-#: includes/class-post-type.php:213
+#: includes/class-post-type.php:212
 msgid "New Product"
 msgstr "नवीन उत्पादन"
 
-#: includes/class-post-type.php:214
+#: includes/class-post-type.php:213
 msgid "View Product"
 msgstr "उत्पादन पाहा"
 
-#: includes/class-post-type.php:215
+#: includes/class-post-type.php:214
 msgid "View Products"
 msgstr "उत्पादने पाहा"
 
-#: includes/class-post-type.php:216
+#: includes/class-post-type.php:215
 msgid "Search Products"
 msgstr "उत्पादने शोधा"
 
-#: includes/class-post-type.php:217
+#: includes/class-post-type.php:216
 msgid "No products found."
 msgstr "उत्पादने आढळली नाहीत."
 
-#: includes/class-post-type.php:218
+#: includes/class-post-type.php:217
 msgid "No products found in Trash."
 msgstr "ट्रॅशमध्ये उत्पादने आढळली नाहीत."
 
-#: includes/class-post-type.php:219
+#: includes/class-post-type.php:218
 msgid "Parent Products:"
 msgstr "पालक उत्पादने:"
 
-#: includes/class-post-type.php:220
+#: includes/class-post-type.php:219
 msgid "All Products"
 msgstr "सर्व उत्पादने"
 
-#: includes/class-post-type.php:221
+#: includes/class-post-type.php:220
 msgid "Product Archives"
 msgstr "उत्पादन संग्रहणे"
 
-#: includes/class-post-type.php:222
+#: includes/class-post-type.php:221
 msgid "Insert into product"
 msgstr "उत्पादनामध्ये समाविष्ट करा"
 
-#: includes/class-post-type.php:223
+#: includes/class-post-type.php:222
 msgid "Uploaded to this product"
 msgstr "या उत्पादनावर अपलोड केले"
 
-#: includes/class-post-type.php:224 includes/class-post-type.php:377
+#: includes/class-post-type.php:223 includes/class-post-type.php:376
 msgid "Product Image"
 msgstr "उत्पादन प्रतिमा"
 
-#: includes/class-post-type.php:225
+#: includes/class-post-type.php:224
 msgid "Set product image"
 msgstr "उत्पादन प्रतिमा सेट करा"
 
-#: includes/class-post-type.php:226
+#: includes/class-post-type.php:225
 msgid "Remove product image"
 msgstr "उत्पादन प्रतिमा काढा"
 
-#: includes/class-post-type.php:227
+#: includes/class-post-type.php:226
 msgid "Use as featured image"
 msgstr "वैशिष्ट्यीकृत प्रतिमा म्हणून वापरा"
 
-#: includes/class-post-type.php:232
+#: includes/class-post-type.php:231
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "येथे आपण आपल्या विक्रेता स्टोअरवर नवीन उत्पादने जोडू शकता."
 
-#: includes/class-post-type.php:278
+#: includes/class-post-type.php:277
 msgid "Product id not found or invalid."
 msgstr ""
 
 #. translators: product title
-#: includes/class-post-type.php:513
+#: includes/class-post-type.php:512
 msgid "Edit: %s"
 msgstr "संपादित करा: %s"
 
@@ -258,52 +279,38 @@ msgstr ""
 msgid "Get your own plan today."
 msgstr ""
 
-#: includes/class-setup.php:235
-msgid ""
-"Not interested in activating right now? You will only see two demo products "
-"on a demo storefront without the benefits of having your own plan."
-msgstr ""
-
-#: includes/class-setup.php:236
-msgid "Skip activation."
-msgstr ""
-
-#: includes/class-setup.php:240
+#: includes/class-setup.php:237
 #, fuzzy
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
 msgstr "मदत हवी आहे? आमच्या पुरस्कार विजेता समर्थन संघाला (480) 505-8877 येथे कॉल करा."
 
 #. translators: name of missing script
-#: includes/class-setup.php:265
+#: includes/class-setup.php:262
 msgid "Error: Missing required script for setup %s"
 msgstr "त्रुटी: सेटअप %s साठी आवश्यक स्क्रिप्ट गहाळ आहे"
 
-#: includes/class-setup.php:295
+#: includes/class-setup.php:290
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "क्षमस्व, आपल्याला या साइटवर प्ल्गइन्स स्थापित करण्याची अनुमती नाही."
 
-#: includes/class-setup.php:306
-msgid "Sorry, you are not allowed to do that."
-msgstr "क्षमस्व, आपल्याला ते करण्याची अनुमती नाही."
-
-#: includes/class-setup.php:328
+#: includes/class-setup.php:323
 msgid "Private Label ID is invalid."
 msgstr "खाजगी लेबल ID अवैध."
 
-#: includes/class-setup.php:351
+#: includes/class-setup.php:344
 msgid "There are no products available, please try again later."
 msgstr "कोणतीही उत्पादने उपलब्ध नाहीत, कृपया नंतर पुन्हा प्रयत्न करा."
 
-#: includes/class-setup.php:384
+#: includes/class-setup.php:369
 msgid "Product data could not be imported, please try again later."
 msgstr "उप्तादन डेटा आयात केला जाऊ शकत नाही, कृपया नंतर पुन्हा प्रयत्न करा."
 
-#: includes/class-setup.php:417
+#: includes/class-setup.php:402
 msgid "An unknown error occurred."
 msgstr "एक अज्ञात त्रुटी आली."
 
 #. translators: error message
-#: includes/class-setup.php:431
+#: includes/class-setup.php:416
 msgid "Error: %s"
 msgstr "त्रुटी: %s"
 
@@ -381,220 +388,220 @@ msgid "Tags"
 msgstr "टॅग्स"
 
 #. translators: product name
-#: includes/functions/product-functions.php:171
+#: includes/functions/product-functions.php:160
 msgid "Error: `%s` does not exist."
 msgstr "त्रुटी: `%s` अस्तित्वात नाही."
 
-#: includes/widgets/class-cart.php:34
+#: includes/widgets/class-cart.php:36
 msgid "Reseller Cart"
 msgstr "विक्रेता कार्ट"
 
-#: includes/widgets/class-cart.php:37
+#: includes/widgets/class-cart.php:39
 msgid "Display the user's cart in the sidebar."
 msgstr "साइडबारमध्ये वापरकर्त्याचा कार्ट प्रदर्शित करा"
 
-#: includes/widgets/class-cart.php:113
-#: includes/widgets/class-domain-search.php:117
-#: includes/widgets/class-login.php:123
+#: includes/widgets/class-cart.php:128
+#: includes/widgets/class-domain-search.php:132
+#: includes/widgets/class-login.php:138
 msgid "Title:"
 msgstr "शीर्षक:"
 
-#: includes/widgets/class-cart.php:118 includes/widgets/class-product.php:214
+#: includes/widgets/class-cart.php:133 includes/widgets/class-product.php:227
 #, fuzzy
 msgid "Button Label:"
 msgstr "बटण:"
 
-#: includes/widgets/class-cart.php:155
+#: includes/widgets/class-cart.php:170
 #, fuzzy
 msgid "View Cart"
 msgstr "कार्ट पहा"
 
-#: includes/widgets/class-domain-search.php:34
+#: includes/widgets/class-domain-search.php:36
 msgid "Reseller Domain Search"
 msgstr "विक्रेता डोमेन शोध"
 
-#: includes/widgets/class-domain-search.php:37
+#: includes/widgets/class-domain-search.php:39
 msgid "A search form for domain names."
 msgstr "डोमेन नावासाठी शोध फॉर्म"
 
-#: includes/widgets/class-domain-search.php:100
+#: includes/widgets/class-domain-search.php:104
 msgid "Domain Search"
 msgstr "डोमेन शोध"
 
-#: includes/widgets/class-domain-search.php:118
+#: includes/widgets/class-domain-search.php:133
 msgid "Domain result page size:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:119
+#: includes/widgets/class-domain-search.php:134
 msgid "Placeholder:"
 msgstr "प्लेसहोल्डर:"
 
-#: includes/widgets/class-domain-search.php:120
+#: includes/widgets/class-domain-search.php:135
 #, fuzzy
 msgid "Search Button:"
 msgstr "बटण:"
 
-#: includes/widgets/class-domain-search.php:121
+#: includes/widgets/class-domain-search.php:136
 msgid "Available Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:122
+#: includes/widgets/class-domain-search.php:137
 msgid "Not Available Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:123
+#: includes/widgets/class-domain-search.php:138
 #, fuzzy
 msgid "Cart Button Text:"
 msgstr "कार्ट बटण लेबलवर जोडा"
 
-#: includes/widgets/class-domain-search.php:124
+#: includes/widgets/class-domain-search.php:139
 msgid "Select Button Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:125
+#: includes/widgets/class-domain-search.php:140
 msgid "Unselect Button Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:126
+#: includes/widgets/class-domain-search.php:141
 msgid "Verify Button Text:"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:127
+#: includes/widgets/class-domain-search.php:142
 msgid "Domain disclaimer notice"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:190
+#: includes/widgets/class-domain-search.php:205
 msgid "Find your perfect domain name"
 msgstr "आपले योग्य डोमेन नाव शोधा"
 
-#: includes/widgets/class-domain-search.php:191
+#: includes/widgets/class-domain-search.php:206
 msgid "Search"
 msgstr "शोध"
 
-#: includes/widgets/class-domain-search.php:192
+#: includes/widgets/class-domain-search.php:207
 msgid "Congrats, your domain is available!"
 msgstr "अभिनंदन, आपले डोमेन उपलब्ध आहे!"
 
-#: includes/widgets/class-domain-search.php:193
+#: includes/widgets/class-domain-search.php:208
 msgid "Sorry that domain is taken"
 msgstr "क्षमस्व ते डोमेन घेतले गेले आहे"
 
-#: includes/widgets/class-domain-search.php:195
+#: includes/widgets/class-domain-search.php:210
 msgid "Select"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:196
+#: includes/widgets/class-domain-search.php:211
 msgid "Selected"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:197
+#: includes/widgets/class-domain-search.php:212
 msgid "Verify"
 msgstr ""
 
-#: includes/widgets/class-login.php:34
+#: includes/widgets/class-login.php:36
 #, fuzzy
 msgid "Reseller Shopper Login"
 msgstr "विक्रेता स्टोअर"
 
-#: includes/widgets/class-login.php:37
+#: includes/widgets/class-login.php:39
 msgid "A shopper login status"
 msgstr ""
 
-#: includes/widgets/class-login.php:128
+#: includes/widgets/class-login.php:143
 #, fuzzy
 msgid "Log In Button:"
 msgstr "बटण:"
 
-#: includes/widgets/class-login.php:133
+#: includes/widgets/class-login.php:148
 #, fuzzy
 msgid "Log Out Button:"
 msgstr "बटण:"
 
-#: includes/widgets/class-login.php:138
+#: includes/widgets/class-login.php:153
 msgid "Welcome Message:"
 msgstr ""
 
-#: includes/widgets/class-login.php:179
+#: includes/widgets/class-login.php:194
 msgid "Welcome Back"
 msgstr ""
 
-#: includes/widgets/class-login.php:180
+#: includes/widgets/class-login.php:195
 msgid "Log In"
 msgstr ""
 
-#: includes/widgets/class-login.php:181
+#: includes/widgets/class-login.php:196
 msgid "Log Out"
 msgstr ""
 
-#: includes/widgets/class-product.php:34
+#: includes/widgets/class-product.php:36
 #, fuzzy
 msgid "Reseller Product"
 msgstr "विक्रेता उत्पादन"
 
-#: includes/widgets/class-product.php:37
+#: includes/widgets/class-product.php:39
 msgid "Display product post."
 msgstr ""
 
-#: includes/widgets/class-product.php:66
+#: includes/widgets/class-product.php:70 includes/widgets/class-product.php:74
 #, fuzzy
 msgid "Post id is not valid."
 msgstr "`%s` हे वैध उत्पादन नाही."
 
-#: includes/widgets/class-product.php:165
+#: includes/widgets/class-product.php:178
 #, fuzzy
 msgid "Product: "
 msgstr "उत्पादन"
 
-#: includes/widgets/class-product.php:174
+#: includes/widgets/class-product.php:187
 msgid "Image size: "
 msgstr ""
 
-#: includes/widgets/class-product.php:177
+#: includes/widgets/class-product.php:190
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/widgets/class-product.php:178
+#: includes/widgets/class-product.php:191
 msgid "Medium resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:179
+#: includes/widgets/class-product.php:192
 msgid "Large resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:180
+#: includes/widgets/class-product.php:193
 msgid "Original resolution"
 msgstr ""
 
-#: includes/widgets/class-product.php:181
+#: includes/widgets/class-product.php:194
 #, fuzzy
 msgid "Hide Image"
 msgstr "उत्पादन प्रतिमा"
 
-#: includes/widgets/class-product.php:188
+#: includes/widgets/class-product.php:201
 #, fuzzy
 msgid "Show product title"
 msgstr "उत्पादन प्रतिमा सेट करा"
 
-#: includes/widgets/class-product.php:195
+#: includes/widgets/class-product.php:208
 #, fuzzy
 msgid "Show post text"
 msgstr "उत्पादन प्रतिमा सेट करा"
 
-#: includes/widgets/class-product.php:202
+#: includes/widgets/class-product.php:215
 #, fuzzy
 msgid "Show product price"
 msgstr "उत्पादन प्रतिमा सेट करा"
 
-#: includes/widgets/class-product.php:209
+#: includes/widgets/class-product.php:222
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "जोडल्यानंतर त्वरित कार्टवर पुननिर्देशित करा"
 
-#: includes/widgets/class-product.php:216
+#: includes/widgets/class-product.php:229
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/widgets/class-product.php:220
+#: includes/widgets/class-product.php:233
 msgid "Cart Text:"
 msgstr ""
 
@@ -640,27 +647,27 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "उत्त्पादन-टॅग"
 
-#: includes/class-post-type.php:206
+#: includes/class-post-type.php:205
 msgctxt "post type general name"
 msgid "Products"
 msgstr "उत्पादने"
 
-#: includes/class-post-type.php:207
+#: includes/class-post-type.php:206
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "उत्पादन"
 
-#: includes/class-post-type.php:208
+#: includes/class-post-type.php:207
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "विक्रेता स्टोअर"
 
-#: includes/class-post-type.php:209
+#: includes/class-post-type.php:208
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "विक्रेता उत्पादन"
 
-#: includes/class-post-type.php:210
+#: includes/class-post-type.php:209
 msgctxt "product"
 msgid "Add New"
 msgstr "नवीन जोडा"
