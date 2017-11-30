@@ -87,7 +87,7 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 == Changelog ==
 
-= NEXT - December 2017 =
+= 1.3.0 - December 2017 =
 
 * New: Bulk restore product post
 * Fix: Compatibility issues with other themes/plugins
