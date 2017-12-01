@@ -91,6 +91,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 ## Changelog ##
 
+### 1.4.0 - December 2017 ###
+
+* Fix: Remove menu position
+
 ### 1.3.0 - December 2017 ###
 
 * New: Bulk restore product post
