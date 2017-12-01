@@ -40,9 +40,11 @@ final class TestWidgetLogin extends TestCase {
 			'after_title'   => '</h3>',
 		];
 
-		$widget->widget( $args, $instance );
+		$this->assertRegExp(
+			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">Log Out<\/a>/',
+			$widget->widget( $args, $instance )
+		);
 
-		$this->expectOutputRegex( '/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">Log Out<\/a>/' );
 	}
 
 	/**
@@ -72,9 +74,10 @@ final class TestWidgetLogin extends TestCase {
 			'after_title'   => '</h3>',
 		];
 
-		$widget->widget( $args, $instance );
+		echo $widget->widget( $args, $instance );
 
 		$this->expectOutputRegex( '/<div class="before_widget login"><h3 class="widget-title">login<\/h3>/' );
+
 	}
 
 	/**

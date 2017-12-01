@@ -33,6 +33,15 @@ final class Setup {
 	const SLUG = 'reseller-store-setup';
 
 	/**
+	 * POST TYPE SLUG
+	 *
+	 * @since 1.3.0
+	 *
+	 * @var string
+	 */
+	const PAGE_SLUG = 'edit.php?post_type=reseller_product';
+
+	/**
 	 * Install nonce action name.
 	 *
 	 * @since 0.2.0
@@ -76,7 +85,7 @@ final class Setup {
 		);
 
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
-		add_action( 'admin_menu', [ $this, 'page' ], 9 );
+		add_action( 'admin_menu', [ $this, 'page' ], PHP_INT_MAX - 1997 );
 		add_action( 'wp_ajax_rstore_install', [ __CLASS__, 'install' ] );
 
 	}
@@ -133,14 +142,13 @@ final class Setup {
 	 */
 	public function page() {
 
-		add_menu_page(
+		add_submenu_page(
+			self::PAGE_SLUG,
 			esc_html__( 'Reseller Store Setup', 'reseller-store' ),
-			esc_html__( 'Reseller Store', 'reseller-store' ),
+			esc_html__( 'Setup', 'reseller-store' ),
 			'activate_plugins',
 			self::SLUG,
-			[ $this, 'content' ],
-			'dashicons-cart',
-			Post_Type::MENU_POSITION
+			[ $this, 'content' ]
 		);
 
 	}
@@ -232,9 +240,6 @@ final class Setup {
 						<?php esc_html_e( "We will provide a demo reseller plan if you don't have a reseller plan.", 'reseller-store' ); ?>&nbsp;
 						<a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get your own plan today.', 'reseller-store' ); ?></a>
 					</p>
-					<p><?php esc_html_e( 'Not interested in activating right now? You will only see two demo products on a demo storefront without the benefits of having your own plan.', 'reseller-store' ); ?>
-						<a id="rstore-skip-activate" href="#"><?php esc_html_e( 'Skip activation.', 'reseller-store' ); ?></a>
-					</p>
 				</div>
 				<div class="rstore-setup-footer">
 					<p><strong><?php esc_html_e( 'Need help? Call our award-winning support team 24/7 at (480) 505-8857.', 'reseller-store' ); ?></strong></p>
@@ -281,8 +286,6 @@ final class Setup {
 	 * @return true|\WP_Error|void
 	 */
 	public static function install( $pl_id = 0 ) {
-
-		$skip_activation = false;
 
 		if (
 			! current_user_can( 'install_plugins' )
@@ -332,9 +335,7 @@ final class Setup {
 
 		rstore_update_option( 'pl_id', $pl_id );
 
-		$products = [];
-
-		$products = $skip_activation ? rstore_get_demo_products() : rstore_get_products( true );
+		$products = rstore_get_products( true );
 
 		if ( is_wp_error( $products ) ) {
 
@@ -352,14 +353,6 @@ final class Setup {
 			);
 
 		}
-
-		new Post_Type;
-		new Taxonomy_Category;
-		new Taxonomy_Tag;
-
-		do_action( 'init' ); // Register post type and taxonomies for rewrite rules
-
-		flush_rewrite_rules();
 
 		foreach ( (array) $products as $productData ) {
 
@@ -520,6 +513,7 @@ final class Setup {
 
 	/**
 	 * Runs on plugin deactivation.
+	 * Clear the private label id and any errors.
 	 *
 	 * @see   register_deactivation_hook()
 	 * @since 0.2.0
@@ -527,6 +521,7 @@ final class Setup {
 	public static function deactivate() {
 
 		delete_option( rstore_prefix( 'pl_id' ) );
+		delete_option( rstore_prefix( 'errors' ) );
 
 		flush_rewrite_rules();
 

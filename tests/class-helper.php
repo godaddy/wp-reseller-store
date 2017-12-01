@@ -47,10 +47,11 @@ final class Helper {
 	 * @since 1.0.0
 	 *
 	 * @param string $post_title     The title of the custom post.
+	 * @param string $product_id     The product id of the custom post.
 	 *
 	 * @return array                 The post that was just created.
 	 */
-	public static function create_product( $post_title = 'WordPress Hosting' ) {
+	public static function create_product( $post_title = 'WordPress Hosting', $product_id = 'wordpress-basic' ) {
 
 		$post_id = wp_insert_post(
 			[
@@ -63,7 +64,7 @@ final class Helper {
 		);
 
 		$meta = [
-			'rstore_id'         => 'wordpress-basic',
+			'rstore_id'         => $product_id,
 			'rstore_categories' => [],
 			'rstore_image'      => 'http://image',
 			'rstore_term'       => 'year',

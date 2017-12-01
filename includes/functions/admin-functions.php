@@ -30,6 +30,26 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
 }
 
 /**
+ * Add error to error list for display.
+ *
+ * @since 1.3.0
+ *
+ * @param  WP_Error $error    Add error to item list.
+ *
+ * @return bool  Returns `true` on success, `false` on failure.
+ */
+function rstore_error( $error ) {
+
+	if ( is_wp_error( $error ) ) {
+
+		$errors   = rstore_get_option( 'errors', [] );
+		$errors[] = $error;
+		return rstore_update_option( 'errors', $errors );
+	}
+
+}
+
+/**
  * Safe redirect to any admin page.
  *
  * @since 0.2.0

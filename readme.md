@@ -2,10 +2,10 @@
 ![Banner Image](.dev/wp-org-assets/banner-1544x500.png)
 
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy), [fjarrett](https://profiles.wordpress.org/fjarrett), [bfocht](https://profiles.wordpress.org/bfocht), [eherman24](https://profiles.wordpress.org/eherman24)  
-**Tags:**              [admin](https://wordpress.org/plugins/tags/admin/), [posts](https://wordpress.org/plugins/tags/posts/), [users](https://wordpress.org/plugins/tags/users/)  
+**Tags:**              [godaddy](https://wordpress.org/plugins/tags/godaddy/), [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [[store](https://wordpress.org/plugins/tags/store/)front](https://wordpress.org/plugins/tags/storefront/), store, [products](https://wordpress.org/plugins/tags/products/), [responsive](https://wordpress.org/plugins/tags/responsive/), [shortcode](https://wordpress.org/plugins/tags/shortcode/)  
 **Requires at least:** 4.6  
-**Tested up to:**      4.8  
-**Stable tag:**        1.2.0  
+**Tested up to:**      4.9  
+**Stable tag:**        1.3.0  
 **License:**           GPL-2.0  
 **License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -90,6 +90,12 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 
 ## Changelog ##
+
+### 1.3.0 - December 2017 ###
+
+* New: Bulk restore product post
+* Fix: Compatibility issues with other themes/plugins
+* Fix: Short codes render in wrong place
 
 ### 1.2.0 - November 2017 ###
 

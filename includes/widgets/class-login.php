@@ -13,6 +13,8 @@
 
 namespace Reseller_Store\Widgets;
 
+use Reseller_Store\Shortcodes;
+
 if ( ! defined( 'ABSPATH' ) ) {
 
 	// @codeCoverageIgnoreStart
@@ -79,6 +81,8 @@ final class Login extends \WP_Widget {
 
 		}
 
+		ob_start();
+
 		echo $args['before_widget']; // xss ok.
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -106,6 +110,17 @@ final class Login extends \WP_Widget {
 		<?php
 
 		echo $args['after_widget']; // xss ok.
+
+		$login_widget = ob_get_contents();
+		ob_get_clean();
+
+		if ( Shortcodes::is_widget( $args ) ) {
+
+			echo $login_widget;
+
+		}
+
+		return $login_widget;
 
 	}
 

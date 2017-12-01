@@ -6,14 +6,29 @@
 namespace Reseller_Store;
 
 /**
- * @action Patches the WordPress function wp_verify_nonce
+ * @action Patches the WordPress function filter_input
  *
- * @param string $nonce  The nonce value.
- * @param string $action Optional action.
+ * @param string $type  The type of input.
+ * @param string $variable_name Name of a variable to get.
  *
  * @return bool
  */
-function wp_verify_nonce( $nonce, $action ) {
+function filter_input( $type, $variable_name ) {
+
+	if ( isset( $_POST[ $variable_name ] ) ) {
+
+		return $_POST[ $variable_name ];
+
+	}
+
+}
+
+/**
+ * @action Patches the WordPress function check_admin_referer
+ *
+ * @return bool
+ */
+function check_admin_referer() {
 	return true;
 }
 
@@ -43,10 +58,11 @@ final class TestPermalinks extends TestCase {
 				'role' => 'administrator',
 			)
 		);
+
 		wp_set_current_user( $user_id );
 		set_current_screen( 'options-permalink' );
 
-		$_REQUEST['_wpnonce'] = wp_create_nonce( 'update-permalink' );
+		$_POST['_wpnonce'] = wp_create_nonce( 'update-permalink' );
 
 		$_POST['permalink_structure'] = 'new-products';
 

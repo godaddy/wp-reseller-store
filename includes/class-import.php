@@ -76,9 +76,10 @@ final class Import {
 	 */
 	public function import_product() {
 
-		$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->fields->id ) ) ? $this->product->fields->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) );
-
 		if ( ! $this->product->is_valid() ) {
+
+			$fallback_id = ( is_a( $this->product, 'stdClass' ) && ! empty( $this->product->fields->id ) ) ? $this->product->fields->id : strtolower( esc_html__( 'unknown', 'reseller-store' ) );
+
 			return new WP_Error(
 				'invalid_product',
 				/* translators: product name */
