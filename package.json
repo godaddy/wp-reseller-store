@@ -45,7 +45,8 @@
   "scripts": {
     "version": "grunt version && git add -A .",
     "postversion": "git push && git push --tags",
-    "lint": "eslint --ext .js ./assets/js/"
+    "lint": "eslint --ext .js ./assets/js/",
+    "build": "grunt build && mv build reseller-store && touch reseller-store.zip && rm reseller-store.zip && zip -r reseller-store.zip reseller-store && rm -rf reseller-store"
   },
   "dependencies": {
     "domain-search": "^2.1.2"

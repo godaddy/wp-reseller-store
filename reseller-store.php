@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GoDaddy Reseller Store
  * Description: Sell hosting, domains, and more right from your WordPress site.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Author: GoDaddy
  * Author URI: https://reseller.godaddy.com/
  * License: GPL-2.0
@@ -27,89 +27,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-require_once __DIR__ . '/includes/autoload.php';
+if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
 
-final class Plugin {
+	add_action(
+		'admin_notices', function() {
+		?>
+		<div class="update-nag">
+			<?php
+			echo sprintf(
+				/* translators: server PHP version */
+				esc_html__( 'You need to update your PHP version to run GoDaddy Reseller Store plugin. Required version 5.4 or higher. Your PHP version is: %s', 'reseller-store' ),
+				phpversion()
+			);
 
-	use Singleton, Data, Helpers;
-
-	/**
-	 * Plugin version.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @var string
-	 */
-	const VERSION = '1.3.0';
-
-	/**
-	 * Plugin prefix.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @var string
-	 */
-	const PREFIX = 'rstore_';
-
-	/**
-	 * Class contructor.
-	 *
-	 * @since 0.2.0
-	 */
-	private function __construct() {
-
-		$this->version    = self::VERSION;
-		$this->basename   = plugin_basename( __FILE__ );
-		$this->base_dir   = plugin_dir_path( __FILE__ );
-		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
-		$this->api        = new API;
-
-		add_action( 'plugins_loaded', function () {
-
-			load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
-
-		} );
-
-		if ( defined( 'WP_CLI' ) && WP_CLI ) {
-
-			WP_CLI::add_command( 'reseller', __NAMESPACE__ . '\CLI\Reseller' );
-
-			WP_CLI::add_command( 'reseller product', __NAMESPACE__ . '\CLI\Reseller_Product' );
-
+			?>
+		</div>
+		<?php
 		}
+	);
 
-		new Restrictions;
-		new Post_Type;
-		new Taxonomy_Category;
-		new Taxonomy_Tag;
+} else {
 
-		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
+	require_once __DIR__ . '/includes/autoload.php';
+	require_once __DIR__ . '/class-plugin.php';
 
-			new Setup;
-
-			return; // Bail until Setup is complete.
-
-		}
-
-		new Admin_Notices;
-		new ButterBean;
-		new Display;
-		new Embed;
-		new Permalinks;
-		new Sync;
-		new Widgets;
-		new Shortcodes;
-		new Bulk_Restore;
-
-	}
-
+	rstore();
 }
-
-rstore();
 
 /**
  * Register deactivation hook.
  *
  * @since 0.2.0
  */
-register_deactivation_hook( __FILE__, [ __NAMESPACE__ . '\Setup', 'deactivate' ] );
+register_deactivation_hook( __FILE__, array( __NAMESPACE__ . '\Setup', 'deactivate' ) );
