@@ -26,4 +26,17 @@ final class TestPlugin extends TestCase {
 
 	}
 
+	/**
+	 * Test plugin loads and sets version.
+	 */
+	public function test_php_version() {
+
+		Plugin::reset();
+		$plugin = Plugin::load();
+		do_action( 'plugins_loaded' );
+
+		$this->assertGreaterThan( '1.0.0', $plugin->version );
+
+	}
+
 }

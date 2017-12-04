@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-11-30 19:48:12+00:00\n"
+"POT-Creation-Date: 2017-12-04 17:48:01+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid_plural "Finished restoring products. %s products updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-admin-notices.php:131 includes/class-setup.php:309
+#: includes/class-admin-notices.php:131 includes/class-setup.php:310
 msgid "Sorry, you are not allowed to do that."
 msgstr "Você não tem permissão para fazer isso."
 
@@ -62,7 +62,7 @@ msgstr "Geral"
 msgid "Advanced"
 msgstr "Avançado"
 
-#: includes/class-butterbean.php:193 includes/class-post-type.php:386
+#: includes/class-butterbean.php:193 includes/class-post-type.php:376
 msgid "Price"
 msgstr "Preço"
 
@@ -155,84 +155,84 @@ msgstr "Padrão"
 msgid "Custom base"
 msgstr "Base personalizada"
 
-#: includes/class-post-type.php:210
+#: includes/class-post-type.php:201
 msgid "Add New Products"
 msgstr "Adicionar novos produtos"
 
-#: includes/class-post-type.php:211
+#: includes/class-post-type.php:202
 msgid "Edit Product"
 msgstr "Editar produto"
 
-#: includes/class-post-type.php:212
+#: includes/class-post-type.php:203
 msgid "New Product"
 msgstr "Novo produto"
 
-#: includes/class-post-type.php:213
+#: includes/class-post-type.php:204
 msgid "View Product"
 msgstr "Ver produto"
 
-#: includes/class-post-type.php:214
+#: includes/class-post-type.php:205
 msgid "View Products"
 msgstr "Ver produtos"
 
-#: includes/class-post-type.php:215
+#: includes/class-post-type.php:206
 msgid "Search Products"
 msgstr "Pesquisar produtos"
 
-#: includes/class-post-type.php:216
+#: includes/class-post-type.php:207
 msgid "No products found."
 msgstr "Nenhuma produto foi encontrado."
 
-#: includes/class-post-type.php:217
+#: includes/class-post-type.php:208
 msgid "No products found in Trash."
 msgstr "Nenhum produto encontrado na Lixeira."
 
-#: includes/class-post-type.php:218
+#: includes/class-post-type.php:209
 msgid "Parent Products:"
 msgstr "Produtos pais:"
 
-#: includes/class-post-type.php:219
+#: includes/class-post-type.php:210
 msgid "All Products"
 msgstr "Todos os produtos"
 
-#: includes/class-post-type.php:220
+#: includes/class-post-type.php:211
 msgid "Product Archives"
 msgstr "Arquivos de produtos"
 
-#: includes/class-post-type.php:221
+#: includes/class-post-type.php:212
 msgid "Insert into product"
 msgstr "Inserir no produto"
 
-#: includes/class-post-type.php:222
+#: includes/class-post-type.php:213
 msgid "Uploaded to this product"
 msgstr "Enviado para este produto"
 
-#: includes/class-post-type.php:223 includes/class-post-type.php:376
+#: includes/class-post-type.php:214 includes/class-post-type.php:366
 msgid "Product Image"
 msgstr "Imagem do produto"
 
-#: includes/class-post-type.php:224
+#: includes/class-post-type.php:215
 msgid "Set product image"
 msgstr "Definir imagem do produto"
 
-#: includes/class-post-type.php:225
+#: includes/class-post-type.php:216
 msgid "Remove product image"
 msgstr "Remover imagem do produto"
 
-#: includes/class-post-type.php:226
+#: includes/class-post-type.php:217
 msgid "Use as featured image"
 msgstr "Usar como imagem de destaque"
 
-#: includes/class-post-type.php:231
+#: includes/class-post-type.php:222
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "Aqui você pode adicionar novos produtos à sua Loja de Varejo."
 
-#: includes/class-post-type.php:277
+#: includes/class-post-type.php:267
 msgid "Product id not found or invalid."
 msgstr ""
 
 #. translators: product title
-#: includes/class-post-type.php:512
+#: includes/class-post-type.php:502
 msgid "Edit: %s"
 msgstr "Editar: %s"
 
@@ -244,47 +244,47 @@ msgstr "Nenhum produto foi adicionado ainda."
 msgid "Import All Products"
 msgstr "Importar todos os produtos"
 
-#: includes/class-setup.php:120
+#: includes/class-setup.php:121
 msgid "Invalid nonce token.  Please try again."
 msgstr ""
 
-#: includes/class-setup.php:147
+#: includes/class-setup.php:148
 msgid "Reseller Store Setup"
 msgstr "Configuração da Loja de Varejo"
 
-#: includes/class-setup.php:148
+#: includes/class-setup.php:149
 msgid "Setup"
 msgstr ""
 
-#: includes/class-setup.php:222
+#: includes/class-setup.php:223
 msgid "Let's setup your GoDaddy Reseller Store."
 msgstr "Vamos configurar sua Loja de Varejo da GoDaddy."
 
-#: includes/class-setup.php:226
+#: includes/class-setup.php:227
 msgid "Register your plugin to import your product catalog."
 msgstr ""
 
-#: includes/class-setup.php:229
+#: includes/class-setup.php:230
 msgid "Login & Activate"
 msgstr ""
 
-#: includes/class-setup.php:231
+#: includes/class-setup.php:232
 msgid "Importing product catalog and installing"
 msgstr ""
 
-#: includes/class-setup.php:239
+#: includes/class-setup.php:240
 msgid "A GoDaddy Account is required to activate the plugin."
 msgstr ""
 
-#: includes/class-setup.php:240
+#: includes/class-setup.php:241
 msgid "We will provide a demo reseller plan if you don't have a reseller plan."
 msgstr ""
 
-#: includes/class-setup.php:241
+#: includes/class-setup.php:242
 msgid "Get your own plan today."
 msgstr ""
 
-#: includes/class-setup.php:245
+#: includes/class-setup.php:246
 #, fuzzy
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
 msgstr ""
@@ -292,33 +292,33 @@ msgstr ""
 "(480) 505-8877."
 
 #. translators: name of missing script
-#: includes/class-setup.php:270
+#: includes/class-setup.php:271
 msgid "Error: Missing required script for setup %s"
 msgstr "Erro: Script obrigatório faltando na configuração %s"
 
-#: includes/class-setup.php:298
+#: includes/class-setup.php:299
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "Você não tem permissão para instalar plugins neste site."
 
-#: includes/class-setup.php:331
+#: includes/class-setup.php:332
 msgid "Private Label ID is invalid."
 msgstr "O ID de rótulo privado é inválido."
 
-#: includes/class-setup.php:352
+#: includes/class-setup.php:353
 msgid "There are no products available, please try again later."
 msgstr "Não há mais produtos disponíveis. Tente novamente mais tarde."
 
-#: includes/class-setup.php:377
+#: includes/class-setup.php:378
 msgid "Product data could not be imported, please try again later."
 msgstr ""
 "Os dados do produto não puderam ser importados. Tente novamente mais tarde."
 
-#: includes/class-setup.php:410
+#: includes/class-setup.php:411
 msgid "An unknown error occurred."
 msgstr "Ocorreu um erro desconhecido."
 
 #. translators: error message
-#: includes/class-setup.php:424
+#: includes/class-setup.php:425
 msgid "Error: %s"
 msgstr "Erro: %s"
 
@@ -613,6 +613,13 @@ msgstr ""
 msgid "Cart Text:"
 msgstr ""
 
+#. translators: server PHP version
+#: reseller-store.php:36
+msgid ""
+"You need to update your PHP version to run GoDaddy Reseller Store plugin. "
+"Required version 5.4 or higher. Your PHP version is: %s"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
 msgstr "Loja de varejo GoDaddy"
@@ -641,7 +648,7 @@ msgctxt "slug name"
 msgid "sample-product"
 msgstr "produto de amostra"
 
-#: includes/class-post-type.php:70
+#: includes/class-post-type.php:61
 msgctxt "slug name"
 msgid "products"
 msgstr "produtos"
@@ -656,27 +663,27 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "produto-etiqueta"
 
-#: includes/class-post-type.php:205
+#: includes/class-post-type.php:196
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Produtos"
 
-#: includes/class-post-type.php:206
+#: includes/class-post-type.php:197
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Produto"
 
-#: includes/class-post-type.php:207
+#: includes/class-post-type.php:198
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Loja de Varejo"
 
-#: includes/class-post-type.php:208
+#: includes/class-post-type.php:199
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Produto de revendedor"
 
-#: includes/class-post-type.php:209
+#: includes/class-post-type.php:200
 msgctxt "product"
 msgid "Add New"
 msgstr "Adicionar Novo"

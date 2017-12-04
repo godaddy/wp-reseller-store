@@ -1,8 +1,9 @@
 === GoDaddy Reseller Store ===
 Contributors:      godaddy, fjarrett, bfocht, eherman24
-Tags:              godaddy, reseller, program, storefront, store, products, responsive, shortcode
+Tags:              godaddy, reseller, program, storefront, store, products, responsive, shortcode, ecommerce
 Requires at least: 4.6
 Tested up to:      4.9
+Requires PHP:      5.4
 Stable tag:        1.4.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -86,6 +87,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 
 
 == Changelog ==
+
+= 1.4.1 - December 2017 =
+
+* Fix: Fail softly on older PHP versions
 
 = 1.4.0 - December 2017 =
 

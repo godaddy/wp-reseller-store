@@ -26,6 +26,7 @@ module.exports = function( grunt ) {
 						src: [
 							pkg.name + '.php',
 							'index.php',
+							'class-plugin.php',
 							'*.txt',
 							'assets/**',
 							'includes/**',
