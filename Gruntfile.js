@@ -142,6 +142,7 @@ module.exports = function( grunt ) {
 			php: {
 				src: [
 					pkg.name + '.php',
+					'class-plugin.php',
 					'includes/**/*.php'
 				],
 				overwrite: true,
