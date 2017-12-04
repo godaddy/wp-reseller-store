@@ -4,7 +4,7 @@
  *
  * Main loader for the plugin
  *
- * @class    Reseller_Store/Permalinks
+ * @class    Reseller_Store/Plugin
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
@@ -12,6 +12,8 @@
  */
 
 namespace Reseller_Store;
+use stdClass;
+use WP_CLI;
 
 if ( ! defined( 'ABSPATH' ) ) {
 

@@ -18,9 +18,6 @@
 
 namespace Reseller_Store;
 
-use stdClass;
-use WP_CLI;
-
 if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
@@ -52,11 +49,11 @@ if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
 	require_once __DIR__ . '/class-plugin.php';
 
 	rstore();
-}
 
-/**
- * Register deactivation hook.
- *
- * @since 0.2.0
- */
-register_deactivation_hook( __FILE__, array( __NAMESPACE__ . '\Setup', 'deactivate' ) );
+	/**
+	 * Register deactivation hook.
+	 *
+	 * @since 0.2.0
+	 */
+	register_deactivation_hook( __FILE__, array( __NAMESPACE__ . '\Setup', 'deactivate' ) );
+}
