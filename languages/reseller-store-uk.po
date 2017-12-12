@@ -84,7 +84,7 @@ msgstr "На жаль, цей домен зайнятий"
 
 #: includes/class-display.php:86
 msgid "Find your perfect domain name"
-msgstr "Знайти ідеальне для вас ім’я домену"
+msgstr "Введіть бажане доменне ім'я"
 
 #: includes/class-display.php:87
 msgid "View cart"
