@@ -75,7 +75,7 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']  = sprintf( 'https://storefront.api.%s/api/v1/', $this->tld );
+		$this->urls['api']  = sprintf( 'https://www.%s/api/v1/', $this->tld );
 		$this->urls['cart'] = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
 		$this->urls['gui']  = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
 
