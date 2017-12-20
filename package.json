@@ -49,6 +49,6 @@
     "build": "grunt build && mv build reseller-store && touch reseller-store.zip && rm reseller-store.zip && zip -r reseller-store.zip reseller-store && rm -rf reseller-store"
   },
   "dependencies": {
-    "domain-search": "^2.1.4"
+    "domain-search": "^2.1.5"
   }
 }
