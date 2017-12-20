@@ -128,8 +128,9 @@ final class Restrictions {
 
 		global $wp_admin_bar;
 
-		$wp_admin_bar->remove_node( sprintf( 'new-%s', Post_Type::SLUG ) );
-
+		if ( is_object( $wp_admin_bar ) ) {
+			$wp_admin_bar->remove_node( sprintf( 'new-%s', Post_Type::SLUG ) );
+		}
 	}
 
 	/**
