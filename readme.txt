@@ -68,19 +68,19 @@ While we strive to make the plugin compatible with many themes and plugins, our 
 
 = What shortcodes are supported? =
 While we recommend you use our widgets for your storefront, we do have a shortcodes for each widget.
-#### Domain Search
+  Domain Search
 ```
-[rstore_domain_search page_size="5" text_placeholder="Find your perfect domain name" text_search="Search" text_available="Congrats, your domain is available!" text_not_available="Sorry that domain is taken" text_cart="Continue to Cart" text_select="Select" text_selected="Selected" text_verify="Verify" ]
+[rstore_domain_search page_size="5" ]
 ```
-#### View Cart Button
+ View Cart Button
 ```
-[rstore_cart_button title="Cart" button_label="View Cart" ]
+[rstore_cart_button ]
 ```
-#### Product Pod
+ Product Pod
 ```
 [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
 ```
-#### Log in/out Button
+ Log in/out Button
 ```
 [rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
 ```

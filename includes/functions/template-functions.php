@@ -9,6 +9,13 @@
  * @since    1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+
+	// @codeCoverageIgnoreStart
+	exit;
+	// @codeCoverageIgnoreEnd
+}
+
 /**
  * Display the price for a given product.
  *
