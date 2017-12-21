@@ -6,28 +6,9 @@
 		width: 4em;
 }
 
-.rstore-message {
-		display: inline-block;
-		height: 48px;
-}
-
 .rstore-add-to-cart-form .rstore-message {
 		display: inline-block;
 		margin-left: 5px;
-}
-
-.rstore-message span.dashicons {
-		width: 28px;
-		height: 28px;
-		font-size: 28px;
-}
-
-.rstore-message .rstore-success {
-		color: #41a62a;
-}
-
-.rstore-message .rstore-error {
-		color: #a62b2b;
 }
 
 .rstore-add-to-cart-form .rstore-loading {
@@ -77,6 +58,25 @@
 }
 
 /* Domain search widget */
+.rstore-message {
+		display: inline-block;
+		height: 48px;
+}
+
+.rstore-message span.dashicons {
+		width: 28px;
+		height: 28px;
+		font-size: 28px;
+}
+
+.rstore-message .rstore-success {
+		color: #41a62a;
+}
+
+.rstore-message .rstore-error {
+		color: #a62b2b;
+}
+
 .rstore-domain-search .input-group {
 		position: relative;
 		display: table;
@@ -155,8 +155,12 @@
 		border: 3px solid #e8e8e8;
 }
 
-.rstore-domain-search .rstore-exact-domain-list h4.not-available {
-		margin: 15px 0 15px 0;
+
+.rstore-domain-search .rstore-exact-domain-list p.available,
+.rstore-domain-search .rstore-exact-domain-list p.not-available {
+		font-weight: bold;
+		font-size: 1.2em;
+		margin: 10px 0 15px;
 }
 
 .rstore-domain-search .domain-name {

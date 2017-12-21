@@ -15,8 +15,9 @@ namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Shortcodes {
@@ -30,9 +31,9 @@ final class Shortcodes {
 	 */
 	private $args = [
 		'before_widget' => '',
-		'before_title'  => '',
-		'after_title'   => '',
-		'after_widget'  => '',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+		'after_widget'  => '</div>',
 	];
 
 	/**
@@ -118,6 +119,8 @@ final class Shortcodes {
 	 */
 	public function domain_search( $atts ) {
 
+		$this->args['before_widget'] = '<div class="widget rstore-domain">';
+
 		$domain = new Widgets\Domain_Search();
 
 		return $domain->widget( $this->args, $atts );
@@ -132,6 +135,8 @@ final class Shortcodes {
 	 * @param array $atts        The shortcode attributes.
 	 */
 	public function cart_button( $atts ) {
+
+		$this->args['before_widget'] = '<div class="widget rstore-cart">';
 
 		$cart = new Widgets\Cart();
 
@@ -148,6 +153,8 @@ final class Shortcodes {
 	 */
 	public function product( $atts ) {
 
+		$this->args['before_widget'] = '<div class="widget rstore-product">';
+
 		$product = new Widgets\Product();
 
 		return $product->widget( $this->args, $atts );
@@ -162,6 +169,8 @@ final class Shortcodes {
 	 * @param array $atts        The shortcode attributes.
 	 */
 	public function login( $atts ) {
+
+		$this->args['before_widget'] = '<div class="widget rstore-login">';
 
 		$login = new Widgets\Login();
 

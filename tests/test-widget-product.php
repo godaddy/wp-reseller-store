@@ -43,7 +43,7 @@ final class TestWidgetProduct extends TestCase {
 
 		echo $widget->widget( $args, $instance );
 
-		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button>/' );
+		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button>/' );
 
 	}
 

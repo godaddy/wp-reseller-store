@@ -48,7 +48,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget->widget( $args, $instance );
 
 		$this->assertRegExp(
-			'/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div><\/div>/',
+			'/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div><\/div>/',
 			$widget->widget( $args, $instance )
 		);
 
