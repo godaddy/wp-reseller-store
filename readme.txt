@@ -90,7 +90,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 == Changelog ==
 
-= 1.4.2 - December 2017 =
+= 1.5.0 - December 2017 =
 
 * Fix: Add bootstrap classes to buttons
 * Fix: CSS and display issues when using shortcodes
