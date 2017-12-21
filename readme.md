@@ -89,8 +89,17 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 [rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
 ```
 
+### How do I make the domain search return results on page load? ###
+You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+
+### 1.4.2 - December 2017 ###
+
+* Fix: Add bootstrap classes to buttons
+* Fix: CSS and display issues when using shortcodes
+* Fix: Display domain name in taken and available message
+* New: Add support for domainToCheck on query string
 
 ### 1.4.1 - December 2017 ###
 

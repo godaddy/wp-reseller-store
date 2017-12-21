@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-04 17:48:01+00:00\n"
+"POT-Creation-Date: 2017-12-21 02:48:37+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,14 +108,6 @@ msgstr ""
 "настройки буде втрачено."
 
 #: includes/class-display.php:69
-msgid "Find your perfect domain name"
-msgstr "Введіть бажане доменне ім'я"
-
-#: includes/class-display.php:87
-msgid "View cart"
-msgstr "Переглянути кошик"
-
-#: includes/class-display.php:88
 msgid "An error has occurred"
 msgstr "Сталася помилка"
 
@@ -241,11 +233,11 @@ msgstr ""
 msgid "Edit: %s"
 msgstr "Змінити: %s"
 
-#: includes/class-restrictions.php:183
+#: includes/class-restrictions.php:166
 msgid "No products have been added yet."
 msgstr "Продукти ще не додано."
 
-#: includes/class-restrictions.php:184
+#: includes/class-restrictions.php:167
 msgid "Import All Products"
 msgstr "Імпортувати всі продукти"
 
@@ -484,18 +476,20 @@ msgstr ""
 
 #: includes/widgets/class-domain-search.php:205
 msgid "Find your perfect domain name"
-msgstr "Знайти ідеальне для вас ім’я домену"
+msgstr "Введіть бажане доменне ім'я"
 
 #: includes/widgets/class-domain-search.php:206
 msgid "Search"
 msgstr "Пошук"
 
 #: includes/widgets/class-domain-search.php:207
-msgid "Congrats, your domain is available!"
+#, fuzzy
+msgid "Congrats, {domain_name} is available!"
 msgstr "Вітаємо, ваш домен доступний!"
 
 #: includes/widgets/class-domain-search.php:208
-msgid "Sorry that domain is taken"
+#, fuzzy
+msgid "Sorry, {domain_name} is taken."
 msgstr "На жаль, цей домен зайнятий"
 
 #: includes/widgets/class-domain-search.php:210
@@ -595,9 +589,8 @@ msgid "Show product title"
 msgstr "Встановити зображення товару"
 
 #: includes/widgets/class-product.php:208
-#, fuzzy
 msgid "Show post text"
-msgstr "Встановити зображення товару"
+msgstr ""
 
 #: includes/widgets/class-product.php:215
 #, fuzzy
@@ -712,23 +705,13 @@ msgid "Tag"
 msgstr "Тег"
 
 #. translators: 1. price, 2. subscription term - e.g. $10 / per month
-#: includes/functions/template-functions.php:65
+#: includes/functions/template-functions.php:72
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / на %2$s"
 
-#~ msgid "Reseller Store"
-#~ msgstr "Магазин для реселерів"
-
 #~ msgid "Reset Data"
 #~ msgstr "Скинути дані"
-
-#, fuzzy
-#~ msgid "Reset Product"
-#~ msgstr "Продукт для реселерів"
-
-#~ msgid "View cart"
-#~ msgstr "Переглянути кошик"
 
 #~ msgid "`%s` already exists."
 #~ msgstr "«%s» уже існує."

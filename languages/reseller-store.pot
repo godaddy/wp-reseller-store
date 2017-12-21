@@ -1,9 +1,9 @@
 # Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: GoDaddy Reseller Store 1.4.0\n"
+"Project-Id-Version: GoDaddy Reseller Store 1.4.1\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-04 17:48:01+00:00\n"
+"POT-Creation-Date: 2017-12-21 02:48:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -227,11 +227,11 @@ msgstr ""
 msgid "Edit: %s"
 msgstr ""
 
-#: includes/class-restrictions.php:183
+#: includes/class-restrictions.php:166
 msgid "No products have been added yet."
 msgstr ""
 
-#: includes/class-restrictions.php:184
+#: includes/class-restrictions.php:167
 msgid "Import All Products"
 msgstr ""
 
@@ -470,11 +470,11 @@ msgid "Search"
 msgstr ""
 
 #: includes/widgets/class-domain-search.php:207
-msgid "Congrats, your domain is available!"
+msgid "Congrats, {domain_name} is available!"
 msgstr ""
 
 #: includes/widgets/class-domain-search.php:208
-msgid "Sorry that domain is taken"
+msgid "Sorry, {domain_name} is taken."
 msgstr ""
 
 #: includes/widgets/class-domain-search.php:210
@@ -678,7 +678,7 @@ msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr ""
 
-#: includes/functions/template-functions.php:65
+#: includes/functions/template-functions.php:72
 #. translators: 1. price, 2. subscription term - e.g. $10 / per month
 msgctxt "product price"
 msgid "%1$s / per %2$s"
