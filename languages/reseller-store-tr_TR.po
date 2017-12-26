@@ -421,7 +421,7 @@ msgstr "Alan adı arayın:"
 #: includes/widgets/class-domain-search.php:88
 #: includes/widgets/class-domain-search.php:108
 msgid "Search"
-msgstr "Ara"
+msgstr "Arama"
 
 #: includes/widgets/class-domain-search.php:106
 msgid "Domain Search"
