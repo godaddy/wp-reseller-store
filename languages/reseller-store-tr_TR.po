@@ -430,6 +430,17 @@ msgid "A search form for domain names."
 msgstr "Alan adları için bir arama formu."
 
 #: includes/widgets/class-domain-search.php:104
+#: includes/widgets/class-domain-search.php:83
+#: includes/widgets/class-domain-search.php:84
+msgid "Search for a domain name:"
+msgstr "Alan adı arayın:"
+
+#: includes/widgets/class-domain-search.php:88
+#: includes/widgets/class-domain-search.php:108
+msgid "Search"
+msgstr "Arama"
+
+#: includes/widgets/class-domain-search.php:106
 msgid "Domain Search"
 msgstr "Alan Adı Arama"
 
