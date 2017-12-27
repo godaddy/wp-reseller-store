@@ -180,21 +180,28 @@
 				},
 				success: function( response ) {
 					if (response.status === 'partial') {
-						$( '.rstore-welcome-block span.firstname' ).each( function() {
-							$( this ).text( response.name );
+						$('.rstore-welcome-block span.firstname').each(function () {
+							$(this).text(response.name);
 						});
-						$( '.rstore-welcome-block span.lastname' ).each( function() {
-							$( this ).text( response.lastname );
+						$('.rstore-welcome-block span.lastname').each(function () {
+							$(this).text(response.lastname);
+						});
+						$('.rstore-welcome-block span.shopper-id').each(function () {
+							$(this).text(response.shopperid);
 						});
 
-						$( '.rstore-welcome-block' ).each( function() {
-							$( this ).show();
+						$('.rstore-welcome-block').each(function () {
+							$(this).show();
 						});
 
-						$( '.rstore-login-block' ).each( function() {
-							$( this ).hide();
+						$('.rstore-login-block').each(function () {
+							$(this).hide();
 						});
 					}
+
+					$( '.rstore-support-block' ).each( function() {
+						$( '.rstore-support-block' ).html('<a href="tel:'+response.supportphone.number+'" class="support-link" ><span class="number">'+response.supportphone.number+'</span></a>');
+					});
 
 					cart.updateCount( response.carttotal );
 				}

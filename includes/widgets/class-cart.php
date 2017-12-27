@@ -91,7 +91,7 @@ final class Cart extends \WP_Widget {
 		?>
 
 		<div class="rstore-view-cart">
-			<a href="<?php echo esc_url( rstore()->api->urls['cart'] ); ?>">
+			<a href="<?php echo rstore()->api->url( 'cart' ); ?>">
 				<?php echo $data['button_label']; ?> (<span class="rstore-cart-count">0</span>)
 			</a>
 		</div>

@@ -111,7 +111,7 @@ function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart
 
 	$cart_link = sprintf(
 		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
-		rstore()->api->urls['cart'],
+		rstore()->api->url( 'cart' ),
 		esc_html( $text_cart )
 	);
 

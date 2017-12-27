@@ -47,7 +47,7 @@ final class TestShortcodes extends TestCase {
 	function test_view_cart() {
 
 		$this->assertRegExp(
-			'/<a href="https:\/\/cart\.secureserver\.net\/">\n.*View Cart \(<span class="rstore-cart-count">0<\/span>\)/',
+			'/<a href="https:\/\/cart\.secureserver\.net\/go\/checkout\/">\n.*View Cart \(<span class="rstore-cart-count">0<\/span>\)/',
 			do_shortcode( '[rstore_cart_button]' )
 		);
 
@@ -59,7 +59,7 @@ final class TestShortcodes extends TestCase {
 	function test_view_cart_with_params() {
 
 		$this->assertRegExp(
-			'/<a href="https:\/\/cart\.secureserver\.net\/">\n.*button label \(<span class="rstore-cart-count">0<\/span>\)/',
+			'/<a href="https:\/\/cart\.secureserver\.net\/go\/checkout\/">\n.*button label \(<span class="rstore-cart-count">0<\/span>\)/',
 			do_shortcode( '[rstore_cart_button title="Cart" button_label="button label"]' )
 		);
 
@@ -177,7 +177,7 @@ final class TestShortcodes extends TestCase {
       ]';
 
 		$this->assertRegExp(
-			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">cccc<\/a>/',
+			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\/" rel="nofollow">cccc<\/a>/',
 			do_shortcode( $content )
 		);
 
