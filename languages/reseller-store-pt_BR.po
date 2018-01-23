@@ -372,7 +372,7 @@ msgstr "Nome da nova tag"
 
 #: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
 msgid "Tags"
-msgstr "Etiquetas"
+msgstr "Tags"
 
 #: includes/functions/product-functions.php:134
 #. translators: product name
@@ -513,7 +513,7 @@ msgstr "Categorias"
 #: includes/class-taxonomy-tag.php:69
 msgctxt "taxonomy general name"
 msgid "Tags"
-msgstr "Etiquetas"
+msgstr "Tags"
 
 #: includes/class-taxonomy-category.php:70
 msgctxt "taxonomy singular name"
