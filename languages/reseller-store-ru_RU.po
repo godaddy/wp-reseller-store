@@ -29,7 +29,7 @@ msgstr "Основные"
 
 #: includes/class-butterbean.php:158
 msgid "Advanced"
-msgstr "Дополнительно"
+msgstr "Дополнительные"
 
 #: includes/class-butterbean.php:182 includes/class-post-type.php:336
 msgid "Price"
@@ -147,7 +147,7 @@ msgstr "Произвольная база"
 
 #: includes/class-post-type.php:126
 msgid "Add New Products"
-msgstr "Добавить новые продукты"
+msgstr "Добавление новых продуктов"
 
 #: includes/class-post-type.php:127
 msgid "Edit Product"
@@ -371,7 +371,7 @@ msgstr "Имя нового тега"
 
 #: includes/class-taxonomy-tag.php:79 includes/class-taxonomy-tag.php:83
 msgid "Tags"
-msgstr "Метки"
+msgstr "Теги"
 
 #: includes/functions/product-functions.php:134
 #. translators: product name
@@ -512,7 +512,7 @@ msgstr "Категории"
 #: includes/class-taxonomy-tag.php:69
 msgctxt "taxonomy general name"
 msgid "Tags"
-msgstr "Метки"
+msgstr "Теги"
 
 #: includes/class-taxonomy-category.php:70
 msgctxt "taxonomy singular name"
