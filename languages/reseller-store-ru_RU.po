@@ -482,7 +482,7 @@ msgstr "product-tag"
 #: includes/class-post-type.php:121
 msgctxt "post type general name"
 msgid "Products"
-msgstr "Товары"
+msgstr "Продукты"
 
 #: includes/class-post-type.php:122
 msgctxt "post type singular name"
