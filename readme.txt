@@ -90,6 +90,11 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 == Changelog ==
 
+= 1.5.2 - February 2018 =
+
+* Update: API endpoint
+* Fix: Exclude the _Squiz.PHP.CommentedOutCode.Found_ from the phpcs ruleset to fix the build
+
 = 1.5.1 - December 2017 =
 
 * Update: Change logic on how urls are built
