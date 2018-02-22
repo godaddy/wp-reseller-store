@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-04 17:48:01+00:00\n"
+"POT-Creation-Date: 2017-12-27 22:57:35+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr[1] ""
 msgid "Sorry, you are not allowed to do that."
 msgstr "抱歉，您無法執行此動作。"
 
-#: includes/class-api.php:224
+#: includes/class-api.php:208
 msgid "An unknown error has occurred."
 msgstr "發生不明錯誤。"
 
@@ -231,11 +231,11 @@ msgstr ""
 msgid "Edit: %s"
 msgstr "編輯：%s"
 
-#: includes/class-restrictions.php:183
+#: includes/class-restrictions.php:166
 msgid "No products have been added yet."
 msgstr "尚未新增產品。"
 
-#: includes/class-restrictions.php:184
+#: includes/class-restrictions.php:167
 msgid "Import All Products"
 msgstr "匯入所有產品"
 
@@ -479,11 +479,13 @@ msgid "Search"
 msgstr "搜尋"
 
 #: includes/widgets/class-domain-search.php:207
-msgid "Congrats, your domain is available!"
+#, fuzzy
+msgid "Congrats, {domain_name} is available!"
 msgstr "恭喜！您可以使用此網域！"
 
 #: includes/widgets/class-domain-search.php:208
-msgid "Sorry that domain is taken"
+#, fuzzy
+msgid "Sorry, {domain_name} is taken."
 msgstr "很抱歉該網域無法使用"
 
 #: includes/widgets/class-domain-search.php:210
@@ -700,7 +702,7 @@ msgid "Tag"
 msgstr "標籤"
 
 #. translators: 1. price, 2. subscription term - e.g. $10 / per month
-#: includes/functions/template-functions.php:65
+#: includes/functions/template-functions.php:72
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / 每 %2$s"

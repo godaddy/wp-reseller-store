@@ -6,28 +6,9 @@
 		width: 4em;
 }
 
-.rstore-message {
-		display: inline-block;
-		height: 48px;
-}
-
 .rstore-add-to-cart-form .rstore-message {
 		display: inline-block;
 		margin-left: 5px;
-}
-
-.rstore-message span.dashicons {
-		width: 28px;
-		height: 28px;
-		font-size: 28px;
-}
-
-.rstore-message .rstore-success {
-		color: #41a62a;
-}
-
-.rstore-message .rstore-error {
-		color: #a62b2b;
 }
 
 .rstore-add-to-cart-form .rstore-loading {
@@ -77,6 +58,25 @@
 }
 
 /* Domain search widget */
+.rstore-message {
+		display: inline-block;
+		height: 48px;
+}
+
+.rstore-message span.dashicons {
+		width: 28px;
+		height: 28px;
+		font-size: 28px;
+}
+
+.rstore-message .rstore-success {
+		color: #41a62a;
+}
+
+.rstore-message .rstore-error {
+		color: #a62b2b;
+}
+
 .rstore-domain-search .input-group {
 		position: relative;
 		display: table;
@@ -141,7 +141,7 @@
 		margin-left: auto;
 }
 
-.rstore-domain-search .domain-result {
+.result-content .domain-result {
 		border: 1px solid #e8e8e8;
 		float: left;
 		min-width: 290px;
@@ -150,16 +150,20 @@
 		width: 99%;
 }
 
-.rstore-domain-search .rstore-exact-domain-list .domain-result {
+.result-content .rstore-exact-domain-list .domain-result {
 		margin-bottom: 15px;
 		border: 3px solid #e8e8e8;
 }
 
-.rstore-domain-search .rstore-exact-domain-list h4.not-available {
-		margin: 15px 0 15px 0;
+
+.result-content .rstore-exact-domain-list p.available,
+.result-content .rstore-exact-domain-list p.not-available {
+		font-weight: bold;
+		font-size: 1.2em;
+		margin: 10px 0 15px;
 }
 
-.rstore-domain-search .domain-name {
+.result-content .domain-name {
 		display: inline-block;
 		vertical-align: middle;
 		vertical-align: -webkit-baseline-middle;
@@ -167,36 +171,36 @@
 		padding: 10px 0;
 }
 
-.rstore-domain-search .rstore-domain-continue-button {
+.result-content .rstore-domain-continue-button {
 		display: block;
 		float: right;
 }
 
-.rstore-domain-search .purchase-info {
+.result-content .purchase-info {
 		display: block;
 		float: right;
 }
 
-.rstore-domain-search .pricing {
+.result-content .pricing {
 		display: inline-block;
 		margin-left: 10px;
 		text-align: right;
 		vertical-align: middle;
 }
 
-.rstore-domain-search .listPrice {
+.result-content .listPrice {
 		margin-right: 7px;
 }
 
-.rstore-domain-search .rstore-domain-buy-button {
+.result-content .rstore-domain-buy-button {
 		margin-left: 10px;
 }
 
-.rstore-domain-search .rstore-disclaimer {
+.result-content .rstore-disclaimer {
 		clear: both;
 }
 
-.rstore-domain-search .rstore-disclaimer pre {
+.result-content .rstore-disclaimer pre {
 		font-family: sans-serif;
 		background: none;
 		border: none;

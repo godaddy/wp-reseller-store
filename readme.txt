@@ -4,7 +4,7 @@ Tags:              godaddy, reseller, program, storefront, store, products, resp
 Requires at least: 4.6
 Tested up to:      4.9
 Requires PHP:      5.4
-Stable tag:        1.4.1
+Stable tag:        1.5.1
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,25 +68,39 @@ While we strive to make the plugin compatible with many themes and plugins, our 
 
 = What shortcodes are supported? =
 While we recommend you use our widgets for your storefront, we do have a shortcodes for each widget.
-#### Domain Search
+  Domain Search
 ```
-[rstore_domain_search page_size="5" text_placeholder="Find your perfect domain name" text_search="Search" text_available="Congrats, your domain is available!" text_not_available="Sorry that domain is taken" text_cart="Continue to Cart" text_select="Select" text_selected="Selected" text_verify="Verify" ]
+[rstore_domain_search page_size="5" ]
 ```
-#### View Cart Button
+ View Cart Button
 ```
-[rstore_cart_button title="Cart" button_label="View Cart" ]
+[rstore_cart_button ]
 ```
-#### Product Pod
+ Product Pod
 ```
 [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
 ```
-#### Log in/out Button
+ Log in/out Button
 ```
 [rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
 ```
 
+= How do I make the domain search return results on page load? =
+You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 1.5.1 - December 2017 =
+
+* Update: Change logic on how urls are built
+* Update: CSS fixes for domain search results when displayed in a modal
+
+= 1.5.0 - December 2017 =
+
+* Fix: Add bootstrap classes to buttons
+* Fix: CSS and display issues when using shortcodes
+* Fix: Display domain name in taken and available message
+* New: Add support for domainToCheck on query string
 
 = 1.4.1 - December 2017 =
 

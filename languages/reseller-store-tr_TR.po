@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-04 17:48:01+00:00\n"
+"POT-Creation-Date: 2017-12-27 23:00:54+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr[1] ""
 msgid "Sorry, you are not allowed to do that."
 msgstr "Üzgünüz, bu işlem için izniniz yok."
 
-#: includes/class-api.php:224
+#: includes/class-api.php:208
 msgid "An unknown error has occurred."
 msgstr "Bilinmeyen bir hata oluştu."
 
@@ -234,11 +234,11 @@ msgstr ""
 msgid "Edit: %s"
 msgstr "Düzenle: %s"
 
-#: includes/class-restrictions.php:183
+#: includes/class-restrictions.php:166
 msgid "No products have been added yet."
 msgstr "Henüz ürün eklenmedi."
 
-#: includes/class-restrictions.php:184
+#: includes/class-restrictions.php:167
 msgid "Import All Products"
 msgstr "Tüm Ürünlere İçe Aktar"
 
@@ -481,14 +481,16 @@ msgstr "Sizin için kusursuz bir alan adı bulun"
 
 #: includes/widgets/class-domain-search.php:206
 msgid "Search"
-msgstr "Ara"
+msgstr "Arama"
 
 #: includes/widgets/class-domain-search.php:207
-msgid "Congrats, your domain is available!"
+#, fuzzy
+msgid "Congrats, {domain_name} is available!"
 msgstr "Tebrikler, alan adınızı kullanabilirsiniz!"
 
 #: includes/widgets/class-domain-search.php:208
-msgid "Sorry that domain is taken"
+#, fuzzy
+msgid "Sorry, {domain_name} is taken."
 msgstr "Üzgünüz, bu alan adı alınmış"
 
 #: includes/widgets/class-domain-search.php:210
@@ -707,10 +709,13 @@ msgid "Tag"
 msgstr "Etiket"
 
 #. translators: 1. price, 2. subscription term - e.g. $10 / per month
-#: includes/functions/template-functions.php:65
+#: includes/functions/template-functions.php:72
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%2$s başına %1$s"
+
+#~ msgid "Search for a domain name:"
+#~ msgstr "Alan adı arayın:"
 
 #~ msgid "Reseller Store"
 #~ msgstr "Bayi Mağazası"
@@ -751,9 +756,3 @@ msgstr "%2$s başına %1$s"
 
 #~ msgid "Hide if cart is empty"
 #~ msgstr "Sepet boş ise sakla"
-
-#~ msgid "Search for a domain name:"
-#~ msgstr "Alan adı arayın:"
-
-#~ msgid "Find your perfect name"
-#~ msgstr "İdeal alan adınızı bulun"

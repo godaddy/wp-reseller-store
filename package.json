@@ -2,7 +2,7 @@
   "name": "reseller-store",
   "title": "GoDaddy Reseller Store",
   "description": "Resell hosting, domains, and more right from your WordPress site.",
-  "version": "1.4.1",
+  "version": "1.5.1",
   "author": "GoDaddy",
   "license": "GPL-2.0",
   "repository": "godaddy/wp-reseller-store",
@@ -49,6 +49,6 @@
     "build": "grunt build && mv build reseller-store && touch reseller-store.zip && rm reseller-store.zip && zip -r reseller-store.zip reseller-store && rm -rf reseller-store"
   },
   "dependencies": {
-    "domain-search": "^2.1.2"
+    "domain-search": "^2.1.5"
   }
 }

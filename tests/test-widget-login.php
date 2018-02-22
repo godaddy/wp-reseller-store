@@ -24,6 +24,8 @@ final class TestWidgetLogin extends TestCase {
 	 */
 	function test_widget() {
 
+		rstore_update_option( 'pl_id', 12345 );
+
 		$widget = new Widgets\Login();
 
 		$instance = [
@@ -41,7 +43,7 @@ final class TestWidgetLogin extends TestCase {
 		];
 
 		$this->assertRegExp(
-			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">Log Out<\/a>/',
+			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\/\?plid=12345" rel="nofollow">Log Out<\/a>/',
 			$widget->widget( $args, $instance )
 		);
 

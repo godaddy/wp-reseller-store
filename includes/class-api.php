@@ -48,7 +48,7 @@ final class API {
 	 *
 	 * @var array
 	 */
-	public $urls = [];
+	private $urls = [];
 
 	/**
 	 * Class constructor.
@@ -75,39 +75,12 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']  = sprintf( 'https://www.%s/api/v1/', $this->tld );
-		$this->urls['cart'] = $this->add_query_args( sprintf( 'https://cart.%s/', $this->tld ) );
-		$this->urls['gui']  = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
-
-	}
-
-
-	/**
-	 * Build a SSO login or logout url.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @param bool $login        Generate a Login or Logout URL.
-	 *
-	 * @return string
-	 */
-	public function get_sso_url( $login = true ) {
-
-		$args = [
-			'plid'  => (int) rstore_get_option( 'pl_id' ),
-			'realm' => 'idp',
-			'app'   => 'www',
-
-		];
-
-		$url = sprintf(
-			'https://%s.%s/%s',
-			$login ? 'mya' : 'sso',
-			$this->tld,
-			$login ? '' : 'logout'
-		);
-
-		return esc_url_raw( add_query_arg( $args, $url ) );
+		$this->urls['api']     = sprintf( 'https://www.%s/api/v1/', $this->tld );
+		$this->urls['cart']    = sprintf( 'https://cart.%s/', $this->tld );
+		$this->urls['www']     = sprintf( 'https://www.%s/', $this->tld );
+		$this->urls['sso']     = sprintf( 'https://sso.%s/', $this->tld );
+		$this->urls['account'] = sprintf( 'https://account.%s/', $this->tld );
+		$this->urls['gui']     = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
 
 	}
 
@@ -126,7 +99,7 @@ final class API {
 
 		if ( rstore_is_setup() ) {
 
-			$args['pl_id'] = (int) rstore_get_option( 'pl_id' );
+			$args['plid'] = (int) rstore_get_option( 'pl_id' );
 
 		}
 
@@ -141,13 +114,24 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
+	 * @param string $url_key      (optional) Url Key to use for bulding url.
 	 * @param string $endpoint (optional) API endpoint to override the request with.
 	 *
 	 * @return string
 	 */
-	public function url( $endpoint = '' ) {
+	public function url( $url_key, $endpoint = '' ) {
 
-		$url = trailingslashit( $this->urls['api'] );
+		if ( ! array_key_exists( $url_key, $this->urls ) ) {
+			return $this->url( 'www', $endpoint );
+		}
+
+		if ( 'cart' === $url_key && empty( $endpoint ) ) {
+
+			$endpoint = 'go/checkout';
+
+		}
+
+		$url = trailingslashit( $this->urls[ $url_key ] );
 
 		if ( $endpoint ) {
 
@@ -195,7 +179,7 @@ final class API {
 		 */
 		$args = (array) apply_filters( 'rstore_api_request_args', $args );
 
-		$response = wp_remote_request( $this->url( $endpoint ), $args );
+		$response = wp_remote_request( $this->url( 'api', $endpoint ), $args );
 
 		$code = wp_remote_retrieve_response_code( $response );
 

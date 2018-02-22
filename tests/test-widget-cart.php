@@ -44,7 +44,7 @@ final class TestWidgetCart extends TestCase {
 		];
 
 		$this->assertRegExp(
-			'/<a href="https:\/\/cart.secureserver.net\/">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/',
+			'/<a href="https:\/\/cart.secureserver.net\/go\/checkout\/\?plid=12345">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/',
 			$widget->widget( $args, $instance )
 		);
 

@@ -24,7 +24,7 @@ final class TestShortcodes extends TestCase {
 
 		$this->assertContains(
 			do_shortcode( '[rstore-domain-search]' ),
-			'<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div>'
+			'<div class="widget rstore-domain widget_search"><div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div></div>'
 		);
 
 	}
@@ -36,7 +36,7 @@ final class TestShortcodes extends TestCase {
 
 		$this->assertContains(
 			do_shortcode( '[rstore_domain_search]' ),
-			'<div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, your domain is available!" data-text_not_available="Sorry that domain is taken" data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div>'
+			'<div class="widget rstore-domain widget_search"><div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div></div>'
 		);
 
 	}
@@ -47,7 +47,7 @@ final class TestShortcodes extends TestCase {
 	function test_view_cart() {
 
 		$this->assertRegExp(
-			'/<a href="https:\/\/cart\.secureserver\.net\/">\n.*View Cart \(<span class="rstore-cart-count">0<\/span>\)/',
+			'/<a href="https:\/\/cart\.secureserver\.net\/go\/checkout\/">\n.*View Cart \(<span class="rstore-cart-count">0<\/span>\)/',
 			do_shortcode( '[rstore_cart_button]' )
 		);
 
@@ -59,7 +59,7 @@ final class TestShortcodes extends TestCase {
 	function test_view_cart_with_params() {
 
 		$this->assertRegExp(
-			'/<a href="https:\/\/cart\.secureserver\.net\/">\n.*button label \(<span class="rstore-cart-count">0<\/span>\)/',
+			'/<a href="https:\/\/cart\.secureserver\.net\/go\/checkout\/">\n.*button label \(<span class="rstore-cart-count">0<\/span>\)/',
 			do_shortcode( '[rstore_cart_button title="Cart" button_label="button label"]' )
 		);
 
@@ -177,7 +177,7 @@ final class TestShortcodes extends TestCase {
       ]';
 
 		$this->assertRegExp(
-			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\?plid=0&realm=idp&app=www" rel="nofollow">cccc<\/a>/',
+			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\/" rel="nofollow">cccc<\/a>/',
 			do_shortcode( $content )
 		);
 

@@ -96,7 +96,7 @@ final class Login extends \WP_Widget {
 		?>
 		<div class="rstore-login-block" style="display: block;">
 			<!-- Show login button -->
-			<a class="login-link" href="<?php echo rstore()->api->get_sso_url(); ?>" rel="nofollow"><?php echo $data['login_button_text']; ?></a>
+			<a class="login-link" href="<?php echo rstore()->api->url( 'account' ); ?>" rel="nofollow"><?php echo $data['login_button_text']; ?></a>
 		</div>
 
 		<div  class="rstore-welcome-block" style="display: none;">
@@ -104,7 +104,7 @@ final class Login extends \WP_Widget {
 			<span class="welcome-message"><?php echo $data['welcome_message']; ?></span>
 			<span class="firstname"></span>
 			<span class="lastname"></span>
-			<a class="logout-link" href="<?php echo rstore()->api->get_sso_url( false ); ?>" rel="nofollow"><?php echo $data['logout_button_text']; ?></a>
+			<a class="logout-link" href="<?php echo rstore()->api->url( 'sso', 'logout' ); ?>" rel="nofollow"><?php echo $data['logout_button_text']; ?></a>
 		</div>
 
 		<?php

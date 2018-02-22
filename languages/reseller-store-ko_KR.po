@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-04 17:48:01+00:00\n"
+"POT-Creation-Date: 2017-12-27 22:57:35+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr[1] ""
 msgid "Sorry, you are not allowed to do that."
 msgstr "죄송합니다. 귀하는 그렇게 할 수 없습니다."
 
-#: includes/class-api.php:224
+#: includes/class-api.php:208
 msgid "An unknown error has occurred."
 msgstr "알 수 없는 오류가 발생했습니다."
 
@@ -232,11 +232,11 @@ msgstr ""
 msgid "Edit: %s"
 msgstr "편집: %s"
 
-#: includes/class-restrictions.php:183
+#: includes/class-restrictions.php:166
 msgid "No products have been added yet."
 msgstr "아직 추가된 제품이 없습니다."
 
-#: includes/class-restrictions.php:184
+#: includes/class-restrictions.php:167
 msgid "Import All Products"
 msgstr "모든 제품 가져오기"
 
@@ -482,11 +482,13 @@ msgid "Search"
 msgstr "검색"
 
 #: includes/widgets/class-domain-search.php:207
-msgid "Congrats, your domain is available!"
+#, fuzzy
+msgid "Congrats, {domain_name} is available!"
 msgstr "축하 드립니다. 귀하의 도메인을 사용할 수 있습니다!"
 
 #: includes/widgets/class-domain-search.php:208
-msgid "Sorry that domain is taken"
+#, fuzzy
+msgid "Sorry, {domain_name} is taken."
 msgstr "죄송합니다. 해당 도메인은 사용할 수 없습니다"
 
 #: includes/widgets/class-domain-search.php:210
@@ -704,7 +706,7 @@ msgid "Tag"
 msgstr "태그"
 
 #. translators: 1. price, 2. subscription term - e.g. $10 / per month
-#: includes/functions/template-functions.php:65
+#: includes/functions/template-functions.php:72
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / %2$s"

@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.5.0
  */
 
 namespace Reseller_Store;
@@ -33,7 +33,7 @@ final class Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.4.1';
+	const VERSION = '1.5.1';
 
 	/**
 	 * Plugin prefix.

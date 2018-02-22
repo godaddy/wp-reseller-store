@@ -41,7 +41,7 @@ final class TestAPI extends TestCase {
 
 		$url = $api->add_query_args( 'https://www.secureserver.net' );
 
-		$this->assertEquals( 'https://www.secureserver.net?pl_id=12345', $url );
+		$this->assertEquals( 'https://www.secureserver.net?plid=12345', $url );
 
 	}
 
@@ -69,7 +69,7 @@ final class TestAPI extends TestCase {
 	}
 
 	/**
-	 * @testdox Given paramter true get_sso_url should return a login url.
+	 * @testdox Given sso parameter url() should return a login url.
 	 */
 	public function test_sso_login_url() {
 
@@ -77,14 +77,14 @@ final class TestAPI extends TestCase {
 
 		$api = new API();
 
-		$url = $api->get_sso_url( true );
+		$url = $api->url( 'sso' );
 
-		$this->assertEquals( 'https://mya.secureserver.net/?plid=12345&realm=idp&app=www', $url );
+		$this->assertEquals( 'https://sso.secureserver.net/?plid=12345', $url );
 
 	}
 
 	/**
-	 * @testdox Given paramter false get_sso_url should return a logout url.
+	 * @testdox Given sso and logout parameter url should return a logout url.
 	 */
 	public function test_sso_logout_url() {
 
@@ -92,9 +92,24 @@ final class TestAPI extends TestCase {
 
 		$api = new API();
 
-		$url = $api->get_sso_url( false );
+		$url = $api->url( 'sso', 'logout' );
 
-		$this->assertEquals( 'https://sso.secureserver.net/logout?plid=12345&realm=idp&app=www', $url );
+		$this->assertEquals( 'https://sso.secureserver.net/logout/?plid=12345', $url );
+
+	}
+
+	/**
+	 * @testdox Given invalid url_key parameter should return www url.
+	 */
+	public function test_invalid_url_key() {
+
+		rstore_update_option( 'pl_id', 12345 );
+
+		$api = new API();
+
+		$url = $api->url( 'invalide' );
+
+		$this->assertEquals( 'https://www.secureserver.net/?plid=12345', $url );
 
 	}
 

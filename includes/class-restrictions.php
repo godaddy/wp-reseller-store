@@ -30,7 +30,7 @@ final class Restrictions {
 
 		add_action( 'init', [ $this, 'redirects' ], 1 );
 		add_action( 'admin_menu', [ $this, 'admin_submenu' ] );
-		add_action( 'admin_head', [ $this, 'add_product_button' ] );
+		add_action( 'admin_head', [ $this, 'remove_add_product_button' ] );
 		add_action( 'wp_before_admin_bar_render', [ $this, 'admin_bar_submenu' ] );
 		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
 
@@ -94,13 +94,7 @@ final class Restrictions {
 	 */
 	public function admin_submenu() {
 
-		if ( ! rstore_has_all_products() ) {
-
-			return;
-
-		}
-
-		remove_submenu_page(
+		return remove_submenu_page(
 			sprintf( 'edit.php?post_type=%s', Post_Type::SLUG ),
 			sprintf( 'post-new.php?post_type=%s', Post_Type::SLUG )
 		);
@@ -113,13 +107,7 @@ final class Restrictions {
 	 * @action admin_head
 	 * @since  0.2.0
 	 */
-	public function add_product_button() {
-
-		if ( ! rstore_has_all_products() ) {
-
-			return;
-
-		}
+	public function remove_add_product_button() {
 
 		?>
 		<style type="text/css">
@@ -138,16 +126,11 @@ final class Restrictions {
 	 */
 	public function admin_bar_submenu() {
 
-		if ( ! rstore_has_all_products() ) {
-
-			return;
-
-		}
-
 		global $wp_admin_bar;
 
-		$wp_admin_bar->remove_node( sprintf( 'new-%s', Post_Type::SLUG ) );
-
+		if ( is_object( $wp_admin_bar ) ) {
+			$wp_admin_bar->remove_node( sprintf( 'new-%s', Post_Type::SLUG ) );
+		}
 	}
 
 	/**
