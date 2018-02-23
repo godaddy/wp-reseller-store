@@ -96,7 +96,7 @@ final class Login extends \WP_Widget {
 		?>
 		<div class="rstore-login-block" style="display: block;">
 			<!-- Show login button -->
-			<a class="login-link" href="<?php echo rstore()->api->url( 'sso' ); ?>" rel="nofollow"><?php echo $data['login_button_text']; ?></a>
+			<a class="login-link" href="<?php echo rstore()->api->url( 'account' ); ?>" rel="nofollow"><?php echo $data['login_button_text']; ?></a>
 		</div>
 
 		<div  class="rstore-welcome-block" style="display: none;">

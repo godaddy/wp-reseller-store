@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-21 02:45:22+00:00\n"
+"POT-Creation-Date: 2017-12-27 23:00:54+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr[1] ""
 msgid "Sorry, you are not allowed to do that."
 msgstr "Üzgünüz, bu işlem için izniniz yok."
 
-#: includes/class-api.php:224
+#: includes/class-api.php:208
 msgid "An unknown error has occurred."
 msgstr "Bilinmeyen bir hata oluştu."
 
@@ -490,7 +490,7 @@ msgstr "Sizin için kusursuz bir alan adı bulun"
 
 #: includes/widgets/class-domain-search.php:206
 msgid "Search"
-msgstr "Ara"
+msgstr "Arama"
 
 #: includes/widgets/class-domain-search.php:207
 #, fuzzy
@@ -723,6 +723,9 @@ msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%2$s başına %1$s"
 
+#~ msgid "Search for a domain name:"
+#~ msgstr "Alan adı arayın:"
+
 #~ msgid "Reseller Store"
 #~ msgstr "Bayi Mağazası"
 
@@ -762,9 +765,3 @@ msgstr "%2$s başına %1$s"
 
 #~ msgid "Hide if cart is empty"
 #~ msgstr "Sepet boş ise sakla"
-
-#~ msgid "Search for a domain name:"
-#~ msgstr "Alan adı arayın:"
-
-#~ msgid "Find your perfect name"
-#~ msgstr "İdeal alan adınızı bulun"
