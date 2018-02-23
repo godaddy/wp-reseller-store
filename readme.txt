@@ -19,6 +19,7 @@ With this plugin, you have the option to easily design a site with the imported 
 [youtube https://youtu.be/us3y7jK55YQ]
 
 **Features**
+
 * Easily design a site that is for desktop or mobile devices in your theme
 * Imports product catalog with your pricing in your preferred currency and language
 * Update products/descriptions/images
@@ -31,17 +32,18 @@ English - Dansk - Deutsch - Ελληνικά - Español - Español de M
 
 **Support**
 
-If you run into a problem, post your question in [UserVoice](https://godaddy.uservoice.com/forums/598645-reseller-custom-storefront) or send an email to resellersupport@godaddy.com and we would be happy to help. Remember, the more information you can provide up-front, the easier it is for us to verify the problem and the faster we can help!
-    * Screenshot(s) - How-to guide
-    * Name and version of your theme - Video tutorial
-    * List of all active plugins on your site - Video tutorial
-    * Steps taken or details we should know to reproduce and verify the problem
+If you run into a problem, post your question in [UserVoice](https://godaddy.uservoice.com/forums/906550-reseller) or send an email to resellersupport@godaddy.com and we would be happy to help. Remember, the more information you can provide up-front, the easier it is for us to verify the problem and the faster we can help!
+
+* Screenshot(s) - How-to guide
+* Name and version of your theme - Video tutorial
+* List of all active plugins on your site - Video tutorial
+* Steps taken or details we should know to reproduce and verify the problem
 
 You can call our support team at (480) 505-8857
 
 **Contributing**
 
-Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). If you believe you have found a bug, or have a killer feature idea, please open a [open a new issue](https://github.com/godaddy/wp-reseller-store/issues) there. Pull requests on existing issues are also welcome!
+Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). Pull requests on existing issues are welcome!
 
 == Frequently Asked Questions ==
 
