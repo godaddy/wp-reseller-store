@@ -97,6 +97,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 * Update: API endpoint
 * Update: New demo Youtube video link in the README
 * Fix: Exclude the _Squiz.PHP.CommentedOutCode.Found_ from the phpcs ruleset to fix the build
+* Update: Domain search widget 2.1.6
 
 = 1.5.1 - December 2017 =
 
