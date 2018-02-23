@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-27 23:00:54+00:00\n"
+"POT-Creation-Date: 2018-02-23 18:26:08+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -430,15 +430,6 @@ msgid "A search form for domain names."
 msgstr "Alan adları için bir arama formu."
 
 #: includes/widgets/class-domain-search.php:104
-msgid "Search for a domain name:"
-msgstr "Alan adı arayın:"
-
-#: includes/widgets/class-domain-search.php:88
-#: includes/widgets/class-domain-search.php:108
-msgid "Search"
-msgstr "Arama"
-
-#: includes/widgets/class-domain-search.php:106
 msgid "Domain Search"
 msgstr "Alan Adı Arama"
 
@@ -599,9 +590,8 @@ msgid "Show product title"
 msgstr "Ürün resmini ayarla"
 
 #: includes/widgets/class-product.php:208
-#, fuzzy
 msgid "Show post text"
-msgstr "Ürün resmini ayarla"
+msgstr ""
 
 #: includes/widgets/class-product.php:215
 #, fuzzy
@@ -723,21 +713,8 @@ msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%2$s başına %1$s"
 
-#~ msgid "Search for a domain name:"
-#~ msgstr "Alan adı arayın:"
-
-#~ msgid "Reseller Store"
-#~ msgstr "Bayi Mağazası"
-
 #~ msgid "Reset Data"
 #~ msgstr "Verileri Sıfırla"
-
-#, fuzzy
-#~ msgid "Reset Product"
-#~ msgstr "Bayi Ürünü"
-
-#~ msgid "View cart"
-#~ msgstr "Sepeti görüntüle"
 
 #~ msgid "`%s` already exists."
 #~ msgstr "`%s` zaten var."
@@ -765,3 +742,9 @@ msgstr "%2$s başına %1$s"
 
 #~ msgid "Hide if cart is empty"
 #~ msgstr "Sepet boş ise sakla"
+
+#~ msgid "Search for a domain name:"
+#~ msgstr "Alan adı arayın:"
+
+#~ msgid "Find your perfect name"
+#~ msgstr "İdeal alan adınızı bulun"
