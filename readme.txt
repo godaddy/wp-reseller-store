@@ -16,7 +16,7 @@ Design your own storefront for your GoDaddy Reseller plan and have more control 
 
 With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search and cart widgets!
 
-[youtube https://youtu.be/DKFZGitRKek]
+[youtube https://youtu.be/us3y7jK55YQ]
 
 **Features**
 * Easily design a site that is for desktop or mobile devices in your theme
@@ -93,6 +93,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 = 1.5.2 - February 2018 =
 
 * Update: API endpoint
+* Update: New demo Youtube video link in the README
 * Fix: Exclude the _Squiz.PHP.CommentedOutCode.Found_ from the phpcs ruleset to fix the build
 
 = 1.5.1 - December 2017 =
