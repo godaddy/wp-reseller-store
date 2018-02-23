@@ -50,7 +50,7 @@ msgstr "카트에 추가 버튼 레이블"
 #: includes/class-butterbean.php:275 includes/class-display.php:83
 #: includes/functions/helper-functions.php:64
 msgid "Add to cart"
-msgstr "장바구니"
+msgstr "카트에 추가"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"

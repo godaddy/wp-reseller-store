@@ -50,7 +50,7 @@ msgstr "カート追加のボタンラベル"
 #: includes/class-butterbean.php:275 includes/class-display.php:83
 #: includes/functions/helper-functions.php:64
 msgid "Add to cart"
-msgstr "カートに入れる"
+msgstr "カートに追加"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"

@@ -50,7 +50,7 @@ msgstr "कार्ट बटण लेबलवर जोडा"
 #: includes/class-butterbean.php:275 includes/class-display.php:83
 #: includes/functions/helper-functions.php:64
 msgid "Add to cart"
-msgstr "कार्टला जोडा"
+msgstr "कार्टमध्ये समाविष्ट करा"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"

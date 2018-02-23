@@ -50,7 +50,7 @@ msgstr "เพิ่มไปยังฉลากปุ่มตะกร้า
 #: includes/class-butterbean.php:275 includes/class-display.php:83
 #: includes/functions/helper-functions.php:64
 msgid "Add to cart"
-msgstr "หยิบใส่ตะกร้า"
+msgstr "เพิ่มลงตะกร้าสินค้า"
 
 #: includes/class-butterbean.php:302
 msgid "Redirect to the cart immediately after adding"
