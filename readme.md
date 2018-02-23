@@ -1,18 +1,18 @@
 # GoDaddy Reseller Store #
 ![Banner Image](.dev/wp-org-assets/banner-1544x500.png)
 
-**Contributors:** [godaddy](https://profiles.wordpress.org/godaddy), [fjarrett](https://profiles.wordpress.org/fjarrett), [bfocht](https://profiles.wordpress.org/bfocht), [eherman24](https://profiles.wordpress.org/eherman24)  
-**Tags:**              [godaddy](https://wordpress.org/plugins/tags/godaddy/), [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [[store](https://wordpress.org/plugins/tags/store/)front](https://wordpress.org/plugins/tags/storefront/), store, [products](https://wordpress.org/plugins/tags/products/), [responsive](https://wordpress.org/plugins/tags/responsive/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/)  
-**Requires at least:** 4.6  
-**Tested up to:**      4.9  
-**Requires PHP:**      5.4  
-**Stable tag:**        1.5.1  
-**License:**           GPL-2.0  
-**License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
+**Contributors:** [godaddy](https://profiles.wordpress.org/godaddy), [fjarrett](https://profiles.wordpress.org/fjarrett), [bfocht](https://profiles.wordpress.org/bfocht), [eherman24](https://profiles.wordpress.org/eherman24)
+**Tags:**              [godaddy](https://wordpress.org/plugins/tags/godaddy/), [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [[store](https://wordpress.org/plugins/tags/store/)front](https://wordpress.org/plugins/tags/storefront/), store, [products](https://wordpress.org/plugins/tags/products/), [responsive](https://wordpress.org/plugins/tags/responsive/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/)
+**Requires at least:** 4.6
+**Tested up to:**      4.9
+**Requires PHP:**      5.4
+**Stable tag:**        1.5.1
+**License:**           GPL-2.0
+**License URI:**       https://www.gnu.org/licenses/gpl-2.0.html
 
 Design your own storefront for your GoDaddy Reseller plan and have more control over your customers experience and business!
 
-[![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![Coverage Status](https://coveralls.io/repos/github/godaddy/wp-reseller-store/badge.svg?branch=master)](https://coveralls.io/github/godaddy/wp-reseller-store?branch=master) [![devDependencies Status](https://david-dm.org/godaddy/wp-reseller-store/master/dev-status.svg)](https://david-dm.org/godaddy/wp-reseller-store/master?type=dev) [![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/godaddy/wp-reseller-store/blob/master/license.txt) [![PHP >= 5.4](https://img.shields.io/badge/php-%3E=%205.4-8892bf.svg)](https://secure.php.net/supported-versions.php) [![WordPress >= 4.6](https://img.shields.io/badge/wordpress-%3E=%204.6-blue.svg)](https://wordpress.org/download/release-archive/)  
+[![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![Coverage Status](https://coveralls.io/repos/github/godaddy/wp-reseller-store/badge.svg?branch=master)](https://coveralls.io/github/godaddy/wp-reseller-store?branch=master) [![devDependencies Status](https://david-dm.org/godaddy/wp-reseller-store/master/dev-status.svg)](https://david-dm.org/godaddy/wp-reseller-store/master?type=dev) [![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/godaddy/wp-reseller-store/blob/master/license.txt) [![PHP >= 5.4](https://img.shields.io/badge/php-%3E=%205.4-8892bf.svg)](https://secure.php.net/supported-versions.php) [![WordPress >= 4.6](https://img.shields.io/badge/wordpress-%3E=%204.6-blue.svg)](https://wordpress.org/download/release-archive/)
 
 ## Description ##
 
@@ -93,6 +93,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+
+### 1.5.2 - February 2018 ###
+* Update: API endpoint
+* Fix: Exclude the _Squiz.PHP.CommentedOutCode.Found_ from the phpcs ruleset to fix the build
 
 ### 1.5.1 - December 2017 ###
 
