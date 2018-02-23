@@ -1,13 +1,13 @@
-# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+# Copyright (c) 2018 GoDaddy Operating Company, LLC. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: GoDaddy Reseller Store 1.5.0\n"
+"Project-Id-Version: GoDaddy Reseller Store 1.5.1\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-27 23:00:54+00:00\n"
+"POT-Creation-Date: 2018-02-23 18:26:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Poedit-KeywordsList: "
