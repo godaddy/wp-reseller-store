@@ -425,7 +425,7 @@ msgstr "Arama"
 
 #: includes/widgets/class-domain-search.php:106
 msgid "Domain Search"
-msgstr "Alan Adı Arama"
+msgstr "Domain sorgulama"
 
 #: includes/widgets/class-domain-search.php:107
 msgid "Find your perfect name"
