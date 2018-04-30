@@ -37,6 +37,7 @@ final class Product extends \WP_Widget {
 			[
 				'classname'   => rstore_prefix( 'Product', true ),
 				'description' => esc_html__( 'Display product post.', 'reseller-store' ),
+				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			]
 		);
 

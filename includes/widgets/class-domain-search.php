@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// @codeCoverageIgnoreEnd
 }
 
-final class Domain_Search extends \WP_Widget {
+final class Domain_Search extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -37,6 +37,7 @@ final class Domain_Search extends \WP_Widget {
 			[
 				'classname'   => rstore_prefix( 'domain', true ),
 				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
+				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			]
 		);
 
@@ -49,6 +50,8 @@ final class Domain_Search extends \WP_Widget {
 	 *
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Widget instance.
+	 *
+	 * @return mixed Returns the HTML markup for the domain search container.
 	 */
 	public function widget( $args, $instance ) {
 
@@ -140,25 +143,6 @@ final class Domain_Search extends \WP_Widget {
 		$this->display_form_input( 'text_selected', $data['text_selected'], esc_html_e( 'Unselect Button Text:', 'reseller' ) );
 		$this->display_form_input( 'text_verify', $data['text_verify'], esc_html_e( 'Verify Button Text:', 'reseller' ) );
 		$this->display_form_input( 'text_disclaimer', $data['text_disclaimer'], esc_html_e( 'Domain disclaimer notice', 'reseller' ) );
-	}
-
-	/**
-	 * Display form input field
-	 *
-	 * @since 1.1.0
-	 *
-	 * @param  string $field Feield name.
-	 * @param  array  $value Value of the field.
-	 * @param  array  $label Form label text.
-	 * @param  string $type (optional) Input type label text.
-	 */
-	private function display_form_input( $field, $value, $label, $type = 'text' ) {
-		?>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"><?php $label; ?></label>
-			<input type="<?php echo $type; ?>" id="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $field ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="widefat">
-		</p>
-		<?php
 	}
 
 	/**

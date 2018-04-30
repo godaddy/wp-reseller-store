@@ -108,6 +108,19 @@ final class Shortcodes {
 		 */
 		add_shortcode( 'rstore_login', [ $this, 'login' ] );
 
+		/**
+		 * Register the domain transfer shortcode
+		 *
+		 * @shortcode [rstore-domain-transfer]
+		 *
+		 * @since NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the domain transfer container.
+		 */
+		add_shortcode( 'rstore_domain_transfer', [ $this, 'domain_transfer' ] );
+
 	}
 
 	/**
@@ -116,6 +129,8 @@ final class Shortcodes {
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the domain search container.
 	 */
 	public function domain_search( $atts ) {
 
@@ -133,6 +148,8 @@ final class Shortcodes {
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the cart button container.
 	 */
 	public function cart_button( $atts ) {
 
@@ -145,11 +162,13 @@ final class Shortcodes {
 	}
 
 	/**
-	 * Render the domain search widget.
+	 * Render the product widget.
 	 *
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the product container.
 	 */
 	public function product( $atts ) {
 
@@ -167,6 +186,8 @@ final class Shortcodes {
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the login container.
 	 */
 	public function login( $atts ) {
 
@@ -175,6 +196,25 @@ final class Shortcodes {
 		$login = new Widgets\Login();
 
 		return $login->widget( $this->args, $atts );
+
+	}
+
+	/**
+	 * Render the domain transfer widget.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the domain transfer container.
+	 */
+	public function domain_transfer( $atts ) {
+
+		$this->args['before_widget'] = '<div class="widget rstore-domain-transfer">';
+
+		$domain = new Widgets\Domain_Transfer();
+
+		return $domain->widget( $this->args, $atts );
 
 	}
 

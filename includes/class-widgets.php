@@ -4,7 +4,7 @@
  *
  * Handles the Reseller store widgets.
  *
- * @class    Reseller_Store/Taxonomy_Tag
+ * @class    Reseller_Store/Widgets
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
@@ -31,6 +31,9 @@ final class Widgets {
 
 		add_action( 'widgets_init', [ get_called_class(), 'register_widgets' ] );
 
+		if ( class_exists( 'FLBuilder' ) ) {
+			add_action( 'init', array( $this, 'load_modules' ) );
+		}
 	}
 
 	/**
@@ -42,9 +45,40 @@ final class Widgets {
 
 		register_widget( __NAMESPACE__ . '\Widgets\Domain_Search' );
 
+		register_widget( __NAMESPACE__ . '\Widgets\Domain_Transfer' );
+
 		register_widget( __NAMESPACE__ . '\Widgets\Login' );
 
 		register_widget( __NAMESPACE__ . '\Widgets\Product' );
+	}
+
+	/**
+	 * Loads the builder modules if the modules folder exists.
+	 *
+	 * @action init
+	 * @since NEXT
+	 *
+	 * @return void
+	 */
+	public function load_modules() {
+
+		$modules = array(
+			'FLDomainTransfer' => 'domain-transfer',
+			'FLDomainSearch'   => 'domain-search',
+			'FLProduct'        => 'product',
+		);
+
+		foreach ( $modules as $class => $slug ) {
+
+			$path = __DIR__ . "/modules/rstore-{$slug}.php";
+
+			if ( ! class_exists( $class ) && is_readable( $path ) ) {
+
+				require_once $path;
+
+			}
+		}
+
 	}
 
 }

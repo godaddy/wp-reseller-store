@@ -48,6 +48,43 @@ function rstore_has_products() {
 }
 
 /**
+ * Retrieve reseller products.
+ *
+ * @param integer $selected_product The selected product ID.
+ *
+ * @since 1.0.0
+ *
+ * @return mixed Markup for the product select options.
+ */
+function rstore_get_product_list() {
+
+	$query = new \WP_Query(
+		[
+			'post_type'   => \Reseller_Store\Post_Type::SLUG,
+			'post_status' => 'publish',
+			'nopaging'    => true, // get a list of every product.
+		]
+	);
+
+	$products = [];
+
+
+	while ( $query->have_posts() ) {
+
+		$query->the_post();
+
+		$id = get_the_ID();
+
+		$products[$id] = esc_html( get_the_title() );
+
+	}
+
+	wp_reset_postdata();
+
+	return $products;
+}
+
+/**
  * Clear the product count cache.
  *
  * Product count is cached in memory to prevent duplicate

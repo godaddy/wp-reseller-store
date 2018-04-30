@@ -47,7 +47,6 @@ spl_autoload_register(
 		$files = str_replace( '//', '/', glob( sprintf( '%s/%s/*-%s.php', __DIR__, implode( '/', $parts ), $name ) ) );
 
 		if ( isset( $files[0] ) && is_readable( $files[0] ) ) {
-
 			require_once $files[0];
 
 		}

@@ -37,6 +37,7 @@ final class Login extends \WP_Widget {
 			array(
 				'classname'   => rstore_prefix( 'login', true ),
 				'description' => esc_html__( 'A shopper login status', 'reseller-store' ),
+				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
 
