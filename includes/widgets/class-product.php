@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// @codeCoverageIgnoreEnd
 }
 
-final class Product extends \WP_Widget {
+final class Product extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -32,11 +32,11 @@ final class Product extends \WP_Widget {
 	public function __construct() {
 
 		parent::__construct(
-			rstore_prefix( 'Product' ),
+			rstore_prefix( 'product' ),
 			esc_html__( 'Reseller Product', 'reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'Product', true ),
-				'description' => esc_html__( 'Display product post.', 'reseller-store' ),
+				'description' => __( 'Display a product post.', 'reseller-store' ),
 				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			]
 		);
@@ -61,18 +61,20 @@ final class Product extends \WP_Widget {
 
 		$post_id = $data['post_id'];
 
+		$is_widget = apply_filters( 'rstore_is_widget', $args );
+
 		$product = get_post( $post_id );
 
 		if ( null === $product || 'publish' !== $product->post_status ||
 			\Reseller_Store\Post_Type::SLUG !== $product->post_type ) {
 
-			if ( Shortcodes::is_widget( $args ) ) {
+			if ( $is_widget ) {
 
-				esc_html_e( 'Post id is not valid.', 'reseller' );
+				esc_html_e( 'Post id is not valid.', 'reseller-store' );
 
 			}
 
-			return esc_html__( 'Post id is not valid.', 'reseller' );
+			return esc_html__( 'Post id is not valid.', 'reseller-store' );
 
 		}
 
@@ -152,7 +154,9 @@ final class Product extends \WP_Widget {
 
 		}
 
-		if ( Shortcodes::is_widget( $args ) ) {
+		$content = apply_filters( 'rstore_product_html', $content );
+
+		if ( $is_widget ) {
 
 			echo $content;
 
@@ -176,7 +180,7 @@ final class Product extends \WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>">
-				<?php esc_html_e( 'Product: ', 'reseller' ); ?>
+				<?php esc_html_e( 'Product', 'reseller-store' ); ?>
 			</label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_id' ) ); ?>" class="widefat" style="width:100%;">
 				<?php self::get_products( $data['post_id'] ); ?>
@@ -185,58 +189,25 @@ final class Product extends \WP_Widget {
 
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>">
-				<?php esc_html_e( 'Image size: ', 'reseller' ); ?>
+				<?php esc_html_e( 'Image Size', 'reseller-store' ); ?>
 			</label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" class="widefat" style="width:100%;">
-				<option value='thumbnail' <?php selected( 'thumbnail', $data['image_size'] ); ?>><?php esc_html_e( 'Thumbnail', 'reseller' ); ?></option>
-				<option value='medium' <?php selected( 'medium', $data['image_size'] ); ?>><?php esc_html_e( 'Medium resolution', 'reseller' ); ?></option>
-				<option value='large' <?php selected( 'large', $data['image_size'] ); ?>><?php esc_html_e( 'Large resolution', 'reseller' ); ?></option>
-				<option value='full' <?php selected( 'full', $data['image_size'] ); ?>><?php esc_html_e( 'Original resolution', 'reseller' ); ?></option>
-				<option value='none' <?php selected( 'none', $data['image_size'] ); ?>><?php esc_html_e( 'Hide Image', 'reseller' ); ?></option>
+				<option value='thumbnail' <?php selected( 'thumbnail', $data['image_size'] ); ?>><?php esc_html_e( 'Thumbnail', 'reseller-store' ); ?></option>
+				<option value='medium' <?php selected( 'medium', $data['image_size'] ); ?>><?php esc_html_e( 'Medium resolution', 'reseller-store' ); ?></option>
+				<option value='large' <?php selected( 'large', $data['image_size'] ); ?>><?php esc_html_e( 'Large resolution', 'reseller-store' ); ?></option>
+				<option value='full' <?php selected( 'full', $data['image_size'] ); ?>><?php esc_html_e( 'Original resolution', 'reseller-store' ); ?></option>
+				<option value='none' <?php selected( 'none', $data['image_size'] ); ?>><?php esc_html_e( 'Hide image', 'reseller-store' ); ?></option>
 			</select>
 		</p>
 
-		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_title' ) ); ?>" value="1" class="checkbox" <?php checked( $data['show_title'], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>">
-				<?php esc_html_e( 'Show product title', 'reseller' ); ?>
-			</label>
-		</p>
-
-		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_content' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_content' ) ); ?>" value="1" class="checkbox" <?php checked( $data['show_content'], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'show_content' ) ); ?>">
-				<?php esc_html_e( 'Show post text', 'reseller' ); ?>
-			</label>
-		</p>
-
-		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'show_price' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_price' ) ); ?>" value="1" class="checkbox" <?php checked( $data['show_price'], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'show_price' ) ); ?>">
-				<?php esc_html_e( 'Show product price', 'reseller' ); ?>
-			</label>
-		</p>
-
-		<p>
-			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'redirect' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'redirect' ) ); ?>" value="1" class="checkbox" <?php checked( $data['redirect'], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'redirect' ) ); ?>">
-				<?php esc_html_e( 'Redirect to cart after adding item', 'reseller' ); ?>
-			</label>
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>"><?php esc_html_e( 'Button Label:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_label' ) ); ?>" value="<?php echo esc_attr( $data['button_label'] ); ?>" class="widefat">
-			<span class="description" ><?php esc_html_e( 'Leave blank to hide button', 'reseller' ); ?></span>
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'text_cart' ) ); ?>"><?php esc_html_e( 'Cart Text:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'text_cart' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text_cart' ) ); ?>" value="<?php echo esc_attr( $data['text_cart'] ); ?>" class="widefat">
-			<span class="description" ><?php esc_html_e( 'Cart link text', 'reseller' ); ?></span>
-		</p>
-
 		<?php
+
+		$this->display_form_input( 'button_label', $data['button_label'], __( 'Button', 'reseller-store' ), 'text', __( 'Leave blank to hide button', 'reseller-store' ) );
+		$this->display_form_checkbox( 'show_title', $data['show_title'], __( 'Show product title', 'reseller-store' ) );
+		$this->display_form_checkbox( 'show_content', $data['show_content'], __( 'Show post content', 'reseller-store' ) );
+		$this->display_form_checkbox( 'show_price', $data['show_price'], __( 'Show product price', 'reseller-store' ) );
+		$this->display_form_checkbox( 'redirect', $data['redirect'], __( 'Redirect to cart after adding item', 'reseller-store' ) );
+		$this->display_form_input( 'text_cart', $data['text_cart'], __( 'Cart Link', 'reseller-store' ), 'text', __( 'Cart link text', 'reseller-store' ) );
 
 	}
 

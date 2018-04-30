@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// @codeCoverageIgnoreEnd
 }
 
-final class Cart extends \WP_Widget {
+final class Cart extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -33,7 +33,7 @@ final class Cart extends \WP_Widget {
 
 		parent::__construct(
 			rstore_prefix( 'cart' ),
-			esc_html__( 'Reseller Cart', 'reseller-store' ),
+			esc_html__( 'Reseller Cart Link', 'reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'cart', true ),
 				'description' => esc_html__( "Display the user's cart in the sidebar.", 'reseller-store' ),
@@ -49,6 +49,8 @@ final class Cart extends \WP_Widget {
 	 *
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Widget instance.
+	 *
+	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
 	public function widget( $args, $instance ) {
 		/**
@@ -103,7 +105,10 @@ final class Cart extends \WP_Widget {
 		$cart_widget = ob_get_contents();
 		ob_get_clean();
 
-		if ( Shortcodes::is_widget( $args ) ) {
+		$cart_widget = apply_filters( 'rstore_cart_button_html', $cart_widget );
+
+		$is_widget = apply_filters( 'rstore_is_widget', $args );
+		if ( $is_widget ) {
 
 			echo $cart_widget;
 
@@ -122,18 +127,8 @@ final class Cart extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 		$data = $this->get_data( $instance );
-
-		?>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $data['title'] ); ?>" class="widefat">
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>"><?php esc_html_e( 'Button Label:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'button_label' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'button_label' ) ); ?>" value="<?php echo esc_attr( $data['button_label'] ); ?>" class="widefat">
-		</p>
-		<?php
+		$this->display_form_input( 'title', $data['title'], __( 'Title', 'reseller-store' ) );
+		$this->display_form_input( 'button_label', $data['button_label'], __( 'Button', 'reseller-store' ) );
 
 	}
 

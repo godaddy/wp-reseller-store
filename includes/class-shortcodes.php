@@ -111,7 +111,7 @@ final class Shortcodes {
 		/**
 		 * Register the domain transfer shortcode
 		 *
-		 * @shortcode [rstore-domain-transfer]
+		 * @shortcode [rstore_domain_transfer]
 		 *
 		 * @since NEXT
 		 *
@@ -120,6 +120,19 @@ final class Shortcodes {
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
 		add_shortcode( 'rstore_domain_transfer', [ $this, 'domain_transfer' ] );
+
+		/**
+		 * Register the domain search simple shortcode
+		 *
+		 * @shortcode [rstore_domain]
+		 *
+		 * @since NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the domain transfer container.
+		 */
+		add_shortcode( 'rstore_domain', [ $this, 'domain_simple' ] );
 
 	}
 
@@ -219,18 +232,21 @@ final class Shortcodes {
 	}
 
 	/**
-	 * Checks if the shortcode is being rendered as a widget.
+	 * Render the domain search simple widget.
 	 *
-	 * @since 1.3.0
+	 * @since NEXT
 	 *
-	 * @param array $atts Shortcode attributes.
+	 * @param array $atts        The shortcode attributes.
 	 *
-	 * @return boolean    True is id key is set, else false.
+	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
-	public static function is_widget( $atts = [] ) {
+	public function domain_simple( $atts ) {
 
-		return isset( $atts['widget_id'] );
+		$this->args['before_widget'] = '<div class="widget rstore-domain">';
+
+		$domain = new Widgets\Domain_Simple();
+
+		return $domain->widget( $this->args, $atts );
 
 	}
-
 }

@@ -1,10 +1,10 @@
 <?php
 /**
- * GoDaddy Reseller Store domain transfer widget class.
+ * GoDaddy Reseller Store domain simple widget class.
  *
- * Handles the Reseller store domain transfer widget.
+ * Handles the Reseller store domain simple widget.
  *
- * @class    Reseller_Store/Widgets/Domain_Transfer
+ * @class    Reseller_Store/Widgets/Domain_Simple
  * @package  WP_Widget
  * @category Class
  * @author   GoDaddy
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// @codeCoverageIgnoreEnd
 }
 
-final class Domain_Transfer extends Widget_Base {
+final class Domain_Simple extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -32,11 +32,11 @@ final class Domain_Transfer extends Widget_Base {
 	public function __construct() {
 
 		parent::__construct(
-			rstore_prefix( 'transfer' ),
-			esc_html__( 'Reseller Domain Transfer', 'reseller-store' ),
+			rstore_prefix( 'domain_simple' ),
+			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
 			array(
 				'classname'   => rstore_prefix( 'domain', true ),
-				'description' => esc_html__( 'A search form for domain transfers.', 'reseller-store' ),
+				'description' => esc_html__( 'A search form for domain registrations.', 'reseller-store' ),
 				'group'       => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
@@ -56,7 +56,7 @@ final class Domain_Transfer extends Widget_Base {
 	public function widget( $args, $instance ) {
 
 		/**
-		 * Filter classes to be appended to the Domain Transfer widget.
+		 * Filter classes to be appended to the Domain Simple widget.
 		 *
 		 * The `widget_search` class is added here to be sure our
 		 * Domain Search widget inherits any default Search widget
@@ -66,7 +66,7 @@ final class Domain_Transfer extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_transfer_widget_classes', [ 'widget_search' ] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_widget_classes', [ 'widget_search' ] ) );
 
 		if ( $classes ) {
 
@@ -96,7 +96,7 @@ final class Domain_Transfer extends Widget_Base {
 
 		$data = $this->get_data( $instance );
 		?>
-		<form role="search" method="get" class="search-form" action="<?php echo rstore()->api->url( 'www', 'products/domain-transfer' ); ?>">
+		<form role="search" method="get" class="search-form" action="<?php echo rstore()->api->url( 'www', 'products/domain-registration/find' ); ?>">
 			<label>
 				<input type="search" class="search-field" placeholder="<?php echo $data['text_placeholder']; ?>" name="domainToCheck" required>
 			</label>
@@ -108,18 +108,18 @@ final class Domain_Transfer extends Widget_Base {
 
 		echo $args['after_widget']; // xss ok.
 
-		$domain_transfer_widget = ob_get_contents();
+		$domain_search_widget = ob_get_contents();
 		ob_get_clean();
 
-		$domain_transfer_widget = apply_filters( 'rstore_transfer_html', $domain_transfer_widget );
+		$domain_search_widget = apply_filters( 'rstore_domain_html', $domain_search_widget );
 
 		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
-			echo $domain_transfer_widget;
+			echo $domain_search_widget;
 
 		}
 
-		return $domain_transfer_widget;
+		return $domain_search_widget;
 
 	}
 
@@ -169,8 +169,8 @@ final class Domain_Transfer extends Widget_Base {
 	private function get_data( $instance ) {
 		return array(
 			'title'            => isset( $instance['title'] ) ? $instance['title'] : '',
-			'text_placeholder' => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : esc_html__( 'Enter domain to transfer', 'reseller-store' ),
-			'text_button'      => isset( $instance['text_button'] ) ? $instance['text_button'] : esc_html__( 'Transfer', 'reseller-store' ),
+			'text_placeholder' => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : esc_html__( 'Find your perfect domain name', 'reseller-store' ),
+			'text_button'      => isset( $instance['text_button'] ) ? $instance['text_button'] : esc_html__( 'Search', 'reseller-store' ),
 		);
 	}
 

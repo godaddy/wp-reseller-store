@@ -31,12 +31,34 @@ class Widget_Base extends \WP_Widget {
 	 * @param  array  $value Value of the field.
 	 * @param  array  $label Form label text.
 	 * @param  string $type (optional) Input type label text.
+	 * @param  string $description (optional) Description text.
 	 */
-	protected function display_form_input( $field, $value, $label, $type = 'text' ) {
+	protected function display_form_input( $field, $value, $label, $type = 'text', $description = '' ) {
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"><?php $label; ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"><?php echo $label; ?></label>
 			<input type="<?php echo $type; ?>" id="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $field ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="widefat">
+			<span class="description" ><?php echo $description; ?></span>
+		</p>
+		<?php
+	}
+
+	/**
+	 * Display form checkbox field
+	 *
+	 * @since NEXT
+	 *
+	 * @param  string $field Feield name.
+	 * @param  array  $value Value of the field.
+	 * @param  array  $label Form label text.
+	 */
+	protected function display_form_checkbox( $field, $value, $label ) {
+		?>
+		<p>
+			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $field ) ); ?>" value="1" class="checkbox" <?php checked( $value, true ); ?>>
+			<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>">
+				<?php echo $label; ?>
+			</label>
 		</p>
 		<?php
 	}

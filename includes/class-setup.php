@@ -227,7 +227,7 @@ final class Setup {
 					<h3><?php esc_html_e( 'Register your plugin to import your product catalog.', 'reseller-store' ); ?></h3>
 					<p>
 						<form id="rstore-setup-form">
-							<button type="submit" id="rstore-activate" class="button button-primary" ><?php esc_html_e( 'Login & Activate', 'reseller-store' ); ?></button>
+							<button type="submit" id="rstore-activate" class="button button-primary" ><?php esc_html_e( 'Sign In & Activate', 'reseller-store' ); ?></button>
 							<div class="rstore-status">
 								<?php esc_html_e( 'Importing product catalog and installing', 'reseller-store' ); ?>
 								<img id="rstore-spinner" src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">

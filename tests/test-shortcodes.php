@@ -184,11 +184,39 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
+	 * @testdox Given a domain shortcode it should generate html
+	 */
+	function test_domain() {
+
+		rstore_update_option( 'pl_id', 12345 );
+
+		$this->assertRegExp(
+			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
+			do_shortcode( '[rstore_domain]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given a domain transfer shortcode it should generate html
+	 */
+	function test_domain_transfer() {
+
+		rstore_update_option( 'pl_id', 12345 );
+
+		$this->assertRegExp(
+			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
+			do_shortcode( '[rstore_domain_transfer]' )
+		);
+
+	}
+
+	/**
 	 * @testdox Test invalid widget.
 	 */
 	function test_invalid_widget() {
 
-		$this->assertFalse( Shortcodes::is_widget() );
+		$this->assertFalse( rstore_is_widget() );
 
 	}
 
@@ -198,7 +226,7 @@ final class TestShortcodes extends TestCase {
 	function test_valid_widget() {
 
 		$this->assertTrue(
-			Shortcodes::is_widget(
+			rstore_is_widget(
 				[
 					'widget_id' => 'widget-id-123',
 				]

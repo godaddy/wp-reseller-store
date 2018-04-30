@@ -50,11 +50,8 @@ function rstore_has_products() {
 /**
  * Retrieve reseller products.
  *
- * @param integer $selected_product The selected product ID.
- *
- * @since 1.0.0
- *
- * @return mixed Markup for the product select options.
+ * @return array Reseller product posts.
+ * @since NEXT
  */
 function rstore_get_product_list() {
 
@@ -68,14 +65,13 @@ function rstore_get_product_list() {
 
 	$products = [];
 
-
 	while ( $query->have_posts() ) {
 
 		$query->the_post();
 
 		$id = get_the_ID();
 
-		$products[$id] = esc_html( get_the_title() );
+		$products[ strval( $id ) ] = esc_html( get_the_title() );
 
 	}
 
@@ -90,7 +86,6 @@ function rstore_get_product_list() {
  * Product count is cached in memory to prevent duplicate
  * queries on the same page load.
  *
- * @global wpdb $wpdb
  * @since  1.0.0
  *
  * @return bool  Returns `true` on successful removal, `false` on failure
@@ -221,3 +216,36 @@ function rstore_get_product_meta( $post_id, $key, $default = false, $option_fall
 	return ( $meta ) ? $meta : ( $option_fallback ? get_option( $key, $default ) : $default );
 
 }
+
+/**
+ * Returns true when viewing a reseller store product.
+ *
+ * @since  NEXT
+ *
+ * @param object $post  The post of to check type on.
+ *
+ * @return bool True is if post_type is reseller_store
+ */
+function rstore_is_product( $post ) {
+	return ( \Reseller_Store\Post_Type::SLUG === $post->post_type );
+}
+add_filter( 'rstore_is_product', 'rstore_is_product' );
+
+
+
+/**
+ * Checks if the shortcode is being rendered as a widget.
+ *
+ * @since NEXT
+ *
+ * @param array $atts Shortcode attributes.
+ *
+ * @return boolean    True is widget_id key is set, else false.
+ */
+function rstore_is_widget( $atts = [] ) {
+
+	return isset( $atts['widget_id'] );
+
+}
+add_filter( 'rstore_is_widget', 'rstore_is_widget' );
+
