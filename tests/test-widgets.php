@@ -52,7 +52,9 @@ final class TestWidget extends TestCase {
 
 		new Widgets();
 
-		do_action('widgets_init');
+		do_action( 'widgets_init' );
+		do_action( 'init' );
+		do_action( 'vc_before_init' );
 
 		global $wp_widget_factory;
 

@@ -31,8 +31,8 @@ final class TestWidgetDomainSimple extends TestCase {
 		$post = Tests\Helper::create_product();
 
 		$instance = [
-			'post_id'    => $post->ID,
-			'title' => 'title',
+			'post_id'          => $post->ID,
+			'title'            => 'title',
 			'text_placeholder' => 'find your domain',
 		];
 
@@ -58,9 +58,9 @@ final class TestWidgetDomainSimple extends TestCase {
 		$widget = new Widgets\Domain_Simple();
 
 		$old_instance = [
-			'title'        => '',
+			'title'            => '',
 			'text_placeholder' => '',
-			'text_button' => '',
+			'text_button'      => '',
 		];
 
 		$new_instance = [
@@ -85,9 +85,9 @@ final class TestWidgetDomainSimple extends TestCase {
 		$widget = new Widgets\Domain_Simple();
 
 		$instance = [
-			'title'        => 'aaa',
+			'title'            => 'aaa',
 			'text_placeholder' => 'bbb',
-			'text_button'   => 'ccc',
+			'text_button'      => 'ccc',
 		];
 
 		$widget->form( $instance );
@@ -105,8 +105,8 @@ final class TestWidgetDomainSimple extends TestCase {
 
 		add_filter(
 			'rstore_domain_widget_classes', function( $title ) {
-			return [ 'domain' ];
-		}
+				return [ 'domain' ];
+			}
 		);
 
 		$widget = new Widgets\Domain_Simple();
