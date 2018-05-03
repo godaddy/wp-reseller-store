@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2017-12-27 22:57:35+00:00\n"
+"POT-Creation-Date: 2018-05-03 18:48:05+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,16 @@ msgstr "`%s` ไม่ใช่ผลิตภัณฑ์ที่ถูกต�
 msgid "Product Options"
 msgstr "ตัวเลือกผลิตภัณฑ์"
 
-#: includes/class-butterbean.php:155
+#: includes/class-butterbean.php:155 includes/modules/rstore-fl-cart.php:46
+#: includes/modules/rstore-fl-domain-search.php:46
+#: includes/modules/rstore-fl-domain-simple.php:46
+#: includes/modules/rstore-fl-domain-transfer.php:46
+#: includes/modules/rstore-fl-login.php:46
+#: includes/modules/rstore-fl-product.php:46
+#: includes/modules/rstore-vc-domain-search.php:57
+#: includes/modules/rstore-vc-domain-search.php:67
+#: includes/modules/rstore-vc-domain-search.php:77
+#: includes/modules/rstore-vc-product.php:58
 msgid "General"
 msgstr "ทั่วไป"
 
@@ -63,6 +72,7 @@ msgid "Advanced"
 msgstr "ขั้นสูง"
 
 #: includes/class-butterbean.php:193 includes/class-post-type.php:376
+#: includes/modules/rstore-fl-product.php:99
 msgid "Price"
 msgstr "ราคา"
 
@@ -79,17 +89,23 @@ msgid "Add to Cart Button Label"
 msgstr "เพิ่มไปยังฉลากปุ่มตะกร้าสินค้า"
 
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:329
+#: includes/modules/rstore-fl-product.php:77
+#: includes/modules/rstore-vc-product.php:83
+#: includes/widgets/class-product.php:301
 msgid "Add to cart"
 msgstr "เพิ่มลงตะกร้าสินค้า"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:210
 msgid "Cart link text"
 msgstr ""
 
 #: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
-#: includes/widgets/class-domain-search.php:209
-#: includes/widgets/class-product.php:330
+#: includes/modules/rstore-fl-domain-search.php:90
+#: includes/modules/rstore-fl-product.php:129
+#: includes/modules/rstore-vc-domain-search.php:116
+#: includes/modules/rstore-vc-product.php:130
+#: includes/widgets/class-domain-search.php:195
+#: includes/widgets/class-product.php:302
 msgid "Continue to cart"
 msgstr ""
 
@@ -260,7 +276,7 @@ msgid "Register your plugin to import your product catalog."
 msgstr ""
 
 #: includes/class-setup.php:230
-msgid "Login & Activate"
+msgid "Sign In & Activate"
 msgstr ""
 
 #: includes/class-setup.php:232
@@ -389,224 +405,509 @@ msgid "Tags"
 msgstr "แท็ก"
 
 #. translators: product name
-#: includes/functions/product-functions.php:160
+#: includes/functions/product-functions.php:192
 msgid "Error: `%s` does not exist."
 msgstr "ข้อผิดพลาด: ไม่มี `%s` อยู่"
 
+#: includes/modules/rstore-fl-cart.php:32
+#: includes/modules/rstore-fl-product.php:128
+#: includes/modules/rstore-vc-cart.php:44
+#: includes/modules/rstore-vc-product.php:128
+#: includes/widgets/class-product.php:210
+#, fuzzy
+msgid "Cart Link"
+msgstr "ตะกร้าสินค้า"
+
+#: includes/modules/rstore-fl-cart.php:33
+#: includes/modules/rstore-vc-cart.php:46
+msgid "A shopper cart status."
+msgstr ""
+
+#: includes/modules/rstore-fl-cart.php:34
+#: includes/modules/rstore-fl-login.php:34
+msgid "Shopper Modules"
+msgstr ""
+
+#: includes/modules/rstore-fl-cart.php:35
+#: includes/modules/rstore-fl-domain-search.php:35
+#: includes/modules/rstore-fl-domain-simple.php:35
+#: includes/modules/rstore-fl-domain-transfer.php:35
+#: includes/modules/rstore-fl-login.php:35
+#: includes/modules/rstore-fl-product.php:35
+#: includes/widgets/class-domain-search.php:40
+#: includes/widgets/class-domain-simple.php:40
+#: includes/widgets/class-domain-transfer.php:40
+#: includes/widgets/class-login.php:40 includes/widgets/class-product.php:40
+#, fuzzy
+msgid "Reseller Store Modules"
+msgstr "ร้านค้าตัวแทนจำหน่าย"
+
+#: includes/modules/rstore-fl-cart.php:53
+#: includes/modules/rstore-fl-domain-search.php:53
+#: includes/modules/rstore-fl-domain-simple.php:53
+#: includes/modules/rstore-fl-domain-transfer.php:53
+#: includes/modules/rstore-fl-login.php:53
+#: includes/modules/rstore-fl-product.php:81
+#: includes/modules/rstore-vc-cart.php:54
+#: includes/modules/rstore-vc-domain-search.php:54
+#: includes/modules/rstore-vc-domain-simple.php:54
+#: includes/modules/rstore-vc-domain-transfer.php:55
+#: includes/modules/rstore-vc-login.php:54 includes/widgets/class-cart.php:130
+#: includes/widgets/class-domain-search.php:137
+#: includes/widgets/class-domain-simple.php:135
+#: includes/widgets/class-domain-transfer.php:135
+#: includes/widgets/class-login.php:142
+#, fuzzy
+msgid "Title"
+msgstr "ชื่อเรื่อง:"
+
+#: includes/modules/rstore-fl-cart.php:57
+#: includes/modules/rstore-fl-domain-simple.php:63
+#: includes/modules/rstore-fl-domain-transfer.php:63
+#: includes/modules/rstore-fl-product.php:75
+#: includes/modules/rstore-vc-cart.php:63
+#: includes/modules/rstore-vc-domain-search.php:74
+#: includes/modules/rstore-vc-domain-simple.php:76
+#: includes/modules/rstore-vc-domain-transfer.php:79
+#: includes/modules/rstore-vc-product.php:81
+#: includes/widgets/class-cart.php:131
+#: includes/widgets/class-domain-simple.php:137
+#: includes/widgets/class-domain-transfer.php:137
+#: includes/widgets/class-product.php:205
+#, fuzzy
+msgid "Button"
+msgstr "ปุ่ม:"
+
+#: includes/modules/rstore-fl-cart.php:58
+#: includes/modules/rstore-vc-cart.php:65 includes/widgets/class-cart.php:165
+#, fuzzy
+msgid "View Cart"
+msgstr "ดูตะกร้าสินค้า"
+
+#: includes/modules/rstore-fl-domain-search.php:32
+#, fuzzy
+msgid "Advanced Search"
+msgstr "ขั้นสูง"
+
+#: includes/modules/rstore-fl-domain-search.php:33
+#: includes/modules/rstore-vc-domain-search.php:46
+#: includes/widgets/class-domain-search.php:39
+#, fuzzy
+msgid "An advanced search form with on page results for domain names."
+msgstr "แบบฟอร์มการค้นหาชื่อโดเมน"
+
+#: includes/modules/rstore-fl-domain-search.php:34
+#: includes/modules/rstore-fl-domain-simple.php:34
+#: includes/modules/rstore-fl-domain-transfer.php:34
+msgid "Domain Modules"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:54
+#: includes/modules/rstore-fl-domain-simple.php:54
+#: includes/modules/rstore-fl-domain-transfer.php:54
+#: includes/modules/rstore-vc-cart.php:56
+#: includes/modules/rstore-vc-domain-search.php:56
+#: includes/modules/rstore-vc-domain-simple.php:56
+#: includes/modules/rstore-vc-domain-transfer.php:57
+#: includes/modules/rstore-vc-login.php:56
+msgid "Optional widget title"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:58
+#: includes/modules/rstore-fl-domain-simple.php:58
+#: includes/modules/rstore-fl-domain-transfer.php:58
+#: includes/modules/rstore-vc-domain-search.php:64
+#: includes/modules/rstore-vc-domain-simple.php:65
+#: includes/modules/rstore-vc-domain-transfer.php:67
+#: includes/widgets/class-domain-search.php:138
+#: includes/widgets/class-domain-simple.php:136
+#: includes/widgets/class-domain-transfer.php:136
+#, fuzzy
+msgid "Placeholder"
+msgstr "ตัวยึด"
+
+#: includes/modules/rstore-fl-domain-search.php:59
+#: includes/modules/rstore-fl-domain-simple.php:59
+#: includes/modules/rstore-vc-domain-search.php:66
+#: includes/modules/rstore-vc-domain-simple.php:67
+#: includes/widgets/class-domain-search.php:191
+#: includes/widgets/class-domain-simple.php:172
+msgid "Find your perfect domain name"
+msgstr "หาชื่อโดเมนที่เหมาะที่สุดของคุณ"
+
+#: includes/modules/rstore-fl-domain-search.php:63
+#: includes/widgets/class-domain-search.php:139
+#, fuzzy
+msgid "Search Button"
+msgstr "ปุ่ม:"
+
+#: includes/modules/rstore-fl-domain-search.php:64
+#: includes/modules/rstore-fl-domain-simple.php:32
+#: includes/modules/rstore-fl-domain-simple.php:64
+#: includes/modules/rstore-vc-domain-search.php:76
+#: includes/modules/rstore-vc-domain-simple.php:78
+#: includes/widgets/class-domain-search.php:192
+#: includes/widgets/class-domain-simple.php:173
+msgid "Search"
+msgstr "ค้นหา"
+
+#: includes/modules/rstore-fl-domain-search.php:73
+#: includes/modules/rstore-vc-domain-search.php:84
+#: includes/widgets/class-domain-search.php:140
+msgid "Page Size"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:74
+msgid "domains"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:79
+#: includes/modules/rstore-vc-domain-search.php:94
+#: includes/widgets/class-domain-search.php:141
+msgid "Available Text"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:80
+#: includes/modules/rstore-vc-domain-search.php:96
+#: includes/widgets/class-domain-search.php:193
+#, fuzzy
+msgid "Congrats, {domain_name} is available!"
+msgstr "ยินดีด้วย โดเมนของคุณยังว่างอยู่!"
+
+#: includes/modules/rstore-fl-domain-search.php:84
+#: includes/modules/rstore-vc-domain-search.php:104
+#: includes/widgets/class-domain-search.php:142
+msgid "Not Available Text"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:85
+#: includes/modules/rstore-vc-domain-search.php:106
+#: includes/widgets/class-domain-search.php:194
+#, fuzzy
+msgid "Sorry, {domain_name} is taken."
+msgstr "ขออภัย โดเมนนั้นมีคนเป็นเจ้าของแล้ว"
+
+#: includes/modules/rstore-fl-domain-search.php:89
+#: includes/modules/rstore-vc-domain-search.php:114
+#: includes/widgets/class-domain-search.php:143
+#, fuzzy
+msgid "Cart Button"
+msgstr "เพิ่มไปยังฉลากปุ่มตะกร้าสินค้า"
+
+#: includes/modules/rstore-fl-domain-search.php:94
+#: includes/modules/rstore-vc-domain-search.php:124
+#: includes/widgets/class-domain-search.php:144
+#, fuzzy
+msgid "Select Button"
+msgstr "ปุ่ม:"
+
+#: includes/modules/rstore-fl-domain-search.php:95
+#: includes/modules/rstore-vc-domain-search.php:126
+#: includes/widgets/class-domain-search.php:196
+msgid "Select"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:99
+#: includes/modules/rstore-vc-domain-search.php:134
+#: includes/widgets/class-domain-search.php:145
+#, fuzzy
+msgid "Deselect Button"
+msgstr "ปุ่ม:"
+
+#: includes/modules/rstore-fl-domain-search.php:100
+#: includes/modules/rstore-vc-domain-search.php:136
+#: includes/widgets/class-domain-search.php:197
+msgid "Selected"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:104
+#: includes/modules/rstore-vc-domain-search.php:144
+#: includes/widgets/class-domain-search.php:146
+#, fuzzy
+msgid "Verify Button"
+msgstr "ปุ่ม:"
+
+#: includes/modules/rstore-fl-domain-search.php:105
+#: includes/modules/rstore-vc-domain-search.php:146
+#: includes/widgets/class-domain-search.php:198
+msgid "Verify"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:109
+#: includes/modules/rstore-vc-domain-search.php:154
+msgid "Disclaimer"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:110
+#: includes/widgets/class-domain-search.php:147
+msgid "Domain disclaimer notice"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:111
+#: includes/modules/rstore-vc-domain-search.php:155
+msgid ""
+"Disclaimer notice must be displayed for some regions and domains. Leave "
+"blank to display recommended disclaimer."
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-simple.php:33
+#: includes/modules/rstore-vc-domain-simple.php:46
+#: includes/widgets/class-domain-simple.php:39
+#, fuzzy
+msgid "A search form for domain registrations."
+msgstr "แบบฟอร์มการค้นหาชื่อโดเมน"
+
+#: includes/modules/rstore-fl-domain-transfer.php:32
+#: includes/modules/rstore-fl-domain-transfer.php:64
+#: includes/modules/rstore-vc-domain-transfer.php:81
+#: includes/widgets/class-domain-transfer.php:173
+msgid "Transfer"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-transfer.php:33
+#: includes/modules/rstore-vc-domain-transfer.php:46
+#: includes/widgets/class-domain-transfer.php:39
+#, fuzzy
+msgid "A search form for domain transfers."
+msgstr "แบบฟอร์มการค้นหาชื่อโดเมน"
+
+#: includes/modules/rstore-fl-domain-transfer.php:59
+#: includes/modules/rstore-vc-domain-transfer.php:69
+#: includes/widgets/class-domain-transfer.php:172
+msgid "Enter domain to transfer"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:32
+#: includes/modules/rstore-vc-login.php:44
+#, fuzzy
+msgid "Shopper Login"
+msgstr "ร้านค้าตัวแทนจำหน่าย"
+
+#: includes/modules/rstore-fl-login.php:33
+#: includes/modules/rstore-vc-login.php:46 includes/widgets/class-login.php:39
+msgid "A shopper login status."
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:57
+#: includes/modules/rstore-vc-login.php:63 includes/widgets/class-login.php:143
+#, fuzzy
+msgid "Sign In Button"
+msgstr "ปุ่ม:"
+
+#: includes/modules/rstore-fl-login.php:58
+#: includes/modules/rstore-vc-login.php:65 includes/widgets/class-login.php:183
+msgid "Sign In"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:62
+#: includes/modules/rstore-vc-login.php:72 includes/widgets/class-login.php:144
+msgid "Welcome Message"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:63
+#: includes/modules/rstore-vc-login.php:74 includes/widgets/class-login.php:182
+msgid "Welcome Back"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:67
+#: includes/modules/rstore-vc-login.php:81 includes/widgets/class-login.php:145
+#, fuzzy
+msgid "Log Out Button"
+msgstr "ปุ่ม:"
+
+#: includes/modules/rstore-fl-login.php:68
+#: includes/modules/rstore-vc-login.php:83 includes/widgets/class-login.php:184
+msgid "Log Out"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:32
+#: includes/modules/rstore-fl-product.php:53
+#: includes/modules/rstore-vc-product.php:44
+#: includes/modules/rstore-vc-product.php:54
+#: includes/widgets/class-product.php:183
+#, fuzzy
+msgid "Product"
+msgstr "ผลิตภัณฑ์"
+
+#: includes/modules/rstore-fl-product.php:33
+#: includes/modules/rstore-vc-product.php:46
+#: includes/widgets/class-product.php:39
+msgid "Display a product post."
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:34
+#, fuzzy
+msgid "Product Modules"
+msgstr "ผลิตภัณฑ์"
+
+#: includes/modules/rstore-fl-product.php:63
+#: includes/modules/rstore-vc-product.php:65
+#: includes/widgets/class-product.php:192
+msgid "Image Size"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:66
+#: includes/modules/rstore-vc-product.php:68
+#: includes/widgets/class-product.php:195
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:67
+#: includes/modules/rstore-vc-product.php:69
+#: includes/widgets/class-product.php:196
+msgid "Medium resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:68
+#: includes/modules/rstore-vc-product.php:70
+#: includes/widgets/class-product.php:197
+msgid "Large resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:69
+#: includes/modules/rstore-vc-product.php:71
+#: includes/widgets/class-product.php:198
+msgid "Original resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:70
+#: includes/modules/rstore-vc-product.php:72
+#: includes/widgets/class-product.php:199
+#, fuzzy
+msgid "Hide image"
+msgstr "รูปภาพสินค้า"
+
+#: includes/modules/rstore-fl-product.php:76
+#: includes/modules/rstore-vc-product.php:84
+#: includes/widgets/class-product.php:205
+msgid "Leave blank to hide button"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:84
+#: includes/modules/rstore-fl-product.php:93
+#: includes/modules/rstore-fl-product.php:102
+msgid "Show"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:85
+#: includes/modules/rstore-fl-product.php:94
+#: includes/modules/rstore-fl-product.php:103
+#: includes/modules/rstore-vc-product.php:94
+#: includes/modules/rstore-vc-product.php:103
+#: includes/modules/rstore-vc-product.php:112
+msgid "Hide"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:90
+msgid "Post Content"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:113
+#: includes/modules/rstore-vc-product.php:119
+#: includes/widgets/class-product.php:209
+#, fuzzy
+msgid "Redirect to cart after adding item"
+msgstr "เปลี่ยนเส้นทางไปยังตะกร้าสินค้าทันทีหลังจากที่เพิ่มแล้ว"
+
+#: includes/modules/rstore-fl-product.php:116
+msgid "Yes"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:117
+#: includes/modules/rstore-vc-product.php:121
+msgid "No"
+msgstr ""
+
+#: includes/modules/rstore-vc-cart.php:47
+#: includes/modules/rstore-vc-domain-search.php:47
+#: includes/modules/rstore-vc-domain-simple.php:47
+#: includes/modules/rstore-vc-domain-transfer.php:47
+#: includes/modules/rstore-vc-login.php:47
+#: includes/modules/rstore-vc-product.php:47
+msgid "Reseller Store"
+msgstr "ร้านค้าตัวแทนจำหน่าย"
+
+#: includes/modules/rstore-vc-domain-search.php:44
+#, fuzzy
+msgid "Advanced Domain Search"
+msgstr "การค้นหาโดเมน"
+
+#: includes/modules/rstore-vc-domain-search.php:87
+#: includes/modules/rstore-vc-domain-search.php:97
+#: includes/modules/rstore-vc-domain-search.php:107
+#: includes/modules/rstore-vc-domain-search.php:117
+#: includes/modules/rstore-vc-domain-search.php:127
+#: includes/modules/rstore-vc-domain-search.php:137
+#: includes/modules/rstore-vc-domain-search.php:147
+#: includes/modules/rstore-vc-domain-search.php:158
+msgid "Results"
+msgstr ""
+
+#: includes/modules/rstore-vc-domain-simple.php:44
+#: includes/widgets/class-domain-search.php:107
+msgid "Domain Search"
+msgstr "การค้นหาโดเมน"
+
+#: includes/modules/rstore-vc-domain-transfer.php:44
+#, fuzzy
+msgid "Domain Transfer"
+msgstr "การค้นหาโดเมน"
+
+#: includes/modules/rstore-vc-product.php:92
+#: includes/widgets/class-product.php:206
+#, fuzzy
+msgid "Show product title"
+msgstr "ใส่รูปสินค้า"
+
+#: includes/modules/rstore-vc-product.php:101
+#: includes/widgets/class-product.php:207
+#, fuzzy
+msgid "Show post content"
+msgstr "ใส่รูปสินค้า"
+
+#: includes/modules/rstore-vc-product.php:110
+#: includes/widgets/class-product.php:208
+#, fuzzy
+msgid "Show product price"
+msgstr "ใส่รูปสินค้า"
+
 #: includes/widgets/class-cart.php:36
-msgid "Reseller Cart"
+#, fuzzy
+msgid "Reseller Cart Link"
 msgstr "ตะกร้าสินค้าตัวแทนจำหน่าย"
 
 #: includes/widgets/class-cart.php:39
 msgid "Display the user's cart in the sidebar."
 msgstr "แสดงรถเข็นของยูซเซอร์ที่ไซด์บาร์"
 
-#: includes/widgets/class-cart.php:128
-#: includes/widgets/class-domain-search.php:132
-#: includes/widgets/class-login.php:138
-msgid "Title:"
-msgstr "ชื่อเรื่อง:"
-
-#: includes/widgets/class-cart.php:133 includes/widgets/class-product.php:227
-#, fuzzy
-msgid "Button Label:"
-msgstr "ปุ่ม:"
-
-#: includes/widgets/class-cart.php:170
-#, fuzzy
-msgid "View Cart"
-msgstr "ดูตะกร้าสินค้า"
-
 #: includes/widgets/class-domain-search.php:36
+#, fuzzy
+msgid "Reseller Domain Search (Advanced)"
+msgstr "การค้นหาโดเมนของตัวแทนจำหน่าย"
+
+#: includes/widgets/class-domain-simple.php:36
 msgid "Reseller Domain Search"
 msgstr "การค้นหาโดเมนของตัวแทนจำหน่าย"
 
-#: includes/widgets/class-domain-search.php:39
-msgid "A search form for domain names."
-msgstr "แบบฟอร์มการค้นหาชื่อโดเมน"
-
-#: includes/widgets/class-domain-search.php:104
-msgid "Domain Search"
-msgstr "การค้นหาโดเมน"
-
-#: includes/widgets/class-domain-search.php:133
-msgid "Domain result page size:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:134
-msgid "Placeholder:"
-msgstr "ตัวยึด"
-
-#: includes/widgets/class-domain-search.php:135
+#: includes/widgets/class-domain-transfer.php:36
 #, fuzzy
-msgid "Search Button:"
-msgstr "ปุ่ม:"
-
-#: includes/widgets/class-domain-search.php:136
-msgid "Available Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:137
-msgid "Not Available Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:138
-#, fuzzy
-msgid "Cart Button Text:"
-msgstr "เพิ่มไปยังฉลากปุ่มตะกร้าสินค้า"
-
-#: includes/widgets/class-domain-search.php:139
-msgid "Select Button Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:140
-msgid "Unselect Button Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:141
-msgid "Verify Button Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:142
-msgid "Domain disclaimer notice"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:205
-msgid "Find your perfect domain name"
-msgstr "หาชื่อโดเมนที่เหมาะที่สุดของคุณ"
-
-#: includes/widgets/class-domain-search.php:206
-msgid "Search"
-msgstr "ค้นหา"
-
-#: includes/widgets/class-domain-search.php:207
-#, fuzzy
-msgid "Congrats, {domain_name} is available!"
-msgstr "ยินดีด้วย โดเมนของคุณยังว่างอยู่!"
-
-#: includes/widgets/class-domain-search.php:208
-#, fuzzy
-msgid "Sorry, {domain_name} is taken."
-msgstr "ขออภัย โดเมนนั้นมีคนเป็นเจ้าของแล้ว"
-
-#: includes/widgets/class-domain-search.php:210
-msgid "Select"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:211
-msgid "Selected"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:212
-msgid "Verify"
-msgstr ""
+msgid "Reseller Domain Transfer"
+msgstr "การค้นหาโดเมนของตัวแทนจำหน่าย"
 
 #: includes/widgets/class-login.php:36
 #, fuzzy
 msgid "Reseller Shopper Login"
 msgstr "ร้านค้าตัวแทนจำหน่าย"
 
-#: includes/widgets/class-login.php:39
-msgid "A shopper login status"
-msgstr ""
-
-#: includes/widgets/class-login.php:143
-#, fuzzy
-msgid "Log In Button:"
-msgstr "ปุ่ม:"
-
-#: includes/widgets/class-login.php:148
-#, fuzzy
-msgid "Log Out Button:"
-msgstr "ปุ่ม:"
-
-#: includes/widgets/class-login.php:153
-msgid "Welcome Message:"
-msgstr ""
-
-#: includes/widgets/class-login.php:194
-msgid "Welcome Back"
-msgstr ""
-
-#: includes/widgets/class-login.php:195
-msgid "Log In"
-msgstr ""
-
-#: includes/widgets/class-login.php:196
-msgid "Log Out"
-msgstr ""
-
 #: includes/widgets/class-product.php:36
 #, fuzzy
 msgid "Reseller Product"
 msgstr "ผลิตภัณฑ์ตัวแทนจำหน่าย"
 
-#: includes/widgets/class-product.php:39
-msgid "Display product post."
-msgstr ""
-
-#: includes/widgets/class-product.php:70 includes/widgets/class-product.php:74
+#: includes/widgets/class-product.php:73 includes/widgets/class-product.php:77
 #, fuzzy
 msgid "Post id is not valid."
 msgstr "`%s` ไม่ใช่ผลิตภัณฑ์ที่ถูกต้อง"
-
-#: includes/widgets/class-product.php:178
-#, fuzzy
-msgid "Product: "
-msgstr "ผลิตภัณฑ์"
-
-#: includes/widgets/class-product.php:187
-msgid "Image size: "
-msgstr ""
-
-#: includes/widgets/class-product.php:190
-msgid "Thumbnail"
-msgstr ""
-
-#: includes/widgets/class-product.php:191
-msgid "Medium resolution"
-msgstr ""
-
-#: includes/widgets/class-product.php:192
-msgid "Large resolution"
-msgstr ""
-
-#: includes/widgets/class-product.php:193
-msgid "Original resolution"
-msgstr ""
-
-#: includes/widgets/class-product.php:194
-#, fuzzy
-msgid "Hide Image"
-msgstr "รูปภาพสินค้า"
-
-#: includes/widgets/class-product.php:201
-#, fuzzy
-msgid "Show product title"
-msgstr "ใส่รูปสินค้า"
-
-#: includes/widgets/class-product.php:208
-#, fuzzy
-msgid "Show post text"
-msgstr "ใส่รูปสินค้า"
-
-#: includes/widgets/class-product.php:215
-#, fuzzy
-msgid "Show product price"
-msgstr "ใส่รูปสินค้า"
-
-#: includes/widgets/class-product.php:222
-#, fuzzy
-msgid "Redirect to cart after adding item"
-msgstr "เปลี่ยนเส้นทางไปยังตะกร้าสินค้าทันทีหลังจากที่เพิ่มแล้ว"
-
-#: includes/widgets/class-product.php:229
-msgid "Leave blank to hide button"
-msgstr ""
-
-#: includes/widgets/class-product.php:233
-msgid "Cart Text:"
-msgstr ""
 
 #. translators: server PHP version
 #: reseller-store.php:36
@@ -708,8 +1009,9 @@ msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / ต่อ %2$s"
 
-#~ msgid "Reseller Store"
-#~ msgstr "ร้านค้าตัวแทนจำหน่าย"
+#, fuzzy
+#~ msgid "Product: "
+#~ msgstr "ผลิตภัณฑ์"
 
 #~ msgid "Reset Data"
 #~ msgstr "รีเซ็ตข้อมูล"
@@ -741,9 +1043,6 @@ msgstr "%1$s / ต่อ %2$s"
 
 #~ msgid "View Cart %s"
 #~ msgstr "ดูตะกร้าสินค้า %s"
-
-#~ msgid "Cart"
-#~ msgstr "ตะกร้าสินค้า"
 
 #~ msgid "Hide if cart is empty"
 #~ msgstr "ซ่อนเมื่อไม่มีสินค้าในตะกร้า"
