@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// @codeCoverageIgnoreEnd
 }
 
-final class Login extends \WP_Widget {
+final class Login extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -36,7 +36,8 @@ final class Login extends \WP_Widget {
 			esc_html__( 'Reseller Shopper Login', 'reseller-store' ),
 			array(
 				'classname'   => rstore_prefix( 'login', true ),
-				'description' => esc_html__( 'A shopper login status', 'reseller-store' ),
+				'description' => esc_html__( 'A shopper login status.', 'reseller-store' ),
+				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
 
@@ -49,6 +50,8 @@ final class Login extends \WP_Widget {
 	 *
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Widget instance.
+	 *
+	 * @return mixed Returns the HTML markup for the login container.
 	 */
 	public function widget( $args, $instance ) {
 
@@ -114,7 +117,9 @@ final class Login extends \WP_Widget {
 		$login_widget = ob_get_contents();
 		ob_get_clean();
 
-		if ( Shortcodes::is_widget( $args ) ) {
+		$login_widget = apply_filters( 'rstore_login_html', $login_widget );
+
+		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
 			echo $login_widget;
 
@@ -132,29 +137,12 @@ final class Login extends \WP_Widget {
 	 * @param array $instance Widget instance.
 	 */
 	public function form( $instance ) {
+
 		$data = $this->get_data( $instance );
-		?>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $data['title'] ); ?>" class="widefat">
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'login_button_text' ) ); ?>"><?php esc_html_e( 'Log In Button:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'login_button_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'login_button_text' ) ); ?>" value="<?php echo esc_attr( $data['login_button_text'] ); ?>" class="widefat">
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'logout_button_text' ) ); ?>"><?php esc_html_e( 'Log Out Button:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'logout_button_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'logout_button_text' ) ); ?>" value="<?php echo esc_attr( $data['logout_button_text'] ); ?>" class="widefat">
-		</p>
-
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'welcome_message' ) ); ?>"><?php esc_html_e( 'Welcome Message:', 'reseller' ); ?></label>
-			<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'welcome_message' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'welcome_message' ) ); ?>" value="<?php echo esc_attr( $data['welcome_message'] ); ?>" class="widefat">
-		</p>
-
-		<?php
+		$this->display_form_input( 'title', $data['title'], __( 'Title', 'reseller-store' ) );
+		$this->display_form_input( 'login_button_text', $data['login_button_text'], __( 'Sign In Button', 'reseller-store' ) );
+		$this->display_form_input( 'welcome_message', $data['welcome_message'], __( 'Welcome Message', 'reseller-store' ) );
+		$this->display_form_input( 'logout_button_text', $data['logout_button_text'], __( 'Log Out Button', 'reseller-store' ) );
 
 	}
 
@@ -192,7 +180,7 @@ final class Login extends \WP_Widget {
 		return array(
 			'title'              => isset( $instance['title'] ) ? $instance['title'] : '',
 			'welcome_message'    => isset( $instance['welcome_message'] ) ? $instance['welcome_message'] : esc_html__( 'Welcome Back', 'reseller-store' ),
-			'login_button_text'  => isset( $instance['login_button_text'] ) ? $instance['login_button_text'] : esc_html__( 'Log In', 'reseller-store' ),
+			'login_button_text'  => isset( $instance['login_button_text'] ) ? $instance['login_button_text'] : esc_html__( 'Sign In', 'reseller-store' ),
 			'logout_button_text' => isset( $instance['logout_button_text'] ) ? $instance['logout_button_text'] : esc_html__( 'Log Out', 'reseller-store' ),
 		);
 	}

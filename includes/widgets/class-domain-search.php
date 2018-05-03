@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	// @codeCoverageIgnoreEnd
 }
 
-final class Domain_Search extends \WP_Widget {
+final class Domain_Search extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -33,10 +33,11 @@ final class Domain_Search extends \WP_Widget {
 
 		parent::__construct(
 			rstore_prefix( 'domain' ),
-			esc_html__( 'Reseller Domain Search', 'reseller-store' ),
+			esc_html__( 'Reseller Domain Search (Advanced)', 'reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'domain', true ),
-				'description' => esc_html__( 'A search form for domain names.', 'reseller-store' ),
+				'description' => esc_html__( 'An advanced search form with on page results for domain names.', 'reseller-store' ),
+				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			]
 		);
 
@@ -49,6 +50,8 @@ final class Domain_Search extends \WP_Widget {
 	 *
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Widget instance.
+	 *
+	 * @return mixed Returns the HTML markup for the domain search container.
 	 */
 	public function widget( $args, $instance ) {
 
@@ -103,14 +106,16 @@ final class Domain_Search extends \WP_Widget {
 
 		$domain_html .= '>' . esc_html__( 'Domain Search', 'reseller' ) . '</div>';
 
-		echo apply_filters( 'rstore_domain_html', $domain_html );
+		echo $domain_html;
 
 		echo $args['after_widget']; // xss ok.
 
 		$domain_search_widget = ob_get_contents();
 		ob_get_clean();
 
-		if ( Shortcodes::is_widget( $args ) ) {
+		$domain_search_widget = apply_filters( 'rstore_domain_search_html', $domain_search_widget );
+
+		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
 			echo $domain_search_widget;
 
@@ -129,36 +134,17 @@ final class Domain_Search extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 		$data = $this->get_data( $instance );
-		$this->display_form_input( 'title', $data['title'], esc_html_e( 'Title:', 'reseller' ) );
-		$this->display_form_input( 'page_size', $data['page_size'], esc_html_e( 'Domain result page size:', 'reseller' ), 'number' );
-		$this->display_form_input( 'text_placeholder', $data['text_placeholder'], esc_html_e( 'Placeholder:', 'reseller' ) );
-		$this->display_form_input( 'text_search', $data['text_search'], esc_html_e( 'Search Button:', 'reseller' ) );
-		$this->display_form_input( 'text_available', $data['text_available'], esc_html_e( 'Available Text:', 'reseller' ) );
-		$this->display_form_input( 'text_not_available', $data['text_not_available'], esc_html_e( 'Not Available Text:', 'reseller' ) );
-		$this->display_form_input( 'text_cart', $data['text_cart'], esc_html_e( 'Cart Button Text:', 'reseller' ) );
-		$this->display_form_input( 'text_select', $data['text_select'], esc_html_e( 'Select Button Text:', 'reseller' ) );
-		$this->display_form_input( 'text_selected', $data['text_selected'], esc_html_e( 'Unselect Button Text:', 'reseller' ) );
-		$this->display_form_input( 'text_verify', $data['text_verify'], esc_html_e( 'Verify Button Text:', 'reseller' ) );
-		$this->display_form_input( 'text_disclaimer', $data['text_disclaimer'], esc_html_e( 'Domain disclaimer notice', 'reseller' ) );
-	}
-
-	/**
-	 * Display form input field
-	 *
-	 * @since 1.1.0
-	 *
-	 * @param  string $field Feield name.
-	 * @param  array  $value Value of the field.
-	 * @param  array  $label Form label text.
-	 * @param  string $type (optional) Input type label text.
-	 */
-	private function display_form_input( $field, $value, $label, $type = 'text' ) {
-		?>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"><?php $label; ?></label>
-			<input type="<?php echo $type; ?>" id="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $field ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="widefat">
-		</p>
-		<?php
+		$this->display_form_input( 'title', $data['title'], __( 'Title', 'reseller-store' ) );
+		$this->display_form_input( 'text_placeholder', $data['text_placeholder'], __( 'Placeholder', 'reseller-store' ) );
+		$this->display_form_input( 'text_search', $data['text_search'], __( 'Search Button', 'reseller-store' ) );
+		$this->display_form_input( 'page_size', $data['page_size'], __( 'Page Size', 'reseller-store' ), 'number' );
+		$this->display_form_input( 'text_available', $data['text_available'], __( 'Available Text', 'reseller-store' ) );
+		$this->display_form_input( 'text_not_available', $data['text_not_available'], __( 'Not Available Text', 'reseller-store' ) );
+		$this->display_form_input( 'text_cart', $data['text_cart'], __( 'Cart Button', 'reseller-store' ) );
+		$this->display_form_input( 'text_select', $data['text_select'], __( 'Select Button', 'reseller-store' ) );
+		$this->display_form_input( 'text_selected', $data['text_selected'], __( 'Deselect Button', 'reseller-store' ) );
+		$this->display_form_input( 'text_verify', $data['text_verify'], __( 'Verify Button', 'reseller-store' ) );
+		$this->display_form_input( 'text_disclaimer', $data['text_disclaimer'], __( 'Domain disclaimer notice', 'reseller-store' ) );
 	}
 
 	/**

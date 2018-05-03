@@ -10,11 +10,33 @@ final class TestWidget extends TestCase {
 	/**
 	 * Test that all required actions and filters are added as expected.
 	 */
+	function test_widgets_init() {
+
+		$widget = new Widgets();
+
+		$this->do_action_validation( 'widgets_init', [ $widget, 'register_widgets' ] );
+
+	}
+
+	/**
+	 * Test that all required actions and filters are added as expected.
+	 */
 	function test_init() {
 
-		new Widgets();
+		$widget = new Widgets();
 
-		$this->do_action_validation( 'widgets_init', [ __NAMESPACE__ . '\Widgets', 'register_widgets' ] );
+		$this->do_action_validation( 'init', [ $widget, 'load_fl_modules' ] );
+
+	}
+
+	/**
+	 * Test that all required actions and filters are added as expected.
+	 */
+	function test_vc_before_init() {
+
+		$widget = new Widgets();
+
+		$this->do_action_validation( 'vc_before_init', [ $widget, 'load_vc_modules' ] );
 
 	}
 
@@ -28,7 +50,11 @@ final class TestWidget extends TestCase {
 			'Method Widgets::register_widgets is not found'
 		);
 
-		Widgets::register_widgets();
+		new Widgets();
+
+		do_action( 'widgets_init' );
+		do_action( 'init' );
+		do_action( 'vc_before_init' );
 
 		global $wp_widget_factory;
 
