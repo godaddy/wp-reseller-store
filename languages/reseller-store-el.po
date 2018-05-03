@@ -81,7 +81,7 @@ msgstr "Ετικέτα κουμπιού προσθήκης στο καλάθι �
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
 #: includes/widgets/class-product.php:329
 msgid "Add to cart"
-msgstr "Προσθήκη στο καλάθι"
+msgstr "Προσθήκη στο καλάθι αγορών"
 
 #: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
 msgid "Cart link text"
