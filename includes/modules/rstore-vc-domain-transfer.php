@@ -41,50 +41,49 @@ class VCDomainTransfer extends \WPBakeryShortCode {
 
 		vc_map(
 			array(
-				'name'                                   => __( 'Domain Transfer', 'reseller-store' ),
-				'base'                                   => 'rstore_domain_transfer',
-				'description'                            => __( 'A search form for domain transfers.', 'reseller-store' ),
-				'category'                               => __( 'Reseller Store', 'reseller-store' ),
-				// 'icon' => get_template_directory_uri().'/assets/img/vc-icon.png',
-												'params' => array(
+				'name'        => __( 'Domain Transfer', 'reseller-store' ),
+				'base'        => 'rstore_domain_transfer',
+				'description' => __( 'A search form for domain transfers.', 'reseller-store' ),
+				'category'    => __( 'Reseller Store', 'reseller-store' ),
+				'params'      => array(
 
-													array(
-														'type' => 'textfield',
-														'holder' => 'div',
-														'class' => 'title-class',
-														'heading' => __( 'Title', 'reseller-store' ),
-														'param_name' => 'title',
-														'description' => __( 'Optional widget title', 'reseller-store' ),
-														'admin_label' => false,
-														'weight' => 0,
-														'group' => 'Custom Group',
-													),
+					array(
+						'type'        => 'textfield',
+						'holder'      => 'div',
+						'class'       => 'title-class',
+						'heading'     => __( 'Title', 'reseller-store' ),
+						'param_name'  => 'title',
+						'description' => __( 'Optional widget title', 'reseller-store' ),
+						'admin_label' => false,
+						'weight'      => 0,
+						'group'       => 'Custom Group',
+					),
 
-													array(
-														'type' => 'textfield',
-														'holder' => 'div',
-														'class' => 'text-class',
-														'heading' => __( 'Placeholder', 'reseller-store' ),
-														'param_name' => 'text_placeholder',
-														'value' => __( 'Enter domain to transfer', 'reseller-store' ),
-														'admin_label' => false,
-														'weight' => 0,
-														'group' => 'Custom Group',
-													),
+					array(
+						'type'        => 'textfield',
+						'holder'      => 'div',
+						'class'       => 'text-class',
+						'heading'     => __( 'Placeholder', 'reseller-store' ),
+						'param_name'  => 'text_placeholder',
+						'value'       => __( 'Enter domain to transfer', 'reseller-store' ),
+						'admin_label' => false,
+						'weight'      => 0,
+						'group'       => 'Custom Group',
+					),
 
-													array(
-														'type' => 'textfield',
-														'holder' => 'div',
-														'class' => 'text-class',
-														'heading' => __( 'Button', 'reseller-store' ),
-														'param_name' => 'text_button',
-														'value' => __( 'Transfer', 'reseller-store' ),
-														'admin_label' => false,
-														'weight' => 0,
-														'group' => 'Custom Group',
-													),
+					array(
+						'type'        => 'textfield',
+						'holder'      => 'div',
+						'class'       => 'text-class',
+						'heading'     => __( 'Button', 'reseller-store' ),
+						'param_name'  => 'text_button',
+						'value'       => __( 'Transfer', 'reseller-store' ),
+						'admin_label' => false,
+						'weight'      => 0,
+						'group'       => 'Custom Group',
+					),
 
-												),
+				),
 			)
 		);
 
