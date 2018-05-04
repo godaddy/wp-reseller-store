@@ -37,7 +37,7 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
-      composer global require "phpunit/phpunit=5.7.*"
+      composer global require "phpunit/phpunit=6.5.*"
     else
       composer global require "phpunit/phpunit=4.8.*"
     fi
@@ -64,12 +64,12 @@ jobs:
         - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
         - export PATH="$HOME/.composer/vendor/bin:$PATH"
         - composer config --global github-protocols 'https'
-        - composer global require "phpunit/phpunit=5.7.*"
+        - composer global require "phpunit/phpunit=6.5.*"
         - composer require satooshi/php-coveralls
       script:
         - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
-      after_script:
-        - travis_retry php vendor/bin/coveralls -v
+      after_success:
+        - travis_retry php vendor/bin/php-coveralls -v
 
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar

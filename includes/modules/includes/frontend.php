@@ -39,7 +39,7 @@ if ( 'rstore-fl-domain-transfer' === $settings->type ) {
 }
 
 if ( 'rstore-fl-domain-search' === $settings->type ) {
-	$args['before_widget'] = '<div class="widget rstore-domain-search">';
+	$args['before_widget'] = '<div class="widget rstore-domain">';
 	$domain                = new \Reseller_Store\Widgets\Domain_Search();
 	$domain->widget( $args, $atts );
 }
