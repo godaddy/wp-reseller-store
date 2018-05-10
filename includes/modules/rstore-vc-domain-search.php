@@ -137,27 +137,6 @@ class VCDomainSearch extends \WPBakeryShortCode {
 						'group'      => __( 'Results', 'reseller-store' ),
 					),
 
-					array(
-						'type'       => 'textfield',
-						'holder'     => 'div',
-						'class'      => 'text-class',
-						'heading'    => __( 'Verify Button', 'reseller-store' ),
-						'param_name' => 'text_verify',
-						'value'      => __( 'Verify', 'reseller-store' ),
-						'group'      => __( 'Results', 'reseller-store' ),
-					),
-
-					array(
-						'type'        => 'textfield',
-						'holder'      => 'div',
-						'class'       => 'text-class',
-						'heading'     => __( 'Disclaimer', 'reseller-store' ),
-						'description' => __( 'Disclaimer notice must be displayed for some regions and domains. Leave blank to display recommended disclaimer.', 'reseller-store' ),
-						'param_name'  => 'text_disclaimer',
-						'value'       => '',
-						'group'       => __( 'Results', 'reseller-store' ),
-					),
-
 				),
 			)
 		);

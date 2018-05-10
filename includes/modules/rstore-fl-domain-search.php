@@ -99,18 +99,6 @@ class FLDomainSearch extends \FLBuilderModule {
 							'label'   => __( 'Deselect Button', 'reseller-store' ),
 							'default' => __( 'Selected', 'reseller-store' ),
 						),
-						'text_verify'        => array(
-							'type'    => 'text',
-							'label'   => __( 'Verify Button', 'reseller-store' ),
-							'default' => __( 'Verify', 'reseller-store' ),
-						),
-						'text_disclaimer'    => array(
-							'type'        => 'text',
-							'label'       => __( 'Disclaimer', 'reseller-store' ),
-							'description' => __( 'Domain disclaimer notice', 'reseller-store' ),
-							'help'        => __( 'Disclaimer notice must be displayed for some regions and domains. Leave blank to display recommended disclaimer.', 'reseller-store' ),
-
-						),
 					),
 				),
 			),

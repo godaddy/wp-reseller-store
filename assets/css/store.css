@@ -77,71 +77,41 @@
 		color: #a62b2b;
 }
 
-.rstore-domain-search .input-group {
-		position: relative;
-		display: table;
-		border-collapse: separate;
+@media (min-width: 991px) {
+		.rstore-domain-search .input-group2 {
+				display: table;
+				border-collapse: separate;
+				width: 100%;
+		}
 }
 
-.rstore-domain-search .input-group .form-control {
-		width: 100%;
-		margin-bottom: 0;
+@media (min-width: 1200px) {
+		.rstore-domain-search .input-group {
+				display: table;
+				border-collapse: separate;
+				width: 100%;
+		}
+
+		.rstore-domain-search .input-continue-btn {
+				display: table-cell;
+				width: 1%;
+				white-space: nowrap;
+		}
+
+		.rstore-domain-search .input-continue-btn button {
+				margin-left: 10px;
+		}
 }
 
-.rstore-domain-search .input-group-btn {
-		display: table-cell;
-		width: 1%;
-		white-space: nowrap;
-		vertical-align: middle;
-		position: relative;
+@media (max-width: 1200px) {
+		.rstore-domain-search .input-continue-btn button {
+				position: relative;
+				width: 100%;
+				margin-top: .3em;
+		}
 }
 
-.rstore-domain-search .input-group .form-control:first-child,
-.rstore-domain-search .input-group-btn:first-child > .button {
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-}
-
-.rstore-domain-search .input-group .form-control:last-child,
-.rstore-domain-search .input-group-btn:last-child > .button {
-		border-bottom-left-radius: 0;
-		border-top-left-radius: 0;
-}
-
-.rstore-domain-search .form-control {
-		display: block;
-		width: 100%;
-		height: 40px;
-		padding: 6px 12px;
-		font-size: 14px;
-		line-height: 1.428571429;
-		color: #555555;
-		vertical-align: middle;
-		background-color: #ffffff;
-		background-image: none;
-		border: 1px solid #cccccc;
-		border-radius: 4px;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-		transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-
-.rstore-domain-search .form-control:focus {
-		border-color: #66afe9;
-		outline: 0;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-
-.rstore-domain-search .container {
-		padding-right: 15px;
-		padding-left: 15px;
-		margin-right: auto;
-		margin-left: auto;
-}
-
-.result-content .domain-result {
+.rstore-domain-search .domain-result {
 		border: 1px solid #e8e8e8;
 		float: left;
 		min-width: 290px;
@@ -150,20 +120,19 @@
 		width: 99%;
 }
 
-.result-content .rstore-exact-domain-list .domain-result {
+.rstore-domain-search .rstore-exact-domain-list .domain-result {
 		margin-bottom: 15px;
 		border: 3px solid #e8e8e8;
 }
 
-
-.result-content .rstore-exact-domain-list p.available,
-.result-content .rstore-exact-domain-list p.not-available {
+.rstore-domain-search p.available,
+.rstore-domain-search p.not-available {
 		font-weight: bold;
 		font-size: 1.2em;
 		margin: 10px 0 15px;
 }
 
-.result-content .domain-name {
+.rstore-domain-search .domain-name {
 		display: inline-block;
 		vertical-align: middle;
 		vertical-align: -webkit-baseline-middle;
@@ -171,36 +140,31 @@
 		padding: 10px 0;
 }
 
-.result-content .rstore-domain-continue-button {
+.rstore-domain-search .purchase-info {
 		display: block;
 		float: right;
 }
 
-.result-content .purchase-info {
-		display: block;
-		float: right;
-}
-
-.result-content .pricing {
+.rstore-domain-search .pricing {
 		display: inline-block;
 		margin-left: 10px;
 		text-align: right;
 		vertical-align: middle;
 }
 
-.result-content .listPrice {
+.rstore-domain-search .listPrice {
 		margin-right: 7px;
 }
 
-.result-content .rstore-domain-buy-button {
+.rstore-domain-search .rstore-domain-buy-button {
 		margin-left: 10px;
 }
 
-.result-content .rstore-disclaimer {
+.rstore-domain-search .rstore-disclaimer {
 		clear: both;
 }
 
-.result-content .rstore-disclaimer pre {
+.rstore-domain-search .rstore-disclaimer pre {
 		font-family: sans-serif;
 		background: none;
 		border: none;
