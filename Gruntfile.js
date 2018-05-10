@@ -18,10 +18,6 @@ module.exports = function( grunt ) {
 			build: {
 				files: [
 					{
-						src: 'node_modules/domain-search/dist/index.js',
-						dest: 'build/assets/js/domain-search.min.js'
-					},
-					{
 						expand: true,
 						src: [
 							pkg.name + '.php',
@@ -35,6 +31,10 @@ module.exports = function( grunt ) {
 							'!lib/**/*.md'
 						],
 						dest: 'build/'
+					},
+					{
+						src: 'node_modules/domain-search/dist/index.js',
+						dest: 'build/assets/js/domain-search.min.js'
 					}
 				]
 			}
