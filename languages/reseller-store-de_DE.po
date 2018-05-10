@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-05-03 18:48:05+00:00\n"
+"POT-Creation-Date: 2018-05-10 17:34:30+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,11 +100,11 @@ msgid "Cart link text"
 msgstr ""
 
 #: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
-#: includes/modules/rstore-fl-domain-search.php:90
+#: includes/modules/rstore-fl-domain-search.php:99
 #: includes/modules/rstore-fl-product.php:129
-#: includes/modules/rstore-vc-domain-search.php:116
+#: includes/modules/rstore-vc-domain-search.php:126
 #: includes/modules/rstore-vc-product.php:130
-#: includes/widgets/class-domain-search.php:195
+#: includes/widgets/class-domain-search.php:201
 #: includes/widgets/class-product.php:302
 msgid "Continue to cart"
 msgstr ""
@@ -459,9 +459,9 @@ msgstr "Wiederverkäufer-Shop"
 #: includes/modules/rstore-vc-cart.php:54
 #: includes/modules/rstore-vc-domain-search.php:54
 #: includes/modules/rstore-vc-domain-simple.php:54
-#: includes/modules/rstore-vc-domain-transfer.php:55
+#: includes/modules/rstore-vc-domain-transfer.php:54
 #: includes/modules/rstore-vc-login.php:54 includes/widgets/class-cart.php:130
-#: includes/widgets/class-domain-search.php:137
+#: includes/widgets/class-domain-search.php:145
 #: includes/widgets/class-domain-simple.php:135
 #: includes/widgets/class-domain-transfer.php:135
 #: includes/widgets/class-login.php:142
@@ -476,7 +476,7 @@ msgstr "Titel:"
 #: includes/modules/rstore-vc-cart.php:63
 #: includes/modules/rstore-vc-domain-search.php:74
 #: includes/modules/rstore-vc-domain-simple.php:76
-#: includes/modules/rstore-vc-domain-transfer.php:79
+#: includes/modules/rstore-vc-domain-transfer.php:78
 #: includes/modules/rstore-vc-product.php:81
 #: includes/widgets/class-cart.php:131
 #: includes/widgets/class-domain-simple.php:137
@@ -516,7 +516,7 @@ msgstr ""
 #: includes/modules/rstore-vc-cart.php:56
 #: includes/modules/rstore-vc-domain-search.php:56
 #: includes/modules/rstore-vc-domain-simple.php:56
-#: includes/modules/rstore-vc-domain-transfer.php:57
+#: includes/modules/rstore-vc-domain-transfer.php:56
 #: includes/modules/rstore-vc-login.php:56
 msgid "Optional widget title"
 msgstr ""
@@ -526,8 +526,8 @@ msgstr ""
 #: includes/modules/rstore-fl-domain-transfer.php:58
 #: includes/modules/rstore-vc-domain-search.php:64
 #: includes/modules/rstore-vc-domain-simple.php:65
-#: includes/modules/rstore-vc-domain-transfer.php:67
-#: includes/widgets/class-domain-search.php:138
+#: includes/modules/rstore-vc-domain-transfer.php:66
+#: includes/widgets/class-domain-search.php:146
 #: includes/widgets/class-domain-simple.php:136
 #: includes/widgets/class-domain-transfer.php:136
 #, fuzzy
@@ -538,13 +538,13 @@ msgstr "Platzhalter:"
 #: includes/modules/rstore-fl-domain-simple.php:59
 #: includes/modules/rstore-vc-domain-search.php:66
 #: includes/modules/rstore-vc-domain-simple.php:67
-#: includes/widgets/class-domain-search.php:191
+#: includes/widgets/class-domain-search.php:197
 #: includes/widgets/class-domain-simple.php:172
 msgid "Find your perfect domain name"
 msgstr "Finden Sie den für Sie perfekten Domainnamen"
 
 #: includes/modules/rstore-fl-domain-search.php:63
-#: includes/widgets/class-domain-search.php:139
+#: includes/widgets/class-domain-search.php:147
 #, fuzzy
 msgid "Search Button"
 msgstr "Schaltfläche:"
@@ -554,14 +554,14 @@ msgstr "Schaltfläche:"
 #: includes/modules/rstore-fl-domain-simple.php:64
 #: includes/modules/rstore-vc-domain-search.php:76
 #: includes/modules/rstore-vc-domain-simple.php:78
-#: includes/widgets/class-domain-search.php:192
+#: includes/widgets/class-domain-search.php:198
 #: includes/widgets/class-domain-simple.php:173
 msgid "Search"
 msgstr "Suche"
 
 #: includes/modules/rstore-fl-domain-search.php:73
 #: includes/modules/rstore-vc-domain-search.php:84
-#: includes/widgets/class-domain-search.php:140
+#: includes/widgets/class-domain-search.php:148
 msgid "Page Size"
 msgstr ""
 
@@ -571,91 +571,85 @@ msgstr ""
 
 #: includes/modules/rstore-fl-domain-search.php:79
 #: includes/modules/rstore-vc-domain-search.php:94
-#: includes/widgets/class-domain-search.php:141
+#: includes/widgets/class-domain-search.php:154
+msgid "Display results in a modal"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:82
+#: includes/modules/rstore-fl-product.php:84
+#: includes/modules/rstore-fl-product.php:93
+#: includes/modules/rstore-fl-product.php:102
+#: includes/modules/rstore-vc-domain-search.php:96
+msgid "Show"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:83
+#: includes/modules/rstore-fl-product.php:85
+#: includes/modules/rstore-fl-product.php:94
+#: includes/modules/rstore-fl-product.php:103
+#: includes/modules/rstore-vc-product.php:94
+#: includes/modules/rstore-vc-product.php:103
+#: includes/modules/rstore-vc-product.php:112
+msgid "Hide"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:88
+#: includes/modules/rstore-vc-domain-search.php:104
+#: includes/widgets/class-domain-search.php:149
 msgid "Available Text"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:80
-#: includes/modules/rstore-vc-domain-search.php:96
-#: includes/widgets/class-domain-search.php:193
+#: includes/modules/rstore-fl-domain-search.php:89
+#: includes/modules/rstore-vc-domain-search.php:106
+#: includes/widgets/class-domain-search.php:199
 #, fuzzy
 msgid "Congrats, {domain_name} is available!"
 msgstr "Glückwunsch, Ihre Domain ist verfügbar!"
 
-#: includes/modules/rstore-fl-domain-search.php:84
-#: includes/modules/rstore-vc-domain-search.php:104
-#: includes/widgets/class-domain-search.php:142
+#: includes/modules/rstore-fl-domain-search.php:93
+#: includes/modules/rstore-vc-domain-search.php:114
+#: includes/widgets/class-domain-search.php:150
 msgid "Not Available Text"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:85
-#: includes/modules/rstore-vc-domain-search.php:106
-#: includes/widgets/class-domain-search.php:194
+#: includes/modules/rstore-fl-domain-search.php:94
+#: includes/modules/rstore-vc-domain-search.php:116
+#: includes/widgets/class-domain-search.php:200
 #, fuzzy
 msgid "Sorry, {domain_name} is taken."
 msgstr "Leider ist die Domain vergeben"
 
-#: includes/modules/rstore-fl-domain-search.php:89
-#: includes/modules/rstore-vc-domain-search.php:114
-#: includes/widgets/class-domain-search.php:143
+#: includes/modules/rstore-fl-domain-search.php:98
+#: includes/modules/rstore-vc-domain-search.php:124
+#: includes/widgets/class-domain-search.php:151
 #, fuzzy
 msgid "Cart Button"
 msgstr "Beschriftung der Schaltfläche „In den Einkaufswagen“"
 
-#: includes/modules/rstore-fl-domain-search.php:94
-#: includes/modules/rstore-vc-domain-search.php:124
-#: includes/widgets/class-domain-search.php:144
+#: includes/modules/rstore-fl-domain-search.php:103
+#: includes/modules/rstore-vc-domain-search.php:134
+#: includes/widgets/class-domain-search.php:152
 #, fuzzy
 msgid "Select Button"
 msgstr "Schaltfläche:"
 
-#: includes/modules/rstore-fl-domain-search.php:95
-#: includes/modules/rstore-vc-domain-search.php:126
-#: includes/widgets/class-domain-search.php:196
+#: includes/modules/rstore-fl-domain-search.php:104
+#: includes/modules/rstore-vc-domain-search.php:136
+#: includes/widgets/class-domain-search.php:202
 msgid "Select"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:99
-#: includes/modules/rstore-vc-domain-search.php:134
-#: includes/widgets/class-domain-search.php:145
+#: includes/modules/rstore-fl-domain-search.php:108
+#: includes/modules/rstore-vc-domain-search.php:144
+#: includes/widgets/class-domain-search.php:153
 #, fuzzy
 msgid "Deselect Button"
 msgstr "Schaltfläche:"
 
-#: includes/modules/rstore-fl-domain-search.php:100
-#: includes/modules/rstore-vc-domain-search.php:136
-#: includes/widgets/class-domain-search.php:197
-msgid "Selected"
-msgstr ""
-
-#: includes/modules/rstore-fl-domain-search.php:104
-#: includes/modules/rstore-vc-domain-search.php:144
-#: includes/widgets/class-domain-search.php:146
-#, fuzzy
-msgid "Verify Button"
-msgstr "Schaltfläche:"
-
-#: includes/modules/rstore-fl-domain-search.php:105
-#: includes/modules/rstore-vc-domain-search.php:146
-#: includes/widgets/class-domain-search.php:198
-msgid "Verify"
-msgstr ""
-
 #: includes/modules/rstore-fl-domain-search.php:109
-#: includes/modules/rstore-vc-domain-search.php:154
-msgid "Disclaimer"
-msgstr ""
-
-#: includes/modules/rstore-fl-domain-search.php:110
-#: includes/widgets/class-domain-search.php:147
-msgid "Domain disclaimer notice"
-msgstr ""
-
-#: includes/modules/rstore-fl-domain-search.php:111
-#: includes/modules/rstore-vc-domain-search.php:155
-msgid ""
-"Disclaimer notice must be displayed for some regions and domains. Leave "
-"blank to display recommended disclaimer."
+#: includes/modules/rstore-vc-domain-search.php:146
+#: includes/widgets/class-domain-search.php:203
+msgid "Selected"
 msgstr ""
 
 #: includes/modules/rstore-fl-domain-simple.php:33
@@ -667,7 +661,7 @@ msgstr "Ein Suchformular für Domainnamen."
 
 #: includes/modules/rstore-fl-domain-transfer.php:32
 #: includes/modules/rstore-fl-domain-transfer.php:64
-#: includes/modules/rstore-vc-domain-transfer.php:81
+#: includes/modules/rstore-vc-domain-transfer.php:80
 #: includes/widgets/class-domain-transfer.php:173
 msgid "Transfer"
 msgstr ""
@@ -680,7 +674,7 @@ msgid "A search form for domain transfers."
 msgstr "Ein Suchformular für Domainnamen."
 
 #: includes/modules/rstore-fl-domain-transfer.php:59
-#: includes/modules/rstore-vc-domain-transfer.php:69
+#: includes/modules/rstore-vc-domain-transfer.php:68
 #: includes/widgets/class-domain-transfer.php:172
 msgid "Enter domain to transfer"
 msgstr ""
@@ -791,21 +785,6 @@ msgstr "Produktbild"
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:84
-#: includes/modules/rstore-fl-product.php:93
-#: includes/modules/rstore-fl-product.php:102
-msgid "Show"
-msgstr ""
-
-#: includes/modules/rstore-fl-product.php:85
-#: includes/modules/rstore-fl-product.php:94
-#: includes/modules/rstore-fl-product.php:103
-#: includes/modules/rstore-vc-product.php:94
-#: includes/modules/rstore-vc-product.php:103
-#: includes/modules/rstore-vc-product.php:112
-msgid "Hide"
-msgstr ""
-
 #: includes/modules/rstore-fl-product.php:90
 msgid "Post Content"
 msgstr ""
@@ -841,18 +820,16 @@ msgid "Advanced Domain Search"
 msgstr "Domainsuche"
 
 #: includes/modules/rstore-vc-domain-search.php:87
-#: includes/modules/rstore-vc-domain-search.php:97
 #: includes/modules/rstore-vc-domain-search.php:107
 #: includes/modules/rstore-vc-domain-search.php:117
 #: includes/modules/rstore-vc-domain-search.php:127
 #: includes/modules/rstore-vc-domain-search.php:137
 #: includes/modules/rstore-vc-domain-search.php:147
-#: includes/modules/rstore-vc-domain-search.php:158
 msgid "Results"
 msgstr ""
 
 #: includes/modules/rstore-vc-domain-simple.php:44
-#: includes/widgets/class-domain-search.php:107
+#: includes/widgets/class-domain-search.php:115
 msgid "Domain Search"
 msgstr "Domainsuche"
 
@@ -1018,6 +995,10 @@ msgstr "Tag"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / pro %2$s"
+
+#, fuzzy
+#~ msgid "Verify Button"
+#~ msgstr "Schaltfläche:"
 
 #, fuzzy
 #~ msgid "Product: "

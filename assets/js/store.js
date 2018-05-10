@@ -209,12 +209,42 @@
 		}
 	};
 
+	var domain = {
+		init: function () {
+			if ($('.rstore-domain-popup').length) {
+				$('body').append($('<div></div>').attr('id', 'rstore-popResults').addClass(''));
+				$('body').append($('<div></div>').attr('id', 'rstore-blackout').addClass(''));
+				$('#rstore-popResults').append($('<div></div>').attr('id', 'rstore-closePop').addClass('').html('X'));
+
+				$('.rstore-domain-search').on('click', '.rstore-domain-search-button', domain.showModal);
+
+				$('body').on('click', '#rstore-closePop, #rstore-blackout', function () {
+					$('#rstore-popResults').fadeOut();
+					$('#rstore-blackout').fadeOut();
+					$('.rstore-domain-search .result-content').hide();
+					$('.rstore_domain_placeholder').append($('.rstore-domain-popup'));
+				});
+
+				if (/[?&]domainToCheck=./.test(location.search)) domain.showModal();
+			}
+		},
+
+		showModal: function () {
+			$('#rstore-blackout').fadeIn();
+			$('#rstore-popResults').fadeIn();
+			$('.rstore-domain-search .result-content').fadeIn();
+			$('#rstore-popResults').append($('.rstore-domain-popup'));
+		}
+	};
+
 	$( document ).ready( function( $ ) {
 		cart.addItemParam();
 
 		cart.init();
 
 		login.init();
+
+		domain.init();
 
 		$( '.rstore-add-to-cart' ).on( 'click', cart.addItemButton );
 	} );

@@ -74,6 +74,15 @@ class FLDomainSearch extends \FLBuilderModule {
 							'description' => __( 'domains', 'reseller-store' ),
 							'default'     => 5,
 						),
+						'modal'              => array(
+							'type'    => 'select',
+							'label'   => __( 'Display results in a modal', 'reseller-store' ),
+							'default' => '0',
+							'options' => array(
+								'1' => __( 'Show', 'reseller-store' ),
+								'0' => __( 'Hide', 'reseller-store' ),
+							),
+						),
 						'text_available'     => array(
 							'type'    => 'text',
 							'label'   => __( 'Available Text', 'reseller-store' ),

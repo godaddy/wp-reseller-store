@@ -66,7 +66,7 @@ final class Domain_Search extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', [ 'widget_search' ] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', [ 'widget_search', 'rstore_domain_placeholder' ] ) );
 
 		if ( $classes ) {
 
@@ -96,17 +96,25 @@ final class Domain_Search extends Widget_Base {
 
 		$data = $this->get_data( $instance );
 
-		$domain_html = '<div class="rstore-domain-search" data-plid=' . rstore_get_option( 'pl_id' );
+		?><div class="rstore-domain-search
+		<?php
+		if ( $data['modal'] ) {
+			echo ' rstore-domain-popup'; }
+	?>
+	" data-plid="<?php echo rstore_get_option( 'pl_id' ); ?>"
+		<?php
 
 		foreach ( $data as $key => $text ) {
 			if ( ! empty( $text ) ) {
-				$domain_html .= ' data-' . $key . '="' . $text . '"';
+				echo ' data-' . $key . '="' . $text . '"';
 			}
 		}
 
-		$domain_html .= '>' . esc_html__( 'Domain Search', 'reseller' ) . '</div>';
+		echo '>';
 
-		echo $domain_html;
+		esc_html_e( 'Domain Search', 'reseller-store' );
+
+		echo '</div>';
 
 		echo $args['after_widget']; // xss ok.
 
@@ -143,6 +151,7 @@ final class Domain_Search extends Widget_Base {
 		$this->display_form_input( 'text_cart', $data['text_cart'], __( 'Cart Button', 'reseller-store' ) );
 		$this->display_form_input( 'text_select', $data['text_select'], __( 'Select Button', 'reseller-store' ) );
 		$this->display_form_input( 'text_selected', $data['text_selected'], __( 'Deselect Button', 'reseller-store' ) );
+		$this->display_form_checkbox( 'modal', $data['modal'], __( 'Display results in a modal', 'reseller-store' ) );
 	}
 
 	/**
@@ -166,6 +175,7 @@ final class Domain_Search extends Widget_Base {
 		$instance['text_cart']          = isset( $new_instance['text_cart'] ) ? wp_kses_post( $new_instance['text_cart'] ) : null;
 		$instance['text_select']        = isset( $new_instance['text_select'] ) ? wp_kses_post( $new_instance['text_select'] ) : null;
 		$instance['text_selected']      = isset( $new_instance['text_selected'] ) ? wp_kses_post( $new_instance['text_selected'] ) : null;
+		$instance['modal']              = isset( $new_instance['modal'] ) ? (bool) absint( $new_instance['modal'] ) : false;
 
 		return $instance;
 
@@ -191,6 +201,7 @@ final class Domain_Search extends Widget_Base {
 			'text_cart'          => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'text_select'        => isset( $instance['text_select'] ) ? $instance['text_select'] : esc_html__( 'Select', 'reseller-store' ),
 			'text_selected'      => isset( $instance['text_selected'] ) ? $instance['text_selected'] : esc_html__( 'Selected', 'reseller-store' ),
+			'modal'              => isset( $instance['modal'] ) ? ! empty( $instance['modal'] ) : false,
 		);
 	}
 

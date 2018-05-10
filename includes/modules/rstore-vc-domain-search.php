@@ -88,6 +88,16 @@ class VCDomainSearch extends \WPBakeryShortCode {
 					),
 
 					array(
+						'type'       => 'checkbox',
+						'holder'     => 'div',
+						'class'      => 'text-class',
+						'heading'    => __( 'Display results in a modal', 'reseller-store' ),
+						'param_name' => 'modal',
+						'value'      => [ __( 'Show', 'reseller-store' ) => 1 ],
+						'group'      => 'Results',
+					),
+
+					array(
 						'type'       => 'textfield',
 						'holder'     => 'div',
 						'class'      => 'text-class',
