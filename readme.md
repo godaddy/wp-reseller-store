@@ -1,4 +1,4 @@
-# Reseller Store #
+# GoDaddy Reseller Store #
 ![Banner Image](.dev/wp-org-assets/banner-1544x500.png)
 
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy), [fjarrett](https://profiles.wordpress.org/fjarrett), [bfocht](https://profiles.wordpress.org/bfocht), [eherman24](https://profiles.wordpress.org/eherman24)  

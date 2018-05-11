@@ -33,7 +33,7 @@ final class Domain_Search extends Widget_Base {
 
 		parent::__construct(
 			rstore_prefix( 'domain' ),
-			esc_html__( 'Reseller Domain Search (Advanced)', 'reseller-store' ),
+			esc_html__( 'Reseller Advanced Domain Search', 'reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'domain', true ),
 				'description' => esc_html__( 'An advanced search form with on page results for domain names.', 'reseller-store' ),

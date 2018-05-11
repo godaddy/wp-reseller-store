@@ -77,9 +77,13 @@
 		color: #a62b2b;
 }
 
+.rstore-domain-search .input-group2 {
+		position: relative;
+}
+
 @media (min-width: 991px) {
 		.rstore-domain-search .input-group2 {
-				display: table;
+				display: block;
 				border-collapse: separate;
 				width: 100%;
 		}

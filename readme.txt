@@ -1,4 +1,4 @@
-=== Reseller Store ===
+=== GoDaddy Reseller Store ===
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              godaddy, reseller, program, storefront, store, products, responsive, shortcode, ecommerce
 Requires at least: 4.6
