@@ -96,13 +96,13 @@ final class Domain_Search extends Widget_Base {
 
 		$data = $this->get_data( $instance );
 
-		?><div class="rstore-domain-search
-		<?php
+		$classes = 'rstore-domain-search';
+		$plid    = rstore_get_option( 'pl_id' );
 		if ( $data['modal'] ) {
-			echo ' rstore-domain-popup'; }
-	?>
-	" data-plid="<?php echo rstore_get_option( 'pl_id' ); ?>"
-		<?php
+			$classes .= ' rstore-domain-popup';
+		}
+
+		echo "<div class=\"$classes\" data-plid=\"$plid\"";
 
 		foreach ( $data as $key => $text ) {
 			if ( ! empty( $text ) ) {
