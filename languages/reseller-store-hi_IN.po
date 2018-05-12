@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-05-10 17:34:30+00:00\n"
+"POT-Creation-Date: 2018-05-12 16:01:35+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -420,7 +420,7 @@ msgid "Cart Link"
 msgstr "टोकरी"
 
 #: includes/modules/rstore-fl-cart.php:33
-#: includes/modules/rstore-vc-cart.php:46
+#: includes/modules/rstore-vc-cart.php:46 includes/widgets/class-cart.php:39
 msgid "A shopper cart status."
 msgstr ""
 
@@ -798,12 +798,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: includes/modules/rstore-vc-cart.php:47
-#: includes/modules/rstore-vc-domain-search.php:47
-#: includes/modules/rstore-vc-domain-simple.php:47
-#: includes/modules/rstore-vc-domain-transfer.php:47
-#: includes/modules/rstore-vc-login.php:47
-#: includes/modules/rstore-vc-product.php:47
+#. Plugin Name of the plugin/theme
 msgid "Reseller Store"
 msgstr "पुनर्विक्रेता स्टोर"
 
@@ -854,14 +849,10 @@ msgstr "उत्पाद की छवि सेट करें"
 msgid "Reseller Cart Link"
 msgstr "पुनर्विक्रेता कार्ट"
 
-#: includes/widgets/class-cart.php:39
-msgid "Display the user's cart in the sidebar."
-msgstr "साइडबार में उपयोगकर्ता की कार्ट प्रदर्शित करें."
-
 #: includes/widgets/class-domain-search.php:36
 #, fuzzy
-msgid "Reseller Domain Search (Advanced)"
-msgstr "पुनर्विक्रेता डोमेन खोज"
+msgid "Reseller Advanced Domain Search"
+msgstr "डोमेन खोज"
 
 #: includes/widgets/class-domain-simple.php:36
 msgid "Reseller Domain Search"
@@ -893,10 +884,6 @@ msgid ""
 "You need to update your PHP version to run GoDaddy Reseller Store plugin. "
 "Required version 5.4 or higher. Your PHP version is: %s"
 msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "GoDaddy Reseller Store"
-msgstr "GoDaddy रीसेलर स्टोर"
 
 #. Description of the plugin/theme
 #, fuzzy
@@ -986,6 +973,16 @@ msgstr "टैग"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / प्रति %2$s"
+
+#~ msgid "Display the user's cart in the sidebar."
+#~ msgstr "साइडबार में उपयोगकर्ता की कार्ट प्रदर्शित करें."
+
+#, fuzzy
+#~ msgid "Reseller Domain Search (Advanced)"
+#~ msgstr "पुनर्विक्रेता डोमेन खोज"
+
+#~ msgid "GoDaddy Reseller Store"
+#~ msgstr "GoDaddy रीसेलर स्टोर"
 
 #, fuzzy
 #~ msgid "Verify Button"
