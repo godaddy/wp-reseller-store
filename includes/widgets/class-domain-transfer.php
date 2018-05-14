@@ -8,7 +8,7 @@
  * @package  WP_Widget
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.6.0
  */
 
 namespace Reseller_Store\Widgets;
@@ -27,7 +27,7 @@ final class Domain_Transfer extends Widget_Base {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 */
 	public function __construct() {
 
@@ -46,7 +46,7 @@ final class Domain_Transfer extends Widget_Base {
 	/**
 	 * Outputs the content of the widget.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Widget instance.
@@ -62,7 +62,7 @@ final class Domain_Transfer extends Widget_Base {
 		 * Domain Search widget inherits any default Search widget
 		 * styles included by a theme.
 		 *
-		 * @since NEXT
+		 * @since 1.6.0
 		 *
 		 * @var array
 		 */
@@ -126,7 +126,7 @@ final class Domain_Transfer extends Widget_Base {
 	/**
 	 * Outputs the options form on admin.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param array $instance Widget instance.
 	 */
@@ -140,7 +140,7 @@ final class Domain_Transfer extends Widget_Base {
 	/**
 	 * Processing widget options on save.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param  array $new_instance New widget instance.
 	 * @param  array $old_instance Old widget instance.
@@ -160,7 +160,7 @@ final class Domain_Transfer extends Widget_Base {
 	/**
 	 * Set data from instance or default value.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param  array $instance Widget instance.
 	 *

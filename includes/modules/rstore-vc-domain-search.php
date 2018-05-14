@@ -8,7 +8,7 @@
  * @package  WPBakeryShortCode
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.6.0
  */
 
 namespace Reseller_Store\Modules;
@@ -24,7 +24,7 @@ class VCDomainSearch extends \WPBakeryShortCode {
 
 	/**
 	 * @method __construct
-	 * @since NEXT
+	 * @since 1.6.0
 	 */
 	function __construct() {
 		add_action( 'init', array( $this, 'vc_mapping' ) );
@@ -35,7 +35,7 @@ class VCDomainSearch extends \WPBakeryShortCode {
 	 *
 	 * @method vc_mapping
 	 *
-	 * @since NEXT`
+	 * @since 1.6.0`
 	 */
 	public function vc_mapping() {
 

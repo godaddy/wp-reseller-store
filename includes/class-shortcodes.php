@@ -113,7 +113,7 @@ final class Shortcodes {
 		 *
 		 * @shortcode [rstore_domain_transfer]
 		 *
-		 * @since NEXT
+		 * @since 1.6.0
 		 *
 		 * @param  array $atts Defualt shortcode parameters.
 		 *
@@ -126,7 +126,7 @@ final class Shortcodes {
 		 *
 		 * @shortcode [rstore_domain]
 		 *
-		 * @since NEXT
+		 * @since 1.6.0
 		 *
 		 * @param  array $atts Defualt shortcode parameters.
 		 *
@@ -215,7 +215,7 @@ final class Shortcodes {
 	/**
 	 * Render the domain transfer widget.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param array $atts        The shortcode attributes.
 	 *
@@ -234,7 +234,7 @@ final class Shortcodes {
 	/**
 	 * Render the domain search simple widget.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param array $atts        The shortcode attributes.
 	 *

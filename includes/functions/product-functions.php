@@ -51,7 +51,7 @@ function rstore_has_products() {
  * Retrieve reseller products.
  *
  * @return array Reseller product posts.
- * @since NEXT
+ * @since 1.6.0
  */
 function rstore_get_product_list() {
 
@@ -220,7 +220,7 @@ function rstore_get_product_meta( $post_id, $key, $default = false, $option_fall
 /**
  * Returns true when viewing a reseller store product.
  *
- * @since  NEXT
+ * @since  1.6.0
  *
  * @param object $post  The post of to check type on.
  *
@@ -236,7 +236,7 @@ add_filter( 'rstore_is_product', 'rstore_is_product' );
 /**
  * Checks if the shortcode is being rendered as a widget.
  *
- * @since NEXT
+ * @since 1.6.0
  *
  * @param array $atts Shortcode attributes.
  *

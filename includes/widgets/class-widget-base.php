@@ -8,7 +8,7 @@
  * @package  WP_Widget
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.6.0
  */
 
 namespace Reseller_Store\Widgets;
@@ -25,7 +25,7 @@ class Widget_Base extends \WP_Widget {
 	/**
 	 * Display form input field
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param  string $field Feield name.
 	 * @param  array  $value Value of the field.
@@ -46,7 +46,7 @@ class Widget_Base extends \WP_Widget {
 	/**
 	 * Display form checkbox field
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @param  string $field Feield name.
 	 * @param  array  $value Value of the field.

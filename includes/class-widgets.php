@@ -26,7 +26,7 @@ final class Widgets {
 	/**
 	 * Module slugs.
 	 *
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @var array
 	 */
@@ -77,7 +77,7 @@ final class Widgets {
 	 * Loads the builder modules if the class exists.
 	 *
 	 * @action init
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @return void
 	 */
@@ -104,7 +104,7 @@ final class Widgets {
 	 * Loads the Visual Composer if the VC installed.
 	 *
 	 * @action vc_before_init
-	 * @since NEXT
+	 * @since 1.6.0
 	 *
 	 * @return void
 	 */

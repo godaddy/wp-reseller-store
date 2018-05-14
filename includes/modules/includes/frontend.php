@@ -5,13 +5,13 @@
  * Reseller store product helpers trait.
  *
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.6.0
  */
 
 /**
  * Module args.
  *
- * @since NEXT
+ * @since 1.6.0
  *
  * @var array
  */
@@ -26,7 +26,7 @@ $args = [
 /**
  * Module settings.
  *
- * @since NEXT
+ * @since 1.6.0
  *
  * @var array
  */

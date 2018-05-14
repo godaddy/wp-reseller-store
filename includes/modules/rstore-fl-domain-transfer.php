@@ -8,7 +8,7 @@
  * @package  FLBuilderModule
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    1.6.0
  */
 
 namespace Reseller_Store\Modules;
@@ -24,7 +24,7 @@ class FLDomainTransfer extends \FLBuilderModule {
 
 	/**
 	 * @method __construct
-	 * @since NEXT
+	 * @since 1.6.0
 	 */
 	public function __construct() {
 		parent::__construct(
