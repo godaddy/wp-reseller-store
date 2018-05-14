@@ -81,7 +81,7 @@ msgstr "カート追加のボタンラベル"
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
 #: includes/widgets/class-product.php:329
 msgid "Add to cart"
-msgstr "カートに入れる"
+msgstr "カートに追加"
 
 #: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
 msgid "Cart link text"

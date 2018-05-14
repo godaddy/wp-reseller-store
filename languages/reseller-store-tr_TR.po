@@ -431,7 +431,7 @@ msgstr "Alan adları için bir arama formu."
 
 #: includes/widgets/class-domain-search.php:104
 msgid "Domain Search"
-msgstr "Alan Adı Arama"
+msgstr "Domain sorgulama"
 
 #: includes/widgets/class-domain-search.php:133
 msgid "Domain result page size:"

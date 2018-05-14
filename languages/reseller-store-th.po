@@ -81,7 +81,7 @@ msgstr "เพิ่มไปยังฉลากปุ่มตะกร้า
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
 #: includes/widgets/class-product.php:329
 msgid "Add to cart"
-msgstr "หยิบใส่ตะกร้า"
+msgstr "เพิ่มลงตะกร้าสินค้า"
 
 #: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
 msgid "Cart link text"
@@ -386,7 +386,7 @@ msgstr "ชื่อแท็กใหม่"
 
 #: includes/class-taxonomy-tag.php:90 includes/class-taxonomy-tag.php:94
 msgid "Tags"
-msgstr "ป้ายกำกับ"
+msgstr "แท็ก"
 
 #. translators: product name
 #: includes/functions/product-functions.php:160
@@ -660,7 +660,7 @@ msgstr "product-tag"
 #: includes/class-post-type.php:196
 msgctxt "post type general name"
 msgid "Products"
-msgstr "สินค้า"
+msgstr "ผลิตภัณฑ์"
 
 #: includes/class-post-type.php:197
 msgctxt "post type singular name"
@@ -690,7 +690,7 @@ msgstr "หมวดหมู่"
 #: includes/class-taxonomy-tag.php:80
 msgctxt "taxonomy general name"
 msgid "Tags"
-msgstr "ป้ายกำกับ"
+msgstr "แท็ก"
 
 #: includes/class-taxonomy-category.php:81
 msgctxt "taxonomy singular name"

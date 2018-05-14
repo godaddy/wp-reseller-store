@@ -81,7 +81,7 @@ msgstr "카트에 추가 버튼 레이블"
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
 #: includes/widgets/class-product.php:329
 msgid "Add to cart"
-msgstr "장바구니"
+msgstr "카트에 추가"
 
 #: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
 msgid "Cart link text"
@@ -663,7 +663,7 @@ msgstr "상품-태그"
 #: includes/class-post-type.php:196
 msgctxt "post type general name"
 msgid "Products"
-msgstr "상품"
+msgstr "제품"
 
 #: includes/class-post-type.php:197
 msgctxt "post type singular name"
