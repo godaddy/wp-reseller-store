@@ -74,7 +74,7 @@ class VCDomainSimple extends \WPBakeryShortCode {
 						'holder'      => 'div',
 						'class'       => 'text-class',
 						'heading'     => __( 'Button', 'reseller-store' ),
-						'param_name'  => 'text_button',
+						'param_name'  => 'text_search',
 						'value'       => __( 'Search', 'reseller-store' ),
 						'admin_label' => false,
 						'weight'      => 0,

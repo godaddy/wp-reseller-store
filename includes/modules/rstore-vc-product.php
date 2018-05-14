@@ -65,10 +65,10 @@ class VCProduct extends \WPBakeryShortCode {
 						'heading'    => __( 'Image Size', 'reseller-store' ),
 						'param_name' => 'image_size',
 						'value'      => array(
+							__( 'Original resolution', 'reseller-store' ) => 'full',
 							__( 'Thumbnail', 'reseller-store' ) => 'thumbnail',
 							__( 'Medium resolution', 'reseller-store' ) => 'medium',
 							__( 'Large resolution', 'reseller-store' ) => 'large',
-							__( 'Original resolution', 'reseller-store' ) => 'full',
 							__( 'Hide image', 'reseller-store' ) => 'none',
 						),
 						'group'      => 'Display',
@@ -152,7 +152,11 @@ class VCProduct extends \WPBakeryShortCode {
 			]
 		);
 
-		$products = [];
+		$default = __( 'Select product...', 'reseller-store' );
+
+		$products = [
+			$default => -1,
+		];
 
 		while ( $query->have_posts() ) {
 

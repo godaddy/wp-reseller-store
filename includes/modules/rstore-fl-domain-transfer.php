@@ -58,7 +58,7 @@ class FLDomainTransfer extends \FLBuilderModule {
 							'label'   => __( 'Placeholder', 'reseller-store' ),
 							'default' => __( 'Enter domain to transfer', 'reseller-store' ),
 						),
-						'text_button'      => array(
+						'text_search'      => array(
 							'type'    => 'text',
 							'label'   => __( 'Button', 'reseller-store' ),
 							'default' => __( 'Transfer', 'reseller-store' ),

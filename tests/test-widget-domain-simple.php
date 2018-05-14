@@ -60,13 +60,13 @@ final class TestWidgetDomainSimple extends TestCase {
 		$old_instance = [
 			'title'            => '',
 			'text_placeholder' => '',
-			'text_button'      => '',
+			'text_search'      => '',
 		];
 
 		$new_instance = [
 			'title'            => 'title 1',
 			'text_placeholder' => 'placeholder',
-			'text_button'      => 'text_button',
+			'text_search'      => 'text_search',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
@@ -87,7 +87,7 @@ final class TestWidgetDomainSimple extends TestCase {
 		$instance = [
 			'title'            => 'aaa',
 			'text_placeholder' => 'bbb',
-			'text_button'      => 'ccc',
+			'text_search'      => 'ccc',
 		];
 
 		$widget->form( $instance );

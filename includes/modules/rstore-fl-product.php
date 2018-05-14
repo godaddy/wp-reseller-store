@@ -61,7 +61,7 @@ class FLProduct extends \FLBuilderModule {
 						'image_size'   => array(
 							'type'    => 'select',
 							'label'   => __( 'Image Size', 'reseller-store' ),
-							'default' => 'thumbnail',
+							'default' => 'full',
 							'options' => array(
 								'thumbnail' => __( 'Thumbnail', 'reseller-store' ),
 								'medium'    => __( 'Medium resolution', 'reseller-store' ),

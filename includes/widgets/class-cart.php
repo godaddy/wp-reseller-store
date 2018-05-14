@@ -36,7 +36,7 @@ final class Cart extends Widget_Base {
 			esc_html__( 'Reseller Cart Link', 'reseller-store' ),
 			[
 				'classname'   => rstore_prefix( 'cart', true ),
-				'description' => esc_html__( "A shopper cart status.", 'reseller-store' ),
+				'description' => esc_html__( 'A shopper cart status.', 'reseller-store' ),
 			]
 		);
 

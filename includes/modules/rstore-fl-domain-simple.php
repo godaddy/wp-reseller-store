@@ -58,7 +58,7 @@ class FLDomainSimple extends \FLBuilderModule {
 							'label'   => __( 'Placeholder', 'reseller-store' ),
 							'default' => __( 'Find your perfect domain name', 'reseller-store' ),
 						),
-						'text_button'      => array(
+						'text_search'      => array(
 							'type'    => 'text',
 							'label'   => __( 'Button', 'reseller-store' ),
 							'default' => __( 'Search', 'reseller-store' ),

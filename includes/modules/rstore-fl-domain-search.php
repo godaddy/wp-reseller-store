@@ -58,7 +58,7 @@ class FLDomainSearch extends \FLBuilderModule {
 							'label'   => __( 'Placeholder', 'reseller-store' ),
 							'default' => __( 'Find your perfect domain name', 'reseller-store' ),
 						),
-						'text_button'      => array(
+						'text_search'      => array(
 							'type'    => 'text',
 							'label'   => __( 'Search Button', 'reseller-store' ),
 							'default' => __( 'Search', 'reseller-store' ),

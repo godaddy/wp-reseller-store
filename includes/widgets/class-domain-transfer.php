@@ -102,7 +102,7 @@ final class Domain_Transfer extends Widget_Base {
 			</label>
 			<input type="hidden" class="hidden" value="<?php echo rstore_get_option( 'pl_id' ); ?>" name="plid">
 			<input type="hidden" class="hidden" value="slp_rstore" name="itc">
-			<input type="submit" class="search-submit" value="<?php echo $data['text_button']; ?>">
+			<input type="submit" class="search-submit" value="<?php echo $data['text_search']; ?>">
 		</form>
 		<?php
 
@@ -134,7 +134,7 @@ final class Domain_Transfer extends Widget_Base {
 		$data = $this->get_data( $instance );
 		$this->display_form_input( 'title', $data['title'], __( 'Title', 'reseller-store' ) );
 		$this->display_form_input( 'text_placeholder', $data['text_placeholder'], __( 'Placeholder', 'reseller-store' ) );
-		$this->display_form_input( 'text_button', $data['text_button'], __( 'Button', 'reseller-store' ) );
+		$this->display_form_input( 'text_search', $data['text_search'], __( 'Button', 'reseller-store' ) );
 	}
 
 	/**
@@ -151,7 +151,7 @@ final class Domain_Transfer extends Widget_Base {
 
 		$instance['title']            = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
 		$instance['text_placeholder'] = isset( $new_instance['text_placeholder'] ) ? wp_kses_post( $new_instance['text_placeholder'] ) : null;
-		$instance['text_button']      = isset( $new_instance['text_button'] ) ? wp_kses_post( $new_instance['text_button'] ) : null;
+		$instance['text_search']      = isset( $new_instance['text_search'] ) ? wp_kses_post( $new_instance['text_search'] ) : null;
 
 		return $instance;
 
@@ -170,7 +170,7 @@ final class Domain_Transfer extends Widget_Base {
 		return array(
 			'title'            => isset( $instance['title'] ) ? $instance['title'] : '',
 			'text_placeholder' => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : esc_html__( 'Enter domain to transfer', 'reseller-store' ),
-			'text_button'      => isset( $instance['text_button'] ) ? $instance['text_button'] : esc_html__( 'Transfer', 'reseller-store' ),
+			'text_search'      => isset( $instance['text_search'] ) ? $instance['text_search'] : esc_html__( 'Transfer', 'reseller-store' ),
 		);
 	}
 

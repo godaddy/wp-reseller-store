@@ -228,7 +228,7 @@ final class Product extends Widget_Base {
 		$instance['show_content'] = isset( $new_instance['show_content'] ) ? (bool) absint( $new_instance['show_content'] ) : false;
 		$instance['show_price']   = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
 		$instance['redirect']     = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
-		$instance['image_size']   = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'post-thumbnail';
+		$instance['image_size']   = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'full';
 		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
 		$instance['text_cart']    = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
 
@@ -300,7 +300,7 @@ final class Product extends Widget_Base {
 			'redirect'     => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
 			'text_cart'    => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
-			'image_size'   => isset( $instance['image_size'] ) ? $instance['image_size'] : 'post-thumbnail',
+			'image_size'   => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',
 		];
 	}
 }
