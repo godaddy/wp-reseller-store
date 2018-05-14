@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-05-12 16:01:35+00:00\n"
+"POT-Creation-Date: 2018-05-14 17:58:04+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -753,25 +753,25 @@ msgid "Image Size"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:66
-#: includes/modules/rstore-vc-product.php:68
+#: includes/modules/rstore-vc-product.php:69
 #: includes/widgets/class-product.php:195
 msgid "Thumbnail"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:67
-#: includes/modules/rstore-vc-product.php:69
+#: includes/modules/rstore-vc-product.php:70
 #: includes/widgets/class-product.php:196
 msgid "Medium resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:68
-#: includes/modules/rstore-vc-product.php:70
+#: includes/modules/rstore-vc-product.php:71
 #: includes/widgets/class-product.php:197
 msgid "Large resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:69
-#: includes/modules/rstore-vc-product.php:71
+#: includes/modules/rstore-vc-product.php:68
 #: includes/widgets/class-product.php:198
 msgid "Original resolution"
 msgstr ""
@@ -854,6 +854,11 @@ msgstr "Définir l&rsquo;image produit"
 #, fuzzy
 msgid "Show product price"
 msgstr "Définir l&rsquo;image produit"
+
+#: includes/modules/rstore-vc-product.php:155
+#, fuzzy
+msgid "Select product..."
+msgstr "Produit de Revendeur"
 
 #: includes/widgets/class-cart.php:36
 #, fuzzy
@@ -1006,10 +1011,6 @@ msgstr "%1$s / par %2$s"
 
 #~ msgid "Reset Data"
 #~ msgstr "Réinitialiser les données"
-
-#, fuzzy
-#~ msgid "Reset Product"
-#~ msgstr "Produit de Revendeur"
 
 #~ msgid "View cart"
 #~ msgstr "Voir le panier"
