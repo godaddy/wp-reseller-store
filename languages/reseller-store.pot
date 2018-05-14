@@ -1,9 +1,9 @@
 # Copyright (c) 2018 GoDaddy Operating Company, LLC. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: GoDaddy Reseller Store 1.5.1\n"
+"Project-Id-Version: Reseller Store 1.5.2\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-02-23 18:26:08+00:00\n"
+"POT-Creation-Date: 2018-05-12 16:01:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: "
 "__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
 "attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
-"X-Generator: grunt-wp-i18n1.0.1\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
 
 #: includes/class-admin-notices.php:96
 #. translators: product count
@@ -52,7 +52,16 @@ msgstr ""
 msgid "Product Options"
 msgstr ""
 
-#: includes/class-butterbean.php:155
+#: includes/class-butterbean.php:155 includes/modules/rstore-fl-cart.php:46
+#: includes/modules/rstore-fl-domain-search.php:46
+#: includes/modules/rstore-fl-domain-simple.php:46
+#: includes/modules/rstore-fl-domain-transfer.php:46
+#: includes/modules/rstore-fl-login.php:46
+#: includes/modules/rstore-fl-product.php:46
+#: includes/modules/rstore-vc-domain-search.php:57
+#: includes/modules/rstore-vc-domain-search.php:67
+#: includes/modules/rstore-vc-domain-search.php:77
+#: includes/modules/rstore-vc-product.php:58
 msgid "General"
 msgstr ""
 
@@ -61,6 +70,7 @@ msgid "Advanced"
 msgstr ""
 
 #: includes/class-butterbean.php:193 includes/class-post-type.php:376
+#: includes/modules/rstore-fl-product.php:99
 msgid "Price"
 msgstr ""
 
@@ -77,17 +87,23 @@ msgid "Add to Cart Button Label"
 msgstr ""
 
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
-#: includes/widgets/class-product.php:329
+#: includes/modules/rstore-fl-product.php:77
+#: includes/modules/rstore-vc-product.php:83
+#: includes/widgets/class-product.php:301
 msgid "Add to cart"
 msgstr ""
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:235
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:210
 msgid "Cart link text"
 msgstr ""
 
 #: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
-#: includes/widgets/class-domain-search.php:209
-#: includes/widgets/class-product.php:330
+#: includes/modules/rstore-fl-domain-search.php:99
+#: includes/modules/rstore-fl-product.php:129
+#: includes/modules/rstore-vc-domain-search.php:126
+#: includes/modules/rstore-vc-product.php:130
+#: includes/widgets/class-domain-search.php:201
+#: includes/widgets/class-product.php:302
 msgid "Continue to cart"
 msgstr ""
 
@@ -256,7 +272,7 @@ msgid "Register your plugin to import your product catalog."
 msgstr ""
 
 #: includes/class-setup.php:230
-msgid "Login & Activate"
+msgid "Sign In & Activate"
 msgstr ""
 
 #: includes/class-setup.php:232
@@ -382,207 +398,443 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: includes/functions/product-functions.php:160
+#: includes/functions/product-functions.php:192
 #. translators: product name
 msgid "Error: `%s` does not exist."
 msgstr ""
 
-#: includes/widgets/class-cart.php:36
-msgid "Reseller Cart"
+#: includes/modules/rstore-fl-cart.php:32
+#: includes/modules/rstore-fl-product.php:128
+#: includes/modules/rstore-vc-cart.php:44
+#: includes/modules/rstore-vc-product.php:128
+#: includes/widgets/class-product.php:210
+msgid "Cart Link"
 msgstr ""
 
-#: includes/widgets/class-cart.php:39
-msgid "Display the user's cart in the sidebar."
+#: includes/modules/rstore-fl-cart.php:33
+#: includes/modules/rstore-vc-cart.php:46 includes/widgets/class-cart.php:39
+msgid "A shopper cart status."
 msgstr ""
 
-#: includes/widgets/class-cart.php:128
-#: includes/widgets/class-domain-search.php:132
-#: includes/widgets/class-login.php:138
-msgid "Title:"
+#: includes/modules/rstore-fl-cart.php:34
+#: includes/modules/rstore-fl-login.php:34
+msgid "Shopper Modules"
 msgstr ""
 
-#: includes/widgets/class-cart.php:133 includes/widgets/class-product.php:227
-msgid "Button Label:"
+#: includes/modules/rstore-fl-cart.php:35
+#: includes/modules/rstore-fl-domain-search.php:35
+#: includes/modules/rstore-fl-domain-simple.php:35
+#: includes/modules/rstore-fl-domain-transfer.php:35
+#: includes/modules/rstore-fl-login.php:35
+#: includes/modules/rstore-fl-product.php:35
+#: includes/widgets/class-domain-search.php:40
+#: includes/widgets/class-domain-simple.php:40
+#: includes/widgets/class-domain-transfer.php:40
+#: includes/widgets/class-login.php:40 includes/widgets/class-product.php:40
+msgid "Reseller Store Modules"
 msgstr ""
 
-#: includes/widgets/class-cart.php:170
+#: includes/modules/rstore-fl-cart.php:53
+#: includes/modules/rstore-fl-domain-search.php:53
+#: includes/modules/rstore-fl-domain-simple.php:53
+#: includes/modules/rstore-fl-domain-transfer.php:53
+#: includes/modules/rstore-fl-login.php:53
+#: includes/modules/rstore-fl-product.php:81
+#: includes/modules/rstore-vc-cart.php:54
+#: includes/modules/rstore-vc-domain-search.php:54
+#: includes/modules/rstore-vc-domain-simple.php:54
+#: includes/modules/rstore-vc-domain-transfer.php:54
+#: includes/modules/rstore-vc-login.php:54 includes/widgets/class-cart.php:130
+#: includes/widgets/class-domain-search.php:145
+#: includes/widgets/class-domain-simple.php:135
+#: includes/widgets/class-domain-transfer.php:135
+#: includes/widgets/class-login.php:142
+msgid "Title"
+msgstr ""
+
+#: includes/modules/rstore-fl-cart.php:57
+#: includes/modules/rstore-fl-domain-simple.php:63
+#: includes/modules/rstore-fl-domain-transfer.php:63
+#: includes/modules/rstore-fl-product.php:75
+#: includes/modules/rstore-vc-cart.php:63
+#: includes/modules/rstore-vc-domain-search.php:74
+#: includes/modules/rstore-vc-domain-simple.php:76
+#: includes/modules/rstore-vc-domain-transfer.php:78
+#: includes/modules/rstore-vc-product.php:81
+#: includes/widgets/class-cart.php:131
+#: includes/widgets/class-domain-simple.php:137
+#: includes/widgets/class-domain-transfer.php:137
+#: includes/widgets/class-product.php:205
+msgid "Button"
+msgstr ""
+
+#: includes/modules/rstore-fl-cart.php:58
+#: includes/modules/rstore-vc-cart.php:65 includes/widgets/class-cart.php:165
 msgid "View Cart"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:36
-msgid "Reseller Domain Search"
+#: includes/modules/rstore-fl-domain-search.php:32
+msgid "Advanced Search"
 msgstr ""
 
+#: includes/modules/rstore-fl-domain-search.php:33
+#: includes/modules/rstore-vc-domain-search.php:46
 #: includes/widgets/class-domain-search.php:39
-msgid "A search form for domain names."
+msgid "An advanced search form with on page results for domain names."
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:104
-msgid "Domain Search"
+#: includes/modules/rstore-fl-domain-search.php:34
+#: includes/modules/rstore-fl-domain-simple.php:34
+#: includes/modules/rstore-fl-domain-transfer.php:34
+msgid "Domain Modules"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:133
-msgid "Domain result page size:"
+#: includes/modules/rstore-fl-domain-search.php:54
+#: includes/modules/rstore-fl-domain-simple.php:54
+#: includes/modules/rstore-fl-domain-transfer.php:54
+#: includes/modules/rstore-vc-cart.php:56
+#: includes/modules/rstore-vc-domain-search.php:56
+#: includes/modules/rstore-vc-domain-simple.php:56
+#: includes/modules/rstore-vc-domain-transfer.php:56
+#: includes/modules/rstore-vc-login.php:56
+msgid "Optional widget title"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:134
-msgid "Placeholder:"
+#: includes/modules/rstore-fl-domain-search.php:58
+#: includes/modules/rstore-fl-domain-simple.php:58
+#: includes/modules/rstore-fl-domain-transfer.php:58
+#: includes/modules/rstore-vc-domain-search.php:64
+#: includes/modules/rstore-vc-domain-simple.php:65
+#: includes/modules/rstore-vc-domain-transfer.php:66
+#: includes/widgets/class-domain-search.php:146
+#: includes/widgets/class-domain-simple.php:136
+#: includes/widgets/class-domain-transfer.php:136
+msgid "Placeholder"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:135
-msgid "Search Button:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:136
-msgid "Available Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:137
-msgid "Not Available Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:138
-msgid "Cart Button Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:139
-msgid "Select Button Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:140
-msgid "Unselect Button Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:141
-msgid "Verify Button Text:"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:142
-msgid "Domain disclaimer notice"
-msgstr ""
-
-#: includes/widgets/class-domain-search.php:205
+#: includes/modules/rstore-fl-domain-search.php:59
+#: includes/modules/rstore-fl-domain-simple.php:59
+#: includes/modules/rstore-vc-domain-search.php:66
+#: includes/modules/rstore-vc-domain-simple.php:67
+#: includes/widgets/class-domain-search.php:197
+#: includes/widgets/class-domain-simple.php:172
 msgid "Find your perfect domain name"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:206
+#: includes/modules/rstore-fl-domain-search.php:63
+#: includes/widgets/class-domain-search.php:147
+msgid "Search Button"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:64
+#: includes/modules/rstore-fl-domain-simple.php:32
+#: includes/modules/rstore-fl-domain-simple.php:64
+#: includes/modules/rstore-vc-domain-search.php:76
+#: includes/modules/rstore-vc-domain-simple.php:78
+#: includes/widgets/class-domain-search.php:198
+#: includes/widgets/class-domain-simple.php:173
 msgid "Search"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:207
+#: includes/modules/rstore-fl-domain-search.php:73
+#: includes/modules/rstore-vc-domain-search.php:84
+#: includes/widgets/class-domain-search.php:148
+msgid "Page Size"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:74
+msgid "domains"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:79
+#: includes/modules/rstore-vc-domain-search.php:94
+#: includes/widgets/class-domain-search.php:154
+msgid "Display results in a modal"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:82
+#: includes/modules/rstore-fl-product.php:84
+#: includes/modules/rstore-fl-product.php:93
+#: includes/modules/rstore-fl-product.php:102
+#: includes/modules/rstore-vc-domain-search.php:96
+msgid "Show"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:83
+#: includes/modules/rstore-fl-product.php:85
+#: includes/modules/rstore-fl-product.php:94
+#: includes/modules/rstore-fl-product.php:103
+#: includes/modules/rstore-vc-product.php:94
+#: includes/modules/rstore-vc-product.php:103
+#: includes/modules/rstore-vc-product.php:112
+msgid "Hide"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:88
+#: includes/modules/rstore-vc-domain-search.php:104
+#: includes/widgets/class-domain-search.php:149
+msgid "Available Text"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:89
+#: includes/modules/rstore-vc-domain-search.php:106
+#: includes/widgets/class-domain-search.php:199
 msgid "Congrats, {domain_name} is available!"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:208
+#: includes/modules/rstore-fl-domain-search.php:93
+#: includes/modules/rstore-vc-domain-search.php:114
+#: includes/widgets/class-domain-search.php:150
+msgid "Not Available Text"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:94
+#: includes/modules/rstore-vc-domain-search.php:116
+#: includes/widgets/class-domain-search.php:200
 msgid "Sorry, {domain_name} is taken."
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:210
+#: includes/modules/rstore-fl-domain-search.php:98
+#: includes/modules/rstore-vc-domain-search.php:124
+#: includes/widgets/class-domain-search.php:151
+msgid "Cart Button"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:103
+#: includes/modules/rstore-vc-domain-search.php:134
+#: includes/widgets/class-domain-search.php:152
+msgid "Select Button"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:104
+#: includes/modules/rstore-vc-domain-search.php:136
+#: includes/widgets/class-domain-search.php:202
 msgid "Select"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:211
+#: includes/modules/rstore-fl-domain-search.php:108
+#: includes/modules/rstore-vc-domain-search.php:144
+#: includes/widgets/class-domain-search.php:153
+msgid "Deselect Button"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:109
+#: includes/modules/rstore-vc-domain-search.php:146
+#: includes/widgets/class-domain-search.php:203
 msgid "Selected"
 msgstr ""
 
-#: includes/widgets/class-domain-search.php:212
-msgid "Verify"
+#: includes/modules/rstore-fl-domain-simple.php:33
+#: includes/modules/rstore-vc-domain-simple.php:46
+#: includes/widgets/class-domain-simple.php:39
+msgid "A search form for domain registrations."
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-transfer.php:32
+#: includes/modules/rstore-fl-domain-transfer.php:64
+#: includes/modules/rstore-vc-domain-transfer.php:80
+#: includes/widgets/class-domain-transfer.php:173
+msgid "Transfer"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-transfer.php:33
+#: includes/modules/rstore-vc-domain-transfer.php:46
+#: includes/widgets/class-domain-transfer.php:39
+msgid "A search form for domain transfers."
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-transfer.php:59
+#: includes/modules/rstore-vc-domain-transfer.php:68
+#: includes/widgets/class-domain-transfer.php:172
+msgid "Enter domain to transfer"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:32
+#: includes/modules/rstore-vc-login.php:44
+msgid "Shopper Login"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:33
+#: includes/modules/rstore-vc-login.php:46 includes/widgets/class-login.php:39
+msgid "A shopper login status."
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:57
+#: includes/modules/rstore-vc-login.php:63 includes/widgets/class-login.php:143
+msgid "Sign In Button"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:58
+#: includes/modules/rstore-vc-login.php:65 includes/widgets/class-login.php:183
+msgid "Sign In"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:62
+#: includes/modules/rstore-vc-login.php:72 includes/widgets/class-login.php:144
+msgid "Welcome Message"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:63
+#: includes/modules/rstore-vc-login.php:74 includes/widgets/class-login.php:182
+msgid "Welcome Back"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:67
+#: includes/modules/rstore-vc-login.php:81 includes/widgets/class-login.php:145
+msgid "Log Out Button"
+msgstr ""
+
+#: includes/modules/rstore-fl-login.php:68
+#: includes/modules/rstore-vc-login.php:83 includes/widgets/class-login.php:184
+msgid "Log Out"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:32
+#: includes/modules/rstore-fl-product.php:53
+#: includes/modules/rstore-vc-product.php:44
+#: includes/modules/rstore-vc-product.php:54
+#: includes/widgets/class-product.php:183
+msgid "Product"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:33
+#: includes/modules/rstore-vc-product.php:46
+#: includes/widgets/class-product.php:39
+msgid "Display a product post."
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:34
+msgid "Product Modules"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:63
+#: includes/modules/rstore-vc-product.php:65
+#: includes/widgets/class-product.php:192
+msgid "Image Size"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:66
+#: includes/modules/rstore-vc-product.php:68
+#: includes/widgets/class-product.php:195
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:67
+#: includes/modules/rstore-vc-product.php:69
+#: includes/widgets/class-product.php:196
+msgid "Medium resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:68
+#: includes/modules/rstore-vc-product.php:70
+#: includes/widgets/class-product.php:197
+msgid "Large resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:69
+#: includes/modules/rstore-vc-product.php:71
+#: includes/widgets/class-product.php:198
+msgid "Original resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:70
+#: includes/modules/rstore-vc-product.php:72
+#: includes/widgets/class-product.php:199
+msgid "Hide image"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:76
+#: includes/modules/rstore-vc-product.php:84
+#: includes/widgets/class-product.php:205
+msgid "Leave blank to hide button"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:90
+msgid "Post Content"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:113
+#: includes/modules/rstore-vc-product.php:119
+#: includes/widgets/class-product.php:209
+msgid "Redirect to cart after adding item"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:116
+msgid "Yes"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:117
+#: includes/modules/rstore-vc-product.php:121
+msgid "No"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Reseller Store"
+msgstr ""
+
+#: includes/modules/rstore-vc-domain-search.php:44
+msgid "Advanced Domain Search"
+msgstr ""
+
+#: includes/modules/rstore-vc-domain-search.php:87
+#: includes/modules/rstore-vc-domain-search.php:107
+#: includes/modules/rstore-vc-domain-search.php:117
+#: includes/modules/rstore-vc-domain-search.php:127
+#: includes/modules/rstore-vc-domain-search.php:137
+#: includes/modules/rstore-vc-domain-search.php:147
+msgid "Results"
+msgstr ""
+
+#: includes/modules/rstore-vc-domain-simple.php:44
+#: includes/widgets/class-domain-search.php:115
+msgid "Domain Search"
+msgstr ""
+
+#: includes/modules/rstore-vc-domain-transfer.php:44
+msgid "Domain Transfer"
+msgstr ""
+
+#: includes/modules/rstore-vc-product.php:92
+#: includes/widgets/class-product.php:206
+msgid "Show product title"
+msgstr ""
+
+#: includes/modules/rstore-vc-product.php:101
+#: includes/widgets/class-product.php:207
+msgid "Show post content"
+msgstr ""
+
+#: includes/modules/rstore-vc-product.php:110
+#: includes/widgets/class-product.php:208
+msgid "Show product price"
+msgstr ""
+
+#: includes/widgets/class-cart.php:36
+msgid "Reseller Cart Link"
+msgstr ""
+
+#: includes/widgets/class-domain-search.php:36
+msgid "Reseller Advanced Domain Search"
+msgstr ""
+
+#: includes/widgets/class-domain-simple.php:36
+msgid "Reseller Domain Search"
+msgstr ""
+
+#: includes/widgets/class-domain-transfer.php:36
+msgid "Reseller Domain Transfer"
 msgstr ""
 
 #: includes/widgets/class-login.php:36
 msgid "Reseller Shopper Login"
 msgstr ""
 
-#: includes/widgets/class-login.php:39
-msgid "A shopper login status"
-msgstr ""
-
-#: includes/widgets/class-login.php:143
-msgid "Log In Button:"
-msgstr ""
-
-#: includes/widgets/class-login.php:148
-msgid "Log Out Button:"
-msgstr ""
-
-#: includes/widgets/class-login.php:153
-msgid "Welcome Message:"
-msgstr ""
-
-#: includes/widgets/class-login.php:194
-msgid "Welcome Back"
-msgstr ""
-
-#: includes/widgets/class-login.php:195
-msgid "Log In"
-msgstr ""
-
-#: includes/widgets/class-login.php:196
-msgid "Log Out"
-msgstr ""
-
 #: includes/widgets/class-product.php:36
 msgid "Reseller Product"
 msgstr ""
 
-#: includes/widgets/class-product.php:39
-msgid "Display product post."
-msgstr ""
-
-#: includes/widgets/class-product.php:70 includes/widgets/class-product.php:74
+#: includes/widgets/class-product.php:73 includes/widgets/class-product.php:77
 msgid "Post id is not valid."
-msgstr ""
-
-#: includes/widgets/class-product.php:178
-msgid "Product: "
-msgstr ""
-
-#: includes/widgets/class-product.php:187
-msgid "Image size: "
-msgstr ""
-
-#: includes/widgets/class-product.php:190
-msgid "Thumbnail"
-msgstr ""
-
-#: includes/widgets/class-product.php:191
-msgid "Medium resolution"
-msgstr ""
-
-#: includes/widgets/class-product.php:192
-msgid "Large resolution"
-msgstr ""
-
-#: includes/widgets/class-product.php:193
-msgid "Original resolution"
-msgstr ""
-
-#: includes/widgets/class-product.php:194
-msgid "Hide Image"
-msgstr ""
-
-#: includes/widgets/class-product.php:201
-msgid "Show product title"
-msgstr ""
-
-#: includes/widgets/class-product.php:208
-msgid "Show post text"
-msgstr ""
-
-#: includes/widgets/class-product.php:215
-msgid "Show product price"
-msgstr ""
-
-#: includes/widgets/class-product.php:222
-msgid "Redirect to cart after adding item"
-msgstr ""
-
-#: includes/widgets/class-product.php:229
-msgid "Leave blank to hide button"
-msgstr ""
-
-#: includes/widgets/class-product.php:233
-msgid "Cart Text:"
 msgstr ""
 
 #: reseller-store.php:36
@@ -590,10 +842,6 @@ msgstr ""
 msgid ""
 "You need to update your PHP version to run GoDaddy Reseller Store plugin. "
 "Required version 5.4 or higher. Your PHP version is: %s"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "GoDaddy Reseller Store"
 msgstr ""
 
 #. Description of the plugin/theme

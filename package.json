@@ -24,21 +24,21 @@
     "[![WordPress <%= pkg.engines.wordpress %>](https://img.shields.io/badge/wordpress-<% print(encodeURI(pkg.engines.wordpress)) %>-blue.svg)](https://wordpress.org/download/release-archive/)"
   ],
   "devDependencies": {
-    "eslint": "^4.10.0",
-    "grunt": "^1.0.1",
+    "eslint": "^4.19.1",
+    "grunt": "^1.0.2",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.0.0",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^3.1.0",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.1",
     "grunt-cssjanus": "^0.4.0",
     "grunt-dev-update": "^2.2.0",
     "grunt-potomo": "^3.5.0",
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-deploy": "^1.2.1",
-    "grunt-wp-i18n": "^1.0.0",
+    "grunt-wp-i18n": "^1.0.2",
     "grunt-wp-readme-to-markdown": "^2.0.1",
     "matchdep": "^2.0.0"
   },
@@ -49,6 +49,6 @@
     "build": "grunt build && mv build reseller-store && touch reseller-store.zip && rm reseller-store.zip && zip -r reseller-store.zip reseller-store && rm -rf reseller-store"
   },
   "dependencies": {
-    "domain-search": "^2.1.6"
+    "domain-search": "^3.0.0"
   }
 }

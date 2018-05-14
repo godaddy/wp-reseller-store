@@ -14,17 +14,20 @@ Design your own storefront for your GoDaddy Reseller plan and have more control 
 
 **Note: This plugin requires PHP 5.4 or higher**
 
-With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search and cart widgets!
+With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search, domain transfer, and cart widgets!
+
+The product catalog includes cPanel and Plesk hosting, Wordpress, Website Builder, Workspace Email, Security, and Web Marketing applications.
 
 [youtube https://youtu.be/us3y7jK55YQ]
 
 **Features**
 
 * Easily design a site that is for desktop or mobile devices in your theme
+* Add domain registration and domain transfer forms to you storefront
 * Imports product catalog with your pricing in your preferred currency and language
 * Update products/descriptions/images
 * Easily create pages with different layouts and products on the page
-* Add core functions to your site with domain search and cart widgets
+* Add core functions to your site with shopper and cart widgets
 
 **Languages Supported**
 
@@ -70,27 +73,37 @@ While we strive to make the plugin compatible with many themes and plugins, our 
 
 = What shortcodes are supported? =
 While we recommend you use our widgets for your storefront, we do have a shortcodes for each widget.
-  Domain Search
-```
-[rstore_domain_search page_size="5" ]
-```
- View Cart Button
-```
-[rstore_cart_button ]
-```
- Product Pod
-```
-[rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
-```
- Log in/out Button
-```
-[rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
-```
+  Domain Registration
+    [rstore_domain]
+
+  Domain Transfer
+    [rstore_domain_transfer]
+
+  Domain Search (Advanced)
+    [rstore_domain_search page_size="5" ]
+
+  View Cart Button
+    [rstore_cart_button ]
+
+  Product Post Pod
+    [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
+
+  Log in/out Button
+    [rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
+
 
 = How do I make the domain search return results on page load? =
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 1.6.0 - May 2018 =
+
+* New: Add domain transfer widget and shortcode
+* New: Add domain registration widget and shortcode
+* Update: Rename Domain search widget to Domain Search (Advanced)
+* New: Beaver Builder module for widgets
+* New: Visual Composer (WPBakery) module for widgets
 
 = 1.5.2 - February 2018 =
 

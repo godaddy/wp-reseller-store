@@ -24,7 +24,7 @@ final class TestShortcodes extends TestCase {
 
 		$this->assertContains(
 			do_shortcode( '[rstore-domain-search]' ),
-			'<div class="widget rstore-domain widget_search"><div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div></div>'
+			'<div class="widget rstore-domain widget_search rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>'
 		);
 
 	}
@@ -36,7 +36,7 @@ final class TestShortcodes extends TestCase {
 
 		$this->assertContains(
 			do_shortcode( '[rstore_domain_search]' ),
-			'<div class="widget rstore-domain widget_search"><div class="rstore-domain-search" data-plid= data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search</div></div>'
+			'<div class="widget rstore-domain widget_search rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>'
 		);
 
 	}
@@ -184,11 +184,39 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
+	 * @testdox Given a domain shortcode it should generate html
+	 */
+	function test_domain() {
+
+		rstore_update_option( 'pl_id', 12345 );
+
+		$this->assertRegExp(
+			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
+			do_shortcode( '[rstore_domain]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given a domain transfer shortcode it should generate html
+	 */
+	function test_domain_transfer() {
+
+		rstore_update_option( 'pl_id', 12345 );
+
+		$this->assertRegExp(
+			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
+			do_shortcode( '[rstore_domain_transfer]' )
+		);
+
+	}
+
+	/**
 	 * @testdox Test invalid widget.
 	 */
 	function test_invalid_widget() {
 
-		$this->assertFalse( Shortcodes::is_widget() );
+		$this->assertFalse( rstore_is_widget() );
 
 	}
 
@@ -198,7 +226,7 @@ final class TestShortcodes extends TestCase {
 	function test_valid_widget() {
 
 		$this->assertTrue(
-			Shortcodes::is_widget(
+			rstore_is_widget(
 				[
 					'widget_id' => 'widget-id-123',
 				]

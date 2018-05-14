@@ -48,7 +48,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget->widget( $args, $instance );
 
 		$this->assertRegExp(
-			'/<div class="before_widget widget_search"><div class="rstore-domain-search" data-plid=12345 data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected" data-text_verify="Verify">Domain Search<\/div><\/div>/',
+			'/<div class="before_widget widget_search rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="12345" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search<\/div><\/div>/',
 			$widget->widget( $args, $instance )
 		);
 
@@ -81,7 +81,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		];
 
 		$this->assertRegExp(
-			'/<div class="before_widget widget_search"><h3 class="widget-title">this is the title<\/h3><div class="rstore-domain-search" data-plid=12345/',
+			'/<div class="before_widget widget_search rstore_domain_placeholder"><h3 class="widget-title">this is the title<\/h3><div class="rstore-domain-search" data-plid="12345"/',
 			$widget->widget( $args, $instance )
 		);
 
@@ -106,8 +106,7 @@ final class TestWidgetDomainSearch extends TestCase {
 			'text_cart'          => 'cart',
 			'text_select'        => 'select',
 			'text_selected'      => 'selected',
-			'text_verify'        => 'verify',
-			'text_disclaimer'    => 'disclaimer',
+			'modal'              => true,
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );

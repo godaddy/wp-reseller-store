@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: GoDaddy Reseller Store
+ * Plugin Name: Reseller Store
  * Description: Sell hosting, domains, and more right from your WordPress site.
  * Version: 1.5.2
  * Author: GoDaddy

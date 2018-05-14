@@ -108,6 +108,32 @@ final class Shortcodes {
 		 */
 		add_shortcode( 'rstore_login', [ $this, 'login' ] );
 
+		/**
+		 * Register the domain transfer shortcode
+		 *
+		 * @shortcode [rstore_domain_transfer]
+		 *
+		 * @since NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the domain transfer container.
+		 */
+		add_shortcode( 'rstore_domain_transfer', [ $this, 'domain_transfer' ] );
+
+		/**
+		 * Register the domain search simple shortcode
+		 *
+		 * @shortcode [rstore_domain]
+		 *
+		 * @since NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the domain transfer container.
+		 */
+		add_shortcode( 'rstore_domain', [ $this, 'domain_simple' ] );
+
 	}
 
 	/**
@@ -116,6 +142,8 @@ final class Shortcodes {
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the domain search container.
 	 */
 	public function domain_search( $atts ) {
 
@@ -133,6 +161,8 @@ final class Shortcodes {
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the cart button container.
 	 */
 	public function cart_button( $atts ) {
 
@@ -145,11 +175,13 @@ final class Shortcodes {
 	}
 
 	/**
-	 * Render the domain search widget.
+	 * Render the product widget.
 	 *
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the product container.
 	 */
 	public function product( $atts ) {
 
@@ -167,6 +199,8 @@ final class Shortcodes {
 	 * @since 1.1.0
 	 *
 	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the login container.
 	 */
 	public function login( $atts ) {
 
@@ -179,18 +213,40 @@ final class Shortcodes {
 	}
 
 	/**
-	 * Checks if the shortcode is being rendered as a widget.
+	 * Render the domain transfer widget.
 	 *
-	 * @since 1.3.0
+	 * @since NEXT
 	 *
-	 * @param array $atts Shortcode attributes.
+	 * @param array $atts        The shortcode attributes.
 	 *
-	 * @return boolean    True is id key is set, else false.
+	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
-	public static function is_widget( $atts = [] ) {
+	public function domain_transfer( $atts ) {
 
-		return isset( $atts['widget_id'] );
+		$this->args['before_widget'] = '<div class="widget rstore-domain-transfer">';
+
+		$domain = new Widgets\Domain_Transfer();
+
+		return $domain->widget( $this->args, $atts );
 
 	}
 
+	/**
+	 * Render the domain search simple widget.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the domain transfer container.
+	 */
+	public function domain_simple( $atts ) {
+
+		$this->args['before_widget'] = '<div class="widget rstore-domain">';
+
+		$domain = new Widgets\Domain_Simple();
+
+		return $domain->widget( $this->args, $atts );
+
+	}
 }
