@@ -97,6 +97,10 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 == Changelog ==
 
+= 1.6.1 - May 2018 =
+
+* Publish to WordPress.org
+
 = 1.6.0 - May 2018 =
 
 * New: Add domain transfer widget and shortcode
