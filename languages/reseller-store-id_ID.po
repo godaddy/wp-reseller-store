@@ -263,7 +263,7 @@ msgstr "Buat akun"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
-msgstr "Perlu bantuan? Hubungi tim dukungan peraih penghargaan kami di (480) 505-8877."
+msgstr "Perlu bantuan? Hubungi tim dukungan pemenang penghargaan kami di nomor (480) 505-8877."
 
 #: includes/class-setup.php:205
 #. translators: name of missing script
