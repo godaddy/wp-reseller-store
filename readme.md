@@ -101,6 +101,10 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
+### Next - August 2018 ###
+
+* Update: Bumped Domain Search to version 3.1.0, which includes updates to prevent user navigation away from the page when domains are selected
+
 ### 1.6.1 - May 2018 ###
 
 * Publish to WordPress.org
