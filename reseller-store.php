@@ -28,7 +28,7 @@ if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
 
 	add_action(
 		'admin_notices', function() {
-		?>
+			?>
 		<div class="update-nag">
 			<?php
 			echo sprintf(
@@ -39,7 +39,7 @@ if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
 
 			?>
 		</div>
-		<?php
+			<?php
 		}
 	);
 

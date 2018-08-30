@@ -135,15 +135,25 @@ final class Product extends Widget_Base {
 
 		if ( ! empty( $data['button_label'] ) ) {
 
-			$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
+			$redirect = true;
+
+			if ( ( array_key_exists( 'skip_cart_redirect', $data ) && $data['skip_cart_redirect'] ) ||
+				( array_key_exists( 'redirect', $data ) && false === $data['redirect'] )
+			) {
+
+				$redirect = false;
+
+			}
+
+			$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $redirect ); // xss ok.
 
 		}
 		$content .= $args['after_widget']; // xss ok.
 
 		if ( ! in_array( 'the_content', $wp_current_filter, true ) ) {
 
-			$original_post       = $post;
-			$post                = $product;
+			$original_post = $post;
+			$post          = $product;
 			setup_postdata( $product );
 
 			$content = apply_filters( 'the_content', $content );

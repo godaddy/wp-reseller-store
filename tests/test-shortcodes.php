@@ -116,7 +116,7 @@ final class TestShortcodes extends TestCase {
       show_title=0
       show_content=0
       show_price=0
-      redirect = 0
+      skip_cart_redirect = 0
       button_label=""
       text_cart=""
       image_size=none
@@ -128,7 +128,7 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a valid product shortcode with redirct=1 params it should redirect truthy data attribute
+	 * @testdox Given a valid product shortcode with skip_cart_redirect=0 params it should redirect truthy data attribute
 	 */
 	function test_product_with_redirect_1_param() {
 
@@ -136,7 +136,7 @@ final class TestShortcodes extends TestCase {
 
 		$content = '[rstore_product
       post_id=' . $post->ID . '
-      redirect=1
+      skip_cart_redirect=0
       ]';
 
 		$this->assertRegExp(
@@ -147,7 +147,7 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a valid product shortcode with redirect=0 params it should redirect falsy data attribute
+	 * @testdox Given a valid product shortcode with skip_cart_redirect=1 params it should redirect falsy data attribute
 	 */
 	function test_product_with_redirect_0_param() {
 
@@ -155,7 +155,7 @@ final class TestShortcodes extends TestCase {
 
 		$content = '[rstore_product
       post_id=' . $post->ID . '
-      redirect=0
+      skip_cart_redirect=1
       ]';
 
 		$this->assertRegExp(

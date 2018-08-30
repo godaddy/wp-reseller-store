@@ -50,7 +50,7 @@ final class TestHelperFunctions extends TestCase {
 		$defaults = [
 			'id',
 			'quantity',
-			'redirect',
+			'skip_cart_redirect',
 			'label',
 			'permalink',
 		];
