@@ -86,7 +86,7 @@ While we recommend you use our widgets for your storefront, we do have a shortco
     [rstore_cart_button ]
 
   Product Post Pod
-    [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
+    [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 skip_cart_redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
 
   Log in/out Button
     [rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
@@ -96,6 +96,12 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 1.7.0 - September 2018
+* Update: Product shortcode use `skip_cart_redirect`
+* Update: Product defaults to redirect to cart
+* Update: Get `nextStepUrl` from API after adding product to cart
+* Update: Add `rstore_append_add_to_cart_form` as a filter for `the_content` and `the_excerpt`
 
 = 1.6.1 - May 2018 =
 

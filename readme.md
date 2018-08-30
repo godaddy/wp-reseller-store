@@ -101,6 +101,12 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
+### 1.7.0 - Sept 2018
+* Update: Product shortcode use `skip_cart_redirect`
+* Update: Product defaults to redirect to cart
+* Update: Get `nextStepUrl` from API after adding product to cart
+* Update: Add `rstore_append_add_to_cart_form` as a filter for `the_content` and `the_excerpt`
+###
 ### 1.6.1 - May 2018 ###
 
 * Publish to WordPress.org
