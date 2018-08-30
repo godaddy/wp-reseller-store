@@ -139,6 +139,44 @@ function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart
 }
 
 /**
+ * Append an `Add to cart` form the end of product post content.
+ *
+ * @action the_content
+ * @global WP_Post $post
+ * @since  0.2.0
+ *
+ * @param  string $content Product content.
+ *
+ * @return string
+ */
+function rstore_append_add_to_cart_form( $content ) {
+
+	global $post;
+
+	if ( ! isset( $post ) ) {
+		return $content;
+	}
+
+	if ( property_exists( $post, 'rstore_widget' ) && true === $post->rstore_widget ) {
+
+		return $content;
+
+	}
+
+	$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+
+	if ( \Reseller_Store\Post_Type::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
+
+		$content .= rstore_price( $post->ID, false );
+		$content .= rstore_add_to_cart_form( $post->ID, false );
+
+	}
+
+	return $content;
+
+}
+
+/**
  * Display an `Add to cart` button for a given product.
  *
  * @since 0.2.0

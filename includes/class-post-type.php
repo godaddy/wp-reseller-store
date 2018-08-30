@@ -68,8 +68,8 @@ final class Post_Type {
 		add_filter( 'manage_' . self::SLUG . '_posts_columns', [ $this, 'columns' ] );
 		add_filter( 'posts_clauses', [ $this, 'order_by_price_clause' ], 10, 2 );
 		add_filter( 'post_type_labels_' . self::SLUG, [ $this, 'post_screen_edit_heading' ] );
-		add_filter( 'the_content', [ $this, 'append_add_to_cart_form' ] );
-		add_filter( 'the_excerpt', [ $this, 'append_add_to_cart_form' ] );
+		add_filter( 'the_content', 'rstore_append_add_to_cart_form' );
+		add_filter( 'the_excerpt', 'rstore_append_add_to_cart_form' );
 
 		add_filter(
 			'edit_' . self::SLUG . '_per_page', function () {
@@ -502,44 +502,6 @@ final class Post_Type {
 		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
-
-	}
-
-	/**
-	 * Append an `Add to cart` form the end of product post content.
-	 *
-	 * @action the_content
-	 * @global WP_Post $post
-	 * @since  0.2.0
-	 *
-	 * @param  string $content Product content.
-	 *
-	 * @return string
-	 */
-	public function append_add_to_cart_form( $content ) {
-
-		global $post;
-
-		if ( ! isset( $post ) ) {
-			return $content;
-		}
-
-		$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
-
-		if ( self::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
-
-			if ( property_exists( $post, 'rstore_widget' ) && true === $post->rstore_widget ) {
-
-				return $content;
-
-			}
-
-			$content .= rstore_price( $post->ID, false );
-			$content .= rstore_add_to_cart_form( $post->ID, false );
-
-		}
-
-		return $content;
 
 	}
 

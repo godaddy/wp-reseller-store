@@ -161,7 +161,7 @@ final class ButterBean {
 		$this->sale_price( $manager, 'general' );
 		$this->add_to_cart_button_label( $manager, 'general' );
 		$this->cart_link_text( $manager, 'general' );
-		$this->add_to_cart_redirect( $manager, 'general' );
+		$this->skip_cart_redirect( $manager, 'general' );
 
 		$manager->register_section(
 			'advanced',
@@ -336,12 +336,12 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function add_to_cart_redirect( $manager, $section ) {
+	private function skip_cart_redirect( $manager, $section ) {
 
 		$args = [
 			'type'    => 'checkbox',
 			'section' => $section,
-			'label'   => esc_html__( 'Redirect to the cart immediately after adding', 'reseller-store' ),
+			'label'   => esc_html__( 'Do not redirect to cart after adding product', 'reseller-store' ),
 		];
 
 		$manager->register_control( rstore_prefix( __FUNCTION__ ), $args );
@@ -350,7 +350,7 @@ final class ButterBean {
 			rstore_prefix( __FUNCTION__ ),
 			[
 				'sanitize_callback' => function ( $value ) {
-					return ( 'true' === $value ) ? 'true' : '';
+					return ( 'true' === $value ) ? 1 : 0;
 				},
 			]
 		);

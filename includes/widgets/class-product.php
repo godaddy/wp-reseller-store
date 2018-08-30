@@ -144,7 +144,6 @@ final class Product extends Widget_Base {
 
 			$original_post       = $post;
 			$post                = $product;
-			$post->rstore_widget = true;
 			setup_postdata( $product );
 
 			$content = apply_filters( 'the_content', $content );
