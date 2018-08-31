@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-05-14 17:58:04+00:00\n"
+"POT-Creation-Date: 2018-08-31 22:40:05+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,7 +95,7 @@ msgstr "Надпись на кнопке добавления в корзину"
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:210
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:209
 msgid "Cart link text"
 msgstr ""
 
@@ -110,7 +110,8 @@ msgid "Continue to cart"
 msgstr ""
 
 #: includes/class-butterbean.php:344
-msgid "Redirect to the cart immediately after adding"
+#, fuzzy
+msgid "Do not redirect to cart after adding product"
 msgstr "Переходить к корзине сразу после добавления"
 
 #: includes/class-butterbean.php:378
@@ -416,7 +417,7 @@ msgstr "Ошибка: \"%s\" не существует."
 #: includes/modules/rstore-fl-product.php:128
 #: includes/modules/rstore-vc-cart.php:44
 #: includes/modules/rstore-vc-product.php:128
-#: includes/widgets/class-product.php:210
+#: includes/widgets/class-product.php:209
 #, fuzzy
 msgid "Cart Link"
 msgstr "Корзина"
@@ -476,7 +477,7 @@ msgstr "Заголовок:"
 #: includes/widgets/class-cart.php:131
 #: includes/widgets/class-domain-simple.php:137
 #: includes/widgets/class-domain-transfer.php:137
-#: includes/widgets/class-product.php:205
+#: includes/widgets/class-product.php:204
 #, fuzzy
 msgid "Button"
 msgstr "Кнопка:"
@@ -721,7 +722,7 @@ msgstr ""
 #: includes/modules/rstore-fl-product.php:53
 #: includes/modules/rstore-vc-product.php:44
 #: includes/modules/rstore-vc-product.php:54
-#: includes/widgets/class-product.php:183
+#: includes/widgets/class-product.php:182
 #, fuzzy
 msgid "Product"
 msgstr "Продукт"
@@ -739,44 +740,44 @@ msgstr "Продукты"
 
 #: includes/modules/rstore-fl-product.php:63
 #: includes/modules/rstore-vc-product.php:65
-#: includes/widgets/class-product.php:192
+#: includes/widgets/class-product.php:191
 msgid "Image Size"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:66
 #: includes/modules/rstore-vc-product.php:69
-#: includes/widgets/class-product.php:195
+#: includes/widgets/class-product.php:194
 msgid "Thumbnail"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:67
 #: includes/modules/rstore-vc-product.php:70
-#: includes/widgets/class-product.php:196
+#: includes/widgets/class-product.php:195
 msgid "Medium resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:68
 #: includes/modules/rstore-vc-product.php:71
-#: includes/widgets/class-product.php:197
+#: includes/widgets/class-product.php:196
 msgid "Large resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:69
 #: includes/modules/rstore-vc-product.php:68
-#: includes/widgets/class-product.php:198
+#: includes/widgets/class-product.php:197
 msgid "Original resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:70
 #: includes/modules/rstore-vc-product.php:72
-#: includes/widgets/class-product.php:199
+#: includes/widgets/class-product.php:198
 #, fuzzy
 msgid "Hide image"
 msgstr "Изображение товара"
 
 #: includes/modules/rstore-fl-product.php:76
 #: includes/modules/rstore-vc-product.php:84
-#: includes/widgets/class-product.php:205
+#: includes/widgets/class-product.php:204
 msgid "Leave blank to hide button"
 msgstr ""
 
@@ -786,7 +787,7 @@ msgstr ""
 
 #: includes/modules/rstore-fl-product.php:113
 #: includes/modules/rstore-vc-product.php:119
-#: includes/widgets/class-product.php:209
+#: includes/widgets/class-product.php:208
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "Переходить к корзине сразу после добавления"
@@ -829,19 +830,19 @@ msgid "Domain Transfer"
 msgstr "Поиск домена"
 
 #: includes/modules/rstore-vc-product.php:92
-#: includes/widgets/class-product.php:206
+#: includes/widgets/class-product.php:205
 #, fuzzy
 msgid "Show product title"
 msgstr "Задать изображение товара"
 
 #: includes/modules/rstore-vc-product.php:101
-#: includes/widgets/class-product.php:207
+#: includes/widgets/class-product.php:206
 #, fuzzy
 msgid "Show post content"
 msgstr "Задать изображение товара"
 
 #: includes/modules/rstore-vc-product.php:110
-#: includes/widgets/class-product.php:208
+#: includes/widgets/class-product.php:207
 #, fuzzy
 msgid "Show product price"
 msgstr "Задать изображение товара"
@@ -981,6 +982,9 @@ msgstr "Тег"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s за %2$s"
+
+#~ msgid "Redirect to the cart immediately after adding"
+#~ msgstr "Переходить к корзине сразу после добавления"
 
 #~ msgid "Display the user's cart in the sidebar."
 #~ msgstr "Показывать корзину пользователя на боковой панели."
