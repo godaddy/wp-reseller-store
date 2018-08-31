@@ -69,7 +69,7 @@ function rstore_get_add_to_cart_vars( $post ) {
 	return [
 		'id'                 => rstore_get_product_meta( $post->ID, 'id' ),
 		'quantity'           => 1, // @TODO Future release.
-		'skip_cart_redirect' => rstore_get_product_meta( $post->ID, 'skip_cart_redirect', false, true ),
+		'skip_cart_redirect' => (bool) rstore_get_product_meta( $post->ID, 'skip_cart_redirect', false, true ),
 		'label'              => rstore_get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
 		'view_cart'          => rstore_get_product_meta( $post->ID, 'cart_link_text', esc_html__( 'Continue to cart', 'reseller-store' ), true ),
 		'permalink'          => get_permalink( $post->ID ),

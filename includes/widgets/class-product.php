@@ -135,17 +135,7 @@ final class Product extends Widget_Base {
 
 		if ( ! empty( $data['button_label'] ) ) {
 
-			$redirect = true;
-
-			if ( ( array_key_exists( 'skip_cart_redirect', $data ) && $data['skip_cart_redirect'] ) ||
-				( array_key_exists( 'redirect', $data ) && false === $data['redirect'] )
-			) {
-
-				$redirect = false;
-
-			}
-
-			$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $redirect ); // xss ok.
+			$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
 
 		}
 		$content .= $args['after_widget']; // xss ok.
@@ -301,12 +291,20 @@ final class Product extends Widget_Base {
 	 * @return array
 	 */
 	private function get_data( $instance ) {
+
+		$redirect = true;
+		if ( ( is_array( $instance ) && array_key_exists( 'skip_cart_redirect', $instance ) && (bool) $instance['skip_cart_redirect'] ) ) {
+
+			$redirect = false;
+
+		}
+
 		return [
 			'post_id'      => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
 			'show_title'   => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
 			'show_content' => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : true,
 			'show_price'   => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
-			'redirect'     => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
+			'redirect'     => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : $redirect,
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
 			'text_cart'    => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'image_size'   => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',

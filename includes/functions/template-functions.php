@@ -101,7 +101,7 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart = null, $redirect = false ) {
+function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart = null, $redirect = null ) {
 
 	$cart_vars = rstore_get_add_to_cart_vars( $post );
 
@@ -183,24 +183,28 @@ function rstore_append_add_to_cart_form( $content ) {
  *
  * @param  array  $cart_vars (required) Default cart values for product.
  * @param  string $button_label (optional) Text to display in the button.
- * @param  bool   $param_redirect (optional) Redirect to cart after adding item.
+ * @param  bool   $redirect (optional) Redirect to cart after adding item.
  * @param  bool   $echo (optional) Whether or not the add to cart button should be echoed.
  *
  * @return string|null
  */
-function rstore_add_to_cart_button( $cart_vars, $button_label = null, $param_redirect = null, $echo = true ) {
+function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect = null, $echo = true ) {
 
-	list( $id, $quantity, $redirect, $label ) = array_values( $cart_vars );
+	list( $id, $quantity, $skip_cart_redirect, $label ) = array_values( $cart_vars );
+
+	if ( ! isset( $redirect ) ) {
+
+		$redirect = ! $skip_cart_redirect;
+
+	}
 
 	if ( ! empty( $button_label ) ) {
+
 		$label = $button_label;
+
 	}
 
-	if ( ! empty( $param_redirect ) ) {
-		$redirect = $param_redirect;
-	}
-
-	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
+	if ( empty( $id ) || empty( $quantity ) || empty( $label ) ) {
 
 		return;
 

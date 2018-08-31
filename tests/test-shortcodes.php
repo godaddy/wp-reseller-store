@@ -130,7 +130,7 @@ final class TestShortcodes extends TestCase {
 	/**
 	 * @testdox Given a valid product shortcode with skip_cart_redirect=0 params it should redirect truthy data attribute
 	 */
-	function test_product_with_redirect_1_param() {
+	function test_product_with_redirect_0_param() {
 
 		$post = Tests\Helper::create_product( 'Another Product good' );
 
@@ -149,7 +149,7 @@ final class TestShortcodes extends TestCase {
 	/**
 	 * @testdox Given a valid product shortcode with skip_cart_redirect=1 params it should redirect falsy data attribute
 	 */
-	function test_product_with_redirect_0_param() {
+	function test_product_with_redirect_1_param() {
 
 		$post = Tests\Helper::create_product( 'Another Product good' );
 

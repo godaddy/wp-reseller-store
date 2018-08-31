@@ -350,7 +350,7 @@ final class ButterBean {
 			rstore_prefix( __FUNCTION__ ),
 			[
 				'sanitize_callback' => function ( $value ) {
-					return ( 'true' === $value ) ? 1 : 0;
+					return ( 'true' === $value ) ? 'true' : '';
 				},
 			]
 		);
