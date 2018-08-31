@@ -298,12 +298,9 @@ msgstr ""
 msgid "Get your own plan today."
 msgstr ""
 
-#: includes/class-setup.php:246
-#, fuzzy
-msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
-msgstr ""
-"Perlu bantuan? Hubungi tim dukungan peraih penghargaan kami di (480) "
-"505-8877."
+#: includes/class-setup.php:180
+msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
+msgstr "Perlu bantuan? Hubungi tim dukungan pemenang penghargaan kami di nomor (480) 505-8877."
 
 #. translators: name of missing script
 #: includes/class-setup.php:271

@@ -93,7 +93,7 @@ msgstr "Beschriftung der Schaltfläche „In den Warenkorb legen“"
 #: includes/modules/rstore-vc-product.php:83
 #: includes/widgets/class-product.php:301
 msgid "Add to cart"
-msgstr "In den Warenkorb"
+msgstr "In den Warenkorb legen"
 
 #: includes/class-butterbean.php:315 includes/widgets/class-product.php:209
 msgid "Cart link text"
