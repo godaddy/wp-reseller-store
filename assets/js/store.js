@@ -65,9 +65,13 @@
 
 				cart.updateCount( response );
 
-				if ( redirect ) {
-					window.location.href = $form.find( '.rstore-cart' ).find('a').attr('href');
-					return;
+				if ( response.nextStepUrl ) {
+					if ( redirect ) {
+						window.location.href = response.nextStepUrl;
+						return;
+					}
+
+					$form.find('.rstore-cart').find('a').attr('href', response.nextStepUrl);
 				}
 
 				cart.addItemSuccess( $form );

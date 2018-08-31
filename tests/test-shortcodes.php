@@ -128,7 +128,7 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a valid product shortcode with redirct=1 params it should redirect truthy data attribute
+	 * @testdox Given a valid product shortcode with redirect=1 params it should redirect truthy data attribute
 	 */
 	function test_product_with_redirect_1_param() {
 

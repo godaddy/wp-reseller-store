@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-05-14 17:58:04+00:00\n"
+"POT-Creation-Date: 2018-08-31 22:40:05+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,7 +95,7 @@ msgstr "เพิ่มไปยังฉลากปุ่มตะกร้า
 msgid "Add to cart"
 msgstr "เพิ่มลงตะกร้าสินค้า"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:210
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:209
 msgid "Cart link text"
 msgstr ""
 
@@ -110,7 +110,8 @@ msgid "Continue to cart"
 msgstr ""
 
 #: includes/class-butterbean.php:344
-msgid "Redirect to the cart immediately after adding"
+#, fuzzy
+msgid "Do not redirect to cart after adding product"
 msgstr "เปลี่ยนเส้นทางไปยังตะกร้าสินค้าทันทีหลังจากที่เพิ่มแล้ว"
 
 #: includes/class-butterbean.php:378
@@ -413,7 +414,7 @@ msgstr "ข้อผิดพลาด: ไม่มี `%s` อยู่"
 #: includes/modules/rstore-fl-product.php:128
 #: includes/modules/rstore-vc-cart.php:44
 #: includes/modules/rstore-vc-product.php:128
-#: includes/widgets/class-product.php:210
+#: includes/widgets/class-product.php:209
 #, fuzzy
 msgid "Cart Link"
 msgstr "ตะกร้าสินค้า"
@@ -473,7 +474,7 @@ msgstr "ชื่อเรื่อง:"
 #: includes/widgets/class-cart.php:131
 #: includes/widgets/class-domain-simple.php:137
 #: includes/widgets/class-domain-transfer.php:137
-#: includes/widgets/class-product.php:205
+#: includes/widgets/class-product.php:204
 #, fuzzy
 msgid "Button"
 msgstr "ปุ่ม:"
@@ -718,7 +719,7 @@ msgstr ""
 #: includes/modules/rstore-fl-product.php:53
 #: includes/modules/rstore-vc-product.php:44
 #: includes/modules/rstore-vc-product.php:54
-#: includes/widgets/class-product.php:183
+#: includes/widgets/class-product.php:182
 #, fuzzy
 msgid "Product"
 msgstr "ผลิตภัณฑ์"
@@ -736,44 +737,44 @@ msgstr "ผลิตภัณฑ์"
 
 #: includes/modules/rstore-fl-product.php:63
 #: includes/modules/rstore-vc-product.php:65
-#: includes/widgets/class-product.php:192
+#: includes/widgets/class-product.php:191
 msgid "Image Size"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:66
 #: includes/modules/rstore-vc-product.php:69
-#: includes/widgets/class-product.php:195
+#: includes/widgets/class-product.php:194
 msgid "Thumbnail"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:67
 #: includes/modules/rstore-vc-product.php:70
-#: includes/widgets/class-product.php:196
+#: includes/widgets/class-product.php:195
 msgid "Medium resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:68
 #: includes/modules/rstore-vc-product.php:71
-#: includes/widgets/class-product.php:197
+#: includes/widgets/class-product.php:196
 msgid "Large resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:69
 #: includes/modules/rstore-vc-product.php:68
-#: includes/widgets/class-product.php:198
+#: includes/widgets/class-product.php:197
 msgid "Original resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:70
 #: includes/modules/rstore-vc-product.php:72
-#: includes/widgets/class-product.php:199
+#: includes/widgets/class-product.php:198
 #, fuzzy
 msgid "Hide image"
 msgstr "รูปภาพสินค้า"
 
 #: includes/modules/rstore-fl-product.php:76
 #: includes/modules/rstore-vc-product.php:84
-#: includes/widgets/class-product.php:205
+#: includes/widgets/class-product.php:204
 msgid "Leave blank to hide button"
 msgstr ""
 
@@ -783,7 +784,7 @@ msgstr ""
 
 #: includes/modules/rstore-fl-product.php:113
 #: includes/modules/rstore-vc-product.php:119
-#: includes/widgets/class-product.php:209
+#: includes/widgets/class-product.php:208
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "เปลี่ยนเส้นทางไปยังตะกร้าสินค้าทันทีหลังจากที่เพิ่มแล้ว"
@@ -826,19 +827,19 @@ msgid "Domain Transfer"
 msgstr "การค้นหาโดเมน"
 
 #: includes/modules/rstore-vc-product.php:92
-#: includes/widgets/class-product.php:206
+#: includes/widgets/class-product.php:205
 #, fuzzy
 msgid "Show product title"
 msgstr "ใส่รูปสินค้า"
 
 #: includes/modules/rstore-vc-product.php:101
-#: includes/widgets/class-product.php:207
+#: includes/widgets/class-product.php:206
 #, fuzzy
 msgid "Show post content"
 msgstr "ใส่รูปสินค้า"
 
 #: includes/modules/rstore-vc-product.php:110
-#: includes/widgets/class-product.php:208
+#: includes/widgets/class-product.php:207
 #, fuzzy
 msgid "Show product price"
 msgstr "ใส่รูปสินค้า"
@@ -977,6 +978,9 @@ msgstr "แท็ก"
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / ต่อ %2$s"
+
+#~ msgid "Redirect to the cart immediately after adding"
+#~ msgstr "เปลี่ยนเส้นทางไปยังตะกร้าสินค้าทันทีหลังจากที่เพิ่มแล้ว"
 
 #~ msgid "Display the user's cart in the sidebar."
 #~ msgstr "แสดงรถเข็นของยูซเซอร์ที่ไซด์บาร์"

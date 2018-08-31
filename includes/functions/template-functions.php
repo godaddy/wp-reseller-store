@@ -101,7 +101,7 @@ function rstore_price( $post = null, $echo = true ) {
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart = null, $redirect = false ) {
+function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart = null, $redirect = null ) {
 
 	$cart_vars = rstore_get_add_to_cart_vars( $post );
 
@@ -139,30 +139,72 @@ function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart
 }
 
 /**
+ * Append an `Add to cart` form the end of product post content.
+ *
+ * @action the_content
+ * @global WP_Post $post
+ * @since  0.2.0
+ *
+ * @param  string $content Product content.
+ *
+ * @return string
+ */
+function rstore_append_add_to_cart_form( $content ) {
+
+	global $post;
+
+	if ( ! isset( $post ) ) {
+		return $content;
+	}
+
+	if ( property_exists( $post, 'rstore_widget' ) && true === $post->rstore_widget ) {
+
+		return $content;
+
+	}
+
+	$is_rest_request = ( defined( 'REST_REQUEST' ) && REST_REQUEST );
+
+	if ( \Reseller_Store\Post_Type::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
+
+		$content .= rstore_price( $post->ID, false );
+		$content .= rstore_add_to_cart_form( $post->ID, false );
+
+	}
+
+	return $content;
+
+}
+
+/**
  * Display an `Add to cart` button for a given product.
  *
  * @since 0.2.0
  *
  * @param  array  $cart_vars (required) Default cart values for product.
  * @param  string $button_label (optional) Text to display in the button.
- * @param  bool   $param_redirect (optional) Redirect to cart after adding item.
+ * @param  bool   $redirect (optional) Redirect to cart after adding item.
  * @param  bool   $echo (optional) Whether or not the add to cart button should be echoed.
  *
  * @return string|null
  */
-function rstore_add_to_cart_button( $cart_vars, $button_label = null, $param_redirect = null, $echo = true ) {
+function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect = null, $echo = true ) {
 
-	list( $id, $quantity, $redirect, $label ) = array_values( $cart_vars );
+	list( $id, $quantity, $skip_cart_redirect, $label ) = array_values( $cart_vars );
+
+	if ( ! isset( $redirect ) ) {
+
+		$redirect = ! $skip_cart_redirect;
+
+	}
 
 	if ( ! empty( $button_label ) ) {
+
 		$label = $button_label;
+
 	}
 
-	if ( ! empty( $param_redirect ) ) {
-		$redirect = $param_redirect;
-	}
-
-	if ( empty( $id ) || empty( $quantity ) || ! isset( $redirect ) || empty( $label ) ) {
+	if ( empty( $id ) || empty( $quantity ) || empty( $label ) ) {
 
 		return;
 

@@ -142,9 +142,8 @@ final class Product extends Widget_Base {
 
 		if ( ! in_array( 'the_content', $wp_current_filter, true ) ) {
 
-			$original_post       = $post;
-			$post                = $product;
-			$post->rstore_widget = true;
+			$original_post = $post;
+			$post          = $product;
 			setup_postdata( $product );
 
 			$content = apply_filters( 'the_content', $content );
@@ -292,6 +291,7 @@ final class Product extends Widget_Base {
 	 * @return array
 	 */
 	private function get_data( $instance ) {
+
 		return [
 			'post_id'      => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
 			'show_title'   => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
