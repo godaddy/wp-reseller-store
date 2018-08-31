@@ -106,7 +106,8 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 * Update: Products default to redirect to cart
 * Update: Use `nextStepUrl` from API after adding product to cart
 * Update: Move `rstore_append_add_to_cart_form` as a filter for `the_content` and `the_excerpt`
-* Update: Bumped Domain Search to version 3.1.0, which includes updates to prevent user navigation away from the page when domains are selected
+* Update: Bumped Domain Search to version 3.1.1
+* Update: Domain search prevents user navigation away from the page when domains are selected
 ###
 ### 1.6.1 - May 2018 ###
 
