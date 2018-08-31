@@ -90,7 +90,7 @@ While we recommend you use our widgets for your storefront, we do have a shortco
     [rstore_cart_button ]
 
   Product Post Pod
-    [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 skip_cart_redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
+    [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
 
   Log in/out Button
     [rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
