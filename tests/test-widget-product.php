@@ -48,6 +48,102 @@ final class TestWidgetProduct extends TestCase {
 	}
 
 	/**
+	 * @testdox Given a valid instance and redirect=false the widget should render with redirect=false
+	 */
+	function test_widget_no_redirect() {
+
+		$widget = new Widgets\Product();
+
+		$post = Tests\Helper::create_product();
+
+		$instance = [
+			'post_id'    => $post->ID,
+			'image_size' => 'full',
+			'show_title' => true,
+			'redirect'   => false,
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		echo $widget->widget( $args, $instance );
+
+		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="false">Add to cart<\/button>/' );
+
+	}
+
+	/**
+	 * @testdox Given `rstore_is_widget` filter the product widget should render
+	 */
+	function test_widget_with_rstore_is_widget_filter() {
+
+		add_filter(
+			'rstore_is_widget', function() {
+				return true;
+			}
+		);
+
+		$widget = new Widgets\Product();
+
+		$post = Tests\Helper::create_product();
+
+		$instance = [
+			'post_id'    => $post->ID,
+			'image_size' => 'full',
+			'show_title' => true,
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button>/' );
+
+	}
+
+	/**
+	 * @testdox Given `rstore_is_widget` filter and no product will return `Post id is not valid.`
+	 */
+	function test_widget_with_filter_and_no_product() {
+
+		add_filter(
+			'rstore_is_widget', function() {
+				return true;
+			}
+		);
+
+		$widget = new Widgets\Product();
+
+		$instance = [
+			'post_id'    => 0,
+			'image_size' => 'full',
+			'show_title' => true,
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		$widget->widget( $args, $instance );
+
+		$this->expectOutputRegex( '/Post id is not valid./' );
+
+	}
+
+
+	/**
 	 * @testdox Given a new instance the instance should update
 	 */
 	function test_widget_update() {
