@@ -1,4 +1,21 @@
 /* Product Post */
+
+.rstore-product-summary {
+		height: 250px;
+		overflow: hidden;
+		position: relative;
+		margin: 0;
+}
+
+.rstore-product-summary:after {
+		position: absolute;
+		content: '';
+		bottom: 0;
+		right: 0;
+		height: 2em;
+		pointer-events: none;
+}
+
 .rstore-add-to-cart-form input[type="number"].rstore-quantity {
 		display: inline-block;
 		margin-left: 10px;

@@ -128,6 +128,11 @@ class FLProduct extends \FLBuilderModule {
 							'label'   => __( 'Cart Link', 'reseller-store' ),
 							'default' => __( 'Continue to cart', 'reseller-store' ),
 						),
+						'text_more' => array(
+							'type'    => 'text',
+							'label'   => __( 'Product Permalink', 'reseller-store' ),
+							'default' => __( 'More info', 'reseller-store' ),
+						),
 					),
 				),
 			),

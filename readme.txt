@@ -96,6 +96,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+= 1.7.1 - October 2018
+
+* Update: Set height of product widget to 250px
+* Update: Add button to activate with secureserver.net
 
 = 1.7.0 - September 2018
 

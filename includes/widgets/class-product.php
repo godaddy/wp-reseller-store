@@ -115,15 +115,11 @@ final class Product extends Widget_Base {
 
 		}
 
+		$content .= '<div class="rstore-product-header">';
+
 		if ( $data['show_title'] ) {
 
 			$content .= $args['before_title'] . apply_filters( 'widget_title', $product->post_title ) . $args['after_title']; // xss ok.
-
-		}
-
-		if ( $data['show_content'] ) {
-
-			$content .= $product->post_content;
 
 		}
 
@@ -138,6 +134,15 @@ final class Product extends Widget_Base {
 			$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
 
 		}
+		$content .= '</div>';
+
+		if ( $data['show_content'] ) {
+
+			$content .= sprintf( '<div class="rstore-product-summary">%s</div>', $product->post_content );
+			$content .= sprintf( '<a class="link" href="%s" >%s</a>', get_permalink( $post_id ), $data['text_more'] );
+
+		}
+
 		$content .= $args['after_widget']; // xss ok.
 
 		if ( ! in_array( 'the_content', $wp_current_filter, true ) ) {
@@ -207,6 +212,7 @@ final class Product extends Widget_Base {
 		$this->display_form_checkbox( 'show_price', $data['show_price'], __( 'Show product price', 'reseller-store' ) );
 		$this->display_form_checkbox( 'redirect', $data['redirect'], __( 'Redirect to cart after adding item', 'reseller-store' ) );
 		$this->display_form_input( 'text_cart', $data['text_cart'], __( 'Cart Link', 'reseller-store' ), 'text', __( 'Cart link text', 'reseller-store' ) );
+		$this->display_form_input( 'text_more', $data['text_more'], __( 'Product Permalink', 'reseller-store' ), 'text', __( 'Permalink text', 'reseller-store' ) );
 
 	}
 
@@ -300,6 +306,7 @@ final class Product extends Widget_Base {
 			'redirect'     => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
 			'text_cart'    => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
+			'text_more'    => isset( $instance['text_more'] ) ? $instance['text_more'] : esc_html__( 'More info', 'reseller-store' ),
 			'image_size'   => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',
 		];
 	}

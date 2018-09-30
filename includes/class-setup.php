@@ -220,24 +220,24 @@ final class Setup {
 			<div class="rstore-setup-wrapper">
 				<div class="rstore-setup-header">
 					<img src="<?php echo esc_url( Plugin::assets_url( 'images/store.svg' ) ); ?>">
-					<h2><?php esc_html_e( "Let's setup your GoDaddy Reseller Store.", 'reseller-store' ); ?></h2>
+					<h2><?php esc_html_e( "Let's setup your Reseller Store.", 'reseller-store' ); ?></h2>
 					<div class="clear"></div>
 				</div>
 				<div class="rstore-setup-body">
-					<h3><?php esc_html_e( 'Register your plugin to import your product catalog.', 'reseller-store' ); ?></h3>
+					<h3><?php esc_html_e( 'Register your plugin to import your product catalog. Please select where you purchased your reseller plan from.', 'reseller-store' ); ?></h3>
+                    <h2><?php esc_html_e( 'Sign and Activate with your:', 'reseller-store' ); ?></h2>
 					<p>
-						<form id="rstore-setup-form">
-							<button type="submit" id="rstore-activate" class="button button-primary" ><?php esc_html_e( 'Sign In & Activate', 'reseller-store' ); ?></button>
-							<div class="rstore-status">
-								<?php esc_html_e( 'Importing product catalog and installing', 'reseller-store' ); ?>
-								<img id="rstore-spinner" src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
-							</div>
-							<div class="rstore-error"></div>
-						</form>
+                        <button type="button" id="rstore-activate-gd" class="rstore-activate-button button button-primary" ><?php esc_html_e( 'GoDaddy Account', 'reseller-store' ); ?></button>
+                        <button type="button" id="rstore-activate-other" class="rstore-activate-button button button-primary" ><?php esc_html_e( 'Other Reseller Account', 'reseller-store' ); ?></button>
+                        <div class="rstore-status">
+                            <?php esc_html_e( 'Importing product catalog and installing', 'reseller-store' ); ?>
+                            <img id="rstore-spinner" src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
+                        </div>
+                        <div class="rstore-error"></div>
 					</p>
 
 					<p>
-						<?php esc_html_e( 'A GoDaddy Account is required to activate the plugin.', 'reseller-store' );?><br/>
+						<?php esc_html_e( 'A reseller plan is required to activate the plugin.', 'reseller-store' );?><br/>
 						<?php esc_html_e( "We will provide a demo reseller plan if you don't have a reseller plan.", 'reseller-store' ); ?>&nbsp;
 						<a href="https://www.godaddy.com/reseller-program"><?php esc_html_e( 'Get your own plan today.', 'reseller-store' ); ?></a>
 					</p>

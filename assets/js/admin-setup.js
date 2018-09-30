@@ -4,6 +4,7 @@
 	'use strict';
 
 	var activate = function( e ) {
+		var rcc_site = rstore_admin_setup.rcc_site;
 		var data = {
 				'action': 'rstore_install',
 				'nonce': rstore_admin_setup.install_nonce,
@@ -12,34 +13,12 @@
 			},
 			query = $.param( data );
 
+		if (e.target.id === 'rstore-activate-other') {
+			rcc_site = 'https://reseller.secureserver.net';
+		}
+
 		e.preventDefault();
-		window.location = rstore_admin_setup.rcc_site + '/activate?' + query;
-	};
-
-	var skip = function( e ) {
-		var data = {
-			'action': 'rstore_install',
-			'nonce': rstore_admin_setup.install_nonce,
-			'skip_activation': true
-		};
-		e.preventDefault();
-
-		$( '#rstore-activate' ).prop( 'disabled', true );
-		$( '.rstore-status' ).css( 'visibility', 'visible' );
-
-		$.post( ajaxurl, data, function( response ) {
-			if ( response.success ) {
-				window.location.replace( response.data.redirect );
-
-				return false;
-			}
-
-			$( '#rstore-activate' ).prop( 'disabled', false );
-			$( '.rstore-status' ).css( 'visibility', 'hidden' );
-			$( '.rstore-error' ).text( response.data );
-		} );
-
-		return false;
+		window.location = rcc_site + '/activate?' + query;
 	};
 
 	var install = function() {
@@ -72,8 +51,8 @@
 		}
 
 		$( '.rstore-setup-body' ).css( 'display', 'block' ); // Form is hidden by default
-		$( '#rstore-setup-form' ).on( 'submit', activate );
-		$( '#rstore-skip-activate' ).on( 'click', skip );
+		$( '#rstore-activate-gd' ).on( 'click', activate );
+		$( '#rstore-activate-other' ).on( 'click', activate );
 
 		if ( rstore_admin_setup.install_error ) {
 			$( '.rstore-error' ).text( rstore_admin_setup.install_error );
