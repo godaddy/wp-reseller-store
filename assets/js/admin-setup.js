@@ -28,7 +28,8 @@
 			'pl_id': rstore_admin_setup.install_plid
 		};
 
-		$( '#rstore-activate' ).prop( 'disabled', true );
+		$( '#rstore-activate-gd' ).prop( 'disabled', true );
+		$( '#rstore-activate-other' ).prop( 'disabled', true );
 		$( '.rstore-status' ).css( 'visibility', 'visible' );
 
 		$.post( ajaxurl, data, function( response ) {
@@ -38,7 +39,8 @@
 				return false;
 			}
 
-			$( '#rstore-activate' ).prop( 'disabled', false );
+			$( '#rstore-activate-gd' ).prop( 'disabled', false );
+			$( '#rstore-activate-other' ).prop( 'disabled', false );
 			$( '.rstore-status' ).css( 'visibility', 'hidden' );
 			$( '.rstore-error' ).text( response.data );
 		} );
