@@ -72,7 +72,8 @@ final class Post_Type {
 		add_filter( 'the_excerpt', 'rstore_append_add_to_cart_form' );
 
 		add_filter(
-			'edit_' . self::SLUG . '_per_page', function () {
+			'edit_' . self::SLUG . '_per_page',
+			function () {
 
 				return 50;
 
@@ -80,7 +81,8 @@ final class Post_Type {
 		);
 
 		add_filter(
-			'manage_edit-' . self::SLUG . '_sortable_columns', function ( $columns ) {
+			'manage_edit-' . self::SLUG . '_sortable_columns',
+			function ( $columns ) {
 
 			// @codingStandardsIgnoreStart
 			return array_merge( $columns, [ 'price' => 'price' ] );
@@ -90,7 +92,8 @@ final class Post_Type {
 		);
 
 		add_filter(
-			'view_mode_post_types', function ( $post_types ) {
+			'view_mode_post_types',
+			function ( $post_types ) {
 
 			// @codingStandardsIgnoreStart
 			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
@@ -151,7 +154,8 @@ final class Post_Type {
 		 * If there is an error, display it in an admin notice.
 		 */
 		add_action(
-			'edit_form_top', function () use ( $result ) {
+			'edit_form_top',
+			function () use ( $result ) {
 
 				echo printf(
 					'<div class="notice notice-error is-dismissible"><p>Error: %s</p></div>',
@@ -163,7 +167,8 @@ final class Post_Type {
 					)
 				);
 
-			}, 0
+			},
+			0
 		);
 
 	}

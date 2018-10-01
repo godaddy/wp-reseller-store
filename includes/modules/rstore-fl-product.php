@@ -41,7 +41,8 @@ class FLProduct extends \FLBuilderModule {
 }
 
 \FLBuilder::register_module(
-	'\Reseller_Store\Modules\FLProduct', array(
+	'\Reseller_Store\Modules\FLProduct',
+	array(
 		'general' => array(
 			'title'    => __( 'General', 'reseller-store' ),
 			'sections' => array(

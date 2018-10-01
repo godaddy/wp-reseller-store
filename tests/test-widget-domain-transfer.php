@@ -104,7 +104,8 @@ final class TestWidgetDomainTransfer extends TestCase {
 	function test_widget_filter() {
 
 		add_filter(
-			'rstore_domain_transfer_widget_classes', function( $title ) {
+			'rstore_domain_transfer_widget_classes',
+			function( $title ) {
 				return [ 'transfer' ];
 			}
 		);

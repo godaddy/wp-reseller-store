@@ -104,7 +104,8 @@ final class TestWidgetDomainSimple extends TestCase {
 	function test_widget_filter() {
 
 		add_filter(
-			'rstore_domain_widget_classes', function( $title ) {
+			'rstore_domain_widget_classes',
+			function( $title ) {
 				return [ 'domain' ];
 			}
 		);

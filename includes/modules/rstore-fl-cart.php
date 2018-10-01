@@ -41,7 +41,8 @@ class FLCart extends \FLBuilderModule {
 }
 
 \FLBuilder::register_module(
-	'\Reseller_Store\Modules\FLCart', array(
+	'\Reseller_Store\Modules\FLCart',
+	array(
 		'general' => array(
 			'title'    => __( 'General', 'reseller-store' ),
 			'sections' => array(

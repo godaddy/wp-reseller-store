@@ -27,7 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
 
 	add_action(
-		'admin_notices', function() {
+		'admin_notices',
+		function() {
 			?>
 		<div class="update-nag">
 			<?php

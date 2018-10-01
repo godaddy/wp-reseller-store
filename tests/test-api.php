@@ -54,7 +54,8 @@ final class TestAPI extends TestCase {
 		$url = 'https://api.secureserver.net';
 
 		add_filter(
-			'rstore_api_query_args', function( $args ) {
+			'rstore_api_query_args',
+			function( $args ) {
 
 				$args['currencyType'] = 'USD';
 				return $args;

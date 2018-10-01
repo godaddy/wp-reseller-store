@@ -82,7 +82,8 @@ final class TestWidgetProduct extends TestCase {
 	function test_widget_with_rstore_is_widget_filter() {
 
 		add_filter(
-			'rstore_is_widget', function() {
+			'rstore_is_widget',
+			function() {
 				return true;
 			}
 		);
@@ -116,7 +117,8 @@ final class TestWidgetProduct extends TestCase {
 	function test_widget_with_filter_and_no_product() {
 
 		add_filter(
-			'rstore_is_widget', function() {
+			'rstore_is_widget',
+			function() {
 				return true;
 			}
 		);
@@ -235,7 +237,8 @@ final class TestWidgetProduct extends TestCase {
 	function test_widget_filter() {
 
 		add_filter(
-			'rstore_product_widget_classes', function( $title ) {
+			'rstore_product_widget_classes',
+			function( $title ) {
 				return [ 'product' ];
 			}
 		);
@@ -270,7 +273,8 @@ final class TestWidgetProduct extends TestCase {
 	function test_widget_in_content_filter() {
 
 		add_filter(
-			'the_content', function() {
+			'the_content',
+			function() {
 
 				$widget = new Widgets\Product();
 

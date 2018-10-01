@@ -67,7 +67,8 @@ final class TestPermalinks extends TestCase {
 		$_POST['permalink_structure'] = 'new-products';
 
 		rstore_update_option(
-			'permalinks', [
+			'permalinks',
+			[
 				'product_base' => 'products',
 			]
 		);
@@ -88,7 +89,8 @@ final class TestPermalinks extends TestCase {
 	public function test_invalid_init() {
 
 		rstore_update_option(
-			'permalinks', [
+			'permalinks',
+			[
 				'product_base' => 'original-value',
 			]
 		);

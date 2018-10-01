@@ -78,7 +78,8 @@ final class Setup {
 		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
 
 		add_action(
-			'init', function () {
+			'init',
+			function () {
 
 				self::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
 

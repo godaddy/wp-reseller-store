@@ -51,7 +51,8 @@ final class TestPostType extends TestCase {
 
 		new Post_Type();
 		$value = apply_filters(
-			'view_mode_post_types', [
+			'view_mode_post_types',
+			[
 				'reseller_product' => 'reseller_product',
 			]
 		);
@@ -75,7 +76,8 @@ final class TestPostType extends TestCase {
 		$post = Tests\Helper::create_product();
 
 		rstore_update_option(
-			'imported', [
+			'imported',
+			[
 				$post->ID => 'wordpress-basic',
 			]
 		);
@@ -106,7 +108,8 @@ final class TestPostType extends TestCase {
 		$post = Tests\Helper::create_product();
 
 		rstore_update_option(
-			'imported', [
+			'imported',
+			[
 				$post->ID => 'wordpress-basic',
 			]
 		);

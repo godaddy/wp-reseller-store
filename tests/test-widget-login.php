@@ -55,7 +55,8 @@ final class TestWidgetLogin extends TestCase {
 	function test_widget_filter() {
 
 		add_filter(
-			'rstore_login_widget_classes', function( $title ) {
+			'rstore_login_widget_classes',
+			function( $title ) {
 				return [ 'login' ];
 			}
 		);

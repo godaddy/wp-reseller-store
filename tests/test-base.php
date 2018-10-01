@@ -34,7 +34,8 @@ final class TestBase extends TestCase {
 
 					$this->assertNotNull( rstore()->$attr );
 
-			}, $static_attributes
+			},
+			$static_attributes
 		);
 
 	}
@@ -61,7 +62,8 @@ final class TestBase extends TestCase {
 
 					$this->assertTrue( class_exists( __NAMESPACE__ . '\\' . $class ) );
 
-			}, $classes
+			},
+			$classes
 		);
 
 	}

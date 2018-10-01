@@ -56,7 +56,8 @@ final class Reseller_Product extends \WP_CLI_Command {
 		}
 
 		$errors = array_filter(
-			$results, function( $result ) {
+			$results,
+			function( $result ) {
 
 				return is_wp_error( $result );
 

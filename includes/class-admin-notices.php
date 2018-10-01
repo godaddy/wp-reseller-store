@@ -98,7 +98,8 @@ final class Admin_Notices {
 				'Finished restoring products. %s products updated.',
 				$count,
 				'reseller-store'
-			) . '</p></div>', $count
+			) . '</p></div>',
+			$count
 		);
 	}
 

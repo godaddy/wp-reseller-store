@@ -62,7 +62,8 @@ final class TestHelperFunctions extends TestCase {
 
 					$this->assertArrayHasKey( $key, $vars );
 
-			}, $defaults
+			},
+			$defaults
 		);
 	}
 
@@ -123,7 +124,9 @@ final class TestHelperFunctions extends TestCase {
 
 		// Test a non-existing transient with a callback.
 		$test_transient = rstore_get_transient(
-			'transient', [], function() {
+			'transient',
+			[],
+			function() {
 
 				return 'transient results';
 

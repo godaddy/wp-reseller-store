@@ -88,7 +88,8 @@ final class TestEmbed extends TestCase {
 		$post = Tests\Helper::create_product( 'test product' );
 
 		add_filter(
-			'the_content', function() {
+			'the_content',
+			function() {
 
 				$embed = new Embed();
 

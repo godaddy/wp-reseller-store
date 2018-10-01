@@ -41,7 +41,8 @@ class FLDomainSearch extends \FLBuilderModule {
 }
 
 \FLBuilder::register_module(
-	'\Reseller_Store\Modules\FLDomainSearch', array(
+	'\Reseller_Store\Modules\FLDomainSearch',
+	array(
 		'general' => array(
 			'title'    => __( 'General', 'reseller-store' ),
 			'sections' => array(

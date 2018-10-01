@@ -41,7 +41,8 @@ class FLLogin extends \FLBuilderModule {
 }
 
 \FLBuilder::register_module(
-	'\Reseller_Store\Modules\FLLogin', array(
+	'\Reseller_Store\Modules\FLLogin',
+	array(
 		'general' => array(
 			'title'    => __( 'General', 'reseller-store' ),
 			'sections' => array(

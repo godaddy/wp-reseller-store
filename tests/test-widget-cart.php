@@ -101,7 +101,8 @@ final class TestWidgetCart extends TestCase {
 	function test_widget_filter() {
 
 		add_filter(
-			'rstore_cart_widget_classes', function( $title ) {
+			'rstore_cart_widget_classes',
+			function( $title ) {
 				return [ 'cart' ];
 			}
 		);

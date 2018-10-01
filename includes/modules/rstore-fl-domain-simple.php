@@ -41,7 +41,8 @@ class FLDomainSimple extends \FLBuilderModule {
 }
 
 \FLBuilder::register_module(
-	'\Reseller_Store\Modules\FLDomainSimple', array(
+	'\Reseller_Store\Modules\FLDomainSimple',
+	array(
 		'general' => array(
 			'title'    => __( 'General', 'reseller-store' ),
 			'sections' => array(

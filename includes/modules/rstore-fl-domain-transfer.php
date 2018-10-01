@@ -41,7 +41,8 @@ class FLDomainTransfer extends \FLBuilderModule {
 }
 
 \FLBuilder::register_module(
-	'\Reseller_Store\Modules\FLDomainTransfer', array(
+	'\Reseller_Store\Modules\FLDomainTransfer',
+	array(
 		'general' => array(
 			'title'    => __( 'General', 'reseller-store' ),
 			'sections' => array(

@@ -49,7 +49,8 @@ final class TestBulkRestore extends TestCase {
 		$post = Tests\Helper::create_product();
 
 		rstore_update_option(
-			'imported', [
+			'imported',
+			[
 				$post->ID => 'wordpress-basic',
 			]
 		);

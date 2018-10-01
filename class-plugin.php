@@ -58,7 +58,8 @@ final class Plugin {
 		$this->api        = new API;
 
 		add_action(
-			'plugins_loaded', function () {
+			'plugins_loaded',
+			function () {
 
 				load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
 
