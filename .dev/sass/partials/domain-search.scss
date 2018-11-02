@@ -1,0 +1,104 @@
+.rstore-domain-search {
+
+	.input-group2 {
+		position: relative;
+
+		@media (min-width: 991px) {
+			& {
+				display: block;
+				border-collapse: separate;
+				width: 100%;
+			}
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.input-group {
+			display: table;
+			border-collapse: separate;
+			width: 100%;
+		}
+
+		.input-continue-btn {
+			display: table-cell;
+			width: 1%;
+			white-space: nowrap;
+
+			button {
+				margin-left: 10px;
+			}
+		}
+
+		@media (max-width: 1200px) {
+			button {
+				position: relative;
+				width: 100%;
+				margin-top: .3em;
+			}
+		}
+	}
+
+	.domain-result {
+		border: 1px solid #e8e8e8;
+		float: left;
+		min-width: 290px;
+		padding: 10px 20px 10px 15px;
+		vertical-align: middle;
+		width: 99%;
+
+		.rstore-exact-domain-list & {
+			margin-bottom: 15px;
+			border: 3px solid #e8e8e8;
+		}
+	}
+
+	p.available,
+	p.not-available {
+		font-weight: bold;
+		font-size: 1.2em;
+		margin: 10px 0 15px;
+	}
+
+	.domain-name {
+		display: inline-block;
+		vertical-align: middle;
+		vertical-align: -webkit-baseline-middle;
+		word-break: break-word;
+		padding: 10px 0;
+	}
+
+	.purchase-info {
+		display: block;
+		float: right;
+	}
+
+	.pricing {
+		display: inline-block;
+		margin-left: 10px;
+		text-align: right;
+		vertical-align: middle;
+	}
+
+	.listPrice {
+		margin-right: 7px;
+	}
+
+	.rstore-domain-buy-button {
+		margin-left: 10px;
+	}
+
+	.rstore-disclaimer {
+		clear: both;
+	}
+
+	.rstore-disclaimer pre {
+		font-family: sans-serif;
+		background: none;
+		border: none;
+		font-size: 10px;
+		font-weight: 100;
+		margin: 0px;
+		padding: 0px;
+		white-space: pre-wrap;
+	}
+}

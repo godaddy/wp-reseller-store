@@ -5,6 +5,7 @@ module.exports = function( grunt ) {
 	'use strict';
 
 	var pkg = grunt.file.readJSON( 'package.json' );
+	var sass = require('node-sass');
 
 	grunt.initConfig( {
 
@@ -54,6 +55,19 @@ module.exports = function( grunt ) {
 						ext: '-rtl.css'
 					}
 				]
+			}
+		},
+
+		sass: {
+			options: {
+				precision: 5,
+				implementation: sass,
+				sourceMap: false
+			},
+			main: {
+				files: {
+					'assets/css/store.css': '.dev/sass/store.scss'
+				}
 			}
 		},
 
@@ -273,7 +287,7 @@ module.exports = function( grunt ) {
 
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
-	grunt.registerTask( 'default',    [ 'cssjanus', 'cssmin', 'jshint', 'uglify', 'imagemin', 'readme' ] );
+	grunt.registerTask( 'default',    [ 'sass', 'cssjanus', 'cssmin', 'jshint', 'uglify', 'imagemin', 'readme' ] );
 	grunt.registerTask( 'check',      [ 'devUpdate' ] );
 	grunt.registerTask( 'build',      [ 'default', 'clean:build', 'copy:build' ] );
 	grunt.registerTask( 'deploy',     [ 'build', 'wp_deploy', 'clean:build' ] );

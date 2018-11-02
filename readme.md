@@ -4,7 +4,7 @@
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy), [fjarrett](https://profiles.wordpress.org/fjarrett), [bfocht](https://profiles.wordpress.org/bfocht), [eherman24](https://profiles.wordpress.org/eherman24)  
 **Tags:**              [godaddy](https://wordpress.org/plugins/tags/godaddy/), [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [[store](https://wordpress.org/plugins/tags/store/)front](https://wordpress.org/plugins/tags/storefront/), store, [products](https://wordpress.org/plugins/tags/products/), [responsive](https://wordpress.org/plugins/tags/responsive/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/)  
 **Requires at least:** 4.6  
-**Tested up to:**      4.9  
+**Tested up to:**      5.0  
 **Requires PHP:**      5.4  
 **Stable tag:**        1.7.0  
 **License:**           GPL-2.0  

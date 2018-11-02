@@ -94,14 +94,14 @@ function rstore_price( $post = null, $echo = true ) {
  * @since 0.2.0
  *
  * @param  int|WP_Post|null $post Product WP_Post instance.
- * @param  bool             $echo Whether or not the form should be echoed.
+ * @param  bool             $echo (optional) Whether or not the value should be echoed.
  * @param  string           $button_label (optional) Text to display in the button.
  * @param  string           $text_cart (optional) Text to display in the cart link.
  * @param  bool             $redirect (optional) Redirect to cart after adding item.
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart = null, $redirect = null ) {
+function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $text_cart = null, $redirect = null ) {
 
 	$cart_vars = rstore_get_add_to_cart_vars( $post );
 
@@ -115,26 +115,17 @@ function rstore_add_to_cart_form( $post, $echo, $button_label = null, $text_cart
 		esc_html( $text_cart )
 	);
 
-	ob_start();
+    $cart_form = sprintf(
+    '<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden" ></div><div class="rstore-cart rstore-cart-hidden" >%s</div><div class="rstore-message"></div></div>',
+		rstore_add_to_cart_button( $cart_vars, $button_label, $redirect ),
+        $cart_link
+    );
 
-	?>
-	<div class="rstore-add-to-cart-form">
-		<?php rstore_add_to_cart_button( $cart_vars, $button_label, $redirect ); ?>
-		<div class="rstore-loading rstore-loading-hidden" ></div>
-		<div class="rstore-cart rstore-cart-hidden" ><?php echo $cart_link; ?></div>
-		<div class="rstore-message"></div>
-	</div>
-	<?php
-
-	$output = ob_get_clean();
-
-	if ( ! $echo ) {
-
-		return $output;
-
+    if ( $echo ) {
+    	echo $cart_form;
 	}
 
-	echo $output; // xss ok.
+    return $cart_form;
 
 }
 
@@ -168,7 +159,7 @@ function rstore_append_add_to_cart_form( $content ) {
 	if ( \Reseller_Store\Post_Type::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
 		$content .= rstore_price( $post->ID, false );
-		$content .= rstore_add_to_cart_form( $post->ID, false );
+		$content .= rstore_add_to_cart_form( $post->ID );
 
 	}
 
@@ -184,11 +175,10 @@ function rstore_append_add_to_cart_form( $content ) {
  * @param  array  $cart_vars (required) Default cart values for product.
  * @param  string $button_label (optional) Text to display in the button.
  * @param  bool   $redirect (optional) Redirect to cart after adding item.
- * @param  bool   $echo (optional) Whether or not the add to cart button should be echoed.
  *
  * @return string|null
  */
-function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect = null, $echo = true ) {
+function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect = null) {
 
 	list( $id, $quantity, $skip_cart_redirect, $label ) = array_values( $cart_vars );
 
@@ -224,12 +214,6 @@ function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect 
 		esc_html( $label )
 	);
 
-	if ( ! $echo ) {
-
-		return $output;
-
-	}
-
-	echo $output; // xss ok.
+	return $output;
 
 }

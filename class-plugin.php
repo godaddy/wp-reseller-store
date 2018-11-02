@@ -95,6 +95,7 @@ final class Plugin {
 		new Sync;
 		new Widgets;
 		new Shortcodes;
+		new Blocks;
 		new Bulk_Restore;
 
 	}
