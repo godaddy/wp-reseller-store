@@ -47,10 +47,10 @@ final class Blocks {
 
 		add_filter( 'block_categories', [ $this, 'block_categories' ], 10, 2 );
 
-		register_block_type( 'rstore/product', array(
+		register_block_type( 'reseller-store/product', array(
 			'render_callback' => [$this, 'product'] ));
 
-		register_block_type( 'rstore/domain-search', array(
+		register_block_type( 'reseller-store/domain-search', array(
 			'render_callback' => [$this, 'domain_search'] ));
  	}
 
@@ -99,7 +99,11 @@ final class Blocks {
 
 		$product = new Widgets\Product();
 
-		return $product->widget( $this->args, $atts );
+		$result = $product->widget( $this->args, $atts );
+
+		$output = str_replace(array("\r", "\n"), '', $result);
+
+		return $output;
 
 	}
 
@@ -116,9 +120,25 @@ final class Blocks {
 
 		$this->args['before_widget'] = '<div class="widget rstore-domain">';
 
-		$domain = new Widgets\Domain_Simple();
 
-		return $domain->widget( $this->args, $atts );
+
+		if ( in_array ( "redirect", $atts ) && false === $atts["redirect"] ) {
+
+			$domain = new Widgets\Domain_Search();
+
+		}
+		else
+		{
+
+			$domain = new Widgets\Domain_Simple();
+
+		}
+
+		$result = $domain->widget( $this->args, $atts );
+
+		$output = str_replace(array("\r", "\n"), '', $result);
+
+		return $output;
 
 	}
 

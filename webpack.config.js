@@ -9,7 +9,7 @@ const paths = {
 };
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP === 'true';
+const shouldUseSourceMap = process.env.NODE_ENV === 'dev';
 
 // Extract style.css for both editor and frontend styles.
 const blocksCSSPlugin = new ExtractTextPlugin( {
@@ -67,7 +67,7 @@ module.exports = {
 		filename: '[name].js', // [name] = './dist/blocks.build' as defined above.
 	},
 	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
-	devtool: shouldUseSourceMap ? 'cheap-eval-source-map' : false,
+	devtool: shouldUseSourceMap ? 'cheap-eval-source-map' : 'source-map',
 	module: {
 		rules: [
 			{

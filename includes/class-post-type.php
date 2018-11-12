@@ -102,6 +102,15 @@ final class Post_Type {
 			}
 		);
 
+		add_filter( 'rest_prepare_'. self::SLUG, function ($data, $post) {
+			$price_html = rstore_price( $post->ID, false );
+
+			$data->data['price_html'] = $price_html;
+
+			return $data;
+        }, 10, 3 );
+
+
 		add_action( 'save_post', [ $this, 'republish_post' ] );
 	}
 

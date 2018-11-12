@@ -115,9 +115,11 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 		esc_html( $text_cart )
 	);
 
+	$button =  rstore_add_to_cart_button( $cart_vars, $button_label, $redirect );
+
     $cart_form = sprintf(
-    '<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden" ></div><div class="rstore-cart rstore-cart-hidden" >%s</div><div class="rstore-message"></div></div>',
-		rstore_add_to_cart_button( $cart_vars, $button_label, $redirect ),
+    '<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message"></div></div>',
+		$button,
         $cart_link
     );
 
@@ -207,7 +209,7 @@ function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect 
 	}
 
 	$output = sprintf(
-		'<button class="rstore-add-to-cart button btn btn-primary" data-id="%s" data-quantity="%d" data-redirect="%s">%s</button>',
+		'<div><input type="button" class="rstore-add-to-cart button btn btn-primary" data-id="%s" data-quantity="%d" data-redirect="%s" value="%s"/></div>',
 		esc_attr( $id ),
 		absint( $quantity ),
 		( $redirect ) ? 'true' : 'false',

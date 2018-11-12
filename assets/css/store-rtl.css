@@ -1,6 +1,5 @@
 /* Product Post */
 .rstore-product-summary {
-  height: 250px;
   overflow: hidden;
   position: relative;
   margin: 0; }
@@ -60,22 +59,6 @@
 .rstore-term {
   margin-right: 5px;
   font-size: 0.9em; }
-
-/* Domain search widget */
-.rstore-message {
-  display: inline-block;
-  height: 48px; }
-
-.rstore-message span.dashicons {
-  width: 28px;
-  height: 28px;
-  font-size: 28px; }
-
-.rstore-message .rstore-success {
-  color: #41a62a; }
-
-.rstore-message .rstore-error {
-  color: #a62b2b; }
 
 .rstore-domain-search .input-group2 {
   position: relative; }
@@ -189,3 +172,18 @@
     width: 70vw;
     right: 15vw;
     top: 15%; } }
+
+.rstore-message {
+  display: inline-block;
+  height: 48px; }
+
+.rstore-message span.dashicons {
+  width: 28px;
+  height: 28px;
+  font-size: 28px; }
+
+.rstore-message .rstore-success {
+  color: #41a62a; }
+
+.rstore-message .rstore-error {
+  color: #a62b2b; }

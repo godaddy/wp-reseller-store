@@ -1,0 +1,18 @@
+.rstore-message {
+	display: inline-block;
+	height: 48px;
+}
+
+.rstore-message span.dashicons {
+	width: 28px;
+	height: 28px;
+	font-size: 28px;
+}
+
+.rstore-message .rstore-success {
+	color: #41a62a;
+}
+
+.rstore-message .rstore-error {
+	color: #a62b2b;
+}

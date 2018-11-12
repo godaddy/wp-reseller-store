@@ -33,6 +33,7 @@ final class Display {
 
 		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
 
+
 	}
 
 	/**
@@ -73,4 +74,5 @@ final class Display {
 		wp_localize_script( 'rstore', 'rstore', $data );
 
 	}
+
 }

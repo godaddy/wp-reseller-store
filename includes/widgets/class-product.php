@@ -139,6 +139,8 @@ final class Product extends Widget_Base {
 
 		if ( $data['show_content'] ) {
 
+
+
 			$product_content = $product->post_content;
 
 		    if ( !in_array( 'the_content', $wp_current_filter, true ) ) {
@@ -154,8 +156,20 @@ final class Product extends Widget_Base {
 
 			}
 
-			$content .= sprintf( '<div class="rstore-product-summary">%s</div>', $product_content );
-			$content .= sprintf( '<a class="link" href="%s" >%s</a>', get_permalink( $post_id ), $data['text_more'] );
+			$style = "";
+
+			if ($data['content_height'] > 0) {
+
+				$style = "height:" . $data['content_height'] . "px";
+			}
+
+			$content .= sprintf( '<div class="rstore-product-summary" style="%s">%s</div>', esc_attr($style), $product_content );
+
+			if ($data['content_height'] > 0) {
+
+				$content .= sprintf( '<a class="link" href="%s" >%s</a>', get_permalink( $post_id ), esc_html( $data['text_more'] ) );
+
+			}
 
 		}
 
@@ -193,7 +207,6 @@ final class Product extends Widget_Base {
 				<?php self::get_products( $data['post_id'] ); ?>
 			</select>
 		</p>
-
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>">
 				<?php esc_html_e( 'Image Size', 'reseller-store' ); ?>
@@ -216,7 +229,7 @@ final class Product extends Widget_Base {
 		$this->display_form_checkbox( 'redirect', $data['redirect'], __( 'Redirect to cart after adding item', 'reseller-store' ) );
 		$this->display_form_input( 'text_cart', $data['text_cart'], __( 'Cart Link', 'reseller-store' ), 'text', __( 'Cart link text', 'reseller-store' ) );
 		$this->display_form_input( 'text_more', $data['text_more'], __( 'Product Permalink', 'reseller-store' ), 'text', __( 'Permalink text', 'reseller-store' ) );
-		$this->display_form_input( 'content_size', $data['content_size'], __( 'Content size', 'reseller-store' ), 'text', __( 'Height in pixels', 'reseller-store' ) );
+		$this->display_form_input( 'content_height', $data['content_height'], __( 'Content size', 'reseller-store' ), 'text', __( 'Height in pixels', 'reseller-store' ) );
 
 	}
 
@@ -241,7 +254,7 @@ final class Product extends Widget_Base {
 		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
 		$instance['text_cart']    = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
 		$instance['text_more']    = isset( $new_instance['text_more'] ) ? sanitize_text_field( $new_instance['text_more'] ) : '';
-		$instance['content_size']    = isset( $new_instance['content_size'] ) ? sanitize_text_field( $new_instance['content_size'] ) : '';
+		$instance['content_height']    = isset( $new_instance['content_height'] ) ? sanitize_text_field( $new_instance['content_height'] ) : '';
 
 		return $instance;
 
@@ -313,7 +326,7 @@ final class Product extends Widget_Base {
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
 			'text_cart'    => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'text_more'    => isset( $instance['text_more'] ) ? $instance['text_more'] : esc_html__( 'More info', 'reseller-store' ),
-			'content_size'    => isset( $instance['content_size'] ) ? $instance['content_size'] : '250',
+			'content_height'    => isset( $instance['content_height'] ) ? $instance['content_height'] : '250',
 			'image_size'   => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',
 		];
 	}

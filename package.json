@@ -27,8 +27,8 @@
     "version": "grunt version && git add -A .",
     "postversion": "git push && git push --tags",
     "lint": "eslint --ext .js ./assets/js/",
-    "build": "NODE_ENV=dev GENERATE_SOURCEMAP=true webpack",
-    "build_z": "grunt build && mv build reseller-store && touch reseller-store.zip && rm reseller-store.zip && zip -r reseller-store.zip reseller-store && rm -rf reseller-store"
+    "prebuild": "NODE_ENV=dev webpack",
+    "build": "grunt build"
   },
   "dependencies": {
     "domain-search": "^3.1.1"
