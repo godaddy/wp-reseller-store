@@ -26,7 +26,7 @@
   "scripts": {
     "version": "grunt version && git add -A .",
     "postversion": "git push && git push --tags",
-    "lint": "eslint --ext .js ./assets/js/",
+    "lint": "eslint --ext .js ./.dev/src/",
     "prebuild": "NODE_ENV=dev webpack",
     "build": "grunt build"
   },
@@ -47,8 +47,9 @@
     "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
     "eslint-config-wordpress": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.5.1",
-    "eslint-plugin-wordpress": "^0.1.0",
+    "eslint-plugin-wordpress": "git://github.com/WordPress-Coding-Standards/eslint-plugin-wordpress.git#552af1454d175e15f6d25aadc2ccde30a1922d4f",
     "extract-text-webpack-plugin": "^3.0.2",
     "grunt": "^1.0.3",
     "grunt-contrib-clean": "^1.0.0",

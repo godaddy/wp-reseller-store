@@ -10,7 +10,7 @@ const {
 	TextControl
 } = wp.components;
 
-const Inspector  = ( {posts, attributes, setAttributes} ) => {
+const Inspector  = ( {posts, media, attributes, setAttributes} ) => {
 
 	if (!posts) {
 		return (
@@ -25,15 +25,30 @@ const Inspector  = ( {posts, attributes, setAttributes} ) => {
 		return <p>{__('No products found', 'reseller-store')}</p>;
 	}
 
-	const options = posts.map(post => {
+	const products = posts.map(post => {
 		return {value: post.id, label: post.title.rendered}
 	});
 
 	if (attributes.post_id === undefined) {
 
-		setAttributes({post_id: options[0].value})
+		setAttributes({post_id: products[0].value})
 
 	}
+
+	let mediaOptions = [];
+
+	if (media) {
+
+		const keys = Object.keys(media.media_details.sizes);
+
+		mediaOptions = keys.map(size => {
+			return {value: size, label: size}
+		});
+
+		mediaOptions.push({value: 'none', label: __('Hide image', 'reseller-store')});
+
+	}
+
 	return (
 		<InspectorControls>
 			<PanelBody>
@@ -41,7 +56,7 @@ const Inspector  = ( {posts, attributes, setAttributes} ) => {
 					label={__('Select Product', 'reseller-store')}
 					onChange={post_id => setAttributes({post_id})}
 					value={attributes.post_id}
-					options={options}
+					options={products}
 				/>
 			</PanelBody>
 
@@ -50,13 +65,7 @@ const Inspector  = ( {posts, attributes, setAttributes} ) => {
 					label={__('Image Size', 'reseller-store')}
 					onChange={image_size => setAttributes({image_size})}
 					value={attributes.image_size}
-					options={[
-						{value: 'thumbnail', label: __('Thumbnail', 'reseller-store')},
-						{value: 'medium', label: __('Medium Resolution', 'reseller-store')},
-						{value: 'large', label: __('Large Resolution', 'reseller-store')},
-						{value: 'full', label: __('Original Resolution', 'reseller-store')},
-						{value: 'none', label: __('Hide image', 'reseller-store')},
-					]}
+					options={mediaOptions}
 				/>
 			</PanelBody>
 			<PanelBody>

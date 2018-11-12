@@ -5,9 +5,7 @@ const {
 	Button
 } = wp.components;
 
-const { withSelect } = wp.data;
-
-const render = ( {media, post, attributes} ) => {
+const Editor = ( {media, post, attributes} ) => {
 
 	if (!post) return null;
 
@@ -30,24 +28,4 @@ const render = ( {media, post, attributes} ) => {
 	);
 };
 
-const Edit = withSelect((select, { posts, attributes } ) => {
-
-	if (!posts) return {};
-
-	const post = posts.filter( post => {
-		return post.id == attributes.post_id;
-	}).pop();
-
-	if ( !post ) return {};
-
-	if ( !post.featured_media ) return  { post };
-
-	const media = select('core').getEntityRecord('root', 'media', post.featured_media);
-
-	return {
-		post,
-		media
-	};
-})(render);
-
-export default Edit;
+export default Editor;

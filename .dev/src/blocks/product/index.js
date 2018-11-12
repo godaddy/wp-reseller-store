@@ -1,18 +1,11 @@
 import icon from './icon';
-import productSelector from './productSelector';
+import {mediaSelector, productSelector} from './selectors';
 import attributes from './attributes';
+import save from './components/save';
+import edit from './components/edit';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-
-const { withSelect } = wp.data;
-
-const getPosts = withSelect( (select) => {
-		const posts = select('core').getEntityRecords('postType', 'reseller_product', {per_page: 100});
-		return {
-			posts
-		};
-	})(productSelector);
 
 registerBlockType(
 	'reseller-store/product',
@@ -25,9 +18,6 @@ registerBlockType(
 		category: 'reseller-store',
 		keywords:['product', 'reseller'],
 		attributes,
-		edit: getPosts,
-		save: () => {
-			// Rendering in PHP
-			return null;
-		},
+		edit: productSelector(mediaSelector(edit)),
+		save
 	} );
