@@ -13,10 +13,10 @@
 
 			// window listener
 			eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
-			eventer = window[eventMethod];
+			eventer = window[ eventMethod ];
 			messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
-			eventer(messageEvent,function(e) {
-				if (e.data) {
+			eventer( messageEvent, function( e ) {
+				if ( e.data ) {
 					if ( e.data.message === 'link' && cart.validateSecret( e.data.secret ) ) {
 						window.location = e.data.value;
 					}
@@ -25,41 +25,41 @@
 						cart.updateCount( e.data.value );
 					}
 				}
-			}, false);
+			}, false );
 		},
 
 		validateSecret: function( secret ) {
-			return $('iframe.wp-embedded-content').filter(function( index, item ) {
-				return ( $( item ).data('secret') === secret );
-			}).length;
+			return $( 'iframe.wp-embedded-content' ).filter( function( index, item ) {
+				return ( $( item ).data( 'secret' ) === secret );
+			} ).length;
 		},
 
 		addItemApi: function( data, success, error ) {
-			var param = '&cart='+JSON.stringify(data);
+			var param = '&cart=' + JSON.stringify( data );
 			var settings = {
 				type: 'GET',
 				url: rstore.urls.cart_api + param,
-				dataType: 'jsonp'
+				dataType: 'jsonp',
 			};
 
 			success = $.isFunction( success ) ? success : function() {
-				return;
+
 			};
 			error = $.isFunction( error ) ? error : function() {
-				return;
+
 			};
 
 			$.ajax( settings ).done( success ).fail( error );
 		},
 
 		addItem: function( id, qty, redirect, $form ) {
-			var data = { items: [{
+			var data = { items: [ {
 				id: id,
-				quantity: ( qty > 0 ) ? qty : 1 // Must be greater than 0
-			}] };
+				quantity: ( qty > 0 ) ? qty : 1, // Must be greater than 0
+			} ] };
 
-			cart.addItemApi(data, function( response ) {
-				if (response.error) {
+			cart.addItemApi( data, function( response ) {
+				if ( response.error ) {
 					return cart.addItemError( $form, response );
 				}
 
@@ -71,7 +71,7 @@
 						return;
 					}
 
-					$form.find('.rstore-cart').find('a').attr('href', response.nextStepUrl);
+					$form.find( '.rstore-cart' ).find( 'a' ).attr( 'href', response.nextStepUrl );
 				}
 
 				cart.addItemSuccess( $form );
@@ -91,10 +91,9 @@
 				window.parent.postMessage( {
 					message: 'addItemSuccess',
 					value: value,
-					secret: secret
+					secret: secret,
 				}, '*' );
-			}
-			else {
+			} else {
 				value = ( undefined !== value.cartCount ) ? value.cartCount : value;
 				value = ( value ) ? parseInt( value, 10 ) : 0;
 
@@ -121,17 +120,15 @@
 			$this.attr( 'data-loading', 'true' );
 
 			$form.find( '.rstore-message' ).empty();
-			$form.find( '.rstore-loading' ).removeClass('rstore-loading-hidden');
+			$form.find( '.rstore-loading' ).removeClass( 'rstore-loading-hidden' );
 
 			cart.addItem( id, qty, redirect, $form );
 		},
 
 		addItemSuccess: function( $form ) {
 			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
-			$form.find( '.rstore-loading' ).addClass('rstore-loading-hidden');
-			$form.find( '.rstore-cart' ).removeClass('rstore-cart-hidden');
-
-			return;
+			$form.find( '.rstore-loading' ).addClass( 'rstore-loading-hidden' );
+			$form.find( '.rstore-cart' ).removeClass( 'rstore-cart-hidden' );
 		},
 
 		addItemError: function( $form, response ) {
@@ -146,7 +143,7 @@
 			html = '<span class="dashicons dashicons-warning rstore-error"></span> ' + message;
 
 			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
-			$form.find( '.rstore-loading' ).addClass('rstore-loading-hidden');
+			$form.find( '.rstore-loading' ).addClass( 'rstore-loading-hidden' );
 			$form.find( '.rstore-message' ).html( html );
 		},
 
@@ -154,12 +151,12 @@
 			var arg = window.location.search.match( /(\?|&)add-to-cart=(.*?)(&|$)/i );
 
 			if ( arg !== null && rstore.product.id ) {
-				cart.addItem( rstore.product.id, parseInt( arg[2], 10 ), false );
+				cart.addItem( rstore.product.id, parseInt( arg[ 2 ], 10 ), false );
 
 				// Remove args from the URL without redirecting
-				window.history.replaceState( {}, '', window.location.href.split( '?' )[0] );
+				window.history.replaceState( {}, '', window.location.href.split( '?' )[ 0 ] );
 			}
-		}
+		},
 
 	};
 
@@ -174,87 +171,87 @@
 			sid = Cookies.get( rstore.cookies.shopperId );
 			url = rstore.urls.gui;
 
-			$.ajax({
+			$.ajax( {
 				url: url,
 				jsonp: 'callback',
 				dataType: 'jsonp',
 				data: {
 					plid: plid,
-					sid: sid
+					sid: sid,
 				},
 				success: function( response ) {
-					if (response.status === 'partial') {
-						$('.rstore-welcome-block span.firstname').each(function () {
-							$(this).text(response.name);
-						});
-						$('.rstore-welcome-block span.lastname').each(function () {
-							$(this).text(response.lastname);
-						});
-						$('.rstore-welcome-block span.shopper-id').each(function () {
-							$(this).text(response.shopperid);
-						});
+					if ( response.status === 'partial' ) {
+						$( '.rstore-welcome-block span.firstname' ).each( function() {
+							$( this ).text( response.name );
+						} );
+						$( '.rstore-welcome-block span.lastname' ).each( function() {
+							$( this ).text( response.lastname );
+						} );
+						$( '.rstore-welcome-block span.shopper-id' ).each( function() {
+							$( this ).text( response.shopperid );
+						} );
 
-						$('.rstore-welcome-block').each(function () {
-							$(this).show();
-						});
+						$( '.rstore-welcome-block' ).each( function() {
+							$( this ).show();
+						} );
 
-						$('.rstore-login-block').each(function () {
-							$(this).hide();
-						});
+						$( '.rstore-login-block' ).each( function() {
+							$( this ).hide();
+						} );
 					}
 
 					$( '.rstore-support-block' ).each( function() {
-						$( '.rstore-support-block' ).html('<a href="tel:'+response.supportphone.number+'" class="support-link" ><span class="number">'+response.supportphone.number+'</span></a>');
-					});
+						$( '.rstore-support-block' ).html( '<a href="tel:' + response.supportphone.number + '" class="support-link" ><span class="number">' + response.supportphone.number + '</span></a>' );
+					} );
 
 					cart.updateCount( response.carttotal );
-				}
-			});
-		}
+				},
+			} );
+		},
 	};
 
 	var domain = {
 		placeholder: null,
 
-		init: function () {
-			if ($('.rstore-domain-popup').length) {
-				$('body').append($('<div></div>').attr('id', 'rstore-popResults').addClass(''));
-				$('body').append($('<div></div>').attr('id', 'rstore-blackout').addClass(''));
-				$('#rstore-popResults').append($('<div></div>').attr('id', 'rstore-closePop').addClass('').html('X'));
+		init: function() {
+			if ( $( '.rstore-domain-popup' ).length ) {
+				$( 'body' ).append( $( '<div></div>' ).attr( 'id', 'rstore-popResults' ).addClass( '' ) );
+				$( 'body' ).append( $( '<div></div>' ).attr( 'id', 'rstore-blackout' ).addClass( '' ) );
+				$( '#rstore-popResults' ).append( $( '<div></div>' ).attr( 'id', 'rstore-closePop' ).addClass( '' ).html( 'X' ) );
 
-				$('.rstore-domain-search').on('click', '.rstore-domain-search-button', domain.showModal);
+				$( '.rstore-domain-search' ).on( 'click', '.rstore-domain-search-button', domain.showModal );
 
-				$('body').on('click', '#rstore-closePop, #rstore-blackout', function () {
-					$('#rstore-popResults').fadeOut();
-					$('#rstore-blackout').fadeOut();
-					$('#rstore-popResults').find('.result-content').hide();
-					if (domain.placeholder) {
-						domain.placeholder.append($('.rstore-domain-popup'));
+				$( 'body' ).on( 'click', '#rstore-closePop, #rstore-blackout', function() {
+					$( '#rstore-popResults' ).fadeOut();
+					$( '#rstore-blackout' ).fadeOut();
+					$( '#rstore-popResults' ).find( '.result-content' ).hide();
+					if ( domain.placeholder ) {
+						domain.placeholder.append( $( '.rstore-domain-popup' ) );
 						domain.placeholder = null;
 					}
-				});
+				} );
 
-				if (/[?&]domainToCheck=./.test(location.search)) {
-					domain.showModal({ target: $('.rstore-domain-popup').first().find('.rstore-domain-search-button')[0] });
+				if ( /[?&]domainToCheck=./.test( window.location.search ) ) {
+					domain.showModal( { target: $( '.rstore-domain-popup' ).first().find( '.rstore-domain-search-button' )[ 0 ] } );
 				}
 			}
 		},
 
-		showModal: function (e) {
-			var $widget = $(e.target.form.parentElement);
-			if ($widget.hasClass('rstore-domain-popup') ) {
-				$('#rstore-blackout').fadeIn();
-				$('#rstore-popResults').fadeIn();
-				$widget.find('.result-content').fadeIn();
-				if ($widget.parent().hasClass('rstore_domain_placeholder')) {
+		showModal: function( e ) {
+			var $widget = $( e.target.form.parentElement );
+			if ( $widget.hasClass( 'rstore-domain-popup' ) ) {
+				$( '#rstore-blackout' ).fadeIn();
+				$( '#rstore-popResults' ).fadeIn();
+				$widget.find( '.result-content' ).fadeIn();
+				if ( $widget.parent().hasClass( 'rstore_domain_placeholder' ) ) {
 					domain.placeholder = $widget.parent();
 				}
-				$('#rstore-popResults').append($widget);
+				$( '#rstore-popResults' ).append( $widget );
 			}
-		}
+		},
 	};
 
-	$( document ).ready( function( $ ) {
+	$( document ).ready( function( ) {
 		cart.addItemParam();
 
 		cart.init();
@@ -265,4 +262,4 @@
 
 		$( '.rstore-add-to-cart' ).on( 'click', cart.addItemButton );
 	} );
-}( jQuery ));
+}( jQuery ) );

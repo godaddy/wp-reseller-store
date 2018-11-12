@@ -4,28 +4,28 @@
 	'use strict';
 
 	var activate = function( e ) {
-		var rcc_site = rstore_admin_setup.rcc_site;
+		var rccSite = rstore_admin_setup.rcc_site;
 		var data = {
-				'action': 'rstore_install',
-				'nonce': rstore_admin_setup.install_nonce,
-				'site': rstore_admin_setup.install_site,
-				'admin': rstore_admin_setup.install_admin_url
+				action: 'rstore_install',
+				nonce: rstore_admin_setup.install_nonce,
+				site: rstore_admin_setup.install_site,
+				admin: rstore_admin_setup.install_admin_url,
 			},
 			query = $.param( data );
 
-		if (e.target.id === 'rstore-activate-other') {
-			rcc_site = 'https://reseller.secureserver.net';
+		if ( e.target.id === 'rstore-activate-other' ) {
+			rccSite = 'https://reseller.secureserver.net';
 		}
 
 		e.preventDefault();
-		window.location = rcc_site + '/activate?' + query;
+		window.location = rccSite + '/activate?' + query;
 	};
 
 	var install = function() {
 		var data = {
-			'action': 'rstore_install',
-			'nonce': rstore_admin_setup.install_nonce,
-			'pl_id': rstore_admin_setup.install_plid
+			action: 'rstore_install',
+			nonce: rstore_admin_setup.install_nonce,
+			pl_id: rstore_admin_setup.install_plid,
 		};
 
 		$( '#rstore-activate-gd' ).prop( 'disabled', true );
@@ -46,7 +46,7 @@
 		} );
 	};
 
-	$( document ).ready( function( $ ) {
+	$( document ).ready( function( ) {
 		// check if we are on the admin setup page
 		if ( ! window.rstore_admin_setup ) {
 			return;
@@ -66,4 +66,4 @@
 			install();
 		}
 	} );
-}( jQuery ));
+}( jQuery ) );

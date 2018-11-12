@@ -18,16 +18,16 @@ const attributes = {
 	},
 	button_label: {
 		type: 'string',
-		default: __( 'Add to cart', 'reseller-store' )
+		default: __( 'Add to cart', 'reseller-store' ),
 	},
 	content_height: {
 		type: 'number',
-		default: 250
+		default: 250,
 	},
 	text_more: {
 		type: 'string',
-		default: __( 'More info', 'reseller-store' )
-	}
-}
+		default: __( 'More info', 'reseller-store' ),
+	},
+};
 
 export default attributes;

@@ -26,7 +26,7 @@
   "scripts": {
     "version": "grunt version && git add -A .",
     "postversion": "git push && git push --tags",
-    "lint": "eslint --ext .js ./.dev/src/",
+    "lint": "eslint --ext .js ./.dev/src/ ./assets/js",
     "prebuild": "NODE_ENV=dev webpack",
     "build": "grunt build"
   },

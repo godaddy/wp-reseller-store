@@ -1,5 +1,5 @@
 import icon from './icon';
-import {mediaSelector, productSelector} from './selectors';
+import { mediaSelector, productSelector } from './selectors';
 import attributes from './attributes';
 import save from './components/save';
 import edit from './components/edit';
@@ -10,14 +10,14 @@ const { registerBlockType } = wp.blocks;
 registerBlockType(
 	'reseller-store/product',
 	{
-		title: __( 'Product', 'reseller-store'),
-		description: __( 'Display a product post', 'reseller-store'),
+		title: __( 'Product', 'reseller-store' ),
+		description: __( 'Display a product post', 'reseller-store' ),
 		icon: {
 			src: icon,
 		},
 		category: 'reseller-store',
-		keywords:['product', 'reseller'],
+		keywords: [ 'product', 'reseller' ],
 		attributes,
-		edit: productSelector(mediaSelector(edit)),
-		save
+		edit: productSelector( mediaSelector( edit ) ),
+		save,
 	} );

@@ -47,11 +47,11 @@
 			if ( ! value || $default.val() === value ) {
 				$default.click();
 			}
-		}
+		},
 
 	};
 
-	$( document ).ready( function( $ ) {
+	$( document ).ready( function( ) {
 		$inputs.prop( 'disabled', ! $( '#permalink_structure' ).val() );
 
 		$( '.permalink-structure input' ).on( 'change', permalinks.init );
@@ -59,4 +59,4 @@
 		$( '#rstore-product-base' ).on( 'focus', permalinks.forceCustom );
 		$( '#rstore-product-base' ).on( 'blur', permalinks.forceDefault );
 	} );
-}( jQuery ));
+}( jQuery ) );
