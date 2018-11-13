@@ -1,10 +1,11 @@
 const { __ } = wp.i18n;
 const { InspectorControls } = wp.editor;
-
+const { Fragment } = wp.element;
 const {
 	CheckboxControl,
 	PanelBody,
 	RangeControl,
+	SelectControl,
 	TextControl,
 } = wp.components;
 
@@ -27,21 +28,33 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				/>
 			</PanelBody>
 			<PanelBody>
-				<CheckboxControl
-					label={ __( 'Redirect to search results page', 'reseller-store' ) }
-					checked={ attributes.redirect }
-					onChange={ ( redirect ) => setAttributes( { redirect } ) }
+				<SelectControl
+					label={ __( 'Search Type', 'reseller-store' ) }
+					onChange={ ( searchType ) => setAttributes( { search_type: searchType } ) }
+					value={ attributes.search_type }
+					options={ [
+						{ value: 'standard', label: __( 'Standard Domain Search', 'reseller-store' ) },
+						{ value: 'advanced', label: __( 'Advanced Domain Search', 'reseller-store' ) },
+						{ value: 'transfer', label: __( 'Transfer Domain', 'reseller-store' ) },
+					] }
 				/>
-				{ ! attributes.redirect && (
-					<RangeControl
-						beforeIcon="arrow-left-alt2"
-						afterIcon="arrow-right-alt2"
-						label={ __( 'On page search result size', 'reseller-store' ) }
-						value={ attributes.page_size }
-						onChange={ ( pageSize ) => setAttributes( { page_size: pageSize } ) }
-						min={ 1 }
-						max={ 30 }
-					/>
+				{ 'advanced' === attributes.search_type && (
+					<Fragment>
+						<RangeControl
+							beforeIcon="arrow-left-alt2"
+							afterIcon="arrow-right-alt2"
+							label={ __( 'On page search result size', 'reseller-store' ) }
+							value={ attributes.page_size }
+							onChange={ ( pageSize ) => setAttributes( { page_size: pageSize } ) }
+							min={ 1 }
+							max={ 30 }
+						/>
+						<CheckboxControl
+							label={ __( 'Display results in a modal', 'reseller-store' ) }
+							checked={ attributes.modal }
+							onChange={ ( modal ) => setAttributes( { modal } ) }
+						/>
+					</Fragment>
 				) }
 			</PanelBody>
 		</InspectorControls>

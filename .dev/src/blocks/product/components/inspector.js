@@ -5,18 +5,18 @@ const {
 	CheckboxControl,
 	PanelBody,
 	RangeControl,
-	Spinner,
 	SelectControl,
+	Spinner,
 	TextControl,
 } = wp.components;
 
 const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 	if ( ! posts ) {
 		return (
-			<p>
+			<InspectorControls>
 				<Spinner />
 				{ __( 'Loading Posts', 'reseller-store' ) }
-			</p>
+			</InspectorControls>
 		);
 	}
 
@@ -27,10 +27,6 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 	const products = posts.map( ( post ) => {
 		return { value: post.id, label: post.title.rendered };
 	} );
-
-	if ( attributes.post_id === undefined ) {
-		setAttributes( { post_id: products[ 0 ].value } );
-	}
 
 	let mediaOptions = [];
 
@@ -54,7 +50,6 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 					options={ products }
 				/>
 			</PanelBody>
-
 			<PanelBody>
 				<SelectControl
 					label={ __( 'Image Size', 'reseller-store' ) }

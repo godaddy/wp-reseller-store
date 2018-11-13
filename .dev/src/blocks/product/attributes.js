@@ -6,6 +6,7 @@ const attributes = {
 	},
 	image_size: {
 		type: 'string',
+		default: 'thumbnail',
 	},
 	show_title: {
 		type: 'boolean',

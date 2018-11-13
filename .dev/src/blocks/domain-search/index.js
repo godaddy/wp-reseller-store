@@ -17,8 +17,8 @@ registerBlockType(
 		edit: ( props ) => {
 			return (
 				<Fragment>
-					<Inspector { ...props } />,
-					<Edit { ...props } />,
+					<Inspector { ...props } />
+					<Edit { ...props } />
 				</Fragment>
 			);
 		},

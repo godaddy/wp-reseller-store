@@ -1,7 +1,6 @@
 import icon from './icon';
 import { mediaSelector, productSelector } from './selectors';
 import attributes from './attributes';
-import save from './components/save';
 import edit from './components/edit';
 
 const { __ } = wp.i18n;
@@ -19,5 +18,8 @@ registerBlockType(
 		keywords: [ 'product', 'reseller' ],
 		attributes,
 		edit: productSelector( mediaSelector( edit ) ),
-		save,
+		save: () => {
+			// Rendering in PHP
+			return null;
+		},
 	} );

@@ -48,11 +48,11 @@ final class Display {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'rstore', Plugin::assets_url( "css/store{$rtl}{$suffix}.css" ), [ 'dashicons' ], rstore()->version );
+		wp_enqueue_style( 'reseller-store-css', Plugin::assets_url( "css/store{$rtl}{$suffix}.css" ), [ 'dashicons' ], rstore()->version );
 
 		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), [], '2.1.3', true );
-		wp_enqueue_script( 'rstore', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
-		wp_enqueue_script( 'rstore-domain', Plugin::assets_url( 'js/domain-search.min.js' ), [], rstore()->version, true );
+		wp_enqueue_script( 'rstore-js', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
+		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), [], rstore()->version, true );
 
 		$data = [
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
@@ -71,7 +71,7 @@ final class Display {
 			],
 		];
 
-		wp_localize_script( 'rstore', 'rstore', $data );
+		wp_localize_script( 'rstore-js', 'rstore', $data );
 
 	}
 

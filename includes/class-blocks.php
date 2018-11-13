@@ -61,11 +61,11 @@ final class Blocks {
 	 */
 	public function enqueue_block_editor_assets() {
 
-		$block_path = 'js/editor.blocks.min.js';
+		$block_js_path = 'js/editor.blocks.min.js';
 
 		wp_enqueue_script(
-			'rstore-blocks-js',
-			Plugin::assets_url( $block_path ),
+			'reseller-store-blocks-js',
+			Plugin::assets_url( $block_js_path ),
 			[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ],
 			rstore()->version, true
 		);
@@ -101,9 +101,7 @@ final class Blocks {
 
 		$result = $product->widget( $this->args, $atts );
 
-		$output = str_replace(array("\r", "\n"), '', $result);
-
-		return $output;
+		return $result;
 
 	}
 
@@ -121,10 +119,14 @@ final class Blocks {
 		$this->args['before_widget'] = '<div class="widget rstore-domain">';
 
 
-
-		if ( in_array ( "redirect", $atts ) && false === $atts["redirect"] ) {
+		if ( isset( $atts["search_type"] ) && 'standard' === $atts["search_type"] ) {
 
 			$domain = new Widgets\Domain_Search();
+
+		}
+		elseif ( isset( $atts["search_type"] ) && 'transfer' === $atts["search_type"] ) {
+
+			$domain = new Widgets\Domain_Transfer();
 
 		}
 		else
@@ -136,9 +138,7 @@ final class Blocks {
 
 		$result = $domain->widget( $this->args, $atts );
 
-		$output = str_replace(array("\r", "\n"), '', $result);
-
-		return $output;
+		return $result;
 
 	}
 
