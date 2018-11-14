@@ -91,7 +91,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Show product title', 'reseller-store' ),
 						'param_name' => 'show_title',
-						'value'      => [ __( 'Hide', 'reseller-store' ) => 0 ],
+						'value'      => [
+							__( 'Hide', 'reseller-store' ) => 0,
+						],
 						'group'      => 'Display',
 					),
 					array(
@@ -100,7 +102,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Show post content', 'reseller-store' ),
 						'param_name' => 'show_content',
-						'value'      => [ __( 'Hide', 'reseller-store' ) => 0 ],
+						'value'      => [
+							__( 'Hide', 'reseller-store' ) => 0,
+						],
 						'group'      => 'Display',
 					),
 					array(
@@ -109,7 +113,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Show product price', 'reseller-store' ),
 						'param_name' => 'show_price',
-						'value'      => [ __( 'Hide', 'reseller-store' ) => 0 ],
+						'value'      => [
+							__( 'Hide', 'reseller-store' ) => 0,
+						],
 						'group'      => 'Display',
 					),
 					array(
@@ -118,7 +124,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Redirect to cart after adding item', 'reseller-store' ),
 						'param_name' => 'redirect',
-						'value'      => [ __( 'No', 'reseller-store' ) => 0 ],
+						'value'      => [
+							__( 'No', 'reseller-store' ) => 0,
+						],
 						'group'      => 'Redirect',
 					),
 					array(

@@ -22,11 +22,6 @@
 	width: 4em;
 }
 
-.rstore-add-to-cart-form .rstore-message {
-	display: inline-block;
-	margin-left: 5px;
-}
-
 .rstore-add-to-cart-form .rstore-loading {
 	margin-left: 5px;
 }
@@ -46,7 +41,8 @@
 }
 
 .rstore-loading.rstore-loading-hidden,
-.rstore-cart.rstore-cart-hidden {
+.rstore-cart.rstore-cart-hidden,
+.rstore-cart.rstore-message-hidden{
 	display: none;
 }
 

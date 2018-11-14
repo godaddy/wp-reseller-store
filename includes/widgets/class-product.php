@@ -176,7 +176,7 @@ final class Product extends Widget_Base {
 
 		if ( $is_widget ) {
 
-			echo $content;
+			echo wp_kses( $content, $this->widget_allowed_html(), [ 'https' ] );
 
 		}
 

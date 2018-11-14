@@ -21,7 +21,7 @@
  */
 function rstore_is_admin_uri( $request_uri, $strict = true ) {
 
-	$current = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : null; // input var ok.
+	$current = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : null; // input var ok.
 	$strpos  = strpos( basename( $current ), $request_uri );
 	$result  = ( $strict ) ? ( 0 === $strpos ) : ( false !== $strpos );
 

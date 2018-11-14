@@ -78,13 +78,13 @@ function rstore_price( $post = null, $echo = true ) {
 
 	$output = sprintf( '<div class="rstore-pricing">%s</div>', $output );
 
-	if ( ! $echo ) {
+	if ( $echo ) {
 
-		return $output;
+		echo $output; // xss ok.
 
 	}
 
-	echo $output; // xss ok.
+	return $output;
 
 }
 
@@ -111,20 +111,34 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 
 	$cart_link = sprintf(
 		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
-		rstore()->api->url( 'cart' ),
+		esc_url_raw( rstore()->api->url( 'cart' ), 'https' ),
 		esc_html( $text_cart )
 	);
 
 	$button = rstore_add_to_cart_button( $cart_vars, $button_label, $redirect );
 
 	$cart_form = sprintf(
-		'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message"></div></div>',
+		'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message rstore-message-hidden"></div></div>',
 		$button,
 		$cart_link
 	);
 
 	if ( $echo ) {
-		echo $cart_form;
+
+		$allowed_html = wp_kses_allowed_html( 'post' );
+
+		$allowed_html['input'] = array(
+			'type'        => true,
+			'class'       => true,
+			'button'      => true,
+			'required'    => true,
+			'placeholder' => true,
+			'value'       => true,
+			'name'        => true,
+			'data-*'      => true,
+		);
+
+		echo wp_kses( $cart_form, $allowed_html, [ 'https' ] );
 	}
 
 	return $cart_form;

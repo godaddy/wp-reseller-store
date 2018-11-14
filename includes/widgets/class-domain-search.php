@@ -125,7 +125,7 @@ final class Domain_Search extends Widget_Base {
 
 		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
-			echo $domain_search_widget;
+			echo wp_kses( $domain_search_widget, $this->widget_allowed_html(), [ 'https' ] );
 
 		}
 

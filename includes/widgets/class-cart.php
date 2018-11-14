@@ -93,8 +93,8 @@ final class Cart extends Widget_Base {
 		?>
 
 		<div class="rstore-view-cart">
-			<a href="<?php echo rstore()->api->url( 'cart' ); ?>">
-				<?php echo $data['button_label']; ?> (<span class="rstore-cart-count">0</span>)
+			<a href="<?php echo esc_url_raw( rstore()->api->url( 'cart' ), 'https' ); ?>">
+				<?php echo esc_html( $data['button_label'] ); ?> (<span class="rstore-cart-count">0</span>)
 			</a>
 		</div>
 
@@ -110,7 +110,7 @@ final class Cart extends Widget_Base {
 		$is_widget = apply_filters( 'rstore_is_widget', $args );
 		if ( $is_widget ) {
 
-			echo $cart_widget;
+			echo wp_kses( $cart_widget, $this->widget_allowed_html(), [ 'https' ] );
 
 		}
 

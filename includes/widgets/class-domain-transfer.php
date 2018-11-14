@@ -96,13 +96,13 @@ final class Domain_Transfer extends Widget_Base {
 
 		$data = $this->get_data( $instance );
 		?>
-		<form role="search" method="get" class="search-form" action="<?php echo rstore()->api->url( 'www', 'products/domain-transfer' ); ?>">
+		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-transfer' ), 'https' ); ?>">
 			<label>
-				<input type="search" class="search-field" placeholder="<?php echo $data['text_placeholder']; ?>" name="domainToCheck" required>
+				<input type="search" class="search-field" placeholder="<?php echo esc_attr( $data['text_placeholder'] ); ?>" name="domainToCheck" required>
 			</label>
-			<input type="hidden" class="hidden" value="<?php echo rstore_get_option( 'pl_id' ); ?>" name="plid">
+			<input type="hidden" class="hidden" value="<?php echo esc_attr( rstore_get_option( 'pl_id' ) ); ?>" name="plid">
 			<input type="hidden" class="hidden" value="slp_rstore" name="itc">
-			<input type="submit" class="search-submit" value="<?php echo $data['text_search']; ?>">
+			<input type="submit" class="search-submit" value="<?php echo esc_attr( $data['text_search'] ); ?>">
 		</form>
 		<?php
 
@@ -115,7 +115,7 @@ final class Domain_Transfer extends Widget_Base {
 
 		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
-			echo $domain_transfer_widget;
+			echo wp_kses( $domain_transfer_widget, $this->widget_allowed_html(), [ 'https' ] );
 
 		}
 

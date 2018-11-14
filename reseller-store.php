@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Reseller Store
  * Description: Sell hosting, domains, and more right from your WordPress site.
- * Version: 1.7.1
+ * Version: 2.0.0
  * Author: GoDaddy
  * Author URI: https://reseller.godaddy.com/
  * License: GPL-2.0
@@ -35,7 +35,7 @@ if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
 			echo sprintf(
 				/* translators: server PHP version */
 				esc_html__( 'You need to update your PHP version to run GoDaddy Reseller Store plugin. Required version 5.4 or higher. Your PHP version is: %s', 'reseller-store' ),
-				phpversion()
+				esc_html( phpversion() )
 			);
 
 			?>

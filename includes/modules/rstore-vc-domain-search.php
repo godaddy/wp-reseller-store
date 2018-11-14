@@ -93,7 +93,9 @@ class VCDomainSearch extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Display results in a modal', 'reseller-store' ),
 						'param_name' => 'modal',
-						'value'      => [ __( 'Show', 'reseller-store' ) => 1 ],
+						'value'      => [
+							__( 'Show', 'reseller-store' ) => 1,
+						],
 						'group'      => 'Results',
 					),
 

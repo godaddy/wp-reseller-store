@@ -18,10 +18,6 @@
   padding: 0.5278em;
   width: 4em; }
 
-.rstore-add-to-cart-form .rstore-message {
-  display: inline-block;
-  margin-right: 5px; }
-
 .rstore-add-to-cart-form .rstore-loading {
   margin-right: 5px; }
 
@@ -38,7 +34,8 @@
   background-repeat: no-repeat; }
 
 .rstore-loading.rstore-loading-hidden,
-.rstore-cart.rstore-cart-hidden {
+.rstore-cart.rstore-cart-hidden,
+.rstore-cart.rstore-message-hidden {
   display: none; }
 
 .rstore-pricing {
@@ -172,10 +169,6 @@
     width: 70vw;
     right: 15vw;
     top: 15%; } }
-
-.rstore-message {
-  display: inline-block;
-  height: 48px; }
 
 .rstore-message span.dashicons {
   width: 28px;

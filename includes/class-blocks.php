@@ -8,7 +8,7 @@
  * @package  WP_Widget
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    2.0.0
  */
 
 namespace Reseller_Store;
@@ -25,7 +25,7 @@ final class Blocks {
 	/**
 	 * Widgets args.
 	 *
-	 * @since NEXT
+	 * @since 2.0.0
 	 *
 	 * @var array
 	 */
@@ -39,7 +39,7 @@ final class Blocks {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 2.0.0
 	 */
 	public function __construct() {
 
@@ -114,7 +114,7 @@ final class Blocks {
 	/**
 	 * Render the product widget.
 	 *
-	 * @since NEXT
+	 * @since 2.0.0
 	 *
 	 * @param array $atts        The block attributes.
 	 *

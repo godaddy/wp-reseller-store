@@ -76,8 +76,6 @@
 
 				cart.addItemSuccess( $form );
 			}, function( response ) {
-				window.console.log( response );
-
 				if ( $form ) {
 					cart.addItemError( $form, response );
 				}
@@ -144,7 +142,7 @@
 
 			$form.find( '.rstore-add-to-cart' ).removeAttr( 'data-loading' );
 			$form.find( '.rstore-loading' ).addClass( 'rstore-loading-hidden' );
-			$form.find( '.rstore-message' ).html( html );
+			$form.find( '.rstore-message' ).html( html ).removeClass( 'rstore-message-hidden' );
 		},
 
 		addItemParam: function() {

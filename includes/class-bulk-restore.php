@@ -125,7 +125,7 @@ final class Bulk_Restore {
 
 			$success += 1;
 
-		}
+		} // End foreach().
 
 		if ( $success > 0 ) {
 			$redirect_to = add_query_arg( 'bulk_restore_posts', $success, $redirect_to );

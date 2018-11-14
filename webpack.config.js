@@ -5,7 +5,7 @@ const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
 const paths = {
 	pluginBlocksJs: './.dev/src/index.js',
-	pluginDist: './assets/js/editor.blocks.min'
+	pluginDist: './assets/js/editor.blocks.min',
 };
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -57,7 +57,7 @@ const extractConfig = {
 // Export configuration.
 module.exports = {
 	entry: {
-		'./assets/js/editor.blocks.min' : paths.pluginBlocksJs, // 'name' : 'path/file.ext'.
+		'./assets/js/editor.blocks.min': paths.pluginBlocksJs, // 'name' : 'path/file.ext'.
 	},
 	output: {
 		// Add /* filename */ comments to generated require()s in the output.

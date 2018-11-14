@@ -1,6 +1,7 @@
 import attributes from './attributes';
 import Inspector from './inspector';
 import Edit from './edit';
+import icon from "./icon";
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -11,6 +12,9 @@ registerBlockType(
 	{
 		title: __( 'Domain Search', 'reseller-store' ),
 		description: __( 'A search form for domain registrations.', 'reseller-store' ),
+		icon: {
+			src: icon,
+		},
 		category: 'reseller-store',
 		keywords: [ 'reseller', 'domain', 'search' ],
 		attributes,

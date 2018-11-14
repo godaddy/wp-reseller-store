@@ -2,7 +2,7 @@
   "name": "reseller-store",
   "title": "GoDaddy Reseller Store",
   "description": "Resell hosting, domains, and more right from your WordPress site.",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "author": "GoDaddy",
   "license": "GPL-2.0",
   "repository": "godaddy/wp-reseller-store",
@@ -25,8 +25,7 @@
   ],
   "scripts": {
     "version": "grunt version && git add -A .",
-    "postversion": "git push && git push --tags",
-    "lint": "eslint --ext .js ./.dev/src/ ./assets/js --fix",
+    "lint": "eslint --ext .js ./.dev/src/ ./assets/js",
     "prebuild": "NODE_ENV=dev webpack",
     "build": "grunt build"
   },

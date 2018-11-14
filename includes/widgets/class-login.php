@@ -99,15 +99,15 @@ final class Login extends Widget_Base {
 		?>
 		<div class="rstore-login-block" style="display: block;">
 			<!-- Show login button -->
-			<a class="login-link" href="<?php echo rstore()->api->url( 'account' ); ?>" rel="nofollow"><?php echo $data['login_button_text']; ?></a>
+			<a class="login-link" href="<?php echo esc_url_raw( rstore()->api->url( 'account' ), 'https' ); ?>" rel="nofollow"><?php echo esc_html( $data['login_button_text'] ); ?></a>
 		</div>
 
 		<div  class="rstore-welcome-block" style="display: none;">
 			<!--- Show welcome message -->
-			<span class="welcome-message"><?php echo $data['welcome_message']; ?></span>
+			<span class="welcome-message"><?php echo esc_html( $data['welcome_message'] ); ?></span>
 			<span class="firstname"></span>
 			<span class="lastname"></span>
-			<a class="logout-link" href="<?php echo rstore()->api->url( 'sso', 'logout' ); ?>" rel="nofollow"><?php echo $data['logout_button_text']; ?></a>
+			<a class="logout-link" href="<?php echo esc_url_raw( rstore()->api->url( 'sso', 'logout' ), 'https' ); ?>" rel="nofollow"><?php echo esc_html( $data['logout_button_text'] ); ?></a>
 		</div>
 
 		<?php
@@ -121,7 +121,7 @@ final class Login extends Widget_Base {
 
 		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
-			echo $login_widget;
+			echo wp_kses( $login_widget, $this->widget_allowed_html(), [ 'https' ] );
 
 		}
 
