@@ -218,7 +218,7 @@ final class Product extends Widget_Base {
 		</p>
 
 		<?php
-
+		$this->display_form_input( 'content_height', $data['content_height'], __( 'Content size', 'reseller-store' ), 'number', __( 'Height in pixels', 'reseller-store' ) );
 		$this->display_form_input( 'button_label', $data['button_label'], __( 'Button', 'reseller-store' ), 'text', __( 'Leave blank to hide button', 'reseller-store' ) );
 		$this->display_form_checkbox( 'show_title', $data['show_title'], __( 'Show product title', 'reseller-store' ) );
 		$this->display_form_checkbox( 'show_content', $data['show_content'], __( 'Show post content', 'reseller-store' ) );
@@ -226,7 +226,6 @@ final class Product extends Widget_Base {
 		$this->display_form_checkbox( 'redirect', $data['redirect'], __( 'Redirect to cart after adding item', 'reseller-store' ) );
 		$this->display_form_input( 'text_cart', $data['text_cart'], __( 'Cart Link', 'reseller-store' ), 'text', __( 'Cart link text', 'reseller-store' ) );
 		$this->display_form_input( 'text_more', $data['text_more'], __( 'Product Permalink', 'reseller-store' ), 'text', __( 'Permalink text', 'reseller-store' ) );
-		$this->display_form_input( 'content_height', $data['content_height'], __( 'Content size', 'reseller-store' ), 'text', __( 'Height in pixels', 'reseller-store' ) );
 
 	}
 
@@ -323,7 +322,7 @@ final class Product extends Widget_Base {
 			'button_label'   => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
 			'text_cart'      => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'text_more'      => isset( $instance['text_more'] ) ? $instance['text_more'] : esc_html__( 'More info', 'reseller-store' ),
-			'content_height' => isset( $instance['content_height'] ) ? $instance['content_height'] : '250',
+			'content_height' => isset( $instance['content_height'] ) ? intval( $instance['content_height'] ) : '250',
 			'image_size'     => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',
 		];
 	}

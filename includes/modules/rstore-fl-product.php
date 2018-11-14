@@ -59,7 +59,7 @@ class FLProduct extends \FLBuilderModule {
 				'display'  => array(
 					'title'  => 'Display',
 					'fields' => array(
-						'image_size'   => array(
+						'image_size'     => array(
 							'type'    => 'select',
 							'label'   => __( 'Image Size', 'reseller-store' ),
 							'default' => 'full',
@@ -71,13 +71,19 @@ class FLProduct extends \FLBuilderModule {
 								'none'      => __( 'Hide image', 'reseller-store' ),
 							),
 						),
-						'button_label' => array(
+						'content_height' => array(
+							'type'        => 'unit',
+							'label'       => __( 'Content Height', 'reseller-store' ),
+							'default'     => 250,
+							'description' => 'px',
+						),
+						'button_label'   => array(
 							'type'        => 'text',
 							'label'       => __( 'Button', 'reseller-store' ),
 							'description' => __( 'Leave blank to hide button', 'reseller-store' ),
 							'default'     => __( 'Add to cart', 'reseller-store' ),
 						),
-						'show_title'   => array(
+						'show_title'     => array(
 							'type'    => 'select',
 							'label'   => __( 'Title', 'reseller-store' ),
 							'default' => '1',
@@ -86,7 +92,7 @@ class FLProduct extends \FLBuilderModule {
 								'0' => __( 'Hide', 'reseller-store' ),
 							),
 						),
-						'show_content' => array(
+						'show_content'   => array(
 							'type'    => 'select',
 							'label'   => __( 'Post Content', 'reseller-store' ),
 							'default' => '1',
@@ -95,7 +101,7 @@ class FLProduct extends \FLBuilderModule {
 								'0' => __( 'Hide', 'reseller-store' ),
 							),
 						),
-						'show_price'   => array(
+						'show_price'     => array(
 							'type'    => 'select',
 							'label'   => __( 'Price', 'reseller-store' ),
 							'default' => '1',
@@ -103,6 +109,11 @@ class FLProduct extends \FLBuilderModule {
 								'1' => __( 'Show', 'reseller-store' ),
 								'0' => __( 'Hide', 'reseller-store' ),
 							),
+						),
+						'text_more'      => array(
+							'type'    => 'text',
+							'label'   => __( 'Product Permalink', 'reseller-store' ),
+							'default' => __( 'More info', 'reseller-store' ),
 						),
 					),
 				),
@@ -128,11 +139,6 @@ class FLProduct extends \FLBuilderModule {
 							'type'    => 'text',
 							'label'   => __( 'Cart Link', 'reseller-store' ),
 							'default' => __( 'Continue to cart', 'reseller-store' ),
-						),
-						'text_more' => array(
-							'type'    => 'text',
-							'label'   => __( 'Product Permalink', 'reseller-store' ),
-							'default' => __( 'More info', 'reseller-store' ),
 						),
 					),
 				),
