@@ -36,6 +36,11 @@ final class Blocks {
 		'after_widget'  => '</div>',
 	];
 
+	/**
+	 * Class constructor.
+	 *
+	 * @since NEXT
+	 */
 	public function __construct() {
 
 		// Only load if Gutenberg is available.
@@ -43,18 +48,32 @@ final class Blocks {
 			return;
 		}
 
- 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
 
 		add_filter( 'block_categories', [ $this, 'block_categories' ], 10, 2 );
 
-		register_block_type( 'reseller-store/product', array(
-			'render_callback' => [$this, 'product'] ));
+		register_block_type(
+			'reseller-store/product',
+			array(
+				'render_callback' => [
+					$this,
+					'product',
+				],
+			)
+		);
 
-		register_block_type( 'reseller-store/domain-search', array(
-			'render_callback' => [$this, 'domain_search'] ));
- 	}
+		register_block_type(
+			'reseller-store/domain-search',
+			array(
+				'render_callback' => [
+					$this,
+					'domain_search',
+				],
+			)
+		);
+	}
 
- 	/**
+	/**
 	 * Enqueue admin block styles.
 	 *
 	 * @action enqueue_block_editor_assets
@@ -67,17 +86,25 @@ final class Blocks {
 			'reseller-store-blocks-js',
 			Plugin::assets_url( $block_js_path ),
 			[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ],
-			rstore()->version, true
+			rstore()->version,
+			true
 		);
 
- 	}
+	}
 
-	public function block_categories( $categories, $post ) {
+	/**
+	 * Enqueue admin block styles.
+	 *
+	 * @filter block_categories
+	 * @param array $categories     Array of block categories.
+	 * @return array
+	 */
+	public function block_categories( $categories ) {
 		return array_merge(
 			$categories,
 			array(
 				array(
-					'slug' => 'reseller-store',
+					'slug'  => 'reseller-store',
 					'title' => __( 'Reseller Store Modules', 'reseller-store' ),
 				),
 			)
@@ -93,7 +120,7 @@ final class Blocks {
 	 *
 	 * @return mixed Returns the HTML markup for the product container.
 	 */
-	public function product($atts) {
+	public function product( $atts ) {
 
 		$this->args['before_widget'] = '<div class="widget rstore-product">';
 
@@ -118,19 +145,15 @@ final class Blocks {
 
 		$this->args['before_widget'] = '<div class="widget rstore-domain">';
 
-
-		if ( isset( $atts["search_type"] ) && 'standard' === $atts["search_type"] ) {
+		if ( isset( $atts['search_type'] ) && 'standard' === $atts['search_type'] ) {
 
 			$domain = new Widgets\Domain_Search();
 
-		}
-		elseif ( isset( $atts["search_type"] ) && 'transfer' === $atts["search_type"] ) {
+		} elseif ( isset( $atts['search_type'] ) && 'transfer' === $atts['search_type'] ) {
 
 			$domain = new Widgets\Domain_Transfer();
 
-		}
-		else
-		{
+		} else {
 
 			$domain = new Widgets\Domain_Simple();
 

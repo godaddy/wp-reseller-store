@@ -115,19 +115,19 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 		esc_html( $text_cart )
 	);
 
-	$button =  rstore_add_to_cart_button( $cart_vars, $button_label, $redirect );
+	$button = rstore_add_to_cart_button( $cart_vars, $button_label, $redirect );
 
-    $cart_form = sprintf(
-    '<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message"></div></div>',
+	$cart_form = sprintf(
+		'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message"></div></div>',
 		$button,
-        $cart_link
-    );
+		$cart_link
+	);
 
-    if ( $echo ) {
-    	echo $cart_form;
+	if ( $echo ) {
+		echo $cart_form;
 	}
 
-    return $cart_form;
+	return $cart_form;
 
 }
 
@@ -180,7 +180,7 @@ function rstore_append_add_to_cart_form( $content ) {
  *
  * @return string|null
  */
-function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect = null) {
+function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect = null ) {
 
 	list( $id, $quantity, $skip_cart_redirect, $label ) = array_values( $cart_vars );
 

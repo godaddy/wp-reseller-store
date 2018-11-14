@@ -139,11 +139,9 @@ final class Product extends Widget_Base {
 
 		if ( $data['show_content'] ) {
 
-
-
 			$product_content = $product->post_content;
 
-		    if ( !in_array( 'the_content', $wp_current_filter, true ) ) {
+			if ( ! in_array( 'the_content', $wp_current_filter, true ) ) {
 
 				$original_post = $post;
 				$post          = $product;
@@ -156,24 +154,23 @@ final class Product extends Widget_Base {
 
 			}
 
-			$style = "";
+			$style = '';
 
-			if ($data['content_height'] > 0) {
+			if ( $data['content_height'] > 0 ) {
 
-				$style = "height:" . $data['content_height'] . "px";
+				$style = 'height:' . $data['content_height'] . 'px';
 			}
 
-			$content .= sprintf( '<div class="rstore-product-summary" style="%s">%s</div>', esc_attr($style), $product_content );
+			$content .= sprintf( '<div class="rstore-product-summary" style="%s">%s</div>', esc_attr( $style ), $product_content );
 
-			if ($data['content_height'] > 0) {
+			if ( $data['content_height'] > 0 ) {
 
 				$content .= sprintf( '<a class="link" href="%s" >%s</a>', get_permalink( $post_id ), esc_html( $data['text_more'] ) );
 
 			}
-
 		}
 
-		$content .= $args['after_widget']; // xss ok.//
+		$content .= $args['after_widget']; // xss ok.
 
 		$content = apply_filters( 'rstore_product_html', $content );
 
@@ -245,16 +242,16 @@ final class Product extends Widget_Base {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$instance['post_id']      = isset( $new_instance['post_id'] ) ? sanitize_text_field( $new_instance['post_id'] ) : null;
-		$instance['show_title']   = isset( $new_instance['show_title'] ) ? (bool) absint( $new_instance['show_title'] ) : false;
-		$instance['show_content'] = isset( $new_instance['show_content'] ) ? (bool) absint( $new_instance['show_content'] ) : false;
-		$instance['show_price']   = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
-		$instance['redirect']     = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
-		$instance['image_size']   = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'full';
-		$instance['button_label'] = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
-		$instance['text_cart']    = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
-		$instance['text_more']    = isset( $new_instance['text_more'] ) ? sanitize_text_field( $new_instance['text_more'] ) : '';
-		$instance['content_height']    = isset( $new_instance['content_height'] ) ? sanitize_text_field( $new_instance['content_height'] ) : '';
+		$instance['post_id']        = isset( $new_instance['post_id'] ) ? sanitize_text_field( $new_instance['post_id'] ) : null;
+		$instance['show_title']     = isset( $new_instance['show_title'] ) ? (bool) absint( $new_instance['show_title'] ) : false;
+		$instance['show_content']   = isset( $new_instance['show_content'] ) ? (bool) absint( $new_instance['show_content'] ) : false;
+		$instance['show_price']     = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
+		$instance['redirect']       = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
+		$instance['image_size']     = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'full';
+		$instance['button_label']   = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
+		$instance['text_cart']      = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
+		$instance['text_more']      = isset( $new_instance['text_more'] ) ? sanitize_text_field( $new_instance['text_more'] ) : '';
+		$instance['content_height'] = isset( $new_instance['content_height'] ) ? sanitize_text_field( $new_instance['content_height'] ) : '';
 
 		return $instance;
 
@@ -318,16 +315,16 @@ final class Product extends Widget_Base {
 	private function get_data( $instance ) {
 
 		return [
-			'post_id'      => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
-			'show_title'   => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
-			'show_content' => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : true,
-			'show_price'   => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
-			'redirect'     => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
-			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
-			'text_cart'    => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
-			'text_more'    => isset( $instance['text_more'] ) ? $instance['text_more'] : esc_html__( 'More info', 'reseller-store' ),
-			'content_height'    => isset( $instance['content_height'] ) ? $instance['content_height'] : '250',
-			'image_size'   => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',
+			'post_id'        => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
+			'show_title'     => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
+			'show_content'   => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : true,
+			'show_price'     => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
+			'redirect'       => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
+			'button_label'   => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
+			'text_cart'      => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
+			'text_more'      => isset( $instance['text_more'] ) ? $instance['text_more'] : esc_html__( 'More info', 'reseller-store' ),
+			'content_height' => isset( $instance['content_height'] ) ? $instance['content_height'] : '250',
+			'image_size'     => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',
 		];
 	}
 }

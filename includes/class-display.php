@@ -33,7 +33,6 @@ final class Display {
 
 		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
 
-
 	}
 
 	/**

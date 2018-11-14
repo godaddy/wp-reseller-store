@@ -102,22 +102,25 @@ final class Post_Type {
 			}
 		);
 
-		add_filter( 'rest_prepare_'. self::SLUG, function ($data, $post) {
+		add_filter(
+			'rest_prepare_' . self::SLUG,
+			function ( $data, $post ) {
 
-			$sale = rstore_get_product_meta( $post->ID, 'salePrice' );
+				$sale = rstore_get_product_meta( $post->ID, 'salePrice' );
 
-			// Product properties.
-            // https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties
-			$data->data['plid'] = rstore_get_option( 'pl_id' );
-            $data->data['sku'] = rstore_get_product_meta( $post->ID, 'id' );
-			$data->data['price'] = $sale ? $sale : rstore_get_product_meta( $post->ID, 'listPrice' );
-			$data->data['regular_price'] = rstore_get_product_meta( $post->ID, 'listPrice' );
-		    $data->data['sale_price'] = rstore_get_product_meta( $post->ID, 'salePrice' );
-			$data->data['price_html'] = rstore_price( $post->ID, false );
+				// Product properties.
+				$data->data['plid']          = rstore_get_option( 'pl_id' );
+				$data->data['sku']           = rstore_get_product_meta( $post->ID, 'id' );
+				$data->data['price']         = $sale ? $sale : rstore_get_product_meta( $post->ID, 'listPrice' );
+				$data->data['regular_price'] = rstore_get_product_meta( $post->ID, 'listPrice' );
+				$data->data['sale_price']    = rstore_get_product_meta( $post->ID, 'salePrice' );
+				$data->data['price_html']    = rstore_price( $post->ID, false );
 
-			return $data;
-        }, 10, 3 );
-
+				return $data;
+			},
+			10,
+			3
+		);
 
 		add_action( 'save_post', [ $this, 'republish_post' ] );
 	}
