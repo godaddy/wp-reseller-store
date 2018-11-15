@@ -120,15 +120,15 @@ msgstr "„%s“ ist kein gültiger Beitragstyp für Produkte."
 
 #: includes/class-permalinks.php:41
 msgid "Reseller category base"
-msgstr "Kategoriebasis Wiederverkäufer"
+msgstr "Kategoriebasis Reseller"
 
 #: includes/class-permalinks.php:57
 msgid "Reseller tag base"
-msgstr "Tagbasis Wiederverkäufer"
+msgstr "Tagbasis Reseller"
 
 #: includes/class-permalinks.php:73
 msgid "Reseller Product Permalinks"
-msgstr "Produkt-Permalinks Wiederverkäufer"
+msgstr "Produkt-Permalinks Reseller"
 
 #: includes/class-permalinks.php:91
 msgid ""
@@ -136,7 +136,7 @@ msgid ""
 "products."
 msgstr ""
 "Diese Einstellungen gelten für die Permalinks, die insbesondere für Produkte "
-"des Wiederverkäufer-Shops verwendet werden."
+"des Reseller-Shops verwendet werden."
 
 #: includes/class-permalinks.php:121
 msgid "Default"
@@ -216,7 +216,7 @@ msgstr "Als Bild im Fokus verwenden"
 
 #: includes/class-post-type.php:147
 msgid "This is where you can add new products to your Reseller Store."
-msgstr "Hier können Sie Ihrem Wiederverkäufer-Shop neue Produkte hinzufügen."
+msgstr "Hier können Sie Ihrem Reseller-Shop neue Produkte hinzufügen."
 
 #: includes/class-post-type.php:462
 #. translators: product title
@@ -233,15 +233,15 @@ msgstr "Alle Produkte importieren"
 
 #: includes/class-setup.php:86
 msgid "Reseller Store Setup"
-msgstr "Einrichtung des Wiederverkäufer-Shops"
+msgstr "Einrichtung des Reseller-Shops"
 
 #: includes/class-setup.php:87
 msgid "Reseller Store"
-msgstr "Wiederverkäufer-Shop"
+msgstr "Reseller-Shop"
 
 #: includes/class-setup.php:164
 msgid "Let's setup your GoDaddy Reseller Store."
-msgstr "Richten Sie nun Ihren Wiederverkäufer-Shop von GoDaddy ein."
+msgstr "Richten Sie nun Ihren Reseller-Shop von GoDaddy ein."
 
 #: includes/class-setup.php:168
 msgid "Enter your Private Label ID to get started."
@@ -381,7 +381,7 @@ msgstr "Fehler: ‚%s‘ ist nicht vorhanden."
 
 #: includes/widgets/class-cart.php:22
 msgid "Reseller Cart"
-msgstr "Wiederverkäufer-Warenkorb"
+msgstr "Reseller-Warenkorb"
 
 #: includes/widgets/class-cart.php:25
 msgid "Display the user's cart in the sidebar."
@@ -407,7 +407,7 @@ msgstr "Ausblenden, wenn Warenkorb leer ist"
 
 #: includes/widgets/class-domain-search.php:22
 msgid "Reseller Domain Search"
-msgstr "Wiederverkäufer-Domainsuche"
+msgstr "Reseller-Domainsuche"
 
 #: includes/widgets/class-domain-search.php:25
 msgid "A search form for domain names."
@@ -441,7 +441,7 @@ msgstr "Schaltfläche:"
 
 #. Plugin Name of the plugin/theme
 msgid "GoDaddy Reseller Store"
-msgstr "Wiederverkäufer-Shop von GoDaddy"
+msgstr "Reseller-Shop von GoDaddy"
 
 #. Description of the plugin/theme
 msgid "Resell hosting, domains, and more right from your WordPress site."
@@ -493,12 +493,12 @@ msgstr "Produkt"
 #: includes/class-post-type.php:123
 msgctxt "admin menu"
 msgid "Reseller Store"
-msgstr "Wiederverkäufer-Shop"
+msgstr "Reseller-Shop"
 
 #: includes/class-post-type.php:124
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
-msgstr "Wiederverkäuferprodukt"
+msgstr "Reseller-produkt"
 
 #: includes/class-post-type.php:125
 msgctxt "product"
