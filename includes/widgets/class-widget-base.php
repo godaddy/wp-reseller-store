@@ -66,7 +66,7 @@ class Widget_Base extends \WP_Widget {
 	/**
 	 * Return a list of allowed tags and attributes for widgets.
 	 *
-	 * @since NEXT
+	 * @since 2.0.1
 	 *
 	 * @return array
 	 */
