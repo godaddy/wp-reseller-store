@@ -15,18 +15,35 @@ const mediaSelector = withSelect( ( select, { post } ) => {
 const productSelector = withSelect( ( select, { attributes, setAttributes } ) => {
 	const posts = select( 'core' ).getEntityRecords( 'postType', 'reseller_product', { per_page: 100 } );
 
-	if ( posts && posts.length && attributes.post_id === undefined ) {
-		setAttributes( { post_id: posts[ 0 ].id } );
+	if ( posts && posts.length ) {
+
+		if (attributes.post_id === undefined) {
+			setAttributes({post_id: posts[0].id.toString()});
+			return {
+				posts,
+				post: posts[0]
+			};
+		}
+
+		const post = posts.find((p) => {
+			return p.id.toString() === attributes.post_id;
+		});
+
+		if (post === undefined) {
+			setAttributes({post_id: posts[0].id.toString()});
+			return {
+				posts,
+				post: posts[0]
+			};
+		}
+
+		return {
+			posts,
+			post,
+		};
 	}
+	return {};
 
-	const post = posts && posts.length ? posts.filter( ( p ) => {
-		return p.id === attributes.post_id;
-	} ).pop() : undefined;
-
-	return {
-		posts,
-		post,
-	};
 } );
 
 export {

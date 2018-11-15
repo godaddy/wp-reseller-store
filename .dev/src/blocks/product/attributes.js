@@ -2,7 +2,7 @@ const { __ } = wp.i18n;
 
 const attributes = {
 	post_id: {
-		type: 'number',
+		type: 'string',
 	},
 	image_size: {
 		type: 'string',

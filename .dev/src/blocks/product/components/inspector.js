@@ -45,7 +45,7 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 			<PanelBody>
 				<SelectControl
 					label={ __( 'Select Product', 'reseller-store' ) }
-					onChange={ ( postId ) => setAttributes( { post_id: postId } ) }
+					onChange={ ( postId ) => setAttributes( { post_id: postId.toString() } ) }
 					value={ attributes.post_id }
 					options={ products }
 				/>
