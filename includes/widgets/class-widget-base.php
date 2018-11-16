@@ -25,7 +25,7 @@ class Widget_Base extends \WP_Widget {
 	/**
 	 * List of allowed tags and attributes for widgets..
 	 *
-	 * @since NEXT
+	 * @since 2.0.3
 	 *
 	 * @var array
 	 */
