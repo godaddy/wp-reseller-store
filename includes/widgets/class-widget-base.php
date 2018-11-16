@@ -23,6 +23,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Widget_Base extends \WP_Widget {
 
 	/**
+	 * List of allowed tags and attributes for widgets..
+	 *
+	 * @since NEXT
+	 *
+	 * @var array
+	 */
+	protected static $widget_allowed_html;
+
+	/**
 	 * Display form input field
 	 *
 	 * @since 1.6.0
@@ -72,6 +81,11 @@ class Widget_Base extends \WP_Widget {
 	 */
 	protected function widget_allowed_html() {
 
+		if ( isset( $widget_allowed_html ) ) {
+
+			return $widget_allowed_html;
+		}
+
 		$allowed_html = wp_kses_allowed_html( 'post' );
 
 		$allowed_html['input'] = array(
@@ -85,7 +99,28 @@ class Widget_Base extends \WP_Widget {
 			'data-*'      => true,
 		);
 
-		return $allowed_html;
+		$data = array(
+			'data-id'                 => true,
+			'data-quantity'           => true,
+			'data-redirect'           => true,
+			'data-plid'               => true,
+			'data-page_size'          => true,
+			'data-text_placeholder'   => true,
+			'data-text_search'        => true,
+			'data-text_available'     => true,
+			'data-text_not_available' => true,
+			'data-text_cart'          => true,
+			'data-text_select'        => true,
+			'data-text_selected'      => true,
+			'data-modal'              => true,
+		);
+
+		$allowed_html['button'] = array_merge( $allowed_html['button'], $data );
+		$allowed_html['div']    = array_merge( $allowed_html['div'], $data );
+
+		self::$widget_allowed_html = $allowed_html;
+
+		return self::$widget_allowed_html;
 
 	}
 }

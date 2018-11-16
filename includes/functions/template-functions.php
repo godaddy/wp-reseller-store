@@ -127,16 +127,13 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 
 		$allowed_html = wp_kses_allowed_html( 'post' );
 
-		$allowed_html['input'] = array(
-			'type'        => true,
-			'class'       => true,
-			'button'      => true,
-			'required'    => true,
-			'placeholder' => true,
-			'value'       => true,
-			'name'        => true,
-			'data-*'      => true,
+		$data = array(
+			'data-id'       => true,
+			'data-quantity' => true,
+			'data-redirect' => true,
 		);
+
+		$allowed_html['button'] = array_merge( $allowed_html['button'], $data );
 
 		echo wp_kses( $cart_form, $allowed_html, [ 'https' ] );
 	}
