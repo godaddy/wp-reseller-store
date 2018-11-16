@@ -223,7 +223,7 @@ function rstore_add_to_cart_button( $cart_vars, $button_label = null, $redirect 
 	}
 
 	$output = sprintf(
-		'<div><input type="button" class="rstore-add-to-cart button btn btn-primary" data-id="%s" data-quantity="%d" data-redirect="%s" value="%s"/></div>',
+		'<div><button type="button" class="rstore-add-to-cart button btn btn-primary" data-id="%s" data-quantity="%d" data-redirect="%s">%s</button></div>',
 		esc_attr( $id ),
 		absint( $quantity ),
 		( $redirect ) ? 'true' : 'false',
