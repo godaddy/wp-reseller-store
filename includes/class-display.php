@@ -50,7 +50,7 @@ final class Display {
 		wp_enqueue_style( 'reseller-store-css', Plugin::assets_url( "css/store{$rtl}{$suffix}.css" ), [ 'dashicons' ], rstore()->version );
 
 		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), [], '2.1.3', true );
-		wp_enqueue_script( 'rstore-js', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
+		wp_enqueue_script( 'reseller-store-js', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
 		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), [], rstore()->version, true );
 
 		$data = [
@@ -70,7 +70,7 @@ final class Display {
 			],
 		];
 
-		wp_localize_script( 'rstore-js', 'rstore', $data );
+		wp_localize_script( 'reseller-store-js', 'rstore', $data );
 
 	}
 

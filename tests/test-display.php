@@ -24,10 +24,10 @@ final class TestClassDisplay extends TestCase {
 		$display = new Display();
 		do_action( 'wp_enqueue_scripts' );
 
-		$this->assertTrue( wp_style_is( 'rstore' ), 'done' );
+		$this->assertTrue( wp_style_is( 'reseller-store-css' ), 'done' );
 		$this->assertTrue( wp_script_is( 'js-cookie' ), 'done' );
-		$this->assertTrue( wp_script_is( 'rstore' ), 'done' );
-		$this->assertTrue( wp_script_is( 'rstore-domain' ), 'done' );
+		$this->assertTrue( wp_script_is( 'reseller-store-js' ), 'done' );
+		$this->assertTrue( wp_script_is( 'reseller-store-domain-js' ), 'done' );
 
 	}
 

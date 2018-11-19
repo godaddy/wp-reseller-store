@@ -145,7 +145,7 @@ final class Blocks {
 
 		$this->args['before_widget'] = '<div class="widget rstore-domain">';
 
-		if ( isset( $atts['search_type'] ) && 'standard' === $atts['search_type'] ) {
+		if ( isset( $atts['search_type'] ) && 'advanced' === $atts['search_type'] ) {
 
 			$domain = new Widgets\Domain_Search();
 

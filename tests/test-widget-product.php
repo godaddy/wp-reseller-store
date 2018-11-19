@@ -43,7 +43,7 @@ final class TestWidgetProduct extends TestCase {
 
 		echo $widget->widget( $args, $instance );
 
-		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button>/' );
+		$this->expectOutputRegex( '/<div><button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button><\/div>/' );
 
 	}
 
@@ -153,25 +153,29 @@ final class TestWidgetProduct extends TestCase {
 		$widget = new Widgets\Product();
 
 		$old_instance = [
-			'post_id'      => 0,
-			'show_title'   => true,
-			'show_content' => true,
-			'show_price'   => true,
-			'redirect'     => true,
-			'button_label' => '',
-			'text_cart'    => '',
-			'image_size'   => '',
+			'post_id'        => 0,
+			'show_title'     => true,
+			'show_content'   => true,
+			'show_price'     => true,
+			'redirect'       => true,
+			'button_label'   => '',
+			'text_cart'      => '',
+			'image_size'     => '',
+			'text_more'      => '',
+			'content_height' => 0,
 		];
 
 		$new_instance = [
-			'post_id'      => 100,
-			'show_title'   => false,
-			'show_content' => false,
-			'show_price'   => false,
-			'redirect'     => false,
-			'button_label' => 'button_label 1',
-			'text_cart'    => 'text_cart 1',
-			'image_size'   => 'image_size 1',
+			'post_id'        => 100,
+			'show_title'     => false,
+			'show_content'   => false,
+			'show_price'     => false,
+			'redirect'       => false,
+			'button_label'   => 'button_label 1',
+			'text_cart'      => 'text_cart 1',
+			'image_size'     => 'image_size 1',
+			'text_more'      => 'text_more 1',
+			'content_height' => 100,
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );
