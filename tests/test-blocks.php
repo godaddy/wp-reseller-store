@@ -31,10 +31,12 @@ final class TestWidgetBlocks extends TestCase {
 		if ( function_exists( 'register_block_type' ) ) {
 
 			$this->assertTrue( wp_script_is( 'reseller-store-block-js' ), 'done' );
+			$this->assertTrue( wp_style_is( 'reseller-store-blocks-css' ), 'done' );
 
 		} else {
 
 			$this->assertFalse( wp_script_is( 'reseller-store-block-js' ), 'done' );
+			$this->assertFalse( wp_style_is( 'reseller-store-blocks-css' ), 'done' );
 
 		}
 

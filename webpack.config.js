@@ -13,12 +13,12 @@ const shouldUseSourceMap = process.env.NODE_ENV === 'dev';
 
 // Extract style.css for both editor and frontend styles.
 const blocksCSSPlugin = new ExtractTextPlugin( {
-	filename: './assets/css/blocks.style.build.css',
+	filename: './assets/css/blocks-style.css',
 } );
 
 // Extract editor.css for editor styles.
 const editBlocksCSSPlugin = new ExtractTextPlugin( {
-	filename: 'assets/css/blocks.editor.build.css',
+	filename: 'assets/css/blocks-editor.css',
 } );
 
 const extractConfig = {
@@ -42,13 +42,11 @@ const extractConfig = {
 				],
 			},
 		},
-		// "sass" loader converst SCSS to CSS.
+		// "sass" loader convert SCSS to CSS.
 		{
 			loader: 'sass-loader',
 			options: {
-				// Add common CSS file for variables and mixins.
-				data: '@import "./src/common.scss";\n',
-				outputStyle: 'compressed',
+				outputStyle: 'nested',
 			},
 		},
 	],
@@ -64,7 +62,7 @@ module.exports = {
 		pathinfo: true,
 		// The dist folder.
 		path: path.resolve( __dirname ),
-		filename: '[name].js', // [name] = './dist/blocks.build' as defined above.
+		filename: '[name].js',
 	},
 	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
 	devtool: shouldUseSourceMap ? 'cheap-eval-source-map' : 'source-map',

@@ -80,6 +80,7 @@ final class Blocks {
 	 */
 	public function enqueue_block_editor_assets() {
 
+		$suffix        = SCRIPT_DEBUG ? '' : '.min';
 		$block_js_path = 'js/editor.blocks.min.js';
 
 		wp_enqueue_script(
@@ -89,6 +90,8 @@ final class Blocks {
 			rstore()->version,
 			true
 		);
+
+		wp_enqueue_style( 'reseller-store-blocks-css', Plugin::assets_url( "css/blocks-editor{$suffix}.css" ), [], rstore()->version );
 
 	}
 

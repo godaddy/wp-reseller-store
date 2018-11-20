@@ -7,7 +7,7 @@ const Edit = ( { attributes } ) => {
 		<div className="widget rstore-domain widget_search">
 			{ attributes.title && <div className="widget rstore-domain">{ attributes.title }</div> }
 			<div className="search-form">
-				<input style={ { width: '68%' } }
+				<input
 					className="search-field"
 					placeholder={ attributes.text_placeholder }
 				/>
