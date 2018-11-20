@@ -28,10 +28,7 @@ final class TestWidgetDomainSimple extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$post = Tests\Helper::create_product();
-
 		$instance = [
-			'post_id'          => $post->ID,
 			'title'            => 'title',
 			'text_placeholder' => 'find your domain',
 		];
@@ -99,7 +96,7 @@ final class TestWidgetDomainSimple extends TestCase {
 	}
 
 	/**
-	 * @testdox Given an a cart widget classes filter it should render
+	 * @testdox Given an a domain search widget classes filter it should render
 	 */
 	function test_widget_filter() {
 
@@ -114,10 +111,7 @@ final class TestWidgetDomainSimple extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$post = Tests\Helper::create_product();
-
 		$instance = [
-			'post_id'    => $post->ID,
 			'image_size' => 'full',
 			'show_title' => true,
 		];

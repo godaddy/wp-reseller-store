@@ -135,7 +135,7 @@ final class Blocks {
 	/**
 	 * Render the domain search simple widget.
 	 *
-	 * @since 1.6.0
+	 * @since 2.0.0
 	 *
 	 * @param array $atts        The block attributes.
 	 *
