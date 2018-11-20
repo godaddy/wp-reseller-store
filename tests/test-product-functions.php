@@ -49,4 +49,17 @@ final class TestProductFunctions extends TestCase {
 
 	}
 
+	/**
+	 * @testdox Given a product post it should return true.
+	 */
+	public function test_rstore_is_product() {
+
+		$post = Tests\Helper::create_product();
+
+		$response = apply_filters( 'rstore_is_product', $post );
+
+		$this->assertTrue( $response );
+
+	}
+
 }

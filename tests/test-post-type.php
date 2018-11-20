@@ -244,4 +244,24 @@ final class TestPostType extends TestCase {
 		$this->assertNull( $value );
 
 	}
+
+	/**
+	 * @testdox Given filter rest_prepare_reseller_product it should return data.
+	 */
+	public function test_filter_rest_prepare_reseller_product() {
+
+		rstore_update_option( 'pl_id', 1592 );
+		$post = Tests\Helper::create_product( 'Test Product', 'test-product' );
+
+		new Post_Type();
+
+		$response = new \WP_REST_Response();
+
+		$data = apply_filters( 'rest_prepare_reseller_product', $response, $post );
+
+		$this->assertEquals( $data->data['plid'], 1592 );
+		$this->assertEquals( $data->data['sku'], 'test-product' );
+
+	}
 }
+

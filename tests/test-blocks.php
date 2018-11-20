@@ -5,7 +5,7 @@
 
 namespace Reseller_Store;
 
-final class TestWidgetBlocks extends TestCase {
+final class TestBlocks extends TestCase {
 
 	/**
 	 * @testdox Test block class exist.
@@ -22,7 +22,7 @@ final class TestWidgetBlocks extends TestCase {
 	/**
 	 * @testdox Given a valid instance and function exists the scripts should enqueue
 	 */
-	function test_block() {
+	function test_block_instance() {
 
 		new Blocks();
 
@@ -42,6 +42,18 @@ final class TestWidgetBlocks extends TestCase {
 
 	}
 
+	/**
+	 * @testdox Given a valid instance the enqueue function should load scrips
+	 */
+	function test_block_enqueue_function() {
+
+		$blocks = new Blocks();
+
+		$blocks->enqueue_block_editor_assets();
+
+		$this->assertTrue( wp_style_is( 'reseller-store-blocks-css' ), 'done' );
+
+	}
 
 	/**
 	 * @testdox Given block categories it should add Reseller Store Modules
@@ -148,8 +160,5 @@ final class TestWidgetBlocks extends TestCase {
 		);
 
 	}
-
-
-
 
 }
