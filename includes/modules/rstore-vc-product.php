@@ -65,6 +65,7 @@ class VCProduct extends \WPBakeryShortCode {
 						'heading'    => __( 'Image Size', 'reseller-store' ),
 						'param_name' => 'image_size',
 						'value'      => array(
+							__( 'Product Icon', 'reseller-store' ) => 'icon',
 							__( 'Original resolution', 'reseller-store' ) => 'full',
 							__( 'Thumbnail', 'reseller-store' ) => 'thumbnail',
 							__( 'Medium resolution', 'reseller-store' ) => 'medium',

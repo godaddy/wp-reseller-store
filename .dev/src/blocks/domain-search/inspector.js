@@ -15,6 +15,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 			<p> { __( 'Domain Search', 'reseller-store' ) }</p>
 			<PanelBody>
 				<TextControl
+					label={ __( 'Title', 'reseller-store' ) }
+					value={ attributes.title }
+					onChange={ ( title ) => setAttributes( { title: title } ) }
+				/>
+			</PanelBody>
+			<PanelBody>
+				<TextControl
 					label={ __( 'Placeholder', 'reseller-store' ) }
 					value={ attributes.text_placeholder }
 					onChange={ ( textPlaceholder ) => setAttributes( { text_placeholder: textPlaceholder } ) }

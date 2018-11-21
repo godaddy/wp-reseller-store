@@ -25,13 +25,13 @@ const Editor = ( { media, post, attributes } ) => {
 
 	return (
 		<Fragment>
-			<Media media={ media } size={ attributes.image_size } />
+			<Media post={ post } media={ media } size={ attributes.image_size } />
 			<div className="rstore-product-header">
-				<h4 className="widget-title">{ post.title.rendered }</h4>
-				<div dangerouslySetInnerHTML={ { __html: post.price_html } } />
-				<Button className="rstore-add-to-cart button btn btn-primary" >{ attributes.button_label }</Button>
-				<div style={ contentStyle } className="rstore-product-summary" dangerouslySetInnerHTML={ { __html: post.content.rendered } } />
-				{ attributes.content_height > 0 && <Button className="link" isLink={ true }>{ attributes.text_more }</Button> }
+				{ attributes.show_title && <h4 className="widget-title">{ post.title.rendered }</h4> }
+				{ attributes.show_price && <div dangerouslySetInnerHTML={ { __html: post.price_html } } /> }
+				{ attributes.button_label.length > 0 && <Button className="rstore-add-to-cart button btn btn-primary" >{ attributes.button_label }</Button> }
+				{ attributes.show_content && <div style={ contentStyle } className="rstore-product-summary" dangerouslySetInnerHTML={ { __html: post.content.rendered } } /> }
+				{ attributes.show_content && attributes.content_height > 0 && <Button className="link" isLink={ true }>{ attributes.text_more }</Button> }
 			</div>
 		</Fragment>
 	);

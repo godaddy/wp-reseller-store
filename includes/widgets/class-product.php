@@ -13,7 +13,7 @@
 
 namespace Reseller_Store\Widgets;
 
-use Reseller_Store\Shortcodes;
+use Reseller_Store\Product_Icons;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
@@ -109,11 +109,7 @@ final class Product extends Widget_Base {
 
 		}
 
-		if ( 'none' !== $data['image_size'] ) {
-
-			$content .= get_the_post_thumbnail( $post_id, $data['image_size'] );
-
-		}
+		$content .= Product_Icons::get_product_icon( $product, $data['image_size'] );
 
 		$content .= '<div class="rstore-product-header">';
 
@@ -176,7 +172,7 @@ final class Product extends Widget_Base {
 
 		if ( $is_widget ) {
 
-			echo wp_kses( $content, $this->widget_allowed_html(), [ 'https' ] );
+			echo $content; // xss ok.
 
 		}
 
@@ -209,6 +205,7 @@ final class Product extends Widget_Base {
 				<?php esc_html_e( 'Image Size', 'reseller-store' ); ?>
 			</label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>" class="widefat" style="width:100%;">
+				<option value='icon' <?php selected( 'icon', $data['image_size'] ); ?>><?php esc_html_e( 'Product Icon', 'reseller-store' ); ?></option>
 				<option value='thumbnail' <?php selected( 'thumbnail', $data['image_size'] ); ?>><?php esc_html_e( 'Thumbnail', 'reseller-store' ); ?></option>
 				<option value='medium' <?php selected( 'medium', $data['image_size'] ); ?>><?php esc_html_e( 'Medium resolution', 'reseller-store' ); ?></option>
 				<option value='large' <?php selected( 'large', $data['image_size'] ); ?>><?php esc_html_e( 'Large resolution', 'reseller-store' ); ?></option>
@@ -323,7 +320,7 @@ final class Product extends Widget_Base {
 			'text_cart'      => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
 			'text_more'      => isset( $instance['text_more'] ) ? $instance['text_more'] : esc_html__( 'More info', 'reseller-store' ),
 			'content_height' => isset( $instance['content_height'] ) ? intval( $instance['content_height'] ) : '250',
-			'image_size'     => isset( $instance['image_size'] ) ? $instance['image_size'] : 'full',
+			'image_size'     => isset( $instance['image_size'] ) ? $instance['image_size'] : 'icon',
 		];
 	}
 }

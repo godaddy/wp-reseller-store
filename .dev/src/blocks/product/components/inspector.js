@@ -37,6 +37,7 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 			return { value: size, label: size };
 		} );
 
+		mediaOptions.splice( 0, 0, { value: 'icon', label: __( 'Product Icon', 'reseller-store' ) } );
 		mediaOptions.push( { value: 'none', label: __( 'Hide image', 'reseller-store' ) } );
 	}
 
@@ -67,6 +68,30 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 			</PanelBody>
 			<PanelBody>
 				<CheckboxControl
+					label={ __( 'Show product title', 'reseller-store' ) }
+					checked={ attributes.show_title }
+					onChange={ ( checked ) => {
+						setAttributes( { show_title: checked } );
+					} }
+				/>
+				<CheckboxControl
+					label={ __( 'Show product price', 'reseller-store' ) }
+					checked={ attributes.show_price }
+					onChange={ ( checked ) => {
+						setAttributes( { show_price: checked } );
+					} }
+				/>
+				<CheckboxControl
+					label={ __( 'Show post content', 'reseller-store' ) }
+					checked={ attributes.show_content }
+					onChange={ ( checked ) => {
+						setAttributes( { show_content: checked } );
+					} }
+				/>
+			</PanelBody>
+			{ attributes.show_content &&
+			<PanelBody>
+				<CheckboxControl
 					label={ __( 'Set content height', 'reseller-store' ) }
 					checked={ attributes.content_height > 0 }
 					onChange={ ( checked ) => {
@@ -92,6 +117,7 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 				</div>
 				}
 			</PanelBody>
+			}
 		</InspectorControls>
 	);
 };

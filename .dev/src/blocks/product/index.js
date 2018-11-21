@@ -2,6 +2,7 @@ import icon from './icon';
 import { mediaSelector, productSelector } from './selectors';
 import attributes from './attributes';
 import edit from './components/edit';
+import './editor.scss';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

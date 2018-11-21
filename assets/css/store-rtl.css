@@ -180,3 +180,16 @@
 
 .rstore-message .rstore-error {
   color: #a62b2b; }
+
+.rstore-product-icons svg {
+  width: 8rem; }
+  .rstore-product-icons svg .svg-fill-primary-o {
+    fill: #3690FF; }
+  .rstore-product-icons svg .svg-fill-black {
+    fill: #000000; }
+  .rstore-product-icons svg .svg-fill-grey {
+    fill: #111111; }
+  .rstore-product-icons svg .svg-fill-white {
+    fill: #FFFFFF; }
+  .rstore-product-icons svg .svg-fill-wordpress {
+    fill: #00749a; }

@@ -1,3 +1,15 @@
+.rstore-product-icons svg {
+  width: 6rem; }
+  .rstore-product-icons svg .svg-fill-primary-o {
+    fill: #3690FF; }
+  .rstore-product-icons svg .svg-fill-black {
+    fill: #000000; }
+  .rstore-product-icons svg .svg-fill-grey {
+    fill: #111111; }
+  .rstore-product-icons svg .svg-fill-white {
+    fill: #FFFFFF; }
+  .rstore-product-icons svg .svg-fill-wordpress {
+    fill: #00749a; }
 .rstore-domain input.search-field {
   width: 68%;
   height: 30px; }

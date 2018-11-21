@@ -65,7 +65,6 @@ final class TestShortcodes extends TestCase {
 
 	}
 
-
 	/**
 	 * @testdox Given a product shortcode without params it should display message
 	 */
@@ -234,5 +233,176 @@ final class TestShortcodes extends TestCase {
 		);
 
 	}
+
+	/**
+	 * @testdox Given an icon shortcode it should generate html
+	 */
+	function test_icon_shortcode() {
+
+		$this->assertRegExp(
+			'/<title>Additional Products<\/title>/',
+			do_shortcode( '[rstore_icon]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode with class it should generate html
+	 */
+	function test_icon_shortcode_class() {
+
+		$this->assertRegExp(
+			'/<div class=\"rstore-product-icons test-class\">/',
+			do_shortcode( '[rstore_icon class="test-class"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode with product post it should generate html
+	 */
+	function test_icon_shortcode_post() {
+
+		$post = Tests\Helper::create_product();
+
+		$this->assertRegExp(
+			'/<title>Additional Products<\/title>/',
+			do_shortcode( '[rstore_icon post_id=' . $post->ID . ']' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode with invalid product post it should generate html
+	 */
+	function test_icon_shortcode_invalid_post() {
+
+		$this->assertRegExp(
+			'/Post id is not valid./',
+			do_shortcode( '[rstore_icon post_id=12]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode domains it should generate html
+	 */
+	function test_icon_shortcode_domains() {
+
+		$this->assertRegExp(
+			'/<title>Domains<\/title>/',
+			do_shortcode( '[rstore_icon icon="domains"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode email it should generate html
+	 */
+	function test_icon_shortcode_email() {
+
+		$this->assertRegExp(
+			'/<title>Email<\/title>/',
+			do_shortcode( '[rstore_icon icon="email"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode hosting it should generate html
+	 */
+	function test_icon_shortcode_hosting() {
+
+		$this->assertRegExp(
+			'/<title>Hosting<\/title>/',
+			do_shortcode( '[rstore_icon icon="hosting"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode WordPress it should generate html
+	 */
+	function test_icon_shortcode_wordpress() {
+
+		$this->assertRegExp(
+			'/<title>WordPress<\/title>/',
+			do_shortcode( '[rstore_icon icon="wordpress"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode websites it should generate html
+	 */
+	function test_icon_shortcode_websites() {
+
+		$this->assertRegExp(
+			'/<title>Websites<\/title>/',
+			do_shortcode( '[rstore_icon icon="websites"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode seo it should generate html
+	 */
+	function test_icon_shortcode_seo() {
+
+		$this->assertRegExp(
+			'/<title>Search Engine Visibility<\/title>/',
+			do_shortcode( '[rstore_icon icon="seo"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode ssl it should generate html
+	 */
+	function test_icon_shortcode_ssl() {
+
+		$this->assertRegExp(
+			'/<title>SSL<\/title>/',
+			do_shortcode( '[rstore_icon icon="ssl"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode email-marketing it should generate html
+	 */
+	function test_icon_shortcode_email_marketing() {
+
+		$this->assertRegExp(
+			'/<title>Email Marketing<\/title>/',
+			do_shortcode( '[rstore_icon icon="email-marketing"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode website-security it should generate html
+	 */
+	function test_icon_shortcode_website_security() {
+
+		$this->assertRegExp(
+			'/<title>Website Security<\/title>/',
+			do_shortcode( '[rstore_icon icon="website-security"]' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an icon shortcode dedicated-ip it should generate html
+	 */
+	function test_icon_shortcode_dedicated_ip() {
+
+		$this->assertRegExp(
+			'/<title>Dedicated IP<\/title>/',
+			do_shortcode( '[rstore_icon icon="dedicated-ip"]' )
+		);
+
+	}
+
 
 }

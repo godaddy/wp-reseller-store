@@ -6,16 +6,19 @@ const attributes = {
 	},
 	image_size: {
 		type: 'string',
-		default: 'thumbnail',
+		default: 'icon',
 	},
 	show_title: {
 		type: 'boolean',
+		default: true,
 	},
 	show_content: {
 		type: 'boolean',
+		default: true,
 	},
 	show_price: {
 		type: 'boolean',
+		default: true,
 	},
 	button_label: {
 		type: 'string',

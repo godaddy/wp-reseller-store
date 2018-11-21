@@ -134,6 +134,19 @@ final class Shortcodes {
 		 */
 		add_shortcode( 'rstore_domain', [ $this, 'domain_simple' ] );
 
+		/**
+		 * Register the product icon shortcode
+		 *
+		 * @shortcode [rstore_icon]
+		 *
+		 * @since NEXT
+		 *
+		 * @param  array $atts Defualt shortcode parameters.
+		 *
+		 * @return mixed Returns the HTML markup for the domain transfer container.
+		 */
+		add_shortcode( 'rstore_icon', [ $this, 'product_icon' ] );
+
 	}
 
 	/**
@@ -248,5 +261,42 @@ final class Shortcodes {
 
 		return $domain->widget( $this->args, $atts );
 
+	}
+
+	/**
+	 * Render a product icon.
+	 *
+	 * @since NEXT
+	 *
+	 * @param array $atts        The shortcode attributes.
+	 *
+	 * @return mixed Returns the HTML markup for the domain transfer container.
+	 */
+	public function product_icon( $atts ) {
+
+		$class_name = isset( $atts['class'] ) ? $atts['class'] : '';
+
+		if ( isset( $atts['post_id'] ) ) {
+
+			$post_id = $atts['post_id'];
+
+			$product = get_post( $post_id );
+
+			if ( null === $product || 'publish' !== $product->post_status ||
+				\Reseller_Store\Post_Type::SLUG !== $product->post_type ) {
+
+				return esc_html__( 'Post id is not valid.', 'reseller-store' );
+
+			}
+
+			return Product_Icons::get_product_icon( $product, 'icon', $class_name );
+
+		} else {
+
+			$icon = isset( $atts['icon'] ) ? strtolower( $atts['icon'] ) : 'default';
+
+			return Product_Icons::get_icon( $icon, $class_name );
+
+		}
 	}
 }

@@ -13,6 +13,7 @@
 
 namespace Reseller_Store;
 
+use Reseller_Store\Product_Icons;
 use stdClass;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -115,6 +116,7 @@ final class Post_Type {
 				$data->data['regular_price'] = rstore_get_product_meta( $post->ID, 'listPrice' );
 				$data->data['sale_price']    = rstore_get_product_meta( $post->ID, 'salePrice' );
 				$data->data['price_html']    = rstore_price( $post->ID, false );
+				$data->data['icon_html']     = Product_Icons::get_product_icon( $post, 'icon' );
 
 				return $data;
 			},

@@ -1,5 +1,9 @@
-const Media = ( { media, size } ) => {
-	if ( ! media ) {
+const Media = ( { post, media, size } ) => {
+	if ( 'icon' === size ) {
+		return <div dangerouslySetInnerHTML={ { __html: post.icon_html } } />;
+	}
+
+	if ( ! media || 'none' === size ) {
 		return null;
 	}
 
