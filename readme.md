@@ -6,7 +6,7 @@
 **Requires at least:** 4.6  
 **Tested up to:**      5.0  
 **Requires PHP:**      5.4  
-**Stable tag:**        2.0.3  
+**Stable tag:**        2.0.4  
 **License:**           GPL-2.0  
 **License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -100,6 +100,11 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+### 2.0.4 - November 2018
+
+* New: Add SVG icons to all products
+* New: rstore_icon shortcode
+###
 ### 2.0.1 - November 2018
 
 * Update: Apply WordPress ruleset fixes

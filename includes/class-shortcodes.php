@@ -139,7 +139,7 @@ final class Shortcodes {
 		 *
 		 * @shortcode [rstore_icon]
 		 *
-		 * @since NEXT
+		 * @since 2.0.4
 		 *
 		 * @param  array $atts Defualt shortcode parameters.
 		 *
@@ -266,7 +266,7 @@ final class Shortcodes {
 	/**
 	 * Render a product icon.
 	 *
-	 * @since NEXT
+	 * @since 2.0.4
 	 *
 	 * @param array $atts        The shortcode attributes.
 	 *

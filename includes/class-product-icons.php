@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Plugin
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    2.0.4
  */
 
 namespace Reseller_Store;
@@ -146,7 +146,7 @@ final class Product_Icons {
 	/**
 	 * Get a Product Icon by post
 	 *
-	 * @since NEXT
+	 * @since 2.0.4
 	 *
 	 * @param object $post       The product post for which you want product icon returned.
 	 * @param string $image_type The type of image you want to get.
@@ -176,7 +176,7 @@ final class Product_Icons {
 	/**
 	 * Get a Product Icon by post
 	 *
-	 * @since NEXT
+	 * @since 2.0.4
 	 *
 	 * @param object $image_id   The product post for which you want product icon returned.
 	 * @param string $class_name CSS class name.
