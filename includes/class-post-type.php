@@ -477,7 +477,7 @@ final class Post_Type {
 	 * Filters the post thumbnail HTML.
 	 *
 	 * @filter post_thumbnail_html
-	 * @since  NEXT
+	 * @since  2.0.5
 	 *
 	 * @param string $html              The post thumbnail HTML.
 	 * @param int    $post_id           The post ID.

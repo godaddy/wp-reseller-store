@@ -80,7 +80,7 @@ final class Display {
 	 * Enqueue admin scripts.
 	 *
 	 * @action admin_enqueue_scripts
-	 * @since  NEXT
+	 * @since  2.0.5
 	 */
 	public function admin_enqueue_scripts() {
 
