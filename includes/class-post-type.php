@@ -62,7 +62,6 @@ final class Post_Type {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init', [ $this, 'register' ] );
-		add_action( 'admin_head', [ $this, 'column_styles' ] );
 		add_action( 'manage_posts_custom_column', [ $this, 'column_content' ], 10, 2 );
 		add_action( 'delete_post', [ $this, 'delete_imported_product' ] );
 
@@ -71,6 +70,7 @@ final class Post_Type {
 		add_filter( 'post_type_labels_' . self::SLUG, [ $this, 'post_screen_edit_heading' ] );
 		add_filter( 'the_content', 'rstore_append_add_to_cart_form' );
 		add_filter( 'the_excerpt', 'rstore_append_add_to_cart_form' );
+		add_filter( 'post_thumbnail_html', [ $this, 'post_thumbnail_html' ] );
 
 		add_filter(
 			'edit_' . self::SLUG . '_per_page',
@@ -314,65 +314,6 @@ final class Post_Type {
 	}
 
 	/**
-	 * Print styles for custom columns on the edit screen.
-	 *
-	 * @action admin_head
-	 * @since  0.2.0
-	 */
-	public function column_styles() {
-
-		if ( ! rstore_is_admin_uri( 'post_type=' . self::SLUG, false ) ) {
-
-			return;
-
-		}
-
-		?>
-		<style type="text/css">
-		#screen-options-wrap .rstore-image {
-			display: inline;
-			font-family: inherit;
-			font-size: inherit;
-			line-height: inherit;
-
-			-webkit-font-smoothing: auto;
-			-moz-osx-font-smoothing: auto;
-		}
-		#screen-options-wrap .rstore-image:before {
-			display: none;
-		}
-		#screen-options-wrap .rstore-image .screen-reader-text {
-			visibility: visible;
-			position: static;
-		}
-		table.wp-list-table .column-image {
-			width: 52px;
-			text-align: center;
-			white-space: nowrap;
-		}
-		table.wp-list-table .column-title {
-			width: 33%;
-		}
-		@media only screen and (max-width: 782px) {
-			.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image {
-				display: none;
-				text-align: left;
-				padding-bottom: 0;
-			}
-			.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table .column-image img {
-				max-width: 32px;
-				height: auto;
-			}
-			.post-type-<?php echo esc_attr( self::SLUG ); ?> .wp-list-table tr td.column-image::before {
-				display: none !important;
-			}
-		}
-		</style>
-		<?php
-
-	}
-
-	/**
 	 * Add custom columns.
 	 *
 	 * @filter manage_{post_type}_posts_columns
@@ -529,6 +470,38 @@ final class Post_Type {
 		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
+
+	}
+
+	/**
+	 * Filters the post thumbnail HTML.
+	 *
+	 * @filter post_thumbnail_html
+	 * @since  NEXT
+	 *
+	 * @param string $html              The post thumbnail HTML.
+	 * @param int    $post_id           The post ID.
+	 *
+	 * @return string                         The post thumbnail HTML.
+	 */
+	public function post_thumbnail_html( $html, $post_id = null ) {
+
+		if ( ! isset( $post_id ) ) {
+
+			$post_id = get_post();
+
+		}
+
+		$product = get_post( $post_id );
+
+		if ( null === $product || 'publish' !== $product->post_status ||
+			\Reseller_Store\Post_Type::SLUG !== $product->post_type ) {
+
+			return $html;
+
+		}
+
+		return Product_Icons::get_product_icon( $product, 'icon' );
 
 	}
 

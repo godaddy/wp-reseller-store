@@ -28,18 +28,6 @@ final class TestRestrictions extends TestCase {
 	}
 
 	/**
-	 * @testdox Given the remove_add_product_button should remove the `Add Product` button from the Reseller Store edit screen.
-	 */
-	public function test_remove_add_product_button() {
-
-		$restrictions = new Restrictions();
-		$restrictions->remove_add_product_button();
-
-		$this->expectOutputRegex( '/body.post-type-reseller_product a.page-title-action { display: none; }/' );
-
-	}
-
-	/**
 	 * @testdox Given the admin_bar_submenu should remove `Reseller Product` from the `New` admin bar submenu.
 	 */
 	public function test_admin_bar_submenu() {

@@ -132,8 +132,6 @@ final class Import {
 
 		$this->taxonomies();
 
-		$this->featured_image( $this->image_exists() );
-
 		return $this->mark_as_imported(); // Success!
 	}
 
@@ -341,117 +339,6 @@ final class Import {
 		}
 
 		return $term_id;
-
-	}
-
-	/**
-	 * Check if an product image has already been imported.
-	 *
-	 * @global wpdb $wpdb
-	 * @since  0.2.0
-	 *
-	 * @return int|false  Returns the attachment ID if it exists, otherwise `false`.
-	 */
-	private function image_exists() {
-
-		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->fields->image ) );
-
-		$attachment_id = (int) wp_cache_get( $key );
-
-		if ( ! $attachment_id ) {
-
-			global $wpdb;
-
-			$attachment_id = (int) $wpdb->get_var(
-				$wpdb->prepare(
-					"SELECT `ID` FROM `{$wpdb->posts}` as p LEFT JOIN `{$wpdb->postmeta}` as pm ON ( p.`ID` = pm.`post_id` ) WHERE p.`post_type` = 'attachment' AND pm.`meta_key` = %s AND pm.`meta_value` = %s;",
-					rstore_prefix( 'image' ),
-					esc_url_raw( $this->product->fields->image ) // Image URLs are sanitized on import.
-				)
-			);
-
-			wp_cache_set( $key, $attachment_id );
-
-		}
-
-		return ( $attachment_id > 0 ) ? $attachment_id : false;
-
-	}
-
-	/**
-	 * Import image as an attachment and set as the post's featured image.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @param int $attachment_id Reseller product image attachment ID.
-	 *
-	 * @return bool
-	 */
-	private function featured_image( $attachment_id = 0 ) {
-
-		$url = esc_url_raw( $this->product->fields->image );
-
-		$attachment_id = ( $attachment_id > 0 ) ? (int) $attachment_id : $this->sideload_image( $url, $this->product->fields->title );
-
-		if ( ! $attachment_id ) {
-
-			return false;
-
-		}
-
-		set_post_thumbnail( $this->post_id, $attachment_id );
-
-		$meta = [
-			'image' => esc_url_raw( $url ),
-		];
-
-		rstore_bulk_update_post_meta( $attachment_id, $meta );
-
-	}
-
-	/**
-	 * Sideload an image and return its attachment ID.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @param  string $url                    Reseller product featured image URL.
-	 * @param  string $description (optional) Reseller product featured image description.
-	 *
-	 * @return int|false  Attachment ID on success, else `false`.
-	 */
-	private function sideload_image( $url, $description = '' ) {
-
-		if ( ! function_exists( 'download_url' ) ) {
-
-			require_once ABSPATH . 'wp-admin/includes/file.php';
-
-		}
-
-		$file_array = [
-			'name'     => basename( $url ),
-			'tmp_name' => download_url( $url ),
-		];
-
-		if ( ! function_exists( 'media_handle_sideload' ) ) {
-
-			require_once ABSPATH . 'wp-admin/includes/image.php';
-			require_once ABSPATH . 'wp-admin/includes/media.php';
-
-		}
-
-		$attachment_id = media_handle_sideload( $file_array, 0, $description );
-
-		if ( is_wp_error( $attachment_id ) ) {
-
-			// @codingStandardsIgnoreStart
-			@unlink( $file_array['tmp_name'] );
-			// @codingStandardsIgnoreEnd
-
-			return false;
-
-		}
-
-		return (int) $attachment_id;
 
 	}
 

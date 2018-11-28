@@ -30,7 +30,6 @@ final class Restrictions {
 
 		add_action( 'init', [ $this, 'redirects' ], 1 );
 		add_action( 'admin_menu', [ $this, 'admin_submenu' ] );
-		add_action( 'admin_head', [ $this, 'remove_add_product_button' ] );
 		add_action( 'wp_before_admin_bar_render', [ $this, 'admin_bar_submenu' ] );
 		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
 
@@ -102,22 +101,6 @@ final class Restrictions {
 	}
 
 	/**
-	 * Remove the `Add Product` button from the Reseller Store edit screen.
-	 *
-	 * @action admin_head
-	 * @since  0.2.0
-	 */
-	public function remove_add_product_button() {
-
-		?>
-		<style type="text/css">
-		body.post-type-<?php echo esc_attr( Post_Type::SLUG ); ?> a.page-title-action { display: none; }
-		</style>
-		<?php
-
-	}
-
-	/**
 	 * Remove `Reseller Product` from the `New` admin bar submenu.
 	 *
 	 * @action wp_before_admin_bar_render
@@ -156,12 +139,6 @@ final class Restrictions {
 		}
 
 		?>
-		<style type="text/css">
-		.rstore-blank { margin-top: 50px; text-align: center; }
-		.rstore-blank h2 { font-weight: 400; }
-		#posts-filter .wp-list-table, #posts-filter .tablenav.top, .tablenav-pages, .bulkactions, .search-box, #screen-meta-links, .wrap .subsubsub { display: none; }
-		.tablenav a.rstore-blank-button { display: inline-block; }
-		</style>
 		<div class="rstore-blank">
 			<h2 class="rstore-blank-message"><?php esc_html_e( 'No products have been added yet.', 'reseller-store' ); ?></h2>
 			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>

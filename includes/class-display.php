@@ -33,6 +33,8 @@ final class Display {
 
 		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
 
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
+
 	}
 
 	/**
@@ -72,6 +74,25 @@ final class Display {
 
 		wp_localize_script( 'reseller-store-js', 'rstore', $data );
 
+	}
+
+	/**
+	 * Enqueue admin scripts.
+	 *
+	 * @action admin_enqueue_scripts
+	 * @since  NEXT
+	 */
+	public function admin_enqueue_scripts() {
+
+		if ( rstore_is_admin_uri( 'post_type=' . Post_Type::SLUG, false ) ) {
+
+			$rtl = is_rtl() ? '-rtl' : '';
+
+			$suffix = SCRIPT_DEBUG ? '' : '.min';
+
+			wp_enqueue_style( 'reseller-store-admin-css', Plugin::assets_url( "css/admin{$rtl}{$suffix}.css" ), [], rstore()->version );
+
+		}
 	}
 
 }

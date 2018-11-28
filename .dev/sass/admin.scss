@@ -1,0 +1,85 @@
+body {
+	&.post-type-reseller_product {
+		.rstore-product-icons {
+
+			.svg-fill-primary-o {
+				fill: #3690FF;
+			}
+
+			.svg-fill-black {
+				fill: #000000;
+			}
+
+			.svg-fill-grey {
+				fill: #111111;
+			}
+
+			.svg-fill-white {
+				fill: #FFFFFF;
+			}
+
+			.svg-fill-wordpress {
+				fill: #00749a;
+			}
+		}
+
+		.rstore-blank {
+			margin-top: 50px;
+			text-align: center;
+		}
+
+		.rstore-blank h2 {
+			font-weight: 400;
+		}
+
+		.tablenav a.rstore-blank-button {
+			display: inline-block;
+		}
+
+		a.page-title-action {
+			display: none;
+		}
+
+		#screen-options-wrap .rstore-image {
+			display: inline;
+			font-family: inherit;
+			font-size: inherit;
+			line-height: inherit;
+
+			-webkit-font-smoothing: auto;
+			-moz-osx-font-smoothing: auto;
+		}
+		#screen-options-wrap .rstore-image:before {
+			display: none;
+		}
+		#screen-options-wrap .rstore-image .screen-reader-text {
+			visibility: visible;
+			position: static;
+		}
+		table.wp-list-table .column-image {
+			width: 52px;
+			text-align: center;
+			white-space: nowrap;
+		}
+		table.wp-list-table .column-title {
+			width: 33%;
+		}
+
+		@media only screen and (max-width: 782px) {
+			&.wp-list-table .column-image {
+				display: none;
+				text-align: left;
+				padding-bottom: 0;
+			}
+
+			&.wp-list-table .column-image img {
+				max-width: 32px;
+				height: auto;
+			}
+			&.wp-list-table tr td.column-image::before {
+				display: none !important;
+			}
+		}
+	}
+}
+

@@ -66,7 +66,8 @@ module.exports = function( grunt ) {
 			},
 			main: {
 				files: {
-					'assets/css/store.css': '.dev/sass/store.scss'
+					'assets/css/store.css': '.dev/sass/store.scss',
+					'assets/css/admin.css': '.dev/sass/admin.scss'
 				}
 			}
 		},
