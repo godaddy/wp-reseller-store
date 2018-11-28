@@ -100,6 +100,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+### 2.0.5 - November 2018
+
+* Update: Use SVG images for thumbnails
+###
 ### 2.0.4 - November 2018
 
 * New: Add SVG icons to all products
