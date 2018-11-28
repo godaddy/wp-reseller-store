@@ -182,7 +182,10 @@
   color: #a62b2b; }
 
 .rstore-product-icons svg {
-  width: 8rem; }
+  width: 8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
   .rstore-product-icons svg .svg-fill-primary-o {
     fill: #3690FF; }
   .rstore-product-icons svg .svg-fill-black {

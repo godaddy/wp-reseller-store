@@ -98,6 +98,10 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 == Changelog ==
 = 2.0.5 - November 2018
 
+* Fix: Restore thumbnail image import
+
+= 2.0.6 - November 2018
+
 * Update: Use SVG images for thumbnails
 
 = 2.0.4 - November 2018
