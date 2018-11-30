@@ -70,7 +70,7 @@ final class Post_Type {
 		add_filter( 'post_type_labels_' . self::SLUG, [ $this, 'post_screen_edit_heading' ] );
 		add_filter( 'the_content', 'rstore_append_add_to_cart_form' );
 		add_filter( 'the_excerpt', 'rstore_append_add_to_cart_form' );
-		add_filter( 'post_thumbnail_html', [ $this, 'post_thumbnail_html' ] );
+		add_filter( 'post_thumbnail_html', [ $this, 'post_thumbnail_html' ], 10, 5 );
 
 		add_filter(
 			'edit_' . self::SLUG . '_per_page',
@@ -479,17 +479,19 @@ final class Post_Type {
 	 * @filter post_thumbnail_html
 	 * @since  2.0.5
 	 *
-	 * @param string $html              The post thumbnail HTML.
-	 * @param int    $post_id           The post ID.
+	 * @param string       $html              The post thumbnail HTML.
+	 * @param int          $post_id           The post ID.
+	 * @param string       $post_thumbnail_id The post thumbnail ID.
+	 * @param string|array $size              The post thumbnail size. Image size or array of width and height
+	 *                                        values (in that order). Default 'post-thumbnail'.
+	 * @param string       $attr              Query string of attributes.
 	 *
 	 * @return string                         The post thumbnail HTML.
 	 */
-	public function post_thumbnail_html( $html, $post_id = null ) {
+	public function post_thumbnail_html( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
 
-		if ( ! isset( $post_id ) ) {
-
-			$post_id = get_post();
-
+		if ( Product_Icons::PRODUCT_IMAGE_SLUG === $attr ) {
+			return $html;
 		}
 
 		$product = get_post( $post_id );

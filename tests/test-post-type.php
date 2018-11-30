@@ -263,5 +263,45 @@ final class TestPostType extends TestCase {
 		$this->assertEquals( $data->data['sku'], 'test-product' );
 
 	}
+
+	/**
+	 * @testdox Given filter post_thumbnail_html it should return svg icon.
+	 */
+	public function test_filter_post_thumbnail_html_for_product() {
+
+		rstore_update_option( 'pl_id', 1592 );
+		$post = Tests\Helper::create_product( 'Test Product', 'test-product' );
+
+		new Post_Type();
+
+		$data = get_the_post_thumbnail( $post->ID, 'thumbnail' );
+
+		$this->assertRegExp(
+			'/<title>Additional Products<\/title>/',
+			$data
+		);
+
+	}
+
+	/**
+	 * @testdox Given filter post_thumbnail_html for a post it should return html.
+	 */
+	public function test_filter_post_thumbnail_html_for_post() {
+
+		rstore_update_option( 'pl_id', 1592 );
+
+		$post_id = $this->factory->post->create(
+			[
+				'post_title' => 'test',
+			]
+		);
+
+		new Post_Type();
+
+		$data = get_the_post_thumbnail( $post_id, 'thumbnail' );
+
+		$this->assertEquals( '', $data );
+
+	}
 }
 

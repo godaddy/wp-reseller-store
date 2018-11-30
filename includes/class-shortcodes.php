@@ -293,7 +293,7 @@ final class Shortcodes {
 
 		} else {
 
-			$icon = isset( $atts['icon'] ) ? strtolower( $atts['icon'] ) : 'default';
+			$icon = isset( $atts['icon'] ) ? $atts['icon'] : 'default';
 
 			return Product_Icons::get_icon( $icon, $class_name );
 
