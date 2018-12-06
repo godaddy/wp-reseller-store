@@ -22,7 +22,7 @@ With this plugin, you have the option to easily design a site with the imported 
 
 The product catalog includes cPanel and Plesk hosting, Wordpress, Website Builder, Workspace Email, Security, and Web Marketing applications.
 
-[![Play video on YouTube](https://img.youtube.com/vi/us3y7jK55YQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=us3y7jK55YQ)
+[![Play video on YouTube](https://img.youtube.com/vi/fTPzRP-_suM/maxresdefault.jpg)](https://www.youtube.com/watch?v=fTPzRP-_suM)
 
 **Features**
 
@@ -39,7 +39,7 @@ English - Dansk - Deutsch - Ελληνικά - Español - Español de M
 
 **Support**
 
-If you run into a problem, post your question in [UserVoice](https://godaddy.uservoice.com/forums/906550-reseller) or send an email to resellersupport@godaddy.com and we would be happy to help. Remember, the more information you can provide up-front, the easier it is for us to verify the problem and the faster we can help!
+If you run into a problem send an email to resellersupport@godaddy.com and we would be happy to help. Remember, the more information you can provide up-front, the easier it is for us to verify the problem and the faster we can help!
 
 * Screenshot(s) - How-to guide
 * Name and version of your theme - Video tutorial
@@ -100,9 +100,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
-### 2.0.7 - November 2018
+### 2.0.7 - December 2018
 
 * Update: Add rstore_icon_html filter
+* Update: CSS in Gutenberg block editor for product icons
 ###
 ### 2.0.6 - November 2018
 

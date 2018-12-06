@@ -226,7 +226,7 @@ final class Setup {
 				</div>
 				<div class="rstore-setup-body">
 					<h3><?php esc_html_e( 'Register your plugin to import your product catalog. Please select where you purchased your reseller plan from.', 'reseller-store' ); ?></h3>
-                    <h2><?php esc_html_e( 'Sign and Activate with your:', 'reseller-store' ); ?></h2>
+                    <h2><?php esc_html_e( 'Sign in and Activate with your:', 'reseller-store' ); ?></h2>
 					<p>
                         <button type="button" id="rstore-activate-gd" class="rstore-activate-button button button-primary" ><?php esc_html_e( 'GoDaddy Account', 'reseller-store' ); ?></button>
                         <button type="button" id="rstore-activate-other" class="rstore-activate-button button button-primary" ><?php esc_html_e( 'Other Reseller Account', 'reseller-store' ); ?></button>

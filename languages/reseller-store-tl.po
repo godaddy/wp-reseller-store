@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-08-31 22:40:05+00:00\n"
+"POT-Creation-Date: 2018-12-06 16:28:55+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid_plural "Finished restoring products. %s products updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-admin-notices.php:131 includes/class-setup.php:310
+#: includes/class-admin-notices.php:132 includes/class-setup.php:311
 msgid "Sorry, you are not allowed to do that."
 msgstr "Sorry, you are not allowed to do that."
 
@@ -31,22 +31,36 @@ msgstr "Sorry, you are not allowed to do that."
 msgid "An unknown error has occurred."
 msgstr "An unknown error has occurred."
 
-#: includes/class-bulk-restore.php:34 includes/class-butterbean.php:377
+#: includes/class-blocks.php:111 includes/modules/rstore-fl-cart.php:35
+#: includes/modules/rstore-fl-domain-search.php:35
+#: includes/modules/rstore-fl-domain-simple.php:35
+#: includes/modules/rstore-fl-domain-transfer.php:35
+#: includes/modules/rstore-fl-login.php:35
+#: includes/modules/rstore-fl-product.php:35
+#: includes/widgets/class-domain-search.php:40
+#: includes/widgets/class-domain-simple.php:40
+#: includes/widgets/class-domain-transfer.php:40
+#: includes/widgets/class-login.php:40 includes/widgets/class-product.php:40
+#, fuzzy
+msgid "Reseller Store Modules"
+msgstr "Reseller Store"
+
+#: includes/class-bulk-restore.php:35 includes/class-butterbean.php:377
 msgid "Restore Product Data"
 msgstr "Restore Product Data"
 
-#: includes/class-bulk-restore.php:73
+#: includes/class-bulk-restore.php:74
 msgid "Current user cannot modify post."
 msgstr ""
 
 #. translators: product name
-#: includes/class-bulk-restore.php:88
+#: includes/class-bulk-restore.php:89
 #, fuzzy
 msgid "`%s` does not have a valid product id."
 msgstr "`%s` is not a valid product."
 
 #. translators: product name
-#: includes/class-bulk-restore.php:104 includes/class-import.php:86
+#: includes/class-bulk-restore.php:105 includes/class-import.php:86
 msgid "`%s` is not a valid product."
 msgstr "`%s` is not a valid product."
 
@@ -54,12 +68,12 @@ msgstr "`%s` is not a valid product."
 msgid "Product Options"
 msgstr "Product Options"
 
-#: includes/class-butterbean.php:155 includes/modules/rstore-fl-cart.php:46
-#: includes/modules/rstore-fl-domain-search.php:46
-#: includes/modules/rstore-fl-domain-simple.php:46
-#: includes/modules/rstore-fl-domain-transfer.php:46
-#: includes/modules/rstore-fl-login.php:46
-#: includes/modules/rstore-fl-product.php:46
+#: includes/class-butterbean.php:155 includes/modules/rstore-fl-cart.php:47
+#: includes/modules/rstore-fl-domain-search.php:47
+#: includes/modules/rstore-fl-domain-simple.php:47
+#: includes/modules/rstore-fl-domain-transfer.php:47
+#: includes/modules/rstore-fl-login.php:47
+#: includes/modules/rstore-fl-product.php:47
 #: includes/modules/rstore-vc-domain-search.php:57
 #: includes/modules/rstore-vc-domain-search.php:67
 #: includes/modules/rstore-vc-domain-search.php:77
@@ -71,8 +85,8 @@ msgstr "General"
 msgid "Advanced"
 msgstr "Advanced"
 
-#: includes/class-butterbean.php:193 includes/class-post-type.php:376
-#: includes/modules/rstore-fl-product.php:99
+#: includes/class-butterbean.php:193 includes/class-post-type.php:344
+#: includes/modules/rstore-fl-product.php:107
 msgid "Price"
 msgstr "Price"
 
@@ -89,23 +103,23 @@ msgid "Add to Cart Button Label"
 msgstr "Add to Cart Button Label"
 
 #: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
-#: includes/modules/rstore-fl-product.php:77
-#: includes/modules/rstore-vc-product.php:83
-#: includes/widgets/class-product.php:301
+#: includes/modules/rstore-fl-product.php:85
+#: includes/modules/rstore-vc-product.php:84
+#: includes/widgets/class-product.php:319
 msgid "Add to cart"
 msgstr "Add to cart"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:209
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:224
 msgid "Cart link text"
 msgstr ""
 
 #: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
-#: includes/modules/rstore-fl-domain-search.php:99
-#: includes/modules/rstore-fl-product.php:129
-#: includes/modules/rstore-vc-domain-search.php:126
-#: includes/modules/rstore-vc-product.php:130
+#: includes/modules/rstore-fl-domain-search.php:100
+#: includes/modules/rstore-fl-product.php:142
+#: includes/modules/rstore-vc-domain-search.php:128
+#: includes/modules/rstore-vc-product.php:139
 #: includes/widgets/class-domain-search.php:201
-#: includes/widgets/class-product.php:302
+#: includes/widgets/class-product.php:320
 msgid "Continue to cart"
 msgstr ""
 
@@ -124,7 +138,7 @@ msgstr ""
 "featured image, and category assignments. Note: Your customizations will be "
 "lost."
 
-#: includes/class-display.php:69
+#: includes/class-display.php:71
 msgid "An error has occurred"
 msgstr "An error has occurred"
 
@@ -170,169 +184,188 @@ msgstr "Default"
 msgid "Custom base"
 msgstr "Custom base"
 
-#: includes/class-post-type.php:201
+#: includes/class-post-type.php:228
 msgid "Add New Products"
 msgstr "Add New Products"
 
-#: includes/class-post-type.php:202
+#: includes/class-post-type.php:229
 msgid "Edit Product"
 msgstr "Edit Product"
 
-#: includes/class-post-type.php:203
+#: includes/class-post-type.php:230
 msgid "New Product"
 msgstr "New Product"
 
-#: includes/class-post-type.php:204
+#: includes/class-post-type.php:231
 msgid "View Product"
 msgstr "View Product"
 
-#: includes/class-post-type.php:205
+#: includes/class-post-type.php:232
 msgid "View Products"
 msgstr "View Products"
 
-#: includes/class-post-type.php:206
+#: includes/class-post-type.php:233
 msgid "Search Products"
 msgstr "Search Products"
 
-#: includes/class-post-type.php:207
+#: includes/class-post-type.php:234
 msgid "No products found."
 msgstr "No products found."
 
-#: includes/class-post-type.php:208
+#: includes/class-post-type.php:235
 msgid "No products found in Trash."
 msgstr "No products found in Trash."
 
-#: includes/class-post-type.php:209
+#: includes/class-post-type.php:236
 msgid "Parent Products:"
 msgstr "Parent Products:"
 
-#: includes/class-post-type.php:210
+#: includes/class-post-type.php:237
 msgid "All Products"
 msgstr "All Products"
 
-#: includes/class-post-type.php:211
+#: includes/class-post-type.php:238
 msgid "Product Archives"
 msgstr "Product Archives"
 
-#: includes/class-post-type.php:212
+#: includes/class-post-type.php:239
 msgid "Insert into product"
 msgstr "Insert into product"
 
-#: includes/class-post-type.php:213
+#: includes/class-post-type.php:240
 msgid "Uploaded to this product"
 msgstr "Uploaded to this product"
 
-#: includes/class-post-type.php:214 includes/class-post-type.php:366
+#: includes/class-post-type.php:241 includes/class-post-type.php:334
 msgid "Product Image"
 msgstr "Product Image"
 
-#: includes/class-post-type.php:215
+#: includes/class-post-type.php:242
 msgid "Set product image"
 msgstr "Set product image"
 
-#: includes/class-post-type.php:216
+#: includes/class-post-type.php:243
 msgid "Remove product image"
 msgstr "Remove product image"
 
-#: includes/class-post-type.php:217
+#: includes/class-post-type.php:244
 msgid "Use as featured image"
 msgstr "Use as featured image"
 
-#: includes/class-post-type.php:222
+#: includes/class-post-type.php:249
 msgid "This is where you can add new products to your Reseller Store."
 msgstr "This is where you can add new products to your Reseller Store."
 
-#: includes/class-post-type.php:267
+#: includes/class-post-type.php:294
 msgid "Product id not found or invalid."
 msgstr ""
 
 #. translators: product title
-#: includes/class-post-type.php:502
+#: includes/class-post-type.php:470
 msgid "Edit: %s"
 msgstr "Edit: %s"
 
-#: includes/class-restrictions.php:166
+#: includes/class-restrictions.php:143
 msgid "No products have been added yet."
 msgstr "No products have been added yet."
 
-#: includes/class-restrictions.php:167
+#: includes/class-restrictions.php:144
 msgid "Import All Products"
 msgstr "Import All Products"
 
-#: includes/class-setup.php:121
+#: includes/class-setup.php:122
 msgid "Invalid nonce token.  Please try again."
 msgstr ""
 
-#: includes/class-setup.php:148
+#: includes/class-setup.php:149
 msgid "Reseller Store Setup"
 msgstr "Reseller Store Setup"
 
-#: includes/class-setup.php:149
+#: includes/class-setup.php:150
 msgid "Setup"
 msgstr ""
 
-#: includes/class-setup.php:223
-msgid "Let's setup your GoDaddy Reseller Store."
+#: includes/class-setup.php:224
+#, fuzzy
+msgid "Let's setup your Reseller Store."
 msgstr "Let's setup your GoDaddy Reseller Store."
 
-#: includes/class-setup.php:227
-msgid "Register your plugin to import your product catalog."
+#: includes/class-setup.php:228
+msgid ""
+"Register your plugin to import your product catalog. Please select where you "
+"purchased your reseller plan from."
 msgstr ""
 
-#: includes/class-setup.php:230
-msgid "Sign In & Activate"
+#: includes/class-setup.php:229
+msgid "Sign in and Activate with your:"
 msgstr ""
+
+#: includes/class-setup.php:231
+#, fuzzy
+msgid "GoDaddy Account"
+msgstr "GoDaddy"
 
 #: includes/class-setup.php:232
+#, fuzzy
+msgid "Other Reseller Account"
+msgstr "Reseller Product"
+
+#: includes/class-setup.php:234
 msgid "Importing product catalog and installing"
 msgstr ""
 
-#: includes/class-setup.php:240
-msgid "A GoDaddy Account is required to activate the plugin."
-msgstr ""
-
 #: includes/class-setup.php:241
-msgid "We will provide a demo reseller plan if you don't have a reseller plan."
+msgid "A reseller plan is required to activate the plugin."
 msgstr ""
 
 #: includes/class-setup.php:242
+msgid "We will provide a demo reseller plan if you don't have a reseller plan."
+msgstr ""
+
+#: includes/class-setup.php:243
 msgid "Get your own plan today."
 msgstr ""
 
-#: includes/class-setup.php:246
+#: includes/class-setup.php:247
 #, fuzzy
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
 msgstr "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
 
 #. translators: name of missing script
-#: includes/class-setup.php:271
+#: includes/class-setup.php:272
 msgid "Error: Missing required script for setup %s"
 msgstr "Error: Missing required script for setup %s"
 
-#: includes/class-setup.php:299
+#: includes/class-setup.php:300
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "Sorry, you are not allowed to install plugins on this site."
 
-#: includes/class-setup.php:332
+#: includes/class-setup.php:333
 msgid "Private Label ID is invalid."
 msgstr "Private Label ID is invalid."
 
-#: includes/class-setup.php:353
+#: includes/class-setup.php:354
 msgid "There are no products available, please try again later."
 msgstr "There are no products available, please try again later."
 
-#: includes/class-setup.php:378
+#: includes/class-setup.php:379
 msgid "Product data could not be imported, please try again later."
 msgstr "Product data could not be imported, please try again later."
 
-#: includes/class-setup.php:411
+#: includes/class-setup.php:412
 msgid "An unknown error occurred."
 msgstr "An unknown error occurred."
 
 #. translators: error message
-#: includes/class-setup.php:425
+#: includes/class-setup.php:426
 msgid "Error: %s"
 msgstr "Error: %s"
+
+#: includes/class-shortcodes.php:288 includes/widgets/class-product.php:73
+#: includes/widgets/class-product.php:77
+#, fuzzy
+msgid "Post id is not valid."
+msgstr "`%s` is not a valid product."
 
 #: includes/class-taxonomy-category.php:82
 msgid "Search Categories"
@@ -408,15 +441,15 @@ msgid "Tags"
 msgstr "Tags"
 
 #. translators: product name
-#: includes/functions/product-functions.php:192
+#: includes/functions/product-functions.php:194
 msgid "Error: `%s` does not exist."
 msgstr "Error: `%s` does not exist."
 
 #: includes/modules/rstore-fl-cart.php:32
-#: includes/modules/rstore-fl-product.php:128
+#: includes/modules/rstore-fl-product.php:141
 #: includes/modules/rstore-vc-cart.php:44
-#: includes/modules/rstore-vc-product.php:128
-#: includes/widgets/class-product.php:209
+#: includes/modules/rstore-vc-product.php:137
+#: includes/widgets/class-product.php:224
 #, fuzzy
 msgid "Cart Link"
 msgstr "Cart"
@@ -431,26 +464,12 @@ msgstr ""
 msgid "Shopper Modules"
 msgstr ""
 
-#: includes/modules/rstore-fl-cart.php:35
-#: includes/modules/rstore-fl-domain-search.php:35
-#: includes/modules/rstore-fl-domain-simple.php:35
-#: includes/modules/rstore-fl-domain-transfer.php:35
-#: includes/modules/rstore-fl-login.php:35
-#: includes/modules/rstore-fl-product.php:35
-#: includes/widgets/class-domain-search.php:40
-#: includes/widgets/class-domain-simple.php:40
-#: includes/widgets/class-domain-transfer.php:40
-#: includes/widgets/class-login.php:40 includes/widgets/class-product.php:40
-#, fuzzy
-msgid "Reseller Store Modules"
-msgstr "Reseller Store"
-
-#: includes/modules/rstore-fl-cart.php:53
-#: includes/modules/rstore-fl-domain-search.php:53
-#: includes/modules/rstore-fl-domain-simple.php:53
-#: includes/modules/rstore-fl-domain-transfer.php:53
-#: includes/modules/rstore-fl-login.php:53
-#: includes/modules/rstore-fl-product.php:81
+#: includes/modules/rstore-fl-cart.php:54
+#: includes/modules/rstore-fl-domain-search.php:54
+#: includes/modules/rstore-fl-domain-simple.php:54
+#: includes/modules/rstore-fl-domain-transfer.php:54
+#: includes/modules/rstore-fl-login.php:54
+#: includes/modules/rstore-fl-product.php:89
 #: includes/modules/rstore-vc-cart.php:54
 #: includes/modules/rstore-vc-domain-search.php:54
 #: includes/modules/rstore-vc-domain-simple.php:54
@@ -464,24 +483,24 @@ msgstr "Reseller Store"
 msgid "Title"
 msgstr "Title:"
 
-#: includes/modules/rstore-fl-cart.php:57
-#: includes/modules/rstore-fl-domain-simple.php:63
-#: includes/modules/rstore-fl-domain-transfer.php:63
-#: includes/modules/rstore-fl-product.php:75
+#: includes/modules/rstore-fl-cart.php:58
+#: includes/modules/rstore-fl-domain-simple.php:64
+#: includes/modules/rstore-fl-domain-transfer.php:64
+#: includes/modules/rstore-fl-product.php:83
 #: includes/modules/rstore-vc-cart.php:63
 #: includes/modules/rstore-vc-domain-search.php:74
 #: includes/modules/rstore-vc-domain-simple.php:76
 #: includes/modules/rstore-vc-domain-transfer.php:78
-#: includes/modules/rstore-vc-product.php:81
+#: includes/modules/rstore-vc-product.php:82
 #: includes/widgets/class-cart.php:131
 #: includes/widgets/class-domain-simple.php:137
 #: includes/widgets/class-domain-transfer.php:137
-#: includes/widgets/class-product.php:204
+#: includes/widgets/class-product.php:219
 #, fuzzy
 msgid "Button"
 msgstr "Button:"
 
-#: includes/modules/rstore-fl-cart.php:58
+#: includes/modules/rstore-fl-cart.php:59
 #: includes/modules/rstore-vc-cart.php:65 includes/widgets/class-cart.php:165
 #, fuzzy
 msgid "View Cart"
@@ -505,9 +524,9 @@ msgstr "A search form for domain names."
 msgid "Domain Modules"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:54
-#: includes/modules/rstore-fl-domain-simple.php:54
-#: includes/modules/rstore-fl-domain-transfer.php:54
+#: includes/modules/rstore-fl-domain-search.php:55
+#: includes/modules/rstore-fl-domain-simple.php:55
+#: includes/modules/rstore-fl-domain-transfer.php:55
 #: includes/modules/rstore-vc-cart.php:56
 #: includes/modules/rstore-vc-domain-search.php:56
 #: includes/modules/rstore-vc-domain-simple.php:56
@@ -516,9 +535,9 @@ msgstr ""
 msgid "Optional widget title"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:58
-#: includes/modules/rstore-fl-domain-simple.php:58
-#: includes/modules/rstore-fl-domain-transfer.php:58
+#: includes/modules/rstore-fl-domain-search.php:59
+#: includes/modules/rstore-fl-domain-simple.php:59
+#: includes/modules/rstore-fl-domain-transfer.php:59
 #: includes/modules/rstore-vc-domain-search.php:64
 #: includes/modules/rstore-vc-domain-simple.php:65
 #: includes/modules/rstore-vc-domain-transfer.php:66
@@ -529,8 +548,8 @@ msgstr ""
 msgid "Placeholder"
 msgstr "Placeholder:"
 
-#: includes/modules/rstore-fl-domain-search.php:59
-#: includes/modules/rstore-fl-domain-simple.php:59
+#: includes/modules/rstore-fl-domain-search.php:60
+#: includes/modules/rstore-fl-domain-simple.php:60
 #: includes/modules/rstore-vc-domain-search.php:66
 #: includes/modules/rstore-vc-domain-simple.php:67
 #: includes/widgets/class-domain-search.php:197
@@ -538,15 +557,15 @@ msgstr "Placeholder:"
 msgid "Find your perfect domain name"
 msgstr "Find your perfect domain name"
 
-#: includes/modules/rstore-fl-domain-search.php:63
+#: includes/modules/rstore-fl-domain-search.php:64
 #: includes/widgets/class-domain-search.php:147
 #, fuzzy
 msgid "Search Button"
 msgstr "Button:"
 
-#: includes/modules/rstore-fl-domain-search.php:64
+#: includes/modules/rstore-fl-domain-search.php:65
 #: includes/modules/rstore-fl-domain-simple.php:32
-#: includes/modules/rstore-fl-domain-simple.php:64
+#: includes/modules/rstore-fl-domain-simple.php:65
 #: includes/modules/rstore-vc-domain-search.php:76
 #: includes/modules/rstore-vc-domain-simple.php:78
 #: includes/widgets/class-domain-search.php:198
@@ -554,95 +573,95 @@ msgstr "Button:"
 msgid "Search"
 msgstr "Search"
 
-#: includes/modules/rstore-fl-domain-search.php:73
+#: includes/modules/rstore-fl-domain-search.php:74
 #: includes/modules/rstore-vc-domain-search.php:84
 #: includes/widgets/class-domain-search.php:148
 msgid "Page Size"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:74
+#: includes/modules/rstore-fl-domain-search.php:75
 msgid "domains"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:79
+#: includes/modules/rstore-fl-domain-search.php:80
 #: includes/modules/rstore-vc-domain-search.php:94
 #: includes/widgets/class-domain-search.php:154
 msgid "Display results in a modal"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:82
-#: includes/modules/rstore-fl-product.php:84
-#: includes/modules/rstore-fl-product.php:93
-#: includes/modules/rstore-fl-product.php:102
-#: includes/modules/rstore-vc-domain-search.php:96
+#: includes/modules/rstore-fl-domain-search.php:83
+#: includes/modules/rstore-fl-product.php:92
+#: includes/modules/rstore-fl-product.php:101
+#: includes/modules/rstore-fl-product.php:110
+#: includes/modules/rstore-vc-domain-search.php:97
 msgid "Show"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:83
-#: includes/modules/rstore-fl-product.php:85
-#: includes/modules/rstore-fl-product.php:94
-#: includes/modules/rstore-fl-product.php:103
-#: includes/modules/rstore-vc-product.php:94
-#: includes/modules/rstore-vc-product.php:103
-#: includes/modules/rstore-vc-product.php:112
+#: includes/modules/rstore-fl-domain-search.php:84
+#: includes/modules/rstore-fl-product.php:93
+#: includes/modules/rstore-fl-product.php:102
+#: includes/modules/rstore-fl-product.php:111
+#: includes/modules/rstore-vc-product.php:96
+#: includes/modules/rstore-vc-product.php:107
+#: includes/modules/rstore-vc-product.php:118
 msgid "Hide"
-msgstr ""
-
-#: includes/modules/rstore-fl-domain-search.php:88
-#: includes/modules/rstore-vc-domain-search.php:104
-#: includes/widgets/class-domain-search.php:149
-msgid "Available Text"
 msgstr ""
 
 #: includes/modules/rstore-fl-domain-search.php:89
 #: includes/modules/rstore-vc-domain-search.php:106
+#: includes/widgets/class-domain-search.php:149
+msgid "Available Text"
+msgstr ""
+
+#: includes/modules/rstore-fl-domain-search.php:90
+#: includes/modules/rstore-vc-domain-search.php:108
 #: includes/widgets/class-domain-search.php:199
 #, fuzzy
 msgid "Congrats, {domain_name} is available!"
 msgstr "Congrats, your domain is available!"
 
-#: includes/modules/rstore-fl-domain-search.php:93
-#: includes/modules/rstore-vc-domain-search.php:114
+#: includes/modules/rstore-fl-domain-search.php:94
+#: includes/modules/rstore-vc-domain-search.php:116
 #: includes/widgets/class-domain-search.php:150
 msgid "Not Available Text"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:94
-#: includes/modules/rstore-vc-domain-search.php:116
+#: includes/modules/rstore-fl-domain-search.php:95
+#: includes/modules/rstore-vc-domain-search.php:118
 #: includes/widgets/class-domain-search.php:200
 #, fuzzy
 msgid "Sorry, {domain_name} is taken."
 msgstr "Sorry that domain is taken"
 
-#: includes/modules/rstore-fl-domain-search.php:98
-#: includes/modules/rstore-vc-domain-search.php:124
+#: includes/modules/rstore-fl-domain-search.php:99
+#: includes/modules/rstore-vc-domain-search.php:126
 #: includes/widgets/class-domain-search.php:151
 #, fuzzy
 msgid "Cart Button"
 msgstr "Add to Cart Button Label"
 
-#: includes/modules/rstore-fl-domain-search.php:103
-#: includes/modules/rstore-vc-domain-search.php:134
+#: includes/modules/rstore-fl-domain-search.php:104
+#: includes/modules/rstore-vc-domain-search.php:136
 #: includes/widgets/class-domain-search.php:152
 #, fuzzy
 msgid "Select Button"
 msgstr "Button:"
 
-#: includes/modules/rstore-fl-domain-search.php:104
-#: includes/modules/rstore-vc-domain-search.php:136
+#: includes/modules/rstore-fl-domain-search.php:105
+#: includes/modules/rstore-vc-domain-search.php:138
 #: includes/widgets/class-domain-search.php:202
 msgid "Select"
 msgstr ""
 
-#: includes/modules/rstore-fl-domain-search.php:108
-#: includes/modules/rstore-vc-domain-search.php:144
+#: includes/modules/rstore-fl-domain-search.php:109
+#: includes/modules/rstore-vc-domain-search.php:146
 #: includes/widgets/class-domain-search.php:153
 #, fuzzy
 msgid "Deselect Button"
 msgstr "Button:"
 
-#: includes/modules/rstore-fl-domain-search.php:109
-#: includes/modules/rstore-vc-domain-search.php:146
+#: includes/modules/rstore-fl-domain-search.php:110
+#: includes/modules/rstore-vc-domain-search.php:148
 #: includes/widgets/class-domain-search.php:203
 msgid "Selected"
 msgstr ""
@@ -655,7 +674,7 @@ msgid "A search form for domain registrations."
 msgstr "A search form for domain names."
 
 #: includes/modules/rstore-fl-domain-transfer.php:32
-#: includes/modules/rstore-fl-domain-transfer.php:64
+#: includes/modules/rstore-fl-domain-transfer.php:65
 #: includes/modules/rstore-vc-domain-transfer.php:80
 #: includes/widgets/class-domain-transfer.php:173
 msgid "Transfer"
@@ -668,7 +687,7 @@ msgstr ""
 msgid "A search form for domain transfers."
 msgstr "A search form for domain names."
 
-#: includes/modules/rstore-fl-domain-transfer.php:59
+#: includes/modules/rstore-fl-domain-transfer.php:60
 #: includes/modules/rstore-vc-domain-transfer.php:68
 #: includes/widgets/class-domain-transfer.php:172
 msgid "Enter domain to transfer"
@@ -685,43 +704,43 @@ msgstr "Reseller Store"
 msgid "A shopper login status."
 msgstr ""
 
-#: includes/modules/rstore-fl-login.php:57
+#: includes/modules/rstore-fl-login.php:58
 #: includes/modules/rstore-vc-login.php:63 includes/widgets/class-login.php:143
 #, fuzzy
 msgid "Sign In Button"
 msgstr "Button:"
 
-#: includes/modules/rstore-fl-login.php:58
+#: includes/modules/rstore-fl-login.php:59
 #: includes/modules/rstore-vc-login.php:65 includes/widgets/class-login.php:183
 msgid "Sign In"
 msgstr ""
 
-#: includes/modules/rstore-fl-login.php:62
+#: includes/modules/rstore-fl-login.php:63
 #: includes/modules/rstore-vc-login.php:72 includes/widgets/class-login.php:144
 msgid "Welcome Message"
 msgstr ""
 
-#: includes/modules/rstore-fl-login.php:63
+#: includes/modules/rstore-fl-login.php:64
 #: includes/modules/rstore-vc-login.php:74 includes/widgets/class-login.php:182
 msgid "Welcome Back"
 msgstr ""
 
-#: includes/modules/rstore-fl-login.php:67
+#: includes/modules/rstore-fl-login.php:68
 #: includes/modules/rstore-vc-login.php:81 includes/widgets/class-login.php:145
 #, fuzzy
 msgid "Log Out Button"
 msgstr "Button:"
 
-#: includes/modules/rstore-fl-login.php:68
+#: includes/modules/rstore-fl-login.php:69
 #: includes/modules/rstore-vc-login.php:83 includes/widgets/class-login.php:184
 msgid "Log Out"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:32
-#: includes/modules/rstore-fl-product.php:53
+#: includes/modules/rstore-fl-product.php:54
 #: includes/modules/rstore-vc-product.php:44
 #: includes/modules/rstore-vc-product.php:54
-#: includes/widgets/class-product.php:182
+#: includes/widgets/class-product.php:197
 #, fuzzy
 msgid "Product"
 msgstr "Product"
@@ -737,66 +756,88 @@ msgstr ""
 msgid "Product Modules"
 msgstr "Products"
 
-#: includes/modules/rstore-fl-product.php:63
+#: includes/modules/rstore-fl-product.php:64
 #: includes/modules/rstore-vc-product.php:65
-#: includes/widgets/class-product.php:191
+#: includes/widgets/class-product.php:205
 msgid "Image Size"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:66
-#: includes/modules/rstore-vc-product.php:69
-#: includes/widgets/class-product.php:194
+#: includes/modules/rstore-fl-product.php:67
+#: includes/modules/rstore-vc-product.php:68
+#: includes/widgets/class-product.php:208
+#, fuzzy
+msgid "Product Icon"
+msgstr "Product"
+
+#: includes/modules/rstore-fl-product.php:68
+#: includes/modules/rstore-vc-product.php:70
+#: includes/widgets/class-product.php:209
 msgid "Thumbnail"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:67
-#: includes/modules/rstore-vc-product.php:70
-#: includes/widgets/class-product.php:195
-msgid "Medium resolution"
-msgstr ""
-
-#: includes/modules/rstore-fl-product.php:68
-#: includes/modules/rstore-vc-product.php:71
-#: includes/widgets/class-product.php:196
-msgid "Large resolution"
-msgstr ""
-
 #: includes/modules/rstore-fl-product.php:69
-#: includes/modules/rstore-vc-product.php:68
-#: includes/widgets/class-product.php:197
-msgid "Original resolution"
+#: includes/modules/rstore-vc-product.php:71
+#: includes/widgets/class-product.php:210
+msgid "Medium resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:70
 #: includes/modules/rstore-vc-product.php:72
-#: includes/widgets/class-product.php:198
+#: includes/widgets/class-product.php:211
+msgid "Large resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:71
+#: includes/modules/rstore-vc-product.php:69
+#: includes/widgets/class-product.php:212
+msgid "Original resolution"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:72
+#: includes/modules/rstore-vc-product.php:73
+#: includes/widgets/class-product.php:213
 #, fuzzy
 msgid "Hide image"
 msgstr "Product Image"
 
-#: includes/modules/rstore-fl-product.php:76
-#: includes/modules/rstore-vc-product.php:84
-#: includes/widgets/class-product.php:204
+#: includes/modules/rstore-fl-product.php:77
+msgid "Content Height"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:84
+#: includes/modules/rstore-vc-product.php:85
+#: includes/widgets/class-product.php:219
 msgid "Leave blank to hide button"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:90
+#: includes/modules/rstore-fl-product.php:98
 msgid "Post Content"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:113
-#: includes/modules/rstore-vc-product.php:119
-#: includes/widgets/class-product.php:208
+#: includes/modules/rstore-fl-product.php:116
+#: includes/widgets/class-product.php:225
+#, fuzzy
+msgid "Product Permalink"
+msgstr "Reseller Product Permalinks"
+
+#: includes/modules/rstore-fl-product.php:117
+#: includes/widgets/class-product.php:321
+msgid "More info"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:126
+#: includes/modules/rstore-vc-product.php:126
+#: includes/widgets/class-product.php:223
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "Redirect to the cart immediately after adding"
 
-#: includes/modules/rstore-fl-product.php:116
+#: includes/modules/rstore-fl-product.php:129
 msgid "Yes"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:117
-#: includes/modules/rstore-vc-product.php:121
+#: includes/modules/rstore-fl-product.php:130
+#: includes/modules/rstore-vc-product.php:129
 msgid "No"
 msgstr ""
 
@@ -810,11 +851,11 @@ msgid "Advanced Domain Search"
 msgstr "Domain Search"
 
 #: includes/modules/rstore-vc-domain-search.php:87
-#: includes/modules/rstore-vc-domain-search.php:107
-#: includes/modules/rstore-vc-domain-search.php:117
-#: includes/modules/rstore-vc-domain-search.php:127
-#: includes/modules/rstore-vc-domain-search.php:137
-#: includes/modules/rstore-vc-domain-search.php:147
+#: includes/modules/rstore-vc-domain-search.php:109
+#: includes/modules/rstore-vc-domain-search.php:119
+#: includes/modules/rstore-vc-domain-search.php:129
+#: includes/modules/rstore-vc-domain-search.php:139
+#: includes/modules/rstore-vc-domain-search.php:149
 msgid "Results"
 msgstr ""
 
@@ -828,25 +869,25 @@ msgstr "Domain Search"
 msgid "Domain Transfer"
 msgstr "Domain Search"
 
-#: includes/modules/rstore-vc-product.php:92
-#: includes/widgets/class-product.php:205
+#: includes/modules/rstore-vc-product.php:93
+#: includes/widgets/class-product.php:220
 #, fuzzy
 msgid "Show product title"
 msgstr "Set product image"
 
-#: includes/modules/rstore-vc-product.php:101
-#: includes/widgets/class-product.php:206
+#: includes/modules/rstore-vc-product.php:104
+#: includes/widgets/class-product.php:221
 #, fuzzy
 msgid "Show post content"
 msgstr "Set product image"
 
-#: includes/modules/rstore-vc-product.php:110
-#: includes/widgets/class-product.php:207
+#: includes/modules/rstore-vc-product.php:115
+#: includes/widgets/class-product.php:222
 #, fuzzy
 msgid "Show product price"
 msgstr "Set product image"
 
-#: includes/modules/rstore-vc-product.php:155
+#: includes/modules/rstore-vc-product.php:164
 #, fuzzy
 msgid "Select product..."
 msgstr "Reseller Product"
@@ -880,13 +921,20 @@ msgstr "Reseller Store"
 msgid "Reseller Product"
 msgstr "Reseller Product"
 
-#: includes/widgets/class-product.php:73 includes/widgets/class-product.php:77
-#, fuzzy
-msgid "Post id is not valid."
-msgstr "`%s` is not a valid product."
+#: includes/widgets/class-product.php:218
+msgid "Content size"
+msgstr ""
+
+#: includes/widgets/class-product.php:218
+msgid "Height in pixels"
+msgstr ""
+
+#: includes/widgets/class-product.php:225
+msgid "Permalink text"
+msgstr ""
 
 #. translators: server PHP version
-#: reseller-store.php:36
+#: reseller-store.php:37
 msgid ""
 "You need to update your PHP version to run GoDaddy Reseller Store plugin. "
 "Required version 5.4 or higher. Your PHP version is: %s"
@@ -915,7 +963,7 @@ msgctxt "slug name"
 msgid "sample-product"
 msgstr "sample-product"
 
-#: includes/class-post-type.php:61
+#: includes/class-post-type.php:62
 msgctxt "slug name"
 msgid "products"
 msgstr "products"
@@ -930,27 +978,27 @@ msgctxt "slug name"
 msgid "product-tag"
 msgstr "product-tag"
 
-#: includes/class-post-type.php:196
+#: includes/class-post-type.php:223
 msgctxt "post type general name"
 msgid "Products"
 msgstr "Products"
 
-#: includes/class-post-type.php:197
+#: includes/class-post-type.php:224
 msgctxt "post type singular name"
 msgid "Product"
 msgstr "Product"
 
-#: includes/class-post-type.php:198
+#: includes/class-post-type.php:225
 msgctxt "admin menu"
 msgid "Reseller Store"
 msgstr "Reseller Store"
 
-#: includes/class-post-type.php:199
+#: includes/class-post-type.php:226
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
 msgstr "Reseller Product"
 
-#: includes/class-post-type.php:200
+#: includes/class-post-type.php:227
 msgctxt "product"
 msgid "Add New"
 msgstr "Add New"
@@ -997,10 +1045,6 @@ msgstr "%1$s / per %2$s"
 #, fuzzy
 #~ msgid "Verify Button"
 #~ msgstr "Button:"
-
-#, fuzzy
-#~ msgid "Product: "
-#~ msgstr "Product"
 
 #~ msgid "Reset Data"
 #~ msgstr "Reset Data"
