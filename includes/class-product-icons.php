@@ -25,7 +25,7 @@ final class Product_Icons {
 	/**
 	 * Image type slug.
 	 *
-	 * @since NEXT
+	 * @since 2.0.7
 	 *
 	 * @var string
 	 */
@@ -261,7 +261,7 @@ final class Product_Icons {
 		/**
 		 * Filter Product Icon SVG html.
 		 *
-		 * @since NEXT
+		 * @since 2.0.7
 		 *
 		 * @var string    $content    SVG html for the image.
 		 * @var string    $image_id   The product post for which you want product icon returned.
