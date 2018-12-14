@@ -52,24 +52,31 @@ final class Blocks {
 
 		add_filter( 'block_categories', [ $this, 'block_categories' ], 10, 2 );
 
-		register_block_type(
-			'reseller-store/product',
-			array(
-				'render_callback' => [
-					$this,
-					'product',
-				],
-			)
-		);
+		add_action(
+			'init',
+			function() {
 
-		register_block_type(
-			'reseller-store/domain-search',
-			array(
-				'render_callback' => [
-					$this,
-					'domain_search',
-				],
-			)
+				register_block_type(
+					'reseller-store/product',
+					array(
+						'render_callback' => [
+							$this,
+							'product',
+						],
+					)
+				);
+
+				register_block_type(
+					'reseller-store/domain-search',
+					array(
+						'render_callback' => [
+							$this,
+							'domain_search',
+						],
+					)
+				);
+
+			}
 		);
 	}
 

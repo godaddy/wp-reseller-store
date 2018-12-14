@@ -99,6 +99,13 @@ class Widget_Base extends \WP_Widget {
 			'data-*'      => true,
 		);
 
+		$allowed_html['form'] = array(
+			'role'   => true,
+			'method' => true,
+			'class'  => true,
+			'action' => true,
+		);
+
 		$data = array(
 			'data-id'                 => true,
 			'data-quantity'           => true,
