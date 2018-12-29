@@ -2,25 +2,7 @@ body {
 	&.post-type-reseller_product {
 		.rstore-product-icons {
 
-			.svg-fill-primary-o {
-				fill: #3690FF;
-			}
-
-			.svg-fill-black {
-				fill: #000000;
-			}
-
-			.svg-fill-grey {
-				fill: #111111;
-			}
-
-			.svg-fill-white {
-				fill: #FFFFFF;
-			}
-
-			.svg-fill-wordpress {
-				fill: #00749a;
-			}
+			@import "partials/icon-colors";
 		}
 
 		.rstore-blank {

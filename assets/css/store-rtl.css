@@ -192,7 +192,13 @@
     fill: #000000; }
   .rstore-product-icons svg .svg-fill-grey {
     fill: #111111; }
+  .rstore-product-icons svg .svg-fill-med {
+    fill: #CCCCCC; }
   .rstore-product-icons svg .svg-fill-white {
     fill: #FFFFFF; }
   .rstore-product-icons svg .svg-fill-wordpress {
     fill: #00749a; }
+  .rstore-product-icons svg .svg-fill-cpanel {
+    fill: #f26c31; }
+  .rstore-product-icons svg .svg-fill-red {
+    fill: #F22307; }

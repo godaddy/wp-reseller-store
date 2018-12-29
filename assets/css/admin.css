@@ -7,11 +7,20 @@ body.post-type-reseller_product .rstore-product-icons .svg-fill-black {
 body.post-type-reseller_product .rstore-product-icons .svg-fill-grey {
   fill: #111111; }
 
+body.post-type-reseller_product .rstore-product-icons .svg-fill-med {
+  fill: #CCCCCC; }
+
 body.post-type-reseller_product .rstore-product-icons .svg-fill-white {
   fill: #FFFFFF; }
 
 body.post-type-reseller_product .rstore-product-icons .svg-fill-wordpress {
   fill: #00749a; }
+
+body.post-type-reseller_product .rstore-product-icons .svg-fill-cpanel {
+  fill: #f26c31; }
+
+body.post-type-reseller_product .rstore-product-icons .svg-fill-red {
+  fill: #F22307; }
 
 body.post-type-reseller_product .rstore-blank {
   margin-top: 50px;
