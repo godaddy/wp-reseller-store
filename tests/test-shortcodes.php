@@ -338,7 +338,7 @@ final class TestShortcodes extends TestCase {
 	function test_icon_shortcode_websites() {
 
 		$this->assertRegExp(
-			'/<title>Websites<\/title>/',
+			'/<title>Website Builder<\/title>/',
 			do_shortcode( '[rstore_icon icon="websites"]' )
 		);
 

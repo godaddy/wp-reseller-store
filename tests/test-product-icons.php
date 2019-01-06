@@ -116,7 +116,7 @@ final class TestProductIcons extends TestCase {
 	function test_get_icon_websites() {
 
 		$this->assertRegExp(
-			'/<title>Websites<\/title>/',
+			'/<title>Website Builder<\/title>/',
 			Product_Icons::get_icon( 'websites' )
 		);
 
@@ -178,6 +178,138 @@ final class TestProductIcons extends TestCase {
 		$this->assertRegExp(
 			'/<title>Dedicated IP<\/title>/',
 			Product_Icons::get_icon( 'dedicated-ip' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id dedicated-server it should generate html
+	 */
+	function test_get_icon_dedicated_server() {
+
+		$this->assertRegExp(
+			'/<title>Dedicated Server<\/title>/',
+			Product_Icons::get_icon( 'dedicated-server' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id domain-transfer it should generate html
+	 */
+	function test_get_icon_domain_transfer() {
+
+		$this->assertRegExp(
+			'/<title>Domain Transfer<\/title>/',
+			Product_Icons::get_icon( 'domain-transfer' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id domain-backorder it should generate html
+	 */
+	function test_get_icon_domain_backorder() {
+
+		$this->assertRegExp(
+			'/<title>Domain Backorder<\/title>/',
+			Product_Icons::get_icon( 'domain-backorder' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id hosting-cpanel it should generate html
+	 */
+	function test_get_icon_hosting_cpanel() {
+
+		$this->assertRegExp(
+			'/<title>cPanel Hosting<\/title>/',
+			Product_Icons::get_icon( 'hosting-cpanel' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id hosting-windows it should generate html
+	 */
+	function test_get_icon_hosting_windows() {
+
+		$this->assertRegExp(
+			'/<title>Windows Hosting<\/title>/',
+			Product_Icons::get_icon( 'hosting-windows' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id online-calendar it should generate html
+	 */
+	function test_get_icon_online_calendar() {
+
+		$this->assertRegExp(
+			'/<title>Online Calendar<\/title>/',
+			Product_Icons::get_icon( 'online-calendar' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id online-storage it should generate html
+	 */
+	function test_get_icon_online_storage() {
+
+		$this->assertRegExp(
+			'/<title>Online Storage<\/title>/',
+			Product_Icons::get_icon( 'online-storage' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id online-store it should generate html
+	 */
+	function test_get_icon_online_store() {
+
+		$this->assertRegExp(
+			'/<title>Online Store<\/title>/',
+			Product_Icons::get_icon( 'online-store' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id reseller it should generate html
+	 */
+	function test_get_icon_reseller() {
+
+		$this->assertRegExp(
+			'/<title>Reseller<\/title>/',
+			Product_Icons::get_icon( 'reseller' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id sale it should generate html
+	 */
+	function test_get_icon_sale() {
+
+		$this->assertRegExp(
+			'/<title>On Sale<\/title>/',
+			Product_Icons::get_icon( 'sale' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id website-backup it should generate html
+	 */
+	function test_get_icon_website_backup() {
+
+		$this->assertRegExp(
+			'/<title>Website Backup<\/title>/',
+			Product_Icons::get_icon( 'website-backup' )
 		);
 
 	}
