@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-12-06 16:28:55+00:00\n"
+"POT-Creation-Date: 2019-01-08 20:09:46+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr "К сожалению, вам не разрешено делать эт�
 msgid "An unknown error has occurred."
 msgstr "Произошла неизвестная ошибка."
 
-#: includes/class-blocks.php:111 includes/modules/rstore-fl-cart.php:35
+#: includes/class-blocks.php:118 includes/modules/rstore-fl-cart.php:35
 #: includes/modules/rstore-fl-domain-search.php:35
 #: includes/modules/rstore-fl-domain-simple.php:35
 #: includes/modules/rstore-fl-domain-transfer.php:35

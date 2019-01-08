@@ -96,9 +96,14 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 2.0.9 - January 2019
+
+* Update: Update Product icon SVGs
+
 = 2.0.8 - December 2018
 
-* Fix: Domain search by adding form as an allowed tag.
+* Fix: Domain search by adding form as an allowed tag
 
 = 2.0.7 - December 2018
 

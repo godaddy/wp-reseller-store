@@ -1,13 +1,13 @@
-# Copyright (c) 2018 GoDaddy Operating Company, LLC. All Rights Reserved.
+# Copyright (c) 2019 GoDaddy Operating Company, LLC. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: Reseller Store 2.0.6\n"
+"Project-Id-Version: Reseller Store 2.0.8\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2018-12-06 16:29:13+00:00\n"
+"POT-Creation-Date: 2019-01-08 20:09:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Poedit-KeywordsList: "
@@ -30,7 +30,7 @@ msgstr ""
 msgid "An unknown error has occurred."
 msgstr ""
 
-#: includes/class-blocks.php:111 includes/modules/rstore-fl-cart.php:35
+#: includes/class-blocks.php:118 includes/modules/rstore-fl-cart.php:35
 #: includes/modules/rstore-fl-domain-search.php:35
 #: includes/modules/rstore-fl-domain-simple.php:35
 #: includes/modules/rstore-fl-domain-transfer.php:35

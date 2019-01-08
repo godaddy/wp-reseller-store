@@ -13,7 +13,7 @@
  * This plugin, like WordPress, is licensed under the GPL.
  * Use it to make something cool, have fun, and share what you've learned with others.
  *
- * Copyright © 2018 GoDaddy Operating Company, LLC. All Rights Reserved.
+ * Copyright © 2019 GoDaddy Operating Company, LLC. All Rights Reserved.
  */
 
 namespace Reseller_Store;
