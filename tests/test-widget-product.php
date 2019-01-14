@@ -57,8 +57,8 @@ final class TestWidgetProduct extends TestCase {
 		$post = Tests\Helper::create_product();
 
 		$instance = [
-			'post_id'    => $post->ID,
-			'layout_type' => 'classic'
+			'post_id'     => $post->ID,
+			'layout_type' => 'classic',
 		];
 
 		$args = [
