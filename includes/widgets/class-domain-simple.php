@@ -168,9 +168,9 @@ final class Domain_Simple extends Widget_Base {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'            => isset( $instance['title'] ) ? $instance['title'] : '',
-			'text_placeholder' => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : esc_html__( 'Find your perfect domain name', 'reseller-store' ),
-			'text_search'      => isset( $instance['text_search'] ) ? $instance['text_search'] : esc_html__( 'Search', 'reseller-store' ),
+			'title'            => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_domain_title', '' ),
+			'text_placeholder' => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : apply_filters( 'rstore_domain_text_placeholder', esc_html__( 'Find your perfect domain name', 'reseller-store' ) ),
+			'text_search'      => isset( $instance['text_search'] ) ? $instance['text_search'] : apply_filters( 'rstore_domain_text_search', esc_html__( 'Search', 'reseller-store' ) ),
 		);
 	}
 

@@ -192,16 +192,16 @@ final class Domain_Search extends Widget_Base {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'              => isset( $instance['title'] ) ? $instance['title'] : '',
-			'page_size'          => isset( $instance['page_size'] ) ? $instance['page_size'] : 5,
-			'text_placeholder'   => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : esc_html__( 'Find your perfect domain name', 'reseller-store' ),
-			'text_search'        => isset( $instance['text_search'] ) ? $instance['text_search'] : esc_html__( 'Search', 'reseller-store' ),
-			'text_available'     => isset( $instance['text_available'] ) ? $instance['text_available'] : esc_html__( 'Congrats, {domain_name} is available!', 'reseller-store' ),
-			'text_not_available' => isset( $instance['text_not_available'] ) ? $instance['text_not_available'] : esc_html__( 'Sorry, {domain_name} is taken.', 'reseller-store' ),
-			'text_cart'          => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
-			'text_select'        => isset( $instance['text_select'] ) ? $instance['text_select'] : esc_html__( 'Select', 'reseller-store' ),
-			'text_selected'      => isset( $instance['text_selected'] ) ? $instance['text_selected'] : esc_html__( 'Selected', 'reseller-store' ),
-			'modal'              => isset( $instance['modal'] ) ? ! empty( $instance['modal'] ) : false,
+			'title'              => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_domain_title', '' ),
+			'page_size'          => isset( $instance['page_size'] ) ? $instance['page_size'] : apply_filters( 'rstore_domain_page_size', 5 ),
+			'text_placeholder'   => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : apply_filters( 'rstore_domain_text_placeholder', esc_html__( 'Find your perfect domain name', 'reseller-store' ) ),
+			'text_search'        => isset( $instance['text_search'] ) ? $instance['text_search'] : apply_filters( 'rstore_domain_text_search', esc_html__( 'Search', 'reseller-store' ) ),
+			'text_available'     => isset( $instance['text_available'] ) ? $instance['text_available'] : apply_filters( 'rstore_domain_text_available', esc_html__( 'Congrats, {domain_name} is available!', 'reseller-store' ) ),
+			'text_not_available' => isset( $instance['text_not_available'] ) ? $instance['text_not_available'] : apply_filters( 'rstore_domain_text_not_available', esc_html__( 'Sorry, {domain_name} is taken.', 'reseller-store' ) ),
+			'text_cart'          => isset( $instance['text_cart'] ) ? $instance['text_cart'] : apply_filters( 'rstore_domain_text_cart', esc_html__( 'Continue to cart', 'reseller-store' ) ),
+			'text_select'        => isset( $instance['text_select'] ) ? $instance['text_select'] : apply_filters( 'rstore_text_select', esc_html__( 'Select', 'reseller-store' ) ),
+			'text_selected'      => isset( $instance['text_selected'] ) ? $instance['text_selected'] : apply_filters( 'rstore_text_selected', esc_html__( 'Selected', 'reseller-store' ) ),
+			'modal'              => isset( $instance['modal'] ) ? ! empty( $instance['modal'] ) : apply_filters( 'rstore_domain_modal', false ),
 		);
 	}
 

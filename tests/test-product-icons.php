@@ -75,6 +75,18 @@ final class TestProductIcons extends TestCase {
 	}
 
 	/**
+	 * @testdox Given an image_id domain-registration it should generate html
+	 */
+	function test_get_icon_domain_registration() {
+
+		$this->assertRegExp(
+			'/<title>Domain Registration<\/title>/',
+			Product_Icons::get_icon( 'domain-registration' )
+		);
+
+	}
+
+	/**
 	 * @testdox Given an image_id email it should generate html
 	 */
 	function test_get_icon_email() {

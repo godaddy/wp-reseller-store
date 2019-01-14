@@ -101,6 +101,11 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
+### 2.0.10 - January 2019
+
+* Fixed: Add classic layout option back to the product widget
+* New: apply_filters for default options on widgets and shortcodes
+###
 ### 2.0.9 - January 2019
 
 * Update: Update Product icon SVGs

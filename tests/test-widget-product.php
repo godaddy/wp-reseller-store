@@ -48,6 +48,33 @@ final class TestWidgetProduct extends TestCase {
 	}
 
 	/**
+	 * @testdox Given a classic layout_type the widget should render
+	 */
+	function test_widget_classic() {
+
+		$widget = new Widgets\Product();
+
+		$post = Tests\Helper::create_product();
+
+		$instance = [
+			'post_id'    => $post->ID,
+			'layout_type' => 'classic'
+		];
+
+		$args = [
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		];
+
+		echo $widget->widget( $args, $instance );
+
+		$this->expectOutputRegex( '/<div><button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button><\/div>/' );
+
+	}
+
+	/**
 	 * @testdox Given a valid instance and redirect=false the widget should render with redirect=false
 	 */
 	function test_widget_no_redirect() {

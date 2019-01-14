@@ -119,16 +119,19 @@ final class Product extends Widget_Base {
 
 		}
 
-		if ( $data['show_price'] ) {
+		if ( 'classic' !== $data['layout_type'] ) {
 
-			$content .= rstore_price( $post_id, false );
+			if ( $data['show_price'] ) {
 
-		}
+				$content .= rstore_price( $post_id, false );
 
-		if ( ! empty( $data['button_label'] ) ) {
+			}
 
-			$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
+			if ( ! empty( $data['button_label'] ) ) {
 
+				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
+
+			}
 		}
 
 		$content .= '</div>';
@@ -161,7 +164,22 @@ final class Product extends Widget_Base {
 
 			if ( $data['content_height'] > 0 ) {
 
-				$content .= sprintf( '<a class="link" href="%s" >%s</a>', get_permalink( $post_id ), esc_html( $data['text_more'] ) );
+				$content .= sprintf( '<div class="rstore-product-permalink"><a class="link" href="%s" >%s</a></div>', get_permalink( $post_id ), esc_html( $data['text_more'] ) );
+
+			}
+		}
+
+		if ( 'classic' === $data['layout_type'] ) {
+
+			if ( $data['show_price'] ) {
+
+				$content .= rstore_price( $post_id, false );
+
+			}
+
+			if ( ! empty( $data['button_label'] ) ) {
+
+				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
 
 			}
 		}
@@ -312,15 +330,16 @@ final class Product extends Widget_Base {
 
 		return [
 			'post_id'        => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
-			'show_title'     => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : true,
-			'show_content'   => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : true,
-			'show_price'     => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : true,
-			'redirect'       => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : true,
-			'button_label'   => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'Add to cart', 'reseller-store' ),
-			'text_cart'      => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
-			'text_more'      => isset( $instance['text_more'] ) ? $instance['text_more'] : esc_html__( 'More info', 'reseller-store' ),
-			'content_height' => isset( $instance['content_height'] ) ? intval( $instance['content_height'] ) : '250',
-			'image_size'     => isset( $instance['image_size'] ) ? $instance['image_size'] : 'icon',
+			'show_title'     => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : apply_filters( 'rstore_product_show_title', true ),
+			'show_content'   => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : apply_filters( 'rstore_product_show_content', true ),
+			'show_price'     => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : apply_filters( 'rstore_product_show_price', true ),
+			'redirect'       => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : apply_filters( 'rstore_product_redirect', true ),
+			'button_label'   => isset( $instance['button_label'] ) ? $instance['button_label'] : apply_filters( 'rstore_product_button_label', esc_html__( 'Add to cart', 'reseller-store' ) ),
+			'text_cart'      => isset( $instance['text_cart'] ) ? $instance['text_cart'] : apply_filters( 'rstore_product_text_cart', esc_html__( 'Continue to cart', 'reseller-store' ) ),
+			'text_more'      => isset( $instance['text_more'] ) ? $instance['text_more'] : apply_filters( 'rstore_product_text_more', esc_html__( 'More info', 'reseller-store' ) ),
+			'content_height' => isset( $instance['content_height'] ) ? intval( $instance['content_height'] ) : apply_filters( 'rstore_product_content_height', 250 ),
+			'image_size'     => isset( $instance['image_size'] ) ? $instance['image_size'] : apply_filters( 'rstore_product_image_size', 'icon' ),
+			'layout_type'    => isset( $instance['layout_type'] ) ? $instance['layout_type'] : apply_filters( 'rstore_product_layout_type', 'default' ),
 		];
 	}
 }

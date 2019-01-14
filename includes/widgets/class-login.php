@@ -178,10 +178,10 @@ final class Login extends Widget_Base {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'              => isset( $instance['title'] ) ? $instance['title'] : '',
-			'welcome_message'    => isset( $instance['welcome_message'] ) ? $instance['welcome_message'] : esc_html__( 'Welcome Back', 'reseller-store' ),
-			'login_button_text'  => isset( $instance['login_button_text'] ) ? $instance['login_button_text'] : esc_html__( 'Sign In', 'reseller-store' ),
-			'logout_button_text' => isset( $instance['logout_button_text'] ) ? $instance['logout_button_text'] : esc_html__( 'Log Out', 'reseller-store' ),
+			'title'              => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_login_title', '' ),
+			'welcome_message'    => isset( $instance['welcome_message'] ) ? $instance['welcome_message'] : apply_filters( 'rstore_login_welcome_message', esc_html__( 'Welcome Back', 'reseller-store' ) ),
+			'login_button_text'  => isset( $instance['login_button_text'] ) ? $instance['login_button_text'] : apply_filters( 'rstore_login_button_text', esc_html__( 'Sign In', 'reseller-store' ) ),
+			'logout_button_text' => isset( $instance['logout_button_text'] ) ? $instance['logout_button_text'] : apply_filters( 'rstore_logout_button_text', esc_html__( 'Log Out', 'reseller-store' ) ),
 		);
 	}
 

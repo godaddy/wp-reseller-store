@@ -161,8 +161,8 @@ final class Cart extends Widget_Base {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'        => isset( $instance['title'] ) ? $instance['title'] : '',
-			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : esc_html__( 'View Cart', 'reseller-store' ),
+			'title'        => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_cart_title', '' ),
+			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : apply_filters( 'rstore_cart_button_label', esc_html__( 'View Cart', 'reseller-store' ) ),
 		);
 	}
 
