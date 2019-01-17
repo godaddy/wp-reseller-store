@@ -121,7 +121,7 @@ final class Login extends Widget_Base {
 
 		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
-			echo wp_kses( $login_widget, $this->widget_allowed_html(), [ 'https' ] );
+			echo $login_widget; // xss ok.
 
 		}
 

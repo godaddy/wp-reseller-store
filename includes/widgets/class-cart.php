@@ -110,7 +110,7 @@ final class Cart extends Widget_Base {
 		$is_widget = apply_filters( 'rstore_is_widget', $args );
 		if ( $is_widget ) {
 
-			echo wp_kses( $cart_widget, $this->widget_allowed_html(), [ 'https' ] );
+			echo $cart_widget; // xss ok.
 
 		}
 

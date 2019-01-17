@@ -88,13 +88,14 @@ final class Domain_Simple extends Widget_Base {
 
 		echo $args['before_widget']; // xss ok.
 
-		if ( ! empty( $instance['title'] ) ) {
+		$data = $this->get_data( $instance );
 
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok.
+		if ( ! empty( $data['title'] ) ) {
+
+			echo $args['before_title'] . apply_filters( 'widget_title', $data['title'] ) . $args['after_title']; // xss ok.
 
 		}
 
-		$data = $this->get_data( $instance );
 		?>
 		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-registration/find' ), 'https' ); ?>">
 			<label>
@@ -115,7 +116,7 @@ final class Domain_Simple extends Widget_Base {
 
 		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
-			echo wp_kses( $domain_search_widget, $this->widget_allowed_html(), [ 'https' ] );
+			echo $domain_search_widget; // xss ok.
 
 		}
 
