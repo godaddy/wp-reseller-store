@@ -203,7 +203,7 @@ final class TestWidgetProduct extends TestCase {
 			'text_cart'      => 'text_cart 1',
 			'image_size'     => 'image_size 1',
 			'text_more'      => 'text_more 1',
-			'content_height' => 100,
+			'content_height' => 150,
 			'layout_type'    => 'default',
 		];
 

@@ -266,7 +266,7 @@ final class Product extends Widget_Base {
 	 */
 	public function update( $new_instance, $old_instance ) {
 
-		$instance['post_id']        = isset( $new_instance['post_id'] ) ? sanitize_text_field( $new_instance['post_id'] ) : null;
+		$instance['post_id']        = isset( $new_instance['post_id'] ) ? absint( $new_instance['post_id'] ) : null;
 		$instance['show_title']     = isset( $new_instance['show_title'] ) ? (bool) absint( $new_instance['show_title'] ) : false;
 		$instance['show_content']   = isset( $new_instance['show_content'] ) ? (bool) absint( $new_instance['show_content'] ) : false;
 		$instance['show_price']     = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
