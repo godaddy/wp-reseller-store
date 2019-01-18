@@ -190,6 +190,7 @@ final class TestWidgetProduct extends TestCase {
 			'image_size'     => '',
 			'text_more'      => '',
 			'content_height' => 0,
+			'layout_type'    => 'classic',
 		];
 
 		$new_instance = [

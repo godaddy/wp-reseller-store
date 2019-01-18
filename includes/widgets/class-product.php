@@ -271,12 +271,12 @@ final class Product extends Widget_Base {
 		$instance['show_content']   = isset( $new_instance['show_content'] ) ? (bool) absint( $new_instance['show_content'] ) : false;
 		$instance['show_price']     = isset( $new_instance['show_price'] ) ? (bool) absint( $new_instance['show_price'] ) : false;
 		$instance['redirect']       = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
-		$instance['image_size']     = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : 'full';
+		$instance['image_size']     = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : null;
 		$instance['button_label']   = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
 		$instance['text_cart']      = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
 		$instance['text_more']      = isset( $new_instance['text_more'] ) ? sanitize_text_field( $new_instance['text_more'] ) : '';
-		$instance['content_height'] = isset( $new_instance['content_height'] ) ? sanitize_text_field( $new_instance['content_height'] ) : '';
-		$instance['layout_type']    = isset( $new_instance['layout_type'] ) ? sanitize_text_field( $new_instance['layout_type'] ) : 'default';
+		$instance['content_height'] = isset( $new_instance['content_height'] ) ? absint( $new_instance['content_height'] ) : null;
+		$instance['layout_type']    = isset( $new_instance['layout_type'] ) ? sanitize_text_field( $new_instance['layout_type'] ) : null;
 
 		return $instance;
 

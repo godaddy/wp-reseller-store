@@ -167,7 +167,7 @@ final class Domain_Search extends Widget_Base {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance['title']              = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
-		$instance['page_size']          = isset( $new_instance['page_size'] ) ? sanitize_text_field( $new_instance['page_size'] ) : null;
+		$instance['page_size']          = isset( $new_instance['page_size'] ) ? absint( $new_instance['page_size'] ) : null;
 		$instance['text_placeholder']   = isset( $new_instance['text_placeholder'] ) ? wp_kses_post( $new_instance['text_placeholder'] ) : null;
 		$instance['text_search']        = isset( $new_instance['text_search'] ) ? wp_kses_post( $new_instance['text_search'] ) : null;
 		$instance['text_available']     = isset( $new_instance['text_available'] ) ? wp_kses_post( $new_instance['text_available'] ) : null;
@@ -175,7 +175,7 @@ final class Domain_Search extends Widget_Base {
 		$instance['text_cart']          = isset( $new_instance['text_cart'] ) ? wp_kses_post( $new_instance['text_cart'] ) : null;
 		$instance['text_select']        = isset( $new_instance['text_select'] ) ? wp_kses_post( $new_instance['text_select'] ) : null;
 		$instance['text_selected']      = isset( $new_instance['text_selected'] ) ? wp_kses_post( $new_instance['text_selected'] ) : null;
-		$instance['modal']              = isset( $new_instance['modal'] ) ? (bool) absint( $new_instance['modal'] ) : false;
+		$instance['modal']              = isset( $new_instance['modal'] ) ? (bool) absint( $new_instance['modal'] ) : null;
 
 		return $instance;
 
