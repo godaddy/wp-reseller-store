@@ -120,6 +120,18 @@ class VCProduct extends \WPBakeryShortCode {
 						'group'      => 'Display',
 					),
 					array(
+						'type'       => 'dropdown',
+						'holder'     => 'div',
+						'class'      => 'text-class',
+						'heading'    => __( 'Layout type', 'reseller-store' ),
+						'param_name' => 'layout_type',
+						'value'      => array(
+							__( 'Default', 'reseller-store' ) => 'default',
+							__( 'Classic', 'reseller-store' ) => 'classic',
+						),
+						'group'      => 'Display',
+					),
+					array(
 						'type'       => 'checkbox',
 						'holder'     => 'div',
 						'class'      => 'text-class',

@@ -99,8 +99,10 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 = 2.0.10 - January 2019
 
-* Fixed: Add classic layout option back to the product widget
-* New: apply_filters for default options on widgets and shortcodes
+* Fixed: Add classic layout option to the product widgets
+* New: Filter default options on widgets and shortcodes
+* New: Filter cart options with `rstore_cart_options`
+* Update: Remove unused echo statements
 
 = 2.0.9 - January 2019
 

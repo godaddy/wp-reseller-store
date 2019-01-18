@@ -34,8 +34,11 @@
 			} ).length;
 		},
 
-		addItemApi: function( data, success, error ) {
+		addItemApi: function( data, isc, success, error ) {
 			var param = '&cart=' + JSON.stringify( data );
+			if ( isc ) {
+				param += '&isc='+isc;
+			}
 			var settings = {
 				type: 'GET',
 				url: rstore.urls.cart_api + param,
@@ -52,13 +55,13 @@
 			$.ajax( settings ).done( success ).fail( error );
 		},
 
-		addItem: function( id, qty, redirect, $form ) {
+		addItem: function( id, qty, redirect, isc, $form ) {
 			var data = { items: [ {
 				id: id,
 				quantity: ( qty > 0 ) ? qty : 1, // Must be greater than 0
 			} ] };
 
-			cart.addItemApi( data, function( response ) {
+			cart.addItemApi( data, isc, function( response ) {
 				if ( response.error ) {
 					return cart.addItemError( $form, response );
 				}
@@ -108,7 +111,8 @@
 				$form = $this.closest( '.rstore-add-to-cart-form' ),
 				id = $this.attr( 'data-id' ),
 				qty = parseInt( $this.attr( 'data-quantity' ), 10 ),
-				redirect = ( $this.attr( 'data-redirect' ) === 'true' );
+				redirect = ( $this.attr( 'data-redirect' ) === 'true' ),
+				isc = $this.attr( 'data-isc' );
 
 			e.preventDefault();
 			if ( $this.attr( 'data-loading' ) ) {
@@ -120,7 +124,7 @@
 			$form.find( '.rstore-message' ).empty();
 			$form.find( '.rstore-loading' ).removeClass( 'rstore-loading-hidden' );
 
-			cart.addItem( id, qty, redirect, $form );
+			cart.addItem( id, qty, redirect, isc, $form );
 		},
 
 		addItemSuccess: function( $form ) {

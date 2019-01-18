@@ -203,6 +203,7 @@ final class TestWidgetProduct extends TestCase {
 			'image_size'     => 'image_size 1',
 			'text_more'      => 'text_more 1',
 			'content_height' => 100,
+			'layout_type'    => 'default',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );

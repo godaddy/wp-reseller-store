@@ -115,7 +115,7 @@ final class Post_Type {
 				$data->data['price']         = $sale ? $sale : rstore_get_product_meta( $post->ID, 'listPrice' );
 				$data->data['regular_price'] = rstore_get_product_meta( $post->ID, 'listPrice' );
 				$data->data['sale_price']    = rstore_get_product_meta( $post->ID, 'salePrice' );
-				$data->data['price_html']    = rstore_price( $post->ID, false );
+				$data->data['price_html']    = rstore_price( $post->ID );
 				$data->data['icon_html']     = Product_Icons::get_product_icon( $post, 'icon' );
 
 				return $data;
@@ -287,7 +287,7 @@ final class Post_Type {
 
 		$product_id = rstore_get_product_meta( $post_id, 'id' );
 
-		if ( false === $product_id ) {
+		if ( empty( $product_id ) ) {
 
 			return new \WP_Error(
 				'invalid_product_id',

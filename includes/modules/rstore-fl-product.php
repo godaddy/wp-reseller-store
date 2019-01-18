@@ -116,6 +116,15 @@ class FLProduct extends \FLBuilderModule {
 							'label'   => __( 'Product Permalink', 'reseller-store' ),
 							'default' => __( 'More info', 'reseller-store' ),
 						),
+						'layout_type'    => array(
+							'type'    => 'select',
+							'label'   => __( 'Layout type', 'reseller-store' ),
+							'default' => 'default',
+							'options' => array(
+								'default' => __( 'Default', 'reseller-store' ),
+								'classic' => __( 'Classic', 'reseller-store' ),
+							),
+						),
 					),
 				),
 				'redirect' => array(
