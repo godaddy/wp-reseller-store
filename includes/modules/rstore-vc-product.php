@@ -72,7 +72,7 @@ class VCProduct extends \WPBakeryShortCode {
 							__( 'Large resolution', 'reseller-store' ) => 'large',
 							__( 'Hide image', 'reseller-store' ) => 'none',
 						),
-						'group'      => 'Display',
+						'group'      => __( 'Display', 'reseller-store' ),
 					),
 
 					array(
@@ -83,7 +83,7 @@ class VCProduct extends \WPBakeryShortCode {
 						'param_name'  => 'button_label',
 						'value'       => __( 'Add to cart', 'reseller-store' ),
 						'description' => __( 'Leave blank to hide button', 'reseller-store' ),
-						'group'       => 'Display',
+						'group'       => __( 'Display', 'reseller-store' ),
 					),
 
 					array(
@@ -95,7 +95,7 @@ class VCProduct extends \WPBakeryShortCode {
 						'value'      => [
 							__( 'Hide', 'reseller-store' ) => 0,
 						],
-						'group'      => 'Display',
+						'group'      => __( 'Display', 'reseller-store' ),
 					),
 					array(
 						'type'       => 'checkbox',
@@ -106,7 +106,7 @@ class VCProduct extends \WPBakeryShortCode {
 						'value'      => [
 							__( 'Hide', 'reseller-store' ) => 0,
 						],
-						'group'      => 'Display',
+						'group'      => __( 'Display', 'reseller-store' ),
 					),
 					array(
 						'type'       => 'checkbox',
@@ -117,7 +117,7 @@ class VCProduct extends \WPBakeryShortCode {
 						'value'      => [
 							__( 'Hide', 'reseller-store' ) => 0,
 						],
-						'group'      => 'Display',
+						'group'      => __( 'Display', 'reseller-store' ),
 					),
 					array(
 						'type'       => 'dropdown',
@@ -129,7 +129,16 @@ class VCProduct extends \WPBakeryShortCode {
 							__( 'Default', 'reseller-store' ) => 'default',
 							__( 'Classic', 'reseller-store' ) => 'classic',
 						),
-						'group'      => 'Display',
+						'group'      => __( 'Display', 'reseller-store' ),
+					),
+					array(
+						'type'       => 'textfield',
+						'holder'     => 'div',
+						'class'      => 'text-class',
+						'heading'    => __( 'Content Height (set to 0 for full height)', 'reseller-store' ),
+						'param_name' => 'content_height',
+						'value'      => 250,
+						'group'      => __( 'Display', 'reseller-store' ),
 					),
 					array(
 						'type'       => 'checkbox',

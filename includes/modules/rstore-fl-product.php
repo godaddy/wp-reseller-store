@@ -74,7 +74,7 @@ class FLProduct extends \FLBuilderModule {
 						),
 						'content_height' => array(
 							'type'        => 'unit',
-							'label'       => __( 'Content Height', 'reseller-store' ),
+							'label'       => __( 'Content Height (set to 0 for full height)', 'reseller-store' ),
 							'default'     => 250,
 							'description' => 'px',
 						),

@@ -1,6 +1,6 @@
 === GoDaddy Reseller Store ===
 Contributors:      godaddy, fjarrett, bfocht, eherman24
-Tags:              godaddy, reseller, program, storefront, store, products, responsive, shortcode, ecommerce
+Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 4.6
 Tested up to:      5.0
 Requires PHP:      5.4
@@ -11,8 +11,6 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Design your own storefront for your GoDaddy Reseller plan and have more control over your customers experience and business!
 
 == Description ==
-
-**Note: This plugin requires PHP 5.4 or higher**
 
 With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search, domain transfer, and cart widgets!
 
@@ -47,6 +45,8 @@ You can call our support team at (480) 505-8857
 **Contributing**
 
 Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). Pull requests on existing issues are welcome!
+
+**Note: This plugin requires PHP 5.4 or higher**
 
 == Frequently Asked Questions ==
 

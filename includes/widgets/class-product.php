@@ -233,7 +233,7 @@ final class Product extends Widget_Base {
 		</p>
 
 		<?php
-		$this->display_form_input( 'content_height', $data['content_height'], __( 'Content size', 'reseller-store' ), 'number', __( 'Height in pixels', 'reseller-store' ) );
+		$this->display_form_input( 'content_height', $data['content_height'], __( 'Content height', 'reseller-store' ), 'number', __( 'Height in pixels', 'reseller-store' ) );
 		$this->display_form_input( 'button_label', $data['button_label'], __( 'Button', 'reseller-store' ), 'text', __( 'Leave blank to hide button', 'reseller-store' ) );
 		$this->display_form_checkbox( 'show_title', $data['show_title'], __( 'Show product title', 'reseller-store' ) );
 		$this->display_form_checkbox( 'show_content', $data['show_content'], __( 'Show post content', 'reseller-store' ) );
