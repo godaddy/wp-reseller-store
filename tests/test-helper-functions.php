@@ -43,31 +43,6 @@ final class TestHelperFunctions extends TestCase {
 	}
 
 	/**
-	 * Test the rstore_add_to_cart_vars() method.
-	 */
-	public function test_rstore_add_to_cart_vars() {
-
-		$defaults = [
-			'id',
-			'quantity',
-			'skip_cart_redirect',
-			'label',
-			'permalink',
-		];
-
-		$vars = rstore_get_add_to_cart_vars( Tests\Helper::create_product() );
-
-		array_map(
-			function( $key ) use ( $vars ) {
-
-					$this->assertArrayHasKey( $key, $vars );
-
-			},
-			$defaults
-		);
-	}
-
-	/**
 	 * Test the rstore_get_option() method.
 	 */
 	public function test_rstore_get_option() {

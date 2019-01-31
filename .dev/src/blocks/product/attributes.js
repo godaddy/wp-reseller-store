@@ -32,6 +32,14 @@ const attributes = {
 		type: 'string',
 		default: __( 'More info', 'reseller-store' ),
 	},
+	redirect: {
+		type: 'boolean',
+		default: true,
+	},
+	layout_type: {
+		type: 'string',
+		default: 'default',
+	},
 };
 
 export default attributes;

@@ -190,6 +190,7 @@ final class TestWidgetProduct extends TestCase {
 			'image_size'     => '',
 			'text_more'      => '',
 			'content_height' => 0,
+			'layout_type'    => 'classic',
 		];
 
 		$new_instance = [
@@ -202,7 +203,8 @@ final class TestWidgetProduct extends TestCase {
 			'text_cart'      => 'text_cart 1',
 			'image_size'     => 'image_size 1',
 			'text_more'      => 'text_more 1',
-			'content_height' => 100,
+			'content_height' => 150,
+			'layout_type'    => 'default',
 		];
 
 		$instance = $widget->update( $new_instance, $old_instance );

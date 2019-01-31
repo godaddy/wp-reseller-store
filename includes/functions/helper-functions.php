@@ -54,30 +54,6 @@ function rstore_is_setup() {
 }
 
 /**
- * Return vars needed for displaying `Add to cart` markup.
- *
- * @since 0.2.0
- *
- * @param int|WP_Post|null $post Post object, post ID or null.
- *
- * @return array
- */
-function rstore_get_add_to_cart_vars( $post ) {
-
-	$post = get_post( $post );
-
-	return [
-		'id'                 => rstore_get_product_meta( $post->ID, 'id' ),
-		'quantity'           => 1, // @TODO Future release.
-		'skip_cart_redirect' => (bool) rstore_get_product_meta( $post->ID, 'skip_cart_redirect', false, true ),
-		'label'              => rstore_get_product_meta( $post->ID, 'add_to_cart_button_label', esc_html__( 'Add to cart', 'reseller-store' ), true ),
-		'view_cart'          => rstore_get_product_meta( $post->ID, 'cart_link_text', esc_html__( 'Continue to cart', 'reseller-store' ), true ),
-		'permalink'          => get_permalink( $post->ID ),
-	];
-
-}
-
-/**
  * Return a plugin option.
  *
  * @since 0.2.0
