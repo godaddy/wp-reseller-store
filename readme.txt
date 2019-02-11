@@ -97,6 +97,10 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 == Changelog ==
 
+= 2.0.11 - February 2019
+
+* Update: Add code signing certificate icon.
+
 = 2.0.10 - January 2019
 
 * Fixed: Add classic layout option to the product widgets

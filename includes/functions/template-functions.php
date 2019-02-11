@@ -87,13 +87,14 @@ function rstore_price( $post = null ) {
  * @since 0.2.0
  *
  * @param  int|WP_Post|null $post Product WP_Post instance.
+ * @param  bool             $echo (optional) Echo the text.
  * @param  string           $button_label (optional) Text to display in the button.
  * @param  string           $text_cart (optional) Text to display in the cart link.
  * @param  bool             $redirect (optional) Redirect to cart after adding item.
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $button_label = null, $text_cart = null, $redirect = null ) {
+function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $text_cart = null, $redirect = null ) {
 
 	$post = get_post( $post );
 
@@ -110,12 +111,14 @@ function rstore_add_to_cart_form( $post, $button_label = null, $text_cart = null
 
 	$data['redirect'] = $redirect ? 'true' : 'false';
 
-	if ( ! isset( $button_label ) ) {
+	if ( empty( $button_label ) ) {
 
 		$button_label = rstore_get_product_meta( $post->ID, 'add_to_cart_button_label' );
 
-		if ( ! isset( $button_label ) ) {
+		if ( empty( $button_label ) ) {
+
 			$button_label = esc_html__( 'Add to cart', 'reseller-store' );
+
 		}
 	}
 
@@ -136,13 +139,19 @@ function rstore_add_to_cart_form( $post, $button_label = null, $text_cart = null
 		esc_html( $text_cart )
 	);
 
-	$button = rstore_add_to_cart_button( $data, $button_label, $redirect );
+	$button = rstore_add_to_cart_button( $data, $button_label );
 
 	$cart_form = sprintf(
 		'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message rstore-message-hidden"></div></div>',
 		$button,
 		$cart_link
 	);
+
+	if ( $echo ) {
+
+		echo $cart_form; // xss ok.
+
+	}
 
 	return $cart_form;
 
@@ -201,7 +210,9 @@ function rstore_add_to_cart_button( $cart_vars, $button_label ) {
 	$cart_vars = apply_filters( 'rstore_cart_options', $cart_vars );
 
 	if ( ! is_array( $cart_vars ) ) {
+
 		return;
+
 	}
 
 	$output = '<div><button class="rstore-add-to-cart button btn btn-primary"';
