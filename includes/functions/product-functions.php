@@ -204,18 +204,16 @@ function rstore_get_product( $product_id ) {
  *
  * @param  int    $post_id         Product post ID.
  * @param  string $key             Product meta key.
- * @param  mixed  $default         (optional) Default meta value.
- * @param  bool   $option_fallback (optional) Fallback value.
  *
  * @return mixed
  */
-function rstore_get_product_meta( $post_id, $key, $default = false, $option_fallback = false ) {
+function rstore_get_product_meta( $post_id, $key ) {
 
 	$key = rstore_prefix( $key );
 
 	$meta = get_post_meta( $post_id, $key, true );
 
-	return ( $meta ) ? $meta : ( $option_fallback ? get_option( $key, $default ) : $default );
+	return $meta;
 
 }
 

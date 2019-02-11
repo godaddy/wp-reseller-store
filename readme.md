@@ -2,7 +2,7 @@
 ![Banner Image](.dev/wp-org-assets/banner-1544x500.png)
 
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy), [fjarrett](https://profiles.wordpress.org/fjarrett), [bfocht](https://profiles.wordpress.org/bfocht), [eherman24](https://profiles.wordpress.org/eherman24)  
-**Tags:**              [godaddy](https://wordpress.org/plugins/tags/godaddy/), [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [[store](https://wordpress.org/plugins/tags/store/)front](https://wordpress.org/plugins/tags/storefront/), store, [products](https://wordpress.org/plugins/tags/products/), [responsive](https://wordpress.org/plugins/tags/responsive/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/)  
+**Tags:**              [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [storefront](https://wordpress.org/plugins/tags/storefront/), [products](https://wordpress.org/plugins/tags/products/), [posts](https://wordpress.org/plugins/tags/posts/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/), [blocks](https://wordpress.org/plugins/tags/blocks/)  
 **Requires at least:** 4.6  
 **Tested up to:**      5.0  
 **Requires PHP:**      5.4  
@@ -15,8 +15,6 @@ Design your own storefront for your GoDaddy Reseller plan and have more control 
 [![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![Coverage Status](https://coveralls.io/repos/github/godaddy/wp-reseller-store/badge.svg?branch=master)](https://coveralls.io/github/godaddy/wp-reseller-store?branch=master) [![devDependencies Status](https://david-dm.org/godaddy/wp-reseller-store/master/dev-status.svg)](https://david-dm.org/godaddy/wp-reseller-store/master?type=dev) [![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/godaddy/wp-reseller-store/blob/master/license.txt) [![PHP >= 5.4](https://img.shields.io/badge/php-%3E=%205.4-8892bf.svg)](https://secure.php.net/supported-versions.php) [![WordPress >= 4.6](https://img.shields.io/badge/wordpress-%3E=%204.6-blue.svg)](https://wordpress.org/download/release-archive/)  
 
 ## Description ##
-
-**Note: This plugin requires PHP 5.4 or higher**
 
 With this plugin, you have the option to easily design a site with the imported product catalog, complete with your pricing, preferred currency and language. You can update your site, themes, product description, and images, easily and painlessly as well as use key features like domain search, domain transfer, and cart widgets!
 
@@ -51,6 +49,8 @@ You can call our support team at (480) 505-8857
 **Contributing**
 
 Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). Pull requests on existing issues are welcome!
+
+**Note: This plugin requires PHP 5.4 or higher**
 
 ## Frequently Asked Questions ##
 
@@ -101,6 +101,13 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
+### 2.0.10 - January 2019
+
+* Fixed: Add classic layout option to the product widgets
+* New: Filter default options on widgets and shortcodes
+* New: Filter cart options with `rstore_cart_options`
+* Update: Remove unused echo statements
+###
 ### 2.0.9 - January 2019
 
 * Update: Update Product icon SVGs

@@ -88,13 +88,13 @@ final class Domain_Search extends Widget_Base {
 
 		echo $args['before_widget']; // xss ok.
 
-		if ( ! empty( $instance['title'] ) ) {
+		$data = $this->get_data( $instance );
 
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title']; // xss ok.
+		if ( ! empty( $data['title'] ) ) {
+
+			echo $args['before_title'] . apply_filters( 'widget_title', $data['title'] ) . $args['after_title']; // xss ok.
 
 		}
-
-		$data = $this->get_data( $instance );
 
 		$classes = 'rstore-domain-search';
 		$plid    = rstore_get_option( 'pl_id' );
@@ -125,7 +125,7 @@ final class Domain_Search extends Widget_Base {
 
 		if ( apply_filters( 'rstore_is_widget', $args ) ) {
 
-			echo wp_kses( $domain_search_widget, $this->widget_allowed_html(), [ 'https' ] );
+			echo $domain_search_widget; // xss ok.
 
 		}
 
@@ -167,7 +167,7 @@ final class Domain_Search extends Widget_Base {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance['title']              = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
-		$instance['page_size']          = isset( $new_instance['page_size'] ) ? sanitize_text_field( $new_instance['page_size'] ) : null;
+		$instance['page_size']          = isset( $new_instance['page_size'] ) ? absint( $new_instance['page_size'] ) : null;
 		$instance['text_placeholder']   = isset( $new_instance['text_placeholder'] ) ? wp_kses_post( $new_instance['text_placeholder'] ) : null;
 		$instance['text_search']        = isset( $new_instance['text_search'] ) ? wp_kses_post( $new_instance['text_search'] ) : null;
 		$instance['text_available']     = isset( $new_instance['text_available'] ) ? wp_kses_post( $new_instance['text_available'] ) : null;
@@ -175,7 +175,7 @@ final class Domain_Search extends Widget_Base {
 		$instance['text_cart']          = isset( $new_instance['text_cart'] ) ? wp_kses_post( $new_instance['text_cart'] ) : null;
 		$instance['text_select']        = isset( $new_instance['text_select'] ) ? wp_kses_post( $new_instance['text_select'] ) : null;
 		$instance['text_selected']      = isset( $new_instance['text_selected'] ) ? wp_kses_post( $new_instance['text_selected'] ) : null;
-		$instance['modal']              = isset( $new_instance['modal'] ) ? (bool) absint( $new_instance['modal'] ) : false;
+		$instance['modal']              = isset( $new_instance['modal'] ) ? (bool) absint( $new_instance['modal'] ) : null;
 
 		return $instance;
 
@@ -192,16 +192,16 @@ final class Domain_Search extends Widget_Base {
 	 */
 	private function get_data( $instance ) {
 		return array(
-			'title'              => isset( $instance['title'] ) ? $instance['title'] : '',
-			'page_size'          => isset( $instance['page_size'] ) ? $instance['page_size'] : 5,
-			'text_placeholder'   => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : esc_html__( 'Find your perfect domain name', 'reseller-store' ),
-			'text_search'        => isset( $instance['text_search'] ) ? $instance['text_search'] : esc_html__( 'Search', 'reseller-store' ),
-			'text_available'     => isset( $instance['text_available'] ) ? $instance['text_available'] : esc_html__( 'Congrats, {domain_name} is available!', 'reseller-store' ),
-			'text_not_available' => isset( $instance['text_not_available'] ) ? $instance['text_not_available'] : esc_html__( 'Sorry, {domain_name} is taken.', 'reseller-store' ),
-			'text_cart'          => isset( $instance['text_cart'] ) ? $instance['text_cart'] : esc_html__( 'Continue to cart', 'reseller-store' ),
-			'text_select'        => isset( $instance['text_select'] ) ? $instance['text_select'] : esc_html__( 'Select', 'reseller-store' ),
-			'text_selected'      => isset( $instance['text_selected'] ) ? $instance['text_selected'] : esc_html__( 'Selected', 'reseller-store' ),
-			'modal'              => isset( $instance['modal'] ) ? ! empty( $instance['modal'] ) : false,
+			'title'              => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_domain_title', '' ),
+			'page_size'          => isset( $instance['page_size'] ) ? $instance['page_size'] : apply_filters( 'rstore_domain_page_size', 5 ),
+			'text_placeholder'   => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : apply_filters( 'rstore_domain_text_placeholder', esc_html__( 'Find your perfect domain name', 'reseller-store' ) ),
+			'text_search'        => isset( $instance['text_search'] ) ? $instance['text_search'] : apply_filters( 'rstore_domain_text_search', esc_html__( 'Search', 'reseller-store' ) ),
+			'text_available'     => isset( $instance['text_available'] ) ? $instance['text_available'] : apply_filters( 'rstore_domain_text_available', esc_html__( 'Congrats, {domain_name} is available!', 'reseller-store' ) ),
+			'text_not_available' => isset( $instance['text_not_available'] ) ? $instance['text_not_available'] : apply_filters( 'rstore_domain_text_not_available', esc_html__( 'Sorry, {domain_name} is taken.', 'reseller-store' ) ),
+			'text_cart'          => isset( $instance['text_cart'] ) ? $instance['text_cart'] : apply_filters( 'rstore_domain_text_cart', esc_html__( 'Continue to cart', 'reseller-store' ) ),
+			'text_select'        => isset( $instance['text_select'] ) ? $instance['text_select'] : apply_filters( 'rstore_text_select', esc_html__( 'Select', 'reseller-store' ) ),
+			'text_selected'      => isset( $instance['text_selected'] ) ? $instance['text_selected'] : apply_filters( 'rstore_text_selected', esc_html__( 'Selected', 'reseller-store' ) ),
+			'modal'              => isset( $instance['modal'] ) ? ! empty( $instance['modal'] ) : apply_filters( 'rstore_domain_modal', false ),
 		);
 	}
 

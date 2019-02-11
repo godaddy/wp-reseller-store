@@ -118,6 +118,24 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 				}
 			</PanelBody>
 			}
+			<PanelBody>
+				<CheckboxControl
+					label={ __( 'Redirect to cart after adding item', 'reseller-store' ) }
+					checked={ attributes.redirect }
+					onChange={ ( checked ) => {
+						setAttributes( { redirect: checked } );
+					} }
+				/>
+			</PanelBody>
+			<SelectControl
+				label={ __( 'Layout Type', 'reseller-store' ) }
+				onChange={ ( layoutType ) => setAttributes( { layout_type: layoutType } ) }
+				value={ attributes.layout_type }
+				options={ [
+					{ value: 'default', label: __( 'Default', 'reseller-store' ) },
+					{ value: 'classic', label: __( 'Classic', 'reseller-store' ) },
+				] }
+			/>
 		</InspectorControls>
 	);
 };

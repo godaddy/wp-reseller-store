@@ -81,7 +81,7 @@ final class Bulk_Restore {
 
 			$product_id = rstore_get_product_meta( $post_id, 'id' );
 
-			if ( false === $product_id ) {
+			if ( empty( $product_id ) ) {
 
 				$error = new \WP_Error(
 					'invalid_product_id',

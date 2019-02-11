@@ -74,7 +74,7 @@ class FLProduct extends \FLBuilderModule {
 						),
 						'content_height' => array(
 							'type'        => 'unit',
-							'label'       => __( 'Content Height', 'reseller-store' ),
+							'label'       => __( 'Content Height (set to 0 for full height)', 'reseller-store' ),
 							'default'     => 250,
 							'description' => 'px',
 						),
@@ -115,6 +115,15 @@ class FLProduct extends \FLBuilderModule {
 							'type'    => 'text',
 							'label'   => __( 'Product Permalink', 'reseller-store' ),
 							'default' => __( 'More info', 'reseller-store' ),
+						),
+						'layout_type'    => array(
+							'type'    => 'select',
+							'label'   => __( 'Layout type', 'reseller-store' ),
+							'default' => 'default',
+							'options' => array(
+								'default' => __( 'Default', 'reseller-store' ),
+								'classic' => __( 'Classic', 'reseller-store' ),
+							),
 						),
 					),
 				),
