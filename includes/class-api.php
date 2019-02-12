@@ -89,8 +89,9 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param string $url  The original URL.
-	 * @param array  $args (optional) Additional query arguments.
+	 * @param string $url     The original URL.
+	 * @param array  $args    (optional) Additional query arguments.
+	 * @param string $url_key (optional) Url Key to use for bulding url.
 	 *
 	 * @return string
 	 */
