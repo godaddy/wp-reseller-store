@@ -94,7 +94,7 @@ function rstore_price( $post = null ) {
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $text_cart = null, $redirect = null ) {
+function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $text_cart = null, $redirect = true ) {
 
 	$post = get_post( $post );
 
@@ -102,14 +102,6 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 		'id'       => rstore_get_product_meta( $post->ID, 'id' ),
 		'quantity' => 1, // @TODO Future release.
 	];
-
-	if ( ! isset( $redirect ) ) {
-
-		$redirect = ! ( (bool) rstore_get_product_meta( $post->ID, 'skip_cart_redirect' ) );
-
-	}
-
-	$data['redirect'] = $redirect ? 'true' : 'false';
 
 	if ( empty( $button_label ) ) {
 
@@ -122,30 +114,49 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 		}
 	}
 
-	if ( ! isset( $text_cart ) ) {
+	if ( $redirect ) {
 
-		$text_cart = rstore_get_product_meta( $post->ID, 'cart_link_text' );
+		$args['redirect'] = true;
+
+		$cart_url = esc_url_raw( rstore()->api->url( 'api', 'cart/{pl_id}', $args ) );
+
+		$items = json_encode( [ $data ] );
+
+		$cart_form = sprintf(
+			'<form class="rstore-add-to-cart-form" method="POST" action="%s" ><input type="hidden" name="items" value=\'%s\' /><button class="rstore-add-to-cart button btn btn-primary" type="submit">%s</button><div class="rstore-loading rstore-loading-hidden"></div></form>',
+			$cart_url,
+			$items,
+			esc_html( $button_label )
+		);
+
+	} else {
 
 		if ( ! isset( $text_cart ) ) {
 
-			$text_cart = esc_html__( 'Continue to cart', 'reseller-store' );
+			$text_cart = rstore_get_product_meta( $post->ID, 'cart_link_text' );
 
+			if ( ! isset( $text_cart ) ) {
+
+				$text_cart = esc_html__( 'Continue to cart', 'reseller-store' );
+
+			}
 		}
+
+		$cart_link = sprintf(
+			'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
+			esc_url_raw( rstore()->api->url( 'cart' ), 'https' ),
+			esc_html( $text_cart )
+		);
+
+		$button = rstore_add_to_cart_button( $data, $button_label );
+
+		$cart_form = sprintf(
+			'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message rstore-message-hidden"></div></div>',
+			$button,
+			$cart_link
+		);
+
 	}
-
-	$cart_link = sprintf(
-		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
-		esc_url_raw( rstore()->api->url( 'cart' ), 'https' ),
-		esc_html( $text_cart )
-	);
-
-	$button = rstore_add_to_cart_button( $data, $button_label );
-
-	$cart_form = sprintf(
-		'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message rstore-message-hidden"></div></div>',
-		$button,
-		$cart_link
-	);
 
 	if ( $echo ) {
 
@@ -187,7 +198,9 @@ function rstore_append_add_to_cart_form( $content ) {
 	if ( \Reseller_Store\Post_Type::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
 		$content .= rstore_price( $post->ID );
-		$content .= rstore_add_to_cart_form( $post->ID );
+
+		$redirect = ! ( (bool) rstore_get_product_meta( $post->ID, 'skip_cart_redirect' ) );
+		$content .= rstore_add_to_cart_form( $post->ID, false, null, null, $redirect );
 
 	}
 

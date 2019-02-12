@@ -127,7 +127,7 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a valid product shortcode with redirect=1 params it should redirect truthy data attribute
+	 * @testdox Given a valid product shortcode with redirect=1 params it should render form post
 	 */
 	function test_product_with_redirect_1_param() {
 
@@ -139,14 +139,14 @@ final class TestShortcodes extends TestCase {
       ]';
 
 		$this->assertRegExp(
-			'/data-redirect="true"/',
+			'/<form class="rstore-add-to-cart-form"/',
 			do_shortcode( $content )
 		);
 
 	}
 
 	/**
-	 * @testdox Given a valid product shortcode with redirect=0 params it should redirect falsy data attribute
+	 * @testdox Given a valid product shortcode with redirect=0 params it should render div
 	 */
 	function test_product_with_redirect_0_param() {
 
@@ -158,7 +158,7 @@ final class TestShortcodes extends TestCase {
       ]';
 
 		$this->assertRegExp(
-			'/data-redirect="false"/',
+			'/<div class="rstore-add-to-cart-form"/',
 			do_shortcode( $content )
 		);
 

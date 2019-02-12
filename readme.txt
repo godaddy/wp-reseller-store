@@ -100,6 +100,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 = 2.0.11 - February 2019
 
 * Update: Add code signing certificate icon.
+* Fix: Use a form post to cart instead of AJAX call to fix third party cookie issues with Safari browser.
 
 = 2.0.10 - January 2019
 

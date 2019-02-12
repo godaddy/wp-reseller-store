@@ -43,7 +43,7 @@ final class TestWidgetProduct extends TestCase {
 
 		echo $widget->widget( $args, $instance );
 
-		$this->expectOutputRegex( '/<div><button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button><\/div>/' );
+		$this->expectOutputRegex( '/<div class="before_widget"><div class="rstore-product-header"><h3 class="widget-title">WordPress Hosting<\/h3>/' );
 
 	}
 
@@ -70,12 +70,12 @@ final class TestWidgetProduct extends TestCase {
 
 		echo $widget->widget( $args, $instance );
 
-		$this->expectOutputRegex( '/<div><button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button><\/div>/' );
+		$this->expectOutputRegex( '/<div class="before_widget"><div class="rstore-product-icons ">/' );
 
 	}
 
 	/**
-	 * @testdox Given a valid instance and redirect=false the widget should render with redirect=false
+	 * @testdox Given a valid instance and redirect=false the widget should render with div
 	 */
 	function test_widget_no_redirect() {
 
@@ -99,12 +99,12 @@ final class TestWidgetProduct extends TestCase {
 
 		echo $widget->widget( $args, $instance );
 
-		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="false">Add to cart<\/button>/' );
+		$this->expectOutputRegex( '/<div class="rstore-add-to-cart-form"/' );
 
 	}
 
 	/**
-	 * @testdox Given `rstore_is_widget` filter the product widget should render
+	 * @testdox Given `rstore_is_widget` filter the product widget should echo the widget
 	 */
 	function test_widget_with_rstore_is_widget_filter() {
 
@@ -134,7 +134,7 @@ final class TestWidgetProduct extends TestCase {
 
 		$widget->widget( $args, $instance );
 
-		$this->expectOutputRegex( '/<button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1" data-redirect="true">Add to cart<\/button>/' );
+		$this->expectOutputRegex( '/<div class="before_widget"><div class="rstore-product-header"><h3 class="widget-title">WordPress Hosting<\/h3>/' );
 
 	}
 

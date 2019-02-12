@@ -89,13 +89,12 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param string $url        The original URL.
+	 * @param string $url  The original URL.
+	 * @param array  $args (optional) Additional query arguments.
 	 *
 	 * @return string
 	 */
-	public function add_query_args( $url ) {
-
-		$args = [];
+	public function add_query_args( $url, $args = [], $url_key = '' ) {
 
 		if ( rstore_is_setup() ) {
 
@@ -103,7 +102,7 @@ final class API {
 
 		}
 
-		$args = (array) apply_filters( 'rstore_api_query_args', $args );
+		$args = (array) apply_filters( 'rstore_api_query_args', $args, $url_key, $url );
 
 		return  esc_url_raw( add_query_arg( $args, $url ) );
 
@@ -114,12 +113,13 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param string $url_key      (optional) Url Key to use for bulding url.
+	 * @param string $url_key  (optional) Url Key to use for bulding url.
 	 * @param string $endpoint (optional) API endpoint to override the request with.
+	 * @param array  $args     (optional) Additional query arguments.
 	 *
 	 * @return string
 	 */
-	public function url( $url_key, $endpoint = '' ) {
+	public function url( $url_key, $endpoint = '', $args = [] ) {
 
 		if ( ! array_key_exists( $url_key, $this->urls ) ) {
 			return $this->url( 'www', $endpoint );
@@ -143,7 +143,7 @@ final class API {
 
 		}
 
-		return $this->add_query_args( trailingslashit( $url ) );
+		return $this->add_query_args( trailingslashit( $url ), $args, $url_key );
 
 	}
 
