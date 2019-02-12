@@ -104,7 +104,7 @@ final class API {
 
 		}
 
-		$args = (array) apply_filters( 'rstore_api_query_args', $args, $url_key, $url );
+		$args = (array) apply_filters( 'rstore_api_query_args', $args, $url_key );
 
 		return  esc_url_raw( add_query_arg( $args, $url ) );
 
@@ -140,10 +140,12 @@ final class API {
 			$url = sprintf(
 				'%s/%s',
 				untrailingslashit( $url ),
-				str_replace( '{pl_id}', (int) rstore_get_option( 'pl_id' ), $endpoint )
+				 $endpoint
 			);
 
 		}
+
+		$url = str_replace( '{pl_id}', (int) rstore_get_option( 'pl_id' ), $url );
 
 		return $this->add_query_args( trailingslashit( $url ), $args, $url_key );
 

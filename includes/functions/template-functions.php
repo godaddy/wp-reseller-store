@@ -118,7 +118,7 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 
 		$args['redirect'] = true;
 
-		$cart_url = esc_url_raw( rstore()->api->url( 'api', 'cart/{pl_id}', $args ) );
+		$cart_url = esc_url_raw( rstore()->api->url( 'cart_api', '', $args ) );
 
 		$items = json_encode( [ $data ] );
 

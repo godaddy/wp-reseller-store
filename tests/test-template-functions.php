@@ -12,11 +12,13 @@ final class TestTemplateFunctions extends TestCase {
 	 */
 	public function test_rstore_add_to_cart_form_echo_redirect() {
 
+		rstore_update_option( 'pl_id', 1592 );
+
 		$post = Tests\Helper::create_product();
 
 		rstore_add_to_cart_form( $post, true );
 
-		$this->expectOutputRegex( '/<form class="rstore-add-to-cart-form" method="POST" action="https:\/\/www.secureserver.net\/api\/v1\/cart\/0\/\?redirect=1" ><input type="hidden" name="items" value=\'\[{"id":"wordpress-basic","quantity":1}\]\' \/><button class="rstore-add-to-cart button btn btn-primary" type="submit">Add to cart<\/button><div class="rstore-loading rstore-loading-hidden"><\/div><\/form>/' );
+		$this->expectOutputRegex( '/<form class="rstore-add-to-cart-form" method="POST" action="https:\/\/www.secureserver.net\/api\/v1\/cart\/1592\/\?redirect=1&plid=1592" ><input type="hidden" name="items" value=\'\[{"id":"wordpress-basic","quantity":1}\]\' \/><button class="rstore-add-to-cart button btn btn-primary" type="submit">Add to cart<\/button><div class="rstore-loading rstore-loading-hidden"><\/div><\/form>/' );
 
 	}
 
