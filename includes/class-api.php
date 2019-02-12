@@ -75,12 +75,13 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']     = sprintf( 'https://www.%s/api/v1/', $this->tld );
-		$this->urls['cart']    = sprintf( 'https://cart.%s/', $this->tld );
-		$this->urls['www']     = sprintf( 'https://www.%s/', $this->tld );
-		$this->urls['sso']     = sprintf( 'https://sso.%s/', $this->tld );
-		$this->urls['account'] = sprintf( 'https://account.%s/', $this->tld );
-		$this->urls['gui']     = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
+		$this->urls['api']      = sprintf( 'https://www.%s/api/v1/', $this->tld );
+		$this->urls['cart_api'] = sprintf( 'https://www.%s/api/v1/cart/{pl_id}', $this->tld );
+		$this->urls['cart']     = sprintf( 'https://cart.%s/', $this->tld );
+		$this->urls['www']      = sprintf( 'https://www.%s/', $this->tld );
+		$this->urls['sso']      = sprintf( 'https://sso.%s/', $this->tld );
+		$this->urls['account']  = sprintf( 'https://account.%s/', $this->tld );
+		$this->urls['gui']      = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
 
 	}
 

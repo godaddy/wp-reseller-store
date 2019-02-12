@@ -131,11 +131,11 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 
 	} else {
 
-		if ( ! isset( $text_cart ) ) {
+		if ( empty( $text_cart ) ) {
 
 			$text_cart = rstore_get_product_meta( $post->ID, 'cart_link_text' );
 
-			if ( ! isset( $text_cart ) ) {
+			if ( empty( $text_cart ) ) {
 
 				$text_cart = esc_html__( 'Continue to cart', 'reseller-store' );
 

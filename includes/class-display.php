@@ -58,7 +58,7 @@ final class Display {
 		$data = [
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
 			'urls'    => [
-				'cart_api' => esc_url_raw( rstore()->api->url( 'api', 'cart/{pl_id}' ) ),
+				'cart_api' => esc_url_raw( rstore()->api->url( 'cart_api' ) ),
 				'gui'      => rstore()->api->url( 'gui' ),
 			],
 			'cookies' => [

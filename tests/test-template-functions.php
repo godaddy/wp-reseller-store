@@ -29,7 +29,7 @@ final class TestTemplateFunctions extends TestCase {
 
 		rstore_add_to_cart_form( $post, true, null, null, false );
 
-		$this->expectOutputRegex( '/<div class="rstore-add-to-cart-form"><div><button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1">Add to cart<\/button><\/div><div class="rstore-loading rstore-loading-hidden"><\/div><div class="rstore-cart rstore-cart-hidden"><span class="dashicons dashicons-yes rstore-success"><\/span><a href="https:\/\/cart.secureserver.net\/go\/checkout\/"  rel="nofollow"><\/a><\/div><div class="rstore-message rstore-message-hidden"><\/div><\/div>/' );
+		$this->expectOutputRegex( '/<div class="rstore-add-to-cart-form"><div><button class="rstore-add-to-cart button btn btn-primary" data-id="wordpress-basic" data-quantity="1">Add to cart<\/button><\/div><div class="rstore-loading rstore-loading-hidden"><\/div><div class="rstore-cart rstore-cart-hidden"><span class="dashicons dashicons-yes rstore-success"><\/span><a href="https:\/\/cart.secureserver.net\/go\/checkout\/"  rel="nofollow">Continue to cart<\/a><\/div><div class="rstore-message rstore-message-hidden"><\/div><\/div>/' );
 
 	}
 
