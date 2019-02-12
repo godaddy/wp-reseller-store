@@ -140,7 +140,7 @@ final class API {
 			$url = sprintf(
 				'%s/%s',
 				untrailingslashit( $url ),
-				 $endpoint
+				$endpoint
 			);
 
 		}
