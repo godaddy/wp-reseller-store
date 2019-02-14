@@ -2,7 +2,7 @@
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 4.6
-Tested up to:      5.0
+Tested up to:      5.1
 Requires PHP:      5.4
 Stable tag:        2.0.9
 License:           GPL-2.0
@@ -97,10 +97,12 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 == Changelog ==
 
-= 2.0.11 - February 2019
+= 2.1.0 - February 2019
 
 * Update: Add code signing certificate icon.
 * Fix: Use a form post to cart instead of AJAX call to fix third party cookie issues with Safari browser.
+* Fix: Domain widget 4.0 which uses form post to fix third party cookie issues
+* Fix: WordPress 5.1 compatibility fixes
 
 = 2.0.10 - January 2019
 

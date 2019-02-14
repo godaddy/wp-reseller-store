@@ -230,7 +230,7 @@
 		},
 
 		showModal: function( e ) {
-			var $widget = $( e.target.form.parentElement );
+			var $widget = $( e.target.form.parentElement.parentElement );
 			if ( $widget.hasClass( 'rstore-domain-popup' ) ) {
 				$( '#rstore-blackout' ).fadeIn();
 				$( '#rstore-popResults' ).fadeIn();
