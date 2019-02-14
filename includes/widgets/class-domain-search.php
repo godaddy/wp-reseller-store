@@ -66,7 +66,7 @@ final class Domain_Search extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', [ 'widget_search', 'rstore_domain_placeholder' ] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', [ 'rstore_domain_placeholder' ] ) );
 
 		if ( $classes ) {
 

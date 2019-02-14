@@ -57,27 +57,43 @@
   margin-left: 5px;
   font-size: 0.9em; }
 
-.rstore-domain-search .input-group2 {
-  position: relative; }
-  @media (min-width: 991px) {
-    .rstore-domain-search .input-group2 {
-      display: block;
-      border-collapse: separate;
-      width: 100%; } }
+.rstore-domain-search .form-container {
+  display: flex;
+  align-items: center; }
+
+.rstore-domain-search .domain-search-form {
+  flex-grow: 1; }
+  .rstore-domain-search .domain-search-form .domain-search-field {
+    width: 80%;
+    -webkit-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right: 0;
+    padding: 0 10px;
+    line-height: 31px;
+    height: 33px;
+    font-size: 0.8125rem; }
+  .rstore-domain-search .domain-search-form .search-submit {
+    float: right;
+    width: 20%;
+    -webkit-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+    padding: 0;
+    line-height: 31px;
+    height: 33px; }
 
 @media (min-width: 1200px) {
-  .rstore-domain-search .input-group {
-    display: table;
-    border-collapse: separate;
-    width: 100%; }
-  .rstore-domain-search .input-continue-btn {
+  .rstore-domain-search {
     display: table-cell;
     width: 1%;
     white-space: nowrap; }
-    .rstore-domain-search .input-continue-btn button {
-      margin-left: 10px; } }
+    .rstore-domain-search button {
+      margin: 10px;
+      float: right; } }
 
-@media (min-width: 1200px) and (max-width: 1200px) {
+@media (max-width: 1200px) {
   .rstore-domain-search button {
     position: relative;
     width: 100%;
@@ -98,7 +114,9 @@
 .rstore-domain-search p.not-available {
   font-weight: bold;
   font-size: 1.2em;
-  margin: 10px 0 15px; }
+  margin: 10px 0 15px;
+  text-overflow: ellipsis;
+  overflow: auto; }
 
 .rstore-domain-search .domain-name {
   display: inline-block;
@@ -120,11 +138,11 @@
 .rstore-domain-search .listPrice {
   margin-right: 7px; }
 
-.rstore-domain-search .rstore-domain-buy-button {
-  margin-left: 10px; }
-
 .rstore-domain-search .rstore-disclaimer {
   clear: both; }
+
+.rstore-domain-search .rstore-domain-buy-button {
+  margin-left: 10px; }
 
 .rstore-domain-search .rstore-disclaimer pre {
   font-family: sans-serif;
