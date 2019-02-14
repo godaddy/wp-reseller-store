@@ -70,19 +70,15 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    border-left: 0;
-    padding: 0 10px;
-    line-height: 31px;
-    height: 33px;
-    font-size: 0.8125rem; }
+    border-left: 0; }
   .rstore-domain-search .search-form .search-submit {
     float: left;
     width: 20%;
     -webkit-border-radius: 5px 0 0 5px;
-    border-radius: 5px 0 0 5px;
-    padding: 0;
-    line-height: 31px;
-    height: 33px; }
+    border-radius: 5px 0 0 5px; }
+  .rstore-domain-search .search-form .search-field, .rstore-domain-search .search-form .search-submit {
+    padding: 0.75em;
+    line-height: 1.4em; }
 
 @media (min-width: 1200px) {
   .rstore-domain-search {
