@@ -362,7 +362,7 @@ final class TestShortcodes extends TestCase {
 	function test_icon_shortcode_ssl() {
 
 		$this->assertRegExp(
-			'/<title>SSL<\/title>/',
+			'/<title>SSL Certificate<\/title>/',
 			do_shortcode( '[rstore_icon icon="ssl"]' )
 		);
 
