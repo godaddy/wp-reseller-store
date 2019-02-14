@@ -61,9 +61,9 @@
   display: flex;
   align-items: center; }
 
-.rstore-domain-search .domain-search-form {
+.rstore-domain-search .search-form {
   flex-grow: 1; }
-  .rstore-domain-search .domain-search-form .domain-search-field {
+  .rstore-domain-search .search-form .search-field {
     width: 80%;
     -webkit-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
@@ -75,7 +75,7 @@
     line-height: 31px;
     height: 33px;
     font-size: 0.8125rem; }
-  .rstore-domain-search .domain-search-form .search-submit {
+  .rstore-domain-search .search-form .search-submit {
     float: left;
     width: 20%;
     -webkit-border-radius: 5px 0 0 5px;
