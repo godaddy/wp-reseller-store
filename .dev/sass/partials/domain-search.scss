@@ -1,40 +1,52 @@
 .rstore-domain-search {
 
-	.input-group2 {
-		position: relative;
+	.form-container {
+		display: flex;
+		align-items: center;
+	}
 
-		@media (min-width: 991px) {
-			& {
-				display: block;
-				border-collapse: separate;
-				width: 100%;
-			}
+	.search-form {
+		flex-grow: 1;
+
+		.search-field {
+			width: 80%;
+			-webkit-border-radius: 5px 0 0 5px;
+			border-radius: 5px 0 0 5px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border-right: 0;
+		}
+
+		.search-submit {
+			float: right;
+			width: 20%;
+			-webkit-border-radius: 0 5px 5px 0;
+			border-radius: 0 5px 5px 0;
+		}
+
+		.search-field, .search-submit {
+			padding: 0.75em;
+			line-height: 1.4em;
 		}
 	}
 
 	@media (min-width: 1200px) {
-		.input-group {
-			display: table;
-			border-collapse: separate;
+		display: table-cell;
+		width: 1%;
+		white-space: nowrap;
+
+		button {
+			margin: 10px;
+			float: right;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		button {
+			position: relative;
 			width: 100%;
-		}
-
-		.input-continue-btn {
-			display: table-cell;
-			width: 1%;
-			white-space: nowrap;
-
-			button {
-				margin-left: 10px;
-			}
-		}
-
-		@media (max-width: 1200px) {
-			button {
-				position: relative;
-				width: 100%;
-				margin-top: .3em;
-			}
+			margin-top: .3em;
 		}
 	}
 
@@ -57,6 +69,8 @@
 		font-weight: bold;
 		font-size: 1.2em;
 		margin: 10px 0 15px;
+		text-overflow: ellipsis;
+		overflow: auto;
 	}
 
 	.domain-name {
@@ -83,12 +97,12 @@
 		margin-right: 7px;
 	}
 
-	.rstore-domain-buy-button {
-		margin-left: 10px;
-	}
-
 	.rstore-disclaimer {
 		clear: both;
+	}
+
+	.rstore-domain-buy-button {
+		margin-left: 10px;
 	}
 
 	.rstore-disclaimer pre {

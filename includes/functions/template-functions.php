@@ -87,13 +87,14 @@ function rstore_price( $post = null ) {
  * @since 0.2.0
  *
  * @param  int|WP_Post|null $post Product WP_Post instance.
+ * @param  bool             $echo (optional) Echo the text.
  * @param  string           $button_label (optional) Text to display in the button.
  * @param  string           $text_cart (optional) Text to display in the cart link.
  * @param  bool             $redirect (optional) Redirect to cart after adding item.
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $button_label = null, $text_cart = null, $redirect = null ) {
+function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $text_cart = null, $redirect = true ) {
 
 	$post = get_post( $post );
 
@@ -102,47 +103,66 @@ function rstore_add_to_cart_form( $post, $button_label = null, $text_cart = null
 		'quantity' => 1, // @TODO Future release.
 	];
 
-	if ( ! isset( $redirect ) ) {
-
-		$redirect = ! ( (bool) rstore_get_product_meta( $post->ID, 'skip_cart_redirect' ) );
-
-	}
-
-	$data['redirect'] = $redirect ? 'true' : 'false';
-
-	if ( ! isset( $button_label ) ) {
+	if ( empty( $button_label ) ) {
 
 		$button_label = rstore_get_product_meta( $post->ID, 'add_to_cart_button_label' );
 
-		if ( ! isset( $button_label ) ) {
+		if ( empty( $button_label ) ) {
+
 			$button_label = esc_html__( 'Add to cart', 'reseller-store' );
-		}
-	}
-
-	if ( ! isset( $text_cart ) ) {
-
-		$text_cart = rstore_get_product_meta( $post->ID, 'cart_link_text' );
-
-		if ( ! isset( $text_cart ) ) {
-
-			$text_cart = esc_html__( 'Continue to cart', 'reseller-store' );
 
 		}
 	}
 
-	$cart_link = sprintf(
-		'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
-		esc_url_raw( rstore()->api->url( 'cart' ), 'https' ),
-		esc_html( $text_cart )
-	);
+	if ( $redirect ) {
 
-	$button = rstore_add_to_cart_button( $data, $button_label, $redirect );
+		$args['redirect'] = true;
 
-	$cart_form = sprintf(
-		'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message rstore-message-hidden"></div></div>',
-		$button,
-		$cart_link
-	);
+		$cart_url = esc_url_raw( rstore()->api->url( 'cart_api', '', $args ) );
+
+		$items = json_encode( [ $data ] );
+
+		$cart_form = sprintf(
+			'<form class="rstore-add-to-cart-form" method="POST" action="%s" ><input type="hidden" name="items" value=\'%s\' /><button class="rstore-add-to-cart button btn btn-primary" type="submit">%s</button><div class="rstore-loading rstore-loading-hidden"></div></form>',
+			$cart_url,
+			$items,
+			esc_html( $button_label )
+		);
+
+	} else {
+
+		if ( empty( $text_cart ) ) {
+
+			$text_cart = rstore_get_product_meta( $post->ID, 'cart_link_text' );
+
+			if ( empty( $text_cart ) ) {
+
+				$text_cart = esc_html__( 'Continue to cart', 'reseller-store' );
+
+			}
+		}
+
+		$cart_link = sprintf(
+			'<span class="dashicons dashicons-yes rstore-success"></span><a href="%s"  rel="nofollow">%s</a>',
+			esc_url_raw( rstore()->api->url( 'cart' ), 'https' ),
+			esc_html( $text_cart )
+		);
+
+		$button = rstore_add_to_cart_button( $data, $button_label );
+
+		$cart_form = sprintf(
+			'<div class="rstore-add-to-cart-form">%s<div class="rstore-loading rstore-loading-hidden"></div><div class="rstore-cart rstore-cart-hidden">%s</div><div class="rstore-message rstore-message-hidden"></div></div>',
+			$button,
+			$cart_link
+		);
+
+	}
+
+	if ( $echo ) {
+
+		echo $cart_form; // xss ok.
+
+	}
 
 	return $cart_form;
 
@@ -178,7 +198,9 @@ function rstore_append_add_to_cart_form( $content ) {
 	if ( \Reseller_Store\Post_Type::SLUG === $post->post_type && ! is_feed() && ! $is_rest_request ) {
 
 		$content .= rstore_price( $post->ID );
-		$content .= rstore_add_to_cart_form( $post->ID );
+
+		$redirect = ! ( (bool) rstore_get_product_meta( $post->ID, 'skip_cart_redirect' ) );
+		$content .= rstore_add_to_cart_form( $post->ID, false, null, null, $redirect );
 
 	}
 
@@ -201,7 +223,9 @@ function rstore_add_to_cart_button( $cart_vars, $button_label ) {
 	$cart_vars = apply_filters( 'rstore_cart_options', $cart_vars );
 
 	if ( ! is_array( $cart_vars ) ) {
+
 		return;
+
 	}
 
 	$output = '<div><button class="rstore-add-to-cart button btn btn-primary"';

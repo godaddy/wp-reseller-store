@@ -63,7 +63,7 @@ final class TestAPI extends TestCase {
 			}
 		);
 
-		$query_string = $api->add_query_args( $url, false );
+		$query_string = $api->add_query_args( $url );
 
 		$this->assertEquals( $url . '?currencyType=USD', $query_string );
 

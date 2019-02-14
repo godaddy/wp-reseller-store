@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "version": "grunt version && git add -A .",
-    "lint": "eslint --ext .js ./.dev/src/ ./assets/js",
+    "lint": "eslint --ext .js ./.dev/src/ ./assets/js --fix",
     "prebuild": "webpack",
     "build": "grunt build"
   },

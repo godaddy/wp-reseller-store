@@ -129,7 +129,7 @@ final class Product extends Widget_Base {
 
 			if ( ! empty( $data['button_label'] ) ) {
 
-				$content .= rstore_add_to_cart_form( $post_id, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
+				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
 
 			}
 		}
@@ -179,7 +179,7 @@ final class Product extends Widget_Base {
 
 			if ( ! empty( $data['button_label'] ) ) {
 
-				$content .= rstore_add_to_cart_form( $post_id, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
+				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] );
 
 			}
 		}

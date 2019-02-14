@@ -23,7 +23,7 @@ final class TestShortcodes extends TestCase {
 	function test_domain_search_legacy() {
 
 		$this->assertContains(
-			'<div class="widget rstore-domain widget_search rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>',
+			'<div class="widget rstore-domain rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>',
 			do_shortcode( '[rstore-domain-search]' )
 		);
 
@@ -36,7 +36,7 @@ final class TestShortcodes extends TestCase {
 
 		$this->assertContains(
 			do_shortcode( '[rstore_domain_search]' ),
-			'<div class="widget rstore-domain widget_search rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>'
+			'<div class="widget rstore-domain rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>'
 		);
 
 	}
@@ -127,7 +127,7 @@ final class TestShortcodes extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a valid product shortcode with redirect=1 params it should redirect truthy data attribute
+	 * @testdox Given a valid product shortcode with redirect=1 params it should render form post
 	 */
 	function test_product_with_redirect_1_param() {
 
@@ -139,14 +139,14 @@ final class TestShortcodes extends TestCase {
       ]';
 
 		$this->assertRegExp(
-			'/data-redirect="true"/',
+			'/<form class="rstore-add-to-cart-form"/',
 			do_shortcode( $content )
 		);
 
 	}
 
 	/**
-	 * @testdox Given a valid product shortcode with redirect=0 params it should redirect falsy data attribute
+	 * @testdox Given a valid product shortcode with redirect=0 params it should render div
 	 */
 	function test_product_with_redirect_0_param() {
 
@@ -158,7 +158,7 @@ final class TestShortcodes extends TestCase {
       ]';
 
 		$this->assertRegExp(
-			'/data-redirect="false"/',
+			'/<div class="rstore-add-to-cart-form"/',
 			do_shortcode( $content )
 		);
 
@@ -362,7 +362,7 @@ final class TestShortcodes extends TestCase {
 	function test_icon_shortcode_ssl() {
 
 		$this->assertRegExp(
-			'/<title>SSL<\/title>/',
+			'/<title>SSL Certificate<\/title>/',
 			do_shortcode( '[rstore_icon icon="ssl"]' )
 		);
 

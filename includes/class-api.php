@@ -75,12 +75,13 @@ final class API {
 		 */
 		$this->max_retries = (int) apply_filters( 'rstore_api_max_retries', $this->max_retries );
 
-		$this->urls['api']     = sprintf( 'https://www.%s/api/v1/', $this->tld );
-		$this->urls['cart']    = sprintf( 'https://cart.%s/', $this->tld );
-		$this->urls['www']     = sprintf( 'https://www.%s/', $this->tld );
-		$this->urls['sso']     = sprintf( 'https://sso.%s/', $this->tld );
-		$this->urls['account'] = sprintf( 'https://account.%s/', $this->tld );
-		$this->urls['gui']     = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
+		$this->urls['api']      = sprintf( 'https://www.%s/api/v1/', $this->tld );
+		$this->urls['cart_api'] = sprintf( 'https://www.%s/api/v1/cart/{pl_id}', $this->tld );
+		$this->urls['cart']     = sprintf( 'https://cart.%s/', $this->tld );
+		$this->urls['www']      = sprintf( 'https://www.%s/', $this->tld );
+		$this->urls['sso']      = sprintf( 'https://sso.%s/', $this->tld );
+		$this->urls['account']  = sprintf( 'https://account.%s/', $this->tld );
+		$this->urls['gui']      = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
 
 	}
 
@@ -89,13 +90,13 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param string $url        The original URL.
+	 * @param string $url     The original URL.
+	 * @param array  $args    (optional) Additional query arguments.
+	 * @param string $url_key (optional) Url Key to use for bulding url.
 	 *
 	 * @return string
 	 */
-	public function add_query_args( $url ) {
-
-		$args = [];
+	public function add_query_args( $url, $args = [], $url_key = '' ) {
 
 		if ( rstore_is_setup() ) {
 
@@ -103,7 +104,7 @@ final class API {
 
 		}
 
-		$args = (array) apply_filters( 'rstore_api_query_args', $args );
+		$args = (array) apply_filters( 'rstore_api_query_args', $args, $url_key );
 
 		return  esc_url_raw( add_query_arg( $args, $url ) );
 
@@ -114,12 +115,13 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param string $url_key      (optional) Url Key to use for bulding url.
+	 * @param string $url_key  (optional) Url Key to use for bulding url.
 	 * @param string $endpoint (optional) API endpoint to override the request with.
+	 * @param array  $args     (optional) Additional query arguments.
 	 *
 	 * @return string
 	 */
-	public function url( $url_key, $endpoint = '' ) {
+	public function url( $url_key, $endpoint = '', $args = [] ) {
 
 		if ( ! array_key_exists( $url_key, $this->urls ) ) {
 			return $this->url( 'www', $endpoint );
@@ -138,12 +140,14 @@ final class API {
 			$url = sprintf(
 				'%s/%s',
 				untrailingslashit( $url ),
-				str_replace( '{pl_id}', (int) rstore_get_option( 'pl_id' ), $endpoint )
+				$endpoint
 			);
 
 		}
 
-		return $this->add_query_args( trailingslashit( $url ) );
+		$url = str_replace( '{pl_id}', (int) rstore_get_option( 'pl_id' ), $url );
+
+		return $this->add_query_args( trailingslashit( $url ), $args, $url_key );
 
 	}
 

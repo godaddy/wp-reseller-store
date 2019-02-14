@@ -152,8 +152,20 @@ final class TestProductIcons extends TestCase {
 	function test_get_icon_ssl() {
 
 		$this->assertRegExp(
-			'/<title>SSL<\/title>/',
+			'/<title>SSL Certificate<\/title>/',
 			Product_Icons::get_icon( 'ssl' )
+		);
+
+	}
+
+	/**
+	 * @testdox Given an image_id code signing certificate it should generate html
+	 */
+	function test_get_icon_code_signing_certificate() {
+
+		$this->assertRegExp(
+			'/<title>Code Signing Certificate<\/title>/',
+			Product_Icons::get_icon( 'code-signing-certificate' )
 		);
 
 	}

@@ -4,7 +4,7 @@
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy), [fjarrett](https://profiles.wordpress.org/fjarrett), [bfocht](https://profiles.wordpress.org/bfocht), [eherman24](https://profiles.wordpress.org/eherman24)  
 **Tags:**              [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [storefront](https://wordpress.org/plugins/tags/storefront/), [products](https://wordpress.org/plugins/tags/products/), [posts](https://wordpress.org/plugins/tags/posts/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/), [blocks](https://wordpress.org/plugins/tags/blocks/)  
 **Requires at least:** 4.6  
-**Tested up to:**      5.0  
+**Tested up to:**      5.1  
 **Requires PHP:**      5.4  
 **Stable tag:**        2.0.9  
 **License:**           GPL-2.0  
@@ -101,6 +101,13 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
+### 2.1.0 - February 2019
+
+* Update: Add code signing certificate icon.
+* Fix: Use a form post to cart instead of AJAX call to fix third party cookie issues with Safari browser.
+* Fix: Domain widget 4.0 which uses form post to fix third party cookie issues
+* Fix: WordPress 5.1 compatibility fixes
+###
 ### 2.0.10 - January 2019
 
 * Fixed: Add classic layout option to the product widgets

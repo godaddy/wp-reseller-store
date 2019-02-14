@@ -34,11 +34,8 @@
 			} ).length;
 		},
 
-		addItemApi: function( data, isc, success, error ) {
+		addItemApi: function( data, success, error ) {
 			var param = '&cart=' + JSON.stringify( data );
-			if ( isc ) {
-				param += '&isc='+isc;
-			}
 			var settings = {
 				type: 'GET',
 				url: rstore.urls.cart_api + param,
@@ -55,13 +52,13 @@
 			$.ajax( settings ).done( success ).fail( error );
 		},
 
-		addItem: function( id, qty, redirect, isc, $form ) {
+		addItem: function( id, qty, $form ) {
 			var data = { items: [ {
 				id: id,
 				quantity: ( qty > 0 ) ? qty : 1, // Must be greater than 0
 			} ] };
 
-			cart.addItemApi( data, isc, function( response ) {
+			cart.addItemApi( data, function( response ) {
 				if ( response.error ) {
 					return cart.addItemError( $form, response );
 				}
@@ -69,11 +66,6 @@
 				cart.updateCount( response );
 
 				if ( response.nextStepUrl ) {
-					if ( redirect ) {
-						window.location.href = response.nextStepUrl;
-						return;
-					}
-
 					$form.find( '.rstore-cart' ).find( 'a' ).attr( 'href', response.nextStepUrl );
 				}
 
@@ -110,21 +102,19 @@
 			var $this = $( this ),
 				$form = $this.closest( '.rstore-add-to-cart-form' ),
 				id = $this.attr( 'data-id' ),
-				qty = parseInt( $this.attr( 'data-quantity' ), 10 ),
-				redirect = ( $this.attr( 'data-redirect' ) === 'true' ),
-				isc = $this.attr( 'data-isc' );
+				qty = parseInt( $this.attr( 'data-quantity' ), 10 );
 
-			e.preventDefault();
 			if ( $this.attr( 'data-loading' ) ) {
 				return false;
 			}
-
 			$this.attr( 'data-loading', 'true' );
 
 			$form.find( '.rstore-message' ).empty();
 			$form.find( '.rstore-loading' ).removeClass( 'rstore-loading-hidden' );
-
-			cart.addItem( id, qty, redirect, isc, $form );
+			if ( id ) {
+				e.preventDefault();
+				cart.addItem( id, qty, $form );
+			}
 		},
 
 		addItemSuccess: function( $form ) {
@@ -240,7 +230,7 @@
 		},
 
 		showModal: function( e ) {
-			var $widget = $( e.target.form.parentElement );
+			var $widget = $( e.target.form.parentElement.parentElement );
 			if ( $widget.hasClass( 'rstore-domain-popup' ) ) {
 				$( '#rstore-blackout' ).fadeIn();
 				$( '#rstore-popResults' ).fadeIn();
