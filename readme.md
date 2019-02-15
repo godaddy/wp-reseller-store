@@ -101,6 +101,10 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
+### 2.1.1 - February 2019
+
+* Update: Domain search widget package
+###
 ### 2.1.0 - February 2019
 
 * Update: Add code signing certificate icon.

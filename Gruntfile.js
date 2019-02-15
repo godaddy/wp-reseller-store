@@ -33,10 +33,6 @@ module.exports = function( grunt ) {
 						],
 						dest: 'build/'
 					},
-					{
-						src: 'node_modules/domain-search/dist/index.js',
-						dest: 'build/assets/js/domain-search.min.js'
-					}
 				]
 			}
 		},

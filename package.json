@@ -30,7 +30,7 @@
     "build": "grunt build"
   },
   "dependencies": {
-    "domain-search": "^3.1.1"
+    "domain-search": "^4.0.1"
   },
   "devDependencies": {
     "@wordpress/babel-preset-default": "^3.0.1",
