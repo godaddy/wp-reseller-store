@@ -4,7 +4,7 @@ Tags:              reseller, program, storefront, products, posts, shortcode, ec
 Requires at least: 4.6
 Tested up to:      5.1
 Requires PHP:      5.4
-Stable tag:        2.1.0
+Stable tag:        2.0.9
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ With this plugin, you have the option to easily design a site with the imported 
 
 The product catalog includes cPanel and Plesk hosting, Wordpress, Website Builder, Workspace Email, Security, and Web Marketing applications.
 
-[youtube https://youtu.be/fTPzRP-_suM]
+[youtube https://youtu.be/eadC9vGwPxE]
 
 **Features**
 

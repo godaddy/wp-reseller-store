@@ -20,7 +20,7 @@ With this plugin, you have the option to easily design a site with the imported 
 
 The product catalog includes cPanel and Plesk hosting, Wordpress, Website Builder, Workspace Email, Security, and Web Marketing applications.
 
-[![Play video on YouTube](https://img.youtube.com/vi/fTPzRP-_suM/maxresdefault.jpg)](https://www.youtube.com/watch?v=fTPzRP-_suM)
+[![Play video on YouTube](https://img.youtube.com/vi/eadC9vGwPxE/maxresdefault.jpg)](https://www.youtube.com/watch?v=eadC9vGwPxE)
 
 **Features**
 
