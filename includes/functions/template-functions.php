@@ -77,7 +77,7 @@ function rstore_price( $post = null ) {
 
 	$output = sprintf( '<div class="rstore-pricing">%s</div>', $output );
 
-	return $output;
+	echo $output;
 
 }
 
