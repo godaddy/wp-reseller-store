@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return string|null
  */
-function rstore_price( $post = null ) {
+function rstore_price( $post = null , $echo = null ) {
 
 	$post = get_post( $post );
 
@@ -77,7 +77,12 @@ function rstore_price( $post = null ) {
 
 	$output = sprintf( '<div class="rstore-pricing">%s</div>', $output );
 
-	echo $output;
+	if ($echo) {    // legacy cat and prod default pages receive echo parameter from Turnkey reseller store templates - single-product.php and list-product.php
+		echo $output;
+	}
+	else {     // eg. product module
+		return $output; 
+	}
 
 }
 
