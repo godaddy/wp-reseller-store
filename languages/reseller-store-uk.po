@@ -256,11 +256,11 @@ msgstr "Встановити"
 
 #: includes/class-setup.php:177
 msgid "Don't have an account?"
-msgstr "Не маєте акаунта?"
+msgstr "Не маєте облікового запису?"
 
 #: includes/class-setup.php:177
 msgid "Create an account"
-msgstr "Створити акаунт"
+msgstr "Створити обліковий запис"
 
 #: includes/class-setup.php:180
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8877."
