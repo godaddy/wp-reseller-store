@@ -74,7 +74,7 @@ final class TestTemplateFunctions extends TestCase {
 
 		$content = rstore_price( $post, true );
 
-		$this->assertEmpty($content);
+		$this->assertEmpty( $content );
 
 	}
 
