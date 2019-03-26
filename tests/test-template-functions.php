@@ -35,5 +35,48 @@ final class TestTemplateFunctions extends TestCase {
 
 	}
 
+	/**
+	 * @testdox Given domain product rstore_add_to_cart_form should return empty.
+	 */
+	public function test_rstore_add_to_cart_form_domain() {
+
+		$post = Tests\Helper::create_product( 'Domain Registration', 'domain' );
+
+		$content = rstore_add_to_cart_form( $post, true, null, null, false );
+
+		$this->assertEmpty( $content );
+
+	}
+
+	/**
+	 * @testdox Given product it should echo the product price.
+	 */
+	public function test_rstore_price_echo() {
+
+		rstore_update_option( 'pl_id', 1592 );
+
+		$post = Tests\Helper::create_product();
+
+		rstore_price( $post, true );
+
+		$this->expectOutputRegex( '/<div class="rstore-pricing"><span class="rstore-retail-price">\$70.00<\/span><span class="rstore-price rstore-has-sale-price">\$50.00<\/span> \/ per year<\/div>/' );
+
+	}
+
+	/**
+	 * @testdox Given domain product rstore_price should return emtpy.
+	 */
+	public function test_rstore_price_domain() {
+
+		rstore_update_option( 'pl_id', 1592 );
+
+		$post = Tests\Helper::create_product( 'Domain Registration', 'domain' );
+
+		$content = rstore_price( $post, true );
+
+		$this->assertEmpty($content);
+
+	}
+
 
 }

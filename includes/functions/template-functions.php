@@ -21,11 +21,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 0.2.0
  *
- * @param  int|WP_Post|null $post (optional) Product WP_Post instance.
+ * @param  int|WP_Post|null $post (optional) Product WP_Post instance. Defaults to global $post.
+ * @param  bool             $echo (optional) Echo the text.
  *
  * @return string|null
  */
-function rstore_price( $post = null ) {
+function rstore_price( $post = null, $echo = false ) {
 
 	$post = get_post( $post );
 
@@ -38,12 +39,6 @@ function rstore_price( $post = null ) {
 	}
 
 	$list = rstore_get_product_meta( $post->ID, 'listPrice' );
-
-	if ( ! $list ) {
-
-		return;
-
-	}
 
 	$output = sprintf(
 		'<span class="rstore-price">%s</span>',
@@ -77,6 +72,12 @@ function rstore_price( $post = null ) {
 
 	$output = sprintf( '<div class="rstore-pricing">%s</div>', $output );
 
+	if ( $echo ) {
+
+		echo $output; // xss ok.
+
+	}
+
 	return $output;
 
 }
@@ -98,8 +99,16 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 
 	$post = get_post( $post );
 
+	$id = rstore_get_product_meta( $post->ID, 'id' );
+
+	if ( 'domain' === $id ) {
+
+		return;
+
+	}
+
 	$data = [
-		'id'       => rstore_get_product_meta( $post->ID, 'id' ),
+		'id'       => $id,
 		'quantity' => 1, // @TODO Future release.
 	];
 
