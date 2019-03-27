@@ -100,74 +100,79 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+### 2.1.2 - February 2019 ###
 
-### 2.1.1 - February 2019
+* Fix: Domain search theme compatibility fixes
+* Fix: Remove Add to cart button from Domain Registration products
+* Fix: Compatibility with older versions of Turnkey Storefront theme
+
+### 2.1.1 - February 2019 ###
 
 * Update: Domain search widget package
-###
-### 2.1.0 - February 2019
+
+### 2.1.0 - February 2019 ###
 
 * Update: Add code signing certificate icon.
 * Fix: Use a form post to cart instead of AJAX call to fix third party cookie issues with Safari browser.
 * Fix: Domain widget 4.0 which uses form post to fix third party cookie issues
 * Fix: WordPress 5.1 compatibility fixes
-###
-### 2.0.10 - January 2019
+
+### 2.0.10 - January 2019 ###
 
 * Fixed: Add classic layout option to the product widgets
 * New: Filter default options on widgets and shortcodes
 * New: Filter cart options with `rstore_cart_options`
 * Update: Remove unused echo statements
-###
-### 2.0.9 - January 2019
+
+### 2.0.9 - January 2019 ###
 
 * Update: Update Product icon SVGs
-###
-### 2.0.8 - December 2018
+
+### 2.0.8 - December 2018 ###
 
 * Fix: Domain search by adding form as an allowed tag
-###
-### 2.0.7 - December 2018
+
+### 2.0.7 - December 2018 ###
 
 * Update: Add rstore_icon_html filter
 * Update: CSS in Gutenberg block editor for product icons
-###
-### 2.0.6 - November 2018
+
+### 2.0.6 - November 2018 ###
 
 * Fix: Restore thumbnail image import
-###
-### 2.0.5 - November 2018
+
+### 2.0.5 - November 2018 ###
 
 * Update: Use SVG images for thumbnails
-###
-### 2.0.4 - November 2018
+
+### 2.0.4 - November 2018 ###
 
 * New: Add SVG icons to all products
 * New: rstore_icon shortcode
-###
-### 2.0.1 - November 2018
+
+### 2.0.1 - November 2018 ###
 
 * Update: Apply WordPress ruleset fixes
 * Update: Update svg icons for blocks
-###
-### 2.0.0 - November 2018
+
+### 2.0.0 - November 2018 ###
 
 * New: Gutenberg update
 * Add: Product and domain search blocks
-###
-### 1.7.1 - October 2018
+
+### 1.7.1 - October 2018 ###
 
 * Update: Set height of product widget to 250px
 * Update: Add button to activate with secureserver.net
-###
-### 1.7.0 - September 2018
+
+### 1.7.0 - September 2018 ###
 
 * Update: Products default to redirect to cart
 * Update: Use `nextStepUrl` from API after adding product to cart
 * Update: Move `rstore_append_add_to_cart_form` as a filter for `the_content` and `the_excerpt`
 * Update: Bumped Domain Search to version 3.1.1
 * Update: Domain search prevents user navigation away from the page when domains are selected
-###
+
 ### 1.6.1 - May 2018 ###
 
 * Publish to WordPress.org
