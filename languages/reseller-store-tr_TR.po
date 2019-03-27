@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2019-01-08 20:09:46+00:00\n"
+"POT-Creation-Date: 2019-03-27 18:23:33+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr[1] ""
 msgid "Sorry, you are not allowed to do that."
 msgstr "Üzgünüz, bu işlem için izniniz yok."
 
-#: includes/class-api.php:208
+#: includes/class-api.php:212
 msgid "An unknown error has occurred."
 msgstr "Bilinmeyen bir hata oluştu."
 
@@ -102,24 +102,26 @@ msgstr "Varsayılan Nicelik"
 msgid "Add to Cart Button Label"
 msgstr "Sepete Ekle Düğmesi Etiketi"
 
-#: includes/class-butterbean.php:286 includes/functions/helper-functions.php:73
+#: includes/class-butterbean.php:286
+#: includes/functions/template-functions.php:121
 #: includes/modules/rstore-fl-product.php:85
 #: includes/modules/rstore-vc-product.php:84
-#: includes/widgets/class-product.php:319
+#: includes/widgets/class-product.php:348
 msgid "Add to cart"
 msgstr "Sepete Ekle"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:224
+#: includes/class-butterbean.php:315 includes/widgets/class-product.php:242
 msgid "Cart link text"
 msgstr ""
 
-#: includes/class-butterbean.php:317 includes/functions/helper-functions.php:74
+#: includes/class-butterbean.php:317
+#: includes/functions/template-functions.php:149
 #: includes/modules/rstore-fl-domain-search.php:100
-#: includes/modules/rstore-fl-product.php:142
+#: includes/modules/rstore-fl-product.php:151
 #: includes/modules/rstore-vc-domain-search.php:128
-#: includes/modules/rstore-vc-product.php:139
+#: includes/modules/rstore-vc-product.php:160
 #: includes/widgets/class-domain-search.php:201
-#: includes/widgets/class-product.php:320
+#: includes/widgets/class-product.php:349
 msgid "Continue to cart"
 msgstr ""
 
@@ -176,7 +178,9 @@ msgstr ""
 "Bu ayarlar, Bayi Mağaza ürünleri için özel olarak kullanılan kalıcı "
 "bağlantıları kontrol eder."
 
-#: includes/class-permalinks.php:133
+#: includes/class-permalinks.php:133 includes/modules/rstore-fl-product.php:124
+#: includes/modules/rstore-vc-product.php:129
+#: includes/widgets/class-product.php:250
 msgid "Default"
 msgstr "Varsayılan"
 
@@ -448,10 +452,10 @@ msgid "Error: `%s` does not exist."
 msgstr "Hata: `%s` mevcut değil."
 
 #: includes/modules/rstore-fl-cart.php:32
-#: includes/modules/rstore-fl-product.php:141
+#: includes/modules/rstore-fl-product.php:150
 #: includes/modules/rstore-vc-cart.php:44
-#: includes/modules/rstore-vc-product.php:137
-#: includes/widgets/class-product.php:224
+#: includes/modules/rstore-vc-product.php:158
+#: includes/widgets/class-product.php:242
 #, fuzzy
 msgid "Cart Link"
 msgstr "Sepet"
@@ -478,8 +482,8 @@ msgstr ""
 #: includes/modules/rstore-vc-domain-transfer.php:54
 #: includes/modules/rstore-vc-login.php:54 includes/widgets/class-cart.php:130
 #: includes/widgets/class-domain-search.php:145
-#: includes/widgets/class-domain-simple.php:135
-#: includes/widgets/class-domain-transfer.php:135
+#: includes/widgets/class-domain-simple.php:136
+#: includes/widgets/class-domain-transfer.php:136
 #: includes/widgets/class-login.php:142
 #, fuzzy
 msgid "Title"
@@ -495,9 +499,9 @@ msgstr "Başlık:"
 #: includes/modules/rstore-vc-domain-transfer.php:78
 #: includes/modules/rstore-vc-product.php:82
 #: includes/widgets/class-cart.php:131
-#: includes/widgets/class-domain-simple.php:137
-#: includes/widgets/class-domain-transfer.php:137
-#: includes/widgets/class-product.php:219
+#: includes/widgets/class-domain-simple.php:138
+#: includes/widgets/class-domain-transfer.php:138
+#: includes/widgets/class-product.php:237
 #, fuzzy
 msgid "Button"
 msgstr "Düğme:"
@@ -544,8 +548,8 @@ msgstr ""
 #: includes/modules/rstore-vc-domain-simple.php:65
 #: includes/modules/rstore-vc-domain-transfer.php:66
 #: includes/widgets/class-domain-search.php:146
-#: includes/widgets/class-domain-simple.php:136
-#: includes/widgets/class-domain-transfer.php:136
+#: includes/widgets/class-domain-simple.php:137
+#: includes/widgets/class-domain-transfer.php:137
 #, fuzzy
 msgid "Placeholder"
 msgstr "Yer Tutucu:"
@@ -555,7 +559,7 @@ msgstr "Yer Tutucu:"
 #: includes/modules/rstore-vc-domain-search.php:66
 #: includes/modules/rstore-vc-domain-simple.php:67
 #: includes/widgets/class-domain-search.php:197
-#: includes/widgets/class-domain-simple.php:172
+#: includes/widgets/class-domain-simple.php:173
 msgid "Find your perfect domain name"
 msgstr "Sizin için kusursuz bir alan adı bulun"
 
@@ -571,7 +575,7 @@ msgstr "Düğme:"
 #: includes/modules/rstore-vc-domain-search.php:76
 #: includes/modules/rstore-vc-domain-simple.php:78
 #: includes/widgets/class-domain-search.php:198
-#: includes/widgets/class-domain-simple.php:173
+#: includes/widgets/class-domain-simple.php:174
 msgid "Search"
 msgstr "Arama"
 
@@ -678,7 +682,7 @@ msgstr "Alan adları için bir arama formu."
 #: includes/modules/rstore-fl-domain-transfer.php:32
 #: includes/modules/rstore-fl-domain-transfer.php:65
 #: includes/modules/rstore-vc-domain-transfer.php:80
-#: includes/widgets/class-domain-transfer.php:173
+#: includes/widgets/class-domain-transfer.php:174
 msgid "Transfer"
 msgstr ""
 
@@ -691,7 +695,7 @@ msgstr "Alan adları için bir arama formu."
 
 #: includes/modules/rstore-fl-domain-transfer.php:60
 #: includes/modules/rstore-vc-domain-transfer.php:68
-#: includes/widgets/class-domain-transfer.php:172
+#: includes/widgets/class-domain-transfer.php:173
 msgid "Enter domain to transfer"
 msgstr ""
 
@@ -742,7 +746,7 @@ msgstr ""
 #: includes/modules/rstore-fl-product.php:54
 #: includes/modules/rstore-vc-product.php:44
 #: includes/modules/rstore-vc-product.php:54
-#: includes/widgets/class-product.php:197
+#: includes/widgets/class-product.php:215
 #, fuzzy
 msgid "Product"
 msgstr "Ürün"
@@ -760,55 +764,56 @@ msgstr "Ürünler"
 
 #: includes/modules/rstore-fl-product.php:64
 #: includes/modules/rstore-vc-product.php:65
-#: includes/widgets/class-product.php:205
+#: includes/widgets/class-product.php:223
 msgid "Image Size"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:67
 #: includes/modules/rstore-vc-product.php:68
-#: includes/widgets/class-product.php:208
+#: includes/widgets/class-product.php:226
 #, fuzzy
 msgid "Product Icon"
 msgstr "Ürün"
 
 #: includes/modules/rstore-fl-product.php:68
 #: includes/modules/rstore-vc-product.php:70
-#: includes/widgets/class-product.php:209
+#: includes/widgets/class-product.php:227
 msgid "Thumbnail"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:69
 #: includes/modules/rstore-vc-product.php:71
-#: includes/widgets/class-product.php:210
+#: includes/widgets/class-product.php:228
 msgid "Medium resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:70
 #: includes/modules/rstore-vc-product.php:72
-#: includes/widgets/class-product.php:211
+#: includes/widgets/class-product.php:229
 msgid "Large resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:71
 #: includes/modules/rstore-vc-product.php:69
-#: includes/widgets/class-product.php:212
+#: includes/widgets/class-product.php:230
 msgid "Original resolution"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:72
 #: includes/modules/rstore-vc-product.php:73
-#: includes/widgets/class-product.php:213
+#: includes/widgets/class-product.php:231
 #, fuzzy
 msgid "Hide image"
 msgstr "Ürün Resmi"
 
 #: includes/modules/rstore-fl-product.php:77
-msgid "Content Height"
+#: includes/modules/rstore-vc-product.php:138
+msgid "Content Height (set to 0 for full height)"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:84
 #: includes/modules/rstore-vc-product.php:85
-#: includes/widgets/class-product.php:219
+#: includes/widgets/class-product.php:237
 msgid "Leave blank to hide button"
 msgstr ""
 
@@ -817,29 +822,40 @@ msgid "Post Content"
 msgstr ""
 
 #: includes/modules/rstore-fl-product.php:116
-#: includes/widgets/class-product.php:225
+#: includes/widgets/class-product.php:243
 #, fuzzy
 msgid "Product Permalink"
 msgstr "Bayi Ürünü Kalıcı Bağlantıları"
 
 #: includes/modules/rstore-fl-product.php:117
-#: includes/widgets/class-product.php:321
+#: includes/widgets/class-product.php:350
 msgid "More info"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:126
+#: includes/modules/rstore-fl-product.php:121
 #: includes/modules/rstore-vc-product.php:126
-#: includes/widgets/class-product.php:223
+msgid "Layout type"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:125
+#: includes/modules/rstore-vc-product.php:130
+#: includes/widgets/class-product.php:251
+msgid "Classic"
+msgstr ""
+
+#: includes/modules/rstore-fl-product.php:135
+#: includes/modules/rstore-vc-product.php:147
+#: includes/widgets/class-product.php:241
 #, fuzzy
 msgid "Redirect to cart after adding item"
 msgstr "Eklemenin hemen sonrasında sepete yönlendir"
 
-#: includes/modules/rstore-fl-product.php:129
+#: includes/modules/rstore-fl-product.php:138
 msgid "Yes"
 msgstr ""
 
-#: includes/modules/rstore-fl-product.php:130
-#: includes/modules/rstore-vc-product.php:129
+#: includes/modules/rstore-fl-product.php:139
+#: includes/modules/rstore-vc-product.php:150
 msgid "No"
 msgstr ""
 
@@ -872,25 +888,35 @@ msgstr "Domain sorgulama"
 msgid "Domain Transfer"
 msgstr "Domain sorgulama"
 
+#: includes/modules/rstore-vc-product.php:75
+#: includes/modules/rstore-vc-product.php:86
+#: includes/modules/rstore-vc-product.php:98
+#: includes/modules/rstore-vc-product.php:109
+#: includes/modules/rstore-vc-product.php:120
+#: includes/modules/rstore-vc-product.php:132
+#: includes/modules/rstore-vc-product.php:141
+msgid "Display"
+msgstr ""
+
 #: includes/modules/rstore-vc-product.php:93
-#: includes/widgets/class-product.php:220
+#: includes/widgets/class-product.php:238
 #, fuzzy
 msgid "Show product title"
 msgstr "Ürün resmini ayarla"
 
 #: includes/modules/rstore-vc-product.php:104
-#: includes/widgets/class-product.php:221
+#: includes/widgets/class-product.php:239
 #, fuzzy
 msgid "Show post content"
 msgstr "Ürün resmini ayarla"
 
 #: includes/modules/rstore-vc-product.php:115
-#: includes/widgets/class-product.php:222
+#: includes/widgets/class-product.php:240
 #, fuzzy
 msgid "Show product price"
 msgstr "Ürün resmini ayarla"
 
-#: includes/modules/rstore-vc-product.php:164
+#: includes/modules/rstore-vc-product.php:185
 #, fuzzy
 msgid "Select product..."
 msgstr "Ürün resmini ayarla"
@@ -924,16 +950,20 @@ msgstr "Bayi Mağazası"
 msgid "Reseller Product"
 msgstr "Bayi Ürünü"
 
-#: includes/widgets/class-product.php:218
-msgid "Content size"
+#: includes/widgets/class-product.php:236
+msgid "Content height"
 msgstr ""
 
-#: includes/widgets/class-product.php:218
+#: includes/widgets/class-product.php:236
 msgid "Height in pixels"
 msgstr ""
 
-#: includes/widgets/class-product.php:225
+#: includes/widgets/class-product.php:243
 msgid "Permalink text"
+msgstr ""
+
+#: includes/widgets/class-product.php:247
+msgid "Layout Type"
 msgstr ""
 
 #. translators: server PHP version
@@ -1029,7 +1059,7 @@ msgid "Tag"
 msgstr "Etiket"
 
 #. translators: 1. price, 2. subscription term - e.g. $10 / per month
-#: includes/functions/template-functions.php:72
+#: includes/functions/template-functions.php:66
 msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%2$s başına %1$s"
