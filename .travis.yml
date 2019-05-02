@@ -15,7 +15,7 @@ language: php
 
 php:
   - 5.4
-  - 7.1
+  - 7.2
 
 branches:
   only:
@@ -51,13 +51,13 @@ script:
 jobs:
   fast_finish: true
   exclude:
-    - php: 7.1
+    - php: 7.2
       env: WP_VERSION=4.6
-    - php: 7.1
+    - php: 7.2
       env: WP_VERSION=latest
   include:
     - stage: code coverage
-      php: 7.1
+      php: 7.2
       env: WP_VERSION=latest
       before_install: true # skip by returning true
       install:
@@ -88,7 +88,7 @@ deploy:
   on:
     tags: true
     repo: godaddy/wp-reseller-store
-    php: '7.1'
+    php: '7.2'
     condition:  $WP_VERSION = latest
   skip_cleanup: true
   overwrite: true

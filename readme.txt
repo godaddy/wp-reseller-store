@@ -1,14 +1,14 @@
-=== GoDaddy Reseller Store ===
+=== Reseller Store ===
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 4.6
-Tested up to:      5.1
+Tested up to:      5.2
 Requires PHP:      5.4
 Stable tag:        2.1.2
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Design your own storefront for your GoDaddy Reseller plan and have more control over your customers experience and business!
+Design your own storefront for your Basic and Pro Reseller plan and have more control over your customers experience and business!
 
 == Description ==
 
@@ -35,9 +35,9 @@ English - Dansk - Deutsch - Ελληνικά - Español - Español de M
 
 If you run into a problem send an email to resellersupport@godaddy.com and we would be happy to help. Remember, the more information you can provide up-front, the easier it is for us to verify the problem and the faster we can help!
 
-* Screenshot(s) - How-to guide
-* Name and version of your theme - Video tutorial
-* List of all active plugins on your site - Video tutorial
+* Screenshot(s) of issues or errors
+* Name and version of your theme
+* List of all active plugins on your site
 * Steps taken or details we should know to reproduce and verify the problem
 
 You can call our support team at (480) 505-8857
@@ -55,16 +55,16 @@ This plugin is designed for the [GoDaddy Reseller Program](https://www.godaddy.c
 
 = What settings should I update in the Reseller Control Center? =
 We recommend you set the _Home Url_ to your WordPress storefront. We also suggest you set up a _Custom Domain_ and point the DNS to our server.
-The _Custom Domain_ must be on a subdomain that matches the same root domain of your WordPress storefront. For example, your WordPress storefront is hosted on _www_ and your custom domain is hosted on _shop_. Follow these instructions to set your custom domain. https://www.godaddy.com/help/use-a-custom-domain-for-my-storefront-5040
+The _Custom Domain_ must be on a subdomain that matches the same root domain of your WordPress storefront. For example, your WordPress storefront is hosted on _www_ and your custom domain is hosted on _shop_. Follow these [instructions to set your custom domain](https://www.godaddy.com/help/use-a-custom-domain-for-my-storefront-5040).
 
-You can update both the home url and custom domain setting at https://reseller.godaddy.com/settings/branding
+You can update both the home url and custom domain setting at [https://reseller.godaddy.com/settings/branding](https://reseller.godaddy.com/settings/branding)
 
 = How do I set the currency and language for the product catalog? =
 The currency and language are set in the [Reseller Control Center](https://http://reseller.godaddy.com)
 
 = Do you have a pre-built WordPress site? =
 We encourage each reseller to create their own unique site and content for their storefronts. This provides a better experience for your customers and more opportunities for search engine optimization.
-While we can't test every theme with our plugin, we try our best to make the plugin compatible. GoDaddy provides several free themes including [Primer](https://wordpress.org/themes/primer/) and [Activation](https://wordpress.org/themes/activation/) that we test with our plugin. You can use content from the turnkey website to help you build your own WordPress site.
+While we can't test every theme with our plugin, we try our best to make the plugin compatible. GoDaddy provides several free themes including [Primer](https://wordpress.org/themes/primer/) and [Turnkey Storefront](https://wordpress.org/themes/turnkey-storefront/) that we test with our plugin. You can use content from the turnkey website to help you build your own WordPress site.
 
 = I am getting an error while trying to activate the plugin. What should I do? =
 If you are having an issue, we recommend you deactivate your other plugins and then try to activate the Reseller Store plugin. You can also try changing to another theme and the try re activating the plugin. Before making any of these changes, we recommend you make a backup of your site and database.
@@ -73,24 +73,26 @@ While we strive to make the plugin compatible with many themes and plugins, our 
 
 = What shortcodes are supported? =
 While we recommend you use our widgets for your storefront, we do have a shortcodes for each widget.
-  Domain Registration
+  *Domain Registration*
     [rstore_domain]
 
-  Domain Transfer
+  *Domain Transfer*
     [rstore_domain_transfer]
 
-  Domain Search (Advanced)
+  *Domain Search (React Widget)*
     [rstore_domain_search page_size="5" ]
 
-  View Cart Button
+  *View Cart Button*
     [rstore_cart_button ]
 
-  Product Post Pod
+  *Product Post Pod*
     [rstore_product post_id=10 show_title=1 show_content=1 show_price=1 redirect=1 button_label="Add to cart" text_cart="Continue to cart" image_size="original" ]
 
-  Log in/out Button
+  *Log in/out Button*
     [rstore_login welcome_message="Welcome Back" login_button_text="Log In" logout_button_text="Log Out" ]
 
+  *Product SVG Icon*
+    [rstore_icon icon="domains | domain-registration | domain-transfer | websites | wordpress | hosting-cpanel | hosting-windows | hosting | dedicated-server | dedicated-ip | email | email-marketing | online-calendar | online-storage | online-store | seo | website-backup | website-security | ssl | code-signing-certificate | reseller | sale" ]
 
 = How do I make the domain search return results on page load? =
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
