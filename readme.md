@@ -59,7 +59,7 @@ This plugin is designed for the [GoDaddy Reseller Program](https://www.godaddy.c
 
 ### What settings should I update in the Reseller Control Center? ###
 We recommend you set the _Home Url_ to your WordPress storefront. We also suggest you set up a _Custom Domain_ and point the DNS to our server.
-The _Custom Domain_ must be on a sub-domain that matches the same root domain of your WordPress storefront. For example, your WordPress storefront is hosted on _www_ and your custom domain is hosted on _shop_. Follow these [instructions to set your custom domain](https://www.godaddy.com/help/use-a-custom-domain-for-my-storefront-5040).
+The _Custom Domain_ must be on a subdomain that matches the same root domain of your WordPress storefront. For example, your WordPress storefront is hosted on _www_ and your custom domain is hosted on _shop_. Follow these [instructions to set your custom domain](https://www.godaddy.com/help/use-a-custom-domain-for-my-storefront-5040).
 
 You can update both the home url and custom domain setting at [https://reseller.godaddy.com/settings/branding](https://reseller.godaddy.com/settings/branding)
 
