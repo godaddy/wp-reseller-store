@@ -27,7 +27,7 @@ class VCLogin extends \WPBakeryShortCode {
 	 * @since 1.6.0
 	 */
 	function __construct() {
-		add_action( 'init', array( $this, 'vc_mapping' ) );
+		$this->vc_mapping();
 	}
 
 	/**
