@@ -102,6 +102,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+### 2.1.3 - July 2019 ###
+
+* Fix: Issue with WPBakery Page Builder v6
+
 ### 2.1.2 - February 2019 ###
 
 * Fix: Domain search theme compatibility fixes
