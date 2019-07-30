@@ -63,5 +63,27 @@ body {
 			}
 		}
 	}
+
+	.rstore-settings-hide {
+		display: none;
+	}
+
+	.rstore-spinner {
+		visibility: hidden;
+		max-width: 20px;
+		height: auto;
+		margin-bottom: -4px;
+	}
+	.rstore-setting-text::placeholder {
+		font-style: italic;
+	}
+
+	.rstore-setting-text::-ms-input-placeholder {
+		font-style: italic;
+	}
+
+	.rstore-settings-import {
+		padding-left: 10px;
+	}
 }
 

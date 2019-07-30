@@ -97,6 +97,7 @@ final class Plugin {
 		new Shortcodes;
 		new Blocks;
 		new Bulk_Restore;
+		new Settings;
 
 	}
 
