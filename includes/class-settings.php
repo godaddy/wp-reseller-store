@@ -193,20 +193,15 @@ final class Settings {
 		if ( ! empty( $product_content_height ) || ! empty( $product_full_content_height ) ) {
 			add_filter(
 				'rstore_product_content_height',
-				function( $original_height ) {
+				function() {
 
 					$product_full_content_height = rstore_get_option( 'product_full_content_height' );
 					if ( $product_full_content_height ) {
 						return 0;
 					}
 
-					$content_height = intval( rstore_get_option( 'product_content_height' ) );
+					return intval( rstore_get_option( 'product_content_height' ) );
 
-					if ( $content_height > 0 ) {
-						return $content_height;
-					}
-
-					return $original_height;
 				}
 			);
 		}
@@ -291,27 +286,6 @@ final class Settings {
 			);
 		}
 
-		$api_tld = rstore_get_option( 'api_tld' );
-		if ( ! empty( $api_tld ) ) {
-			add_filter(
-				'rstore_api_tld',
-				function() {
-					return rstore_get_option( 'api_tld' );
-				}
-			);
-			add_filter( 'rstore_domain_search_html', [ $this, 'rstore_domain_search_html' ] );
-		}
-
-		$setup_rcc = rstore_get_option( 'setup_rcc' );
-		if ( ! empty( $setup_rcc ) ) {
-			add_filter(
-				'rstore_setup_rcc',
-				function() {
-					return rstore_get_option( 'setup_rcc' );
-				}
-			);
-		}
-
 		$sync_ttl = rstore_get_option( 'sync_ttl' );
 		if ( ! empty( $sync_ttl ) ) {
 			add_filter(
@@ -361,7 +335,7 @@ final class Settings {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-settings', Plugin::assets_url( "js/admin-settings{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'reseller-store-settings-js', Plugin::assets_url( "js/admin-settings{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
 	}
 
@@ -381,21 +355,6 @@ final class Settings {
 			'reseller-store-settings',
 			[ $this, 'edit_settings' ]
 		);
-	}
-
-	/**
-	 * Register the rstore domain html filter
-	 *
-	 * @action init
-	 * @since  NEXT
-	 *
-	 * @param array $html Html for domain search.
-	 * @return null|string|string[]
-	 */
-	public function rstore_domain_search_html( $html ) {
-		$pattern     = '/(<div.)(.*)(>.*<\/div>)/';
-		$replacement = '${1} ${2} data-base_url="' . rstore_get_option( 'api_tld' ) . '"" ${3}';
-		return preg_replace( $pattern, $replacement, $html );
 	}
 
 	/**
