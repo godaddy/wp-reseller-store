@@ -297,24 +297,10 @@ final class Settings {
 		}
 
 		$product_isc = rstore_get_option( 'product_isc' );
-		if ( ! empty( $product_isc ) ) {
-			add_filter(
-				'rstore_api_query_args',
-				function( $args, $url_key ) {
-					if ( 'cart_api' === $url_key ) {
-						$args['isc'] = rstore_get_option( 'product_isc' );
-					}
-					return $args;
-				},
-				10,
-				2
-			);
-		}
-
-		$market   = rstore_get_option( 'api_market' );
-		$currency = rstore_get_option( 'api_currency' );
-		if ( ! empty( $market ) || ! empty( $currency ) ) {
-			add_filter( 'rstore_api_query_args', [ $this, 'rstore_api_query_args_filter' ] );
+		$market      = rstore_get_option( 'api_market' );
+		$currency    = rstore_get_option( 'api_currency' );
+		if ( ! empty( $market ) || ! empty( $currency ) || ! empty( $product_isc ) ) {
+			add_filter( 'rstore_api_query_args', [ $this, 'rstore_api_query_args_filter' ], 10, 2 );
 		}
 
 	}
@@ -363,13 +349,20 @@ final class Settings {
 	 * @action init
 	 * @since  NEXT
 	 *
-	 * @param array $args Query string args for api url.
+	 * @param array  $args      Query string args for api url.
+	 * @param string $url_key  Type of url to add args for.
+	 *
 	 * @return array
 	 */
-	public function rstore_api_query_args_filter( $args ) {
+	public function rstore_api_query_args_filter( $args, $url_key ) {
 
-		$market   = rstore_get_option( 'api_market' );
-		$currency = rstore_get_option( 'api_currency' );
+		$product_isc = rstore_get_option( 'product_isc' );
+		$market      = rstore_get_option( 'api_market' );
+		$currency    = rstore_get_option( 'api_currency' );
+
+		if ( ! empty( $product_isc ) && 'cart_api' === $url_key ) {
+			$args['isc'] = $product_isc;
+		}
 
 		if ( ! empty( $market ) && 'default' !== $market ) {
 			$args['marketId'] = $market;

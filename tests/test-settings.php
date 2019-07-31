@@ -147,17 +147,17 @@ final class TestClassSettings extends TestCase {
 	}
 
 	/**
-	 * @testdox Given api_market the filters should return the isc in the args
+	 * @testdox Given api_market the filters should return the market in the args
 	 */
 	public function test_api_market_filters() {
 
-		rstore_update_option( 'product_isc', 'promotion' );
+		rstore_update_option( 'api_market', 'en-US' );
 
 		new Settings();
 
 		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
 
-		$this->assertEquals( 'promotion', $args['isc'] );
+		$this->assertEquals( 'en-US', $args['marketId'] );
 
 	}
 
@@ -166,13 +166,13 @@ final class TestClassSettings extends TestCase {
 	 */
 	public function test_api_currency_filters() {
 
-		rstore_update_option( 'product_isc', 'promotion' );
+		rstore_update_option( 'api_currency', 'USD' );
 
 		new Settings();
 
 		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
 
-		$this->assertEquals( 'promotion', $args['isc'] );
+		$this->assertEquals( 'USD', $args['currencyType'] );
 
 	}
 
