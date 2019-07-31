@@ -143,7 +143,6 @@ final class TestClassSettings extends TestCase {
 		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
 
 		$this->assertEquals( 'promotion', $args['isc'] );
-
 	}
 
 	/**
@@ -158,7 +157,6 @@ final class TestClassSettings extends TestCase {
 		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
 
 		$this->assertEquals( 'en-US', $args['marketId'] );
-
 	}
 
 	/**
@@ -173,6 +171,53 @@ final class TestClassSettings extends TestCase {
 		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
 
 		$this->assertEquals( 'USD', $args['currencyType'] );
+	}
+
+	/**
+	 * @testdox Given a settings page the reseller store settings html should render
+	 */
+	function test_settings_output() {
+
+		rstore_update_option( 'layout_type', 'classic' );
+
+		$settings = new Settings();
+
+		$settings->settings_output();
+
+		$this->expectOutputRegex( '/<h1> Reseller Store Settings <\/h1>/' );
+	}
+
+	/**
+	 * @testdox Given a settings page the reseller store settings html should render
+	 */
+	function test_setup_options() {
+
+		$settings = new Settings();
+
+		$settings->settings_output( 'setup_options' );
+
+		$this->expectOutputRegex( '/<h2 class="title">Check for new products<\/h2>/' );
+	}
+
+	/**
+	 * @testdox Given a settings page the reseller store settings html should render
+	 */
+	function test_domain_options() {
+
+		$settings = Settings::reseller_settings( 'domain_options' );
+
+		$this->assertEquals( 'domain_title', $settings[0]['name'] );
+
+	}
+
+	/**
+	 * @testdox Given a settings page the reseller store settings html should render
+	 */
+	function test_localization_options() {
+
+		$settings = Settings::reseller_settings( 'localization_options' );
+
+		$this->assertEquals( 'api_currency', $settings[0]['name'] );
 
 	}
 

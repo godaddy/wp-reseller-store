@@ -15,8 +15,9 @@ namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
 
+	// @codeCoverageIgnoreStart
 	exit;
-
+	// @codeCoverageIgnoreEnd
 }
 
 final class Settings {
@@ -339,7 +340,7 @@ final class Settings {
 			esc_html__( 'Settings', 'reseller-store' ),
 			'manage_options',
 			'reseller-store-settings',
-			[ $this, 'edit_settings' ]
+			[ $this, 'render_settings_page' ]
 		);
 	}
 
@@ -373,23 +374,6 @@ final class Settings {
 		}
 
 		return $args;
-
-	}
-
-	/**
-	 * Edit settings
-	 *
-	 * @since  NEXT
-	 */
-	public function edit_settings() {
-
-		if ( ! rstore_is_admin_uri( self::PAGE_SLUG, false ) ) {
-
-			return;
-
-		}
-
-		$this->settings_output();
 
 	}
 
@@ -641,7 +625,7 @@ final class Settings {
 	 */
 	public function reseller_register_settings() {
 
-		$settings = self::reseller_settings( $this->get_active_tab() );
+		$settings = $this->reseller_settings( $this->get_active_tab() );
 		foreach ( $settings as $setting ) {
 			register_setting( 'reseller_settings', $setting['name'] );
 		}
@@ -651,10 +635,10 @@ final class Settings {
 	 * Admin settings ui
 	 *
 	 * @since  NEXT
+	 *
+	 * @param string $active_tab Tab name to render content for.
 	 */
-	public function settings_output() {
-
-		$active_tab = $this->get_active_tab();
+	public function settings_output( $active_tab = null ) {
 
 		$settings = self::reseller_settings( $active_tab );
 
@@ -750,6 +734,25 @@ final class Settings {
 	}
 
 	/**
+	 * Render the plugin settings page
+	 *
+	 * @since  NEXT
+	 */
+	public function render_settings_page() {
+
+		if ( ! rstore_is_admin_uri( self::PAGE_SLUG, false ) ) {
+
+			return;
+
+		}
+
+		$active_tab = $this->get_active_tab();
+
+		$this->settings_output( $active_tab );
+
+	}
+
+	/**
 	 * Call the setup install function
 	 *
 	 * @param int $pl_id  Private label id.
@@ -801,25 +804,22 @@ final class Settings {
 		$nonce = filter_input( INPUT_POST, 'nonce' );
 
 		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'rstore_settings_save' ) ) {
-			wp_send_json_error(
+			return wp_send_json_error(
 				esc_html__( 'Error: Invalid Session. Refresh the page and try again.', 'reseller-store' )
 			);
-			return;
 		}
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error(
+			return wp_send_json_error(
 				esc_html__( 'Error: Current user cannot manage options.', 'reseller-store' )
 			);
-			return;
 		}
 
 		$active_tab = filter_input( INPUT_POST, 'active_tab' );
 		if ( ! in_array( $active_tab, self::$available_tabs, true ) ) {
-			wp_send_json_error(
+			return wp_send_json_error(
 				esc_html__( 'Error: Invalid options sent to server.', 'reseller-store-settings' )
 			);
-			return;
 		}
 
 		$settings = self::reseller_settings( $active_tab );
