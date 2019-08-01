@@ -146,7 +146,7 @@ final class TestClassSettings extends TestCase {
 	}
 
 	/**
-	 * @testdox Given api_market the filters should return the market in the args
+	 * @testdox Given api_market the filters should return the marketId in the args
 	 */
 	public function test_api_market_filters() {
 
@@ -160,7 +160,7 @@ final class TestClassSettings extends TestCase {
 	}
 
 	/**
-	 * @testdox Given api_market the filters should return the isc in the args
+	 * @testdox Given api_currency the filters should return the currencyType in the args
 	 */
 	public function test_api_currency_filters() {
 
@@ -174,21 +174,38 @@ final class TestClassSettings extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a settings page the reseller store settings html should render
+	 * @testdox Given an admin URL the reseller store settings html should render
 	 */
-	function test_settings_output() {
+	function test_render_settings_not_admin_page() {
 
 		rstore_update_option( 'layout_type', 'classic' );
 
 		$settings = new Settings();
 
-		$settings->settings_output();
+		$settings->render_settings_page();
+
+		$this->expectOutputString( '' );
+	}
+
+	/**
+	 * @testdox Given a non admin URL the reseller store settings html should not render
+	 */
+	function test_render_settings_admin_page() {
+
+		set_current_screen( 'edit.php?post_type=reseller_product' );
+		$_SERVER['REQUEST_URI'] = 'edit.php?post_type=reseller_product';
+
+		rstore_update_option( 'layout_type', 'classic' );
+
+		$settings = new Settings();
+
+		$settings->render_settings_page();
 
 		$this->expectOutputRegex( '/<h1> Reseller Store Settings <\/h1>/' );
 	}
 
 	/**
-	 * @testdox Given a settings page the reseller store settings html should render
+	 * @testdox Given setup_options tab the setup options html should render
 	 */
 	function test_setup_options() {
 
@@ -200,7 +217,7 @@ final class TestClassSettings extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a settings page the reseller store settings html should render
+	 * @testdox Given domain tab the domain options html should render
 	 */
 	function test_domain_options() {
 
@@ -211,7 +228,7 @@ final class TestClassSettings extends TestCase {
 	}
 
 	/**
-	 * @testdox Given a settings page the reseller store settings html should render
+	 * @testdox Given localization tab the localization options html should render
 	 */
 	function test_localization_options() {
 

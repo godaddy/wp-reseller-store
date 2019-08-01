@@ -78,6 +78,7 @@ final class Plugin {
 		new Post_Type;
 		new Taxonomy_Category;
 		new Taxonomy_Tag;
+		new Settings;
 
 		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
@@ -97,8 +98,6 @@ final class Plugin {
 		new Shortcodes;
 		new Blocks;
 		new Bulk_Restore;
-		new Settings;
-
 	}
 
 }

@@ -13,7 +13,6 @@ final class TestSetup extends TestCase {
 	public function test_basics() {
 
 		$this->assertTrue( class_exists( __NAMESPACE__ . '\Setup' ) );
-
 	}
 
 	/**
@@ -36,7 +35,37 @@ final class TestSetup extends TestCase {
 		do_action( 'admin_enqueue_scripts' );
 
 		$this->assertTrue( wp_script_is( 'rstore-admin-permalinks' ), 'done' );
+	}
 
+	/**
+	 * @testdox Given setup content the header should render
+	 */
+	public function test_content_render() {
+
+		$setup = new Setup();
+
+		$setup->content();
+
+		$this->expectOutputRegex( '/<h2>Let&#039;s setup your Reseller Store.<\/h2>/' );
+	}
+
+	/**
+	 * @testdox Given pl_id it should install
+	 */
+	public function test_setup_install() {
+
+		$user_id = $this->factory->user->create(
+			array(
+				'role' => 'administrator',
+			)
+		);
+		wp_set_current_user( $user_id );
+
+		Setup::install( 100 );
+
+		$pl_id = rstore_get_option( 'pl_id' );
+
+		$this->assertEquals( 100, $pl_id );
 	}
 
 }

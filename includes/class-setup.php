@@ -290,7 +290,7 @@ final class Setup {
 	public static function install( $pl_id = 0 ) {
 
 		if (
-			! current_user_can( 'install_plugins' )
+			! current_user_can( 'manage_options' )
 			&&
 			( ! defined( 'WP_CLI' ) || ! WP_CLI )
 		) {
@@ -313,14 +313,7 @@ final class Setup {
 
 			}
 
-			$pl_id           = filter_input( INPUT_POST, 'pl_id', FILTER_SANITIZE_NUMBER_INT );
-			$skip_activation = filter_input( INPUT_POST, 'skip_activation', FILTER_SANITIZE_STRING );
-
-			if ( $skip_activation ) {
-
-				$pl_id = 1592;
-
-			}
+			$pl_id = filter_input( INPUT_POST, 'pl_id', FILTER_SANITIZE_NUMBER_INT );
 
 		}
 
@@ -336,6 +329,45 @@ final class Setup {
 		}
 
 		rstore_update_option( 'pl_id', $pl_id );
+
+		self::import();
+	}
+
+	/**
+	 * Perform the plugin product import.
+	 *
+	 * @action wp_ajax_rstore_import
+	 * @global wpdb $wpdb
+	 * @since  NEXT
+	 *
+	 * @return true|\WP_Error|void
+	 */
+	public static function import( ) {
+
+		if (
+			! current_user_can( 'publish_posts' )
+			&&
+			( ! defined( 'WP_CLI' ) || ! WP_CLI )
+		) {
+
+			return self::install_error(
+				'invalid_permissions',
+				esc_html__( 'Sorry, you are not allowed to install plugins on this site.', 'reseller-store' ) // Use core translation
+			);
+
+		}
+
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+
+			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::$install_nonce ) ) {
+
+				return self::install_error(
+					'invalid_nonce',
+					esc_html__( 'Sorry, you are not allowed to do that.', 'reseller-store' ) // Use core translation
+				);
+
+			}
+		}
 
 		$products = rstore_get_products( true );
 
@@ -364,7 +396,7 @@ final class Setup {
 
 			if ( is_wp_error( $result ) ) {
 
-                return self::install_error( $result );
+				return self::install_error( $result );
 
 			}
 
@@ -374,7 +406,7 @@ final class Setup {
 
 		if ( ! rstore_has_products() ) {
 
-            return self::install_error(
+			return self::install_error(
 				'products_import_failure',
 				esc_html__( 'Product data could not be imported, please try again later.', 'reseller-store' )
 			);

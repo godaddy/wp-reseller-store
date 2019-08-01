@@ -133,4 +133,46 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 
 	}
 
+	/**
+	 * @testdox Given import ajax event product data should import
+	 */
+	public function test_import_click_author() {
+
+		rstore_update_option( 'pl_id', 1592 );
+
+		$user_id = $this->factory->user->create(
+			array(
+				'role' => 'author',
+			)
+		);
+		wp_set_current_user( $user_id );
+
+		$_POST['nonce'] = wp_create_nonce( 'rstore_settings_install' );
+
+		$this->callAjax( 'rstore_settings_import' );
+
+		$this->assertTrue( rstore_has_products() );
+
+	}
+
+	/**
+	 * @testdox Given import ajax event product data should import
+	 */
+	public function test_import_click_subscriber() {
+
+		$user_id = $this->factory->user->create(
+			array(
+				'role' => 'subscriber',
+			)
+		);
+		wp_set_current_user( $user_id );
+
+		$_POST['nonce'] = wp_create_nonce( 'rstore_settings_install' );
+
+		$this->callAjax( 'rstore_settings_import' );
+
+		$this->assertFalse( rstore_has_products() );
+
+	}
+
 }

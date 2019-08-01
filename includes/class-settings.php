@@ -749,24 +749,6 @@ final class Settings {
 		$active_tab = $this->get_active_tab();
 
 		$this->settings_output( $active_tab );
-
-	}
-
-	/**
-	 * Call the setup install function
-	 *
-	 * @param int $pl_id  Private label id.
-	 *
-	 * @since NEXT
-	 */
-	public static function import( $pl_id = 0 ) {
-
-		if ( class_exists( '\Reseller_Store\Setup' ) ) {
-
-			$setup = new \Reseller_Store\Setup();
-
-			$setup->install( $pl_id );
-		}
 	}
 
 	/**
@@ -782,14 +764,12 @@ final class Settings {
 			<div class="wrap">
 				<form id='rstore-settings-import'>
 					<input type="hidden" name="action" value="rstore_settings_import">
-					<input type="hidden" name="nonce" value="<?php echo esc_attr( wp_create_nonce( null ) ); ?>">
-					<input type="hidden" name="pl_id" value="<?php echo esc_attr( rstore_get_option( 'pl_id' ) ); ?>">
+					<input type="hidden" name="nonce" value="<?php echo esc_attr( rstore_prefix( 'install-' . get_current_user_id() ) ); ?>">
 					<button type="submit" class="button link" ><?php esc_html_e( 'Import new products', 'reseller-store' ); ?></button>
 				</form>
 			</div>
 		</div>
 		<?php
-
 	}
 
 	/**
@@ -854,5 +834,17 @@ final class Settings {
 		rstore_delete_option( 'next_sync' ); // force a rsync update.
 
 		wp_send_json_success();
+	}
+
+	/**
+	 * Call the setup import function
+	 *
+	 * @since NEXT
+	 */
+	public static function import() {
+		if ( class_exists( '\Reseller_Store\Setup' ) ) {
+
+			\Reseller_Store\Setup::import();
+		}
 	}
 }
