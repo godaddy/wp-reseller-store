@@ -84,7 +84,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $available_tabs = [ 'product_options', 'domain_options', 'localization_options', 'setup_options' ];  // @codingStandardsIgnoreLine
+	static $available_tabs = [ 'setup_options', 'product_options', 'domain_options', 'localization_options' ];  // @codingStandardsIgnoreLine
 
 	/**
 	 * Class constructor.
@@ -324,6 +324,20 @@ final class Settings {
 
 		wp_enqueue_script( 'reseller-store-settings-js', Plugin::assets_url( "js/admin-settings{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
+		$args = [
+			'privateLabelId' => rstore_get_option( 'pl_id' ),
+			'fields'         => 'domain%2C%20displayName%2C%20homeUrl',
+
+		];
+
+		$data = [
+			'urls' => [
+				'api' => esc_url_raw( rstore()->api->url( 'api', 'settings', $args ) ),
+			],
+		];
+
+		wp_localize_script( 'reseller-store-settings-js', 'rstore', $data );
+
 	}
 
 	/**
@@ -470,34 +484,6 @@ final class Settings {
 
 				break;
 
-			case 'setup_options':
-				$settings[] = array(
-					'name'        => 'pl_id',
-					'label'       => esc_html__( 'Private Label Id', 'reseller-store' ),
-					'type'        => 'label',
-					'description' => esc_html__( 'The private label identifies your storefront. Re-activate plugin to change this value.', 'reseller-store' ),
-				);
-
-				$settings[] = array(
-					'name'  => 'last_sync',
-					'label' => esc_html__( 'Last API Sync', 'reseller-store' ),
-					'type'  => 'time',
-				);
-				$settings[] = array(
-					'name'  => 'next_sync',
-					'label' => esc_html__( 'Next API Sync', 'reseller-store' ),
-					'type'  => 'time',
-				);
-
-				$settings[] = array(
-					'name'        => 'sync_ttl',
-					'label'       => esc_html__( 'API Sync TTL (seconds)', 'reseller-store' ),
-					'type'        => 'number',
-					'description' => esc_html__( 'Reseller store will check the api for changes periodically. The default is 15 minutes (900 seconds).', 'reseller-store' ),
-				);
-
-				break;
-
 			case 'localization_options':
 				$settings[] = array(
 					'name'        => 'api_currency',
@@ -516,7 +502,7 @@ final class Settings {
 
 				break;
 
-			default:
+			case 'product_options':
 				$settings[] = array(
 					'name'        => 'product_layout_type',
 					'label'       => esc_html__( 'Layout type', 'reseller-store' ),
@@ -613,6 +599,34 @@ final class Settings {
 				);
 
 				break;
+
+			default:
+				$settings[] = array(
+					'name'        => 'pl_id',
+					'label'       => esc_html__( 'Reseller Id', 'reseller-store' ),
+					'type'        => 'label',
+					'description' => esc_html__( 'The reseller id identifies your storefront. Re-activate plugin to change this value.', 'reseller-store' ),
+				);
+
+				$settings[] = array(
+					'name'  => 'last_sync',
+					'label' => esc_html__( 'Last API Sync', 'reseller-store' ),
+					'type'  => 'time',
+				);
+				$settings[] = array(
+					'name'  => 'next_sync',
+					'label' => esc_html__( 'Next API Sync', 'reseller-store' ),
+					'type'  => 'time',
+				);
+
+				$settings[] = array(
+					'name'        => 'sync_ttl',
+					'label'       => esc_html__( 'API Sync TTL (seconds)', 'reseller-store' ),
+					'type'        => 'number',
+					'description' => esc_html__( 'Reseller store will check the api for changes periodically. The default is 15 minutes (900 seconds).', 'reseller-store' ),
+				);
+
+				break;
 		}
 
 		return $settings;
@@ -648,15 +662,16 @@ final class Settings {
 			<h1> <?php esc_html_e( 'Reseller Store Settings', 'reseller-store' ); ?> </h1>
 
 			<h2 class="nav-tab-wrapper">
-				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=product_options" class="nav-tab <?php echo 'product_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Product', 'reseller-store' ); ?></a>
-				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=domain_options" class="nav-tab <?php echo 'domain_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Domain', 'reseller-store' ); ?></a>
-				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=localization_options" class="nav-tab <?php echo 'localization_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Localization', 'reseller-store' ); ?></a>
 				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=setup_options" class="nav-tab <?php echo 'setup_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Setup', 'reseller-store' ); ?></a>
+				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=product_options" class="nav-tab <?php echo 'product_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Product Settings', 'reseller-store' ); ?></a>
+				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=domain_options" class="nav-tab <?php echo 'domain_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Domain Search Settings', 'reseller-store' ); ?></a>
+				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=localization_options" class="nav-tab <?php echo 'localization_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Localization', 'reseller-store' ); ?></a>
 			</h2>
 
 			<?php
 			if ( 'setup_options' === $active_tab ) {
 				$this->import_button();
+				$this->branding_info_block();
 			}
 			?>
 
@@ -769,6 +784,32 @@ final class Settings {
 				</form>
 			</div>
 		</div>
+		<?php
+	}
+
+	/**
+	 * Generate branding info block
+	 *
+	 * @since  NEXT
+	 */
+	public function branding_info_block() {
+		?>
+		<table class="form-table">
+			<tbody>
+			<tr>
+				<th><label for="displayName"><?php esc_html_e( 'Display Name', 'reseller-store' ); ?></label></th>
+				<td><label id="displayName" ></label><p class="description" id="tagline-description"><?php esc_html_e( 'Display name set in the Reseller Control Center', 'reseller-store' ); ?></p></td>
+			</tr>
+			<tr>
+				<th><label for="homeUrl"><?php esc_html_e( 'Home Url', 'reseller-store' ); ?></label></th>
+				<td><label id="homeUrl" ></label><p class="description" id="tagline-description"><?php esc_html_e( 'The home url is set in the Reseller Control Center should be set as your WordPress site.', 'reseller-store' ); ?></p></td>
+			</tr>
+			<tr>
+				<th><label for="customDomain"><?php esc_html_e( 'Storefront Domain', 'reseller-store' ); ?></label></th>
+				<td><label id="customDomain" ></label><p class="description" id="tagline-description"><?php esc_html_e( 'The custom domain is set in the Reseller Control Center and identifies the standard storefront and checkout pages. Set as a sub-domain of your WordPress site (e.g. shop).', 'reseller-store' ); ?></p></td>
+			</tr>
+			</tbody>
+		</table>
 		<?php
 	}
 

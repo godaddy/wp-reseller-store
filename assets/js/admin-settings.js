@@ -1,4 +1,4 @@
-/* global ajaxurl, jQuery */
+/* global ajaxurl, rstore, jQuery */
 
 ( function( $ ) {
 	'use strict';
@@ -42,6 +42,15 @@
 	};
 
 	$( document ).ready( function() {
+		$.ajax( 		 {
+			type: 'GET',
+			url: rstore.urls.api,
+		} ).done( function( response ) {
+			$( '#displayName' ).text( response.displayName );
+			$( '#homeUrl' ).text( response.homeUrl );
+			$( '#customDomain' ).text( response.domain );
+		} );
+
 		$( '#rstore-settings-form' ).on( 'submit', save );
 		$( '#rstore-settings-import' ).on( 'submit', importProduct );
 	} );
