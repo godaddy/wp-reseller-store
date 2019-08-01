@@ -96,8 +96,8 @@ final class Settings {
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 		add_action( 'admin_init', [ $this, 'reseller_register_settings' ] );
 		add_action( 'admin_menu', [ $this, 'register' ] );
-		add_action( 'wp_ajax_rstore_settings_save', [ __CLASS__, 'save' ] );
-		add_action( 'wp_ajax_rstore_settings_import', [ __CLASS__, 'import' ] );
+		add_action( 'wp_ajax_rstore_options_save', [ __CLASS__, 'save' ] );
+		add_action( 'wp_ajax_rstore_product_import', [ __CLASS__, 'import' ] );
 
 		$product_layout_type = rstore_get_option( 'product_layout_type' );
 		if ( ! empty( $product_layout_type ) ) {
@@ -353,7 +353,7 @@ final class Settings {
 			esc_html__( 'Reseller Store Settings', 'reseller-store' ),
 			esc_html__( 'Settings', 'reseller-store' ),
 			'manage_options',
-			'reseller-store-settings',
+			rstore_prefix( 'settings' ),
 			[ $this, 'render_settings_page' ]
 		);
 	}
@@ -662,10 +662,10 @@ final class Settings {
 			<h1> <?php esc_html_e( 'Reseller Store Settings', 'reseller-store' ); ?> </h1>
 
 			<h2 class="nav-tab-wrapper">
-				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=setup_options" class="nav-tab <?php echo 'setup_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Setup', 'reseller-store' ); ?></a>
-				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=product_options" class="nav-tab <?php echo 'product_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Product Settings', 'reseller-store' ); ?></a>
-				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=domain_options" class="nav-tab <?php echo 'domain_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Domain Search Settings', 'reseller-store' ); ?></a>
-				<a href="?post_type=reseller_product&page=reseller-store-settings&tab=localization_options" class="nav-tab <?php echo 'localization_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Localization', 'reseller-store' ); ?></a>
+				<a href="?post_type=reseller_product&page=rstore_settings&tab=setup_options" class="nav-tab <?php echo 'setup_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Setup', 'reseller-store' ); ?></a>
+				<a href="?post_type=reseller_product&page=rstore_settings&tab=product_options" class="nav-tab <?php echo 'product_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Product Settings', 'reseller-store' ); ?></a>
+				<a href="?post_type=reseller_product&page=rstore_settings&tab=domain_options" class="nav-tab <?php echo 'domain_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Domain Search Settings', 'reseller-store' ); ?></a>
+				<a href="?post_type=reseller_product&page=rstore_settings&tab=localization_options" class="nav-tab <?php echo 'localization_options' === $active_tab ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Localization', 'reseller-store' ); ?></a>
 			</h2>
 
 			<?php
@@ -675,13 +675,13 @@ final class Settings {
 			}
 			?>
 
-			<form id="rstore-settings-form" >
+			<form id="rstore-options-form" >
 				<input type="hidden" name="active_tab" value="<?php echo esc_attr( $active_tab ); ?>" >
 				<table class="form-table">
 					<tbody>
 
 					<?php
-					wp_nonce_field( 'rstore_settings_save', 'nonce' );
+					wp_nonce_field( 'rstore_options_save', 'nonce' );
 
 					settings_fields( 'reseller_settings' );
 
@@ -777,10 +777,12 @@ final class Settings {
 			<h2 class="title"><?php esc_html_e( 'Check for new products', 'reseller-store' ); ?></h2>
 			<p><?php esc_html_e( 'Check API for new products. Note: This is will not update the content for any of your existing products that have been imported.', 'reseller-store' ); ?></p>
 			<div class="wrap">
-				<form id='rstore-settings-import'>
-					<input type="hidden" name="action" value="rstore_settings_import">
-					<input type="hidden" name="nonce" value="<?php echo esc_attr( rstore_prefix( 'install-' . get_current_user_id() ) ); ?>">
+				<form id='rstore-product-import'>
+					<input type="hidden" name="action" value="rstore_product_import">
+					<input type="hidden" name="nonce" value="<?php echo esc_attr( wp_create_nonce( \Reseller_Store\Setup::install_nonce() ) ); ?>">
 					<button type="submit" class="button link" ><?php esc_html_e( 'Import new products', 'reseller-store' ); ?></button>
+					<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
+					<label id="rstore-product-import-error"></label>
 				</form>
 			</div>
 		</div>
@@ -794,7 +796,7 @@ final class Settings {
 	 */
 	public function branding_info_block() {
 		?>
-		<table class="form-table">
+		<table id="rstore-branding-info" class="form-table">
 			<tbody>
 			<tr>
 				<th><label for="displayName"><?php esc_html_e( 'Display Name', 'reseller-store' ); ?></label></th>
@@ -816,7 +818,7 @@ final class Settings {
 	/**
 	 * Save Reseller Store Settings
 	 *
-	 * @action wp_ajax_rstore_settings_save
+	 * @action wp_ajax_rstore_options_save
 	 * @global wpdb $wpdb
 	 * @since  NEXT
 	 */
@@ -824,7 +826,7 @@ final class Settings {
 
 		$nonce = filter_input( INPUT_POST, 'nonce' );
 
-		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'rstore_settings_save' ) ) {
+		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'rstore_options_save' ) ) {
 			return wp_send_json_error(
 				esc_html__( 'Error: Invalid Session. Refresh the page and try again.', 'reseller-store' )
 			);
@@ -839,7 +841,7 @@ final class Settings {
 		$active_tab = filter_input( INPUT_POST, 'active_tab' );
 		if ( ! in_array( $active_tab, self::$available_tabs, true ) ) {
 			return wp_send_json_error(
-				esc_html__( 'Error: Invalid options sent to server.', 'reseller-store-settings' )
+				esc_html__( 'Error: Invalid options sent to server.', 'reseller-store' )
 			);
 		}
 

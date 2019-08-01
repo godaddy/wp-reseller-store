@@ -58,7 +58,7 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		$_POST['nonce']      = 'bad nonce';
 		$_POST['active_tab'] = 'product_options';
 
-		$result = $this->callAjax( 'rstore_settings_save' );
+		$result = $this->callAjax( 'rstore_options_save' );
 
 		$this->assertEquals( 'error', $result );
 
@@ -78,10 +78,10 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce']      = wp_create_nonce( 'rstore_settings_save' );
+		$_POST['nonce']      = wp_create_nonce( 'rstore_options_save' );
 		$_POST['active_tab'] = 'product_options';
 
-		$result = $this->callAjax( 'rstore_settings_save' );
+		$result = $this->callAjax( 'rstore_options_save' );
 
 		$this->assertEquals( 'error', $result );
 
@@ -101,10 +101,10 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce']      = wp_create_nonce( 'rstore_settings_save' );
+		$_POST['nonce']      = wp_create_nonce( 'rstore_options_save' );
 		$_POST['active_tab'] = 'invalid';
 
-		$result = $this->callAjax( 'rstore_settings_save' );
+		$result = $this->callAjax( 'rstore_options_save' );
 
 		$this->assertEquals( 'success', $result );
 
@@ -124,10 +124,10 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce']      = wp_create_nonce( 'rstore_settings_save' );
+		$_POST['nonce']      = wp_create_nonce( 'rstore_options_save' );
 		$_POST['active_tab'] = 'product_options';
 
-		$result = $this->callAjax( 'rstore_settings_save' );
+		$result = $this->callAjax( 'rstore_options_save' );
 
 		$this->assertEquals( 'success', $result );
 
@@ -147,9 +147,9 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce'] = wp_create_nonce( 'rstore_settings_install' );
+		$_POST['nonce'] = wp_create_nonce( \Reseller_Store\Setup::install_nonce() );
 
-		$this->callAjax( 'rstore_settings_import' );
+		$this->callAjax( 'rstore_product_import' );
 
 		$this->assertTrue( rstore_has_products() );
 
@@ -167,9 +167,9 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce'] = wp_create_nonce( 'rstore_settings_install' );
+		$_POST['nonce'] = wp_create_nonce( \Reseller_Store\Setup::install_nonce() );
 
-		$this->callAjax( 'rstore_settings_import' );
+		$this->callAjax( 'rstore_product_import' );
 
 		$this->assertFalse( rstore_has_products() );
 

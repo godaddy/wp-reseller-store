@@ -43,15 +43,6 @@ final class Setup {
 	const PAGE_SLUG = 'edit.php?post_type=reseller_product';
 
 	/**
-	 * Install nonce action name.
-	 *
-	 * @since 0.2.0
-	 *
-	 * @var string
-	 */
-	private static $install_nonce;
-
-	/**
 	 * Site for the reseller control center
 	 *
 	 * @since 1.0.0
@@ -77,19 +68,19 @@ final class Setup {
 		 */
 		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
 
-		add_action(
-			'init',
-			function () {
-
-				self::$install_nonce = rstore_prefix( 'install-' . get_current_user_id() );
-
-			}
-		);
-
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 		add_action( 'admin_menu', [ $this, 'page' ], PHP_INT_MAX - 1997 );
 		add_action( 'wp_ajax_rstore_install', [ __CLASS__, 'install' ] );
 
+	}
+
+	/**
+	 * Install nonce action name.
+	 *
+	 * @return string
+	 */
+	public static function install_nonce() {
+		return rstore_prefix( 'install-' . get_current_user_id() );
 	}
 
 	/**
@@ -110,10 +101,12 @@ final class Setup {
 
 		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
 
+		$install_nonce = self::install_nonce();
+
 		/**
 		 * @todo Work on this logic
 		 */
-		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce', FILTER_SANITIZE_STRING ), self::$install_nonce );
+		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce', FILTER_SANITIZE_STRING ), $install_nonce );
 		$plid  = filter_input( INPUT_GET, 'rstore_plid', FILTER_SANITIZE_STRING );
 		$error = '';
 
@@ -125,7 +118,7 @@ final class Setup {
 
 		// @codingStandardsIgnoreStart
 		wp_localize_script( 'rstore-admin-setup', 'rstore_admin_setup', [
-			'install_nonce' => wp_create_nonce( self::$install_nonce ),
+			'install_nonce' => wp_create_nonce( $install_nonce ),
 			'install_site' => get_site_url(),
 			'install_admin_url' => admin_url('admin.php'),
 			'rcc_site' => $this->rcc_site,
@@ -304,7 +297,7 @@ final class Setup {
 
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
-			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::$install_nonce ) ) {
+			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::install_nonce() ) ) {
 
 				return self::install_error(
 					'invalid_nonce',
@@ -359,7 +352,7 @@ final class Setup {
 
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
-			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::$install_nonce ) ) {
+			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::install_nonce() ) ) {
 
 				return self::install_error(
 					'invalid_nonce',
