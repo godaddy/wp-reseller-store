@@ -676,9 +676,9 @@ final class Settings {
 			?>
 
 			<form id="rstore-options-form" >
-                <input type="hidden" name="action" value="rstore_options_save" />
 				<?php
 				echo '<input type="hidden" name="option_page" value="' . esc_attr( $active_tab ) . '" />';
+				echo '<input type="hidden" name="action" value="rstore_options_save" />';
 				wp_nonce_field( "$active_tab-options" );
 				?>
 				<table class="form-table">
