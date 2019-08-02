@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2019-08-01 23:33:11+00:00\n"
+"POT-Creation-Date: 2019-08-02 05:22:09+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -572,7 +572,7 @@ msgstr "डोमेन खोज"
 msgid "Localization"
 msgstr ""
 
-#: includes/class-settings.php:741
+#: includes/class-settings.php:740
 msgid "Save Changes"
 msgstr ""
 
@@ -628,7 +628,7 @@ msgstr ""
 msgid "Error: Current user cannot manage options."
 msgstr ""
 
-#: includes/class-settings.php:844
+#: includes/class-settings.php:843
 msgid "Error: Invalid options sent to server."
 msgstr ""
 

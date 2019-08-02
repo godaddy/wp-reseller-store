@@ -55,8 +55,8 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce']      = 'bad nonce';
-		$_POST['active_tab'] = 'product_options';
+		$_POST['_wpnonce']    = 'bad nonce';
+		$_POST['option_page'] = 'product_options';
 
 		$result = $this->callAjax( 'rstore_options_save' );
 
@@ -78,8 +78,8 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce']      = wp_create_nonce( 'rstore_options_save' );
-		$_POST['active_tab'] = 'product_options';
+		$_POST['_wpnonce']    = wp_create_nonce( 'product_options-options' );
+		$_POST['option_page'] = 'product_options';
 
 		$result = $this->callAjax( 'rstore_options_save' );
 
@@ -101,8 +101,8 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce']      = wp_create_nonce( 'rstore_options_save' );
-		$_POST['active_tab'] = 'invalid';
+		$_POST['_wpnonce']    = wp_create_nonce( 'invalid-options' );
+		$_POST['option_page'] = 'invalid';
 
 		$result = $this->callAjax( 'rstore_options_save' );
 
@@ -124,8 +124,8 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		);
 		wp_set_current_user( $user_id );
 
-		$_POST['nonce']      = wp_create_nonce( 'rstore_options_save' );
-		$_POST['active_tab'] = 'product_options';
+		$_POST['_wpnonce']    = wp_create_nonce( 'product_options-options' );
+		$_POST['option_page'] = 'product_options';
 
 		$result = $this->callAjax( 'rstore_options_save' );
 

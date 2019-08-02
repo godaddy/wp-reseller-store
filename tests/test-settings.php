@@ -217,6 +217,18 @@ final class TestClassSettings extends TestCase {
 	}
 
 	/**
+	 * @testdox Given product_options tab the product options html should render
+	 */
+	function test_product_options() {
+
+		$settings = new Settings();
+
+		$settings->settings_output( 'product_options' );
+
+		$this->expectOutputRegex( '/<a href="\?post_type=reseller_product&page=rstore_settings&tab=product_options" class="nav-tab nav-tab-active">Product Settings<\/a>/' );
+	}
+
+	/**
 	 * @testdox Given domain tab the domain options html should render
 	 */
 	function test_domain_options() {
