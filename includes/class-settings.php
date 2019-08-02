@@ -676,69 +676,69 @@ final class Settings {
 			?>
 
 			<form id="rstore-options-form" >
-				<input type="hidden" name="active_tab" value="<?php echo esc_attr( $active_tab ); ?>" >
+                <input type="hidden" name="action" value="rstore_options_save" />
+				<?php
+				echo '<input type="hidden" name="option_page" value="' . esc_attr( $active_tab ) . '" />';
+				wp_nonce_field( "$active_tab-options" );
+				?>
 				<table class="form-table">
 					<tbody>
-
-					<?php
-					wp_nonce_field( 'rstore_options_save', 'nonce' );
-
-					settings_fields( 'reseller_settings' );
-
-					foreach ( $settings as $setting ) {
-						switch ( $setting['type'] ) {
-							case 'label':
-								echo '<tr>';
-								echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
-								echo '<td><label id="' . esc_attr( $setting['name'] ) . '" >' . esc_attr( rstore_get_option( $setting['name'] ) ) . '</label>';
-								break;
-							case 'text':
-								echo '<tr>';
-								echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
-								echo '<td><input type="text" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_html( $setting['name'] ) . '" value="' . esc_attr( rstore_get_option( $setting['name'] ) ) . '" placeholder="' . esc_attr( $setting['placeholder'] ) . '" class="regular-text rstore-setting-text">';
-								break;
-							case 'number':
-								echo '<tr>';
-								echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
-								echo '<td><input type="number" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" value="' . esc_attr( rstore_get_option( $setting['name'] ) ) . '" class="regular-text">';
-								break;
-							case 'time':
-								$sync_time = get_date_from_gmt( date( 'Y-m-d H:i:s', rstore_get_option( $setting['name'] ) ), get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) );
-								echo '<tr>';
-								echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
-								echo '<td><label id="' . esc_attr( $setting['name'] ) . '" >' . esc_html( $sync_time ) . '</label>';
-								break;
-							case 'checkbox':
-								$name    = rstore_get_option( $setting['name'] );
-								$checked = $setting['checked'] ? empty( $name ) : ! empty( $name );
-								echo '<tr>';
-								echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
-								echo '<td><input type="checkbox" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" value="1" ' . checked( $checked, true, false ) . '  />';
-								break;
-							case 'select':
-								echo '<tr>';
-								echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
-								echo '<td><select title="' . esc_attr( $setting['label'] ) . '" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" >';
-								foreach ( $setting['list'] as $item ) {
-									if ( rstore_get_option( $setting['name'] ) === $item ) {
-										echo '<option selected="selected" value="' . esc_attr( $item ) . '">' . esc_html( $item ) . '</option>';
-									} else {
-										echo '<option value="' . esc_attr( $item ) . '">' . esc_html( $item ) . '</option>';
-									}
+				<?php
+				foreach ( $settings as $setting ) {
+					switch ( $setting['type'] ) {
+						case 'label':
+							echo '<tr>';
+							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
+							echo '<td><label id="' . esc_attr( $setting['name'] ) . '" >' . esc_attr( rstore_get_option( $setting['name'] ) ) . '</label>';
+							break;
+						case 'text':
+							echo '<tr>';
+							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
+							echo '<td><input type="text" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_html( $setting['name'] ) . '" value="' . esc_attr( rstore_get_option( $setting['name'] ) ) . '" placeholder="' . esc_attr( $setting['placeholder'] ) . '" class="regular-text rstore-setting-text">';
+							break;
+						case 'number':
+							echo '<tr>';
+							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
+							echo '<td><input type="number" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" value="' . esc_attr( rstore_get_option( $setting['name'] ) ) . '" class="regular-text">';
+							break;
+						case 'time':
+							$sync_time = get_date_from_gmt( date( 'Y-m-d H:i:s', rstore_get_option( $setting['name'] ) ), get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) );
+							echo '<tr>';
+							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
+							echo '<td><label id="' . esc_attr( $setting['name'] ) . '" >' . esc_html( $sync_time ) . '</label>';
+							break;
+						case 'checkbox':
+							$name    = rstore_get_option( $setting['name'] );
+							$checked = $setting['checked'] ? empty( $name ) : ! empty( $name );
+							echo '<tr>';
+							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
+							echo '<td><input type="checkbox" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" value="1" ' . checked( $checked, true, false ) . '  />';
+							break;
+						case 'select':
+							echo '<tr>';
+							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
+							echo '<td><select title="' . esc_attr( $setting['label'] ) . '" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" >';
+							foreach ( $setting['list'] as $item ) {
+								if ( rstore_get_option( $setting['name'] ) === $item ) {
+									echo '<option selected="selected" value="' . esc_attr( $item ) . '">' . esc_html( $item ) . '</option>';
+								} else {
+									echo '<option value="' . esc_attr( $item ) . '">' . esc_html( $item ) . '</option>';
 								}
-								echo '</select>';
-								break;
-						}
-						if ( array_key_exists( 'description', $setting ) ) {
-							echo '<p class="description" id="tagline-description">' . esc_html( $setting['description'] ) . '</p></td>';
-						}
-						echo '</td></tr>';
+							}
+							echo '</select>';
+							break;
 					}
-					?>
+					if ( array_key_exists( 'description', $setting ) ) {
+						echo '<p class="description" id="tagline-description">' . esc_html( $setting['description'] ) . '</p></td>';
+					}
+					echo '</td></tr>';
+				}
+				?>
 					</tbody>
 				</table>
 				<p class="submit">
 					<button type="submit" class="button button-primary"><?php esc_html_e( 'Save Changes', 'reseller-store' ); ?></button>
+					<label id="rstore-options-save-error"></label>
 					<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
 				</p>
 			</form>
@@ -824,9 +824,10 @@ final class Settings {
 	 */
 	public static function save() {
 
-		$nonce = filter_input( INPUT_POST, 'nonce' );
+		$nonce      = filter_input( INPUT_POST, '_wpnonce' );
+		$active_tab = filter_input( INPUT_POST, 'option_page' );
 
-		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'rstore_options_save' ) ) {
+		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, "$active_tab-options" ) ) {
 			return wp_send_json_error(
 				esc_html__( 'Error: Invalid Session. Refresh the page and try again.', 'reseller-store' )
 			);
@@ -838,7 +839,6 @@ final class Settings {
 			);
 		}
 
-		$active_tab = filter_input( INPUT_POST, 'active_tab' );
 		if ( ! in_array( $active_tab, self::$available_tabs, true ) ) {
 			return wp_send_json_error(
 				esc_html__( 'Error: Invalid options sent to server.', 'reseller-store' )

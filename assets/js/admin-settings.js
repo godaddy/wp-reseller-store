@@ -10,8 +10,6 @@
 
 		e.preventDefault();
 
-		$this.find( "[name='action']" ).val( 'rstore_options_save' );
-
 		submit.prop( 'disabled', true );
 		spinner.css( 'visibility', 'visible' );
 
@@ -21,9 +19,7 @@
 			if ( response.success ) {
 				return false;
 			}
-
-			// eslint-disable-next-line no-alert
-			window.alert( response.data );
+			$( '#rstore-options-save-error' ).text( response.data );
 		} );
 	};
 
@@ -38,9 +34,9 @@
 		spinner.css( 'visibility', 'visible' );
 
 		$.post( ajaxurl, $this.serialize(), function( response ) {
+			spinner.css( 'visibility', 'hidden' );
 			if ( response.success ) {
 				window.location.replace( response.data.redirect );
-
 				return false;
 			}
 			$( '#rstore-product-import-error' ).text( response.data );
