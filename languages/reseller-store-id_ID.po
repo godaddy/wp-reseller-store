@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2019-03-27 18:23:33+00:00\n"
+"POT-Creation-Date: 2019-08-02 05:22:09+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,8 @@ msgid_plural "Finished restoring products. %s products updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-admin-notices.php:132 includes/class-setup.php:311
+#: includes/class-admin-notices.php:132 includes/class-setup.php:304
+#: includes/class-setup.php:359
 msgid "Sorry, you are not allowed to do that."
 msgstr "Maaf, Anda tidak diizinkan untuk melakukannya."
 
@@ -102,7 +103,7 @@ msgstr "Jumlah Default"
 msgid "Add to Cart Button Label"
 msgstr "Label Tombol Tambahkan ke Keranjang"
 
-#: includes/class-butterbean.php:286
+#: includes/class-butterbean.php:286 includes/class-settings.php:550
 #: includes/functions/template-functions.php:121
 #: includes/modules/rstore-fl-product.php:85
 #: includes/modules/rstore-vc-product.php:84
@@ -110,11 +111,12 @@ msgstr "Label Tombol Tambahkan ke Keranjang"
 msgid "Add to cart"
 msgstr "Masukkan ke keranjang"
 
-#: includes/class-butterbean.php:315 includes/widgets/class-product.php:242
+#: includes/class-butterbean.php:315 includes/class-settings.php:564
+#: includes/widgets/class-product.php:242
 msgid "Cart link text"
 msgstr ""
 
-#: includes/class-butterbean.php:317
+#: includes/class-butterbean.php:317 includes/class-settings.php:566
 #: includes/functions/template-functions.php:149
 #: includes/modules/rstore-fl-domain-search.php:100
 #: includes/modules/rstore-fl-product.php:151
@@ -276,60 +278,410 @@ msgstr "Belum ada produk yang ditambahkan."
 msgid "Import All Products"
 msgstr "Impor Semua Produk"
 
-#: includes/class-setup.php:122
-msgid "Invalid nonce token.  Please try again."
-msgstr ""
-
-#: includes/class-setup.php:149
-msgid "Reseller Store Setup"
+#: includes/class-settings.php:353 includes/class-settings.php:662
+#, fuzzy
+msgid "Reseller Store Settings"
 msgstr "Penyiapan Toko Reseller"
 
-#: includes/class-setup.php:150
+#: includes/class-settings.php:354
+msgid "Settings"
+msgstr ""
+
+#: includes/class-settings.php:426
+#, fuzzy
+msgid "Domain title"
+msgstr "Pencarian Domain"
+
+#: includes/class-settings.php:429 includes/class-settings.php:482
+msgid "Override the title text. Empty field means no override set."
+msgstr ""
+
+#: includes/class-settings.php:434
+msgid "Registration placeholder text"
+msgstr ""
+
+#: includes/class-settings.php:436
+#: includes/modules/rstore-fl-domain-search.php:60
+#: includes/modules/rstore-fl-domain-simple.php:60
+#: includes/modules/rstore-vc-domain-search.php:66
+#: includes/modules/rstore-vc-domain-simple.php:67
+#: includes/widgets/class-domain-search.php:197
+#: includes/widgets/class-domain-simple.php:173
+msgid "Find your perfect domain name"
+msgstr "Temukan nama domain paling pas untuk Anda"
+
+#: includes/class-settings.php:437
+msgid ""
+"Override the placeholder text for domain registration. Empty field means no "
+"override set."
+msgstr ""
+
+#: includes/class-settings.php:441
+#, fuzzy
+msgid "Domain search button"
+msgstr "Pencarian Domain"
+
+#: includes/class-settings.php:443
+#: includes/modules/rstore-fl-domain-search.php:65
+#: includes/modules/rstore-fl-domain-simple.php:32
+#: includes/modules/rstore-fl-domain-simple.php:65
+#: includes/modules/rstore-vc-domain-search.php:76
+#: includes/modules/rstore-vc-domain-simple.php:78
+#: includes/widgets/class-domain-search.php:198
+#: includes/widgets/class-domain-simple.php:174
+msgid "Search"
+msgstr "Cari"
+
+#: includes/class-settings.php:444
+msgid ""
+"Override the domain search button text. Empty field means no override set."
+msgstr ""
+
+#: includes/class-settings.php:449
+msgid "Page size"
+msgstr ""
+
+#: includes/class-settings.php:451
+msgid ""
+"Override the number of results returned forß the advanced domain search.  "
+"Empty field means no override set."
+msgstr ""
+
+#: includes/class-settings.php:456
+#: includes/modules/rstore-fl-domain-search.php:80
+#: includes/modules/rstore-vc-domain-search.php:94
+#: includes/widgets/class-domain-search.php:154
+msgid "Display results in a modal"
+msgstr ""
+
+#: includes/class-settings.php:459
+msgid ""
+"Display the results in a popup modal for the advanced domain search. "
+"Unchecked will default to no modal."
+msgstr ""
+
+#: includes/class-settings.php:464
+#, fuzzy
+msgid "Domain transfer title"
+msgstr "Pencarian Domain"
+
+#: includes/class-settings.php:467
+msgid ""
+"Override the domain transfer title text. Empty field means no override set."
+msgstr ""
+
+#: includes/class-settings.php:472
+msgid "Transfer placeholder text"
+msgstr ""
+
+#: includes/class-settings.php:474
+#: includes/modules/rstore-fl-domain-transfer.php:60
+#: includes/modules/rstore-vc-domain-transfer.php:68
+#: includes/widgets/class-domain-transfer.php:173
+msgid "Enter domain to transfer"
+msgstr ""
+
+#: includes/class-settings.php:475
+msgid ""
+"Override the domain transfer placeholder text. Empty field means no override "
+"set."
+msgstr ""
+
+#: includes/class-settings.php:479
+#, fuzzy
+msgid "Transfer button"
+msgstr "Label Tombol Tambahkan ke Keranjang"
+
+#: includes/class-settings.php:481
+#: includes/modules/rstore-fl-domain-transfer.php:32
+#: includes/modules/rstore-fl-domain-transfer.php:65
+#: includes/modules/rstore-vc-domain-transfer.php:80
+#: includes/widgets/class-domain-transfer.php:174
+msgid "Transfer"
+msgstr ""
+
+#: includes/class-settings.php:490
+msgid "Currency"
+msgstr ""
+
+#: includes/class-settings.php:493
+msgid "Set the currency to display on your storefront."
+msgstr ""
+
+#: includes/class-settings.php:497
+msgid "Market"
+msgstr ""
+
+#: includes/class-settings.php:500
+msgid "Set the market and language."
+msgstr ""
+
+#: includes/class-settings.php:508 includes/modules/rstore-fl-product.php:121
+#: includes/modules/rstore-vc-product.php:126
+msgid "Layout type"
+msgstr ""
+
+#: includes/class-settings.php:511
+msgid ""
+"Set product widget layout. Classic layout will display price and cart button "
+"at the bottom of widget."
+msgstr ""
+
+#: includes/class-settings.php:516 includes/modules/rstore-fl-product.php:64
+#: includes/modules/rstore-vc-product.php:65
+#: includes/widgets/class-product.php:223
+msgid "Image Size"
+msgstr ""
+
+#: includes/class-settings.php:519
+msgid ""
+"Global override for the product image size. Default means no override set."
+msgstr ""
+
+#: includes/class-settings.php:524 includes/modules/rstore-vc-product.php:93
+#: includes/widgets/class-product.php:238
+#, fuzzy
+msgid "Show product title"
+msgstr "Atur gambar produk"
+
+#: includes/class-settings.php:527 includes/class-settings.php:535
+#: includes/class-settings.php:543
+msgid "Default value is checked."
+msgstr ""
+
+#: includes/class-settings.php:532 includes/modules/rstore-vc-product.php:104
+#: includes/widgets/class-product.php:239
+#, fuzzy
+msgid "Show post content"
+msgstr "Atur gambar produk"
+
+#: includes/class-settings.php:540 includes/modules/rstore-vc-product.php:115
+#: includes/widgets/class-product.php:240
+#, fuzzy
+msgid "Show product price"
+msgstr "Atur gambar produk"
+
+#: includes/class-settings.php:548
+#, fuzzy
+msgid "Button text"
+msgstr "Tombol:"
+
+#: includes/class-settings.php:551
+msgid ""
+"Override the Add to cart button text. Empty field means no override set."
+msgstr ""
+
+#: includes/class-settings.php:556
+#, fuzzy
+msgid "Redirect to cart"
+msgstr "Masukkan ke keranjang"
+
+#: includes/class-settings.php:559
+#, fuzzy
+msgid "Default value is checked to redirect to cart after adding item."
+msgstr "Segera arahkan ke keranjang setelah penambahan"
+
+#: includes/class-settings.php:567
+msgid "Override cart link text. Empty field means no override set."
+msgstr ""
+
+#: includes/class-settings.php:572
+msgid "Set content height"
+msgstr ""
+
+#: includes/class-settings.php:575
+msgid "Default value checked. Uncheck to display full content in widget"
+msgstr ""
+
+#: includes/class-settings.php:580 includes/widgets/class-product.php:236
+msgid "Content height"
+msgstr ""
+
+#: includes/class-settings.php:582
+msgid ""
+"Override the product description content height (in pixels).  Empty field "
+"means no override set."
+msgstr ""
+
+#: includes/class-settings.php:587
+#, fuzzy
+msgid "Product permalink text"
+msgstr "Permalink Produk Reseller"
+
+#: includes/class-settings.php:589 includes/modules/rstore-fl-product.php:117
+#: includes/widgets/class-product.php:350
+msgid "More info"
+msgstr ""
+
+#: includes/class-settings.php:590
+msgid "Override the permalink text. Empty field means no override set."
+msgstr ""
+
+#: includes/class-settings.php:595
+msgid "Promo code"
+msgstr ""
+
+#: includes/class-settings.php:598
+msgid "Enter an ISC promo code."
+msgstr ""
+
+#: includes/class-settings.php:606
+#, fuzzy
+msgid "Reseller Id"
+msgstr "Produk Reseller"
+
+#: includes/class-settings.php:608
+msgid ""
+"The reseller id identifies your storefront. Re-activate plugin to change "
+"this value."
+msgstr ""
+
+#: includes/class-settings.php:613
+msgid "Last API Sync"
+msgstr ""
+
+#: includes/class-settings.php:618
+msgid "Next API Sync"
+msgstr ""
+
+#: includes/class-settings.php:624
+msgid "API Sync TTL (seconds)"
+msgstr ""
+
+#: includes/class-settings.php:626
+msgid ""
+"Reseller store will check the api for changes periodically. The default is "
+"15 minutes (900 seconds)."
+msgstr ""
+
+#: includes/class-settings.php:665 includes/class-setup.php:143
 msgid "Setup"
 msgstr ""
 
-#: includes/class-setup.php:224
+#: includes/class-settings.php:666
+#, fuzzy
+msgid "Product Settings"
+msgstr "Opsi Produk"
+
+#: includes/class-settings.php:667
+#, fuzzy
+msgid "Domain Search Settings"
+msgstr "Pencarian Domain"
+
+#: includes/class-settings.php:668
+msgid "Localization"
+msgstr ""
+
+#: includes/class-settings.php:740
+msgid "Save Changes"
+msgstr ""
+
+#: includes/class-settings.php:777
+msgid "Check for new products"
+msgstr ""
+
+#: includes/class-settings.php:778
+msgid ""
+"Check API for new products. Note: This is will not update the content for "
+"any of your existing products that have been imported."
+msgstr ""
+
+#: includes/class-settings.php:783
+#, fuzzy
+msgid "Import new products"
+msgstr "Impor Semua Produk"
+
+#: includes/class-settings.php:802
+msgid "Display Name"
+msgstr ""
+
+#: includes/class-settings.php:803
+msgid "Display name set in the Reseller Control Center"
+msgstr ""
+
+#: includes/class-settings.php:806
+msgid "Home Url"
+msgstr ""
+
+#: includes/class-settings.php:807
+msgid ""
+"The home url is set in the Reseller Control Center should be set as your "
+"WordPress site."
+msgstr ""
+
+#: includes/class-settings.php:810
+msgid "Storefront Domain"
+msgstr ""
+
+#: includes/class-settings.php:811
+msgid ""
+"The custom domain is set in the Reseller Control Center and identifies the "
+"standard storefront and checkout pages. Set as a sub-domain of your "
+"WordPress site (e.g. shop)."
+msgstr ""
+
+#: includes/class-settings.php:831
+msgid "Error: Invalid Session. Refresh the page and try again."
+msgstr ""
+
+#: includes/class-settings.php:837
+msgid "Error: Current user cannot manage options."
+msgstr ""
+
+#: includes/class-settings.php:843
+msgid "Error: Invalid options sent to server."
+msgstr ""
+
+#: includes/class-setup.php:115
+msgid "Invalid nonce token.  Please try again."
+msgstr ""
+
+#: includes/class-setup.php:142
+msgid "Reseller Store Setup"
+msgstr "Penyiapan Toko Reseller"
+
+#: includes/class-setup.php:217
 #, fuzzy
 msgid "Let's setup your Reseller Store."
 msgstr "Mari siapkan Toko Reseller GoDaddy Anda."
 
-#: includes/class-setup.php:228
+#: includes/class-setup.php:221
 msgid ""
 "Register your plugin to import your product catalog. Please select where you "
 "purchased your reseller plan from."
 msgstr ""
 
-#: includes/class-setup.php:229
+#: includes/class-setup.php:222
 msgid "Sign in and Activate with your:"
 msgstr ""
 
-#: includes/class-setup.php:231
+#: includes/class-setup.php:224
 #, fuzzy
 msgid "GoDaddy Account"
 msgstr "GoDaddy"
 
-#: includes/class-setup.php:232
+#: includes/class-setup.php:225
 #, fuzzy
 msgid "Other Reseller Account"
 msgstr "Produk Reseller"
 
-#: includes/class-setup.php:234
+#: includes/class-setup.php:227
 msgid "Importing product catalog and installing"
 msgstr ""
 
-#: includes/class-setup.php:241
+#: includes/class-setup.php:234
 msgid "A reseller plan is required to activate the plugin."
 msgstr ""
 
-#: includes/class-setup.php:242
+#: includes/class-setup.php:235
 msgid "We will provide a demo reseller plan if you don't have a reseller plan."
 msgstr ""
 
-#: includes/class-setup.php:243
+#: includes/class-setup.php:236
 msgid "Get your own plan today."
 msgstr ""
 
-#: includes/class-setup.php:247
+#: includes/class-setup.php:240
 #, fuzzy
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
 msgstr ""
@@ -337,32 +689,32 @@ msgstr ""
 "505-8877."
 
 #. translators: name of missing script
-#: includes/class-setup.php:272
+#: includes/class-setup.php:265
 msgid "Error: Missing required script for setup %s"
 msgstr "Kesalahan: Skrip yang diperlukan untuk penyiapan %s tidak ada"
 
-#: includes/class-setup.php:300
+#: includes/class-setup.php:293 includes/class-setup.php:348
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr "Maaf, Anda tidak diizinkan untuk menginstal plugin di situs ini."
 
-#: includes/class-setup.php:333
+#: includes/class-setup.php:319
 msgid "Private Label ID is invalid."
 msgstr "ID Label Pribadi tidak valid."
 
-#: includes/class-setup.php:354
+#: includes/class-setup.php:379
 msgid "There are no products available, please try again later."
 msgstr "Tidak ada produk yang tersedia. Coba lagi nanti."
 
-#: includes/class-setup.php:379
+#: includes/class-setup.php:404
 msgid "Product data could not be imported, please try again later."
 msgstr "Data produk tidak dapat diimpor. Coba lagi nanti."
 
-#: includes/class-setup.php:412
+#: includes/class-setup.php:437
 msgid "An unknown error occurred."
 msgstr "Terjadi kesalahan yang tidak dikenal."
 
 #. translators: error message
-#: includes/class-setup.php:426
+#: includes/class-setup.php:451
 msgid "Error: %s"
 msgstr "Kesalahan: %s"
 
@@ -553,30 +905,11 @@ msgstr ""
 msgid "Placeholder"
 msgstr "Placeholder:"
 
-#: includes/modules/rstore-fl-domain-search.php:60
-#: includes/modules/rstore-fl-domain-simple.php:60
-#: includes/modules/rstore-vc-domain-search.php:66
-#: includes/modules/rstore-vc-domain-simple.php:67
-#: includes/widgets/class-domain-search.php:197
-#: includes/widgets/class-domain-simple.php:173
-msgid "Find your perfect domain name"
-msgstr "Temukan nama domain paling pas untuk Anda"
-
 #: includes/modules/rstore-fl-domain-search.php:64
 #: includes/widgets/class-domain-search.php:147
 #, fuzzy
 msgid "Search Button"
 msgstr "Tombol:"
-
-#: includes/modules/rstore-fl-domain-search.php:65
-#: includes/modules/rstore-fl-domain-simple.php:32
-#: includes/modules/rstore-fl-domain-simple.php:65
-#: includes/modules/rstore-vc-domain-search.php:76
-#: includes/modules/rstore-vc-domain-simple.php:78
-#: includes/widgets/class-domain-search.php:198
-#: includes/widgets/class-domain-simple.php:174
-msgid "Search"
-msgstr "Cari"
 
 #: includes/modules/rstore-fl-domain-search.php:74
 #: includes/modules/rstore-vc-domain-search.php:84
@@ -586,12 +919,6 @@ msgstr ""
 
 #: includes/modules/rstore-fl-domain-search.php:75
 msgid "domains"
-msgstr ""
-
-#: includes/modules/rstore-fl-domain-search.php:80
-#: includes/modules/rstore-vc-domain-search.php:94
-#: includes/widgets/class-domain-search.php:154
-msgid "Display results in a modal"
 msgstr ""
 
 #: includes/modules/rstore-fl-domain-search.php:83
@@ -678,25 +1005,12 @@ msgstr ""
 msgid "A search form for domain registrations."
 msgstr "Formulir pencarian untuk nama domain."
 
-#: includes/modules/rstore-fl-domain-transfer.php:32
-#: includes/modules/rstore-fl-domain-transfer.php:65
-#: includes/modules/rstore-vc-domain-transfer.php:80
-#: includes/widgets/class-domain-transfer.php:174
-msgid "Transfer"
-msgstr ""
-
 #: includes/modules/rstore-fl-domain-transfer.php:33
 #: includes/modules/rstore-vc-domain-transfer.php:46
 #: includes/widgets/class-domain-transfer.php:39
 #, fuzzy
 msgid "A search form for domain transfers."
 msgstr "Formulir pencarian untuk nama domain."
-
-#: includes/modules/rstore-fl-domain-transfer.php:60
-#: includes/modules/rstore-vc-domain-transfer.php:68
-#: includes/widgets/class-domain-transfer.php:173
-msgid "Enter domain to transfer"
-msgstr ""
 
 #: includes/modules/rstore-fl-login.php:32
 #: includes/modules/rstore-vc-login.php:44
@@ -761,12 +1075,6 @@ msgstr ""
 msgid "Product Modules"
 msgstr "Produk"
 
-#: includes/modules/rstore-fl-product.php:64
-#: includes/modules/rstore-vc-product.php:65
-#: includes/widgets/class-product.php:223
-msgid "Image Size"
-msgstr ""
-
 #: includes/modules/rstore-fl-product.php:67
 #: includes/modules/rstore-vc-product.php:68
 #: includes/widgets/class-product.php:226
@@ -825,16 +1133,6 @@ msgstr ""
 #, fuzzy
 msgid "Product Permalink"
 msgstr "Permalink Produk Reseller"
-
-#: includes/modules/rstore-fl-product.php:117
-#: includes/widgets/class-product.php:350
-msgid "More info"
-msgstr ""
-
-#: includes/modules/rstore-fl-product.php:121
-#: includes/modules/rstore-vc-product.php:126
-msgid "Layout type"
-msgstr ""
 
 #: includes/modules/rstore-fl-product.php:125
 #: includes/modules/rstore-vc-product.php:130
@@ -896,24 +1194,6 @@ msgstr "Pencarian Domain"
 msgid "Display"
 msgstr ""
 
-#: includes/modules/rstore-vc-product.php:93
-#: includes/widgets/class-product.php:238
-#, fuzzy
-msgid "Show product title"
-msgstr "Atur gambar produk"
-
-#: includes/modules/rstore-vc-product.php:104
-#: includes/widgets/class-product.php:239
-#, fuzzy
-msgid "Show post content"
-msgstr "Atur gambar produk"
-
-#: includes/modules/rstore-vc-product.php:115
-#: includes/widgets/class-product.php:240
-#, fuzzy
-msgid "Show product price"
-msgstr "Atur gambar produk"
-
 #: includes/modules/rstore-vc-product.php:185
 #, fuzzy
 msgid "Select product..."
@@ -947,10 +1227,6 @@ msgstr "Toko Reseller"
 #, fuzzy
 msgid "Reseller Product"
 msgstr "Produk Reseller"
-
-#: includes/widgets/class-product.php:236
-msgid "Content height"
-msgstr ""
 
 #: includes/widgets/class-product.php:236
 msgid "Height in pixels"
