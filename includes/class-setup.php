@@ -331,7 +331,7 @@ final class Setup {
 	 *
 	 * @action wp_ajax_rstore_import
 	 * @global wpdb $wpdb
-	 * @since  NEXT
+	 * @since  2.2.0
 	 *
 	 * @return true|\WP_Error|void
 	 */

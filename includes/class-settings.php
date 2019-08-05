@@ -8,7 +8,7 @@
  * @package  Reseller_Store/Settings
  * @category Class
  * @author   GoDaddy
- * @since    NEXT
+ * @since    2.2.0
  */
 
 namespace Reseller_Store;
@@ -25,7 +25,7 @@ final class Settings {
 	/**
 	 * Post type slug.
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 *
 	 * @var string
 	 */
@@ -34,7 +34,7 @@ final class Settings {
 	/**
 	 * Custom Post Type Page
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 *
 	 * @var string
 	 */
@@ -44,7 +44,7 @@ final class Settings {
 	/**
 	 * Array of Currencies.
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 *
 	 * @var array
 	 */
@@ -53,7 +53,7 @@ final class Settings {
 	/**
 	 * Array of markets.
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 *
 	 * @var array
 	 */
@@ -62,7 +62,7 @@ final class Settings {
 	/**
 	 * Array of product layouts.
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 *
 	 * @var array
 	 */
@@ -71,7 +71,7 @@ final class Settings {
 	/**
 	 * Array of product image sizes.
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 *
 	 * @var array
 	 */
@@ -80,7 +80,7 @@ final class Settings {
 	/**
 	 * Array of available tabs in settings.
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 *
 	 * @var array
 	 */
@@ -89,7 +89,7 @@ final class Settings {
 	/**
 	 * Class constructor.
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 */
 	public function __construct() {
 
@@ -310,7 +310,7 @@ final class Settings {
 	 * Enqueue admin scripts.
 	 *
 	 * @action admin_enqueue_scripts
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public function admin_enqueue_scripts() {
 
@@ -344,7 +344,7 @@ final class Settings {
 	 * Register the settings page.
 	 *
 	 * @action init
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public function register() {
 
@@ -362,7 +362,7 @@ final class Settings {
 	 * Register the api request args
 	 *
 	 * @action init
-	 * @since  NEXT
+	 * @since  2.2.0
 	 *
 	 * @param array  $args      Query string args for api url.
 	 * @param string $url_key  Type of url to add args for.
@@ -394,7 +394,7 @@ final class Settings {
 	/**
 	 * Get the current tab the admin is on
 	 *
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public function get_active_tab() {
 
@@ -410,7 +410,7 @@ final class Settings {
 	/**
 	 * Build settings array
 	 *
-	 * @since  NEXT
+	 * @since  2.2.0
 	 *
 	 * @param string $active_tab The tab the admin is currently on.
 	 * @return array
@@ -635,7 +635,7 @@ final class Settings {
 	/**
 	 * Register settings
 	 *
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public function reseller_register_settings() {
 
@@ -648,7 +648,7 @@ final class Settings {
 	/**
 	 * Admin settings ui
 	 *
-	 * @since  NEXT
+	 * @since  2.2.0
 	 *
 	 * @param string $active_tab Tab name to render content for.
 	 */
@@ -751,7 +751,7 @@ final class Settings {
 	/**
 	 * Render the plugin settings page
 	 *
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public function render_settings_page() {
 
@@ -769,7 +769,7 @@ final class Settings {
 	/**
 	 * Generate import button
 	 *
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public function import_button() {
 		?>
@@ -792,7 +792,7 @@ final class Settings {
 	/**
 	 * Generate branding info block
 	 *
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public function branding_info_block() {
 		?>
@@ -819,7 +819,7 @@ final class Settings {
 	 * Save Reseller Store Settings
 	 *
 	 * @action wp_ajax_rstore_options_save
-	 * @since  NEXT
+	 * @since  2.2.0
 	 */
 	public static function save() {
 
@@ -881,7 +881,7 @@ final class Settings {
 	/**
 	 * Call the setup import function
 	 *
-	 * @since NEXT
+	 * @since 2.2.0
 	 */
 	public static function import() {
 		if ( class_exists( '\Reseller_Store\Setup' ) ) {
