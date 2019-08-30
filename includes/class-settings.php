@@ -57,7 +57,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $markets = [ 'default', 'da-DK', 'de-DE', 'el-GR', 'en-US', 'es-MX', 'fi-FI', 'fr-FR', 'hi-IN', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'mr-IN', 'nb-NO', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sv-SE', 'ta-IN', 'th-TH', 'tr-TR', 'uk-UA', 'vi-VN', 'zh-CN', 'zh-TW' ];  // @codingStandardsIgnoreLine
+	static $markets = [ 'default','da-DK','de-AT','de-CH','de-DE','el-GR','en-AE','en-AU','en-CA','en-GB','en-HK','en-IE','en-IL','en-IN','en-PK','en-MY','en-NZ','en-US','en-PH','en-SG','en-ZA','es-AR','es-CL','es-CO','es-ES','es-MX','es-PE','es-US','es-VE','fi-FI','fr-BE','fr-CA','fr-CH','fr-FR','hi-IN','id-ID','it-CH','it-IT','ja-JP','ko-KR','mr-IN','nl-NL','nl-BE','nb-NO','pt-BR','pl-PL','pt-PT','ru-RU','sv-SE','ta-IN','th-TH','tr-TR','uk-UA','vi-VN','zh-SG','zh-HK','zh-TW' ];  // @codingStandardsIgnoreLine
 
 	/**
 	 * Array of product layouts.
