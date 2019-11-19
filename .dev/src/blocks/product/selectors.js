@@ -12,12 +12,11 @@ const mediaSelector = withSelect( ( select, { post } ) => {
 	};
 } );
 
-const productSelector = withSelect( ( select, { attributes, setAttributes } ) => {
+const productSelector = withSelect( ( select, { attributes } ) => {
 	const posts = select( 'core' ).getEntityRecords( 'postType', 'reseller_product', { per_page: 100 } );
 
 	if ( posts && posts.length ) {
 		if ( attributes.post_id === undefined ) {
-			setAttributes( { post_id: posts[ 0 ].id.toString() } );
 			return {
 				posts,
 				post: posts[ 0 ],
@@ -29,7 +28,6 @@ const productSelector = withSelect( ( select, { attributes, setAttributes } ) =>
 		} );
 
 		if ( post === undefined ) {
-			setAttributes( { post_id: posts[ 0 ].id.toString() } );
 			return {
 				posts,
 				post: posts[ 0 ],
