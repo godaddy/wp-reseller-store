@@ -30,18 +30,18 @@ final class TestWidgetCart extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$instance = [
+		$instance = array(
 			'post_id'    => $post->ID,
 			'image_size' => 'full',
 			'show_title' => true,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<a href="https:\/\/cart.secureserver.net\/go\/checkout\/\?plid=12345">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/',
@@ -57,15 +57,15 @@ final class TestWidgetCart extends TestCase {
 
 		$widget = new Widgets\Cart();
 
-		$old_instance = [
+		$old_instance = array(
 			'title'        => '',
 			'button_label' => '',
-		];
+		);
 
-		$new_instance = [
+		$new_instance = array(
 			'title'        => 'title 1',
 			'button_label' => 'button_label 1',
-		];
+		);
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
@@ -82,10 +82,10 @@ final class TestWidgetCart extends TestCase {
 
 		$widget = new Widgets\Cart();
 
-		$instance = [
+		$instance = array(
 			'title'        => 'aaa',
 			'button_label' => 'bbb',
-		];
+		);
 
 		$widget->form( $instance );
 
@@ -103,7 +103,7 @@ final class TestWidgetCart extends TestCase {
 		add_filter(
 			'rstore_cart_widget_classes',
 			function( $title ) {
-				return [ 'cart' ];
+				return array( 'cart' );
 			}
 		);
 
@@ -113,18 +113,18 @@ final class TestWidgetCart extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$instance = [
+		$instance = array(
 			'post_id'    => $post->ID,
 			'image_size' => 'full',
 			'show_title' => true,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<div class="before_widget cart">/',

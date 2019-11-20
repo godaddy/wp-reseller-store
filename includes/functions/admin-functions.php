@@ -42,7 +42,7 @@ function rstore_error( $error ) {
 
 	if ( is_wp_error( $error ) ) {
 
-		$errors   = rstore_get_option( 'errors', [] );
+		$errors   = rstore_get_option( 'errors', array() );
 		$errors[] = $error;
 		return rstore_update_option( 'errors', $errors );
 	}
@@ -58,7 +58,7 @@ function rstore_error( $error ) {
  * @param array   $args     (optional) Arguments array.
  * @param integer $status   The redierct status to use.
  */
-function rstore_admin_redirect( $endpoint = '', $args = [], $status = 302 ) {
+function rstore_admin_redirect( $endpoint = '', $args = array(), $status = 302 ) {
 
 	// Allow full admin URL to be passed as $endpoint.
 	$endpoint = preg_replace( '/^.*\/wp-admin(\/|$)/', '', $endpoint );

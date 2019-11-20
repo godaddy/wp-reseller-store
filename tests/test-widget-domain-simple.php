@@ -28,17 +28,17 @@ final class TestWidgetDomainSimple extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$instance = [
+		$instance = array(
 			'title'            => 'title',
 			'text_placeholder' => 'find your domain',
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
@@ -54,17 +54,17 @@ final class TestWidgetDomainSimple extends TestCase {
 
 		$widget = new Widgets\Domain_Simple();
 
-		$old_instance = [
+		$old_instance = array(
 			'title'            => '',
 			'text_placeholder' => '',
 			'text_search'      => '',
-		];
+		);
 
-		$new_instance = [
+		$new_instance = array(
 			'title'            => 'title 1',
 			'text_placeholder' => 'placeholder',
 			'text_search'      => 'text_search',
-		];
+		);
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
@@ -81,11 +81,11 @@ final class TestWidgetDomainSimple extends TestCase {
 
 		$widget = new Widgets\Domain_Simple();
 
-		$instance = [
+		$instance = array(
 			'title'            => 'aaa',
 			'text_placeholder' => 'bbb',
 			'text_search'      => 'ccc',
-		];
+		);
 
 		$widget->form( $instance );
 
@@ -103,7 +103,7 @@ final class TestWidgetDomainSimple extends TestCase {
 		add_filter(
 			'rstore_domain_widget_classes',
 			function( $title ) {
-				return [ 'domain' ];
+				return array( 'domain' );
 			}
 		);
 
@@ -111,17 +111,17 @@ final class TestWidgetDomainSimple extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$instance = [
+		$instance = array(
 			'image_size' => 'full',
 			'show_title' => true,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<div class="before_widget domain">/',

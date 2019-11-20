@@ -56,14 +56,14 @@ function rstore_has_products() {
 function rstore_get_product_list() {
 
 	$query = new \WP_Query(
-		[
+		array(
 			'post_type'   => \Reseller_Store\Post_Type::SLUG,
 			'post_status' => 'publish',
 			'nopaging'    => true, // get a list of every product.
-		]
+		)
 	);
 
-	$products = [];
+	$products = array();
 
 	while ( $query->have_posts() ) {
 
@@ -121,7 +121,7 @@ function rstore_get_missing_products() {
 
 	if ( ! rstore_is_setup() ) {
 
-		return [];
+		return array();
 
 	}
 
@@ -129,16 +129,16 @@ function rstore_get_missing_products() {
 
 	if ( is_wp_error( $products ) || empty( $products[0]->id ) ) {
 
-		return [];
+		return array();
 
 	}
 
 	$missing = array_diff(
 		wp_list_pluck( $products, 'id' ),
-		(array) rstore_get_option( 'imported', [] )
+		(array) rstore_get_option( 'imported', array() )
 	);
 
-	return ( $missing ) ? $missing : [];
+	return ( $missing ) ? $missing : array();
 
 }
 
@@ -159,7 +159,7 @@ function rstore_get_products( $hard = false ) {
 
 	return rstore_get_transient(
 		'products',
-		[],
+		array(),
 		function () {
 
 			return rstore()->api->get( 'catalog/{pl_id}/products' );
@@ -242,7 +242,7 @@ add_filter( 'rstore_is_product', 'rstore_is_product' );
  *
  * @return boolean    True is widget_id key is set, else false.
  */
-function rstore_is_widget( $atts = [] ) {
+function rstore_is_widget( $atts = array() ) {
 
 	return isset( $atts['widget_id'] );
 

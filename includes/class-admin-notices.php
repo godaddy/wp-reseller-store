@@ -29,23 +29,23 @@ final class Admin_Notices {
 	 */
 	public function __construct() {
 
-		add_action( 'wp_ajax_rstore_dismiss_admin_notice', [ __CLASS__, 'dismiss_admin_notice' ] );
+		add_action( 'wp_ajax_rstore_dismiss_admin_notice', array( __CLASS__, 'dismiss_admin_notice' ) );
 
 		$is_post_type_screen = rstore_is_admin_uri( 'post_type=' . Post_Type::SLUG, false );
 		if ( ! $is_post_type_screen ) {
 			return;
 		}
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		if ( count( $errors ) > 0 ) {
 
-			add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
-			add_action( 'admin_notices', [ $this, 'error_notices' ] );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+			add_action( 'admin_notices', array( $this, 'error_notices' ) );
 		}
 
 		if ( ! empty( $_REQUEST['bulk_restore_posts'] ) ) {
-			add_action( 'admin_notices', [ $this, 'restore_notice' ] );
+			add_action( 'admin_notices', array( $this, 'restore_notice' ) );
 		}
 
 	}
@@ -70,7 +70,7 @@ final class Admin_Notices {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-admin-notice', Plugin::assets_url( "js/admin-notice{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-admin-notice', Plugin::assets_url( "js/admin-notice{$suffix}.js" ), array( 'jquery' ), rstore()->version, true );
 
 		wp_localize_script(
 			'rstore-admin-notice',
@@ -110,7 +110,7 @@ final class Admin_Notices {
 	 */
 	public function error_notices() {
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		print( '<div id="rstore-update-error" class="notice notice-error is-dismissible">' );
 		foreach ( $errors as $error ) {

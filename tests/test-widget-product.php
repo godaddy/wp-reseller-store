@@ -28,18 +28,18 @@ final class TestWidgetProduct extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$instance = [
+		$instance = array(
 			'post_id'    => $post->ID,
 			'image_size' => 'full',
 			'show_title' => true,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		echo $widget->widget( $args, $instance );
 
@@ -56,17 +56,17 @@ final class TestWidgetProduct extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$instance = [
+		$instance = array(
 			'post_id'     => $post->ID,
 			'layout_type' => 'classic',
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		echo $widget->widget( $args, $instance );
 
@@ -83,19 +83,19 @@ final class TestWidgetProduct extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$instance = [
+		$instance = array(
 			'post_id'    => $post->ID,
 			'image_size' => 'full',
 			'show_title' => true,
 			'redirect'   => false,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		echo $widget->widget( $args, $instance );
 
@@ -119,18 +119,18 @@ final class TestWidgetProduct extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$instance = [
+		$instance = array(
 			'post_id'    => $post->ID,
 			'image_size' => 'full',
 			'show_title' => true,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$widget->widget( $args, $instance );
 
@@ -152,18 +152,18 @@ final class TestWidgetProduct extends TestCase {
 
 		$widget = new Widgets\Product();
 
-		$instance = [
+		$instance = array(
 			'post_id'    => 0,
 			'image_size' => 'full',
 			'show_title' => true,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$widget->widget( $args, $instance );
 
@@ -179,7 +179,7 @@ final class TestWidgetProduct extends TestCase {
 
 		$widget = new Widgets\Product();
 
-		$old_instance = [
+		$old_instance = array(
 			'post_id'        => 0,
 			'show_title'     => true,
 			'show_content'   => true,
@@ -191,9 +191,9 @@ final class TestWidgetProduct extends TestCase {
 			'text_more'      => '',
 			'content_height' => 0,
 			'layout_type'    => 'classic',
-		];
+		);
 
-		$new_instance = [
+		$new_instance = array(
 			'post_id'        => 100,
 			'show_title'     => false,
 			'show_content'   => false,
@@ -205,7 +205,7 @@ final class TestWidgetProduct extends TestCase {
 			'text_more'      => 'text_more 1',
 			'content_height' => 150,
 			'layout_type'    => 'default',
-		];
+		);
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
@@ -225,7 +225,7 @@ final class TestWidgetProduct extends TestCase {
 
 		$widget = new Widgets\Product();
 
-		$instance = [
+		$instance = array(
 			'post_id'      => $post->ID,
 			'show_title'   => true,
 			'show_content' => true,
@@ -233,7 +233,7 @@ final class TestWidgetProduct extends TestCase {
 			'redirect'     => true,
 			'button_label' => '',
 			'image_size'   => '',
-		];
+		);
 
 		$widget->form( $instance );
 
@@ -248,7 +248,7 @@ final class TestWidgetProduct extends TestCase {
 
 		$widget = new Widgets\Product();
 
-		$instance = [
+		$instance = array(
 			'post_id'      => 0,
 			'show_title'   => true,
 			'show_content' => true,
@@ -256,7 +256,7 @@ final class TestWidgetProduct extends TestCase {
 			'redirect'     => true,
 			'button_label' => '',
 			'image_size'   => '',
-		];
+		);
 
 		$widget->form( $instance );
 
@@ -272,7 +272,7 @@ final class TestWidgetProduct extends TestCase {
 		add_filter(
 			'rstore_product_widget_classes',
 			function( $title ) {
-				return [ 'product' ];
+				return array( 'product' );
 			}
 		);
 
@@ -280,18 +280,18 @@ final class TestWidgetProduct extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$instance = [
+		$instance = array(
 			'post_id'    => $post->ID,
 			'image_size' => 'full',
 			'show_title' => true,
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		echo $widget->widget( $args, $instance );
 
@@ -313,18 +313,18 @@ final class TestWidgetProduct extends TestCase {
 
 				$post = Tests\Helper::create_product();
 
-				$instance = [
+				$instance = array(
 					'post_id'    => $post->ID,
 					'image_size' => 'full',
 					'show_title' => true,
-				];
+				);
 
-				$args = [
+				$args = array(
 					'before_widget' => '<div class="before_widget">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<h3 class="widget-title">',
 					'after_title'   => '</h3>',
-				];
+				);
 
 				ob_start();
 

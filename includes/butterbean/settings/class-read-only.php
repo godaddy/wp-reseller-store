@@ -39,7 +39,7 @@ final class Read_Only extends \ButterBean_Setting {
 	 * @param  string $name    Setting Name.
 	 * @param  array  $args     ButterBean control attributes.
 	 */
-	public function __construct( $manager, $name, $args = [] ) {
+	public function __construct( $manager, $name, $args = array() ) {
 
 		parent::__construct( $manager, $name, $args );
 

@@ -28,10 +28,10 @@ final class Restrictions {
 	 */
 	public function __construct() {
 
-		add_action( 'init', [ $this, 'redirects' ], 1 );
-		add_action( 'admin_menu', [ $this, 'admin_submenu' ] );
-		add_action( 'wp_before_admin_bar_render', [ $this, 'admin_bar_submenu' ] );
-		add_action( 'manage_posts_extra_tablenav', [ $this, 'edit_screen' ] );
+		add_action( 'init', array( $this, 'redirects' ), 1 );
+		add_action( 'admin_menu', array( $this, 'admin_submenu' ) );
+		add_action( 'wp_before_admin_bar_render', array( $this, 'admin_bar_submenu' ) );
+		add_action( 'manage_posts_extra_tablenav', array( $this, 'edit_screen' ) );
 
 	}
 
@@ -61,9 +61,9 @@ final class Restrictions {
 
 			rstore_admin_redirect(
 				'admin.php',
-				[
+				array(
 					'page' => Setup::SLUG,
-				]
+				)
 			);
 
 		}
@@ -76,9 +76,9 @@ final class Restrictions {
 
 			rstore_admin_redirect(
 				'edit.php',
-				[
+				array(
 					'post_type' => Post_Type::SLUG,
-				]
+				)
 			);
 
 		}

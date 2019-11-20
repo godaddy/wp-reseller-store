@@ -213,7 +213,7 @@ function rstore_update_post_meta( $post_id, $key, $value = '' ) {
  */
 function rstore_bulk_update_post_meta( $post_id, $meta ) {
 
-	$results = [];
+	$results = array();
 
 	foreach ( $meta as $key => $value ) {
 
@@ -255,7 +255,7 @@ function rstore_array_insert( $array, $var, $index, $preserve_keys = true ) {
 
 	return array_merge(
 		array_slice( $array, 0, $index, $preserve_keys ),
-		is_array( $var ) ? $var : [ $var ],
+		is_array( $var ) ? $var : array( $var ),
 		array_slice( $array, $index, count( $array ) - $index, $preserve_keys )
 	);
 

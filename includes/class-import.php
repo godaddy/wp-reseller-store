@@ -48,7 +48,7 @@ final class Import {
 	 *
 	 * @var array
 	 */
-	private $imported = [];
+	private $imported = array();
 
 	/**
 	 * The result of the import.
@@ -66,7 +66,7 @@ final class Import {
 	public function __construct( $product, $post_id = 0 ) {
 		$this->product  = $product;
 		$this->post_id  = absint( $post_id );
-		$this->imported = (array) rstore_get_option( 'imported', [] );
+		$this->imported = (array) rstore_get_option( 'imported', array() );
 	}
 
 	/**
@@ -149,14 +149,14 @@ final class Import {
 		wp_reset_postdata();
 
 		$post_id = wp_insert_post(
-			[
+			array(
 				'ID'           => absint( $this->post_id ),
 				'post_type'    => Post_Type::SLUG,
 				'post_status'  => 'publish',
 				'post_title'   => sanitize_text_field( $this->product->fields->title ),
 				'post_name'    => sanitize_title( $this->product->fields->title ),
 				'post_content' => wp_filter_post_kses( $this->product->fields->content ),
-			],
+			),
 			true
 		);
 
@@ -401,9 +401,9 @@ final class Import {
 
 		set_post_thumbnail( $this->post_id, $attachment_id );
 
-		$meta = [
+		$meta = array(
 			'image' => esc_url_raw( $url ),
-		];
+		);
 
 		rstore_bulk_update_post_meta( $attachment_id, $meta );
 
@@ -427,10 +427,10 @@ final class Import {
 
 		}
 
-		$file_array = [
+		$file_array = array(
 			'name'     => basename( $url ),
 			'tmp_name' => download_url( $url ),
-		];
+		);
 
 		if ( ! function_exists( 'media_handle_sideload' ) ) {
 

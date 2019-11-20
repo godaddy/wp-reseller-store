@@ -100,7 +100,7 @@ final class TestHelperFunctions extends TestCase {
 		// Test a non-existing transient with a callback.
 		$test_transient = rstore_get_transient(
 			'transient',
-			[],
+			array(),
 			function() {
 
 				return 'transient results';
@@ -149,10 +149,10 @@ final class TestHelperFunctions extends TestCase {
 		$this->assertEquals( 'year', get_post_meta( $product->ID, rstore_prefix( 'term' ), true ) );
 		$this->assertEquals( '$70.00', get_post_meta( $product->ID, rstore_prefix( 'listPrice' ), true ) );
 
-		$meta = [
+		$meta = array(
 			'term'      => 'hello-world',
 			'listPrice' => '$50.00',
-		];
+		);
 
 		rstore_bulk_update_post_meta( $product->ID, $meta );
 
@@ -166,22 +166,22 @@ final class TestHelperFunctions extends TestCase {
 	 */
 	public function test_rstore_array_insert() {
 
-		$array = [
+		$array = array(
 			'cb'    => '<input type="checkbox" />',
 			'title' => 'Title',
 			'cat'   => 'Categories',
 			'term'  => 'Tags',
 			'date'  => 'Date',
-		];
+		);
 
 		$this->assertArrayNotHasKey( 'custom', $array );
 
-		$inject = [
+		$inject = array(
 			'image' => sprintf(
 				'<span class="rstore-image dashicons dashicons-format-image" title="%1$s"><span class="screen-reader-text">%1$s</span></span>',
 				__( 'Product Image', 'reseller-store' )
 			),
-		];
+		);
 
 		$array = rstore_array_insert( $array, $inject, 3 );
 		$keys  = array_keys( $array );

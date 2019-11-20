@@ -14,7 +14,7 @@ final class TestWidget extends TestCase {
 
 		$widget = new Widgets();
 
-		$this->do_action_validation( 'widgets_init', [ $widget, 'register_widgets' ] );
+		$this->do_action_validation( 'widgets_init', array( $widget, 'register_widgets' ) );
 
 	}
 
@@ -25,7 +25,7 @@ final class TestWidget extends TestCase {
 
 		$widget = new Widgets();
 
-		$this->do_action_validation( 'init', [ $widget, 'load_fl_modules' ] );
+		$this->do_action_validation( 'init', array( $widget, 'load_fl_modules' ) );
 
 	}
 
@@ -36,7 +36,7 @@ final class TestWidget extends TestCase {
 
 		$widget = new Widgets();
 
-		$this->do_action_validation( 'vc_before_init', [ $widget, 'load_vc_modules' ] );
+		$this->do_action_validation( 'vc_before_init', array( $widget, 'load_vc_modules' ) );
 
 	}
 

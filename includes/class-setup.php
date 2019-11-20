@@ -68,9 +68,9 @@ final class Setup {
 		 */
 		$this->rcc_site = (string) apply_filters( 'rstore_setup_rcc', $this->rcc_site );
 
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
-		add_action( 'admin_menu', [ $this, 'page' ], PHP_INT_MAX - 1997 );
-		add_action( 'wp_ajax_rstore_install', [ __CLASS__, 'install' ] );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+		add_action( 'admin_menu', array( $this, 'page' ), PHP_INT_MAX - 1997 );
+		add_action( 'wp_ajax_rstore_install', array( __CLASS__, 'install' ) );
 
 	}
 
@@ -99,7 +99,7 @@ final class Setup {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-admin-setup', Plugin::assets_url( "js/admin-setup{$suffix}.js" ), array( 'jquery' ), rstore()->version, true );
 
 		$install_nonce = self::install_nonce();
 

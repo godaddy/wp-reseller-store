@@ -34,10 +34,10 @@ final class Cart extends Widget_Base {
 		parent::__construct(
 			rstore_prefix( 'cart' ),
 			esc_html__( 'Reseller Cart Link', 'reseller-store' ),
-			[
+			array(
 				'classname'   => rstore_prefix( 'cart', true ),
 				'description' => esc_html__( 'A shopper cart status.', 'reseller-store' ),
-			]
+			)
 		);
 
 	}
@@ -60,7 +60,7 @@ final class Cart extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_cart_widget_classes', [] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_cart_widget_classes', array() ) );
 
 		if ( $classes ) {
 

@@ -86,9 +86,9 @@ final class TestBlocks extends TestCase {
 
 		$blocks = new Blocks();
 
-		$instance = [
+		$instance = array(
 			'post_id' => $post->ID,
-		];
+		);
 
 		$this->assertRegExp(
 			'/Test Product/',
@@ -106,10 +106,10 @@ final class TestBlocks extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$instance = [
+		$instance = array(
 			'title'            => 'title',
 			'text_placeholder' => 'find your domain',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
@@ -127,11 +127,11 @@ final class TestBlocks extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$instance = [
+		$instance = array(
 			'title'            => 'title',
 			'text_placeholder' => 'find your domain',
 			'search_type'      => 'advanced',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<div class=\"rstore-domain-search\" data-plid=\"12345\" data-title=\"title\" data-page_size=\"5\" data-text_placeholder=\"find your domain\" data-text_search=\"Search\" data-text_available=\"Congrats, {domain_name} is available!\" data-text_not_available=\"Sorry, {domain_name} is taken.\" data-text_cart=\"Continue to cart\" data-text_select=\"Select\" data-text_selected=\"Selected\">Domain Search<\/div>/',
@@ -149,11 +149,11 @@ final class TestBlocks extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$instance = [
+		$instance = array(
 			'title'            => 'title',
 			'text_placeholder' => 'transfer your domain',
 			'search_type'      => 'transfer',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<form role=\"search\" method=\"get\" class=\"search-form\" action=\"https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345\">/',

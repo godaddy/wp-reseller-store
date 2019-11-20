@@ -28,19 +28,19 @@ final class TestWidgetLogin extends TestCase {
 
 		$widget = new Widgets\Login();
 
-		$instance = [
+		$instance = array(
 			'title'             => 'login',
 			'welcome_message'   => 'Welcome',
 			'login_button_text' => 'log in',
 			'login_button_text' => 'log out',
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\/\?plid=12345" rel="nofollow">Log Out<\/a>/',
@@ -57,25 +57,25 @@ final class TestWidgetLogin extends TestCase {
 		add_filter(
 			'rstore_login_widget_classes',
 			function( $title ) {
-				return [ 'login' ];
+				return array( 'login' );
 			}
 		);
 
 		$widget = new Widgets\Login();
 
-		$instance = [
+		$instance = array(
 			'title'             => 'login',
 			'welcome_message'   => 'Welcome',
 			'login_button_text' => 'log in',
 			'login_button_text' => 'log out',
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		echo $widget->widget( $args, $instance );
 
@@ -90,19 +90,19 @@ final class TestWidgetLogin extends TestCase {
 
 		$widget = new Widgets\Login();
 
-		$old_instance = [
+		$old_instance = array(
 			'title'              => '',
 			'welcome_message'    => '',
 			'login_button_text'  => '',
 			'logout_button_text' => '',
-		];
+		);
 
-		$new_instance = [
+		$new_instance = array(
 			'title'              => 'aaa',
 			'welcome_message'    => 'bbb',
 			'login_button_text'  => 'ccc',
 			'logout_button_text' => 'ddd',
-		];
+		);
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
@@ -119,12 +119,12 @@ final class TestWidgetLogin extends TestCase {
 
 		$widget = new Widgets\Login();
 
-		$instance = [
+		$instance = array(
 			'title'              => 'aaa',
 			'welcome_message'    => 'bbb',
 			'login_button_text'  => 'ccc',
 			'logout_button_text' => 'ddd',
-		];
+		);
 
 		$widget->form( $instance );
 
