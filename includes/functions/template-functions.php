@@ -107,10 +107,10 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 
 	}
 
-	$data = [
+	$data = array(
 		'id'       => $id,
 		'quantity' => 1, // @TODO Future release.
-	];
+	);
 
 	if ( empty( $button_label ) ) {
 
@@ -129,7 +129,7 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 
 		$cart_url = esc_url_raw( rstore()->api->url( 'cart_api', '', $args ) );
 
-		$items = json_encode( [ $data ] );
+		$items = json_encode( array( $data ) );
 
 		$cart_form = sprintf(
 			'<form class="rstore-add-to-cart-form" method="POST" action="%s" ><input type="hidden" name="items" value=\'%s\' /><button class="rstore-add-to-cart button btn btn-primary" type="submit">%s</button><div class="rstore-loading rstore-loading-hidden"></div></form>',

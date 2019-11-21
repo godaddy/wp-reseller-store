@@ -66,7 +66,7 @@ final class Domain_Simple extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_widget_classes', [ 'widget_search' ] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_widget_classes', array( 'widget_search' ) ) );
 
 		if ( $classes ) {
 

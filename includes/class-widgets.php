@@ -30,14 +30,14 @@ final class Widgets {
 	 *
 	 * @var array
 	 */
-	private $modules = [
+	private $modules = array(
 		'domain-simple',
 		'domain-transfer',
 		'domain-search',
 		'product',
 		'login',
 		'cart',
-	];
+	);
 
 	/**
 	 * Class constructor.
@@ -46,13 +46,13 @@ final class Widgets {
 	 */
 	public function __construct() {
 
-		add_action( 'widgets_init', [ $this, 'register_widgets' ] );
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
 		// load beaver builder modules.
-		add_action( 'init', [ $this, 'load_fl_modules' ] );
+		add_action( 'init', array( $this, 'load_fl_modules' ) );
 
 		// load visual composer modules.
-		add_action( 'vc_before_init', [ $this, 'load_vc_modules' ] );
+		add_action( 'vc_before_init', array( $this, 'load_vc_modules' ) );
 	}
 
 	/**

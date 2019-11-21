@@ -93,11 +93,11 @@ final class Settings {
 	 */
 	public function __construct() {
 
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
-		add_action( 'admin_init', [ $this, 'reseller_register_settings' ] );
-		add_action( 'admin_menu', [ $this, 'register' ] );
-		add_action( 'wp_ajax_rstore_options_save', [ __CLASS__, 'save' ] );
-		add_action( 'wp_ajax_rstore_product_import', [ __CLASS__, 'import' ] );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+		add_action( 'admin_init', array( $this, 'reseller_register_settings' ) );
+		add_action( 'admin_menu', array( $this, 'register' ) );
+		add_action( 'wp_ajax_rstore_options_save', array( __CLASS__, 'save' ) );
+		add_action( 'wp_ajax_rstore_product_import', array( __CLASS__, 'import' ) );
 
 		$product_layout_type = rstore_get_option( 'product_layout_type' );
 		if ( ! empty( $product_layout_type ) ) {
@@ -301,7 +301,7 @@ final class Settings {
 		$market      = rstore_get_option( 'api_market' );
 		$currency    = rstore_get_option( 'api_currency' );
 		if ( ! empty( $market ) || ! empty( $currency ) || ! empty( $product_isc ) ) {
-			add_filter( 'rstore_api_query_args', [ $this, 'rstore_api_query_args_filter' ], 10, 2 );
+			add_filter( 'rstore_api_query_args', array( $this, 'rstore_api_query_args_filter' ), 10, 2 );
 		}
 
 	}
@@ -322,19 +322,19 @@ final class Settings {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'reseller-store-settings-js', Plugin::assets_url( "js/admin-settings{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'reseller-store-settings-js', Plugin::assets_url( "js/admin-settings{$suffix}.js" ), array( 'jquery' ), rstore()->version, true );
 
-		$args = [
+		$args = array(
 			'privateLabelId' => rstore_get_option( 'pl_id' ),
 			'fields'         => 'domain%2C%20displayName%2C%20homeUrl',
 
-		];
+		);
 
-		$data = [
-			'urls' => [
+		$data = array(
+			'urls' => array(
 				'api' => esc_url_raw( rstore()->api->url( 'api', 'settings', $args ) ),
-			],
-		];
+			),
+		);
 
 		wp_localize_script( 'reseller-store-settings-js', 'rstore', $data );
 
@@ -354,7 +354,7 @@ final class Settings {
 			esc_html__( 'Settings', 'reseller-store' ),
 			'manage_options',
 			rstore_prefix( 'settings' ),
-			[ $this, 'render_settings_page' ]
+			array( $this, 'render_settings_page' )
 		);
 	}
 
@@ -702,7 +702,7 @@ final class Settings {
 							echo '<td><input type="number" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" value="' . esc_attr( rstore_get_option( $setting['name'] ) ) . '" class="regular-text">';
 							break;
 						case 'time':
-							$sync_time = get_date_from_gmt( date( 'Y-m-d H:i:s', rstore_get_option( $setting['name'] ) ), get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) );
+							$sync_time = get_date_from_gmt( gmdate( 'Y-m-d H:i:s', rstore_get_option( $setting['name'] ) ), get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) );
 							echo '<tr>';
 							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
 							echo '<td><label id="' . esc_attr( $setting['name'] ) . '" >' . esc_html( $sync_time ) . '</label>';

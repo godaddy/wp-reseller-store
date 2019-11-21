@@ -34,11 +34,11 @@ final class Product extends Widget_Base {
 		parent::__construct(
 			rstore_prefix( 'product' ),
 			esc_html__( 'Reseller Product', 'reseller-store' ),
-			[
+			array(
 				'classname'   => rstore_prefix( 'Product', true ),
 				'description' => __( 'Display a product post.', 'reseller-store' ),
 				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
-			]
+			)
 		);
 
 	}
@@ -85,7 +85,7 @@ final class Product extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_product_widget_classes', [] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_product_widget_classes', array() ) );
 
 		if ( $classes ) {
 
@@ -294,11 +294,11 @@ final class Product extends Widget_Base {
 	private static function get_products( $selected_product ) {
 
 		$query = new \WP_Query(
-			[
+			array(
 				'post_type'   => \Reseller_Store\Post_Type::SLUG,
 				'post_status' => 'publish',
 				'nopaging'    => true, // get a list of every product.
-			]
+			)
 		);
 
 		$products = '';
@@ -339,7 +339,7 @@ final class Product extends Widget_Base {
 	 */
 	private function get_data( $instance ) {
 
-		return [
+		return array(
 			'post_id'        => (int) isset( $instance['post_id'] ) ? $instance['post_id'] : -1,
 			'show_title'     => isset( $instance['show_title'] ) ? ! empty( $instance['show_title'] ) : apply_filters( 'rstore_product_show_title', true ),
 			'show_content'   => isset( $instance['show_content'] ) ? ! empty( $instance['show_content'] ) : apply_filters( 'rstore_product_show_content', true ),
@@ -351,6 +351,6 @@ final class Product extends Widget_Base {
 			'content_height' => isset( $instance['content_height'] ) ? intval( $instance['content_height'] ) : apply_filters( 'rstore_product_content_height', 250 ),
 			'image_size'     => isset( $instance['image_size'] ) ? $instance['image_size'] : apply_filters( 'rstore_product_image_size', 'icon' ),
 			'layout_type'    => isset( $instance['layout_type'] ) ? $instance['layout_type'] : apply_filters( 'rstore_product_layout_type', 'default' ),
-		];
+		);
 	}
 }

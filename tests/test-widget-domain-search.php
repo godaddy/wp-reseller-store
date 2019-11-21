@@ -27,7 +27,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget = new Widgets\Domain_Search();
 		rstore_update_option( 'pl_id', 12345 );
 
-		$instance = [
+		$instance = array(
 			'title'         => '',
 			'placeholder'   => '',
 			'search'        => '',
@@ -36,14 +36,14 @@ final class TestWidgetDomainSearch extends TestCase {
 			'cart'          => '',
 			'select'        => '',
 			'selected'      => '',
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$widget->widget( $args, $instance );
 
@@ -62,7 +62,7 @@ final class TestWidgetDomainSearch extends TestCase {
 		$widget = new Widgets\Domain_Search();
 		rstore_update_option( 'pl_id', 12345 );
 
-		$instance = [
+		$instance = array(
 			'title'         => 'this is the title',
 			'placeholder'   => '',
 			'search'        => '',
@@ -71,14 +71,14 @@ final class TestWidgetDomainSearch extends TestCase {
 			'cart'          => '',
 			'select'        => '',
 			'selected'      => '',
-		];
+		);
 
-		$args = [
+		$args = array(
 			'before_widget' => '<div class="before_widget">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		];
+		);
 
 		$this->assertRegExp(
 			'/<div class="before_widget rstore_domain_placeholder"><h3 class="widget-title">this is the title<\/h3><div class="rstore-domain-search" data-plid="12345"/',
@@ -94,9 +94,9 @@ final class TestWidgetDomainSearch extends TestCase {
 
 		$widget = new Widgets\Domain_Search();
 
-		$old_instance = [];
+		$old_instance = array();
 
-		$new_instance = [
+		$new_instance = array(
 			'title'              => 'title',
 			'page_size'          => 10,
 			'text_placeholder'   => 'placeholder',
@@ -107,7 +107,7 @@ final class TestWidgetDomainSearch extends TestCase {
 			'text_select'        => 'select',
 			'text_selected'      => 'selected',
 			'modal'              => true,
-		];
+		);
 
 		$instance = $widget->update( $new_instance, $old_instance );
 
@@ -124,7 +124,7 @@ final class TestWidgetDomainSearch extends TestCase {
 
 		$widget = new Widgets\Domain_Search();
 
-		$instance = [
+		$instance = array(
 			'title'              => 'title',
 			'page_size'          => 5,
 			'text_placeholder'   => 'placeholder',
@@ -134,7 +134,7 @@ final class TestWidgetDomainSearch extends TestCase {
 			'text_cart'          => 'cart',
 			'text_select'        => 'select',
 			'text_selected'      => 'selected',
-		];
+		);
 
 		$widget->form( $instance );
 

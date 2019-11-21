@@ -27,7 +27,7 @@ class TestCase extends \WP_UnitTestCase {
 		$priority = isset( $test[3] ) ? $test[3] : 10;
 
 		// Default function call.
-		$function_call = ( in_array( $function_call, [ 'has_action', 'has_filter' ], true ) ) ? $function_call : 'has_action';
+		$function_call = ( in_array( $function_call, array( 'has_action', 'has_filter' ), true ) ) ? $function_call : 'has_action';
 
 		if ( is_array( $callback ) ) {
 

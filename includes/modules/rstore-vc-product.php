@@ -92,9 +92,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Show product title', 'reseller-store' ),
 						'param_name' => 'show_title',
-						'value'      => [
+						'value'      => array(
 							__( 'Hide', 'reseller-store' ) => 0,
-						],
+						),
 						'group'      => __( 'Display', 'reseller-store' ),
 					),
 					array(
@@ -103,9 +103,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Show post content', 'reseller-store' ),
 						'param_name' => 'show_content',
-						'value'      => [
+						'value'      => array(
 							__( 'Hide', 'reseller-store' ) => 0,
-						],
+						),
 						'group'      => __( 'Display', 'reseller-store' ),
 					),
 					array(
@@ -114,9 +114,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Show product price', 'reseller-store' ),
 						'param_name' => 'show_price',
-						'value'      => [
+						'value'      => array(
 							__( 'Hide', 'reseller-store' ) => 0,
-						],
+						),
 						'group'      => __( 'Display', 'reseller-store' ),
 					),
 					array(
@@ -146,9 +146,9 @@ class VCProduct extends \WPBakeryShortCode {
 						'class'      => 'text-class',
 						'heading'    => __( 'Redirect to cart after adding item', 'reseller-store' ),
 						'param_name' => 'redirect',
-						'value'      => [
+						'value'      => array(
 							__( 'No', 'reseller-store' ) => 0,
-						],
+						),
 						'group'      => 'Redirect',
 					),
 					array(
@@ -175,18 +175,18 @@ class VCProduct extends \WPBakeryShortCode {
 	private function get_product_list() {
 
 		$query = new \WP_Query(
-			[
+			array(
 				'post_type'   => \Reseller_Store\Post_Type::SLUG,
 				'post_status' => 'publish',
 				'nopaging'    => true, // get a list of every product.
-			]
+			)
 		);
 
 		$default = __( 'Select product...', 'reseller-store' );
 
-		$products = [
+		$products = array(
 			$default => -1,
-		];
+		);
 
 		while ( $query->have_posts() ) {
 

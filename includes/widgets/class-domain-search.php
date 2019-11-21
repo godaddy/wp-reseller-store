@@ -34,11 +34,11 @@ final class Domain_Search extends Widget_Base {
 		parent::__construct(
 			rstore_prefix( 'domain' ),
 			esc_html__( 'Reseller Advanced Domain Search', 'reseller-store' ),
-			[
+			array(
 				'classname'   => rstore_prefix( 'domain', true ),
 				'description' => esc_html__( 'An advanced search form with on page results for domain names.', 'reseller-store' ),
 				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
-			]
+			)
 		);
 
 	}
@@ -66,7 +66,7 @@ final class Domain_Search extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', [ 'rstore_domain_placeholder' ] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_domain_search_widget_classes', array( 'rstore_domain_placeholder' ) ) );
 
 		if ( $classes ) {
 

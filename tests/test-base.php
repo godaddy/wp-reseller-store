@@ -21,13 +21,13 @@ final class TestBase extends TestCase {
 	 */
 	public function test_plugin_data() {
 
-		$static_attributes = [
+		$static_attributes = array(
 			'version',
 			'basename',
 			'base_dir',
 			'assets_url',
 			'api',
-		];
+		);
 
 		array_map(
 			function( $attr ) {
@@ -45,7 +45,7 @@ final class TestBase extends TestCase {
 	 */
 	public function test_classes_exist() {
 
-		$classes = [
+		$classes = array(
 			'ButterBean',
 			'Display',
 			'Embed',
@@ -55,7 +55,7 @@ final class TestBase extends TestCase {
 			'Taxonomy_Category',
 			'Taxonomy_Tag',
 			'Widgets',
-		];
+		);
 
 		array_map(
 			function( $class ) {

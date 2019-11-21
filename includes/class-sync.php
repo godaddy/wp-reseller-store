@@ -48,7 +48,7 @@ final class Sync {
 	 *
 	 * @var array
 	 */
-	private $properties = [ 'content', 'listPrice', 'salePrice', 'term', 'title' ];
+	private $properties = array( 'content', 'listPrice', 'salePrice', 'term', 'title' );
 
 	/**
 	 * Class constructor.
@@ -100,7 +100,7 @@ final class Sync {
 		$this->properties = (array) apply_filters( 'rstore_sync_properties', $this->properties );
 
 		// After the post type and taxonomies are registered.
-		add_action( 'init', [ $this, 'check' ], 11 );
+		add_action( 'init', array( $this, 'check' ), 11 );
 
 	}
 
@@ -150,11 +150,11 @@ final class Sync {
 
 		}
 
-		$imported = (array) rstore_get_option( 'imported', [] );
+		$imported = (array) rstore_get_option( 'imported', array() );
 
 		foreach ( (array) $products as $product ) {
 
-			$post_id = array_search( $product->id, $imported, true );
+			$post_id = array_search( $product->id, array_column( $imported, 'id' ), true );
 
 			if ( false === $post_id ) {
 
@@ -162,7 +162,7 @@ final class Sync {
 
 			}
 
-			$meta = [];
+			$meta = array();
 
 			foreach ( $this->properties as $property ) {
 

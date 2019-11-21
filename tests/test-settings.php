@@ -49,7 +49,7 @@ final class TestClassSettings extends TestCase {
 	 */
 	public function test_basic_filters() {
 
-		$options = [
+		$options = array(
 			'product_layout_type',
 			'product_image_size',
 			'product_button_label',
@@ -64,7 +64,7 @@ final class TestClassSettings extends TestCase {
 			'domain_page_size',
 			'domain_modal',
 			'sync_ttl',
-		];
+		);
 
 		foreach ( $options as $option ) {
 			rstore_update_option( $option, true );
@@ -84,12 +84,12 @@ final class TestClassSettings extends TestCase {
 	 */
 	public function test_boolean_filters() {
 
-		$options = [
+		$options = array(
 			'product_show_title',
 			'product_show_content',
 			'product_show_price',
 			'product_redirect',
-		];
+		);
 
 		foreach ( $options as $option ) {
 			rstore_update_option( $option, true );
@@ -140,7 +140,7 @@ final class TestClassSettings extends TestCase {
 
 		new Settings();
 
-		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
+		$args = apply_filters( 'rstore_api_query_args', array(), 'cart_api' );
 
 		$this->assertEquals( 'promotion', $args['isc'] );
 	}
@@ -154,7 +154,7 @@ final class TestClassSettings extends TestCase {
 
 		new Settings();
 
-		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
+		$args = apply_filters( 'rstore_api_query_args', array(), 'cart_api' );
 
 		$this->assertEquals( 'en-US', $args['marketId'] );
 	}
@@ -168,7 +168,7 @@ final class TestClassSettings extends TestCase {
 
 		new Settings();
 
-		$args = apply_filters( 'rstore_api_query_args', [], 'cart_api' );
+		$args = apply_filters( 'rstore_api_query_args', array(), 'cart_api' );
 
 		$this->assertEquals( 'USD', $args['currencyType'] );
 	}

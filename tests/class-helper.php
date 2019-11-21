@@ -54,25 +54,25 @@ final class Helper {
 	public static function create_product( $post_title = 'WordPress Hosting', $product_id = 'wordpress-basic' ) {
 
 		$post_id = wp_insert_post(
-			[
+			array(
 				'post_title'   => $post_title,
 				'post_name'    => 'wordpress-hosting',
 				'post_type'    => 'reseller_product',
 				'post_status'  => 'publish',
 				'post_content' => 'this is a product',
-			]
+			)
 		);
 
-		$meta = [
+		$meta = array(
 			'rstore_id'         => $product_id,
-			'rstore_categories' => [],
+			'rstore_categories' => array(),
 			'rstore_image'      => 'http://image',
 			'rstore_term'       => 'year',
 			'rstore_listPrice'  => '$70.00',
 			'rstore_title'      => 'Wordpres Hosting',
 			'rstore_content'    => 'blah blah',
 			'rstore_salePrice'  => '$50.00',
-		];
+		);
 
 		foreach ( $meta as $key => $value ) {
 

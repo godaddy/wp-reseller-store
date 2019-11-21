@@ -29,12 +29,12 @@ final class Shortcodes {
 	 *
 	 * @var array
 	 */
-	private $args = [
+	private $args = array(
 		'before_widget' => '',
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 		'after_widget'  => '</div>',
-	];
+	);
 
 	/**
 	 * Class constructor.
@@ -54,7 +54,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
-		add_shortcode( 'rstore-domain-search', [ $this, 'domain_search' ] );
+		add_shortcode( 'rstore-domain-search', array( $this, 'domain_search' ) );
 
 		/**
 		 * Register the domain search shortcode
@@ -67,7 +67,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
-		add_shortcode( 'rstore_domain_search', [ $this, 'domain_search' ] );
+		add_shortcode( 'rstore_domain_search', array( $this, 'domain_search' ) );
 
 		/**
 		 * Register the add to cart shortcode
@@ -80,7 +80,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the cart button
 		 */
-		add_shortcode( 'rstore_cart_button', [ $this, 'cart_button' ] );
+		add_shortcode( 'rstore_cart_button', array( $this, 'cart_button' ) );
 
 		/**
 		 * Register the add to product shortcode
@@ -93,7 +93,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the product pod
 		 */
-		add_shortcode( 'rstore_product', [ $this, 'product' ] );
+		add_shortcode( 'rstore_product', array( $this, 'product' ) );
 
 		/**
 		 * Register the login shortcode
@@ -106,7 +106,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the product pod
 		 */
-		add_shortcode( 'rstore_login', [ $this, 'login' ] );
+		add_shortcode( 'rstore_login', array( $this, 'login' ) );
 
 		/**
 		 * Register the domain transfer shortcode
@@ -119,7 +119,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
-		add_shortcode( 'rstore_domain_transfer', [ $this, 'domain_transfer' ] );
+		add_shortcode( 'rstore_domain_transfer', array( $this, 'domain_transfer' ) );
 
 		/**
 		 * Register the domain search simple shortcode
@@ -132,7 +132,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
-		add_shortcode( 'rstore_domain', [ $this, 'domain_simple' ] );
+		add_shortcode( 'rstore_domain', array( $this, 'domain_simple' ) );
 
 		/**
 		 * Register the product icon shortcode
@@ -145,7 +145,7 @@ final class Shortcodes {
 		 *
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
-		add_shortcode( 'rstore_icon', [ $this, 'product_icon' ] );
+		add_shortcode( 'rstore_icon', array( $this, 'product_icon' ) );
 
 	}
 

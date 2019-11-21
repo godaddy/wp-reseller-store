@@ -46,9 +46,9 @@ final class TestEmbed extends TestCase {
 		$embed = new Embed();
 
 		$post_id = $this->factory->post->create(
-			[
+			array(
 				'post_title' => 'test',
-			]
+			)
 		);
 
 		$post = get_post( $post_id );
@@ -115,9 +115,9 @@ final class TestEmbed extends TestCase {
 		$embed = new Embed();
 
 		$post_id = $this->factory->post->create(
-			[
+			array(
 				'post_title' => 'test',
-			]
+			)
 		);
 
 		$post = get_post( $post_id );

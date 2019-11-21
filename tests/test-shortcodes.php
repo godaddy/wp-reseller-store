@@ -226,9 +226,9 @@ final class TestShortcodes extends TestCase {
 
 		$this->assertTrue(
 			rstore_is_widget(
-				[
+				array(
 					'widget_id' => 'widget-id-123',
-				]
+				)
 			)
 		);
 

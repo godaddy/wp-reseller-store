@@ -35,8 +35,8 @@ final class Permalinks {
 
 		}
 
-		add_action( 'admin_init', [ $this, 'init' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
+		add_action( 'admin_init', array( $this, 'init' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
 	}
 
@@ -83,7 +83,7 @@ final class Permalinks {
 		add_settings_section(
 			'rstore-permalinks',
 			esc_html__( 'Reseller Product Permalinks', 'reseller-store' ),
-			[ $this, 'section' ],
+			array( $this, 'section' ),
 			'permalink'
 		);
 
@@ -176,7 +176,7 @@ final class Permalinks {
 
 		check_admin_referer( 'update-permalink' );
 
-		$old_permalinks = (array) rstore_get_option( 'permalinks', [] );
+		$old_permalinks = (array) rstore_get_option( 'permalinks', array() );
 		$new_permalinks = $old_permalinks;
 
 		$new_permalinks['category_base'] = sanitize_title( filter_input( INPUT_POST, 'rstore_category_base', FILTER_SANITIZE_STRING ) );
@@ -230,7 +230,7 @@ final class Permalinks {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_script( 'rstore-admin-permalinks', Plugin::assets_url( "js/admin-permalinks{$suffix}.js" ), [ 'jquery' ], rstore()->version, true );
+		wp_enqueue_script( 'rstore-admin-permalinks', Plugin::assets_url( "js/admin-permalinks{$suffix}.js" ), array( 'jquery' ), rstore()->version, true );
 
 	}
 

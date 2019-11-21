@@ -15,13 +15,13 @@
  *
  * @var array
  */
-$args = [
+$args = array(
 	'before_widget' => '',
 	'before_title'  => '<h4 class="widget-title">',
 	'after_title'   => '</h4>',
 	'after_widget'  => '</div>',
 	'widget_id'     => $id,
-];
+);
 
 /**
  * Module settings.

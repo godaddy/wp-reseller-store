@@ -29,12 +29,12 @@ final class Blocks {
 	 *
 	 * @var array
 	 */
-	private $args = [
+	private $args = array(
 		'before_widget' => '',
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 		'after_widget'  => '</div>',
-	];
+	);
 
 	/**
 	 * Class constructor.
@@ -48,9 +48,9 @@ final class Blocks {
 			return;
 		}
 
-		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
-		add_filter( 'block_categories', [ $this, 'block_categories' ], 10, 2 );
+		add_filter( 'block_categories', array( $this, 'block_categories' ), 10, 2 );
 
 		add_action(
 			'init',
@@ -59,20 +59,20 @@ final class Blocks {
 				register_block_type(
 					'reseller-store/product',
 					array(
-						'render_callback' => [
+						'render_callback' => array(
 							$this,
 							'product',
-						],
+						),
 					)
 				);
 
 				register_block_type(
 					'reseller-store/domain-search',
 					array(
-						'render_callback' => [
+						'render_callback' => array(
 							$this,
 							'domain_search',
-						],
+						),
 					)
 				);
 
@@ -93,12 +93,12 @@ final class Blocks {
 		wp_enqueue_script(
 			'reseller-store-blocks-js',
 			Plugin::assets_url( $block_js_path ),
-			[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ],
+			array( 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components' ),
 			rstore()->version,
 			true
 		);
 
-		wp_enqueue_style( 'reseller-store-blocks-css', Plugin::assets_url( "css/blocks-editor{$suffix}.css" ), [], rstore()->version );
+		wp_enqueue_style( 'reseller-store-blocks-css', Plugin::assets_url( "css/blocks-editor{$suffix}.css" ), array(), rstore()->version );
 
 	}
 

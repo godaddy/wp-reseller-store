@@ -66,7 +66,7 @@ final class Login extends Widget_Base {
 		 *
 		 * @var array
 		 */
-		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_login_widget_classes', [] ) );
+		$classes = array_map( 'sanitize_html_class', (array) apply_filters( 'rstore_login_widget_classes', array() ) );
 
 		if ( $classes ) {
 

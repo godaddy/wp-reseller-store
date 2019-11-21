@@ -29,11 +29,11 @@ final class Display {
 	 */
 	public function __construct() {
 
-		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ] );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-		add_action( 'enqueue_embed_scripts', [ $this, 'wp_enqueue_scripts' ] );
+		add_action( 'enqueue_embed_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
 	}
 
@@ -49,28 +49,28 @@ final class Display {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style( 'reseller-store-css', Plugin::assets_url( "css/store{$rtl}{$suffix}.css" ), [ 'dashicons' ], rstore()->version );
+		wp_enqueue_style( 'reseller-store-css', Plugin::assets_url( "css/store{$rtl}{$suffix}.css" ), array( 'dashicons' ), rstore()->version );
 
-		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), [], '2.1.3', true );
-		wp_enqueue_script( 'reseller-store-js', Plugin::assets_url( "js/store{$suffix}.js" ), [ 'jquery', 'js-cookie' ], rstore()->version, true );
-		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), [], rstore()->version, true );
+		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), array(), '2.1.3', true );
+		wp_enqueue_script( 'reseller-store-js', Plugin::assets_url( "js/store{$suffix}.js" ), array( 'jquery', 'js-cookie' ), rstore()->version, true );
+		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), array(), rstore()->version, true );
 
-		$data = [
+		$data = array(
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),
-			'urls'    => [
+			'urls'    => array(
 				'cart_api' => esc_url_raw( rstore()->api->url( 'cart_api' ) ),
 				'gui'      => rstore()->api->url( 'gui' ),
-			],
-			'cookies' => [
+			),
+			'cookies' => array(
 				'shopperId' => 'ShopperId' . rstore_get_option( 'pl_id' ),
-			],
-			'product' => [
+			),
+			'product' => array(
 				'id' => ( Post_Type::SLUG === get_post_type() ) ? rstore_get_product_meta( get_the_ID(), 'id', '' ) : '',
-			],
-			'i18n'    => [
+			),
+			'i18n'    => array(
 				'error' => esc_html__( 'An error has occurred', 'reseller-store' ),
-			],
-		];
+			),
+		);
 
 		wp_localize_script( 'reseller-store-js', 'rstore', $data );
 
@@ -90,7 +90,7 @@ final class Display {
 
 			$suffix = SCRIPT_DEBUG ? '' : '.min';
 
-			wp_enqueue_style( 'reseller-store-admin-css', Plugin::assets_url( "css/admin{$rtl}{$suffix}.css" ), [], rstore()->version );
+			wp_enqueue_style( 'reseller-store-admin-css', Plugin::assets_url( "css/admin{$rtl}{$suffix}.css" ), array(), rstore()->version );
 
 		}
 	}

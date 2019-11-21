@@ -52,9 +52,9 @@ final class TestPostType extends TestCase {
 		new Post_Type();
 		$value = apply_filters(
 			'view_mode_post_types',
-			[
+			array(
 				'reseller_product' => 'reseller_product',
-			]
+			)
 		);
 
 		$this->assertEquals( 0, count( $value ) );
@@ -77,9 +77,9 @@ final class TestPostType extends TestCase {
 
 		rstore_update_option(
 			'imported',
-			[
+			array(
 				$post->ID => 'wordpress-basic',
-			]
+			)
 		);
 
 		$value = $post_type->reset_product_data( $post->ID );
@@ -109,9 +109,9 @@ final class TestPostType extends TestCase {
 
 		rstore_update_option(
 			'imported',
-			[
+			array(
 				$post->ID => 'wordpress-basic',
-			]
+			)
 		);
 
 		$_POST['republish_product'] = true;
@@ -185,12 +185,12 @@ final class TestPostType extends TestCase {
 		$_POST['post_type']         = 'reseller_product';
 
 		$post_id = wp_insert_post(
-			[
+			array(
 				'post_title'  => 'test',
 				'post_name'   => 'wordpress-hosting',
 				'post_type'   => 'reseller_product',
 				'post_status' => 'publish',
-			]
+			)
 		);
 
 		$value = $post_type->republish_post( $post_id );
@@ -215,12 +215,12 @@ final class TestPostType extends TestCase {
 		wp_set_current_user( $user_id );
 
 		$post_id = wp_insert_post(
-			[
+			array(
 				'post_title'  => 'hosting',
 				'post_name'   => 'wordpress-hosting',
 				'post_type'   => 'reseller_product',
 				'post_status' => 'unpublish',
-			]
+			)
 		);
 
 		$_POST['republish_product'] = true;
@@ -291,9 +291,9 @@ final class TestPostType extends TestCase {
 		rstore_update_option( 'pl_id', 1592 );
 
 		$post_id = $this->factory->post->create(
-			[
+			array(
 				'post_title' => 'test',
-			]
+			)
 		);
 
 		new Post_Type();

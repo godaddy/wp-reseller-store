@@ -37,7 +37,7 @@ final class Bulk_Restore {
 			}
 		);
 
-		add_filter( 'handle_bulk_actions-edit-' . Post_Type::SLUG, [ $this, 'bulk_action_handler' ], 10, 3 );
+		add_filter( 'handle_bulk_actions-edit-' . Post_Type::SLUG, array( $this, 'bulk_action_handler' ), 10, 3 );
 
 	}
 

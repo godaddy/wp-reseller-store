@@ -23,7 +23,7 @@ final class TestBulkRestore extends TestCase {
 
 		new Bulk_Restore();
 		$action_name = 'bulk_actions-edit-' . Post_Type::SLUG;
-		$actions     = apply_filters( $action_name, [] );
+		$actions     = apply_filters( $action_name, array() );
 		$this->assertEquals( 'Restore Product Data', $actions['restore_product_data'] );
 
 	}
@@ -50,18 +50,18 @@ final class TestBulkRestore extends TestCase {
 
 		rstore_update_option(
 			'imported',
-			[
+			array(
 				$post->ID => 'wordpress-basic',
-			]
+			)
 		);
 
-		$post_ids = [ $post->ID ];
+		$post_ids = array( $post->ID );
 
 		$bulk_restore = new Bulk_Restore();
 
 		$redirect_to = $bulk_restore->bulk_action_handler( '', 'restore_product_data', $post_ids );
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		$this->assertEquals( 0, count( $errors ) );
 		$this->assertEquals( '?bulk_restore_posts=1', $redirect_to );
@@ -75,9 +75,9 @@ final class TestBulkRestore extends TestCase {
 
 		$bulk_restore = new Bulk_Restore();
 
-		$redirect_to = $bulk_restore->bulk_action_handler( '', 'invalid', [] );
+		$redirect_to = $bulk_restore->bulk_action_handler( '', 'invalid', array() );
 
-		$error = rstore_get_option( 'errors', [] );
+		$error = rstore_get_option( 'errors', array() );
 
 		$this->assertEquals( 0, count( $error ) );
 		$this->assertEmpty( $redirect_to );
@@ -91,13 +91,13 @@ final class TestBulkRestore extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$post_ids = [ $post->ID ];
+		$post_ids = array( $post->ID );
 
 		$bulk_restore = new Bulk_Restore();
 
 		$redirect_to = $bulk_restore->bulk_action_handler( '', 'restore_product_data', $post_ids );
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		$this->assertEquals( 1, count( $errors ) );
 		$this->assertEquals( 'Bad Request', $errors[0]->get_error_message() );
@@ -121,22 +121,22 @@ final class TestBulkRestore extends TestCase {
 		wp_set_current_user( $user_id );
 
 		$post_id = wp_insert_post(
-			[
+			array(
 				'post_title'   => 'WordPress',
 				'post_name'    => 'wordpress-hosting',
 				'post_type'    => 'reseller_product',
 				'post_status'  => 'publish',
 				'post_content' => 'this is a product',
-			]
+			)
 		);
 
-		$post_ids = [ $post_id ];
+		$post_ids = array( $post_id );
 
 		$bulk_restore = new Bulk_Restore();
 
 		$redirect_to = $bulk_restore->bulk_action_handler( '', 'restore_product_data', $post_ids );
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		$this->assertEquals( 1, count( $errors ) );
 		$this->assertEquals( '`%s` does not have a valid product id.', $errors[0]->get_error_message() );
@@ -160,13 +160,13 @@ final class TestBulkRestore extends TestCase {
 
 		$post = Tests\Helper::create_product( 'WordPress', 'invalid-product-id' );
 
-		$post_ids = [ $post->ID ];
+		$post_ids = array( $post->ID );
 
 		$bulk_restore = new Bulk_Restore();
 
 		$redirect_to = $bulk_restore->bulk_action_handler( '', 'restore_product_data', $post_ids );
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		$this->assertEquals( 1, count( $errors ) );
 		$this->assertEquals( '`%s` is not a valid product.', $errors[0]->get_error_message() );
@@ -183,13 +183,13 @@ final class TestBulkRestore extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$post_ids = [ $post->ID ];
+		$post_ids = array( $post->ID );
 
 		$bulk_restore = new Bulk_Restore();
 
 		$redirect_to = $bulk_restore->bulk_action_handler( '', 'restore_product_data', $post_ids );
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		$this->assertEquals( 1, count( $errors ) );
 		$this->assertEquals( 'Current user cannot modify post.', $errors[0]->get_error_message() );
@@ -217,13 +217,13 @@ final class TestBulkRestore extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$post_ids = [ $post->ID ];
+		$post_ids = array( $post->ID );
 
 		$bulk_restore = new Bulk_Restore();
 
 		$redirect_to = $bulk_restore->bulk_action_handler( '', 'restore_product_data', $post_ids );
 
-		$errors = rstore_get_option( 'errors', [] );
+		$errors = rstore_get_option( 'errors', array() );
 
 		$this->assertEquals( 1, count( $errors ) );
 		$this->assertEquals( '`%s` must be imported as a product post before it can be reset.', $errors[0]->get_error_message() );
