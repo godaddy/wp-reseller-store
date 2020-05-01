@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2019-08-02 05:22:09+00:00\n"
+"POT-Creation-Date: 2020-05-01 17:44:01+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1337,6 +1337,9 @@ msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / на %2$s"
 
+#~ msgid "Don't have an account?"
+#~ msgstr "Не маєте облікового запису?"
+
 #~ msgid "Redirect to the cart immediately after adding"
 #~ msgstr "Переходити до кошика одразу після додавання"
 
@@ -1368,12 +1371,6 @@ msgstr "%1$s / на %2$s"
 
 #~ msgid "Install Now"
 #~ msgstr "Встановити"
-
-#~ msgid "Don't have an account?"
-#~ msgstr "Не маєте акаунта?"
-
-#~ msgid "Create an account"
-#~ msgstr "Створити акаунт"
 
 #~ msgid "View Cart %s"
 #~ msgstr "Переглянути вміст кошика %s"
