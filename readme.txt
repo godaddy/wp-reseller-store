@@ -2,7 +2,7 @@
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 4.6
-Tested up to:      5.3
+Tested up to:      5.4
 Requires PHP:      5.4
 Stable tag:        2.2.2
 License:           GPL-2.0
@@ -16,7 +16,7 @@ With this plugin, you have the option to easily design a site with the imported 
 
 The product catalog includes cPanel and Plesk hosting, Wordpress, Website Builder, Workspace Email, Security, and Web Marketing applications.
 
-[youtube https://youtu.be/eadC9vGwPxE]
+[youtube https://youtu.be/5xVSIrYCZKw]
 
 **Features**
 
@@ -51,7 +51,7 @@ Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-re
 == Frequently Asked Questions ==
 
 = What reseller programs will this plugin work with? =
-This plugin is designed for the [GoDaddy Reseller Program](https://www.godaddy.com/reseller-program). If you have not purchased a reseller program, you can activate the plugin with our "in house" reseller. At any time, you can updgrade the reseller to your own.
+This plugin is designed for the [GoDaddy Reseller Program](https://www.godaddy.com/reseller-program). If you have not purchased a reseller program, you can activate the plugin with our "in house" reseller. At any time, you can upgrade the reseller to your plan by deactivating the plugin and reactivating.
 
 = What settings should I update in the Reseller Control Center? =
 We recommend you set the _Home Url_ to your WordPress storefront. We also suggest you set up a _Custom Domain_ and point the DNS to our server.
@@ -64,7 +64,7 @@ The currency and language are set in the [Reseller Control Center](https://http:
 
 = Do you have a pre-built WordPress site? =
 We encourage each reseller to create their own unique site and content for their storefronts. This provides a better experience for your customers and more opportunities for search engine optimization.
-While we can't test every theme with our plugin, we try our best to make the plugin compatible. GoDaddy provides several free themes including [Primer](https://wordpress.org/themes/primer/) and [Turnkey Storefront](https://wordpress.org/themes/turnkey-storefront/) that we test with our plugin. You can use content from the turnkey website to help you build your own WordPress site.
+While we can't test every theme with our plugin, we try our best to make the plugin compatible. GoDaddy provides several free themes including [Go](https://wordpress.org/themes/go/) and [Turnkey Storefront](https://wordpress.org/themes/turnkey-storefront/) that we test with our plugin. You can use content from your turnkey website to help you build your own WordPress site.
 
 = I am getting an error while trying to activate the plugin. What should I do? =
 If you are having an issue, we recommend you deactivate your other plugins and then try to activate the Reseller Store plugin. You can also try changing to another theme and the try re activating the plugin. Before making any of these changes, we recommend you make a backup of your site and database.
