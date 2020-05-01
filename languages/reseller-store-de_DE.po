@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GoDaddy Reseller Store 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/godaddy/wp-reseller-store/issues\n"
-"POT-Creation-Date: 2019-08-02 05:22:09+00:00\n"
+"POT-Creation-Date: 2020-05-01 17:44:01+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -816,14 +816,6 @@ msgstr "Fehler: ‚%s‘ ist nicht vorhanden."
 msgid "Cart Link"
 msgstr "Warenkorb"
 
-#: includes/widgets/class-cart.php:22
-msgid "Reseller Cart"
-msgstr "Reseller-Warenkorb"
-
-#: includes/widgets/class-cart.php:25
-msgid "Display the user's cart in the sidebar."
-msgstr "Warenkorb des Benutzers in der Seitenleiste anzeigen"
-
 #: includes/modules/rstore-fl-cart.php:33
 #: includes/modules/rstore-vc-cart.php:46 includes/widgets/class-cart.php:39
 msgid "A shopper cart status."
@@ -1260,9 +1252,6 @@ msgid ""
 "Required version 5.4 or higher. Your PHP version is: %s"
 msgstr ""
 
-msgid "GoDaddy Reseller Store"
-msgstr "Reseller-Shop von GoDaddy"
-
 #. Description of the plugin/theme
 #, fuzzy
 msgid "Sell hosting, domains, and more right from your WordPress site."
@@ -1354,15 +1343,21 @@ msgctxt "product price"
 msgid "%1$s / per %2$s"
 msgstr "%1$s / pro %2$s"
 
+#~ msgid "Reseller Cart"
+#~ msgstr "Reseller-Warenkorb"
+
+#~ msgid "Display the user's cart in the sidebar."
+#~ msgstr "Warenkorb des Benutzers in der Seitenleiste anzeigen"
+
+#~ msgid "GoDaddy Reseller Store"
+#~ msgstr "Reseller-Shop von GoDaddy"
+
 #~ msgid "Redirect to the cart immediately after adding"
 #~ msgstr "Nach dem Hinzufügen sofort zum Warenkorb weiterleiten"
 
 #, fuzzy
 #~ msgid "Reseller Domain Search (Advanced)"
 #~ msgstr "Wiederverkäufer-Domainsuche"
-
-#~ msgid "GoDaddy Reseller Store"
-#~ msgstr "Wiederverkäufer-Shop von GoDaddy"
 
 #, fuzzy
 #~ msgid "Verify Button"
