@@ -681,6 +681,10 @@ msgstr ""
 msgid "Get your own plan today."
 msgstr ""
 
+#: includes/class-setup.php:177
+msgid "Don't have an account?"
+msgstr "Не маєте облікового запису?"
+
 #: includes/class-setup.php:240
 #, fuzzy
 msgid "Need help? Call our award-winning support team 24/7 at (480) 505-8857."
@@ -1371,9 +1375,6 @@ msgstr "%1$s / на %2$s"
 
 #~ msgid "Don't have an account?"
 #~ msgstr "Не маєте акаунта?"
-
-#~ msgid "Create an account"
-#~ msgstr "Створити акаунт"
 
 #~ msgid "View Cart %s"
 #~ msgstr "Переглянути вміст кошика %s"

@@ -164,15 +164,15 @@ msgstr "„%s“ ist kein gültiger Beitragstyp für Produkte."
 
 #: includes/class-permalinks.php:53
 msgid "Reseller category base"
-msgstr "Kategoriebasis Wiederverkäufer"
+msgstr "Kategoriebasis Reseller"
 
 #: includes/class-permalinks.php:69
 msgid "Reseller tag base"
-msgstr "Tagbasis Wiederverkäufer"
+msgstr "Tagbasis Reseller"
 
 #: includes/class-permalinks.php:85
 msgid "Reseller Product Permalinks"
-msgstr "Produkt-Permalinks Wiederverkäufer"
+msgstr "Produkt-Permalinks Reseller"
 
 #: includes/class-permalinks.php:103
 msgid ""
@@ -180,7 +180,7 @@ msgid ""
 "products."
 msgstr ""
 "Diese Einstellungen gelten für die Permalinks, die insbesondere für Produkte "
-"des Wiederverkäufer-Shops verwendet werden."
+"des Reseller-Shops verwendet werden."
 
 #: includes/class-permalinks.php:133 includes/modules/rstore-fl-product.php:124
 #: includes/modules/rstore-vc-product.php:129
@@ -262,7 +262,7 @@ msgstr "Als Bild im Fokus verwenden"
 
 #: includes/class-post-type.php:249
 msgid "This is where you can add new products to your Reseller Store."
-msgstr "Hier können Sie Ihrem Wiederverkäufer-Shop neue Produkte hinzufügen."
+msgstr "Hier können Sie Ihrem Reseller-Shop neue Produkte hinzufügen."
 
 #: includes/class-post-type.php:294
 msgid "Product id not found or invalid."
@@ -641,12 +641,12 @@ msgstr ""
 
 #: includes/class-setup.php:142
 msgid "Reseller Store Setup"
-msgstr "Einrichtung des Wiederverkäufer-Shops"
+msgstr "Einrichtung des Reseller-Shops"
 
 #: includes/class-setup.php:217
 #, fuzzy
 msgid "Let's setup your Reseller Store."
-msgstr "Richten Sie nun Ihren Wiederverkäufer-Shop von GoDaddy ein."
+msgstr "Richten Sie nun Ihren Reseller-Shop von GoDaddy ein."
 
 #: includes/class-setup.php:221
 msgid ""
@@ -815,6 +815,14 @@ msgstr "Fehler: ‚%s‘ ist nicht vorhanden."
 #, fuzzy
 msgid "Cart Link"
 msgstr "Warenkorb"
+
+#: includes/widgets/class-cart.php:22
+msgid "Reseller Cart"
+msgstr "Reseller-Warenkorb"
+
+#: includes/widgets/class-cart.php:25
+msgid "Display the user's cart in the sidebar."
+msgstr "Warenkorb des Benutzers in der Seitenleiste anzeigen"
 
 #: includes/modules/rstore-fl-cart.php:33
 #: includes/modules/rstore-vc-cart.php:46 includes/widgets/class-cart.php:39
@@ -1216,7 +1224,7 @@ msgstr "Domainsuche"
 
 #: includes/widgets/class-domain-simple.php:36
 msgid "Reseller Domain Search"
-msgstr "Wiederverkäufer-Domainsuche"
+msgstr "Reseller-Domainsuche"
 
 #: includes/widgets/class-domain-transfer.php:36
 #, fuzzy
@@ -1251,6 +1259,9 @@ msgid ""
 "You need to update your PHP version to run GoDaddy Reseller Store plugin. "
 "Required version 5.4 or higher. Your PHP version is: %s"
 msgstr ""
+
+msgid "GoDaddy Reseller Store"
+msgstr "Reseller-Shop von GoDaddy"
 
 #. Description of the plugin/theme
 #, fuzzy
@@ -1305,12 +1316,12 @@ msgstr "Produkt"
 #: includes/class-post-type.php:225
 msgctxt "admin menu"
 msgid "Reseller Store"
-msgstr "Wiederverkäufer-Shop"
+msgstr "Reseller-Shop"
 
 #: includes/class-post-type.php:226
 msgctxt "add new on admin bar"
 msgid "Reseller Product"
-msgstr "Wiederverkäuferprodukt"
+msgstr "Reseller-produkt"
 
 #: includes/class-post-type.php:227
 msgctxt "product"
@@ -1345,9 +1356,6 @@ msgstr "%1$s / pro %2$s"
 
 #~ msgid "Redirect to the cart immediately after adding"
 #~ msgstr "Nach dem Hinzufügen sofort zum Warenkorb weiterleiten"
-
-#~ msgid "Display the user's cart in the sidebar."
-#~ msgstr "Warenkorb des Benutzers in der Seitenleiste anzeigen"
 
 #, fuzzy
 #~ msgid "Reseller Domain Search (Advanced)"
