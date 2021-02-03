@@ -47,11 +47,11 @@ install:
       composer global require "phpunit/phpunit=4.8.*"
     fi
   - composer global require wp-coding-standards/wpcs
-  - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+  - ./vendor/bin/phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit -c .dev/phpunit.xml.dist
+  - ./vendor/bin/phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
+  - ./vendor/bin/phpunit -c .dev/phpunit.xml.dist
 
 jobs:
   fast_finish: true
