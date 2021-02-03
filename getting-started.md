@@ -1,14 +1,14 @@
 # Getting Started: Docker Runbook
 
-In order to create a working environment quickly and effectively, by using Docker we can create a simple environment using `docker-compose` to run the latest version of Wordpress and a database along side it with a means to running the wp-reseller-store plugin in a volume.
+In order to create a working environment quickly and effectively, by using Docker we can create a simple environment using `docker-compose` to run the latest version of WordPress and a database alongside it with a means to running the wp-reseller-store plugin in a volume.
 
 ### Create a new project
 
-Within your development directory create a new folder the name is not important but for this example we will name it `wp-reseller-dev`.
+Within your development directory, create a new folder. The name is not important, but for this example we will name it `wp-reseller-dev`.
 
-In your console navigate to this directory and create a file called `docker-compose.yml`
+In your console, navigate to the newly created `wp-reseller-dev` directory and create a file called `docker-compose.yml`
 
-Copy the below contents in to the yml file:
+Copy the below contents into the yml file:
 ```yml
 version: '3.3'
 services:
@@ -43,22 +43,22 @@ volumes:
 
 Feel free to change the exposed port of `localhost:8080`.
 
-Once this file has been saved within the `wp-reseller-dev` directory please run:
+Once this file has been saved within the `wp-reseller-dev` directory, please run:
 
 ```
 docker-compose up
 ```
 
-This will go off to DockerHub and pull down the requested docker images Wordpress and SQL.
+This will go off to DockerHub and pull down the requested docker images for WordPress and SQL.
 
-### Create Wordpress Admin
+### Create WordPress Admin
 
-Visit `localhost:8080` to view your docker Wordpress installation and follow the steps on screen to create your admin account.
+Visit `localhost:8080` to view your docker WordPress installation and follow the steps on screen to create your admin account.
 
-Once logged in please you should now half 2 volumes in your `wp-reseller-dev` directory, `/wordpress` & `/plugins`
+Once logged in, you should now have 2 volumes in your `wp-reseller-dev` directory, `/wordpress` & `/plugins`
 
-In your console `cd` in to `/plugins` folder and clone this repository in to it.
+In your console, `cd` into the `/plugins` folder and clone this repository (wp-reseller-store) into it.
 
-Within the wordpress admin you should now see the reseller store plugin listed in plugin view.
+Within the WordPress admin, you should now see the reseller store plugin listed in the plugin view.
 
-Click activate to enable and then visit the reseller store plugin menu item in the sidebar and follow on screen instructions.
+Click "Activate" to enable the plugin, then visit the reseller store plugin menu item in the sidebar and follow on screen instructions to complete setup.
