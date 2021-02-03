@@ -40,18 +40,22 @@ before_install:
 install:
   - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - export PHPCS_DIR=/tmp/phpcs
+  - export SNIFFS_DIR=/tmp/sniffs
+  - git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR
+  - git clone -b master --depth 1 https://github.com/WordPress/WordPress-Coding-Standards.git $SNIFFS_DIR
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
       composer global require "phpunit/phpunit=6.5.*"
     else
       composer global require "phpunit/phpunit=4.8.*"
     fi
-  - composer global require wp-coding-standards/wpcs
-  - ./vendor/bin/phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+  - $PHPCS_DIR/bin/phpcs --config-set installed_paths $SNIFFS_DIR
+  - phpenv rehash
 
 script:
-  - ./vendor/bin/phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
-  - ./vendor/bin/phpunit -c .dev/phpunit.xml.dist
+  - $PHPCS_DIR/bin/phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
+  - phpunit -c .dev/phpunit.xml.dist
 
 jobs:
   fast_finish: true
