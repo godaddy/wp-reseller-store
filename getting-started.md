@@ -46,7 +46,7 @@ Feel free to change the exposed port of `localhost:8080`.
 Once this file has been saved within the `wp-reseller-dev` directory please run:
 
 ```
-docker compose up
+docker-compose up
 ```
 
 This will go off to DockerHub and pull down the requested docker images Wordpress and SQL.
