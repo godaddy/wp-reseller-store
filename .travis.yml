@@ -48,7 +48,7 @@ install:
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
       composer global require "phpunit/phpunit=7.2.*"
     else
-      composer global require "phpunit/phpunit=5.4.*"
+      composer global require "phpunit/phpunit=4.8.*"
     fi
   - $PHPCS_DIR/bin/phpcs --config-set installed_paths $SNIFFS_DIR
   - phpenv rehash
