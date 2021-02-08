@@ -46,9 +46,9 @@ install:
   - git clone -b master --depth 1 https://github.com/WordPress/WordPress-Coding-Standards.git $SNIFFS_DIR
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
-      composer global require "phpunit/phpunit=6.5.*"
+      composer global require "phpunit/phpunit=7.2.*"
     else
-      composer global require "phpunit/phpunit=4.8.*"
+      composer global require "phpunit/phpunit=5.4.*"
     fi
   - $PHPCS_DIR/bin/phpcs --config-set installed_paths $SNIFFS_DIR
   - phpenv rehash
