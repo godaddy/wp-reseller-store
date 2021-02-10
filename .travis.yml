@@ -31,7 +31,7 @@ env:
   matrix:
   - WP_VERSION=latest
 
-install:
+script:
   - echo "Jobs temporarily disabled."
 
 before_deploy:
