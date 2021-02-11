@@ -16,7 +16,6 @@ cache:
 language: php
 
 php:
-  - 5.6
   - 7.2
 
 services:
@@ -30,51 +29,10 @@ branches:
 
 env:
   matrix:
-  - WP_VERSION=4.6
   - WP_VERSION=latest
-  - WP_VERSION=trunk
-
-before_install:
-  - phpenv config-rm xdebug.ini
-
-install:
-  - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - |
-    if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
-      composer global require "phpunit/phpunit=6.5.*"
-    else
-      composer global require "phpunit/phpunit=4.8.*"
-    fi
-  - composer global require wp-coding-standards/wpcs
-  - phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
 
 script:
-  - phpcs --standard=.dev/phpcs.ruleset.xml $(find . -name '*.php')
-  - phpunit -c .dev/phpunit.xml.dist
-
-jobs:
-  fast_finish: true
-  exclude:
-    - php: 7.2
-      env: WP_VERSION=4.6
-    - php: 7.2
-      env: WP_VERSION=latest
-  include:
-    - stage: code coverage
-      php: 7.2
-      env: WP_VERSION=latest
-      before_install: true # skip by returning true
-      install:
-        - bash .dev/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-        - export PATH="$HOME/.composer/vendor/bin:$PATH"
-        - composer config --global github-protocols 'https'
-        - composer global require "phpunit/phpunit=6.5.*"
-        - composer require satooshi/php-coveralls
-      script:
-        - phpunit -c .dev/phpunit.xml.dist --coverage-clover .dev/clover.xml
-      after_success:
-        - travis_retry php vendor/bin/php-coveralls -v
+  - echo "Jobs temporarily disabled."
 
 before_deploy:
   - curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli-nightly.phar > /tmp/wp-cli.phar
