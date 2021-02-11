@@ -101,10 +101,6 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 ### How do I make the domain search return results on page load? ###
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
-### Getting Started
-
-To get a working WordPress environment please follow our [Getting Started: Docker Runbook guide.](getting-started.md)
-
 ## Changelog ##
 ### 2.2.2 - November 2019 ###
 
