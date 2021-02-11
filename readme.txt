@@ -98,6 +98,15 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+= 2.2.5 - February 2021 =
+
+* Fix: Resolve product pricing synchronization issue with the API
+* Fix: Exclude webpack config from release
+
+= 2.2.4 - December 2020 =
+
+* Update: Verify compatibility with WordPress 5.6
+
 = 2.2.2 - November 2019 =
 
 * Fix: Warnings and error with Gutenberg product blocks
