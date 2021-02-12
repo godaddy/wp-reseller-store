@@ -102,6 +102,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+### 2.2.6 - February 2021 ###
+
+* Update: Increase API TTL from 15 minutes to 4 hours
+
 ### 2.2.5 - February 2021 ###
 
 * Fix: Resolve product pricing synchronization issue with the API
