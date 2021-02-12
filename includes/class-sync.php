@@ -30,7 +30,7 @@ final class Sync {
 	 *
 	 * @var int
 	 */
-	private $ttl = 900;
+	private $ttl = 14400; // 4 hours
 
 	/**
 	 * The time to wait in between API sync retries (in seconds).
@@ -39,7 +39,7 @@ final class Sync {
 	 *
 	 * @var int
 	 */
-	private $retry_ttl = 60;
+	private $retry_ttl = 120;
 
 	/**
 	 * Array of product properties that should be synced.
@@ -58,7 +58,7 @@ final class Sync {
 		/**
 		 * Filter the time to wait in between API syncs (in seconds).
 		 *
-		 * Default: 15 min
+		 * Default: 4 hours
 		 *
 		 * @since 0.2.0
 		 *
@@ -69,7 +69,7 @@ final class Sync {
 		/**
 		 * Filter the time to wait in between API sync retries (in seconds).
 		 *
-		 * Default: 1 min
+		 * Default: 2 mins
 		 *
 		 * Instead of using the normal TTL after a sync failure, this TTL will
 		 * be used so we can try again sooner. Set this value to something
