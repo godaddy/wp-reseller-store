@@ -623,7 +623,7 @@ final class Settings {
 					'name'        => 'sync_ttl',
 					'label'       => esc_html__( 'API Sync TTL (seconds)', 'reseller-store' ),
 					'type'        => 'number',
-					'description' => esc_html__( 'Reseller store will check the api for changes periodically. The default is 15 minutes (900 seconds).', 'reseller-store' ),
+					'description' => esc_html__( 'Reseller store will check the api for changes periodically. The default is 4 hours (14400 seconds).', 'reseller-store' ),
 				);
 
 				break;
