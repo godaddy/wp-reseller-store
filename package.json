@@ -67,7 +67,7 @@
     "grunt-wp-i18n": "^1.0.3",
     "grunt-wp-readme-to-markdown": "^2.0.1",
     "matchdep": "^2.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^7.1.0",
