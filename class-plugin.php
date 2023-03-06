@@ -33,7 +33,7 @@ final class Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.2.6';
+	const VERSION = '2.2.7';
 
 	/**
 	 * Plugin prefix.
