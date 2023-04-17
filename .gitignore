@@ -8,3 +8,4 @@ vendor/
 # plugin build files
 build/
 reseller-store.zip
+assets/*/*.min.*
