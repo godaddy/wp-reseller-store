@@ -50,7 +50,7 @@ final class Blocks {
 
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 
-		add_filter( 'block_categories', array( $this, 'block_categories' ), 10, 2 );
+		add_filter( 'block_categories_all', array( $this, 'block_categories' ), 10, 2 );
 
 		add_action(
 			'init',
