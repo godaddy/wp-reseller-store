@@ -127,7 +127,7 @@ final class Admin_Notices {
 	 */
 	public static function dismiss_admin_notice() {
 
-		if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::nonce_key() ) ) {
+		if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS ), self::nonce_key() ) ) {
 
 			$data = esc_html__( 'Sorry, you are not allowed to do that.', 'reseller-store' );
 
