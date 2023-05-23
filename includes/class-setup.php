@@ -106,8 +106,8 @@ final class Setup {
 		/**
 		 * @todo Work on this logic
 		 */
-		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce', FILTER_SANITIZE_STRING ), $install_nonce );
-		$plid  = filter_input( INPUT_GET, 'rstore_plid', FILTER_SANITIZE_STRING );
+		$nonce = wp_verify_nonce( filter_input( INPUT_GET, 'nonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS ), $install_nonce );
+		$plid  = filter_input( INPUT_GET, 'rstore_plid', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 		$error = '';
 
 		if ( ! $nonce && $plid ) {
@@ -297,7 +297,7 @@ final class Setup {
 
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
-			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::install_nonce() ) ) {
+			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS ), self::install_nonce() ) ) {
 
 				return self::install_error(
 					'invalid_nonce',
@@ -352,7 +352,7 @@ final class Setup {
 
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
-			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_STRING ), self::install_nonce() ) ) {
+			if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS ), self::install_nonce() ) ) {
 
 				return self::install_error(
 					'invalid_nonce',
