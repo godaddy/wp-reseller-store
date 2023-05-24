@@ -1,126 +1,93 @@
-const webpack = require( 'webpack' );
-const path = require( 'path' );
-const autoprefixer = require( 'autoprefixer' );
-const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const webpack = require("webpack");
+const path = require("path");
+const autoprefixer = require("autoprefixer");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const paths = {
-	pluginBlocksJs: './.dev/src/index.js',
-	pluginDist: './assets/js/editor.blocks.min',
+  pluginBlocksJs: "./.dev/src/index.js",
+  pluginDist: "./assets/js/editor.blocks.min",
 };
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.NODE_ENV === 'dev';
-
-// Extract style.css for both editor and frontend styles.
-const blocksCSSPlugin = new ExtractTextPlugin( {
-	filename: './assets/css/blocks-style.css',
-} );
-
-// Extract editor.css for editor styles.
-const editBlocksCSSPlugin = new ExtractTextPlugin( {
-	filename: 'assets/css/blocks-editor.css',
-} );
-
-const extractConfig = {
-	use: [
-		// "postcss" loader applies autoprefixer to our CSS.
-		{ loader: 'raw-loader' },
-		{
-			loader: 'postcss-loader',
-			options: {
-				ident: 'postcss',
-				plugins: [
-					autoprefixer( {
-						browsers: [
-							'>1%',
-							'last 4 versions',
-							'Firefox ESR',
-							'not ie < 9', // React doesn't support IE8 anyway
-						],
-						flexbox: 'no-2009',
-					} ),
-				],
-			},
-		},
-		// "sass" loader convert SCSS to CSS.
-		{
-			loader: 'sass-loader',
-			options: {
-				outputStyle: 'nested',
-			},
-		},
-	],
-};
+const shouldUseSourceMap = process.env.NODE_ENV === "dev";
 
 // Export configuration.
 module.exports = {
-	entry: {
-		'./assets/js/editor.blocks.min': paths.pluginBlocksJs, // 'name' : 'path/file.ext'.
-	},
-	output: {
-		// Add /* filename */ comments to generated require()s in the output.
-		pathinfo: true,
-		// The dist folder.
-		path: path.resolve( __dirname ),
-		filename: '[name].js',
-	},
-	// You may want 'eval' instead if you prefer to see the compiled output in DevTools.
-	devtool: shouldUseSourceMap ? 'cheap-eval-source-map' : 'source-map',
-	module: {
-		rules: [
-			{
-				test: /\.(js|jsx|mjs)$/,
-				exclude: /(node_modules|bower_components)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-
-						// This is a feature of `babel-loader` for webpack (not Babel itself).
-						// It enables caching results in ./node_modules/.cache/babel-loader/
-						// directory for faster rebuilds.
-						cacheDirectory: true,
-					},
-				},
-			},
-			{
-				test: /style\.s?css$/,
-				exclude: /(node_modules|bower_components)/,
-				use: blocksCSSPlugin.extract( extractConfig ),
-			},
-			{
-				test: /editor\.s?css$/,
-				exclude: /(node_modules|bower_components)/,
-				use: editBlocksCSSPlugin.extract( extractConfig ),
-			},
-		],
-	},
-	// Add plugins.
-	plugins: [
-		blocksCSSPlugin,
-		editBlocksCSSPlugin,
-		// Minify the code.
-		new webpack.optimize.UglifyJsPlugin( {
-			compress: {
-				warnings: false,
-				comparisons: false,
-			},
-			mangle: {
-				safari10: true,
-			},
-			output: {
-				comments: false,
-				ascii_only: true,
-			},
-			sourceMap: shouldUseSourceMap,
-		} ),
-	],
-	stats: 'minimal',
-	// Add externals.
-	externals: {
-		react: 'React',
-		'react-dom': 'ReactDOM',
-		ga: 'ga', // Old Google Analytics.
-		gtag: 'gtag', // New Google Analytics.
-		jquery: 'jQuery', // import $ from 'jquery' // Use the WordPress version.
-	},
+  mode: "production",
+  target: ["web", "es5"],
+  entry: {
+    "./assets/js/editor.blocks.min": paths.pluginBlocksJs, // 'name' : 'path/file.ext'.
+  },
+  output: {
+    // Add /* filename */ comments to generated require()s in the output.
+    pathinfo: true,
+    // The dist folder.
+    path: path.resolve(__dirname),
+    filename: "[name].js",
+  },
+  // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
+  devtool: shouldUseSourceMap ? "cheap-eval-source-map" : "source-map",
+  plugins: [new MiniCssExtractPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|mjs)$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            // This is a feature of `babel-loader` for webpack (not Babel itself).
+            // It enables caching results in ./node_modules/.cache/babel-loader/
+            // directory for faster rebuilds.
+            cacheDirectory: true,
+          },
+        },
+      },
+      {
+        test: /assets\/css\/*\.(sa|sc|c)ss$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          "raw-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: [
+                autoprefixer({
+                  overrideBrowserslist: [
+                    ">1%",
+                    "last 4 versions",
+                    "Firefox ESR",
+                    "not ie < 9", // React doesn't support IE8 anyway
+                  ],
+                  flexbox: "no-2009",
+                }),
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+					"style-loader",
+					"css-loader",
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+  stats: "minimal",
+  // Add externals.
+  externals: {
+    react: "React",
+    "react-dom": "ReactDOM",
+    ga: "ga", // Old Google Analytics.
+    gtag: "gtag", // New Google Analytics.
+    jquery: "jQuery", // import $ from 'jquery' // Use the WordPress version.
+  },
 };

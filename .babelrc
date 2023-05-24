@@ -1,9 +1,9 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
-        "modules": false,
+        "modules": "commonjs",
         "targets": {
           "browsers": [
             "last 2 Chrome versions",
@@ -16,31 +16,7 @@
           ]
         }
       }
-    ]
-  ],
-  "plugins": [
-    [
-      "transform-object-rest-spread"
     ],
-    [
-      "transform-object-rest-spread",
-      {
-        "useBuiltIns": true
-      }
-    ],
-    [
-      "transform-react-jsx",
-      {
-        "pragma": "wp.element.createElement"
-      }
-    ],
-    [
-      "transform-runtime",
-      {
-        "helpers": false,
-        "polyfill": false,
-        "regenerator": true
-      }
-    ]
+    ["@babel/preset-react"]
   ]
 }
