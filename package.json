@@ -67,7 +67,6 @@
     "grunt-wp-readme-to-markdown": "^2.1.0",
     "matchdep": "^2.0.0",
     "mini-css-extract-plugin": "^2.7.6",
-    "node-sass": "^9.0.0",
     "postcss-loader": "^7.3.0",
     "raw-loader": "^4.0.2",
     "sass": "^1.62.1",
