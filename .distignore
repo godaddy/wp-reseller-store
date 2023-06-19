@@ -28,4 +28,3 @@ vendor/
 .node-version
 .styleci.yml
 .travis.yml
-assets/*/*.min.*
