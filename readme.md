@@ -6,7 +6,7 @@
 **Requires at least:** 4.6  
 **Tested up to:**      6.2.2  
 **Requires PHP:**      5.4  
-**Stable tag:**        2.2.10  
+**Stable tag:**        2.2.11  
 **License:**           GPL-2.0  
 **License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -102,6 +102,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+### 2.2.11 - June 2023 ###
+
+* Update: Asset updates
+
 ### 2.2.10 - June 2023 ###
 
 * Update: Asset updates, CI job
