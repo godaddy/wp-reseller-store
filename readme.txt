@@ -98,6 +98,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+= 2.2.10 - June 2023 =
+
+* Update: Asset updates, CI job
+
 = 2.2.9 - May 2023 =
 
 * Update: Updates for PHP 8.1, tested with Wordpress 6.2.2
