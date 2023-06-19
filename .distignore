@@ -16,5 +16,16 @@ vendor/
 /.github
 /node_modules
 /github
-
+.dev
+.babelrc
+.coveralls.yml
+.distignore
+.eslintignore
+.eslintrc
+.gitattributes
+.gitignore
+.gitmodules
+.node-version
+.styleci.yml
+.travis.yml
 assets/*/*.min.*
