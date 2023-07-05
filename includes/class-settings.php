@@ -48,7 +48,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $currencies = [ 'default', 'USD', 'AED', 'ARS', 'AUD', 'BRL', 'CAD', 'CHF', 'CLP', 'CNY', 'COP', 'CZK', 'DKK', 'EGP', 'EUR', 'GBP', 'HKD', 'HUF', 'IDR', 'ILS', 'INR', 'JPY', 'KRW', 'MAD', 'MXN', 'MYR', 'NOK', 'NZD', 'PEN', 'PHP', 'PKR', 'PLN', 'RON', 'RUB', 'SAR', 'SEK', 'SGD', 'THB', 'TRY', 'TWD', 'UAH', 'UYU', 'VND', 'ZAR' ]; // @codingStandardsIgnoreLine
+	static $currencies = [ 'default', 'USD', 'AED', 'AUD', 'CAD', 'CHF', 'CLP', 'CNY', 'COP', 'DKK', 'EUR', 'GBP', 'HKD', 'IDR', 'ILS', 'INR', 'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PEN', 'PHP', 'PKR', 'PLN', 'SAR', 'SEK', 'SGD', 'THB', 'TWD', 'UAH', 'VND', 'ZAR' ]; // @codingStandardsIgnoreLine
 
 	/**
 	 * Array of markets.
@@ -759,6 +759,13 @@ final class Settings {
 
 			return;
 
+		}
+
+		$currentCurrency = rstore_get_option('rstore_api_currency');
+		$currencies = Settings::$currencies;
+		if (!in_array($currentCurrency, $currencies)) {
+			rstore_update_option('rstore_api_currency', 'USD');
+			rstore_delete_option( 'next_sync' );
 		}
 
 		$active_tab = $this->get_active_tab();
