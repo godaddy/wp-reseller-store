@@ -96,8 +96,13 @@ final class Domain_Transfer extends Widget_Base {
 
 		}
 
+		$target = '';
+		if ( ! empty($data['new_tab'])) {
+			$target = ' target="_blank"';
+		}
+		
 		?>
-		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-transfer' ), 'https' ); ?>">
+		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-transfer' ), 'https' ); ?>"<?php echo $target ?>>
 			<label>
 				<input type="search" class="search-field" placeholder="<?php echo esc_attr( $data['text_placeholder'] ); ?>" name="domainToCheck" required>
 			</label>
@@ -153,6 +158,7 @@ final class Domain_Transfer extends Widget_Base {
 		$instance['title']            = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
 		$instance['text_placeholder'] = isset( $new_instance['text_placeholder'] ) ? wp_kses_post( $new_instance['text_placeholder'] ) : null;
 		$instance['text_search']      = isset( $new_instance['text_search'] ) ? wp_kses_post( $new_instance['text_search'] ) : null;
+		$instance['new_tab']          = isset( $new_instance['new_tab'] ) ? (bool) $new_instance['new_tab'] : false;
 
 		return $instance;
 
@@ -172,6 +178,7 @@ final class Domain_Transfer extends Widget_Base {
 			'title'            => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_domain_transfer_title', '' ),
 			'text_placeholder' => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : apply_filters( 'rstore_domain_transfer_text_placeholder', esc_html__( 'Enter domain to transfer', 'reseller-store' ) ),
 			'text_search'      => isset( $instance['text_search'] ) ? $instance['text_search'] : apply_filters( 'rstore_domain_transfer_text_search', esc_html__( 'Transfer', 'reseller-store' ) ),
+			'new_tab'          => isset( $instance['new_tab'] ) ? $instance['new_tab'] : false,
 		);
 	}
 

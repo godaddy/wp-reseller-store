@@ -83,6 +83,18 @@ class VCDomainTransfer extends \WPBakeryShortCode {
 						'group'       => 'Custom Group',
 					),
 
+					array(
+						'type'       => 'checkbox',
+						'holder'     => 'div',
+						'class'      => 'text-class',
+						'heading'    => __( 'Display results in a new tab', 'reseller-store' ),
+						'param_name' => 'new_tab',
+						'value'      => array(
+							__( 'Show', 'reseller-store' ) => 1,
+						),
+						'group'      => 'Results',
+					),
+
 				),
 			)
 		);

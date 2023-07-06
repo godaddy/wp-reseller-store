@@ -6,7 +6,7 @@
 **Requires at least:** 4.6  
 **Tested up to:**      6.2.2  
 **Requires PHP:**      5.4  
-**Stable tag:**        2.2.12
+**Stable tag:**        2.2.14  
 **License:**           GPL-2.0  
 **License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -102,6 +102,14 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+### 2.2.14 - August 2023 ###
+
+* Update: Add option to open cart and search results in new tab
+
+### 2.2.13 - July 2023 ###
+
+* Update: Fix for compatibility with Beaver Builder and Classic Editor Plugins
+
 ### 2.2.12 - July 2023 ###
 
 * Update: Remove currencies ARS, BRL, CZK, EGP, HUF, MAD, RON, RUB, TRY, UYU

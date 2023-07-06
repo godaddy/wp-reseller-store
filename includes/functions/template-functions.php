@@ -95,7 +95,7 @@ function rstore_price( $post = null, $echo = false ) {
  *
  * @return string|null
  */
-function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $text_cart = null, $redirect = true ) {
+function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $button_new_tab = null, $text_cart = null, $redirect = true ) {
 
 	$post = get_post( $post );
 
@@ -132,10 +132,12 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $t
 		$items = json_encode( array( $data ) );
 
 		$cart_form = sprintf(
-			'<form class="rstore-add-to-cart-form" method="POST" action="%s" ><input type="hidden" name="items" value=\'%s\' /><button class="rstore-add-to-cart button btn btn-primary" type="submit">%s</button><div class="rstore-loading rstore-loading-hidden"></div></form>',
+			'<form class="rstore-add-to-cart-form" method="POST" action="%s"%s><input type="hidden" name="items" value=\'%s\' /><button class="rstore-add-to-cart button btn btn-primary" type="submit">%s</button>%s</form>',
 			$cart_url,
+			$button_new_tab ? ' target="_blank"' : '',
 			$items,
-			esc_html( $button_label )
+			esc_html( $button_label ),
+			$button_new_tab ? '' : '<div class="rstore-loading rstore-loading-hidden"></div>'
 		);
 
 	} else {
@@ -209,7 +211,7 @@ function rstore_append_add_to_cart_form( $content ) {
 		$content .= rstore_price( $post->ID );
 
 		$redirect = ! ( (bool) rstore_get_product_meta( $post->ID, 'skip_cart_redirect' ) );
-		$content .= rstore_add_to_cart_form( $post->ID, false, null, null, $redirect );
+		$content .= rstore_add_to_cart_form( $post->ID, false, null, null, null, $redirect );
 
 	}
 

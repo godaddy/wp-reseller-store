@@ -65,6 +65,13 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 					value={ attributes.button_label }
 					onChange={ ( buttonLabel ) => setAttributes( { button_label: buttonLabel } ) }
 				/>
+				<CheckboxControl
+					label={ __( 'Display results in a new tab', 'reseller-store' ) }
+					checked={ attributes.button_new_tab }
+					onChange={ ( checked ) => {
+						setAttributes( { button_new_tab: checked } );
+					} }
+				/>
 			</PanelBody>
 			<PanelBody>
 				<CheckboxControl

@@ -67,6 +67,7 @@ final class TestWidgetDomainTransfer extends TestCase {
 			'title'            => 'title 1',
 			'text_placeholder' => 'placeholder',
 			'text_search'      => 'text_search',
+			'new_tab'          => false,
 		);
 
 		$instance = $widget->update( $new_instance, $old_instance );

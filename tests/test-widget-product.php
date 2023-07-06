@@ -205,6 +205,7 @@ final class TestWidgetProduct extends TestCase {
 			'text_more'      => 'text_more 1',
 			'content_height' => 150,
 			'layout_type'    => 'default',
+			'button_new_tab' => false,
 		);
 
 		$instance = $widget->update( $new_instance, $old_instance );

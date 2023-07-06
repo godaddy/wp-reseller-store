@@ -96,8 +96,13 @@ final class Domain_Simple extends Widget_Base {
 
 		}
 
+		$target = '';
+		if ( ! empty($data['new_tab'])) {
+			$target = ' target="_blank"';
+		}
+
 		?>
-		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-registration/find' ), 'https' ); ?>">
+		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-registration/find' ), 'https' ); ?>"<?php echo $target; ?>>
 			<label>
 				<input type="search" class="search-field" placeholder="<?php echo esc_attr( $data['text_placeholder'] ); ?>" name="domainToCheck" required>
 			</label>
@@ -172,6 +177,7 @@ final class Domain_Simple extends Widget_Base {
 			'title'            => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_domain_title', '' ),
 			'text_placeholder' => isset( $instance['text_placeholder'] ) ? $instance['text_placeholder'] : apply_filters( 'rstore_domain_text_placeholder', esc_html__( 'Find your perfect domain name', 'reseller-store' ) ),
 			'text_search'      => isset( $instance['text_search'] ) ? $instance['text_search'] : apply_filters( 'rstore_domain_text_search', esc_html__( 'Search', 'reseller-store' ) ),
+			'new_tab'          => isset( $instance['new_tab'] ) ? $instance['new_tab'] : false,
 		);
 	}
 
