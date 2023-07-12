@@ -59,23 +59,14 @@ function rstore_get_product_list() {
 		array(
 			'post_type'   => \Reseller_Store\Post_Type::SLUG,
 			'post_status' => 'publish',
-			'nopaging'    => true, // get a list of every product.
+			'nopaging'    => true,
 		)
 	);
 
 	$products = array();
-
-	while ( $query->have_posts() ) {
-
-		$query->the_post();
-
-		$id = get_the_ID();
-
-		$products[ strval( $id ) ] = esc_html( get_the_title() );
-
+	foreach ( $query->posts as $post ) {
+		$products[ strval( $post->ID ) ] = esc_html( get_the_title( $post->ID ) );
 	}
-
-	wp_reset_postdata();
 
 	return $products;
 }
