@@ -98,6 +98,7 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
 = 2.2.14 - August 2023 =
 
 * Update: Add option to open cart and search results in new tab
