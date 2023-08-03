@@ -90,6 +90,18 @@ class VCProduct extends \WPBakeryShortCode {
 						'type'       => 'checkbox',
 						'holder'     => 'div',
 						'class'      => 'text-class',
+						'heading'    => __( 'Open Results In A New Tab', 'reseller-store' ),
+						'param_name' => 'new_tab',
+						'value'      => array(
+							__( 'No', 'reseller-store' ) => 0,
+						),
+						'group'      => __( 'Display', 'reseller-store' ),
+					),
+
+					array(
+						'type'       => 'checkbox',
+						'holder'     => 'div',
+						'class'      => 'text-class',
 						'heading'    => __( 'Show product title', 'reseller-store' ),
 						'param_name' => 'show_title',
 						'value'      => array(

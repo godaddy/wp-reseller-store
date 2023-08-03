@@ -24,6 +24,10 @@ const attributes = {
 		type: 'string',
 		default: __( 'Add to cart', 'reseller-store' ),
 	},
+	button_new_tab: {
+		type: 'boolean',
+		default: false,
+	},
 	content_height: {
 		type: 'number',
 		default: 250,

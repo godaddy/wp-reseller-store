@@ -60,6 +60,15 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							label={ __( 'Display results in a modal', 'reseller-store' ) }
 							checked={ attributes.modal }
 							onChange={ ( modal ) => setAttributes( { modal } ) }
+						/>						
+					</Fragment>
+				) }
+				{ 'advanced' !== attributes.search_type && (
+					<Fragment>
+						<CheckboxControl
+							label={ __( 'Display results in a new tab', 'reseller-store' ) }
+							checked={ attributes.new_tab }
+							onChange={ ( new_tab ) => setAttributes( { new_tab } ) }
 						/>
 					</Fragment>
 				) }

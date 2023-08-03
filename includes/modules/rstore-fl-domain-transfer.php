@@ -64,6 +64,15 @@ class FLDomainTransfer extends \FLBuilderModule {
 							'label'   => __( 'Button', 'reseller-store' ),
 							'default' => __( 'Transfer', 'reseller-store' ),
 						),
+						'new_tab'     => array(
+							'type'    => 'select',
+							'label'   => __( 'Display results in a new tab', 'reseller-store' ),
+							'default' => '0',
+							'options' => array(
+								'1' => __( 'Yes', 'reseller-store' ),
+								'0' => __( 'No', 'reseller-store' ),
+							),
+						),
 					),
 				),
 			),

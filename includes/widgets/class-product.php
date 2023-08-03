@@ -129,7 +129,7 @@ final class Product extends Widget_Base {
 
 			if ( ! empty( $data['button_label'] ) ) {
 
-				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] ); // xss ok.
+				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['button_new_tab'], $data['text_cart'], $data['redirect'] ); // xss ok.
 
 			}
 		}
@@ -179,7 +179,7 @@ final class Product extends Widget_Base {
 
 			if ( ! empty( $data['button_label'] ) ) {
 
-				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['text_cart'], $data['redirect'] );
+				$content .= rstore_add_to_cart_form( $post_id, false, $data['button_label'], $data['button_new_tab'], $data['text_cart'], $data['redirect'] );
 
 			}
 		}
@@ -273,6 +273,7 @@ final class Product extends Widget_Base {
 		$instance['redirect']       = isset( $new_instance['redirect'] ) ? (bool) absint( $new_instance['redirect'] ) : false;
 		$instance['image_size']     = isset( $new_instance['image_size'] ) ? sanitize_text_field( $new_instance['image_size'] ) : null;
 		$instance['button_label']   = isset( $new_instance['button_label'] ) ? sanitize_text_field( $new_instance['button_label'] ) : '';
+		$instance['button_new_tab'] = isset( $new_instance['button_new_tab'] ) ? sanitize_text_field( $new_instance['button_new_tab'] ) : '';
 		$instance['text_cart']      = isset( $new_instance['text_cart'] ) ? sanitize_text_field( $new_instance['text_cart'] ) : '';
 		$instance['text_more']      = isset( $new_instance['text_more'] ) ? sanitize_text_field( $new_instance['text_more'] ) : '';
 		$instance['content_height'] = isset( $new_instance['content_height'] ) ? absint( $new_instance['content_height'] ) : null;
@@ -346,6 +347,7 @@ final class Product extends Widget_Base {
 			'show_price'     => isset( $instance['show_price'] ) ? ! empty( $instance['show_price'] ) : apply_filters( 'rstore_product_show_price', true ),
 			'redirect'       => isset( $instance['redirect'] ) ? ! empty( $instance['redirect'] ) : apply_filters( 'rstore_product_redirect', true ),
 			'button_label'   => isset( $instance['button_label'] ) ? $instance['button_label'] : apply_filters( 'rstore_product_button_label', esc_html__( 'Add to cart', 'reseller-store' ) ),
+			'button_new_tab' => isset( $instance['button_new_tab'] ) ? $instance['button_new_tab'] : false,
 			'text_cart'      => isset( $instance['text_cart'] ) ? $instance['text_cart'] : apply_filters( 'rstore_product_text_cart', esc_html__( 'Continue to cart', 'reseller-store' ) ),
 			'text_more'      => isset( $instance['text_more'] ) ? $instance['text_more'] : apply_filters( 'rstore_product_text_more', esc_html__( 'More info', 'reseller-store' ) ),
 			'content_height' => isset( $instance['content_height'] ) ? intval( $instance['content_height'] ) : apply_filters( 'rstore_product_content_height', 250 ),

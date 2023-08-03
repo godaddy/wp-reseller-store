@@ -20,6 +20,10 @@ const attributes = {
 		type: 'boolean',
 		default: false,
 	},
+	new_tab: {
+		type: 'boolean',
+		default: false,
+	},
 	page_size: {
 		type: 'number',
 		default: 5,
