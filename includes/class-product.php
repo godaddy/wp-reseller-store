@@ -169,4 +169,15 @@ final class Product {
 			return false;
 		}
 	}
+
+	public function updatePrice( $post_id = 0 ) {
+
+		if ( $this->exists() ) {
+			$import = new Import( $this, $post_id );
+			return $import->import_product();
+		} else {
+			return false;
+		}
+	}
+
 }

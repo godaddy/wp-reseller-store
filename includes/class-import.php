@@ -138,6 +138,15 @@ final class Import {
 	}
 
 	/**
+	 * Import the product.
+	 *
+	 * @return bool|WP_Error
+	 */
+	public function sync_product_price() {
+		
+	}
+
+	/**
 	 * Import product as a post.
 	 *
 	 * @since 0.2.0

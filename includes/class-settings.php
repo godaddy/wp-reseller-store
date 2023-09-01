@@ -98,6 +98,7 @@ final class Settings {
 		add_action( 'admin_menu', array( $this, 'register' ) );
 		add_action( 'wp_ajax_rstore_options_save', array( __CLASS__, 'save' ) );
 		add_action( 'wp_ajax_rstore_product_import', array( __CLASS__, 'import' ) );
+		add_action( 'wp_ajax_rstore_product_sync_prices', array( __CLASS__, 'sync_prices' ) );
 
 		$product_layout_type = rstore_get_option( 'product_layout_type' );
 		if ( ! empty( $product_layout_type ) ) {
@@ -671,6 +672,7 @@ final class Settings {
 			<?php
 			if ( 'setup_options' === $active_tab ) {
 				$this->import_button();
+				$this->sync_prices_button();
 				$this->branding_info_block();
 			}
 			?>
@@ -796,6 +798,24 @@ final class Settings {
 		<?php
 	}
 
+	public function sync_prices_button() {
+		?>
+		<div class="card">
+			<h2 class="title"><?php esc_html_e( 'Sync Product Prices', 'reseller-store' ); ?></h2>
+			<p><?php esc_html_e( 'Sync products prices from the API. Last sync was Never', 'reseller-store' ); ?></p>
+			<div class="wrap">
+				<form id='rstore-product-import'>
+					<input type="hidden" name="action" value="rstore_product_sync_prices">
+					<input type="hidden" name="nonce" value="<?php echo esc_attr( wp_create_nonce( \Reseller_Store\Setup::install_nonce() ) ); ?>">
+					<button type="submit" class="button link" ><?php esc_html_e( 'Sync Prices', 'reseller-store' ); ?></button>
+					<img src="<?php echo esc_url( includes_url( 'images/spinner-2x.gif' ) ); ?>" class="rstore-spinner">
+					<label id="rstore-product-import-error"></label>
+				</form>
+			</div>
+		</div>
+		<?php
+	}
+
 	/**
 	 * Generate branding info block
 	 *
@@ -896,4 +916,12 @@ final class Settings {
 			\Reseller_Store\Setup::import();
 		}
 	}
+
+	public static function sync_prices() {
+		if ( class_exists( '\Reseller_Store\Setup' ) ) {
+
+			\Reseller_Store\Setup::syncPrices();
+		}
+	}
+	
 }

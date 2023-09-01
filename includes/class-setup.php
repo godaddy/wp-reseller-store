@@ -421,6 +421,10 @@ final class Setup {
 		}
 	}
 
+	public static function syncPrices( ) {
+		
+	}
+
 	/**
 	 * Return an install error.
 	 *
