@@ -63,15 +63,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						/>						
 					</Fragment>
 				) }
-				{ 'advanced' !== attributes.search_type && (
-					<Fragment>
-						<CheckboxControl
-							label={ __( 'Display results in a new tab', 'reseller-store' ) }
-							checked={ attributes.new_tab }
-							onChange={ ( new_tab ) => setAttributes( { new_tab } ) }
-						/>
-					</Fragment>
-				) }
+				<Fragment>
+					<CheckboxControl
+						label={ __( 'Display results in a new tab', 'reseller-store' ) }
+						checked={ attributes.new_tab }
+						onChange={ ( new_tab ) => setAttributes( { new_tab } ) }
+					/>
+				</Fragment>
 			</PanelBody>
 		</InspectorControls>
 	);

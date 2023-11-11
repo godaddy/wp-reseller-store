@@ -202,6 +202,7 @@ final class Domain_Search extends Widget_Base {
 			'text_select'        => isset( $instance['text_select'] ) ? $instance['text_select'] : apply_filters( 'rstore_text_select', esc_html__( 'Select', 'reseller-store' ) ),
 			'text_selected'      => isset( $instance['text_selected'] ) ? $instance['text_selected'] : apply_filters( 'rstore_text_selected', esc_html__( 'Selected', 'reseller-store' ) ),
 			'modal'              => isset( $instance['modal'] ) ? ! empty( $instance['modal'] ) : apply_filters( 'rstore_domain_modal', false ),
+			'new_tab'            => isset( $instance['new_tab'] ) ? $instance['new_tab'] : false,
 		);
 	}
 

@@ -30,7 +30,7 @@
     "build": "grunt build"
   },
   "dependencies": {
-    "domain-search": "^4.0.1"
+    "domain-search": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",

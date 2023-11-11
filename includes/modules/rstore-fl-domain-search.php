@@ -109,6 +109,15 @@ class FLDomainSearch extends \FLBuilderModule {
 							'label'   => __( 'Deselect Button', 'reseller-store' ),
 							'default' => __( 'Selected', 'reseller-store' ),
 						),
+						'new_tab'     => array(
+							'type'    => 'select',
+							'label'   => __( 'Display results in a new tab', 'reseller-store' ),
+							'default' => '0',
+							'options' => array(
+								'1' => __( 'Yes', 'reseller-store' ),
+								'0' => __( 'No', 'reseller-store' ),
+							),
+						),
 					),
 				),
 			),
