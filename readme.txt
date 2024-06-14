@@ -2,7 +2,7 @@
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 4.6
-Tested up to:      6.4.3
+Tested up to:      6.5
 Requires PHP:      5.4
 Stable tag:        2.2.14
 License:           GPL-2.0
