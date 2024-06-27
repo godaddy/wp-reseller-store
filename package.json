@@ -2,7 +2,7 @@
   "name": "reseller-store",
   "title": "GoDaddy Reseller Store",
   "description": "Resell hosting, domains, and more right from your WordPress site.",
-  "version": "2.2.6",
+  "version": "2.2.15",
   "author": "GoDaddy",
   "license": "GPL-2.0",
   "repository": "godaddy/wp-reseller-store",
