@@ -103,6 +103,10 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
+### 2.2.15 - June 2024 ###
+
+* Update: Tested with Wordpress 6.5
+
 ### 2.2.14 - August 2023 ###
 
 * Update: Add option to open cart and search results in new tab
