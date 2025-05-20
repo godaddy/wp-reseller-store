@@ -2,7 +2,7 @@
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 4.6
-Tested up to:      6.8 Beta
+Tested up to:      6.8
 Requires PHP:      5.4
 Stable tag:        2.2.15
 License:           GPL-2.0
@@ -101,7 +101,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ### 2.2.16 - May 2025 ###
 
-* Update: Tested with Wordpress 6.8 Beta
+* Update: Tested with Wordpress 6.8
 
 = 2.2.15 - June 2024 =
 
