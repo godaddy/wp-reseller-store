@@ -101,7 +101,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 = 2.2.16 - May 2025 =
 
-* Update: Tested with Wordpress 6.8
+* Update: Tested with WordPress 6.8
 
 = 2.2.15 - June 2024 =
 
