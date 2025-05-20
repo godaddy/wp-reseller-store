@@ -99,7 +99,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 == Changelog ==
 
-### 2.2.16 - May 2025 ###
+= 2.2.16 - May 2025 =
 
 * Update: Tested with Wordpress 6.8
 
