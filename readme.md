@@ -4,7 +4,7 @@
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy/), [fjarrett](https://profiles.wordpress.org/fjarrett/), [bfocht](https://profiles.wordpress.org/bfocht/), [eherman24](https://profiles.wordpress.org/eherman24/)  
 **Tags:**              [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [storefront](https://wordpress.org/plugins/tags/storefront/), [products](https://wordpress.org/plugins/tags/products/), [posts](https://wordpress.org/plugins/tags/posts/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/), [blocks](https://wordpress.org/plugins/tags/blocks/)  
 **Requires at least:** 4.6  
-**Tested up to:**      6.5 
+**Tested up to:**      6.8 Beta
 **Requires PHP:**      5.4  
 **Stable tag:**        2.2.15  
 **License:**           GPL-2.0  
@@ -102,6 +102,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+
+### 2.2.16 - May 2025 ###
+
+* Update: Tested with Wordpress 6.8 Beta
 
 ### 2.2.15 - June 2024 ###
 
