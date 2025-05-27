@@ -2,7 +2,7 @@
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 4.6
-Tested up to:      6.5
+Tested up to:      6.8
 Requires PHP:      5.4
 Stable tag:        2.2.15
 License:           GPL-2.0
@@ -98,6 +98,10 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 2.2.16 - May 2025 =
+
+* Update: Tested with WordPress 6.8
 
 = 2.2.15 - June 2024 =
 
