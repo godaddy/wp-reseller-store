@@ -97,21 +97,21 @@ final class Product {
 
 			if (
 				// The product must have the property.
-				property_exists( $this->fields, $property )
-				&&
+				! property_exists( $this->fields, $property )
+				||
 				// The property validator must be callable.
-				is_callable( $validator )
-				&&
+				! is_callable( $validator )
+				||
 				// The property value must return truthy when ran through the validator.
-				$validator( $this->fields->{$property} )
+				! $validator( $this->fields->{$property} )
 			) {
 
-				return true;
+				return false;
 
 			}
 		}
 
-		return false;
+		return true;
 
 	}
 
