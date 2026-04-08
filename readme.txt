@@ -1,7 +1,7 @@
 === Reseller Store ===
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
-Requires at least: 4.6
+Requires at least: 5.0
 Tested up to:      6.8
 Requires PHP:      5.4
 Stable tag:        2.2.17

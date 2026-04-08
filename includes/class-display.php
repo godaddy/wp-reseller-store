@@ -53,9 +53,7 @@ final class Display {
 
 		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), array(), '2.1.3', true );
 		wp_enqueue_script( 'reseller-store-js', Plugin::assets_url( "js/store{$suffix}.js" ), array( 'jquery', 'js-cookie' ), rstore()->version, true );
-		wp_enqueue_script( 'reseller-store-react', 'https://unpkg.com/react@18/umd/react.production.min.js', array(), '18.3.1', true );
-		wp_enqueue_script( 'reseller-store-react-dom', 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js', array( 'reseller-store-react' ), '18.3.1', true );
-		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), array( 'reseller-store-react', 'reseller-store-react-dom' ), rstore()->version, true );
+		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), array( 'react', 'react-dom' ), rstore()->version, true );
 
 		$data = array(
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),

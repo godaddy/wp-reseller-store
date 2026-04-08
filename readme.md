@@ -3,10 +3,10 @@
 
 **Contributors:** [godaddy](https://profiles.wordpress.org/godaddy/), [fjarrett](https://profiles.wordpress.org/fjarrett/), [bfocht](https://profiles.wordpress.org/bfocht/), [eherman24](https://profiles.wordpress.org/eherman24/)  
 **Tags:**              [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [storefront](https://wordpress.org/plugins/tags/storefront/), [products](https://wordpress.org/plugins/tags/products/), [posts](https://wordpress.org/plugins/tags/posts/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/), [blocks](https://wordpress.org/plugins/tags/blocks/)  
-**Requires at least:** 4.6  
-**Tested up to:**      6.8  
-**Requires PHP:**      5.4  
-**Stable tag:**        2.2.16  
+**Requires at least:** 5.0
+**Tested up to:**      6.8
+**Requires PHP:**      5.4
+**Stable tag:**        2.2.17
 **License:**           GPL-2.0  
 **License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
 
