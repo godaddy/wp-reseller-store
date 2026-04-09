@@ -273,7 +273,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 * Update: Change logic on how urls are built
 * Update: CSS fixes for domain search results when displayed in a modal
 
-= 1.6.2 - December 2017 =
+= 1.5.0 - December 2017 =
 
 * Fix: Add bootstrap classes to buttons
 * Fix: CSS and display issues when using shortcodes
