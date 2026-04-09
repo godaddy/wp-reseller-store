@@ -1,7 +1,7 @@
 === Reseller Store ===
 Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
-Requires at least: 5.0
+Requires at least: 6.2
 Tested up to:      6.8
 Requires PHP:      5.4
 Stable tag:        2.2.17
@@ -98,6 +98,12 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 2.2.17 =
+
+* Update: Upgrade domain-search to v5.0.1
+* Update: Requires WordPress 6.2+ (React 18)
+* Fix: Primary searched domain now shows Select button when listPrice is missing (#169)
 
 = 2.2.16 - May 2025 =
 
@@ -267,7 +273,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 * Update: Change logic on how urls are built
 * Update: CSS fixes for domain search results when displayed in a modal
 
-= 1.5.0 - December 2017 =
+= 1.6.2 - December 2017 =
 
 * Fix: Add bootstrap classes to buttons
 * Fix: CSS and display issues when using shortcodes

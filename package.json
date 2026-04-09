@@ -11,9 +11,9 @@
     "url": "https://github.com/godaddy/wp-reseller-store/issues"
   },
   "engines": {
-    "node": ">= 7.5.0",
+    "node": ">= 7.6.2",
     "php": ">= 5.4",
-    "wordpress": ">= 5.0"
+    "wordpress": ">= 6.2"
   },
   "badges": [
     "[![Build Status](https://travis-ci.org/<%= pkg.repository %>.svg?branch=master)](https://travis-ci.org/<%= pkg.repository %>)",
