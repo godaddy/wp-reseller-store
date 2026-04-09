@@ -53,7 +53,7 @@ final class Display {
 
 		wp_enqueue_script( 'js-cookie', Plugin::assets_url( "js/js-cookie{$suffix}.js" ), array(), '2.1.3', true );
 		wp_enqueue_script( 'reseller-store-js', Plugin::assets_url( "js/store{$suffix}.js" ), array( 'jquery', 'js-cookie' ), rstore()->version, true );
-		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), array(), rstore()->version, true );
+		wp_enqueue_script( 'reseller-store-domain-js', Plugin::assets_url( 'js/domain-search.min.js' ), array( 'react', 'react-dom' ), rstore()->version, true );
 
 		$data = array(
 			'pl_id'   => (int) rstore_get_option( 'pl_id' ),

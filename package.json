@@ -2,7 +2,7 @@
   "name": "reseller-store",
   "title": "GoDaddy Reseller Store",
   "description": "Resell hosting, domains, and more right from your WordPress site.",
-  "version": "2.2.16",
+  "version": "2.2.17",
   "author": "GoDaddy",
   "license": "GPL-2.0",
   "repository": "godaddy/wp-reseller-store",
@@ -11,9 +11,9 @@
     "url": "https://github.com/godaddy/wp-reseller-store/issues"
   },
   "engines": {
-    "node": ">= 7.5.0",
+    "node": ">= 7.6.2",
     "php": ">= 5.4",
-    "wordpress": ">= 4.6"
+    "wordpress": ">= 6.2"
   },
   "badges": [
     "[![Build Status](https://travis-ci.org/<%= pkg.repository %>.svg?branch=master)](https://travis-ci.org/<%= pkg.repository %>)",
@@ -30,7 +30,7 @@
     "build": "grunt build"
   },
   "dependencies": {
-    "domain-search": "^4.0.1"
+    "domain-search": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
