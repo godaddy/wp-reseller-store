@@ -11,23 +11,24 @@
     "url": "https://github.com/godaddy/wp-reseller-store/issues"
   },
   "engines": {
-    "node": ">= 7.6.2",
-    "php": ">= 5.4",
+    "node": ">= 18.0.0",
+    "php": ">= 8.1",
     "wordpress": ">= 6.2"
   },
-  "badges": [
-    "[![Build Status](https://travis-ci.org/<%= pkg.repository %>.svg?branch=master)](https://travis-ci.org/<%= pkg.repository %>)",
-    "[![Coverage Status](https://coveralls.io/repos/github/godaddy/wp-reseller-store/badge.svg?branch=master)](https://coveralls.io/github/godaddy/wp-reseller-store?branch=master)",
-    "[![devDependencies Status](https://david-dm.org/<%= pkg.repository %>/master/dev-status.svg)](https://david-dm.org/<%= pkg.repository %>/master?type=dev)",
-    "[![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/<%= pkg.repository %>/blob/master/license.txt)",
-    "[![PHP <%= pkg.engines.php %>](https://img.shields.io/badge/php-<% print(encodeURI(pkg.engines.php)) %>-8892bf.svg)](https://secure.php.net/supported-versions.php)",
-    "[![WordPress <%= pkg.engines.wordpress %>](https://img.shields.io/badge/wordpress-<% print(encodeURI(pkg.engines.wordpress)) %>-blue.svg)](https://wordpress.org/download/release-archive/)"
-  ],
   "scripts": {
-    "version": "grunt version && git add -A .",
+    "sass": "sass .dev/sass/store.scss:assets/css/store.css .dev/sass/admin.scss:assets/css/admin.css --no-source-map",
+    "sass:min": "sass .dev/sass/store.scss:assets/css/store.min.css .dev/sass/admin.scss:assets/css/admin.min.css --style=compressed --no-source-map",
+    "rtlcss": "rtlcss assets/css/store.css assets/css/store-rtl.css && rtlcss assets/css/admin.css assets/css/admin-rtl.css && rtlcss assets/css/store.min.css assets/css/store-rtl.min.css && rtlcss assets/css/admin.min.css assets/css/admin-rtl.min.css",
+    "css": "npm run sass && npm run sass:min && npm run rtlcss",
+    "js": "webpack",
     "lint": "eslint --ext .js ./.dev/src/ ./assets/js --fix",
-    "prebuild": "webpack",
-    "build": "grunt build"
+    "imagemin": "imagemin assets/images/**/*.{jpg,jpeg,png,gif,svg} --plugin=pngquant --out-dir=assets/images",
+    "pot": "wp-pot --src 'reseller-store.php' --src 'includes/**/*.php' --dest-file 'languages/reseller-store.pot' --package 'Reseller Store' --domain 'reseller-store' --bug-report 'https://github.com/godaddy/wp-reseller-store/issues'",
+    "clean": "rimraf build/",
+    "copy:build": "copyfiles -u 0 \"reseller-store.php\" \"index.php\" \"class-plugin.php\" \"*.txt\" \"assets/**\" \"includes/**\" \"languages/*.{mo,pot}\" \"lib/**\" build/",
+    "prebuild": "npm run js && npm run css",
+    "build": "npm run clean && npm run copy:build",
+    "version": "node -e \"const pkg=require('./package.json'); const fs=require('fs'); ['reseller-store.php','class-plugin.php'].forEach(f => { let c=fs.readFileSync(f,'utf8'); c=c.replace(/(Version:\\s*?)[a-zA-Z0-9.+-]+$/m, '$1'+pkg.version); c=c.replace(/VERSION(\\s*?)=(\\s*?['\"])[a-zA-Z0-9.+-]+/g, 'VERSION$1=$2'+pkg.version); fs.writeFileSync(f,c); });\" && git add -A ."
   },
   "dependencies": {
     "domain-search": "^5.0.1"
@@ -43,36 +44,25 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "copyfiles": "^2.4.1",
     "css-loader": "^6.7.4",
     "eslint": "^8.41.0",
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-wordpress": "git://github.com/WordPress-Coding-Standards/eslint-plugin-wordpress.git#a650f73e2461ddae0faec900c0199b3c258cb5da",
-    "grunt": "^1.6.1",
-    "grunt-contrib-clean": "^2.0.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^5.0.0",
-    "grunt-contrib-imagemin": "^4.0.0",
-    "grunt-contrib-jshint": "^3.2.0",
-    "grunt-contrib-uglify": "^5.2.2",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-cssjanus": "^1.0.0",
-    "grunt-dev-update": "^2.2.0",
-    "grunt-potomo": "^3.5.0",
-    "grunt-sass": "^3.1.0",
-    "grunt-text-replace": "^0.4.0",
-    "grunt-wp-deploy": "^2.1.2",
-    "grunt-wp-i18n": "^1.0.3",
-    "grunt-wp-readme-to-markdown": "^2.1.0",
-    "matchdep": "^2.0.0",
+    "imagemin-cli": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^7.3.0",
     "raw-loader": "^4.0.2",
+    "rimraf": "^5.0.1",
+    "rtlcss": "^4.1.1",
     "sass": "^1.62.1",
     "sass-loader": "^13.3.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.83.1",
-    "webpack-cli": "^5.1.1"
+    "webpack-cli": "^5.1.1",
+    "wp-pot": "^1.4.1"
   }
 }
