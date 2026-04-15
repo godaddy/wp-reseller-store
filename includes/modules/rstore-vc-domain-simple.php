@@ -95,7 +95,6 @@ class VCDomainSimple extends \WPBakeryShortCode {
 				),
 			)
 		);
-
 	}
 }
 

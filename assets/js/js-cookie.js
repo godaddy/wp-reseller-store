@@ -5,27 +5,27 @@
  * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
  * Released under the MIT license
  */
-( function( factory ) {
+( function ( factory ) {
 	var registeredInModuleLoader = false;
 	if ( typeof define === 'function' && define.amd ) {
 		define( factory );
 		registeredInModuleLoader = true;
 	}
 	if ( typeof exports === 'object' ) {
-		module.exports = factory();
+		module.exports           = factory();
 		registeredInModuleLoader = true;
 	}
 	if ( ! registeredInModuleLoader ) {
 		var OldCookies = window.Cookies;
-		var api = window.Cookies = factory();
-		api.noConflict = function() {
+		var api        = window.Cookies = factory();
+		api.noConflict = function () {
 			window.Cookies = OldCookies;
 			return api;
 		};
 	}
-}( function() {
+}( function () {
 	function extend() {
-		var i = 0;
+		var i      = 0;
 		var result = {};
 		for ( ; i < arguments.length; i++ ) {
 			var attributes = arguments[ i ];
@@ -46,13 +46,17 @@
 			// Write
 
 			if ( arguments.length > 1 ) {
-				attributes = extend( {
-					path: '/',
-				}, api.defaults, attributes );
+				attributes = extend(
+					{
+						path: '/',
+					},
+					api.defaults,
+					attributes
+				);
 
 				if ( typeof attributes.expires === 'number' ) {
 					var expires = new Date();
-					expires.setMilliseconds( expires.getMilliseconds() + attributes.expires * 864e+5 );
+					expires.setMilliseconds( expires.getMilliseconds() + attributes.expires * 864e + 5 );
 					attributes.expires = expires;
 				}
 
@@ -61,7 +65,8 @@
 					if ( /^[\{\[]/.test( result ) ) {
 						value = result;
 					}
-				} catch ( e ) {}
+				} catch ( e ) {
+				}
 
 				if ( ! converter.write ) {
 					value = encodeURIComponent( String( value ) )
@@ -94,10 +99,10 @@
 			// calling "get()"
 			var cookies = document.cookie ? document.cookie.split( '; ' ) : [];
 			var rdecode = /(%[0-9A-Z]{2})+/g;
-			var i = 0;
+			var i       = 0;
 
 			for ( ; i < cookies.length; i++ ) {
-				var parts = cookies[ i ].split( '=' );
+				var parts  = cookies[ i ].split( '=' );
 				var cookie = parts.slice( 1 ).join( '=' );
 
 				if ( cookie.charAt( 0 ) === '"' ) {
@@ -106,14 +111,15 @@
 
 				try {
 					var name = parts[ 0 ].replace( rdecode, decodeURIComponent );
-					cookie = converter.read ?
+					cookie   = converter.read ?
 						converter.read( cookie, name ) : converter( cookie, name ) ||
 						cookie.replace( rdecode, decodeURIComponent );
 
 					if ( this.json ) {
 						try {
 							cookie = JSON.parse( cookie );
-						} catch ( e ) {}
+						} catch ( e ) {
+						}
 					}
 
 					if ( key === name ) {
@@ -124,27 +130,38 @@
 					if ( ! key ) {
 						result[ name ] = cookie;
 					}
-				} catch ( e ) {}
+				} catch ( e ) {
+				}
 			}
 
 			return result;
 		}
 
-		api.set = api;
-		api.get = function( key ) {
+		api.set      = api;
+		api.get      = function ( key ) {
 			return api.call( api, key );
 		};
-		api.getJSON = function() {
-			return api.apply( {
-				json: true,
-			}, [].slice.call( arguments ) );
+		api.getJSON  = function () {
+			return api.apply(
+				{
+					json: true,
+				},
+				[].slice.call( arguments )
+			);
 		};
 		api.defaults = {};
 
-		api.remove = function( key, attributes ) {
-			api( key, '', extend( attributes, {
-				expires: -1,
-			} ) );
+		api.remove = function ( key, attributes ) {
+			api(
+				key,
+				'',
+				extend(
+					attributes,
+					{
+						expires: -1,
+					}
+				)
+			);
 		};
 
 		api.withConverter = init;
@@ -152,5 +169,5 @@
 		return api;
 	}
 
-	return init( function() {} );
+	return init( function () {} );
 } ) );

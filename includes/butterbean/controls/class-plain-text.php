@@ -53,7 +53,6 @@ final class Plain_Text extends \ButterBean_Control {
 		parent::__construct( $manager, $name, $args );
 
 		$this->type = rstore_prefix( $this->type, true );
-
 	}
 
 	/**
@@ -70,7 +69,5 @@ final class Plain_Text extends \ButterBean_Control {
 		$value = $this->get_value();
 
 		$this->json['value'] = ( $value ) ? $value : ( ! empty( $this->default ) ? $this->default : '' );
-
 	}
-
 }

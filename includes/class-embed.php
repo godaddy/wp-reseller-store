@@ -32,7 +32,6 @@ final class Embed {
 		add_action( 'embed_head', array( $this, 'head' ) );
 
 		add_filter( 'the_excerpt_embed', array( $this, 'excerpt' ) );
-
 	}
 
 	/**
@@ -68,7 +67,6 @@ final class Embed {
 		);
 
 		return is_int( $results ) ? $results : false;
-
 	}
 
 	/**
@@ -90,7 +88,6 @@ final class Embed {
 
 		// Every cache row has an expiration row, divide by two.
 		return is_int( $results ) ? $results / 2 : $results;
-
 	}
 
 	/**
@@ -149,7 +146,6 @@ final class Embed {
 		</style>
 		<base target="_parent">
 		<?php
-
 	}
 
 	/**
@@ -183,7 +179,5 @@ final class Embed {
 		}
 
 		return $output;
-
 	}
-
 }

@@ -53,7 +53,6 @@ final class Anchor extends \ButterBean_Control {
 		parent::__construct( $manager, $name, $args );
 
 		$this->type = rstore_prefix( $this->type, true );
-
 	}
 
 	/**
@@ -68,7 +67,5 @@ final class Anchor extends \ButterBean_Control {
 		parent::to_json();
 
 		$this->json['text'] = ! empty( $this->text ) ? $this->text : '';
-
 	}
-
 }

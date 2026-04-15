@@ -68,7 +68,6 @@ class VCCart extends \WPBakeryShortCode {
 				),
 			)
 		);
-
 	}
 }
 

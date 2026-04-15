@@ -97,7 +97,6 @@ final class Widgets {
 
 			}
 		}
-
 	}
 
 	/**
@@ -125,5 +124,4 @@ final class Widgets {
 			}
 		}
 	}
-
 }

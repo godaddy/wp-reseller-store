@@ -33,7 +33,6 @@ trait Helpers {
 	public static function base_dir( $path = '' ) {
 
 		return rstore()->base_dir . $path;
-
 	}
 
 	/**
@@ -48,7 +47,5 @@ trait Helpers {
 	public static function assets_url( $path = '' ) {
 
 		return rstore()->assets_url . $path;
-
 	}
-
 }

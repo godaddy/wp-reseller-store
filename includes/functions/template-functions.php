@@ -79,7 +79,6 @@ function rstore_price( $post = null, $echo = false ) {
 	}
 
 	return $output;
-
 }
 
 /**
@@ -176,7 +175,6 @@ function rstore_add_to_cart_form( $post, $echo = false, $button_label = null, $b
 	}
 
 	return $cart_form;
-
 }
 
 /**
@@ -216,7 +214,6 @@ function rstore_append_add_to_cart_form( $content ) {
 	}
 
 	return $content;
-
 }
 
 /**
@@ -250,5 +247,4 @@ function rstore_add_to_cart_button( $cart_vars, $button_label ) {
 	$output .= '>' . esc_html( $button_label ) . '</button></div>';
 
 	return $output;
-
 }

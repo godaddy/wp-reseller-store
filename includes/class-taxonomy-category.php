@@ -49,7 +49,6 @@ final class Taxonomy_Category {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-category', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init', array( $this, 'register' ) );
-
 	}
 
 	/**
@@ -65,7 +64,6 @@ final class Taxonomy_Category {
 		$permalink_base = ! empty( $permalinks['category_base'] ) ? $permalinks['category_base'] : self::$default_permalink_base;
 
 		return sanitize_title( $permalink_base );
-
 	}
 
 	/**
@@ -116,7 +114,5 @@ final class Taxonomy_Category {
 		$args = (array) apply_filters( 'rstore_product_category_args', $args );
 
 		register_taxonomy( self::SLUG, Post_Type::SLUG, $args );
-
 	}
-
 }

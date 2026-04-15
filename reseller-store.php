@@ -28,7 +28,7 @@ if ( version_compare( phpversion(), '8.1.0', '<' ) ) {
 
 	add_action(
 		'admin_notices',
-		function() {
+		function () {
 			?>
 		<div class="update-nag">
 			<?php

@@ -26,7 +26,7 @@ foreach ( glob( __DIR__ . '/functions/*.php' ) as $include ) {
 }
 
 spl_autoload_register(
-	function( $resource ) {
+	function ( $resource ) {
 
 		if ( 0 !== strpos( $resource, __NAMESPACE__ ) ) {
 
@@ -50,6 +50,5 @@ spl_autoload_register(
 			require_once $files[0];
 
 		}
-
 	}
 );

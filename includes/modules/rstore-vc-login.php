@@ -86,7 +86,6 @@ class VCLogin extends \WPBakeryShortCode {
 				),
 			)
 		);
-
 	}
 }
 

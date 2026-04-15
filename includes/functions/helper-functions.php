@@ -19,7 +19,6 @@
 function rstore() {
 
 	return Reseller_Store\Plugin::load();
-
 }
 
 /**
@@ -37,7 +36,6 @@ function rstore_prefix( $string, $use_dashes = false ) {
 	$prefix = ( $use_dashes ) ? str_replace( '_', '-', Reseller_Store\Plugin::PREFIX ) : Reseller_Store\Plugin::PREFIX;
 
 	return ( 0 === strpos( $string, $prefix ) ) ? $string : $prefix . $string;
-
 }
 
 /**
@@ -50,7 +48,6 @@ function rstore_prefix( $string, $use_dashes = false ) {
 function rstore_is_setup() {
 
 	return ( (int) rstore_get_option( 'pl_id' ) > 0 );
-
 }
 
 /**
@@ -66,7 +63,6 @@ function rstore_is_setup() {
 function rstore_get_option( $key, $default = false ) {
 
 	return get_option( rstore_prefix( $key ), $default );
-
 }
 
 /**
@@ -82,7 +78,6 @@ function rstore_get_option( $key, $default = false ) {
 function rstore_update_option( $key, $value ) {
 
 	return update_option( rstore_prefix( $key ), $value );
-
 }
 
 /**
@@ -97,7 +92,6 @@ function rstore_update_option( $key, $value ) {
 function rstore_delete_option( $key ) {
 
 	return delete_option( rstore_prefix( $key ) );
-
 }
 
 /**
@@ -142,7 +136,6 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
 	rstore_set_transient( $name, $value, $expiration );
 
 	return $value;
-
 }
 
 /**
@@ -159,7 +152,6 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
 function rstore_set_transient( $name, $value, $expiration = 0 ) {
 
 	return set_transient( rstore_prefix( $name ), $value, absint( $expiration ) );
-
 }
 
 /**
@@ -174,7 +166,6 @@ function rstore_set_transient( $name, $value, $expiration = 0 ) {
 function rstore_delete_transient( $name ) {
 
 	return delete_transient( rstore_prefix( $name ) );
-
 }
 
 /**
@@ -198,7 +189,6 @@ function rstore_update_post_meta( $post_id, $key, $value = '' ) {
 	 * those cases since the meta was created.
 	 */
 	return is_int( $result ) ? true : $result;
-
 }
 
 /**
@@ -222,7 +212,6 @@ function rstore_bulk_update_post_meta( $post_id, $meta ) {
 	}
 
 	return ! in_array( false, $results, true );
-
 }
 
 /**
@@ -258,5 +247,4 @@ function rstore_array_insert( $array, $var, $index, $preserve_keys = true ) {
 		is_array( $var ) ? $var : array( $var ),
 		array_slice( $array, $index, count( $array ) - $index, $preserve_keys )
 	);
-
 }

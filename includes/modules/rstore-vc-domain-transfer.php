@@ -98,7 +98,6 @@ class VCDomainTransfer extends \WPBakeryShortCode {
 				),
 			)
 		);
-
 	}
 }
 

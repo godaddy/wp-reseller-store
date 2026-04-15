@@ -175,7 +175,6 @@ class VCProduct extends \WPBakeryShortCode {
 				),
 			)
 		);
-
 	}
 
 	/**

@@ -32,7 +32,6 @@ final class Restrictions {
 		add_action( 'admin_menu', array( $this, 'admin_submenu' ) );
 		add_action( 'wp_before_admin_bar_render', array( $this, 'admin_bar_submenu' ) );
 		add_action( 'manage_posts_extra_tablenav', array( $this, 'edit_screen' ) );
-
 	}
 
 	/**
@@ -82,7 +81,6 @@ final class Restrictions {
 			);
 
 		}
-
 	}
 
 	/**
@@ -97,7 +95,6 @@ final class Restrictions {
 			sprintf( 'edit.php?post_type=%s', Post_Type::SLUG ),
 			sprintf( 'post-new.php?post_type=%s', Post_Type::SLUG )
 		);
-
 	}
 
 	/**
@@ -144,7 +141,5 @@ final class Restrictions {
 			<p><a href="#" class="rstore-blank-button button button-primary"><?php esc_html_e( 'Import All Products', 'reseller-store' ); ?></a></p>
 		</div>
 		<?php
-
 	}
-
 }
