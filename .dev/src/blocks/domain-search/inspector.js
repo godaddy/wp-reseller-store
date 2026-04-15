@@ -11,30 +11,30 @@ const {
 
 const Inspector = ( { attributes, setAttributes } ) => {
 	return (
-		<InspectorControls>
-			<p> { __( 'Domain Search', 'reseller-store' ) }</p>
-			<PanelBody>
+		<InspectorControls >
+			<p > { __( 'Domain Search', 'reseller-store' ) } </p >
+			<PanelBody >
 				<TextControl
 					label={ __( 'Title', 'reseller-store' ) }
 					value={ attributes.title }
-					onChange={ ( title ) => setAttributes( { title: title } ) }
+					onChange={ ( title ) => setAttributes( { title } ) }
 				/>
-			</PanelBody>
-			<PanelBody>
+			</PanelBody >
+			<PanelBody >
 				<TextControl
 					label={ __( 'Placeholder', 'reseller-store' ) }
 					value={ attributes.text_placeholder }
 					onChange={ ( textPlaceholder ) => setAttributes( { text_placeholder: textPlaceholder } ) }
 				/>
-			</PanelBody>
-			<PanelBody>
+			</PanelBody >
+			<PanelBody >
 				<TextControl
 					label={ __( 'Search Button', 'reseller-store' ) }
 					value={ attributes.text_search }
 					onChange={ ( textSearch ) => setAttributes( { text_search: textSearch } ) }
 				/>
-			</PanelBody>
-			<PanelBody>
+			</PanelBody >
+			<PanelBody >
 				<SelectControl
 					label={ __( 'Search Type', 'reseller-store' ) }
 					onChange={ ( searchType ) => setAttributes( { search_type: searchType } ) }
@@ -46,7 +46,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					] }
 				/>
 				{ 'advanced' === attributes.search_type && (
-					<Fragment>
+					<Fragment >
 						<RangeControl
 							beforeIcon="arrow-left-alt2"
 							afterIcon="arrow-right-alt2"
@@ -60,20 +60,20 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							label={ __( 'Display results in a modal', 'reseller-store' ) }
 							checked={ attributes.modal }
 							onChange={ ( modal ) => setAttributes( { modal } ) }
-						/>						
-					</Fragment>
+						/>
+					</Fragment >
 				) }
 				{ 'advanced' !== attributes.search_type && (
-					<Fragment>
+					<Fragment >
 						<CheckboxControl
 							label={ __( 'Display results in a new tab', 'reseller-store' ) }
 							checked={ attributes.new_tab }
-							onChange={ ( new_tab ) => setAttributes( { new_tab } ) }
+							onChange={ ( newTab ) => setAttributes( { new_tab: newTab } ) }
 						/>
-					</Fragment>
+					</Fragment >
 				) }
-			</PanelBody>
-		</InspectorControls>
+			</PanelBody >
+		</InspectorControls >
 	);
 };
 

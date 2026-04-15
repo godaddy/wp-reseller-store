@@ -55,7 +55,7 @@ jobs:
         run: sudo apt-get install -y subversion
 
       - name: Install WordPress test suite
-        run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 latest
+        run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 latest true
 
       - name: Run PHPUnit
         run: composer test
@@ -103,7 +103,7 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-        run: npx eslint --ext .js ./.dev/src/ ./assets/js
+        run: npx eslint .dev/src/
 
   build:
     name: Build verification

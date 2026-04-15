@@ -23,4 +23,5 @@ registerBlockType(
 			// Rendering in PHP
 			return null;
 		},
-	} );
+	},
+);
