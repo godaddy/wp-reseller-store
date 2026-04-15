@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
+if ( version_compare( phpversion(), '8.1.0', '<' ) ) {
 
 	add_action(
 		'admin_notices',
@@ -34,7 +34,7 @@ if ( version_compare( phpversion(), '5.4.0', '<' ) ) {
 			<?php
 			echo sprintf(
 				/* translators: server PHP version */
-				esc_html__( 'You need to update your PHP version to run GoDaddy Reseller Store plugin. Required version 5.4 or higher. Your PHP version is: %s', 'reseller-store' ),
+				esc_html__( 'You need to update your PHP version to run GoDaddy Reseller Store plugin. Required version 8.1 or higher. Your PHP version is: %s', 'reseller-store' ),
 				esc_html( phpversion() )
 			);
 
