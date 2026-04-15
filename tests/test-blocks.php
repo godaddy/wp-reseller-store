@@ -90,7 +90,7 @@ final class TestBlocks extends TestCase {
 			'post_id' => $post->ID,
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/Test Product/',
 			$blocks->product( $instance )
 		);
@@ -111,7 +111,7 @@ final class TestBlocks extends TestCase {
 			'text_placeholder' => 'find your domain',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
 			$blocks->domain_search( $instance )
 		);
@@ -133,7 +133,7 @@ final class TestBlocks extends TestCase {
 			'search_type'      => 'advanced',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<div class=\"rstore-domain-search\" data-plid=\"12345\" data-title=\"title\" data-page_size=\"5\" data-text_placeholder=\"find your domain\" data-text_search=\"Search\" data-text_available=\"Congrats, {domain_name} is available!\" data-text_not_available=\"Sorry, {domain_name} is taken.\" data-text_cart=\"Continue to cart\" data-text_select=\"Select\" data-text_selected=\"Selected\">Domain Search<\/div>/',
 			$blocks->domain_search( $instance )
 		);
@@ -155,7 +155,7 @@ final class TestBlocks extends TestCase {
 			'search_type'      => 'transfer',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<form role=\"search\" method=\"get\" class=\"search-form\" action=\"https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345\">/',
 			$blocks->domain_search( $instance )
 		);

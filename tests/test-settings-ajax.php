@@ -11,7 +11,7 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 	/**
 	 * Tear Down.
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 
 		parent::tearDown();
 

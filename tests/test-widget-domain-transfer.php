@@ -43,7 +43,7 @@ final class TestWidgetDomainTransfer extends TestCase {
 			'after_title'   => '</h3>',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
 			$widget->widget( $args, $instance )
 		);
@@ -130,7 +130,7 @@ final class TestWidgetDomainTransfer extends TestCase {
 			'after_title'   => '</h3>',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<div class="before_widget transfer">/',
 			$widget->widget( $args, $instance )
 		);
