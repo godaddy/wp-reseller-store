@@ -419,9 +419,17 @@ final class Import {
 
 		}
 
+		$tmp_file = download_url( $url );
+
+		if ( is_wp_error( $tmp_file ) ) {
+
+			return false;
+
+		}
+
 		$file_array = array(
 			'name'     => basename( $url ),
-			'tmp_name' => download_url( $url ),
+			'tmp_name' => $tmp_file,
 		);
 
 		if ( ! function_exists( 'media_handle_sideload' ) ) {

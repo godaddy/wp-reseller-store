@@ -45,12 +45,12 @@ final class TestButterBean extends TestCase {
 		$butter_bean = new ButterBean();
 		$butter_bean->load();
 
+		$this->expectOutputRegex( '/<input type="submit" class="button button-primary" id="republish_product" name="republish_product" value="Reset">/' );
+
 		do_action( 'init' );
 
 		do_action( $this->load_post_php );
 		do_action( 'admin_footer' );
-
-		$this->expectOutputRegex( '/<input type="submit" class="button button-primary" id="republish_product" name="republish_product" value="Reset">/' );
 
 	}
 
@@ -74,12 +74,12 @@ final class TestButterBean extends TestCase {
 		$butter_bean = new ButterBean();
 		$butter_bean->load();
 
+		$this->expectOutputString( '' );
+
 		do_action( 'init' );
 
 		do_action( $this->load_post_php );
 		do_action( 'admin_footer' );
-
-		$this->expectOutputString( '' );
 
 	}
 

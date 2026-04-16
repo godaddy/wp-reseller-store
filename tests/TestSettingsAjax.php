@@ -5,7 +5,7 @@
 
 namespace Reseller_Store;
 
-final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
+final class TestSettingsAjax extends AjaxTestCase {
 
 
 	/**

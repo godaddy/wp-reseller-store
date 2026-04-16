@@ -5,7 +5,7 @@
 
 namespace Reseller_Store;
 
-final class TestAdminNotice extends \WP_Ajax_UnitTestCase {
+final class TestAdminNotice extends AjaxTestCase {
 
 
 	/**
