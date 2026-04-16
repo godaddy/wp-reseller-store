@@ -756,9 +756,9 @@ final class Settings {
 
 		}
 
-		\$current_currency = rstore_get_option( 'rstore_api_currency' );
+		$current_currency = rstore_get_option( 'rstore_api_currency' );
 		$currencies      = Settings::$currencies;
-		if ( ! in_array( \$current_currency, $currencies ) ) {
+		if ( ! in_array( $current_currency, $currencies ) ) {
 			rstore_update_option( 'rstore_api_currency', 'USD' );
 			rstore_delete_option( 'next_sync' );
 		}
