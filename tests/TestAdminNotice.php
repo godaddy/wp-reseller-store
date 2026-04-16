@@ -129,8 +129,6 @@ final class TestAdminNotice extends AjaxTestCase {
 
 	/**
 	 * @testdox Given dismiss_admin_notice and invalid nonce an error is returned
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_dismiss_admin_notice_without_nonce() {
 
@@ -138,14 +136,14 @@ final class TestAdminNotice extends AjaxTestCase {
 
 		rstore_error( $error );
 
-		$this->callAjax( 'rstore_dismiss_admin_notice' );
+		$result = $this->callAjax( 'rstore_dismiss_admin_notice' );
+
+		$this->assertFalse( $result->success );
 
 	}
 
 	/**
 	 * @testdox Given dismiss_admin_notice and valid nonce clears error message
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_dismiss_admin_notice() {
 
@@ -153,7 +151,9 @@ final class TestAdminNotice extends AjaxTestCase {
 
 		$_POST['nonce'] = wp_create_nonce( $key );
 
-		$this->callAjax( 'rstore_dismiss_admin_notice' );
+		$result = $this->callAjax( 'rstore_dismiss_admin_notice' );
+
+		$this->assertTrue( $result->success );
 
 	}
 }
