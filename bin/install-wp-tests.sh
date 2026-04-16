@@ -52,12 +52,14 @@ install_wp() {
 		return
 	fi
 
+	mkdir -p "$WP_CORE_DIR"
+
 	if [[ $WP_VERSION == 'nightly' || $WP_VERSION == 'trunk' ]]; then
+		mkdir -p "$TMPDIR/wordpress-trunk"
 		rm -rf "$TMPDIR/wordpress-trunk"
 		svn export --quiet https://core.svn.wordpress.org/trunk "$TMPDIR/wordpress-trunk"
-		mv "$TMPDIR/wordpress-trunk" "${WP_CORE_DIR%/}"
+		mv "$TMPDIR/wordpress-trunk" "$WP_CORE_DIR"
 	else
-		mkdir -p "$WP_CORE_DIR"
 		if [ "$WP_VERSION" == 'latest' ]; then
 			local ARCHIVE_NAME='latest'
 		else

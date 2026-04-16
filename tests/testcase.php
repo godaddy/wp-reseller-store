@@ -15,6 +15,55 @@ class TestCase extends \WP_UnitTestCase {
 	protected $plugin;
 
 	/**
+	 * Override WP's expectDeprecated() to support PHPUnit 10.
+	 *
+	 * PHPUnit\Util\Test::parseTestMethodAnnotations() was removed in PHPUnit 10.
+	 * WordPress's abstract-testcase.php calls it as the PHPUnit >= 9.5 path,
+	 * so we re-implement the method using PHPUnit 10's annotation parser API.
+	 */
+	public function expectDeprecated(): void {
+
+		if ( ! class_exists( \PHPUnit\Metadata\Parser\Annotation\Registry::class ) ) {
+			parent::expectDeprecated();
+			return;
+		}
+
+		$parser      = \PHPUnit\Metadata\Parser\Annotation\Registry::getInstance();
+		$annotations = array(
+			'class'  => $parser->forClassName( static::class )->symbolAnnotations(),
+			'method' => $parser->forMethod( static::class, $this->name() )->symbolAnnotations(),
+		);
+
+		foreach ( array( 'class', 'method' ) as $depth ) {
+			if ( ! empty( $annotations[ $depth ]['expectedDeprecated'] ) ) {
+				$this->expected_deprecated = array_merge(
+					$this->expected_deprecated,
+					$annotations[ $depth ]['expectedDeprecated']
+				);
+			}
+			if ( ! empty( $annotations[ $depth ]['expectedIncorrectUsage'] ) ) {
+				$this->expected_doing_it_wrong = array_merge(
+					$this->expected_doing_it_wrong,
+					$annotations[ $depth ]['expectedIncorrectUsage']
+				);
+			}
+		}
+
+		add_action( 'deprecated_function_run', array( $this, 'deprecated_function_run' ), 10, 3 );
+		add_action( 'deprecated_argument_run', array( $this, 'deprecated_function_run' ), 10, 3 );
+		add_action( 'deprecated_class_run', array( $this, 'deprecated_function_run' ), 10, 3 );
+		add_action( 'deprecated_file_included', array( $this, 'deprecated_function_run' ), 10, 4 );
+		add_action( 'deprecated_hook_run', array( $this, 'deprecated_function_run' ), 10, 4 );
+		add_action( 'doing_it_wrong_run', array( $this, 'doing_it_wrong_run' ), 10, 3 );
+		add_action( 'deprecated_function_trigger_error', '__return_false' );
+		add_action( 'deprecated_argument_trigger_error', '__return_false' );
+		add_action( 'deprecated_class_trigger_error', '__return_false' );
+		add_action( 'deprecated_file_trigger_error', '__return_false' );
+		add_action( 'deprecated_hook_trigger_error', '__return_false' );
+		add_action( 'doing_it_wrong_trigger_error', '__return_false' );
+	}
+
+	/**
 	 * Helper function to check validity of action.
 	 *
 	 * @param string       $action         Action name.
