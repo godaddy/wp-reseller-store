@@ -23,12 +23,12 @@ class TestCase extends \WP_UnitTestCase {
 	 */
 	public function expectDeprecated(): void {
 
-		if ( ! class_exists( \PHPUnit\Metadata\Parser\Annotation\Registry::class ) ) {
+		if ( ! class_exists( \PHPUnit\Metadata\Annotation\Parser\Registry::class ) ) {
 			parent::expectDeprecated();
 			return;
 		}
 
-		$parser      = \PHPUnit\Metadata\Parser\Annotation\Registry::getInstance();
+		$parser      = \PHPUnit\Metadata\Annotation\Parser\Registry::getInstance();
 		$annotations = array(
 			'class'  => $parser->forClassName( static::class )->symbolAnnotations(),
 			'method' => $parser->forMethod( static::class, $this->name() )->symbolAnnotations(),
