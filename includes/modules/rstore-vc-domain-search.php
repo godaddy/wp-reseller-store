@@ -26,7 +26,7 @@ class VCDomainSearch extends \WPBakeryShortCode {
 	 * @method __construct
 	 * @since 1.6.0
 	 */
-	function __construct() {
+	public function __construct() {
 		$this->vc_mapping();
 	}
 

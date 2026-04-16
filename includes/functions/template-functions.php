@@ -89,6 +89,7 @@ function rstore_price( $post = null, $echo = false ) {
  * @param  int|WP_Post|null $post Product WP_Post instance.
  * @param  bool             $echo (optional) Echo the text.
  * @param  string           $button_label (optional) Text to display in the button.
+ * @param  bool             $button_new_tab (optional) Open button link in new tab.
  * @param  string           $text_cart (optional) Text to display in the cart link.
  * @param  bool             $redirect (optional) Redirect to cart after adding item.
  *
