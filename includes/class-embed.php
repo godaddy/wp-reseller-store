@@ -59,7 +59,7 @@ final class Embed {
 
 		$results = $wpdb->query(
 			$wpdb->prepare(
-				"UPDATE `{$wpdb->posts}` SET `post_content` = REPLACE( `post_content`, %s, %s ) WHERE `post_type` != 'revision' AND `post_status` != 'auto-draft' AND `post_content` LIKE %s AND `post_content` NOT RLIKE '(a:[0-9]+:\\{)|(s:[0-9]+:)|(i:[0-9]+;)|(O:[0-9]+:\")';",
+				"UPDATE `{$wpdb->posts}` SET `post_content` = REPLACE( `post_content`, %s, %s ) WHERE `post_type` != 'revision' AND `post_status` != 'auto-draft' AND `post_content` LIKE %s AND `post_content` NOT RLIKE '(a:[0-9]+:[{])|(s:[0-9]+:)|(i:[0-9]+;)|(O:[0-9]+:\")';",
 				$search,
 				$replace,
 				'%' . $search . '%'

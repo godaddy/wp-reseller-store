@@ -118,7 +118,7 @@ final class TestAdminNotice extends AjaxTestCase {
 		try {
 			new Admin_Notices();
 			$this->_handleAjax( $action );
-		} catch ( WPAjaxDieContinueException $e ) {
+		} catch ( \WPAjaxDieContinueException $e ) {
 
 			echo 'error';
 		}

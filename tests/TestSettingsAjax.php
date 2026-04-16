@@ -32,7 +32,7 @@ final class TestSettingsAjax extends AjaxTestCase {
 		try {
 			new Settings();
 			$this->_handleAjax( $action );
-		} catch ( WPAjaxDieContinueException $e ) {
+		} catch ( \WPAjaxDieContinueException $e ) {
 
 			echo 'error';
 		}
