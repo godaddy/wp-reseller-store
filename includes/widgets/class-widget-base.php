@@ -71,5 +71,4 @@ class Widget_Base extends \WP_Widget {
 		</p>
 		<?php
 	}
-
 }

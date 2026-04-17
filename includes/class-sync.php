@@ -101,7 +101,6 @@ final class Sync {
 
 		// After the post type and taxonomies are registered.
 		add_action( 'init', array( $this, 'check' ), 11 );
-
 	}
 
 	/**
@@ -130,7 +129,6 @@ final class Sync {
 			rstore_update_option( 'next_sync', time() + $this->ttl );
 
 		}
-
 	}
 
 	/**
@@ -178,7 +176,5 @@ final class Sync {
 		}
 
 		return true;
-
 	}
-
 }

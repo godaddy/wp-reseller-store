@@ -10,7 +10,7 @@ final class TestClassDisplay extends TestCase {
 	/**
 	 * Tear Down.
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 
 		parent::tearDown();
 

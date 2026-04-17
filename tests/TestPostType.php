@@ -10,7 +10,7 @@ final class TestPostType extends TestCase {
 	/**
 	 * Tear Down.
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 
 		parent::tearDown();
 
@@ -276,7 +276,7 @@ final class TestPostType extends TestCase {
 
 		$data = get_the_post_thumbnail( $post->ID, 'thumbnail' );
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Additional Products<\/title>/',
 			$data
 		);

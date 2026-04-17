@@ -42,7 +42,7 @@ final class TestWidgetLogin extends TestCase {
 			'after_title'   => '</h3>',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\/\?plid=12345" rel="nofollow">Log Out<\/a>/',
 			$widget->widget( $args, $instance )
 		);

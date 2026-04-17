@@ -5,13 +5,13 @@
 
 namespace Reseller_Store;
 
-final class TestAdminNotice extends \WP_Ajax_UnitTestCase {
+final class TestAdminNotice extends AjaxTestCase {
 
 
 	/**
 	 * Tear Down.
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 
 		parent::tearDown();
 
@@ -118,7 +118,7 @@ final class TestAdminNotice extends \WP_Ajax_UnitTestCase {
 		try {
 			new Admin_Notices();
 			$this->_handleAjax( $action );
-		} catch ( WPAjaxDieContinueException $e ) {
+		} catch ( \WPAjaxDieContinueException $e ) {
 
 			echo 'error';
 		}
@@ -129,8 +129,6 @@ final class TestAdminNotice extends \WP_Ajax_UnitTestCase {
 
 	/**
 	 * @testdox Given dismiss_admin_notice and invalid nonce an error is returned
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_dismiss_admin_notice_without_nonce() {
 
@@ -138,14 +136,14 @@ final class TestAdminNotice extends \WP_Ajax_UnitTestCase {
 
 		rstore_error( $error );
 
-		$this->callAjax( 'rstore_dismiss_admin_notice' );
+		$result = $this->callAjax( 'rstore_dismiss_admin_notice' );
+
+		$this->assertFalse( $result->success );
 
 	}
 
 	/**
 	 * @testdox Given dismiss_admin_notice and valid nonce clears error message
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_dismiss_admin_notice() {
 
@@ -153,7 +151,9 @@ final class TestAdminNotice extends \WP_Ajax_UnitTestCase {
 
 		$_POST['nonce'] = wp_create_nonce( $key );
 
-		$this->callAjax( 'rstore_dismiss_admin_notice' );
+		$result = $this->callAjax( 'rstore_dismiss_admin_notice' );
+
+		$this->assertTrue( $result->success );
 
 	}
 }

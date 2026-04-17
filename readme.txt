@@ -3,7 +3,7 @@ Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 6.2
 Tested up to:      6.8
-Requires PHP:      5.4
+Requires PHP:      8.1
 Stable tag:        2.2.17
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,7 +46,7 @@ You can call our support team at (480) 505-8857
 
 Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). Pull requests on existing issues are welcome!
 
-**Note: This plugin requires PHP 5.4 or higher**
+**Note: This plugin requires PHP 8.1 or higher**
 
 == Frequently Asked Questions ==
 

@@ -103,7 +103,7 @@ final class Settings {
 		if ( ! empty( $product_layout_type ) ) {
 			add_filter(
 				'rstore_product_layout_type',
-				function() {
+				function () {
 					return rstore_get_option( 'product_layout_type' );
 				}
 			);
@@ -113,7 +113,7 @@ final class Settings {
 		if ( ! empty( $product_image_size ) ) {
 			add_filter(
 				'rstore_product_image_size',
-				function() {
+				function () {
 					return rstore_get_option( 'product_image_size' );
 				}
 			);
@@ -123,7 +123,7 @@ final class Settings {
 		if ( ! empty( $product_button_label ) ) {
 			add_filter(
 				'rstore_product_button_label',
-				function() {
+				function () {
 					return rstore_get_option( 'product_button_label' );
 				}
 			);
@@ -133,7 +133,7 @@ final class Settings {
 		if ( ! empty( $product_text_cart ) ) {
 			add_filter(
 				'rstore_product_text_cart',
-				function() {
+				function () {
 					return rstore_get_option( 'product_text_cart' );
 				}
 			);
@@ -143,7 +143,7 @@ final class Settings {
 		if ( ! empty( $product_text_more ) ) {
 			add_filter(
 				'rstore_product_text_more',
-				function() {
+				function () {
 					return rstore_get_option( 'product_text_more' );
 				}
 			);
@@ -153,7 +153,7 @@ final class Settings {
 		if ( ! empty( $product_show_title ) ) {
 			add_filter(
 				'rstore_product_show_title',
-				function() {
+				function () {
 					return false;
 				}
 			);
@@ -163,7 +163,7 @@ final class Settings {
 		if ( ! empty( $product_show_content ) ) {
 			add_filter(
 				'rstore_product_show_content',
-				function() {
+				function () {
 					return false;
 				}
 			);
@@ -173,7 +173,7 @@ final class Settings {
 		if ( ! empty( $product_show_price ) ) {
 			add_filter(
 				'rstore_product_show_price',
-				function() {
+				function () {
 					return false;
 				}
 			);
@@ -183,7 +183,7 @@ final class Settings {
 		if ( ! empty( $product_redirect ) ) {
 			add_filter(
 				'rstore_product_redirect',
-				function() {
+				function () {
 					return false;
 				}
 			);
@@ -194,7 +194,7 @@ final class Settings {
 		if ( ! empty( $product_content_height ) || ! empty( $product_full_content_height ) ) {
 			add_filter(
 				'rstore_product_content_height',
-				function() {
+				function () {
 
 					$product_full_content_height = rstore_get_option( 'product_full_content_height' );
 					if ( $product_full_content_height ) {
@@ -202,7 +202,6 @@ final class Settings {
 					}
 
 					return intval( rstore_get_option( 'product_content_height' ) );
-
 				}
 			);
 		}
@@ -211,7 +210,7 @@ final class Settings {
 		if ( ! empty( $domain_title ) ) {
 			add_filter(
 				'rstore_domain_title',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_title' );
 				}
 			);
@@ -221,7 +220,7 @@ final class Settings {
 		if ( ! empty( $domain_text_placeholder ) ) {
 			add_filter(
 				'rstore_domain_text_placeholder',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_text_placeholder' );
 				}
 			);
@@ -231,7 +230,7 @@ final class Settings {
 		if ( ! empty( $domain_text_search ) ) {
 			add_filter(
 				'rstore_domain_text_search',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_text_search' );
 				}
 			);
@@ -241,7 +240,7 @@ final class Settings {
 		if ( ! empty( $domain_transfer_title ) ) {
 			add_filter(
 				'rstore_domain_transfer_title',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_transfer_title' );
 				}
 			);
@@ -251,7 +250,7 @@ final class Settings {
 		if ( ! empty( $domain_transfer_text_placeholder ) ) {
 			add_filter(
 				'rstore_domain_transfer_text_placeholder',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_transfer_text_placeholder' );
 				}
 			);
@@ -261,7 +260,7 @@ final class Settings {
 		if ( ! empty( $domain_transfer_text_search ) ) {
 			add_filter(
 				'rstore_domain_transfer_text_search',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_transfer_text_search' );
 				}
 			);
@@ -271,7 +270,7 @@ final class Settings {
 		if ( ! empty( $domain_page_size ) ) {
 			add_filter(
 				'rstore_domain_page_size',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_page_size' );
 				}
 			);
@@ -281,7 +280,7 @@ final class Settings {
 		if ( ! empty( $domain_modal ) ) {
 			add_filter(
 				'rstore_domain_modal',
-				function() {
+				function () {
 					return rstore_get_option( 'domain_modal' );
 				}
 			);
@@ -291,7 +290,7 @@ final class Settings {
 		if ( ! empty( $sync_ttl ) ) {
 			add_filter(
 				'rstore_sync_ttl',
-				function() {
+				function () {
 					return rstore_get_option( 'sync_ttl' );
 				}
 			);
@@ -303,7 +302,6 @@ final class Settings {
 		if ( ! empty( $market ) || ! empty( $currency ) || ! empty( $product_isc ) ) {
 			add_filter( 'rstore_api_query_args', array( $this, 'rstore_api_query_args_filter' ), 10, 2 );
 		}
-
 	}
 
 	/**
@@ -337,7 +335,6 @@ final class Settings {
 		);
 
 		wp_localize_script( 'reseller-store-settings-js', 'rstore', $data );
-
 	}
 
 	/**
@@ -388,7 +385,6 @@ final class Settings {
 		}
 
 		return $args;
-
 	}
 
 	/**
@@ -745,7 +741,6 @@ final class Settings {
 		</div>
 
 		<?php
-
 	}
 
 	/**
@@ -761,10 +756,10 @@ final class Settings {
 
 		}
 
-		$currentCurrency = rstore_get_option('rstore_api_currency');
-		$currencies = Settings::$currencies;
-		if (!in_array($currentCurrency, $currencies)) {
-			rstore_update_option('rstore_api_currency', 'USD');
+		$current_currency = rstore_get_option( 'rstore_api_currency' );
+		$currencies      = Settings::$currencies;
+		if ( ! in_array( $current_currency, $currencies ) ) {
+			rstore_update_option( 'rstore_api_currency', 'USD' );
 			rstore_delete_option( 'next_sync' );
 		}
 

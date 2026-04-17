@@ -22,7 +22,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Additional Products<\/title>/',
 			Product_Icons::get_icon( 'default' )
 		);
@@ -34,7 +34,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_css_class() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<div class=\"rstore-product-icons test-class\">/',
 			Product_Icons::get_icon( 'default', 'test-class' )
 		);
@@ -67,7 +67,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_domains() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Domains<\/title>/',
 			Product_Icons::get_icon( 'domains' )
 		);
@@ -79,7 +79,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_domain_registration() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Domain Registration<\/title>/',
 			Product_Icons::get_icon( 'domain-registration' )
 		);
@@ -91,7 +91,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_email() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Email<\/title>/',
 			Product_Icons::get_icon( 'email' )
 		);
@@ -103,7 +103,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_hosting() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Hosting<\/title>/',
 			Product_Icons::get_icon( 'hosting' )
 		);
@@ -115,7 +115,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_wordpress() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>WordPress<\/title>/',
 			Product_Icons::get_icon( 'WordPress' )
 		);
@@ -127,7 +127,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_websites() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Website Builder<\/title>/',
 			Product_Icons::get_icon( 'websites' )
 		);
@@ -139,7 +139,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_seo() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Search Engine Visibility<\/title>/',
 			Product_Icons::get_icon( 'seo' )
 		);
@@ -151,7 +151,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_ssl() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>SSL Certificate<\/title>/',
 			Product_Icons::get_icon( 'ssl' )
 		);
@@ -163,7 +163,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_code_signing_certificate() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Code Signing Certificate<\/title>/',
 			Product_Icons::get_icon( 'code-signing-certificate' )
 		);
@@ -175,7 +175,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_email_marketing() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Email Marketing<\/title>/',
 			Product_Icons::get_icon( 'email-marketing' )
 		);
@@ -187,7 +187,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_website_security() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Website Security<\/title>/',
 			Product_Icons::get_icon( 'website-security' )
 		);
@@ -199,7 +199,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_dedicated_ip() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Dedicated IP<\/title>/',
 			Product_Icons::get_icon( 'dedicated-ip' )
 		);
@@ -211,7 +211,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_dedicated_server() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Dedicated Server<\/title>/',
 			Product_Icons::get_icon( 'dedicated-server' )
 		);
@@ -223,7 +223,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_domain_transfer() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Domain Transfer<\/title>/',
 			Product_Icons::get_icon( 'domain-transfer' )
 		);
@@ -235,7 +235,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_domain_backorder() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Domain Backorder<\/title>/',
 			Product_Icons::get_icon( 'domain-backorder' )
 		);
@@ -247,7 +247,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_hosting_cpanel() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>cPanel Hosting<\/title>/',
 			Product_Icons::get_icon( 'hosting-cpanel' )
 		);
@@ -259,7 +259,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_hosting_windows() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Windows Hosting<\/title>/',
 			Product_Icons::get_icon( 'hosting-windows' )
 		);
@@ -271,7 +271,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_online_calendar() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Online Calendar<\/title>/',
 			Product_Icons::get_icon( 'online-calendar' )
 		);
@@ -283,7 +283,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_online_storage() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Online Storage<\/title>/',
 			Product_Icons::get_icon( 'online-storage' )
 		);
@@ -295,7 +295,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_online_store() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Online Store<\/title>/',
 			Product_Icons::get_icon( 'online-store' )
 		);
@@ -307,7 +307,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_reseller() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Reseller<\/title>/',
 			Product_Icons::get_icon( 'reseller' )
 		);
@@ -319,7 +319,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_sale() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>On Sale<\/title>/',
 			Product_Icons::get_icon( 'sale' )
 		);
@@ -331,7 +331,7 @@ final class TestProductIcons extends TestCase {
 	 */
 	function test_get_icon_website_backup() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Website Backup<\/title>/',
 			Product_Icons::get_icon( 'website-backup' )
 		);
@@ -345,7 +345,7 @@ final class TestProductIcons extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Additional Products<\/title>/',
 			Product_Icons::get_product_icon( $post )
 		);

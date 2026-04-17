@@ -21,14 +21,15 @@ registerBlockType(
 		attributes,
 		edit: ( props ) => {
 			return (
-				<Fragment>
+				<Fragment >
 					<Inspector { ...props } />
 					<Edit { ...props } />
-				</Fragment>
+				</Fragment >
 			);
 		},
 		save: () => {
 			// Rendering in PHP
 			return null;
 		},
-	} );
+	},
+);

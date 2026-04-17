@@ -47,7 +47,6 @@ final class Admin_Notices {
 		if ( ! empty( $_REQUEST['bulk_restore_posts'] ) ) {
 			add_action( 'admin_notices', array( $this, 'restore_notice' ) );
 		}
-
 	}
 
 	/**
@@ -57,7 +56,7 @@ final class Admin_Notices {
 	 * @since  1.3.0
 	 */
 	private static function nonce_key() {
-		return  rstore_prefix( 'notice-' . get_current_user_id() );
+		return rstore_prefix( 'notice-' . get_current_user_id() );
 	}
 
 	/**
@@ -79,7 +78,6 @@ final class Admin_Notices {
 				'nonce' => wp_create_nonce( self::nonce_key() ),
 			)
 		);
-
 	}
 
 	/**
@@ -117,7 +115,6 @@ final class Admin_Notices {
 			printf( '<p>' . $error->get_error_message() . '</p>', $error->get_error_data() );
 		}
 		print ( '</div>' );
-
 	}
 
 	/**
@@ -139,5 +136,4 @@ final class Admin_Notices {
 
 		wp_send_json_success();
 	}
-
 }

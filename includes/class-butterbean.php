@@ -34,7 +34,6 @@ final class ButterBean {
 		add_action( 'butterbean_register', array( $this, 'register_metabox' ), 10, 2 );
 
 		add_filter( 'butterbean_pre_control_template', array( $this, 'control_templates' ), 10, 2 );
-
 	}
 
 	/**
@@ -52,7 +51,6 @@ final class ButterBean {
 			require_once $path;
 
 		}
-
 	}
 
 	/**
@@ -86,7 +84,6 @@ final class ButterBean {
 			rstore_prefix( 'plain-text', true ),
 			__NAMESPACE__ . '\ButterBean\Controls\Plain_Text'
 		);
-
 	}
 
 	/**
@@ -117,7 +114,6 @@ final class ButterBean {
 		}
 
 		return $path;
-
 	}
 
 	/**
@@ -172,7 +168,6 @@ final class ButterBean {
 		);
 
 		$this->reset_product_data( $manager, 'advanced' );
-
 	}
 
 	/**
@@ -200,7 +195,6 @@ final class ButterBean {
 				'type' => rstore_prefix( 'read-only', true ),
 			)
 		);
-
 	}
 
 	/**
@@ -229,7 +223,6 @@ final class ButterBean {
 				'type' => rstore_prefix( 'read-only', true ),
 			)
 		);
-
 	}
 
 	/**
@@ -263,7 +256,6 @@ final class ButterBean {
 				},
 			)
 		);
-
 	}
 
 	/**
@@ -294,7 +286,6 @@ final class ButterBean {
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
-
 	}
 
 	/**
@@ -325,7 +316,6 @@ final class ButterBean {
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
-
 	}
 
 	/**
@@ -354,7 +344,6 @@ final class ButterBean {
 				},
 			)
 		);
-
 	}
 
 	/**
@@ -378,7 +367,5 @@ final class ButterBean {
 				'description' => esc_html__( 'Need to start over? You can restore the original product title, content, featured image, and category assignments. Note: Your customizations will be lost.', 'reseller-store' ),
 			)
 		);
-
 	}
-
 }

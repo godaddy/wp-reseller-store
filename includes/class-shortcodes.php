@@ -146,7 +146,6 @@ final class Shortcodes {
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
 		add_shortcode( 'rstore_icon', array( $this, 'product_icon' ) );
-
 	}
 
 	/**
@@ -165,7 +164,6 @@ final class Shortcodes {
 		$domain = new Widgets\Domain_Search();
 
 		return $domain->widget( $this->args, $atts );
-
 	}
 
 	/**
@@ -184,7 +182,6 @@ final class Shortcodes {
 		$cart = new Widgets\Cart();
 
 		return $cart->widget( $this->args, $atts );
-
 	}
 
 	/**
@@ -203,7 +200,6 @@ final class Shortcodes {
 		$product = new Widgets\Product();
 
 		return $product->widget( $this->args, $atts );
-
 	}
 
 	/**
@@ -222,7 +218,6 @@ final class Shortcodes {
 		$login = new Widgets\Login();
 
 		return $login->widget( $this->args, $atts );
-
 	}
 
 	/**
@@ -241,7 +236,6 @@ final class Shortcodes {
 		$domain = new Widgets\Domain_Transfer();
 
 		return $domain->widget( $this->args, $atts );
-
 	}
 
 	/**
@@ -260,7 +254,6 @@ final class Shortcodes {
 		$domain = new Widgets\Domain_Simple();
 
 		return $domain->widget( $this->args, $atts );
-
 	}
 
 	/**

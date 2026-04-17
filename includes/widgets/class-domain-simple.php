@@ -40,7 +40,6 @@ final class Domain_Simple extends Widget_Base {
 				'group'       => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
-
 	}
 
 	/**
@@ -97,7 +96,7 @@ final class Domain_Simple extends Widget_Base {
 		}
 
 		$target = '';
-		if ( ! empty($data['new_tab'])) {
+		if ( ! empty( $data['new_tab'] ) ) {
 			$target = ' target="_blank"';
 		}
 
@@ -126,7 +125,6 @@ final class Domain_Simple extends Widget_Base {
 		}
 
 		return $domain_search_widget;
-
 	}
 
 	/**
@@ -160,7 +158,6 @@ final class Domain_Simple extends Widget_Base {
 		$instance['text_search']      = isset( $new_instance['text_search'] ) ? wp_kses_post( $new_instance['text_search'] ) : null;
 
 		return $instance;
-
 	}
 
 	/**
@@ -180,5 +177,4 @@ final class Domain_Simple extends Widget_Base {
 			'new_tab'          => isset( $instance['new_tab'] ) ? $instance['new_tab'] : false,
 		);
 	}
-
 }

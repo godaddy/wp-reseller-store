@@ -58,7 +58,6 @@ final class Reseller extends \WP_CLI_Command {
 		}
 
 		WP_CLI::success( 'Reseller Store installed.' );
-
 	}
 
 	/**
@@ -94,7 +93,5 @@ final class Reseller extends \WP_CLI_Command {
 		Setup::uninstall( $keep_attachments );
 
 		WP_CLI::success( 'Reseller Store data uninstalled.' );
-
 	}
-
 }

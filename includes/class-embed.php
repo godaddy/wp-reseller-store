@@ -32,7 +32,6 @@ final class Embed {
 		add_action( 'embed_head', array( $this, 'head' ) );
 
 		add_filter( 'the_excerpt_embed', array( $this, 'excerpt' ) );
-
 	}
 
 	/**
@@ -60,7 +59,7 @@ final class Embed {
 
 		$results = $wpdb->query(
 			$wpdb->prepare(
-				"UPDATE `{$wpdb->posts}` SET `post_content` = REPLACE( `post_content`, %s, %s ) WHERE `post_type` != 'revision' AND `post_status` != 'auto-draft' AND `post_content` LIKE %s AND `post_content` NOT RLIKE '(a:[0-9]+:{)|(s:[0-9]+:)|(i:[0-9]+;)|(O:[0-9]+:\")';",
+				"UPDATE `{$wpdb->posts}` SET `post_content` = REPLACE( `post_content`, %s, %s ) WHERE `post_type` != 'revision' AND `post_status` != 'auto-draft' AND `post_content` LIKE %s AND `post_content` NOT RLIKE '(a:[0-9]+:[{])|(s:[0-9]+:)|(i:[0-9]+;)|(O:[0-9]+:\")';",
 				$search,
 				$replace,
 				'%' . $search . '%'
@@ -68,7 +67,6 @@ final class Embed {
 		);
 
 		return is_int( $results ) ? $results : false;
-
 	}
 
 	/**
@@ -90,7 +88,6 @@ final class Embed {
 
 		// Every cache row has an expiration row, divide by two.
 		return is_int( $results ) ? $results / 2 : $results;
-
 	}
 
 	/**
@@ -149,7 +146,6 @@ final class Embed {
 		</style>
 		<base target="_parent">
 		<?php
-
 	}
 
 	/**
@@ -183,7 +179,5 @@ final class Embed {
 		}
 
 		return $output;
-
 	}
-
 }

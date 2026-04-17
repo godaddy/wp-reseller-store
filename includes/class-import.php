@@ -161,7 +161,6 @@ final class Import {
 		);
 
 		return $post_id;
-
 	}
 
 	/**
@@ -172,7 +171,6 @@ final class Import {
 	private function post_meta() {
 
 		rstore_bulk_update_post_meta( $this->post_id, $this->product->fields );
-
 	}
 
 	/**
@@ -195,7 +193,6 @@ final class Import {
 		wp_delete_object_term_relationships( $this->post_id, $taxonomies );
 		$this->process_categories( $this->product->fields->categories, $this->post_id );
 		$this->process_tags( $this->product->fields->tags, $this->post_id );
-
 	}
 
 	/**
@@ -230,7 +227,6 @@ final class Import {
 				}
 			}
 		}
-
 	}
 
 	/**
@@ -274,7 +270,6 @@ final class Import {
 		}
 
 		return $term_id;
-
 	}
 
 	/**
@@ -341,7 +336,6 @@ final class Import {
 		}
 
 		return $term_id;
-
 	}
 
 	/**
@@ -375,7 +369,6 @@ final class Import {
 		}
 
 		return ( $attachment_id > 0 ) ? $attachment_id : false;
-
 	}
 
 	/**
@@ -406,7 +399,6 @@ final class Import {
 		);
 
 		rstore_bulk_update_post_meta( $attachment_id, $meta );
-
 	}
 
 	/**
@@ -427,9 +419,17 @@ final class Import {
 
 		}
 
+		$tmp_file = download_url( $url );
+
+		if ( is_wp_error( $tmp_file ) ) {
+
+			return false;
+
+		}
+
 		$file_array = array(
 			'name'     => basename( $url ),
-			'tmp_name' => download_url( $url ),
+			'tmp_name' => $tmp_file,
 		);
 
 		if ( ! function_exists( 'media_handle_sideload' ) ) {
@@ -452,7 +452,6 @@ final class Import {
 		}
 
 		return (int) $attachment_id;
-
 	}
 
 	/**
@@ -484,7 +483,5 @@ final class Import {
 		$this->imported[ $this->post_id ] = $this->product->fields->id;
 
 		return rstore_update_option( 'imported', $this->imported );
-
 	}
-
 }

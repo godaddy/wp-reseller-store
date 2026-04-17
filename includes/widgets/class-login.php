@@ -40,7 +40,6 @@ final class Login extends Widget_Base {
 				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
-
 	}
 
 	/**
@@ -126,7 +125,6 @@ final class Login extends Widget_Base {
 		}
 
 		return $login_widget;
-
 	}
 
 	/**
@@ -143,7 +141,6 @@ final class Login extends Widget_Base {
 		$this->display_form_input( 'login_button_text', $data['login_button_text'], __( 'Sign In Button', 'reseller-store' ) );
 		$this->display_form_input( 'welcome_message', $data['welcome_message'], __( 'Welcome Message', 'reseller-store' ) );
 		$this->display_form_input( 'logout_button_text', $data['logout_button_text'], __( 'Log Out Button', 'reseller-store' ) );
-
 	}
 
 	/**
@@ -164,7 +161,6 @@ final class Login extends Widget_Base {
 		$instance['logout_button_text'] = isset( $new_instance['logout_button_text'] ) ? wp_kses_post( $new_instance['logout_button_text'] ) : null;
 
 		return $instance;
-
 	}
 
 	/**
@@ -184,5 +180,4 @@ final class Login extends Widget_Base {
 			'logout_button_text' => isset( $instance['logout_button_text'] ) ? $instance['logout_button_text'] : apply_filters( 'rstore_logout_button_text', esc_html__( 'Log Out', 'reseller-store' ) ),
 		);
 	}
-
 }

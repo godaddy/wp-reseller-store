@@ -40,7 +40,7 @@ final class TestWidgetDomainSimple extends TestCase {
 			'after_title'   => '</h3>',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
 			$widget->widget( $args, $instance )
 		);
@@ -123,7 +123,7 @@ final class TestWidgetDomainSimple extends TestCase {
 			'after_title'   => '</h3>',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<div class="before_widget domain">/',
 			$widget->widget( $args, $instance )
 		);

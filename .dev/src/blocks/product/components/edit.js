@@ -5,10 +5,10 @@ const { Fragment } = wp.element;
 
 const Edit = ( props ) => {
 	return (
-		<Fragment>
+		<Fragment >
 			<Inspector { ...props } />
 			<Editor { ...props } />
-		</Fragment>
+		</Fragment >
 	);
 };
 
