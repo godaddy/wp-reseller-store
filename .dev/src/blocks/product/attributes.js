@@ -22,7 +22,7 @@ const attributes = {
 	},
 	button_label: {
 		type: 'string',
-		default: __('Add to cart', 'reseller-store'),
+		default: __( 'Add to cart', 'reseller-store' ),
 	},
 	button_new_tab: {
 		type: 'boolean',
@@ -34,7 +34,7 @@ const attributes = {
 	},
 	text_more: {
 		type: 'string',
-		default: __('More info', 'reseller-store'),
+		default: __( 'More info', 'reseller-store' ),
 	},
 	redirect: {
 		type: 'boolean',

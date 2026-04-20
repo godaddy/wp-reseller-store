@@ -1,1 +1,1 @@
-wp.i18n.setLocaleData({ '': {} }, 'reseller-store');
+wp.i18n.setLocaleData( { '': {} }, 'reseller-store' );

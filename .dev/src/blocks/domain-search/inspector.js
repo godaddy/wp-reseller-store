@@ -4,103 +4,103 @@ const { Fragment } = wp.element;
 const { CheckboxControl, PanelBody, RangeControl, SelectControl, TextControl } =
 	wp.components;
 
-const Inspector = ({ attributes, setAttributes }) => {
+const Inspector = ( { attributes, setAttributes } ) => {
 	return (
 		<InspectorControls>
-			<p> {__('Domain Search', 'reseller-store')} </p>
+			<p> { __( 'Domain Search', 'reseller-store' ) } </p>
 			<PanelBody>
 				<TextControl
-					label={__('Title', 'reseller-store')}
-					value={attributes.title}
-					onChange={(title) => setAttributes({ title })}
+					label={ __( 'Title', 'reseller-store' ) }
+					value={ attributes.title }
+					onChange={ ( title ) => setAttributes( { title } ) }
 				/>
 			</PanelBody>
 			<PanelBody>
 				<TextControl
-					label={__('Placeholder', 'reseller-store')}
-					value={attributes.text_placeholder}
-					onChange={(textPlaceholder) =>
-						setAttributes({ text_placeholder: textPlaceholder })
+					label={ __( 'Placeholder', 'reseller-store' ) }
+					value={ attributes.text_placeholder }
+					onChange={ ( textPlaceholder ) =>
+						setAttributes( { text_placeholder: textPlaceholder } )
 					}
 				/>
 			</PanelBody>
 			<PanelBody>
 				<TextControl
-					label={__('Search Button', 'reseller-store')}
-					value={attributes.text_search}
-					onChange={(textSearch) =>
-						setAttributes({ text_search: textSearch })
+					label={ __( 'Search Button', 'reseller-store' ) }
+					value={ attributes.text_search }
+					onChange={ ( textSearch ) =>
+						setAttributes( { text_search: textSearch } )
 					}
 				/>
 			</PanelBody>
 			<PanelBody>
 				<SelectControl
-					label={__('Search Type', 'reseller-store')}
-					onChange={(searchType) =>
-						setAttributes({ search_type: searchType })
+					label={ __( 'Search Type', 'reseller-store' ) }
+					onChange={ ( searchType ) =>
+						setAttributes( { search_type: searchType } )
 					}
-					value={attributes.search_type}
-					options={[
+					value={ attributes.search_type }
+					options={ [
 						{
 							value: 'standard',
 							label: __(
 								'Standard Domain Search',
-								'reseller-store'
+								'reseller-store',
 							),
 						},
 						{
 							value: 'advanced',
 							label: __(
 								'Advanced Domain Search',
-								'reseller-store'
+								'reseller-store',
 							),
 						},
 						{
 							value: 'transfer',
-							label: __('Transfer Domain', 'reseller-store'),
+							label: __( 'Transfer Domain', 'reseller-store' ),
 						},
-					]}
+					] }
 				/>
-				{'advanced' === attributes.search_type && (
+				{ 'advanced' === attributes.search_type && (
 					<Fragment>
 						<RangeControl
 							beforeIcon="arrow-left-alt2"
 							afterIcon="arrow-right-alt2"
-							label={__(
+							label={ __(
 								'On page search result size',
-								'reseller-store'
-							)}
-							value={attributes.page_size}
-							onChange={(pageSize) =>
-								setAttributes({ page_size: pageSize })
+								'reseller-store',
+							) }
+							value={ attributes.page_size }
+							onChange={ ( pageSize ) =>
+								setAttributes( { page_size: pageSize } )
 							}
-							min={1}
-							max={30}
+							min={ 1 }
+							max={ 30 }
 						/>
 						<CheckboxControl
-							label={__(
+							label={ __(
 								'Display results in a modal',
-								'reseller-store'
-							)}
-							checked={attributes.modal}
-							onChange={(modal) => setAttributes({ modal })}
+								'reseller-store',
+							) }
+							checked={ attributes.modal }
+							onChange={ ( modal ) => setAttributes( { modal } ) }
 						/>
 					</Fragment>
-				)}
-				{'advanced' !== attributes.search_type && (
+				) }
+				{ 'advanced' !== attributes.search_type && (
 					<Fragment>
 						<CheckboxControl
-							label={__(
+							label={ __(
 								'Display results in a new tab',
-								'reseller-store'
-							)}
-							checked={attributes.new_tab}
-							onChange={(newTab) =>
-								setAttributes({ new_tab: newTab })
+								'reseller-store',
+							) }
+							checked={ attributes.new_tab }
+							onChange={ ( newTab ) =>
+								setAttributes( { new_tab: newTab } )
 							}
 						/>
 					</Fragment>
-				)}
+				) }
 			</PanelBody>
 		</InspectorControls>
 	);

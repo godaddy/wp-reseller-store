@@ -6,11 +6,11 @@ const attributes = {
 	},
 	text_placeholder: {
 		type: 'string',
-		default: __('Find your perfect domain name', 'reseller-store'),
+		default: __( 'Find your perfect domain name', 'reseller-store' ),
 	},
 	text_search: {
 		type: 'string',
-		default: __('Search', 'reseller-store'),
+		default: __( 'Search', 'reseller-store' ),
 	},
 	search_type: {
 		type: 'string',

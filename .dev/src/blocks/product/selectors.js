@@ -1,44 +1,44 @@
 const { withSelect } = wp.data;
 
-const mediaSelector = withSelect((select, { post }) => {
-	if (!post || !post.featured_media) {
+const mediaSelector = withSelect( ( select, { post } ) => {
+	if ( ! post || ! post.featured_media ) {
 		return {};
 	}
 
-	const media = select('core').getEntityRecord(
+	const media = select( 'core' ).getEntityRecord(
 		'root',
 		'media',
-		post.featured_media
+		post.featured_media,
 	);
 
 	return {
 		media,
 	};
-});
+} );
 
-const productSelector = withSelect((select, { attributes }) => {
-	const posts = select('core').getEntityRecords(
+const productSelector = withSelect( ( select, { attributes } ) => {
+	const posts = select( 'core' ).getEntityRecords(
 		'postType',
 		'reseller_product',
-		{ per_page: 100 }
+		{ per_page: 100 },
 	);
 
-	if (posts && posts.length) {
-		if (attributes.post_id === undefined) {
+	if ( posts && posts.length ) {
+		if ( attributes.post_id === undefined ) {
 			return {
 				posts,
-				post: posts[0],
+				post: posts[ 0 ],
 			};
 		}
 
-		const post = posts.find((p) => {
+		const post = posts.find( ( p ) => {
 			return p.id.toString() === attributes.post_id;
-		});
+		} );
 
-		if (post === undefined) {
+		if ( post === undefined ) {
 			return {
 				posts,
-				post: posts[0],
+				post: posts[ 0 ],
 			};
 		}
 
@@ -48,6 +48,6 @@ const productSelector = withSelect((select, { attributes }) => {
 		};
 	}
 	return {};
-});
+} );
 
 export { productSelector, mediaSelector };
