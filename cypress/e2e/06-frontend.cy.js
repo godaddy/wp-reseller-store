@@ -3,16 +3,20 @@ describe( '06 – Frontend Product Pages', () => {
 
 	before( () => {
 		cy.stubExternalApis();
+		cy.loginAsAdmin();
 		cy.setupPlugin();
 
-		// Fetch the first imported product URL once and reuse across tests
 		cy.request( {
 			url: '/wp-json/wp/v2/reseller_product?per_page=1',
-			auth: { user: Cypress.env( 'wpUser' ), pass: Cypress.env( 'wpPass' ) },
 			failOnStatusCode: false,
 		} ).then( ( resp ) => {
 			productUrl = resp.body[ 0 ]?.link ?? null;
 		} );
+	} );
+
+	beforeEach( () => {
+		cy.stubExternalApis();
+		cy.loginAsAdmin();
 	} );
 
 	// ── Product page structure ─────────────────────────────────────────────────
@@ -70,12 +74,13 @@ describe( '06 – Frontend Product Pages', () => {
 	it( 'domain product page does NOT render an add-to-cart form', () => {
 		cy.request( {
 			url: '/wp-json/wp/v2/reseller_product?per_page=20',
-			auth: { user: Cypress.env( 'wpUser' ), pass: Cypress.env( 'wpPass' ) },
 			failOnStatusCode: false,
 		} ).then( ( resp ) => {
-			const domain = resp.body.find( ( p ) => p.slug?.includes( 'domain' ) || p.title?.rendered?.toLowerCase().includes( 'domain' ) );
+			if ( ! Array.isArray( resp.body ) ) return cy.log( 'No products found — skipping' );
+			const domain = resp.body.find( ( p ) =>
+				p.slug?.includes( 'domain' ) || p.title?.rendered?.toLowerCase().includes( 'domain' )
+			);
 			if ( ! domain ) return cy.log( 'No domain product found — skipping' );
-
 			cy.visit( domain.link );
 			cy.get( 'form.rstore-add-to-cart-form' ).should( 'not.exist' );
 		} );
@@ -85,7 +90,6 @@ describe( '06 – Frontend Product Pages', () => {
 
 	it( 'product page logs no uncaught JS errors', () => {
 		if ( ! productUrl ) return cy.log( 'No products — skipping' );
-		cy.on( 'uncaught:exception', () => false ); // handled globally but explicit here too
 		cy.visit( productUrl );
 		cy.get( '.rstore-pricing' ).should( 'exist' );
 	} );

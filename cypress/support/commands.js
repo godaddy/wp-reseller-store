@@ -5,12 +5,26 @@
  * and reused across specs without re-visiting the login page every time.
  */
 Cypress.Commands.add( 'loginAsAdmin', () => {
-	cy.session( 'admin-session', () => {
-		cy.visit( '/wp-login.php' );
-		cy.get( '#user_login' ).clear().type( Cypress.env( 'wpUser' ) );
-		cy.get( '#user_pass' ).clear().type( Cypress.env( 'wpPass' ) );
-		cy.get( '#wp-submit' ).click();
-		cy.url().should( 'include', '/wp-admin' );
+	// cy.request() shares Cypress's cookie jar with cy.visit().
+	// WordPress's login checks for wordpress_test_cookie in the Cookie header.
+	// Set it via cy.setCookie() so cy.request() automatically includes it.
+	cy.setCookie( 'wordpress_test_cookie', 'WP Cookie check' );
+
+	cy.request( {
+		method: 'POST',
+		url:    '/wp-login.php',
+		form:   true,
+		body: {
+			log:         Cypress.env( 'wpUser' ),
+			pwd:         Cypress.env( 'wpPass' ),
+			'wp-submit': 'Log In',
+			redirect_to: '/wp-admin/',
+			testcookie:  '1',
+		},
+	} ).then( ( resp ) => {
+		// After a successful login WordPress redirects (302) to /wp-admin/.
+		// cy.request() follows redirects by default so the final status is 200.
+		expect( resp.status ).to.eq( 200 );
 	} );
 } );
 
@@ -72,6 +86,20 @@ Cypress.Commands.add( 'setupPlugin', ( plId = Cypress.env( 'plId' ) ) => {
 	} );
 } );
 
+// ─── REST API nonce ───────────────────────────────────────────────────────────
+
+/**
+ * Visit WP admin and return the REST API nonce from wpApiSettings.
+ * post-new.php reliably enqueues wp-api.js regardless of active theme.
+ * Required for write operations (POST/PUT/DELETE) via the WP REST API
+ * when using cookie-based authentication.
+ */
+Cypress.Commands.add( 'getRestNonce', () => {
+	return cy.visit( '/wp-admin/post-new.php' ).then( () =>
+		cy.window().its( 'wpApiSettings.nonce' )
+	);
+} );
+
 // ─── Theme switching ──────────────────────────────────────────────────────────
 
 /**
@@ -80,12 +108,14 @@ Cypress.Commands.add( 'setupPlugin', ( plId = Cypress.env( 'plId' ) ) => {
  * @param {string} slug Theme slug, e.g. 'twentytwentyfour' or 'storefront'
  */
 Cypress.Commands.add( 'activateTheme', ( slug ) => {
-	cy.request( {
-		method: 'POST',
-		url: '/wp-json/wp/v2/settings',
-		auth: { user: Cypress.env( 'wpUser' ), pass: Cypress.env( 'wpPass' ) },
-		body: { stylesheet: slug },
-	} ).its( 'status' ).should( 'eq', 200 );
+	cy.getRestNonce().then( ( nonce ) => {
+		cy.request( {
+			method: 'POST',
+			url: '/wp-json/wp/v2/settings',
+			headers: { 'X-WP-Nonce': nonce },
+			body: { stylesheet: slug },
+		} ).its( 'status' ).should( 'eq', 200 );
+	} );
 } );
 
 // ─── REST page creation ───────────────────────────────────────────────────────
@@ -98,10 +128,12 @@ Cypress.Commands.add( 'activateTheme', ( slug ) => {
  * @returns {Cypress.Chainable<string>} The published page URL
  */
 Cypress.Commands.add( 'createPage', ( title, content ) => {
-	return cy.request( {
-		method: 'POST',
-		url: '/wp-json/wp/v2/pages',
-		auth: { user: Cypress.env( 'wpUser' ), pass: Cypress.env( 'wpPass' ) },
-		body: { title, content, status: 'publish' },
-	} ).then( ( resp ) => resp.body.link );
+	return cy.getRestNonce().then( ( nonce ) => {
+		return cy.request( {
+			method: 'POST',
+			url: '/wp-json/wp/v2/pages',
+			headers: { 'X-WP-Nonce': nonce },
+			body: { title, content, status: 'publish' },
+		} ).then( ( resp ) => resp.body.link );
+	} );
 } );

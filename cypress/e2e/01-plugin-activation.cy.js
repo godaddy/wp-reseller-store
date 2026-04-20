@@ -1,14 +1,23 @@
 describe( '01 – Plugin Activation', () => {
-	before( () => cy.loginAsAdmin() );
+	before( () => {
+		// Reset plugin to unconfigured state so Setup menu is visible
+		cy.exec( 'npx wp-env run cli -- wp option delete rstore_pl_id', { failOnNonZero: false } );
+	} );
+
+	beforeEach( () => cy.loginAsAdmin() );
 
 	it( 'plugin is listed as active on the plugins screen', () => {
 		cy.visit( '/wp-admin/plugins.php' );
 		cy.get( 'tr[data-slug="reseller-store"]' ).should( 'have.class', 'active' );
+		cy.get( 'tr[data-slug="reseller-store"] .plugin-title strong' )
+			.should( 'contain.text', 'Reseller Store' );
 	} );
 
-	it( 'reseller_product post type appears in the admin menu', () => {
+	it( 'reseller_product custom post type is registered', () => {
+		// The products page redirects to the setup page until pl_id is configured.
+		// Verify the admin menu entry exists regardless of redirect.
 		cy.visit( '/wp-admin/edit.php?post_type=reseller_product' );
-		cy.get( 'h1' ).should( 'contain.text', 'Reseller' );
+		cy.get( '#adminmenu a[href*="reseller_product"]' ).should( 'exist' );
 		cy.get( 'body' ).should( 'not.contain.text', 'Fatal error' );
 	} );
 

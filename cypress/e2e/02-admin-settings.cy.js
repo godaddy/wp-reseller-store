@@ -3,6 +3,11 @@ const SETTINGS_URL = '/wp-admin/edit.php?post_type=reseller_product&page=rstore_
 describe( '02 – Admin Settings', () => {
 	before( () => {
 		cy.stubExternalApis();
+		cy.setupPlugin();
+	} );
+
+	beforeEach( () => {
+		cy.stubExternalApis();
 		cy.loginAsAdmin();
 	} );
 

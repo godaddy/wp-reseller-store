@@ -4,6 +4,11 @@ describe( '03 – Shortcodes', () => {
 		cy.setupPlugin();
 	} );
 
+	beforeEach( () => {
+		cy.stubExternalApis();
+		cy.loginAsAdmin();
+	} );
+
 	// ── Helper ─────────────────────────────────────────────────────────────────
 
 	function pageWithShortcode( title, shortcode ) {
@@ -72,7 +77,6 @@ describe( '03 – Shortcodes', () => {
 	it( '[rstore_product] renders pricing and add-to-cart when a product exists', () => {
 		cy.request( {
 			url: '/wp-json/wp/v2/reseller_product?per_page=1',
-			auth: { user: Cypress.env( 'wpUser' ), pass: Cypress.env( 'wpPass' ) },
 			failOnStatusCode: false,
 		} ).then( ( resp ) => {
 			const post = resp.body[ 0 ];

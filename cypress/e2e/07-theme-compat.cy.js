@@ -88,7 +88,6 @@ themes.forEach( ( { slug, name } ) => {
 			// Get first imported product URL
 			cy.request( {
 				url: '/wp-json/wp/v2/reseller_product?per_page=1',
-				auth: { user: Cypress.env( 'wpUser' ), pass: Cypress.env( 'wpPass' ) },
 				failOnStatusCode: false,
 			} ).then( ( resp ) => {
 				productUrl = resp.body[ 0 ]?.link ?? null;
@@ -105,5 +104,5 @@ themes.forEach( ( { slug, name } ) => {
 
 // Restore Twenty Twenty-Four as the default theme after all theme tests
 after( () => {
-	cy.activateTheme( 'twentytwentyfour' );
+	cy.exec( 'npx wp-env run cli -- wp theme activate twentytwentyfour', { failOnNonZero: false } );
 } );

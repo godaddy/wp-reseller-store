@@ -1,11 +1,14 @@
 describe( '04 – Gutenberg Blocks', () => {
-	before( () => {
+	beforeEach( () => {
 		cy.stubExternalApis();
 		cy.loginAsAdmin();
-	} );
-
-	beforeEach( () => {
 		cy.visit( '/wp-admin/post-new.php' );
+
+		// Wait for the editor to start rendering (modal may appear before writing flow)
+		cy.get(
+			'.components-modal__screen-overlay, .block-editor-writing-flow, .editor-styles-wrapper',
+			{ timeout: 20000 }
+		).should( 'exist' );
 
 		// Dismiss welcome/tour dialog if present
 		cy.get( 'body' ).then( ( $body ) => {
@@ -15,7 +18,7 @@ describe( '04 – Gutenberg Blocks', () => {
 		} );
 
 		// Wait for the block editor canvas to be ready
-		cy.get( '.block-editor-writing-flow, .editor-styles-wrapper', { timeout: 15000 } )
+		cy.get( '.block-editor-writing-flow, .editor-styles-wrapper', { timeout: 10000 } )
 			.should( 'exist' );
 	} );
 
@@ -26,25 +29,27 @@ describe( '04 – Gutenberg Blocks', () => {
 
 	it( 'block inserter finds Reseller Store blocks', () => {
 		// Open the inserter
-		cy.get( 'button[aria-label*="Toggle block inserter"], .editor-document-tools__inserter-toggle' )
+		cy.get( 'button[aria-label*="Block Inserter" i], button[aria-label*="Toggle block inserter" i]', { timeout: 10000 } )
 			.first().click();
 
 		// Search for Reseller
-		cy.get( '.block-editor-inserter__search input, input[placeholder*="Search"]', { timeout: 8000 } )
+		cy.get( 'input[placeholder*="Search"]', { timeout: 8000 } )
+			.first()
 			.type( 'Domain Search' );
 
-		cy.get( '.block-editor-block-types-list__item, .block-editor-inserter__block-list button' )
+		cy.contains( '.block-editor-block-types-list__item', 'Domain Search', { timeout: 8000 } )
 			.should( 'have.length.gte', 1 );
 	} );
 
 	it( 'inserts Domain Search block and renders block wrapper', () => {
-		cy.get( 'button[aria-label*="Toggle block inserter"], .editor-document-tools__inserter-toggle' )
+		cy.get( 'button[aria-label*="Block Inserter" i], button[aria-label*="Toggle block inserter" i]', { timeout: 10000 } )
 			.first().click();
 
-		cy.get( '.block-editor-inserter__search input, input[placeholder*="Search"]', { timeout: 8000 } )
+		cy.get( 'input[placeholder*="Search"]', { timeout: 8000 } )
+			.first()
 			.type( 'Domain Search' );
 
-		cy.get( '.block-editor-block-types-list__item' )
+		cy.contains( '.block-editor-block-types-list__item', 'Domain Search', { timeout: 8000 } )
 			.first().click();
 
 		cy.get( '[data-type="reseller-store/domain-search"]', { timeout: 8000 } )
@@ -52,13 +57,16 @@ describe( '04 – Gutenberg Blocks', () => {
 	} );
 
 	it( 'inserts Product block and shows block inspector', () => {
-		cy.get( 'button[aria-label*="Toggle block inserter"], .editor-document-tools__inserter-toggle' )
+		cy.get( 'button[aria-label*="Block Inserter" i], button[aria-label*="Toggle block inserter" i]', { timeout: 10000 } )
 			.first().click();
 
-		cy.get( '.block-editor-inserter__search input, input[placeholder*="Search"]', { timeout: 8000 } )
+		cy.get( 'input[placeholder*="Search"]', { timeout: 8000 } )
+			.first()
 			.type( 'Product' );
 
-		cy.contains( '.block-editor-block-types-list__item', 'Product' )
+		// Use exact-match regex to avoid matching "WooCommerce Recent Products" etc.
+		cy.contains( '.block-editor-block-types-list__item-title, .block-editor-block-types-list__item span', /^Product$/, { timeout: 8000 } )
+			.closest( '.block-editor-block-types-list__item' )
 			.first().click();
 
 		cy.get( '[data-type="reseller-store/product"]', { timeout: 8000 } )
