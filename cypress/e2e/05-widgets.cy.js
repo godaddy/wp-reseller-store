@@ -6,12 +6,12 @@ describe( '05 – Widgets', () => {
 		// Block themes (e.g. Twenty Twenty-Four) have no widget areas.
 		// Switch to a classic theme and enable Classic Widgets plugin.
 		cy.exec(
-			'npx wp-env run cli -- wp theme activate storefront',
-			{ failOnNonZero: false }
+			'npx wp-env run cli -- wp theme install storefront --activate',
+			{ failOnNonZeroExit: false }
 		);
 		cy.exec(
 			'npx wp-env run cli -- wp plugin install classic-widgets --activate',
-			{ failOnNonZero: false }
+			{ failOnNonZeroExit: false }
 		);
 	} );
 
@@ -53,11 +53,11 @@ describe( '05 – Widgets', () => {
 		// Restore the default theme and deactivate Classic Widgets
 		cy.exec(
 			'npx wp-env run cli -- wp theme activate twentytwentyfour',
-			{ failOnNonZero: false }
+			{ failOnNonZeroExit: false }
 		);
 		cy.exec(
 			'npx wp-env run cli -- wp plugin deactivate classic-widgets',
-			{ failOnNonZero: false }
+			{ failOnNonZeroExit: false }
 		);
 	} );
 } );
