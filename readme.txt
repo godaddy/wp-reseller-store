@@ -112,6 +112,11 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 * Fix: MySQL 8.0 regex compatibility in test suite
 * Fix: Primary searched domain now shows Select button when listPrice is missing (#169)
 
+= 2.2.17 =
+
+* Update: Upgrade domain-search to v5.0.1 with React 18 support
+* Update: Requires WordPress 6.2+ (React 18 bundled)
+
 = 2.2.16 - May 2025 =
 
 * Update: Tested with WordPress 6.8
