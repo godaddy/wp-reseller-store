@@ -103,7 +103,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 ## Changelog ##
 
-### 3.0.0 ###
+### 3.0.0 - April 2026 ###
 
 * Breaking change: Minimum PHP version is now 8.1 (previously 5.4)
 * Update: Upgrade PHPUnit to v10 with full PHP 8.1 compatibility
@@ -116,7 +116,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 * Fix: MySQL 8.0 regex compatibility in test suite
 * Fix: Primary searched domain now shows Select button when listPrice is missing (#169)
 
-### 2.2.17 ###
+### 2.2.17 - April 2026 ###
 
 * Update: Upgrade domain-search to v5.0.1 with React 18 support
 * Update: Requires WordPress 6.2+ (React 18 bundled)
