@@ -54,7 +54,7 @@ final class Blocks {
 
 		add_action(
 			'init',
-			function() {
+			function () {
 
 				register_block_type(
 					'reseller-store/product',
@@ -75,7 +75,6 @@ final class Blocks {
 						),
 					)
 				);
-
 			}
 		);
 	}
@@ -99,7 +98,6 @@ final class Blocks {
 		);
 
 		wp_enqueue_style( 'reseller-store-blocks-css', Plugin::assets_url( "css/blocks-editor{$suffix}.css" ), array(), rstore()->version );
-
 	}
 
 	/**
@@ -139,7 +137,6 @@ final class Blocks {
 		$result = $product->widget( $this->args, $atts );
 
 		return $result;
-
 	}
 
 	/**
@@ -172,7 +169,5 @@ final class Blocks {
 		$result = $domain->widget( $this->args, $atts );
 
 		return $result;
-
 	}
-
 }

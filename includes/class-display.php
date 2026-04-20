@@ -34,7 +34,6 @@ final class Display {
 		add_action( 'enqueue_embed_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-
 	}
 
 	/**
@@ -73,7 +72,6 @@ final class Display {
 		);
 
 		wp_localize_script( 'reseller-store-js', 'rstore', $data );
-
 	}
 
 	/**
@@ -94,5 +92,4 @@ final class Display {
 
 		}
 	}
-
 }

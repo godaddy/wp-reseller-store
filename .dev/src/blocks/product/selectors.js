@@ -5,7 +5,11 @@ const mediaSelector = withSelect( ( select, { post } ) => {
 		return {};
 	}
 
-	const media = select( 'core' ).getEntityRecord( 'root', 'media', post.featured_media );
+	const media = select( 'core' ).getEntityRecord(
+		'root',
+		'media',
+		post.featured_media,
+	);
 
 	return {
 		media,
@@ -13,7 +17,11 @@ const mediaSelector = withSelect( ( select, { post } ) => {
 } );
 
 const productSelector = withSelect( ( select, { attributes } ) => {
-	const posts = select( 'core' ).getEntityRecords( 'postType', 'reseller_product', { per_page: 100 } );
+	const posts = select( 'core' ).getEntityRecords(
+		'postType',
+		'reseller_product',
+		{ per_page: 100 },
+	);
 
 	if ( posts && posts.length ) {
 		if ( attributes.post_id === undefined ) {
@@ -42,7 +50,4 @@ const productSelector = withSelect( ( select, { attributes } ) => {
 	return {};
 } );
 
-export {
-	productSelector,
-	mediaSelector,
-};
+export { productSelector, mediaSelector };

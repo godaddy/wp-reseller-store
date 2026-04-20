@@ -305,7 +305,6 @@ final class Product_Icons {
 		}
 
 		return get_the_post_thumbnail( $post->ID, $image_type, self::PRODUCT_IMAGE_SLUG );
-
 	}
 
 	/**
@@ -448,7 +447,5 @@ final class Product_Icons {
 		$content = apply_filters( 'rstore_icon_html', $content, $image_id, $class_name );
 
 		return $content;
-
 	}
-
 }

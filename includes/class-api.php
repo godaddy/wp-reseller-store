@@ -82,7 +82,6 @@ final class API {
 		$this->urls['sso']      = sprintf( 'https://sso.%s/', $this->tld );
 		$this->urls['account']  = sprintf( 'https://account.%s/', $this->tld );
 		$this->urls['gui']      = sprintf( 'https://gui.%s/pcjson/standardheaderfooter', $this->tld );
-
 	}
 
 	/**
@@ -106,8 +105,7 @@ final class API {
 
 		$args = (array) apply_filters( 'rstore_api_query_args', $args, $url_key );
 
-		return  esc_url_raw( add_query_arg( $args, $url ) );
-
+		return esc_url_raw( add_query_arg( $args, $url ) );
 	}
 
 	/**
@@ -148,7 +146,6 @@ final class API {
 		$url = str_replace( '{pl_id}', (int) rstore_get_option( 'pl_id' ), $url );
 
 		return $this->add_query_args( trailingslashit( $url ), $args, $url_key );
-
 	}
 
 	/**
@@ -195,7 +192,7 @@ final class API {
 
 		static $errors = 0;
 
-		$errors++;
+		++$errors;
 
 		if ( $errors <= $this->max_retries ) {
 
@@ -212,7 +209,6 @@ final class API {
 		$message = ( $message ) ? $message : esc_html__( 'An unknown error has occurred.', 'reseller-store' );
 
 		return new WP_Error( $code, $message );
-
 	}
 
 	/**
@@ -240,7 +236,6 @@ final class API {
 		}
 
 		return $results;
-
 	}
 
 	/**
@@ -256,7 +251,6 @@ final class API {
 	public function post( $endpoint, $args = array() ) {
 
 		return $this->request( 'POST', $endpoint, $args );
-
 	}
 
 	/**
@@ -272,7 +266,5 @@ final class API {
 	public function delete( $endpoint, $args = array() ) {
 
 		return $this->request( 'DELETE', $endpoint, $args );
-
 	}
-
 }

@@ -39,7 +39,6 @@ final class Cart extends Widget_Base {
 				'description' => esc_html__( 'A shopper cart status.', 'reseller-store' ),
 			)
 		);
-
 	}
 
 	/**
@@ -115,7 +114,6 @@ final class Cart extends Widget_Base {
 		}
 
 		return $cart_widget;
-
 	}
 
 	/**
@@ -129,7 +127,6 @@ final class Cart extends Widget_Base {
 		$data = $this->get_data( $instance );
 		$this->display_form_input( 'title', $data['title'], __( 'Title', 'reseller-store' ) );
 		$this->display_form_input( 'button_label', $data['button_label'], __( 'Button', 'reseller-store' ) );
-
 	}
 
 	/**
@@ -147,7 +144,6 @@ final class Cart extends Widget_Base {
 		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
 		$instance['button_label'] = isset( $new_instance['button_label'] ) ? wp_kses_post( $new_instance['button_label'] ) : null;
 		return $instance;
-
 	}
 
 	/**
@@ -165,5 +161,4 @@ final class Cart extends Widget_Base {
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : apply_filters( 'rstore_cart_button_label', esc_html__( 'View Cart', 'reseller-store' ) ),
 		);
 	}
-
 }

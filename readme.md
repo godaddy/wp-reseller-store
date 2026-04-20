@@ -5,14 +5,14 @@
 **Tags:**              [reseller](https://wordpress.org/plugins/tags/reseller/), [program](https://wordpress.org/plugins/tags/program/), [storefront](https://wordpress.org/plugins/tags/storefront/), [products](https://wordpress.org/plugins/tags/products/), [posts](https://wordpress.org/plugins/tags/posts/), [shortcode](https://wordpress.org/plugins/tags/shortcode/), [ecommerce](https://wordpress.org/plugins/tags/ecommerce/), [blocks](https://wordpress.org/plugins/tags/blocks/)  
 **Requires at least:** 6.2
 **Tested up to:**      6.8
-**Requires PHP:**      5.4
-**Stable tag:**        2.2.17
+**Requires PHP:**      8.1
+**Stable tag:**        3.0.0
 **License:**           GPL-2.0  
 **License URI:**       https://www.gnu.org/licenses/gpl-2.0.html  
 
 Design your own storefront for your Basic and Pro Reseller plan and have more control over your customers experience and business!
 
-[![Build Status](https://travis-ci.org/godaddy/wp-reseller-store.svg?branch=master)](https://travis-ci.org/godaddy/wp-reseller-store) [![Coverage Status](https://coveralls.io/repos/github/godaddy/wp-reseller-store/badge.svg?branch=master)](https://coveralls.io/github/godaddy/wp-reseller-store?branch=master) [![devDependencies Status](https://david-dm.org/godaddy/wp-reseller-store/master/dev-status.svg)](https://david-dm.org/godaddy/wp-reseller-store/master?type=dev) [![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/godaddy/wp-reseller-store/blob/master/license.txt) [![PHP >= 5.4](https://img.shields.io/badge/php-%3E=%205.4-8892bf.svg)](https://secure.php.net/supported-versions.php) [![WordPress >= 6.2](https://img.shields.io/badge/wordpress-%3E=%206.2-blue.svg)](https://wordpress.org/download/release-archive/)  
+[![Build Status](https://github.com/godaddy/wp-reseller-store/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/godaddy/wp-reseller-store/actions/workflows/ci.yml) [![Coverage Status](https://coveralls.io/repos/github/godaddy/wp-reseller-store/badge.svg?branch=master)](https://coveralls.io/github/godaddy/wp-reseller-store?branch=master) [![License](https://img.shields.io/badge/license-GPL--2.0-brightgreen.svg)](https://github.com/godaddy/wp-reseller-store/blob/master/license.txt) [![PHP >= 8.1](https://img.shields.io/badge/php-%3E=%208.1-8892bf.svg)](https://secure.php.net/supported-versions.php) [![WordPress >= 6.2](https://img.shields.io/badge/wordpress-%3E=%206.2-blue.svg)](https://wordpress.org/download/release-archive/)  
 
 ## Description ##
 
@@ -102,6 +102,24 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 ## Changelog ##
+
+### 3.0.0 - April 2026 ###
+
+* Breaking change: Minimum PHP version is now 8.1 (previously 5.4)
+* Update: Upgrade PHPUnit to v10 with full PHP 8.1 compatibility
+* Update: Upgrade ESLint to v10 with @wordpress/eslint-plugin
+* Update: Replace Travis CI with GitHub Actions CI workflow
+* Update: Replace Grunt build system with npm scripts
+* Update: Upgrade domain-search to v5.0.1
+* Update: Requires WordPress 6.2+ (React 18)
+* Fix: Move load_plugin_textdomain to init hook (WordPress 6.7+ requirement)
+* Fix: MySQL 8.0 regex compatibility in test suite
+* Fix: Primary searched domain now shows Select button when listPrice is missing (#169)
+
+### 2.2.17 - April 2026 ###
+
+* Update: Upgrade domain-search to v5.0.1 with React 18 support
+* Update: Requires WordPress 6.2+ (React 18 bundled)
 
 ### 2.2.16 - May 2025 ###
 

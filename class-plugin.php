@@ -24,7 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class Plugin {
 
-	use Singleton, Data, Helpers;
+	use Singleton;
+	use Data;
+	use Helpers;
 
 	/**
 	 * Plugin version.
@@ -33,7 +35,7 @@ final class Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.2.17';
+	const VERSION = '3.0.0';
 
 	/**
 	 * Plugin prefix.
@@ -55,14 +57,13 @@ final class Plugin {
 		$this->basename   = plugin_basename( __FILE__ );
 		$this->base_dir   = plugin_dir_path( __FILE__ );
 		$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
-		$this->api        = new API;
+		$this->api        = new API();
 
 		add_action(
-			'plugins_loaded',
+			'init',
 			function () {
 
 				load_plugin_textdomain( 'reseller-store', false, dirname( $this->basename ) . '/languages' );
-
 			}
 		);
 
@@ -74,30 +75,29 @@ final class Plugin {
 
 		}
 
-		new Restrictions;
-		new Post_Type;
-		new Taxonomy_Category;
-		new Taxonomy_Tag;
-		new Settings;
+		new Restrictions();
+		new Post_Type();
+		new Taxonomy_Category();
+		new Taxonomy_Tag();
+		new Settings();
 
 		if ( ! rstore_is_setup() || ! rstore_has_products() ) {
 
-			new Setup;
+			new Setup();
 
 			return; // Bail until Setup is complete.
 
 		}
 
-		new Admin_Notices;
-		new ButterBean;
-		new Display;
-		new Embed;
-		new Permalinks;
-		new Sync;
-		new Widgets;
-		new Shortcodes;
-		new Blocks;
-		new Bulk_Restore;
+		new Admin_Notices();
+		new ButterBean();
+		new Display();
+		new Embed();
+		new Permalinks();
+		new Sync();
+		new Widgets();
+		new Shortcodes();
+		new Blocks();
+		new Bulk_Restore();
 	}
-
 }

@@ -1,0 +1,35 @@
+[
+	{
+		"id": "hosting",
+		"title": "Web Hosting",
+		"content": "Fast, reliable shared hosting for your website.",
+		"image": "https://img.secureserver.net/hosting.png",
+		"listPrice": "$5.99",
+		"salePrice": "$2.99",
+		"term": "month",
+		"categories": [ "Hosting" ],
+		"tags": [ "shared", "starter" ]
+	},
+	{
+		"id": "ssl",
+		"title": "SSL Certificate",
+		"content": "Secure your site with an SSL certificate.",
+		"image": "https://img.secureserver.net/ssl.png",
+		"listPrice": "$63.99",
+		"salePrice": null,
+		"term": "year",
+		"categories": [ "Security" ],
+		"tags": [ "ssl", "security" ]
+	},
+	{
+		"id": "office365-email-essentials",
+		"title": "Microsoft 365 Email Essentials",
+		"content": "Professional business email powered by Microsoft 365.",
+		"image": "https://img.secureserver.net/email.png",
+		"listPrice": "$2.99",
+		"salePrice": null,
+		"term": "month",
+		"categories": [ "Email" ],
+		"tags": [ "email", "microsoft" ]
+	}
+]
