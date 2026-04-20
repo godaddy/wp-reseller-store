@@ -20,6 +20,7 @@
 			<directory suffix=".php">../includes/cli</directory>
 			<directory suffix=".php">../lib</directory>
 			<directory suffix=".php">../vendor</directory>
+			<directory suffix=".php">../tests/</directory>
 			<directory suffix=".php">../includes/modules</directory>
 		</exclude>
 	</coverage>

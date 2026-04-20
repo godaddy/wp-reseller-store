@@ -101,6 +101,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 = 2.2.17 =
 
+* Breaking change: Minimum PHP version is now 8.1 (previously 5.4)
 * Update: Upgrade domain-search to v5.0.1
 * Update: Requires WordPress 6.2+ (React 18)
 * Fix: Primary searched domain now shows Select button when listPrice is missing (#169)

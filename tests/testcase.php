@@ -20,6 +20,8 @@ class TestCase extends \WP_UnitTestCase {
 	 * PHPUnit\Util\Test::parseTestMethodAnnotations() was removed in PHPUnit 10.
 	 * WordPress's abstract-testcase.php calls it as the PHPUnit >= 9.5 path,
 	 * so we re-implement the method using PHPUnit 10's annotation parser API.
+	 *
+	 * TODO: Remove when WordPress test suite supports PHPUnit 10+ natively.
 	 */
 	public function expectDeprecated(): void {
 
