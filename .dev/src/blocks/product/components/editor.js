@@ -28,7 +28,7 @@ const Editor = ( { media, post, attributes } ) => {
 			<Media post={ post } media={ media } size={ attributes.image_size } />
 			<div className="rstore-product-header">
 				{ attributes.show_title && (
-					<h4 className="widget-title"> { post.title.rendered } </h4>
+					<h4 className="widget-title">{ post.title.rendered }</h4>
 				) }
 				{ attributes.layout_type === 'default' &&
 					attributes.show_price && (
@@ -41,8 +41,7 @@ const Editor = ( { media, post, attributes } ) => {
 				{ attributes.layout_type === 'default' &&
 					attributes.button_label.length > 0 && (
 					<Button className="rstore-add-to-cart button btn btn-primary">
-						{ ' ' }
-						{ attributes.button_label }{ ' ' }
+						{ attributes.button_label }
 					</Button>
 				) }
 				{ attributes.show_content && (
@@ -56,8 +55,7 @@ const Editor = ( { media, post, attributes } ) => {
 				) }
 				{ attributes.show_content && attributes.content_height > 0 && (
 					<Button className="link" isLink={ true }>
-						{ ' ' }
-						{ attributes.text_more }{ ' ' }
+						{ attributes.text_more }
 					</Button>
 				) }
 				{ attributes.layout_type === 'classic' &&
@@ -71,8 +69,7 @@ const Editor = ( { media, post, attributes } ) => {
 				{ attributes.layout_type === 'classic' &&
 					attributes.button_label.length > 0 && (
 					<Button className="rstore-add-to-cart button btn btn-primary">
-						{ ' ' }
-						{ attributes.button_label }{ ' ' }
+						{ attributes.button_label }
 					</Button>
 				) }
 			</div>
