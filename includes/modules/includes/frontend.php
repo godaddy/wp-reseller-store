@@ -67,5 +67,3 @@ if ( 'rstore-fl-cart' === $settings->type ) {
 	$login                 = new \Reseller_Store\Widgets\cart();
 	$login->widget( $args, $atts );
 }
-
-

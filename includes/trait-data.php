@@ -48,7 +48,6 @@ trait Data {
 		}
 
 		return isset( $this->data->{$key} ) ? $this->data->{$key} : false;
-
 	}
 
 	/**
@@ -65,12 +64,10 @@ trait Data {
 
 		if ( ! $this->data ) {
 
-			$this->data = new \stdClass;
+			$this->data = new \stdClass();
 
 		}
 
 		$this->data->{$key} = $value;
-
 	}
-
 }

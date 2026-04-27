@@ -1,16 +1,16 @@
 /* global jQuery */
 
-( function( $ ) {
+( function ( $ ) {
 	'use strict';
 
 	var $default = $( '#rstore-permalink-structure-default' ),
-		$custom = $( '#rstore-permalink-structure-custom' ),
-		$input = $( '#rstore-product-base' ),
-		$inputs = $( '.rstore-permalink-structure' ).find( 'input' );
+		$custom  = $( '#rstore-permalink-structure-custom' ),
+		$input   = $( '#rstore-product-base' ),
+		$inputs  = $( '.rstore-permalink-structure' ).find( 'input' );
 
 	var permalinks = {
 
-		init: function() {
+		init: function () {
 			var hasStructure = ( $( this ).val() !== '' );
 
 			if ( ! hasStructure ) {
@@ -23,7 +23,7 @@
 			$inputs.prop( 'disabled', ! hasStructure );
 		},
 
-		radioSelect: function() {
+		radioSelect: function () {
 			var value = $( this ).val();
 
 			$input.attr( 'placeholder', value );
@@ -37,11 +37,11 @@
 			}
 		},
 
-		forceCustom: function() {
+		forceCustom: function () {
 			$custom.click();
 		},
 
-		forceDefault: function() {
+		forceDefault: function () {
 			var value = $.trim( $input.val() );
 
 			if ( ! value || $default.val() === value ) {
@@ -51,12 +51,14 @@
 
 	};
 
-	$( document ).ready( function( ) {
-		$inputs.prop( 'disabled', ! $( '#permalink_structure' ).val() );
+	$( document ).ready(
+		function ( ) {
+			$inputs.prop( 'disabled', ! $( '#permalink_structure' ).val() );
 
-		$( '.permalink-structure input' ).on( 'change', permalinks.init );
-		$( 'input[name="rstore_permalink_structure"]' ).on( 'change', permalinks.radioSelect );
-		$( '#rstore-product-base' ).on( 'focus', permalinks.forceCustom );
-		$( '#rstore-product-base' ).on( 'blur', permalinks.forceDefault );
-	} );
+			$( '.permalink-structure input' ).on( 'change', permalinks.init );
+			$( 'input[name="rstore_permalink_structure"]' ).on( 'change', permalinks.radioSelect );
+			$( '#rstore-product-base' ).on( 'focus', permalinks.forceCustom );
+			$( '#rstore-product-base' ).on( 'blur', permalinks.forceDefault );
+		}
+	);
 }( jQuery ) );

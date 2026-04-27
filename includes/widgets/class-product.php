@@ -40,7 +40,6 @@ final class Product extends Widget_Base {
 				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
-
 	}
 
 	/**
@@ -195,7 +194,6 @@ final class Product extends Widget_Base {
 		}
 
 		return $content;
-
 	}
 
 	/**
@@ -280,7 +278,6 @@ final class Product extends Widget_Base {
 		$instance['layout_type']    = isset( $new_instance['layout_type'] ) ? sanitize_text_field( $new_instance['layout_type'] ) : null;
 
 		return $instance;
-
 	}
 
 	/**
@@ -326,7 +323,6 @@ final class Product extends Widget_Base {
 		}
 
 		wp_reset_postdata();
-
 	}
 
 	/**

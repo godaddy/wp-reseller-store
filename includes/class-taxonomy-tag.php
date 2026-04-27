@@ -49,7 +49,6 @@ final class Taxonomy_Tag {
 		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-tag', 'slug name', 'reseller-store' ) );
 
 		add_action( 'init', array( $this, 'register' ) );
-
 	}
 
 	/**
@@ -65,7 +64,6 @@ final class Taxonomy_Tag {
 		$permalink_base = ! empty( $permalinks['tag_base'] ) ? $permalinks['tag_base'] : self::$default_permalink_base;
 
 		return sanitize_title( $permalink_base );
-
 	}
 
 	/**
@@ -116,7 +114,5 @@ final class Taxonomy_Tag {
 		$args = (array) apply_filters( 'rstore_product_tag_args', $args );
 
 		register_taxonomy( self::SLUG, Post_Type::SLUG, $args );
-
 	}
-
 }

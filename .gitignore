@@ -8,4 +8,5 @@ vendor/
 # plugin build files
 build/
 reseller-store.zip
-assets/*/*.min.*
+assets/*/*.min.*cypress/screenshots/
+cypress/videos/

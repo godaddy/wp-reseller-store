@@ -40,7 +40,6 @@ final class Domain_Search extends Widget_Base {
 				'category'    => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
-
 	}
 
 	/**
@@ -130,7 +129,6 @@ final class Domain_Search extends Widget_Base {
 		}
 
 		return $domain_search_widget;
-
 	}
 
 	/**
@@ -178,7 +176,6 @@ final class Domain_Search extends Widget_Base {
 		$instance['modal']              = isset( $new_instance['modal'] ) ? (bool) absint( $new_instance['modal'] ) : null;
 
 		return $instance;
-
 	}
 
 	/**
@@ -204,5 +201,4 @@ final class Domain_Search extends Widget_Base {
 			'modal'              => isset( $instance['modal'] ) ? ! empty( $instance['modal'] ) : apply_filters( 'rstore_domain_modal', false ),
 		);
 	}
-
 }

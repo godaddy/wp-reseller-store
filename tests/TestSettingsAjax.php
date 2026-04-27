@@ -5,13 +5,13 @@
 
 namespace Reseller_Store;
 
-final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
+final class TestSettingsAjax extends AjaxTestCase {
 
 
 	/**
 	 * Tear Down.
 	 */
-	public function tearDown() {
+	public function tearDown(): void {
 
 		parent::tearDown();
 
@@ -32,7 +32,7 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 		try {
 			new Settings();
 			$this->_handleAjax( $action );
-		} catch ( WPAjaxDieContinueException $e ) {
+		} catch ( \WPAjaxDieContinueException $e ) {
 
 			echo 'error';
 		}
@@ -43,8 +43,6 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 
 	/**
 	 * @testdox Given dismiss_admin_notice and valid nonce clears error message
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_save_bad_nonce() {
 
@@ -60,14 +58,12 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 
 		$result = $this->callAjax( 'rstore_options_save' );
 
-		$this->assertEquals( 'error', $result );
+		$this->assertFalse( $result->success );
 
 	}
 
 	/**
 	 * @testdox Given dismiss_admin_notice and valid nonce clears error message
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_save_unauthorized_user() {
 
@@ -83,14 +79,12 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 
 		$result = $this->callAjax( 'rstore_options_save' );
 
-		$this->assertEquals( 'error', $result );
+		$this->assertFalse( $result->success );
 
 	}
 
 	/**
 	 * @testdox Given dismiss_admin_notice and invalid table creates error message
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_save_invalid_test() {
 
@@ -106,14 +100,12 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 
 		$result = $this->callAjax( 'rstore_options_save' );
 
-		$this->assertEquals( 'success', $result );
+		$this->assertFalse( $result->success );
 
 	}
 
 	/**
 	 * @testdox Given dismiss_admin_notice and valid nonce clears error message
-	 *
-	 * @expectedException WPAjaxDieContinueException
 	 */
 	public function test_save() {
 
@@ -129,7 +121,7 @@ final class TestSettingsAjax extends \WP_Ajax_UnitTestCase {
 
 		$result = $this->callAjax( 'rstore_options_save' );
 
-		$this->assertEquals( 'success', $result );
+		$this->assertTrue( $result->success );
 
 	}
 

@@ -84,7 +84,7 @@ class FLProduct extends \FLBuilderModule {
 							'description' => __( 'Leave blank to hide button', 'reseller-store' ),
 							'default'     => __( 'Add to cart', 'reseller-store' ),
 						),
-						'button_new_tab'     => array(
+						'button_new_tab' => array(
 							'type'    => 'select',
 							'label'   => __( 'Open Results In A New Tab', 'reseller-store' ),
 							'default' => '0',

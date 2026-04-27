@@ -71,7 +71,6 @@ final class Setup {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_menu', array( $this, 'page' ), PHP_INT_MAX - 1997 );
 		add_action( 'wp_ajax_rstore_install', array( __CLASS__, 'install' ) );
-
 	}
 
 	/**
@@ -535,7 +534,6 @@ final class Setup {
 				'%' . rstore_prefix( '%' ) // Transients too.
 			)
 		);
-
 	}
 
 	/**
@@ -551,7 +549,5 @@ final class Setup {
 		delete_option( rstore_prefix( 'errors' ) );
 
 		flush_rewrite_rules();
-
 	}
-
 }

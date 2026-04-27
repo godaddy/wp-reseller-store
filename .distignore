@@ -28,3 +28,7 @@ vendor/
 .node-version
 .styleci.yml
 .travis.yml
+eslint.config.mjs
+cypress.config.js
+cypress/
+.wp-env.json

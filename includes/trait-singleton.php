@@ -47,7 +47,6 @@ trait Singleton {
 		}
 
 		return static::$instance;
-
 	}
 
 	/**
@@ -58,7 +57,5 @@ trait Singleton {
 	public static function reset() {
 
 		static::$instance = null;
-
 	}
-
 }

@@ -37,8 +37,14 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 			return { value: size, label: size };
 		} );
 
-		mediaOptions.splice( 0, 0, { value: 'icon', label: __( 'Product Icon', 'reseller-store' ) } );
-		mediaOptions.push( { value: 'none', label: __( 'Hide image', 'reseller-store' ) } );
+		mediaOptions.splice( 0, 0, {
+			value: 'icon',
+			label: __( 'Product Icon', 'reseller-store' ),
+		} );
+		mediaOptions.push( {
+			value: 'none',
+			label: __( 'Hide image', 'reseller-store' ),
+		} );
 	}
 
 	return (
@@ -46,7 +52,9 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 			<PanelBody>
 				<SelectControl
 					label={ __( 'Select Product', 'reseller-store' ) }
-					onChange={ ( postId ) => setAttributes( { post_id: postId.toString() } ) }
+					onChange={ ( postId ) =>
+						setAttributes( { post_id: postId.toString() } )
+					}
 					value={ attributes.post_id }
 					options={ products }
 				/>
@@ -54,7 +62,9 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 			<PanelBody>
 				<SelectControl
 					label={ __( 'Image Size', 'reseller-store' ) }
-					onChange={ ( imageSize ) => setAttributes( { image_size: imageSize } ) }
+					onChange={ ( imageSize ) =>
+						setAttributes( { image_size: imageSize } )
+					}
 					value={ attributes.image_size }
 					options={ mediaOptions }
 				/>
@@ -63,7 +73,9 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 				<TextControl
 					label={ __( 'Button', 'reseller-store' ) }
 					value={ attributes.button_label }
-					onChange={ ( buttonLabel ) => setAttributes( { button_label: buttonLabel } ) }
+					onChange={ ( buttonLabel ) =>
+						setAttributes( { button_label: buttonLabel } )
+					}
 				/>
 				<CheckboxControl
 					label={ __( 'Display results in a new tab', 'reseller-store' ) }
@@ -96,38 +108,55 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 					} }
 				/>
 			</PanelBody>
-			{ attributes.show_content &&
+			{ attributes.show_content && (
+				<PanelBody>
+					<CheckboxControl
+						label={ __( 'Set content height', 'reseller-store' ) }
+						checked={ attributes.content_height > 0 }
+						onChange={ ( checked ) => {
+							setAttributes( {
+								content_height: checked ? 250 : 0,
+							} );
+						} }
+					/>
+					{ attributes.content_height > 0 && (
+						<div>
+							<RangeControl
+								beforeIcon="arrow-left-alt2"
+								afterIcon="arrow-right-alt2"
+								label={ __(
+									'Product content height',
+									'reseller-store',
+								) }
+								value={ attributes.content_height }
+								onChange={ ( contentHeight ) =>
+									setAttributes( {
+										content_height: contentHeight,
+									} )
+								}
+								min={ 1 }
+								max={ 500 }
+							/>
+							<TextControl
+								label={ __(
+									'More info button text',
+									'reseller-store',
+								) }
+								value={ attributes.text_more }
+								onChange={ ( textMore ) =>
+									setAttributes( { text_more: textMore } )
+								}
+							/>
+						</div>
+					) }
+				</PanelBody>
+			) }
 			<PanelBody>
 				<CheckboxControl
-					label={ __( 'Set content height', 'reseller-store' ) }
-					checked={ attributes.content_height > 0 }
-					onChange={ ( checked ) => {
-						setAttributes( { content_height: checked ? 250 : 0 } );
-					} }
-				/>
-				{ attributes.content_height > 0 &&
-				<div>
-					<RangeControl
-						beforeIcon="arrow-left-alt2"
-						afterIcon="arrow-right-alt2"
-						label={ __( 'Product content height', 'reseller-store' ) }
-						value={ attributes.content_height }
-						onChange={ ( contentHeight ) => setAttributes( { content_height: contentHeight } ) }
-						min={ 1 }
-						max={ 500 }
-					/>
-					<TextControl
-						label={ __( 'More info button text', 'reseller-store' ) }
-						value={ attributes.text_more }
-						onChange={ ( textMore ) => setAttributes( { text_more: textMore } ) }
-					/>
-				</div>
-				}
-			</PanelBody>
-			}
-			<PanelBody>
-				<CheckboxControl
-					label={ __( 'Redirect to cart after adding item', 'reseller-store' ) }
+					label={ __(
+						'Redirect to cart after adding item',
+						'reseller-store',
+					) }
 					checked={ attributes.redirect }
 					onChange={ ( checked ) => {
 						setAttributes( { redirect: checked } );
@@ -136,11 +165,19 @@ const Inspector = ( { posts, media, attributes, setAttributes } ) => {
 			</PanelBody>
 			<SelectControl
 				label={ __( 'Layout Type', 'reseller-store' ) }
-				onChange={ ( layoutType ) => setAttributes( { layout_type: layoutType } ) }
+				onChange={ ( layoutType ) =>
+					setAttributes( { layout_type: layoutType } )
+				}
 				value={ attributes.layout_type }
 				options={ [
-					{ value: 'default', label: __( 'Default', 'reseller-store' ) },
-					{ value: 'classic', label: __( 'Classic', 'reseller-store' ) },
+					{
+						value: 'default',
+						label: __( 'Default', 'reseller-store' ),
+					},
+					{
+						value: 'classic',
+						label: __( 'Classic', 'reseller-store' ),
+					},
 				] }
 			/>
 		</InspectorControls>

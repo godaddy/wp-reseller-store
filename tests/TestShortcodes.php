@@ -10,7 +10,7 @@ final class TestShortcodes extends TestCase {
 	/**
 	 * Setup.
 	 */
-	function setUp() {
+	function setUp(): void {
 
 		parent::setUp();
 		new Shortcodes();
@@ -22,7 +22,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_domain_search_legacy() {
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'<div class="widget rstore-domain rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>',
 			do_shortcode( '[rstore-domain-search]' )
 		);
@@ -34,7 +34,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_domain_search() {
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			do_shortcode( '[rstore_domain_search]' ),
 			'<div class="widget rstore-domain rstore_domain_placeholder"><div class="rstore-domain-search" data-plid="" data-page_size="5" data-text_placeholder="Find your perfect domain name" data-text_search="Search" data-text_available="Congrats, {domain_name} is available!" data-text_not_available="Sorry, {domain_name} is taken." data-text_cart="Continue to cart" data-text_select="Select" data-text_selected="Selected">Domain Search</div></div>'
 		);
@@ -46,7 +46,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_view_cart() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<a href="https:\/\/cart\.secureserver\.net\/go\/checkout\/">\n.*View Cart \(<span class="rstore-cart-count">0<\/span>\)/',
 			do_shortcode( '[rstore_cart_button]' )
 		);
@@ -58,7 +58,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_view_cart_with_params() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<a href="https:\/\/cart\.secureserver\.net\/go\/checkout\/">\n.*button label \(<span class="rstore-cart-count">0<\/span>\)/',
 			do_shortcode( '[rstore_cart_button title="Cart" button_label="button label"]' )
 		);
@@ -96,7 +96,7 @@ final class TestShortcodes extends TestCase {
 
 		$post = Tests\Helper::create_product( 'Test Product' );
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/Test Product/',
 			do_shortcode( '[rstore_product post_id=' . $post->ID . ']' )
 		);
@@ -138,7 +138,7 @@ final class TestShortcodes extends TestCase {
       redirect=1
       ]';
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<form class="rstore-add-to-cart-form"/',
 			do_shortcode( $content )
 		);
@@ -157,7 +157,7 @@ final class TestShortcodes extends TestCase {
       redirect=0
       ]';
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<div class="rstore-add-to-cart-form"/',
 			do_shortcode( $content )
 		);
@@ -175,7 +175,7 @@ final class TestShortcodes extends TestCase {
       logout_button_text="cccc"
       ]';
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<a class="logout-link" href="https:\/\/sso.secureserver.net\/logout\/" rel="nofollow">cccc<\/a>/',
 			do_shortcode( $content )
 		);
@@ -189,7 +189,7 @@ final class TestShortcodes extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
 			do_shortcode( '[rstore_domain]' )
 		);
@@ -203,7 +203,7 @@ final class TestShortcodes extends TestCase {
 
 		rstore_update_option( 'pl_id', 12345 );
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
 			do_shortcode( '[rstore_domain_transfer]' )
 		);
@@ -239,7 +239,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Additional Products<\/title>/',
 			do_shortcode( '[rstore_icon]' )
 		);
@@ -251,7 +251,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_class() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<div class=\"rstore-product-icons test-class\">/',
 			do_shortcode( '[rstore_icon class="test-class"]' )
 		);
@@ -265,7 +265,7 @@ final class TestShortcodes extends TestCase {
 
 		$post = Tests\Helper::create_product();
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Additional Products<\/title>/',
 			do_shortcode( '[rstore_icon post_id=' . $post->ID . ']' )
 		);
@@ -277,7 +277,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_invalid_post() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/Post id is not valid./',
 			do_shortcode( '[rstore_icon post_id=12]' )
 		);
@@ -289,7 +289,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_domains() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Domains<\/title>/',
 			do_shortcode( '[rstore_icon icon="domains"]' )
 		);
@@ -301,7 +301,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_email() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Email<\/title>/',
 			do_shortcode( '[rstore_icon icon="email"]' )
 		);
@@ -313,7 +313,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_hosting() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Hosting<\/title>/',
 			do_shortcode( '[rstore_icon icon="hosting"]' )
 		);
@@ -325,7 +325,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_wordpress() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>WordPress<\/title>/',
 			do_shortcode( '[rstore_icon icon="wordpress"]' )
 		);
@@ -337,7 +337,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_websites() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Website Builder<\/title>/',
 			do_shortcode( '[rstore_icon icon="websites"]' )
 		);
@@ -349,7 +349,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_seo() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Search Engine Visibility<\/title>/',
 			do_shortcode( '[rstore_icon icon="seo"]' )
 		);
@@ -361,7 +361,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_ssl() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>SSL Certificate<\/title>/',
 			do_shortcode( '[rstore_icon icon="ssl"]' )
 		);
@@ -373,7 +373,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_email_marketing() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Email Marketing<\/title>/',
 			do_shortcode( '[rstore_icon icon="email-marketing"]' )
 		);
@@ -385,7 +385,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_website_security() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Website Security<\/title>/',
 			do_shortcode( '[rstore_icon icon="website-security"]' )
 		);
@@ -397,7 +397,7 @@ final class TestShortcodes extends TestCase {
 	 */
 	function test_icon_shortcode_dedicated_ip() {
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<title>Dedicated IP<\/title>/',
 			do_shortcode( '[rstore_icon icon="dedicated-ip"]' )
 		);

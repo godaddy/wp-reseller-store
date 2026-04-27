@@ -44,7 +44,6 @@ final class Read_Only extends \ButterBean_Setting {
 		parent::__construct( $manager, $name, $args );
 
 		$this->type = rstore_prefix( $this->type, true );
-
 	}
 
 	/**
@@ -55,5 +54,4 @@ final class Read_Only extends \ButterBean_Setting {
 	 * @return void
 	 */
 	public function save() {}
-
 }

@@ -10,7 +10,7 @@ final class TestBase extends TestCase {
 	/**
 	 * Setup.
 	 */
-	function setUp() {
+	function setUp(): void {
 
 		parent::setUp();
 

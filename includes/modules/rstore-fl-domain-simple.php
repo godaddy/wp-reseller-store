@@ -64,7 +64,7 @@ class FLDomainSimple extends \FLBuilderModule {
 							'label'   => __( 'Button', 'reseller-store' ),
 							'default' => __( 'Search', 'reseller-store' ),
 						),
-						'new_tab'     => array(
+						'new_tab'          => array(
 							'type'    => 'select',
 							'label'   => __( 'Display results in a new tab', 'reseller-store' ),
 							'default' => '0',

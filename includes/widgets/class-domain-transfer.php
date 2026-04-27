@@ -40,7 +40,6 @@ final class Domain_Transfer extends Widget_Base {
 				'group'       => __( 'Reseller Store Modules', 'reseller-store' ),
 			)
 		);
-
 	}
 
 	/**
@@ -97,12 +96,12 @@ final class Domain_Transfer extends Widget_Base {
 		}
 
 		$target = '';
-		if ( ! empty($data['new_tab'])) {
+		if ( ! empty( $data['new_tab'] ) ) {
 			$target = ' target="_blank"';
 		}
-		
+
 		?>
-		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-transfer' ), 'https' ); ?>"<?php echo $target ?>>
+		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-transfer' ), 'https' ); ?>"<?php echo $target; ?>>
 			<label>
 				<input type="search" class="search-field" placeholder="<?php echo esc_attr( $data['text_placeholder'] ); ?>" name="domainToCheck" required>
 			</label>
@@ -126,7 +125,6 @@ final class Domain_Transfer extends Widget_Base {
 		}
 
 		return $domain_transfer_widget;
-
 	}
 
 	/**
@@ -161,7 +159,6 @@ final class Domain_Transfer extends Widget_Base {
 		$instance['new_tab']          = isset( $new_instance['new_tab'] ) ? (bool) $new_instance['new_tab'] : false;
 
 		return $instance;
-
 	}
 
 	/**
@@ -181,5 +178,4 @@ final class Domain_Transfer extends Widget_Base {
 			'new_tab'          => isset( $instance['new_tab'] ) ? $instance['new_tab'] : false,
 		);
 	}
-
 }

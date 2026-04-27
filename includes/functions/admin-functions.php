@@ -26,7 +26,6 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
 	$result  = ( $strict ) ? ( 0 === $strpos ) : ( false !== $strpos );
 
 	return ( is_admin() && $result );
-
 }
 
 /**
@@ -46,7 +45,6 @@ function rstore_error( $error ) {
 		$errors[] = $error;
 		return rstore_update_option( 'errors', $errors );
 	}
-
 }
 
 /**
@@ -71,5 +69,4 @@ function rstore_admin_redirect( $endpoint = '', $args = array(), $status = 302 )
 	);
 
 	exit;
-
 }

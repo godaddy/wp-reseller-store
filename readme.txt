@@ -3,8 +3,8 @@ Contributors:      godaddy, fjarrett, bfocht, eherman24
 Tags:              reseller, program, storefront, products, posts, shortcode, ecommerce, blocks
 Requires at least: 6.2
 Tested up to:      6.8
-Requires PHP:      5.4
-Stable tag:        2.2.17
+Requires PHP:      8.1
+Stable tag:        3.0.0
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,7 @@ You can call our support team at (480) 505-8857
 
 Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). Pull requests on existing issues are welcome!
 
-**Note: This plugin requires PHP 5.4 or higher**
+**Note: This plugin requires PHP 8.1 or higher**
 
 == Frequently Asked Questions ==
 
@@ -99,11 +99,23 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 == Changelog ==
 
-= 2.2.17 =
+= 3.0.0 - April 2026 =
 
+* Breaking change: Minimum PHP version is now 8.1 (previously 5.4)
+* Update: Upgrade PHPUnit to v10 with full PHP 8.1 compatibility
+* Update: Upgrade ESLint to v10 with @wordpress/eslint-plugin
+* Update: Replace Travis CI with GitHub Actions CI workflow
+* Update: Replace Grunt build system with npm scripts
 * Update: Upgrade domain-search to v5.0.1
 * Update: Requires WordPress 6.2+ (React 18)
+* Fix: Move load_plugin_textdomain to init hook (WordPress 6.7+ requirement)
+* Fix: MySQL 8.0 regex compatibility in test suite
 * Fix: Primary searched domain now shows Select button when listPrice is missing (#169)
+
+= 2.2.17 - April 2026 =
+
+* Update: Upgrade domain-search to v5.0.1 with React 18 support
+* Update: Requires WordPress 6.2+ (React 18 bundled)
 
 = 2.2.16 - May 2025 =
 

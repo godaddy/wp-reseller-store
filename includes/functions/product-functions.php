@@ -44,7 +44,6 @@ function rstore_has_products() {
 	}
 
 	return ( $count > 0 );
-
 }
 
 /**
@@ -98,7 +97,6 @@ function rstore_clear_cache() {
 function rstore_has_all_products() {
 
 	return ! (bool) rstore_get_missing_products();
-
 }
 
 /**
@@ -130,7 +128,6 @@ function rstore_get_missing_products() {
 	);
 
 	return ( $missing ) ? $missing : array();
-
 }
 
 /**
@@ -154,10 +151,8 @@ function rstore_get_products( $hard = false ) {
 		function () {
 
 			return rstore()->api->get( 'catalog/{pl_id}/products' );
-
 		}
 	);
-
 }
 
 /**
@@ -185,7 +180,6 @@ function rstore_get_product( $product_id ) {
 		esc_html__( 'Error: `%s` does not exist.', 'reseller-store' ),
 		$product_id
 	);
-
 }
 
 /**
@@ -205,7 +199,6 @@ function rstore_get_product_meta( $post_id, $key ) {
 	$meta = get_post_meta( $post_id, $key, true );
 
 	return $meta;
-
 }
 
 /**
@@ -236,7 +229,5 @@ add_filter( 'rstore_is_product', 'rstore_is_product' );
 function rstore_is_widget( $atts = array() ) {
 
 	return isset( $atts['widget_id'] );
-
 }
 add_filter( 'rstore_is_widget', 'rstore_is_widget' );
-

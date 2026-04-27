@@ -60,7 +60,6 @@ final class Product {
 	public function __construct( $product ) {
 
 		$this->fields = json_decode( wp_json_encode( $product ) );
-
 	}
 
 	/**
@@ -75,7 +74,6 @@ final class Product {
 	public function __get( $property ) {
 
 		return isset( $this->fields->{$property} ) ? $this->fields->{$property} : null;
-
 	}
 
 	/**
@@ -112,7 +110,6 @@ final class Product {
 		}
 
 		return false;
-
 	}
 
 	/**
@@ -148,7 +145,6 @@ final class Product {
 		);
 
 		return ( $post_id > 0 ) ? $post_id : false;
-
 	}
 
 	/**

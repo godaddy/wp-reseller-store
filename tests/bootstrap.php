@@ -30,3 +30,4 @@ tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 require $_tests_dir . '/includes/bootstrap.php';
 require __DIR__ . '/class-helper.php';
 require __DIR__ . '/testcase.php';
+require __DIR__ . '/ajax-testcase.php';

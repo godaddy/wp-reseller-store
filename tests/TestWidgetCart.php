@@ -43,7 +43,7 @@ final class TestWidgetCart extends TestCase {
 			'after_title'   => '</h3>',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<a href="https:\/\/cart.secureserver.net\/go\/checkout\/\?plid=12345">\s+View Cart \(<span class="rstore-cart-count">0<\/span>\)\s+<\/a>/',
 			$widget->widget( $args, $instance )
 		);
@@ -126,7 +126,7 @@ final class TestWidgetCart extends TestCase {
 			'after_title'   => '</h3>',
 		);
 
-		$this->assertRegExp(
+		$this->assertMatchesRegularExpression(
 			'/<div class="before_widget cart">/',
 			$widget->widget( $args, $instance )
 		);

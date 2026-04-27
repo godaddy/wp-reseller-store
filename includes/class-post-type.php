@@ -77,7 +77,6 @@ final class Post_Type {
 			function () {
 
 				return 50;
-
 			}
 		);
 
@@ -88,7 +87,6 @@ final class Post_Type {
 			// @codingStandardsIgnoreStart
 			return array_merge( $columns, [ 'price' => 'price' ] );
 			// @codingStandardsIgnoreEnd
-
 			}
 		);
 
@@ -99,7 +97,6 @@ final class Post_Type {
 			// @codingStandardsIgnoreStart
 			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
 			// @codingStandardsIgnoreEnd
-
 			}
 		);
 
@@ -188,11 +185,9 @@ final class Post_Type {
 						)
 					)
 				);
-
 			},
 			0
 		);
-
 	}
 
 	/**
@@ -208,7 +203,6 @@ final class Post_Type {
 		$permalink_base = ! empty( $permalinks['product_base'] ) ? $permalinks['product_base'] : self::$default_permalink_base;
 
 		return sanitize_title( $permalink_base );
-
 	}
 
 	/**
@@ -271,7 +265,6 @@ final class Post_Type {
 		$args = (array) apply_filters( 'rstore_product_args', $args );
 
 		register_post_type( self::SLUG, $args );
-
 	}
 
 	/**
@@ -310,7 +303,6 @@ final class Post_Type {
 		}
 
 		return $import->import_product();
-
 	}
 
 	/**
@@ -347,7 +339,6 @@ final class Post_Type {
 		);
 
 		return $columns;
-
 	}
 
 	/**
@@ -379,7 +370,6 @@ final class Post_Type {
 			);
 
 		}
-
 	}
 
 	/**
@@ -408,7 +398,6 @@ final class Post_Type {
 		unset( $imported[ $post_id ] );
 
 		return rstore_update_option( 'imported', $imported );
-
 	}
 
 	/**
@@ -441,7 +430,6 @@ final class Post_Type {
 		}
 
 		return $clauses;
-
 	}
 
 	/**
@@ -470,7 +458,6 @@ final class Post_Type {
 		$labels->edit_item = ( $title ) ? sprintf( esc_html__( 'Edit: %s', 'reseller-store' ), $title ) : $labels->edit_item;
 
 		return $labels;
-
 	}
 
 	/**
@@ -504,7 +491,5 @@ final class Post_Type {
 		}
 
 		return Product_Icons::get_product_icon( $product, 'icon' );
-
 	}
-
 }
