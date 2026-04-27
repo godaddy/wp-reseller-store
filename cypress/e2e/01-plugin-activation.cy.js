@@ -1,7 +1,7 @@
 describe( '01 – Plugin Activation', () => {
 	before( () => {
 		// Reset plugin to unconfigured state so Setup menu is visible
-		cy.exec( 'npx wp-env run cli -- wp option delete rstore_pl_id', { failOnNonZero: false } );
+		cy.exec( 'npx wp-env run cli -- wp option delete rstore_pl_id', { failOnNonZeroExit: false } );
 	} );
 
 	beforeEach( () => cy.loginAsAdmin() );
