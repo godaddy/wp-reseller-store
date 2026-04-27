@@ -8,23 +8,23 @@ const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { Fragment } = wp.element;
 
-registerBlockType( 'reseller-store/domain-search', {
-	title: __( 'Domain Search', 'reseller-store' ),
+registerBlockType('reseller-store/domain-search', {
+	title: __('Domain Search', 'reseller-store'),
 	description: __(
 		'A search form for domain registrations.',
-		'reseller-store',
+		'reseller-store'
 	),
 	icon: {
 		src: icon,
 	},
 	category: 'reseller-store',
-	keywords: [ 'reseller', 'domain', 'search' ],
+	keywords: ['reseller', 'domain', 'search'],
 	attributes,
-	edit: ( props ) => {
+	edit: (props) => {
 		return (
 			<Fragment>
-				<Inspector { ...props } />
-				<Edit { ...props } />
+				<Inspector {...props} />
+				<Edit {...props} />
 			</Fragment>
 		);
 	},
@@ -32,4 +32,4 @@ registerBlockType( 'reseller-store/domain-search', {
 		// Rendering in PHP
 		return null;
 	},
-} );
+});

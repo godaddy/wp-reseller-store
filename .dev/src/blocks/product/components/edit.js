@@ -3,11 +3,11 @@ import Editor from './editor';
 
 const { Fragment } = wp.element;
 
-const Edit = ( props ) => {
+const Edit = (props) => {
 	return (
 		<Fragment>
-			<Inspector { ...props } />
-			<Editor { ...props } />
+			<Inspector {...props} />
+			<Editor {...props} />
 		</Fragment>
 	);
 };
