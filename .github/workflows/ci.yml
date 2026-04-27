@@ -127,3 +127,37 @@ jobs:
 
       - name: Build
         run: npm run js && npm run css
+
+  plugin-zip:
+    name: Build plugin zip
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build assets
+        run: npm run js && npm run css
+
+      - name: Package plugin
+        run: |
+          mkdir -p /tmp/build/reseller-store
+          rsync -rc --exclude-from=.distignore . /tmp/build/reseller-store/
+          cd /tmp/build
+          zip -r reseller-store.zip reseller-store/
+
+      - name: Upload plugin zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: reseller-store
+          path: /tmp/build/reseller-store.zip
+          retention-days: 14
