@@ -56,6 +56,41 @@ describe( '04 – Gutenberg Blocks', () => {
 			.should( 'exist' );
 	} );
 
+	it( 'Product block auto-selects first product and renders on save without manual selection', () => {
+		// Insert the Product block
+		cy.get( 'button[aria-label*="Block Inserter" i], button[aria-label*="Toggle block inserter" i]', { timeout: 10000 } )
+			.first().click();
+
+		cy.get( 'input[placeholder*="Search"]', { timeout: 8000 } )
+			.first()
+			.type( 'Product' );
+
+		cy.contains( '.block-editor-block-types-list__item-title, .block-editor-block-types-list__item span', /^Product$/, { timeout: 8000 } )
+			.closest( '.block-editor-block-types-list__item' )
+			.first().click();
+
+		cy.get( '[data-type="reseller-store/product"]', { timeout: 8000 } )
+			.should( 'exist' );
+
+		// Save the post without touching the product selector
+		cy.get( 'button.editor-post-publish-panel__toggle, button.editor-post-save-draft' ).first().click();
+		cy.get( 'button.editor-post-publish-button, button.editor-post-publish-panel__publish-button', { timeout: 5000 } )
+			.first().click();
+
+		// Grab the published post URL and visit it
+		cy.get( '.post-publish-panel__postpublish-post-address a, a.components-button[href*="/?p="]', { timeout: 10000 } )
+			.first()
+			.invoke( 'attr', 'href' )
+			.then( ( url ) => {
+				cy.visit( url );
+			} );
+
+		// The product block should render product content — not the error message
+		cy.get( 'body' ).should( 'not.contain.text', 'Post id is not valid.' );
+		cy.get( '.rstore-product, .wp-block-reseller-store-product', { timeout: 8000 } )
+			.should( 'exist' );
+	} );
+
 	it( 'inserts Product block and shows block inspector', () => {
 		cy.get( 'button[aria-label*="Block Inserter" i], button[aria-label*="Toggle block inserter" i]', { timeout: 10000 } )
 			.first().click();
