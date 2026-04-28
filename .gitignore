@@ -8,5 +8,7 @@ vendor/
 # plugin build files
 build/
 reseller-store.zip
-assets/*/*.min.*cypress/screenshots/
+assets/*/*.min.*
+cypress/screenshots/
 cypress/videos/
+.wp-env.override.json

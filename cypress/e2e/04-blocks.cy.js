@@ -72,18 +72,26 @@ describe( '04 – Gutenberg Blocks', () => {
 		cy.get( '[data-type="reseller-store/product"]', { timeout: 8000 } )
 			.should( 'exist' );
 
-		// Save the post without touching the product selector
-		cy.get( 'button.editor-post-publish-panel__toggle, button.editor-post-save-draft' ).first().click();
-		cy.get( 'button.editor-post-publish-button, button.editor-post-publish-panel__publish-button', { timeout: 5000 } )
-			.first().click();
+		// Save as draft without touching the product selector — simpler and version-agnostic
+		cy.get( 'button.editor-post-save-draft', { timeout: 5000 } ).click();
+		cy.get( '.editor-post-saved-state', { timeout: 8000 } ).should( 'contain.text', 'Saved' );
 
-		// Grab the published post URL and visit it
-		cy.get( '.post-publish-panel__postpublish-post-address a, a.components-button[href*="/?p="]', { timeout: 10000 } )
-			.first()
-			.invoke( 'attr', 'href' )
-			.then( ( url ) => {
-				cy.visit( url );
+		// Publish via REST API using the nonce already present in the editor window,
+		// then visit the live URL — avoids the fragile multi-step publish UI flow.
+		cy.url().then( ( editorUrl ) => {
+			const postId = new URL( editorUrl ).searchParams.get( 'post' );
+
+			cy.window().its( 'wpApiSettings.nonce' ).then( ( nonce ) => {
+				cy.request( {
+					method: 'POST',
+					url: `/wp-json/wp/v2/posts/${ postId }`,
+					headers: { 'X-WP-Nonce': nonce },
+					body: { status: 'publish' },
+				} ).then( ( resp ) => {
+					cy.visit( resp.body.link );
+				} );
 			} );
+		} );
 
 		// The product block should render product content — not the error message
 		cy.get( 'body' ).should( 'not.contain.text', 'Post id is not valid.' );
