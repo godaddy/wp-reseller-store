@@ -72,6 +72,12 @@ describe( '04 – Gutenberg Blocks', () => {
 		cy.get( '[data-type="reseller-store/product"]', { timeout: 8000 } )
 			.should( 'exist' );
 
+		// Wait for the inspector to show the product selector — this signals the products
+		// REST call has resolved, the useEffect has fired, and post_id has been persisted
+		// on the block attributes before we save.
+		cy.contains( '.components-panel, .block-editor-block-inspector', 'Select Product', { timeout: 10000 } )
+			.should( 'exist' );
+
 		// Save as draft without touching the product selector — simpler and version-agnostic
 		cy.get( 'button.editor-post-save-draft', { timeout: 5000 } ).click();
 		cy.get( '.editor-post-saved-state', { timeout: 8000 } ).should( 'contain.text', 'Saved' );
