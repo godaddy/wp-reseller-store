@@ -111,6 +111,9 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 * Fix: Move load_plugin_textdomain to init hook (WordPress 6.7+ requirement)
 * Fix: MySQL 8.0 regex compatibility in test suite
 * Fix: Primary searched domain now shows Select button when listPrice is missing (#169)
+* Fix: Product block auto-selects first product on insert so frontend renders correctly without manual selection
+* Security: Resolve 43 npm vulnerabilities (1 critical, 22 high eliminated; 8 moderate accepted as transitive deps)
+* Update: Remove deprecated Babel 6.x plugins and imagemin packages
 
 = 2.2.17 - April 2026 =
 
