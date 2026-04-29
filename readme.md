@@ -50,7 +50,9 @@ You can call our support team at (480) 505-8857
 
 Development of this plugin is done on [GitHub](https://github.com/godaddy/wp-reseller-store). Pull requests on existing issues are welcome!
 
-**Note: This plugin requires PHP 5.4 or higher**
+**Development requirements:** Node.js >= 22.13.0 (note: Node 22 becomes LTS in October 2026), PHP >= 8.1, Composer.
+
+**Note: This plugin requires PHP 8.1 or higher**
 
 ## Frequently Asked Questions ##
 
