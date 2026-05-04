@@ -193,8 +193,8 @@ final class Import {
 		 */
 		$taxonomies = array( Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG );
 		wp_delete_object_term_relationships( $this->post_id, $taxonomies );
-		$this->process_categories( $this->product->fields->categories, $this->post_id );
-		$this->process_tags( $this->product->fields->tags, $this->post_id );
+		$this->process_categories( (array) ( $this->product->fields->categories ?? array() ), $this->post_id );
+		$this->process_tags( (array) ( $this->product->fields->tags ?? array() ), $this->post_id );
 	}
 
 	/**
@@ -350,7 +350,7 @@ final class Import {
 	 */
 	private function image_exists(): int|false {
 
-		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->fields->image ) );
+		$key = rstore_prefix( 'product_attachment_id-' . md5( (string) ( $this->product->fields->image ?? '' ) ) );
 
 		$attachment_id = (int) wp_cache_get( $key );
 
@@ -386,7 +386,7 @@ final class Import {
 
 		$url = esc_url_raw( $this->product->fields->image );
 
-		$attachment_id = ( $attachment_id > 0 ) ? (int) $attachment_id : $this->sideload_image( $url, $this->product->fields->title );
+		$attachment_id = ( $attachment_id > 0 ) ? (int) $attachment_id : $this->sideload_image( $url, (string) ( $this->product->fields->title ?? '' ) );
 
 		if ( ! $attachment_id ) {
 
