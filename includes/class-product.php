@@ -32,7 +32,7 @@ final class Product {
 	 *
 	 * @var stdClass
 	 */
-	public stdClass $fields;
+	public mixed $fields;
 
 	/**
 	 * Array of required properties and validation callbacks.
@@ -57,9 +57,9 @@ final class Product {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param stdClass $product Product instance.
+	 * @param mixed $product Product instance.
 	 */
-	public function __construct( stdClass $product ) {
+	public function __construct( mixed $product ) {
 
 		$this->fields = json_decode( wp_json_encode( $product ) );
 	}
