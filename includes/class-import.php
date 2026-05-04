@@ -224,7 +224,7 @@ final class Import {
 
 				if ( $term_id ) {
 
-					$this->process_categories( $children, $post_id, $term_id );
+					$this->process_categories( (array) $children, $post_id, $term_id );
 
 				}
 			}
