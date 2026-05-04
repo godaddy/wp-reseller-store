@@ -1,19 +1,133 @@
-# Getting Started: Docker Runbook
+# Getting Started
 
-In order to create a working environment quickly and effectively, by using Docker we can create a simple environment using `docker-compose` to run the latest version of WordPress and a database alongside it with a means to running the wp-reseller-store plugin in a volume.
+## Requirements
 
-### Create a new project
+| Requirement | Version |
+|---|---|
+| Node.js | >= 22.13.0 |
+| PHP | >= 8.1 |
+| WordPress | >= 6.2 |
 
-Within your development directory, create a new folder. The name is not important, but for this example we will name it `wp-reseller-dev`.
+## Local Development with `@wordpress/env`
 
-In your console, navigate to the newly created `wp-reseller-dev` directory and create a file called `docker-compose.yml`
+The preferred local development setup uses [`@wordpress/env`](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/), which manages a Docker-based WordPress environment automatically.
 
-Copy the below contents into the yml file:
+### Start the environment
+
+```bash
+npm install
+npx wp-env start
+```
+
+WordPress will be available at `http://localhost:8888`. The plugin is automatically mounted and activated.
+
+Default credentials: `admin` / `password`.
+
+### Stop the environment
+
+```bash
+npx wp-env stop
+```
+
+### Reset (wipe database)
+
+```bash
+npx wp-env clean all
+npx wp-env start
+```
+
+---
+
+## Building Assets
+
+All compiled assets live in `assets/`. Never edit them directly — always edit source files under `.dev/src/` and rebuild.
+
+### JavaScript (Gutenberg blocks)
+
+```bash
+npm run js       # build + copy block.json files to assets/blocks/
+```
+
+Output: `assets/js/editor.blocks.min.js`
+
+Block metadata is output to `assets/blocks/product/block.json` and `assets/blocks/domain-search/block.json` for PHP registration.
+
+### CSS
+
+```bash
+npm run css      # compile SCSS → CSS (LTR + RTL, normal + minified)
+```
+
+### Full production build
+
+```bash
+npm run build    # js + css + copy plugin files to build/
+```
+
+---
+
+## Linting
+
+```bash
+npm run lint     # ESLint on .dev/src/
+```
+
+The project uses `@wordpress/eslint-plugin` (recommended config) plus Prettier with tabs and single quotes (see `.prettierrc.json`).
+
+---
+
+## Architecture
+
+### PHP
+
+| Path | Purpose |
+|---|---|
+| `reseller-store.php` | Plugin entry point |
+| `class-plugin.php` | Singleton bootstrap, defines constants |
+| `includes/class-*.php` | Feature classes (API, blocks, display, sync, …) |
+| `includes/trait-*.php` | Shared traits (Singleton, Helpers, Data) |
+| `includes/widgets/` | WordPress widget implementations |
+| `includes/functions/` | Global helper functions |
+
+All PHP files use `declare(strict_types=1)` and PHP 8.1+ typed properties and return types.
+
+### Gutenberg Blocks
+
+| Path | Purpose |
+|---|---|
+| `.dev/src/blocks/product/` | Product block source |
+| `.dev/src/blocks/domain-search/` | Domain Search block source |
+| `assets/blocks/*/block.json` | Built block metadata (PHP registration) |
+
+Blocks are registered via `register_block_type()` pointing at `assets/blocks/<name>/` which contains the `block.json` manifest. The PHP render callbacks delegate to the corresponding widget classes.
+
+JavaScript uses `@wordpress/*` ESM imports (externalized by webpack — resolved to `window.wp.*` at runtime by WordPress).
+
+### Build pipeline
+
+```
+.dev/src/index.js
+  └── .dev/src/blocks/product/index.js     → @wordpress/blocks, @wordpress/element, …
+  └── .dev/src/blocks/domain-search/index.js
+
+webpack (externals: @wordpress/* → wp.*)
+  └──> assets/js/editor.blocks.min.js
+
+copyfiles
+  └──> assets/blocks/*/block.json
+```
+
+---
+
+## Docker (legacy)
+
+If you prefer a manual Docker setup instead of `@wordpress/env`, create a `docker-compose.yml` in a separate `wp-reseller-dev/` directory:
+
 ```yml
 version: '3.3'
 services:
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     volumes:
       - db_data:/var/lib/mysql
     restart: always
@@ -38,27 +152,7 @@ services:
       - "./wordpress:/var/www/html"
       - "./plugins:/var/www/html/wp-content/plugins"
 volumes:
-    db_data: {}
+  db_data: {}
 ```
 
-Feel free to change the exposed port of `localhost:8080`.
-
-Once this file has been saved within the `wp-reseller-dev` directory, please run:
-
-```
-docker-compose up
-```
-
-This will go off to DockerHub and pull down the requested docker images for WordPress and SQL.
-
-### Create WordPress Admin
-
-Visit `localhost:8080` to view your docker WordPress installation and follow the steps on screen to create your admin account.
-
-Once logged in, you should now have 2 volumes in your `wp-reseller-dev` directory, `/wordpress` & `/plugins`
-
-In your console, `cd` into the `/plugins` folder and clone this repository (wp-reseller-store) into it.
-
-Within the WordPress admin, you should now see the reseller store plugin listed in the plugin view.
-
-Click "Activate" to enable the plugin, then visit the reseller store plugin menu item in the sidebar and follow on screen instructions to complete setup.
+Run `docker compose up`, then clone this repo into the `plugins/` volume and activate it from the WordPress admin.

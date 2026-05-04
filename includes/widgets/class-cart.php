@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store\Widgets;
 
 use Reseller_Store\Shortcodes;
@@ -51,7 +53,7 @@ final class Cart extends Widget_Base {
 	 *
 	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ): mixed {
 		/**
 		 * Filter classes to be appended to the Cart widget.
 		 *
@@ -123,7 +125,7 @@ final class Cart extends Widget_Base {
 	 *
 	 * @param array $instance Widget instance.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ): void {
 		$data = $this->get_data( $instance );
 		$this->display_form_input( 'title', $data['title'], __( 'Title', 'reseller-store' ) );
 		$this->display_form_input( 'button_label', $data['button_label'], __( 'Button', 'reseller-store' ) );
@@ -139,7 +141,7 @@ final class Cart extends Widget_Base {
 	 *
 	 * @return array
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ): array {
 
 		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
 		$instance['button_label'] = isset( $new_instance['button_label'] ) ? wp_kses_post( $new_instance['button_label'] ) : null;
@@ -155,7 +157,7 @@ final class Cart extends Widget_Base {
 	 *
 	 * @return array
 	 */
-	private function get_data( $instance ) {
+	private function get_data( array $instance ): array {
 		return array(
 			'title'        => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_cart_title', '' ),
 			'button_label' => isset( $instance['button_label'] ) ? $instance['button_label'] : apply_filters( 'rstore_cart_button_label', esc_html__( 'View Cart', 'reseller-store' ) ),

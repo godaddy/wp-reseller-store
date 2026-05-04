@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 use stdClass;
@@ -30,7 +32,7 @@ final class Product {
 	 *
 	 * @var stdClass
 	 */
-	public $fields;
+	public stdClass $fields;
 
 	/**
 	 * Array of required properties and validation callbacks.
@@ -39,7 +41,7 @@ final class Product {
 	 *
 	 * @var array
 	 */
-	private $properties = array(
+	private array $properties = array(
 		'id'         => 'strlen',
 		'categories' => 'is_array',
 		'tags'       => 'is_array',
@@ -57,7 +59,7 @@ final class Product {
 	 *
 	 * @param stdClass $product Product instance.
 	 */
-	public function __construct( $product ) {
+	public function __construct( stdClass $product ) {
 
 		$this->fields = json_decode( wp_json_encode( $product ) );
 	}
@@ -71,7 +73,7 @@ final class Product {
 	 *
 	 * @return mixed|null
 	 */
-	public function __get( $property ) {
+	public function __get( string $property ): mixed {
 
 		return isset( $this->fields->{$property} ) ? $this->fields->{$property} : null;
 	}
@@ -83,7 +85,7 @@ final class Product {
 	 *
 	 * @return bool  Returns `true` if the product object is valid, otherwise `false`.
 	 */
-	public function is_valid() {
+	public function is_valid(): bool {
 
 		if ( ! is_a( $this->fields, 'stdClass' ) ) {
 
@@ -120,7 +122,7 @@ final class Product {
 	 *
 	 * @return int|false  Returns the post ID if it exists, otherwise `false`.
 	 */
-	private function exists() {
+	private function exists(): int|false {
 
 		$product_id = sanitize_title( $this->fields->id ); // Product IDs are sanitized on import.
 
@@ -154,9 +156,9 @@ final class Product {
 	 *
 	 * @param  int $post_id Product post ID.
 	 *
-	 * @return true|WP_Error  Returns `true` on success, `WP_Error` on failure.
+	 * @return true|false|\WP_Error  Returns `true` on success, `WP_Error` on failure.
 	 */
-	public function import( $post_id = 0 ) {
+	public function import( int $post_id = 0 ): bool|\WP_Error {
 
 		if ( ! $this->exists() ) {
 			$import = new Import( $this, $post_id );

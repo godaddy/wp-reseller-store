@@ -11,6 +11,8 @@
  * @since    2.0.4
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -289,7 +291,7 @@ final class Product_Icons {
 	 *
 	 * @return string               Returns html for the image.
 	 */
-	public static function get_product_icon( $post, $image_type = 'icon', $class_name = '' ) {
+	public static function get_product_icon( object $post, string $image_type = 'icon', string $class_name = '' ): string {
 
 		if ( 'none' === $image_type ) {
 
@@ -317,7 +319,7 @@ final class Product_Icons {
 	 *
 	 * @return string            Returns svg html for the image.
 	 */
-	public static function get_icon( $image_id, $class_name = '' ) {
+	public static function get_icon( string $image_id, string $class_name = '' ): string {
 
 		$content = sprintf( '<div class="rstore-product-icons %s">', esc_attr( $class_name ) );
 

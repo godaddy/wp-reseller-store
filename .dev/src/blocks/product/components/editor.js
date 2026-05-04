@@ -1,9 +1,7 @@
+import { Fragment } from '@wordpress/element';
+import { Button, Spinner } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 import Media from './media';
-
-const { __ } = wp.i18n;
-const { Button, Spinner } = wp.components;
-
-const { Fragment } = wp.element;
 
 const Editor = ({ media, post, attributes }) => {
 	if (!post) {
@@ -20,7 +18,7 @@ const Editor = ({ media, post, attributes }) => {
 		height:
 			attributes.content_height > 0
 				? `${attributes.content_height}px`
-				: undefined,
+				: undefined
 	};
 
 	return (
@@ -30,14 +28,14 @@ const Editor = ({ media, post, attributes }) => {
 				{attributes.show_title && (
 					<h4 className="widget-title">{post.title.rendered}</h4>
 				)}
-				{attributes.layout_type === 'default' &&
-					attributes.show_price && (
-						<div
-							dangerouslySetInnerHTML={{
-								__html: post.price_html,
-							}}
-						/>
-					)}
+				{attributes.layout_type === 'default' && attributes.show_price && (
+					<div
+						// post.price_html is escaped server-side via WordPress REST API
+						dangerouslySetInnerHTML={{
+							__html: post.price_html
+						}}
+					/>
+				)}
 				{attributes.layout_type === 'default' &&
 					attributes.button_label.length > 0 && (
 						<Button className="rstore-add-to-cart button btn btn-primary">
@@ -48,8 +46,9 @@ const Editor = ({ media, post, attributes }) => {
 					<div
 						style={contentStyle}
 						className="rstore-product-summary"
+						// post.content.rendered is escaped server-side via WordPress REST API
 						dangerouslySetInnerHTML={{
-							__html: post.content.rendered,
+							__html: post.content.rendered
 						}}
 					/>
 				)}
@@ -58,14 +57,14 @@ const Editor = ({ media, post, attributes }) => {
 						{attributes.text_more}
 					</Button>
 				)}
-				{attributes.layout_type === 'classic' &&
-					attributes.show_price && (
-						<div
-							dangerouslySetInnerHTML={{
-								__html: post.price_html,
-							}}
-						/>
-					)}
+				{attributes.layout_type === 'classic' && attributes.show_price && (
+					<div
+						// post.price_html is escaped server-side via WordPress REST API
+						dangerouslySetInnerHTML={{
+							__html: post.price_html
+						}}
+					/>
+				)}
 				{attributes.layout_type === 'classic' &&
 					attributes.button_label.length > 0 && (
 						<Button className="rstore-add-to-cart button btn btn-primary">

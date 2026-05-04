@@ -21,5 +21,14 @@ export default [
 				wp: 'readonly',
 			},
 		},
+		rules: {
+			// @wordpress/* packages are provided by WordPress at runtime and
+			// externalized via webpack — they are not bundled as local npm packages.
+			'import/no-unresolved': [ 'error', { ignore: [ '^@wordpress/' ] } ],
+			'import/no-extraneous-dependencies': [
+				'error',
+				{ peerDependencies: true },
+			],
+		},
 	},
 ];

@@ -11,6 +11,8 @@
  * @since    1.6.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store\Widgets;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,20 +31,20 @@ class Widget_Base extends \WP_Widget {
 	 *
 	 * @var array
 	 */
-	protected static $widget_allowed_html;
+	protected static array $widget_allowed_html;
 
 	/**
 	 * Display form input field
 	 *
 	 * @since 1.6.0
 	 *
-	 * @param  string $field Feield name.
-	 * @param  array  $value Value of the field.
-	 * @param  array  $label Form label text.
-	 * @param  string $type (optional) Input type label text.
+	 * @param  string $field       Field name.
+	 * @param  mixed  $value       Value of the field.
+	 * @param  string $label       Form label text.
+	 * @param  string $type        (optional) Input type.
 	 * @param  string $description (optional) Description text.
 	 */
-	protected function display_form_input( $field, $value, $label, $type = 'text', $description = '' ) {
+	protected function display_form_input( string $field, mixed $value, string $label, string $type = 'text', string $description = '' ): void {
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>"><?php echo esc_html( $label ); ?></label>
@@ -57,11 +59,11 @@ class Widget_Base extends \WP_Widget {
 	 *
 	 * @since 1.6.0
 	 *
-	 * @param  string $field Feield name.
-	 * @param  array  $value Value of the field.
-	 * @param  array  $label Form label text.
+	 * @param  string $field Field name.
+	 * @param  mixed  $value Value of the field.
+	 * @param  string $label Form label text.
 	 */
-	protected function display_form_checkbox( $field, $value, $label ) {
+	protected function display_form_checkbox( string $field, mixed $value, string $label ): void {
 		?>
 		<p>
 			<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( $field ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $field ) ); ?>" value="1" class="checkbox" <?php checked( $value, true ); ?>>

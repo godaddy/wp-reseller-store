@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -42,7 +44,7 @@ final class Display {
 	 * @action wp_enqueue_scripts
 	 * @since  0.2.0
 	 */
-	public function wp_enqueue_scripts() {
+	public function wp_enqueue_scripts(): void {
 
 		$rtl = is_rtl() ? '-rtl' : '';
 
@@ -80,7 +82,7 @@ final class Display {
 	 * @action admin_enqueue_scripts
 	 * @since  2.0.5
 	 */
-	public function admin_enqueue_scripts() {
+	public function admin_enqueue_scripts(): void {
 
 		if ( rstore_is_admin_uri( 'post_type=' . Post_Type::SLUG, false ) ) {
 

@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "reseller-store/product",
+	"version": "3.0.0",
+	"title": "Product",
+	"description": "Display a product post",
+	"category": "reseller-store",
+	"textdomain": "reseller-store",
+	"keywords": [ "product", "reseller" ],
+	"attributes": {
+		"post_id": {
+			"type": "string"
+		},
+		"image_size": {
+			"type": "string",
+			"default": "icon"
+		},
+		"show_title": {
+			"type": "boolean",
+			"default": true
+		},
+		"show_content": {
+			"type": "boolean",
+			"default": true
+		},
+		"show_price": {
+			"type": "boolean",
+			"default": true
+		},
+		"button_label": {
+			"type": "string",
+			"default": "Add to cart"
+		},
+		"button_new_tab": {
+			"type": "boolean",
+			"default": false
+		},
+		"content_height": {
+			"type": "number",
+			"default": 250
+		},
+		"text_more": {
+			"type": "string",
+			"default": "More info"
+		},
+		"redirect": {
+			"type": "boolean",
+			"default": true
+		},
+		"layout_type": {
+			"type": "string",
+			"default": "default"
+		}
+	}
+}

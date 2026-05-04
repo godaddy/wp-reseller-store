@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -40,7 +42,7 @@ final class Restrictions {
 	 * @action init
 	 * @since  0.2.0
 	 */
-	public function redirects() {
+	public function redirects(): void {
 
 		if ( ! is_admin() ) {
 
@@ -89,9 +91,9 @@ final class Restrictions {
 	 * @action admin_menu
 	 * @since  0.2.0
 	 */
-	public function admin_submenu() {
+	public function admin_submenu(): void {
 
-		return remove_submenu_page(
+		remove_submenu_page(
 			sprintf( 'edit.php?post_type=%s', Post_Type::SLUG ),
 			sprintf( 'post-new.php?post_type=%s', Post_Type::SLUG )
 		);
@@ -104,7 +106,7 @@ final class Restrictions {
 	 * @global WP_Admin_Bar $wp_admin_bar
 	 * @since  0.2.0
 	 */
-	public function admin_bar_submenu() {
+	public function admin_bar_submenu(): void {
 
 		global $wp_admin_bar;
 
@@ -121,7 +123,7 @@ final class Restrictions {
 	 *
 	 * @param string $which Table location.
 	 */
-	public function edit_screen( $which ) {
+	public function edit_screen( string $which ): void {
 
 		if (
 			Post_Type::SLUG !== get_post_type()

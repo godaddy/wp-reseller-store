@@ -11,6 +11,8 @@
  * @since    1.3.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,7 +57,7 @@ final class Admin_Notices {
 	 * @return string Generated nonce key.
 	 * @since  1.3.0
 	 */
-	private static function nonce_key() {
+	private static function nonce_key(): string {
 		return rstore_prefix( 'notice-' . get_current_user_id() );
 	}
 
@@ -65,7 +67,7 @@ final class Admin_Notices {
 	 * @action admin_enqueue_scripts
 	 * @since  1.3.0
 	 */
-	public function admin_enqueue_scripts() {
+	public function admin_enqueue_scripts(): void {
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 
@@ -85,7 +87,7 @@ final class Admin_Notices {
 	 *
 	 * @since  1.3.0
 	 */
-	public function restore_notice() {
+	public function restore_notice(): void {
 
 		$count = intval( $_REQUEST['bulk_restore_posts'] );
 		printf(
@@ -106,7 +108,7 @@ final class Admin_Notices {
 	 *
 	 * @since  1.3.0
 	 */
-	public function error_notices() {
+	public function error_notices(): void {
 
 		$errors = rstore_get_option( 'errors', array() );
 
@@ -122,7 +124,7 @@ final class Admin_Notices {
 	 *
 	 * @since  1.3.0
 	 */
-	public static function dismiss_admin_notice() {
+	public static function dismiss_admin_notice(): void {
 
 		if ( false === wp_verify_nonce( filter_input( INPUT_POST, 'nonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS ), self::nonce_key() ) ) {
 

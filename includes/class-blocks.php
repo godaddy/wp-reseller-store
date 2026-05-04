@@ -11,6 +11,8 @@
  * @since    2.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,7 +31,7 @@ final class Blocks {
 	 *
 	 * @var array
 	 */
-	private $args = array(
+	private array $args = array(
 		'before_widget' => '',
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
@@ -57,7 +59,7 @@ final class Blocks {
 			function () {
 
 				register_block_type(
-					'reseller-store/product',
+					Plugin::base_dir( 'assets/blocks/product' ),
 					array(
 						'render_callback' => array(
 							$this,
@@ -67,7 +69,7 @@ final class Blocks {
 				);
 
 				register_block_type(
-					'reseller-store/domain-search',
+					Plugin::base_dir( 'assets/blocks/domain-search' ),
 					array(
 						'render_callback' => array(
 							$this,
@@ -84,7 +86,7 @@ final class Blocks {
 	 *
 	 * @action enqueue_block_editor_assets
 	 */
-	public function enqueue_block_editor_assets() {
+	public function enqueue_block_editor_assets(): void {
 
 		$suffix        = SCRIPT_DEBUG ? '' : '.min';
 		$block_js_path = 'js/editor.blocks.min.js';
@@ -107,7 +109,7 @@ final class Blocks {
 	 * @param array $categories     Array of block categories.
 	 * @return array
 	 */
-	public function block_categories( $categories ) {
+	public function block_categories( array $categories ): array {
 		return array_merge(
 			$categories,
 			array(
@@ -128,7 +130,7 @@ final class Blocks {
 	 *
 	 * @return mixed Returns the HTML markup for the product container.
 	 */
-	public function product( $atts ) {
+	public function product( array $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-product">';
 
@@ -148,7 +150,7 @@ final class Blocks {
 	 *
 	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
-	public function domain_search( $atts ) {
+	public function domain_search( array $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-domain">';
 

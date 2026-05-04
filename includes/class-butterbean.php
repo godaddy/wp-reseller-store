@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -42,7 +44,7 @@ final class ButterBean {
 	 * @action plugins_loaded
 	 * @since  0.2.0
 	 */
-	public function load() {
+	public function load(): void {
 
 		$path = Plugin::base_dir( 'lib/butterbean/butterbean.php' );
 
@@ -62,7 +64,7 @@ final class ButterBean {
 	 * @param object $butterbean ButterBean object.
 	 * @param string $post_type  Current post type.
 	 */
-	public function register_types( $butterbean, $post_type ) {
+	public function register_types( object $butterbean, string $post_type ): void {
 
 		if ( Post_Type::SLUG !== $post_type ) {
 
@@ -97,7 +99,7 @@ final class ButterBean {
 	 *
 	 * @return string Path to the ButterBean template file.
 	 */
-	public function control_templates( $path, $slug ) {
+	public function control_templates( string $path, string $slug ): string {
 
 		switch ( $slug ) {
 
@@ -125,7 +127,7 @@ final class ButterBean {
 	 * @param object $butterbean ButterBean instance.
 	 * @param string $post_type  Current post type.
 	 */
-	public function register_metabox( $butterbean, $post_type ) {
+	public function register_metabox( object $butterbean, string $post_type ): void {
 
 		if ( Post_Type::SLUG !== $post_type ) {
 
@@ -178,7 +180,7 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function list_price( $manager, $section ) {
+	private function list_price( object $manager, string $section ): void {
 
 		$manager->register_control(
 			rstore_prefix( 'listPrice' ),
@@ -205,7 +207,7 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function sale_price( $manager, $section ) {
+	private function sale_price( object $manager, string $section ): void {
 
 		$manager->register_control(
 			rstore_prefix( 'salePrice' ),
@@ -233,7 +235,7 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function default_quantity( $manager, $section ) {
+	private function default_quantity( object $manager, string $section ): void {
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
@@ -266,7 +268,7 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function add_to_cart_button_label( $manager, $section ) {
+	private function add_to_cart_button_label( object $manager, string $section ): void {
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
@@ -296,7 +298,7 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function cart_link_text( $manager, $section ) {
+	private function cart_link_text( object $manager, string $section ): void {
 
 		$manager->register_control(
 			rstore_prefix( __FUNCTION__ ),
@@ -326,7 +328,7 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function skip_cart_redirect( $manager, $section ) {
+	private function skip_cart_redirect( object $manager, string $section ): void {
 
 		$args = array(
 			'type'    => 'checkbox',
@@ -354,7 +356,7 @@ final class ButterBean {
 	 * @param object $manager ButterBean_Manager instance.
 	 * @param string $section The section to register the settings to.
 	 */
-	private function reset_product_data( $manager, $section ) {
+	private function reset_product_data( object $manager, string $section ): void {
 
 		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
 

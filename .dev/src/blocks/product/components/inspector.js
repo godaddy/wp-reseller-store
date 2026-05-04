@@ -1,14 +1,13 @@
-const { __ } = wp.i18n;
-const { InspectorControls } = wp.blockEditor;
-
-const {
+import { __ } from '@wordpress/i18n';
+import { InspectorControls } from '@wordpress/block-editor';
+import {
 	CheckboxControl,
 	PanelBody,
 	RangeControl,
 	SelectControl,
 	Spinner,
-	TextControl,
-} = wp.components;
+	TextControl
+} from '@wordpress/components';
 
 const Inspector = ({ posts, media, attributes, setAttributes }) => {
 	if (!posts) {
@@ -39,11 +38,11 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 
 		mediaOptions.splice(0, 0, {
 			value: 'icon',
-			label: __('Product Icon', 'reseller-store'),
+			label: __('Product Icon', 'reseller-store')
 		});
 		mediaOptions.push({
 			value: 'none',
-			label: __('Hide image', 'reseller-store'),
+			label: __('Hide image', 'reseller-store')
 		});
 	}
 
@@ -52,9 +51,7 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 			<PanelBody>
 				<SelectControl
 					label={__('Select Product', 'reseller-store')}
-					onChange={(postId) =>
-						setAttributes({ post_id: postId.toString() })
-					}
+					onChange={(postId) => setAttributes({ post_id: postId.toString() })}
 					value={attributes.post_id}
 					options={products}
 				/>
@@ -62,9 +59,7 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 			<PanelBody>
 				<SelectControl
 					label={__('Image Size', 'reseller-store')}
-					onChange={(imageSize) =>
-						setAttributes({ image_size: imageSize })
-					}
+					onChange={(imageSize) => setAttributes({ image_size: imageSize })}
 					value={attributes.image_size}
 					options={mediaOptions}
 				/>
@@ -115,7 +110,7 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 						checked={attributes.content_height > 0}
 						onChange={(checked) => {
 							setAttributes({
-								content_height: checked ? 250 : 0,
+								content_height: checked ? 250 : 0
 							});
 						}}
 					/>
@@ -124,28 +119,20 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 							<RangeControl
 								beforeIcon="arrow-left-alt2"
 								afterIcon="arrow-right-alt2"
-								label={__(
-									'Product content height',
-									'reseller-store'
-								)}
+								label={__('Product content height', 'reseller-store')}
 								value={attributes.content_height}
 								onChange={(contentHeight) =>
 									setAttributes({
-										content_height: contentHeight,
+										content_height: contentHeight
 									})
 								}
 								min={1}
 								max={500}
 							/>
 							<TextControl
-								label={__(
-									'More info button text',
-									'reseller-store'
-								)}
+								label={__('More info button text', 'reseller-store')}
 								value={attributes.text_more}
-								onChange={(textMore) =>
-									setAttributes({ text_more: textMore })
-								}
+								onChange={(textMore) => setAttributes({ text_more: textMore })}
 							/>
 						</div>
 					)}
@@ -153,10 +140,7 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 			)}
 			<PanelBody>
 				<CheckboxControl
-					label={__(
-						'Redirect to cart after adding item',
-						'reseller-store'
-					)}
+					label={__('Redirect to cart after adding item', 'reseller-store')}
 					checked={attributes.redirect}
 					onChange={(checked) => {
 						setAttributes({ redirect: checked });
@@ -165,19 +149,17 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 			</PanelBody>
 			<SelectControl
 				label={__('Layout Type', 'reseller-store')}
-				onChange={(layoutType) =>
-					setAttributes({ layout_type: layoutType })
-				}
+				onChange={(layoutType) => setAttributes({ layout_type: layoutType })}
 				value={attributes.layout_type}
 				options={[
 					{
 						value: 'default',
-						label: __('Default', 'reseller-store'),
+						label: __('Default', 'reseller-store')
 					},
 					{
 						value: 'classic',
-						label: __('Classic', 'reseller-store'),
-					},
+						label: __('Classic', 'reseller-store')
+					}
 				]}
 			/>
 		</InspectorControls>

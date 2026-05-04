@@ -1,1 +1,3 @@
-wp.i18n.setLocaleData({ '': {} }, 'reseller-store');
+import { setLocaleData } from '@wordpress/i18n';
+
+setLocaleData({ '': {} }, 'reseller-store');

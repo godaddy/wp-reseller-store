@@ -1,8 +1,13 @@
-const { __ } = wp.i18n;
-const { InspectorControls } = wp.blockEditor;
-const { Fragment } = wp.element;
-const { CheckboxControl, PanelBody, RangeControl, SelectControl, TextControl } =
-	wp.components;
+import { __ } from '@wordpress/i18n';
+import { InspectorControls } from '@wordpress/block-editor';
+import { Fragment } from '@wordpress/element';
+import {
+	CheckboxControl,
+	PanelBody,
+	RangeControl,
+	SelectControl,
+	TextControl
+} from '@wordpress/components';
 
 const Inspector = ({ attributes, setAttributes }) => {
 	return (
@@ -28,37 +33,27 @@ const Inspector = ({ attributes, setAttributes }) => {
 				<TextControl
 					label={__('Search Button', 'reseller-store')}
 					value={attributes.text_search}
-					onChange={(textSearch) =>
-						setAttributes({ text_search: textSearch })
-					}
+					onChange={(textSearch) => setAttributes({ text_search: textSearch })}
 				/>
 			</PanelBody>
 			<PanelBody>
 				<SelectControl
 					label={__('Search Type', 'reseller-store')}
-					onChange={(searchType) =>
-						setAttributes({ search_type: searchType })
-					}
+					onChange={(searchType) => setAttributes({ search_type: searchType })}
 					value={attributes.search_type}
 					options={[
 						{
 							value: 'standard',
-							label: __(
-								'Standard Domain Search',
-								'reseller-store'
-							),
+							label: __('Standard Domain Search', 'reseller-store')
 						},
 						{
 							value: 'advanced',
-							label: __(
-								'Advanced Domain Search',
-								'reseller-store'
-							),
+							label: __('Advanced Domain Search', 'reseller-store')
 						},
 						{
 							value: 'transfer',
-							label: __('Transfer Domain', 'reseller-store'),
-						},
+							label: __('Transfer Domain', 'reseller-store')
+						}
 					]}
 				/>
 				{'advanced' === attributes.search_type && (
@@ -66,22 +61,14 @@ const Inspector = ({ attributes, setAttributes }) => {
 						<RangeControl
 							beforeIcon="arrow-left-alt2"
 							afterIcon="arrow-right-alt2"
-							label={__(
-								'On page search result size',
-								'reseller-store'
-							)}
+							label={__('On page search result size', 'reseller-store')}
 							value={attributes.page_size}
-							onChange={(pageSize) =>
-								setAttributes({ page_size: pageSize })
-							}
+							onChange={(pageSize) => setAttributes({ page_size: pageSize })}
 							min={1}
 							max={30}
 						/>
 						<CheckboxControl
-							label={__(
-								'Display results in a modal',
-								'reseller-store'
-							)}
+							label={__('Display results in a modal', 'reseller-store')}
 							checked={attributes.modal}
 							onChange={(modal) => setAttributes({ modal })}
 						/>
@@ -90,14 +77,9 @@ const Inspector = ({ attributes, setAttributes }) => {
 				{'advanced' !== attributes.search_type && (
 					<Fragment>
 						<CheckboxControl
-							label={__(
-								'Display results in a new tab',
-								'reseller-store'
-							)}
+							label={__('Display results in a new tab', 'reseller-store')}
 							checked={attributes.new_tab}
-							onChange={(newTab) =>
-								setAttributes({ new_tab: newTab })
-							}
+							onChange={(newTab) => setAttributes({ new_tab: newTab })}
 						/>
 					</Fragment>
 				)}

@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -37,7 +39,7 @@ final class Taxonomy_Tag {
 	 *
 	 * @var string
 	 */
-	public static $default_permalink_base;
+	public static string $default_permalink_base;
 
 	/**
 	 * Class constructor.
@@ -58,7 +60,7 @@ final class Taxonomy_Tag {
 	 *
 	 * @return string
 	 */
-	public static function permalink_base() {
+	public static function permalink_base(): string {
 
 		$permalinks     = (array) rstore_get_option( 'permalinks', array() );
 		$permalink_base = ! empty( $permalinks['tag_base'] ) ? $permalinks['tag_base'] : self::$default_permalink_base;
@@ -72,7 +74,7 @@ final class Taxonomy_Tag {
 	 * @action init
 	 * @since  0.2.0
 	 */
-	public function register() {
+	public function register(): void {
 
 		$labels = array(
 			'name'              => esc_html_x( 'Tags', 'taxonomy general name', 'reseller-store' ),

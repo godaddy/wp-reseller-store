@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 use Reseller_Store\Product_Icons;
@@ -41,16 +43,16 @@ final class Post_Type {
 	 *
 	 * @var string
 	 */
-	public static $default_permalink_base;
+	public static string $default_permalink_base;
 
 	/**
 	 * Hold error object.
 	 *
 	 * @since 0.2.0
 	 *
-	 * @var WP_Error
+	 * @var \WP_Error|null
 	 */
-	private $error;
+	private ?\WP_Error $error = null;
 
 	/**
 	 * Class constructor.
@@ -74,7 +76,7 @@ final class Post_Type {
 
 		add_filter(
 			'edit_' . self::SLUG . '_per_page',
-			function () {
+			function (): int {
 
 				return 50;
 			}
@@ -82,7 +84,7 @@ final class Post_Type {
 
 		add_filter(
 			'manage_edit-' . self::SLUG . '_sortable_columns',
-			function ( $columns ) {
+			function ( array $columns ): array {
 
 			// @codingStandardsIgnoreStart
 			return array_merge( $columns, [ 'price' => 'price' ] );
@@ -92,7 +94,7 @@ final class Post_Type {
 
 		add_filter(
 			'view_mode_post_types',
-			function ( $post_types ) {
+			function ( array $post_types ): array {
 
 			// @codingStandardsIgnoreStart
 			return array_diff_key( $post_types, [ self::SLUG => self::SLUG ] );
@@ -102,7 +104,7 @@ final class Post_Type {
 
 		add_filter(
 			'rest_prepare_' . self::SLUG,
-			function ( $data, $post ) {
+			function ( $data, $post ): mixed {
 
 				$sale = rstore_get_product_meta( $post->ID, 'salePrice' );
 
@@ -133,7 +135,7 @@ final class Post_Type {
 	 *
 	 * @return void
 	 */
-	public function republish_post( $post_id ) {
+	public function republish_post( int $post_id ): void {
 
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
@@ -174,7 +176,7 @@ final class Post_Type {
 		 */
 		add_action(
 			'edit_form_top',
-			function () use ( $result ) {
+			function () use ( $result ): void {
 
 				echo printf(
 					'<div class="notice notice-error is-dismissible"><p>Error: %s</p></div>',
@@ -197,7 +199,7 @@ final class Post_Type {
 	 *
 	 * @return string
 	 */
-	public static function permalink_base() {
+	public static function permalink_base(): string {
 
 		$permalinks     = (array) rstore_get_option( 'permalinks', array() );
 		$permalink_base = ! empty( $permalinks['product_base'] ) ? $permalinks['product_base'] : self::$default_permalink_base;
@@ -211,7 +213,7 @@ final class Post_Type {
 	 * @action init
 	 * @since  0.2.0
 	 */
-	public function register() {
+	public function register(): void {
 
 		$labels = array(
 			'name'                  => esc_html_x( 'Products', 'post type general name', 'reseller-store' ),
@@ -276,7 +278,7 @@ final class Post_Type {
 	 *
 	 * @return true|\WP_Error
 	 */
-	public function reset_product_data( $post_id ) {
+	public function reset_product_data( int $post_id ): bool|\WP_Error {
 
 		$product_id = rstore_get_product_meta( $post_id, 'id' );
 
@@ -315,7 +317,7 @@ final class Post_Type {
 	 *
 	 * @return array
 	 */
-	public function columns( $columns ) {
+	public function columns( array $columns ): array {
 
 		// Insert before Title column.
 		$columns = rstore_array_insert(
@@ -350,7 +352,7 @@ final class Post_Type {
 	 * @param string $column  Admin column name.
 	 * @param int    $post_id Post ID.
 	 */
-	public function column_content( $column, $post_id ) {
+	public function column_content( string $column, int $post_id ): void {
 
 		if ( 'image' === $column ) {
 
@@ -382,7 +384,7 @@ final class Post_Type {
 	 *
 	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
-	public function delete_imported_product( $post_id ) {
+	public function delete_imported_product( int $post_id ): bool {
 
 		if ( Post_Type::SLUG !== get_post_type( $post_id ) ) {
 
@@ -412,7 +414,7 @@ final class Post_Type {
 	 *
 	 * @return array
 	 */
-	public function order_by_price_clause( $clauses, $wp_query ) {
+	public function order_by_price_clause( array $clauses, object $wp_query ): array {
 
 		global $wpdb;
 
@@ -440,9 +442,9 @@ final class Post_Type {
 	 *
 	 * @param  stdClass $labels Product labels.
 	 *
-	 * @return array
+	 * @return stdClass
 	 */
-	public function post_screen_edit_heading( $labels ) {
+	public function post_screen_edit_heading( stdClass $labels ): stdClass {
 
 		if ( ! rstore_is_admin_uri( 'post.php?post=' ) ) {
 
@@ -475,7 +477,7 @@ final class Post_Type {
 	 *
 	 * @return string                         The post thumbnail HTML.
 	 */
-	public function post_thumbnail_html( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
+	public function post_thumbnail_html( string $html, int $post_id, string $post_thumbnail_id, string|array $size, string $attr ): string {
 
 		if ( Product_Icons::PRODUCT_IMAGE_SLUG === $attr ) {
 			return $html;
