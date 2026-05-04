@@ -91,9 +91,9 @@ final class Restrictions {
 	 * @action admin_menu
 	 * @since  0.2.0
 	 */
-	public function admin_submenu(): void {
+	public function admin_submenu(): array|false {
 
-		remove_submenu_page(
+		return remove_submenu_page(
 			sprintf( 'edit.php?post_type=%s', Post_Type::SLUG ),
 			sprintf( 'post-new.php?post_type=%s', Post_Type::SLUG )
 		);

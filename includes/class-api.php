@@ -145,7 +145,7 @@ final class API {
 
 		}
 
-		$url = str_replace( '{pl_id}', (string) rstore_get_option( 'pl_id' ), $url );
+		$url = str_replace( '{pl_id}', (string) absint( rstore_get_option( 'pl_id' ) ), $url );
 
 		return $this->add_query_args( trailingslashit( $url ), $args, $url_key );
 	}
