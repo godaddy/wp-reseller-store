@@ -283,6 +283,8 @@ final class Setup {
 	 */
 	public static function install( int $pl_id = 0 ): ?\WP_Error {
 
+		try {
+
 		if (
 			! current_user_can( 'manage_options' )
 			&&
@@ -327,6 +329,13 @@ final class Setup {
 		self::import();
 
 		return null;
+
+		} catch ( \Throwable $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement
+			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+				wp_send_json_error( 'DEBUG_INSTALL: ' . $e->getMessage() . ' in ' . basename( $e->getFile() ) . ':' . $e->getLine() );
+			}
+			return null;
+		}
 	}
 
 	/**
