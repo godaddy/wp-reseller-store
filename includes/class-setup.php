@@ -365,7 +365,8 @@ final class Setup {
 			}
 		}
 
-		$products = rstore_get_products( true );
+		try {
+			$products = rstore_get_products( true );
 
 		if ( is_wp_error( $products ) ) {
 
@@ -424,6 +425,12 @@ final class Setup {
 		}
 
 		return null;
+		} catch ( \Throwable $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement
+			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+				wp_send_json_error( 'DEBUG_EXCEPTION: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine() );
+			}
+			return null;
+		}
 	}
 
 	/**
