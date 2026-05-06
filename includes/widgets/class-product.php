@@ -58,6 +58,8 @@ final class Product extends Widget_Base {
 
 		global $wp_current_filter, $post;
 
+		$instance = (array) $instance;
+
 		$data = $this->get_data( $instance );
 
 		$post_id = $data['post_id'];

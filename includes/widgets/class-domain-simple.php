@@ -56,6 +56,8 @@ final class Domain_Simple extends Widget_Base {
 	 */
 	public function widget( $args, $instance ): mixed {
 
+		$instance = (array) $instance;
+
 		/**
 		 * Filter classes to be appended to the Domain Simple widget.
 		 *

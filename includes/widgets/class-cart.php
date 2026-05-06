@@ -54,6 +54,9 @@ final class Cart extends Widget_Base {
 	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
 	public function widget( $args, $instance ): mixed {
+
+		$instance = (array) $instance;
+
 		/**
 		 * Filter classes to be appended to the Cart widget.
 		 *
