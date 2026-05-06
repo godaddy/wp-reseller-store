@@ -277,13 +277,11 @@ final class Setup {
 	 * @global wpdb $wpdb
 	 * @since  0.2.0
 	 *
-	 * @param  int $pl_id (optional)
+	 * @param  mixed $pl_id (optional) Private Label ID.
 	 *
 	 * @return true|\WP_Error|void
 	 */
-	public static function install( int $pl_id = 0 ): ?\WP_Error {
-
-		try {
+	public static function install( $pl_id = 0 ): ?\WP_Error {
 
 		if (
 			! current_user_can( 'manage_options' )
@@ -329,13 +327,6 @@ final class Setup {
 		self::import();
 
 		return null;
-
-		} catch ( \Throwable $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement
-			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-				wp_send_json_error( 'DEBUG_INSTALL: ' . $e->getMessage() . ' in ' . basename( $e->getFile() ) . ':' . $e->getLine() );
-			}
-			return null;
-		}
 	}
 
 	/**
@@ -374,8 +365,7 @@ final class Setup {
 			}
 		}
 
-		try {
-			$products = rstore_get_products( true );
+		$products = rstore_get_products( true );
 
 		if ( is_wp_error( $products ) ) {
 
@@ -434,12 +424,6 @@ final class Setup {
 		}
 
 		return null;
-		} catch ( \Throwable $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement
-			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-				wp_send_json_error( 'DEBUG_EXCEPTION: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine() );
-			}
-			return null;
-		}
 	}
 
 	/**
