@@ -39,7 +39,7 @@ msgstr "त्रुटि: सत्र अमान्य है। पेज 
 
 #: includes/class-settings.php:818
 msgid "The custom domain is set in the Reseller Control Center and identifies the standard storefront and checkout pages. Set as a sub-domain of your WordPress site (e.g. shop)."
-msgstr "Custom domain, Reseller Control Center में सेट किया जाता है और यही standard storefront तथा checkout pages की पहचान करता है। इसे अपनी WordPress साइट के sub-domain के रूप में सेट करें (जैसे `shop`)।"
+msgstr "Custom domain, Reseller Control Center में सेट किया जाता है और यही standard storefront तथा checkout pages की पहचान करता है। इसे अपनी WordPress साइट के sub-domain के रूप में सेट करें (जैसे shop)।"
 
 #: includes/class-settings.php:817
 msgid "Storefront Domain"
