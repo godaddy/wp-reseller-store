@@ -7,7 +7,11 @@ import metadata from './block.json';
 import './editor.scss';
 
 registerBlockType(metadata.name, {
-	...metadata,
+	title: metadata.title,
+	description: metadata.description,
+	category: metadata.category,
+	keywords: metadata.keywords,
+	attributes: metadata.attributes,
 	icon: { src: icon },
 	edit: (props) => (
 		<Fragment>
