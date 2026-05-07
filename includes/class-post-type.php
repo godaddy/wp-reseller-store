@@ -473,11 +473,11 @@ final class Post_Type {
 	 * @param string       $post_thumbnail_id The post thumbnail ID.
 	 * @param string|array $size              The post thumbnail size. Image size or array of width and height
 	 *                                        values (in that order). Default 'post-thumbnail'.
-	 * @param string       $attr              Query string of attributes.
+	 * @param string|array $attr              Query string or array of attributes.
 	 *
 	 * @return string                         The post thumbnail HTML.
 	 */
-	public function post_thumbnail_html( string $html, int $post_id, string $post_thumbnail_id, string|array $size, string $attr ): string {
+	public function post_thumbnail_html( string $html, int $post_id, string $post_thumbnail_id, string|array $size, string|array $attr ): string {
 
 		if ( Product_Icons::PRODUCT_IMAGE_SLUG === $attr ) {
 			return $html;
