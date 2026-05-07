@@ -331,8 +331,8 @@ msgstr ""
 
 #: includes/class-settings.php:451
 msgid ""
-"Override the number of results returned forß the advanced domain search.  "
-"Empty field means no override set."
+"Override the number of results returned for the advanced domain search. Empty "
+"field means no override set."
 msgstr ""
 
 #: includes/class-settings.php:456
@@ -555,7 +555,7 @@ msgstr ""
 
 #: includes/class-settings.php:778
 msgid ""
-"Check API for new products. Note: This is will not update the content for "
+"Check the API for new products. Note: This will not update the content for "
 "any of your existing products that have been imported."
 msgstr ""
 
@@ -572,13 +572,13 @@ msgid "Display name set in the Reseller Control Center"
 msgstr ""
 
 #: includes/class-settings.php:806
-msgid "Home Url"
+msgid "Home URL"
 msgstr ""
 
 #: includes/class-settings.php:807
 msgid ""
-"The home url is set in the Reseller Control Center should be set as your "
-"WordPress site."
+"The home URL in the Reseller Control Center should be set as your WordPress "
+"site."
 msgstr ""
 
 #: includes/class-settings.php:810

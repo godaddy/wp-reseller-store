@@ -444,7 +444,7 @@ final class Settings {
 					'name'        => 'domain_page_size',
 					'label'       => esc_html__( 'Page size', 'reseller-store' ),
 					'type'        => 'number',
-					'description' => esc_html__( 'Override the number of results returned forß the advanced domain search.  Empty field means no override set.', 'reseller-store' ),
+					'description' => esc_html__( 'Override the number of results returned for the advanced domain search. Empty field means no override set.', 'reseller-store' ),
 				);
 
 				$settings[] = array(
@@ -777,7 +777,7 @@ final class Settings {
 		?>
 		<div class="card">
 			<h2 class="title"><?php esc_html_e( 'Check for new products', 'reseller-store' ); ?></h2>
-			<p><?php esc_html_e( 'Check API for new products. Note: This is will not update the content for any of your existing products that have been imported.', 'reseller-store' ); ?></p>
+			<p><?php esc_html_e( 'Check the API for new products. Note: This will not update the content for any of your existing products that have been imported.', 'reseller-store' ); ?></p>
 			<div class="wrap">
 				<form id='rstore-product-import'>
 					<input type="hidden" name="action" value="rstore_product_import">
@@ -805,8 +805,8 @@ final class Settings {
 				<td><label id="displayName" ></label><p class="description" id="tagline-description"><?php esc_html_e( 'Display name set in the Reseller Control Center', 'reseller-store' ); ?></p></td>
 			</tr>
 			<tr>
-				<th><label for="homeUrl"><?php esc_html_e( 'Home Url', 'reseller-store' ); ?></label></th>
-				<td><label id="homeUrl" ></label><p class="description" id="tagline-description"><?php esc_html_e( 'The home url is set in the Reseller Control Center should be set as your WordPress site.', 'reseller-store' ); ?></p></td>
+				<th><label for="homeUrl"><?php esc_html_e( 'Home URL', 'reseller-store' ); ?></label></th>
+				<td><label id="homeUrl" ></label><p class="description" id="tagline-description"><?php esc_html_e( 'The home URL in the Reseller Control Center should be set as your WordPress site.', 'reseller-store' ); ?></p></td>
 			</tr>
 			<tr>
 				<th><label for="customDomain"><?php esc_html_e( 'Storefront Domain', 'reseller-store' ); ?></label></th>
