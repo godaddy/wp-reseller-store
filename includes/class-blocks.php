@@ -59,7 +59,7 @@ final class Blocks {
 			function () {
 
 				register_block_type(
-					Plugin::base_dir( 'assets/blocks/product' ),
+					'reseller-store/product',
 					array(
 						'render_callback' => array(
 							$this,
@@ -69,7 +69,7 @@ final class Blocks {
 				);
 
 				register_block_type(
-					Plugin::base_dir( 'assets/blocks/domain-search' ),
+					'reseller-store/domain-search',
 					array(
 						'render_callback' => array(
 							$this,
