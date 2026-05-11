@@ -347,7 +347,7 @@ msgstr ""
 
 #: includes/class-settings.php:451
 msgid ""
-"Override the number of results returned forß the advanced domain search.  "
+"Override the number of results returned for the advanced domain search.  "
 "Empty field means no override set."
 msgstr ""
 

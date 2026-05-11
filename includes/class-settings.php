@@ -446,7 +446,7 @@ final class Settings {
 					'name'        => 'domain_page_size',
 					'label'       => esc_html__( 'Page size', 'reseller-store' ),
 					'type'        => 'number',
-					'description' => esc_html__( 'Override the number of results returned forß the advanced domain search.  Empty field means no override set.', 'reseller-store' ),
+					'description' => esc_html__( 'Override the number of results returned for the advanced domain search.  Empty field means no override set.', 'reseller-store' ),
 				);
 
 				$settings[] = array(
