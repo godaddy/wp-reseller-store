@@ -452,7 +452,7 @@ final class Post_Type {
 
 		}
 
-		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+		$post_id = (int) filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
 
 		$title = ( $post_id > 0 ) ? rstore_get_product_meta( $post_id, 'title' ) : null;
 

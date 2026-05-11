@@ -194,11 +194,11 @@ function rstore_get_product( string $product_id ): Reseller_Store\Product|\WP_Er
  *
  * @return mixed
  */
-function rstore_get_product_meta( int $post_id, string $key ): mixed {
+function rstore_get_product_meta( $post_id, string $key ): mixed {
 
 	$key = rstore_prefix( $key );
 
-	$meta = get_post_meta( $post_id, $key, true );
+	$meta = get_post_meta( absint( $post_id ), $key, true );
 
 	return $meta;
 }

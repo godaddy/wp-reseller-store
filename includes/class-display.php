@@ -66,7 +66,7 @@ final class Display {
 				'shopperId' => 'ShopperId' . rstore_get_option( 'pl_id' ),
 			),
 			'product' => array(
-				'id' => ( Post_Type::SLUG === get_post_type() ) ? rstore_get_product_meta( get_the_ID(), 'id', '' ) : '',
+				'id' => ( Post_Type::SLUG === get_post_type() ) ? rstore_get_product_meta( get_the_ID(), 'id' ) : '',
 			),
 			'i18n'    => array(
 				'error' => esc_html__( 'An error has occurred', 'reseller-store' ),
