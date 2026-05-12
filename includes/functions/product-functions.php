@@ -9,6 +9,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 /**
  * Check whether products exist.
  *
@@ -22,7 +24,7 @@
  *
  * @return bool  Returns `true` if there are product posts, otherwise `false`.
  */
-function rstore_has_products() {
+function rstore_has_products(): bool {
 
 	$key = rstore_prefix( 'products_count' );
 
@@ -52,7 +54,7 @@ function rstore_has_products() {
  * @return array Reseller product posts.
  * @since 1.6.0
  */
-function rstore_get_product_list() {
+function rstore_get_product_list(): array {
 
 	$query = new \WP_Query(
 		array(
@@ -80,7 +82,7 @@ function rstore_get_product_list() {
  *
  * @return bool  Returns `true` on successful removal, `false` on failure
  */
-function rstore_clear_cache() {
+function rstore_clear_cache(): bool {
 
 	$key = rstore_prefix( 'products_count' );
 
@@ -94,7 +96,7 @@ function rstore_clear_cache() {
  *
  * @return bool  Returns `true` if all available products have been imported, otherwise `false`.
  */
-function rstore_has_all_products() {
+function rstore_has_all_products(): bool {
 
 	return ! (bool) rstore_get_missing_products();
 }
@@ -106,7 +108,7 @@ function rstore_has_all_products() {
  *
  * @return array  Returns an array of product IDs, otherwise an empty array.
  */
-function rstore_get_missing_products() {
+function rstore_get_missing_products(): array {
 
 	if ( ! rstore_is_setup() ) {
 
@@ -137,7 +139,7 @@ function rstore_get_missing_products() {
  *
  * @return array|WP_Error
  */
-function rstore_get_products( $hard = false ) {
+function rstore_get_products( bool $hard = false ): mixed {
 
 	if ( $hard ) {
 
@@ -162,7 +164,7 @@ function rstore_get_products( $hard = false ) {
  *
  * @return stdClass|WP_Error
  */
-function rstore_get_product( $product_id ) {
+function rstore_get_product( string $product_id ): Reseller_Store\Product|\WP_Error {
 
 	$response = rstore()->api->get( 'catalog/{pl_id}/products/' . $product_id );
 
@@ -192,11 +194,11 @@ function rstore_get_product( $product_id ) {
  *
  * @return mixed
  */
-function rstore_get_product_meta( $post_id, $key ) {
+function rstore_get_product_meta( $post_id, string $key ): mixed {
 
 	$key = rstore_prefix( $key );
 
-	$meta = get_post_meta( $post_id, $key, true );
+	$meta = get_post_meta( absint( $post_id ), $key, true );
 
 	return $meta;
 }
@@ -210,7 +212,7 @@ function rstore_get_product_meta( $post_id, $key ) {
  *
  * @return bool True is if post_type is reseller_store
  */
-function rstore_is_product( $post ) {
+function rstore_is_product( object $post ): bool {
 	return ( \Reseller_Store\Post_Type::SLUG === $post->post_type );
 }
 add_filter( 'rstore_is_product', 'rstore_is_product' );
@@ -226,7 +228,7 @@ add_filter( 'rstore_is_product', 'rstore_is_product' );
  *
  * @return boolean    True is widget_id key is set, else false.
  */
-function rstore_is_widget( $atts = array() ) {
+function rstore_is_widget( array $atts = array() ): bool {
 
 	return isset( $atts['widget_id'] );
 }

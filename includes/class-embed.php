@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -53,7 +55,7 @@ final class Embed {
 	 *
 	 * @return int|false Returns the number of posts updated, `false` on error.
 	 */
-	public static function search_replace_post_content( $search, $replace ) {
+	public static function search_replace_post_content( string $search, string $replace ): int|false {
 
 		global $wpdb;
 
@@ -80,7 +82,7 @@ final class Embed {
 	 *
 	 * @return int|false Returns the number of cache entries deleted, `false` on error.
 	 */
-	public static function flush_cache() {
+	public static function flush_cache(): int|false {
 
 		global $wpdb;
 
@@ -97,7 +99,7 @@ final class Embed {
 	 * @global WP_Post $post
 	 * @since  0.2.0
 	 */
-	public function head() {
+	public function head(): void {
 
 		global $post;
 
@@ -159,7 +161,7 @@ final class Embed {
 	 *
 	 * @return string
 	 */
-	public function excerpt( $excerpt ) {
+	public function excerpt( string $excerpt ): string {
 
 		global $post, $wp_current_filter;
 

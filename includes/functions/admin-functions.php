@@ -9,6 +9,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 /**
  * Check if we are on a specific admin screen.
  *
@@ -19,7 +21,7 @@
  *
  * @return bool  Returns `true` if the current admin URL contains the specified URI, otherwise `false`.
  */
-function rstore_is_admin_uri( $request_uri, $strict = true ) {
+function rstore_is_admin_uri( string $request_uri, bool $strict = true ): bool {
 
 	$current = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : null; // input var ok.
 	$strpos  = strpos( basename( $current ), $request_uri );
@@ -37,14 +39,11 @@ function rstore_is_admin_uri( $request_uri, $strict = true ) {
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
-function rstore_error( $error ) {
+function rstore_error( WP_Error $error ): bool {
 
-	if ( is_wp_error( $error ) ) {
-
-		$errors   = rstore_get_option( 'errors', array() );
-		$errors[] = $error;
-		return rstore_update_option( 'errors', $errors );
-	}
+	$errors   = rstore_get_option( 'errors', array() );
+	$errors[] = $error;
+	return rstore_update_option( 'errors', $errors );
 }
 
 /**
@@ -56,7 +55,7 @@ function rstore_error( $error ) {
  * @param array   $args     (optional) Arguments array.
  * @param integer $status   The redierct status to use.
  */
-function rstore_admin_redirect( $endpoint = '', $args = array(), $status = 302 ) {
+function rstore_admin_redirect( string $endpoint = '', array $args = array(), int $status = 302 ): never {
 
 	// Allow full admin URL to be passed as $endpoint.
 	$endpoint = preg_replace( '/^.*\/wp-admin(\/|$)/', '', $endpoint );

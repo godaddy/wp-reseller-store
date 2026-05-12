@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,7 +32,7 @@ final class Widgets {
 	 *
 	 * @var array
 	 */
-	private $modules = array(
+	private array $modules = array(
 		'domain-simple',
 		'domain-transfer',
 		'domain-search',
@@ -58,7 +60,7 @@ final class Widgets {
 	/**
 	 * Register our custom widget using the api
 	 */
-	public function register_widgets() {
+	public function register_widgets(): void {
 
 		register_widget( __NAMESPACE__ . '\Widgets\Cart' );
 
@@ -81,7 +83,7 @@ final class Widgets {
 	 *
 	 * @return void
 	 */
-	public function load_fl_modules() {
+	public function load_fl_modules(): void {
 
 		if ( ! class_exists( 'FLBuilder' ) ) {
 			return;
@@ -107,7 +109,7 @@ final class Widgets {
 	 *
 	 * @return void
 	 */
-	public function load_vc_modules() {
+	public function load_vc_modules(): void {
 
 		if ( ! defined( 'WPB_VC_VERSION' ) ) {
 			return;

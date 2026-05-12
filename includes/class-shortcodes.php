@@ -11,6 +11,8 @@
  * @since    1.1.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,7 +31,7 @@ final class Shortcodes {
 	 *
 	 * @var array
 	 */
-	private $args = array(
+	private array $args = array(
 		'before_widget' => '',
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
@@ -153,11 +155,11 @@ final class Shortcodes {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @param array $atts        The shortcode attributes.
+	 * @param mixed $atts        The shortcode attributes.
 	 *
 	 * @return mixed Returns the HTML markup for the domain search container.
 	 */
-	public function domain_search( $atts ) {
+	public function domain_search( $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-domain">';
 
@@ -171,11 +173,11 @@ final class Shortcodes {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @param array $atts        The shortcode attributes.
+	 * @param mixed $atts        The shortcode attributes.
 	 *
 	 * @return mixed Returns the HTML markup for the cart button container.
 	 */
-	public function cart_button( $atts ) {
+	public function cart_button( $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-cart">';
 
@@ -189,11 +191,11 @@ final class Shortcodes {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @param array $atts        The shortcode attributes.
+	 * @param mixed $atts        The shortcode attributes.
 	 *
 	 * @return mixed Returns the HTML markup for the product container.
 	 */
-	public function product( $atts ) {
+	public function product( $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-product">';
 
@@ -207,11 +209,11 @@ final class Shortcodes {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @param array $atts        The shortcode attributes.
+	 * @param mixed $atts        The shortcode attributes.
 	 *
 	 * @return mixed Returns the HTML markup for the login container.
 	 */
-	public function login( $atts ) {
+	public function login( $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-login">';
 
@@ -225,11 +227,11 @@ final class Shortcodes {
 	 *
 	 * @since 1.6.0
 	 *
-	 * @param array $atts        The shortcode attributes.
+	 * @param mixed $atts        The shortcode attributes.
 	 *
 	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
-	public function domain_transfer( $atts ) {
+	public function domain_transfer( $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-domain-transfer">';
 
@@ -243,11 +245,11 @@ final class Shortcodes {
 	 *
 	 * @since 1.6.0
 	 *
-	 * @param array $atts        The shortcode attributes.
+	 * @param mixed $atts        The shortcode attributes.
 	 *
 	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
-	public function domain_simple( $atts ) {
+	public function domain_simple( $atts ): mixed {
 
 		$this->args['before_widget'] = '<div class="widget rstore-domain">';
 
@@ -261,11 +263,11 @@ final class Shortcodes {
 	 *
 	 * @since 2.0.4
 	 *
-	 * @param array $atts        The shortcode attributes.
+	 * @param mixed $atts        The shortcode attributes.
 	 *
 	 * @return mixed Returns the HTML markup for the domain transfer container.
 	 */
-	public function product_icon( $atts ) {
+	public function product_icon( $atts ): mixed {
 
 		$class_name = isset( $atts['class'] ) ? $atts['class'] : '';
 

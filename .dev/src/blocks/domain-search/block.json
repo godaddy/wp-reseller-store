@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "reseller-store/domain-search",
+	"version": "3.0.0",
+	"title": "Domain Search",
+	"description": "A search form for domain registrations.",
+	"category": "reseller-store",
+	"textdomain": "reseller-store",
+	"keywords": [ "reseller", "domain", "search" ],
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"text_placeholder": {
+			"type": "string",
+			"default": "Find your perfect domain name"
+		},
+		"text_search": {
+			"type": "string",
+			"default": "Search"
+		},
+		"search_type": {
+			"type": "string",
+			"default": "standard"
+		},
+		"modal": {
+			"type": "boolean",
+			"default": false
+		},
+		"new_tab": {
+			"type": "boolean",
+			"default": false
+		},
+		"page_size": {
+			"type": "number",
+			"default": 5
+		}
+	}
+}

@@ -91,5 +91,11 @@ module.exports = {
 		ga: "ga", // Old Google Analytics.
 		gtag: "gtag", // New Google Analytics.
 		jquery: "jQuery", // import $ from 'jquery' // Use the WordPress version.
+		"@wordpress/blocks": [ "wp", "blocks" ],
+		"@wordpress/block-editor": [ "wp", "blockEditor" ],
+		"@wordpress/components": [ "wp", "components" ],
+		"@wordpress/data": [ "wp", "data" ],
+		"@wordpress/element": [ "wp", "element" ],
+		"@wordpress/i18n": [ "wp", "i18n" ],
 	},
 };

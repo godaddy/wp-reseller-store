@@ -1,10 +1,47 @@
+import { Fragment, useEffect } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import Inspector from './inspector';
 import Editor from './editor';
 
-const { Fragment, useEffect } = wp.element;
+const Edit = ({ attributes, setAttributes }) => {
+	const { posts, post } = useSelect(
+		(select) => {
+			const allPosts = select('core').getEntityRecords(
+				'postType',
+				'reseller_product',
+				{ per_page: 100 }
+			);
 
-const Edit = (props) => {
-	const { posts, attributes, setAttributes } = props;
+			if (!allPosts || !allPosts.length) {
+				return { posts: allPosts, post: undefined };
+			}
+
+			if (attributes.post_id === undefined) {
+				return { posts: allPosts, post: allPosts[0] };
+			}
+
+			const selectedPost = allPosts.find(
+				(p) => p.id.toString() === attributes.post_id
+			);
+
+			return { posts: allPosts, post: selectedPost ?? allPosts[0] };
+		},
+		[attributes.post_id]
+	);
+
+	const media = useSelect(
+		(select) => {
+			if (!post || !post.featured_media) {
+				return undefined;
+			}
+			return select('core').getEntityRecord(
+				'root',
+				'media',
+				post.featured_media
+			);
+		},
+		[post]
+	);
 
 	// Auto-select the first available product when the block is inserted without
 	// a manually chosen product, so saving without touching the inspector doesn't
@@ -13,12 +50,17 @@ const Edit = (props) => {
 		if (posts && posts.length && !attributes.post_id) {
 			setAttributes({ post_id: posts[0].id.toString() });
 		}
-	}, [posts]);
+	}, [posts]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<Fragment>
-			<Inspector {...props} />
-			<Editor {...props} />
+			<Inspector
+				posts={posts}
+				media={media}
+				attributes={attributes}
+				setAttributes={setAttributes}
+			/>
+			<Editor post={post} media={media} attributes={attributes} />
 		</Fragment>
 	);
 };

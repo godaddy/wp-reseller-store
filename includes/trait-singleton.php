@@ -12,6 +12,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,7 +31,7 @@ trait Singleton {
 	 *
 	 * @var Plugin
 	 */
-	private static $instance = null;
+	private static ?self $instance = null;
 
 	/**
 	 * Return the plugin instance.
@@ -38,7 +40,7 @@ trait Singleton {
 	 *
 	 * @return Plugin
 	 */
-	public static function load() {
+	public static function load(): static {
 
 		if ( ! static::$instance ) {
 
@@ -54,7 +56,7 @@ trait Singleton {
 	 *
 	 * @since 0.2.0
 	 */
-	public static function reset() {
+	public static function reset(): void {
 
 		static::$instance = null;
 	}

@@ -9,6 +9,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 /**
  * Returns the plugin instance.
  *
@@ -16,7 +18,7 @@
  *
  * @return Plugin
  */
-function rstore() {
+function rstore(): Reseller_Store\Plugin {
 
 	return Reseller_Store\Plugin::load();
 }
@@ -31,7 +33,7 @@ function rstore() {
  *
  * @return string  Returns a string prepended with the plugin prefix.
  */
-function rstore_prefix( $string, $use_dashes = false ) {
+function rstore_prefix( string $string, bool $use_dashes = false ): string {
 
 	$prefix = ( $use_dashes ) ? str_replace( '_', '-', Reseller_Store\Plugin::PREFIX ) : Reseller_Store\Plugin::PREFIX;
 
@@ -45,7 +47,7 @@ function rstore_prefix( $string, $use_dashes = false ) {
  *
  * @return bool Returns `true` if a private label ID exists, otherwise `false`.
  */
-function rstore_is_setup() {
+function rstore_is_setup(): bool {
 
 	return ( (int) rstore_get_option( 'pl_id' ) > 0 );
 }
@@ -60,7 +62,7 @@ function rstore_is_setup() {
  *
  * @return mixed  Returns the option value if the key exists, otherwise the `$default` parameter value.
  */
-function rstore_get_option( $key, $default = false ) {
+function rstore_get_option( string $key, mixed $default = false ): mixed {
 
 	return get_option( rstore_prefix( $key ), $default );
 }
@@ -75,7 +77,7 @@ function rstore_get_option( $key, $default = false ) {
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
-function rstore_update_option( $key, $value ) {
+function rstore_update_option( string $key, mixed $value ): bool {
 
 	return update_option( rstore_prefix( $key ), $value );
 }
@@ -89,7 +91,7 @@ function rstore_update_option( $key, $value ) {
  *
  * @return bool Returns `true` on success, `false` on failure.
  */
-function rstore_delete_option( $key ) {
+function rstore_delete_option( string $key ): bool {
 
 	return delete_option( rstore_prefix( $key ) );
 }
@@ -106,7 +108,7 @@ function rstore_delete_option( $key ) {
  *
  * @return mixed|WP_Error
  */
-function rstore_get_transient( $name, $default = null, $callback = null, $expiration = 0 ) {
+function rstore_get_transient( string $name, mixed $default = null, mixed $callback = null, int $expiration = 0 ): mixed {
 
 	$name = rstore_prefix( $name );
 
@@ -149,7 +151,7 @@ function rstore_get_transient( $name, $default = null, $callback = null, $expira
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
-function rstore_set_transient( $name, $value, $expiration = 0 ) {
+function rstore_set_transient( string $name, mixed $value, int $expiration = 0 ): bool {
 
 	return set_transient( rstore_prefix( $name ), $value, absint( $expiration ) );
 }
@@ -163,7 +165,7 @@ function rstore_set_transient( $name, $value, $expiration = 0 ) {
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
-function rstore_delete_transient( $name ) {
+function rstore_delete_transient( string $name ): bool {
 
 	return delete_transient( rstore_prefix( $name ) );
 }
@@ -179,7 +181,7 @@ function rstore_delete_transient( $name ) {
  *
  * @return bool  Returns `true` on success, `false` on failure.
  */
-function rstore_update_post_meta( $post_id, $key, $value = '' ) {
+function rstore_update_post_meta( int $post_id, string $key, mixed $value = '' ): bool {
 
 	$result = update_post_meta( $post_id, rstore_prefix( $key ), $value );
 
@@ -201,7 +203,7 @@ function rstore_update_post_meta( $post_id, $key, $value = '' ) {
  *
  * @return bool  Returns `true` on success of _all_ post meta, `false` on failure of _any_ post meta.
  */
-function rstore_bulk_update_post_meta( $post_id, $meta ) {
+function rstore_bulk_update_post_meta( int $post_id, array|object $meta ): bool {
 
 	$results = array();
 
@@ -226,7 +228,7 @@ function rstore_bulk_update_post_meta( $post_id, $meta ) {
  *
  * @return array
  */
-function rstore_array_insert( $array, $var, $index, $preserve_keys = true ) {
+function rstore_array_insert( array $array, mixed $var, int $index, bool $preserve_keys = true ): array {
 
 	if ( 0 === $index ) {
 

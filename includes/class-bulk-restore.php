@@ -11,6 +11,8 @@
  * @since    1.3.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,7 +33,7 @@ final class Bulk_Restore {
 
 		add_filter(
 			'bulk_actions-edit-' . Post_Type::SLUG,
-			function ( $bulk_actions ) {
+			function ( array $bulk_actions ): array {
 				$bulk_actions['restore_product_data'] = esc_html__( 'Restore Product Data', 'reseller-store' );
 				return $bulk_actions;
 			}
@@ -48,9 +50,9 @@ final class Bulk_Restore {
 	 * @param string $redirect_to  The redirect URL.
 	 * @param string $do_action    The action being taken.
 	 * @param array  $post_ids The items to take the action on.
-	 * @return mixed               The url to redirect to after success.
+	 * @return string               The url to redirect to after success.
 	 */
-	public function bulk_action_handler( $redirect_to, $do_action, $post_ids ) {
+	public function bulk_action_handler( string $redirect_to, string $do_action, array $post_ids ): string {
 		if ( 'restore_product_data' !== $do_action ) {
 			return $redirect_to;
 		}
@@ -142,7 +144,7 @@ final class Bulk_Restore {
 	 * @param array  $products Array of products (i.e the haystack).
 	 * @return bool|Product
 	 */
-	private function find_product( $id, $products ) {
+	private function find_product( string $id, array $products ): bool|Product {
 
 		foreach ( (array) $products as $product ) {
 

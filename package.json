@@ -20,7 +20,8 @@
         "sass:min": "sass .dev/sass/store.scss:assets/css/store.min.css .dev/sass/admin.scss:assets/css/admin.min.css --style=compressed --no-source-map",
         "rtlcss": "rtlcss assets/css/store.css assets/css/store-rtl.css && rtlcss assets/css/admin.css assets/css/admin-rtl.css && rtlcss assets/css/store.min.css assets/css/store-rtl.min.css && rtlcss assets/css/admin.min.css assets/css/admin-rtl.min.css",
         "css": "npm run sass && npm run sass:min && npm run rtlcss",
-        "js": "webpack",
+        "js": "webpack && npm run copy:blocks",
+        "copy:blocks": "copyfiles -u 3 \".dev/src/blocks/*/block.json\" assets/blocks",
         "lint": "eslint .dev/src/",
         "pot": "wp-pot --src 'reseller-store.php' --src 'includes/**/*.php' --dest-file 'languages/reseller-store.pot' --package 'Reseller Store' --domain 'reseller-store' --bug-report 'https://github.com/godaddy/wp-reseller-store/issues'",
         "clean": "rimraf build/",
@@ -30,6 +31,14 @@
         "version": "node -e \"const pkg=require('./package.json'); const fs=require('fs'); ['reseller-store.php','class-plugin.php'].forEach(f => { let c=fs.readFileSync(f,'utf8'); c=c.replace(/(Version:\\s*?)[a-zA-Z0-9.+-]+$/m, '$1'+pkg.version); c=c.replace(/VERSION(\\s*?)=(\\s*?['\"])[a-zA-Z0-9.+-]+/g, 'VERSION$1=$2'+pkg.version); fs.writeFileSync(f,c); });\" && git add -A .",
         "cypress:open": "cypress open",
         "cypress:run": "cypress run --headless --browser chrome"
+    },
+    "peerDependencies": {
+        "@wordpress/block-editor": "*",
+        "@wordpress/blocks": "*",
+        "@wordpress/components": "*",
+        "@wordpress/data": "*",
+        "@wordpress/element": "*",
+        "@wordpress/i18n": "*"
     },
     "dependencies": {
         "domain-search": "^5.0.1"

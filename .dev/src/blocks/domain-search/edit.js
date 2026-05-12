@@ -1,4 +1,4 @@
-const { Button } = wp.components;
+import { Button } from '@wordpress/components';
 
 const Edit = ({ attributes }) => {
 	return (

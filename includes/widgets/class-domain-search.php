@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store\Widgets;
 
 use Reseller_Store\Shortcodes;
@@ -52,7 +54,9 @@ final class Domain_Search extends Widget_Base {
 	 *
 	 * @return mixed Returns the HTML markup for the domain search container.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $args, $instance ): mixed {
+
+		$instance = (array) $instance;
 
 		/**
 		 * Filter classes to be appended to the Domain Search widget.
@@ -138,7 +142,7 @@ final class Domain_Search extends Widget_Base {
 	 *
 	 * @param array $instance Widget instance.
 	 */
-	public function form( $instance ) {
+	public function form( $instance ): void {
 		$data = $this->get_data( $instance );
 		$this->display_form_input( 'title', $data['title'], __( 'Title', 'reseller-store' ) );
 		$this->display_form_input( 'text_placeholder', $data['text_placeholder'], __( 'Placeholder', 'reseller-store' ) );
@@ -162,7 +166,7 @@ final class Domain_Search extends Widget_Base {
 	 *
 	 * @return array
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ): array {
 
 		$instance['title']              = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : null;
 		$instance['page_size']          = isset( $new_instance['page_size'] ) ? absint( $new_instance['page_size'] ) : null;
@@ -187,7 +191,7 @@ final class Domain_Search extends Widget_Base {
 	 *
 	 * @return array
 	 */
-	private function get_data( $instance ) {
+	private function get_data( array $instance ): array {
 		return array(
 			'title'              => isset( $instance['title'] ) ? $instance['title'] : apply_filters( 'rstore_domain_title', '' ),
 			'page_size'          => isset( $instance['page_size'] ) ? $instance['page_size'] : apply_filters( 'rstore_domain_page_size', 5 ),

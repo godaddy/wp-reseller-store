@@ -113,6 +113,23 @@ final class TestBulkRestore extends TestCase {
 
 		rstore_update_option( 'pl_id', 1592 );
 
+		// Stub the catalog API so the test does not depend on external network availability.
+		add_filter(
+			'pre_http_request',
+			function ( $pre, $args, $url ) {
+				if ( false !== strpos( $url, '/catalog/' ) ) {
+					return array(
+						'response' => array( 'code' => 200, 'message' => 'OK' ),
+						'headers'  => array(),
+						'body'     => '[]',
+					);
+				}
+				return $pre;
+			},
+			10,
+			3
+		);
+
 		$user_id = $this->factory->user->create(
 			array(
 				'role' => 'administrator',

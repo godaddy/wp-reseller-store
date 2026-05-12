@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,7 +47,7 @@ final class Permalinks {
 	 * @action current_screen
 	 * @since  0.2.0
 	 */
-	public function init() {
+	public function init(): void {
 
 		add_settings_field(
 			'rstore_category_base',
@@ -92,7 +94,7 @@ final class Permalinks {
 	 *
 	 * @since 0.2.0
 	 */
-	public function section() {
+	public function section(): void {
 
 		printf(
 			'<p>%s</p>',
@@ -157,7 +159,7 @@ final class Permalinks {
 	 *
 	 * @since 0.2.0
 	 */
-	private function save() {
+	private function save(): void {
 
 		if (
 			false === wp_verify_nonce( filter_input( INPUT_POST, '_wpnonce', FILTER_SANITIZE_FULL_SPECIAL_CHARS ), 'update-permalink' )
@@ -214,7 +216,7 @@ final class Permalinks {
 	 * @action admin_enqueue_scripts
 	 * @since  0.2.0
 	 */
-	public function admin_enqueue_scripts() {
+	public function admin_enqueue_scripts(): void {
 
 		if ( ! rstore_is_admin_uri( 'options-permalink.php' ) ) {
 

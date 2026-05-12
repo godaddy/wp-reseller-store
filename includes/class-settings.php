@@ -11,6 +11,8 @@
  * @since    2.2.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -48,7 +50,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $currencies = [ 'default', 'USD', 'AED', 'AUD', 'CAD', 'CHF', 'CLP', 'CNY', 'COP', 'DKK', 'EUR', 'GBP', 'HKD', 'IDR', 'ILS', 'INR', 'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PEN', 'PHP', 'PKR', 'PLN', 'SAR', 'SEK', 'SGD', 'THB', 'TWD', 'UAH', 'VND', 'ZAR' ]; // @codingStandardsIgnoreLine
+	static array $currencies = [ 'default', 'USD', 'AED', 'AUD', 'CAD', 'CHF', 'CLP', 'CNY', 'COP', 'DKK', 'EUR', 'GBP', 'HKD', 'IDR', 'ILS', 'INR', 'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PEN', 'PHP', 'PKR', 'PLN', 'SAR', 'SEK', 'SGD', 'THB', 'TWD', 'UAH', 'VND', 'ZAR' ]; // @codingStandardsIgnoreLine
 
 	/**
 	 * Array of markets.
@@ -57,7 +59,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $markets = [ 'default','da-DK','de-AT','de-CH','de-DE','el-GR','en-AE','en-AU','en-CA','en-GB','en-HK','en-IE','en-IL','en-IN','en-PK','en-MY','en-NZ','en-US','en-PH','en-SG','en-ZA','es-AR','es-CL','es-CO','es-ES','es-MX','es-PE','es-US','es-VE','fi-FI','fr-BE','fr-CA','fr-CH','fr-FR','hi-IN','id-ID','it-CH','it-IT','ja-JP','ko-KR','mr-IN','nl-NL','nl-BE','nb-NO','pt-BR','pl-PL','pt-PT','ru-RU','sv-SE','ta-IN','th-TH','tr-TR','uk-UA','vi-VN','zh-SG','zh-HK','zh-TW' ];  // @codingStandardsIgnoreLine
+	static array $markets = [ 'default','da-DK','de-AT','de-CH','de-DE','el-GR','en-AE','en-AU','en-CA','en-GB','en-HK','en-IE','en-IL','en-IN','en-PK','en-MY','en-NZ','en-US','en-PH','en-SG','en-ZA','es-AR','es-CL','es-CO','es-ES','es-MX','es-PE','es-US','es-VE','fi-FI','fr-BE','fr-CA','fr-CH','fr-FR','hi-IN','id-ID','it-CH','it-IT','ja-JP','ko-KR','mr-IN','nl-NL','nl-BE','nb-NO','pt-BR','pl-PL','pt-PT','ru-RU','sv-SE','ta-IN','th-TH','tr-TR','uk-UA','vi-VN','zh-SG','zh-HK','zh-TW' ];  // @codingStandardsIgnoreLine
 
 	/**
 	 * Array of product layouts.
@@ -66,7 +68,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $layout_type = [ 'default', 'classic' ];  // @codingStandardsIgnoreLine
+	static array $layout_type = [ 'default', 'classic' ];  // @codingStandardsIgnoreLine
 
 	/**
 	 * Array of product image sizes.
@@ -75,7 +77,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $image_size = [ 'default', 'icon', 'thumbnail', 'medium', 'large', 'full', 'none' ];  // @codingStandardsIgnoreLine
+	static array $image_size = [ 'default', 'icon', 'thumbnail', 'medium', 'large', 'full', 'none' ];  // @codingStandardsIgnoreLine
 
 	/**
 	 * Array of available tabs in settings.
@@ -84,7 +86,7 @@ final class Settings {
 	 *
 	 * @var array
 	 */
-	static $available_tabs = [ 'setup_options', 'product_options', 'domain_options', 'localization_options' ];  // @codingStandardsIgnoreLine
+	static array $available_tabs = [ 'setup_options', 'product_options', 'domain_options', 'localization_options' ];  // @codingStandardsIgnoreLine
 
 	/**
 	 * Class constructor.
@@ -310,7 +312,7 @@ final class Settings {
 	 * @action admin_enqueue_scripts
 	 * @since  2.2.0
 	 */
-	public function admin_enqueue_scripts() {
+	public function admin_enqueue_scripts(): void {
 
 		if ( ! rstore_is_admin_uri( self::PAGE_SLUG, false ) ) {
 
@@ -343,7 +345,7 @@ final class Settings {
 	 * @action init
 	 * @since  2.2.0
 	 */
-	public function register() {
+	public function register(): void {
 
 		add_submenu_page(
 			self::PAGE_SLUG,
@@ -366,7 +368,7 @@ final class Settings {
 	 *
 	 * @return array
 	 */
-	public function rstore_api_query_args_filter( $args, $url_key ) {
+	public function rstore_api_query_args_filter( array $args, string $url_key ): array {
 
 		$product_isc = rstore_get_option( 'product_isc' );
 		$market      = rstore_get_option( 'api_market' );
@@ -392,7 +394,7 @@ final class Settings {
 	 *
 	 * @since  2.2.0
 	 */
-	public function get_active_tab() {
+	public function get_active_tab(): string {
 
 		$active_tab = filter_input( INPUT_GET, 'tab' );
 
@@ -411,7 +413,7 @@ final class Settings {
 	 * @param string $active_tab The tab the admin is currently on.
 	 * @return array
 	 */
-	public static function reseller_settings( $active_tab ) {
+	public static function reseller_settings( string $active_tab ): array {
 
 		$settings = array();
 
@@ -444,7 +446,7 @@ final class Settings {
 					'name'        => 'domain_page_size',
 					'label'       => esc_html__( 'Page size', 'reseller-store' ),
 					'type'        => 'number',
-					'description' => esc_html__( 'Override the number of results returned forß the advanced domain search.  Empty field means no override set.', 'reseller-store' ),
+					'description' => esc_html__( 'Override the number of results returned for the advanced domain search.  Empty field means no override set.', 'reseller-store' ),
 				);
 
 				$settings[] = array(
@@ -633,7 +635,7 @@ final class Settings {
 	 *
 	 * @since  2.2.0
 	 */
-	public function reseller_register_settings() {
+	public function reseller_register_settings(): void {
 
 		$settings = $this->reseller_settings( $this->get_active_tab() );
 		foreach ( $settings as $setting ) {
@@ -648,7 +650,7 @@ final class Settings {
 	 *
 	 * @param string $active_tab Tab name to render content for.
 	 */
-	public function settings_output( $active_tab = null ) {
+	public function settings_output( ?string $active_tab = null ): void {
 
 		$settings = self::reseller_settings( $active_tab );
 
@@ -698,7 +700,7 @@ final class Settings {
 							echo '<td><input type="number" id="' . esc_attr( $setting['name'] ) . '" name="' . esc_attr( $setting['name'] ) . '" value="' . esc_attr( rstore_get_option( $setting['name'] ) ) . '" class="regular-text">';
 							break;
 						case 'time':
-							$sync_time = get_date_from_gmt( gmdate( 'Y-m-d H:i:s', rstore_get_option( $setting['name'] ) ), get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) );
+							$sync_time = get_date_from_gmt( gmdate( 'Y-m-d H:i:s', (int) rstore_get_option( $setting['name'] ) ), get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) );
 							echo '<tr>';
 							echo '<th><label for="' . esc_attr( $setting['name'] ) . '">' . esc_html( $setting['label'] ) . '</label></th>';
 							echo '<td><label id="' . esc_attr( $setting['name'] ) . '" >' . esc_html( $sync_time ) . '</label>';
@@ -748,7 +750,7 @@ final class Settings {
 	 *
 	 * @since  2.2.0
 	 */
-	public function render_settings_page() {
+	public function render_settings_page(): void {
 
 		if ( ! rstore_is_admin_uri( self::PAGE_SLUG, false ) ) {
 
@@ -773,7 +775,7 @@ final class Settings {
 	 *
 	 * @since  2.2.0
 	 */
-	public function import_button() {
+	public function import_button(): void {
 		?>
 		<div class="card">
 			<h2 class="title"><?php esc_html_e( 'Check for new products', 'reseller-store' ); ?></h2>
@@ -796,7 +798,7 @@ final class Settings {
 	 *
 	 * @since  2.2.0
 	 */
-	public function branding_info_block() {
+	public function branding_info_block(): void {
 		?>
 		<table id="rstore-branding-info" class="form-table">
 			<tbody>
@@ -823,27 +825,24 @@ final class Settings {
 	 * @action wp_ajax_rstore_options_save
 	 * @since  2.2.0
 	 */
-	public static function save() {
+	public static function save(): void {
 
 		$nonce      = filter_input( INPUT_POST, '_wpnonce' );
 		$active_tab = filter_input( INPUT_POST, 'option_page' );
 
 		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, "$active_tab-options" ) ) {
-			return wp_send_json_error(
-				esc_html__( 'Error: Invalid Session. Refresh the page and try again.', 'reseller-store' )
-			);
+			wp_send_json_error( esc_html__( 'Error: Invalid Session. Refresh the page and try again.', 'reseller-store' ) );
+			return;
 		}
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			return wp_send_json_error(
-				esc_html__( 'Error: Current user cannot manage options.', 'reseller-store' )
-			);
+			wp_send_json_error( esc_html__( 'Error: Current user cannot manage options.', 'reseller-store' ) );
+			return;
 		}
 
 		if ( ! in_array( $active_tab, self::$available_tabs, true ) ) {
-			return wp_send_json_error(
-				esc_html__( 'Error: Invalid options sent to server.', 'reseller-store' )
-			);
+			wp_send_json_error( esc_html__( 'Error: Invalid options sent to server.', 'reseller-store' ) );
+			return;
 		}
 
 		$settings = self::reseller_settings( $active_tab );
@@ -885,7 +884,7 @@ final class Settings {
 	 *
 	 * @since 2.2.0
 	 */
-	public static function import() {
+	public static function import(): void {
 		if ( class_exists( '\Reseller_Store\Setup' ) ) {
 
 			\Reseller_Store\Setup::import();

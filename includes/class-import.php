@@ -11,6 +11,8 @@
  * @since    1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Reseller_Store;
 
 use WP_Error;
@@ -30,7 +32,7 @@ final class Import {
 	 *
 	 * @var Product
 	 */
-	private $product;
+	private Product $product;
 
 	/**
 	 * Product post ID.
@@ -39,7 +41,7 @@ final class Import {
 	 *
 	 * @var int
 	 */
-	private $post_id = 0;
+	private int $post_id = 0;
 
 	/**
 	 * Array of imported products.
@@ -48,22 +50,22 @@ final class Import {
 	 *
 	 * @var array
 	 */
-	private $imported = array();
+	private array $imported = array();
 
 	/**
 	 * The result of the import.
 	 *
 	 * @var true|WP_Error
 	 */
-	private $result;
+	private mixed $result;
 
 	/**
 	 * Class constructor.
 	 *
-	 * @param stdClass $product Reseller product instance.
-	 * @param int      $post_id (optional) Post ID to map the reseller product to.
+	 * @param Product $product Reseller product instance.
+	 * @param int     $post_id (optional) Post ID to map the reseller product to.
 	 */
-	public function __construct( $product, $post_id = 0 ) {
+	public function __construct( Product $product, int $post_id = 0 ) {
 		$this->product  = $product;
 		$this->post_id  = absint( $post_id );
 		$this->imported = (array) rstore_get_option( 'imported', array() );
@@ -74,7 +76,7 @@ final class Import {
 	 *
 	 * @return bool|WP_Error
 	 */
-	public function import_product() {
+	public function import_product(): bool|WP_Error {
 
 		if ( ! $this->product->is_valid() ) {
 
@@ -144,7 +146,7 @@ final class Import {
 	 *
 	 * @return int|WP_Error  Returns the post ID on success, `WP_Error` on failure.
 	 */
-	private function insert_post() {
+	private function insert_post(): int|WP_Error {
 
 		wp_reset_postdata();
 
@@ -168,7 +170,7 @@ final class Import {
 	 *
 	 * @since 0.2.0
 	 */
-	private function post_meta() {
+	private function post_meta(): void {
 
 		rstore_bulk_update_post_meta( $this->post_id, $this->product->fields );
 	}
@@ -178,7 +180,7 @@ final class Import {
 	 *
 	 * @since 0.2.0
 	 */
-	private function taxonomies() {
+	private function taxonomies(): void {
 
 		/**
 		 * Since the `Restore Product Data` button triggers the
@@ -191,8 +193,8 @@ final class Import {
 		 */
 		$taxonomies = array( Taxonomy_Category::SLUG, Taxonomy_Tag::SLUG );
 		wp_delete_object_term_relationships( $this->post_id, $taxonomies );
-		$this->process_categories( $this->product->fields->categories, $this->post_id );
-		$this->process_tags( $this->product->fields->tags, $this->post_id );
+		$this->process_categories( (array) ( $this->product->fields->categories ?? array() ), $this->post_id );
+		$this->process_tags( (array) ( $this->product->fields->tags ?? array() ), $this->post_id );
 	}
 
 	/**
@@ -204,7 +206,7 @@ final class Import {
 	 * @param int   $post_id           Product post ID.
 	 * @param int   $parent (optional) Product parent ID.
 	 */
-	private function process_categories( $categories, $post_id, $parent = 0 ) {
+	private function process_categories( array $categories, int $post_id, int $parent = 0 ): void {
 
 		foreach ( $categories as $category ) {
 
@@ -222,7 +224,7 @@ final class Import {
 
 				if ( $term_id ) {
 
-					$this->process_categories( $children, $post_id, $term_id );
+					$this->process_categories( (array) $children, $post_id, $term_id );
 
 				}
 			}
@@ -240,7 +242,7 @@ final class Import {
 	 *
 	 * @return int|false  Returns a term ID on success, `false` on failure.
 	 */
-	private function add_category( $name, $post_id, $parent = 0 ) {
+	private function add_category( string $name, int $post_id, int $parent = 0 ): int|false {
 
 		// Returns 0 or NULL if the term does not exist.
 		// Returns an array if a term/taxonomy pairing exists.
@@ -281,7 +283,7 @@ final class Import {
 	 * @param int   $post_id           Product post ID.
 	 * @param int   $parent (optional) Product parent ID.
 	 */
-	private function process_tags( $tags, $post_id, $parent = 0 ) {
+	private function process_tags( array $tags, int $post_id, int $parent = 0 ): void {
 
 		foreach ( $tags as $tag ) {
 
@@ -306,7 +308,7 @@ final class Import {
 	 *
 	 * @return int|false  Returns a term ID on success, `false` on failure.
 	 */
-	private function add_tag( $name, $post_id, $parent = 0 ) {
+	private function add_tag( string $name, int $post_id, int $parent = 0 ): int|false {
 
 		// Returns 0 or NULL if the term does not exist.
 		// Returns an array if a term/taxonomy pairing exists.
@@ -346,9 +348,9 @@ final class Import {
 	 *
 	 * @return int|false  Returns the attachment ID if it exists, otherwise `false`.
 	 */
-	private function image_exists() {
+	private function image_exists(): int|false {
 
-		$key = rstore_prefix( 'product_attachment_id-' . md5( $this->product->fields->image ) );
+		$key = rstore_prefix( 'product_attachment_id-' . md5( (string) ( $this->product->fields->image ?? '' ) ) );
 
 		$attachment_id = (int) wp_cache_get( $key );
 
@@ -376,15 +378,15 @@ final class Import {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param int $attachment_id Reseller product image attachment ID.
+	 * @param int|false $attachment_id Reseller product image attachment ID.
 	 *
 	 * @return bool
 	 */
-	private function featured_image( $attachment_id = 0 ) {
+	private function featured_image( int|false $attachment_id = 0 ): bool {
 
 		$url = esc_url_raw( $this->product->fields->image );
 
-		$attachment_id = ( $attachment_id > 0 ) ? (int) $attachment_id : $this->sideload_image( $url, $this->product->fields->title );
+		$attachment_id = ( $attachment_id > 0 ) ? (int) $attachment_id : $this->sideload_image( $url, (string) ( $this->product->fields->title ?? '' ) );
 
 		if ( ! $attachment_id ) {
 
@@ -399,6 +401,8 @@ final class Import {
 		);
 
 		rstore_bulk_update_post_meta( $attachment_id, $meta );
+
+		return true;
 	}
 
 	/**
@@ -411,7 +415,7 @@ final class Import {
 	 *
 	 * @return int|false  Attachment ID on success, else `false`.
 	 */
-	private function sideload_image( $url, $description = '' ) {
+	private function sideload_image( string $url, string $description = '' ): int|false {
 
 		if ( ! function_exists( 'download_url' ) ) {
 
@@ -461,7 +465,7 @@ final class Import {
 	 *
 	 * @return bool  Returns `true` on success, `false` on failure.
 	 */
-	private function mark_as_imported() {
+	private function mark_as_imported(): bool {
 
 		/**
 		 * It's possible that a product was previously imported and
