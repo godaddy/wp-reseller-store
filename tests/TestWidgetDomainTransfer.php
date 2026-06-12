@@ -44,7 +44,7 @@ final class TestWidgetDomainTransfer extends TestCase {
 		);
 
 		$this->assertMatchesRegularExpression(
-			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
+			'/<form role="search" method="get" class="search-form rstore-domain-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
 			$widget->widget( $args, $instance )
 		);
 
