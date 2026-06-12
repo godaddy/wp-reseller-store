@@ -112,7 +112,7 @@ final class TestBlocks extends TestCase {
 		);
 
 		$this->assertMatchesRegularExpression(
-			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
+			'/<form role="search" method="get" class="search-form rstore-domain-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
 			$blocks->domain_search( $instance )
 		);
 
@@ -156,7 +156,7 @@ final class TestBlocks extends TestCase {
 		);
 
 		$this->assertMatchesRegularExpression(
-			'/<form role=\"search\" method=\"get\" class=\"search-form\" action=\"https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345\">/',
+			'/<form role=\"search\" method=\"get\" class=\"search-form rstore-domain-form\" action=\"https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345\">/',
 			$blocks->domain_search( $instance )
 		);
 
