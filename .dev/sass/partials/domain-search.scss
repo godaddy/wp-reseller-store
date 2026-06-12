@@ -7,7 +7,7 @@
 			display: flex;
 
 			.search-field {
-				flex-grow: 4;
+				flex-grow: 1;
 				-webkit-border-radius: 5px 0 0 5px;
 				border-radius: 5px 0 0 5px;
 				-webkit-box-sizing: border-box;
@@ -17,13 +17,16 @@
 			}
 
 			.search-submit {
-				flex-grow: 1;
 				-webkit-border-radius: 0 5px 5px 0;
 				border-radius: 0 5px 5px 0;
+				-webkit-appearance: none;
+				appearance: none;
+				box-sizing: border-box;
+				white-space: nowrap;
 			}
 
 			.search-field, .search-submit {
-				display: inline;
+				display: inline-block;
 				margin: 0;
 			}
 		}
@@ -109,5 +112,40 @@
 		margin: 0px;
 		padding: 0px;
 		white-space: pre-wrap;
+	}
+}
+
+.search-form.rstore-domain-form {
+	display: flex;
+
+	// The PHP widgets wrap the input in a <label>; `display: contents`
+	// removes the label's layout box so the input becomes the flex child
+	// (matching the React Search widget), while keeping the label→input
+	// association intact for accessibility.
+	label {
+		display: contents;
+	}
+
+	.search-field {
+		flex-grow: 1;
+		-webkit-border-radius: 5px 0 0 5px;
+		border-radius: 5px 0 0 5px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		border-right: 0;
+		display: inline-block;
+		margin: 0;
+	}
+
+	.search-submit {
+		-webkit-border-radius: 0 5px 5px 0;
+		border-radius: 0 5px 5px 0;
+		-webkit-appearance: none;
+		appearance: none;
+		box-sizing: border-box;
+		white-space: nowrap;
+		display: inline-block;
+		margin: 0;
 	}
 }

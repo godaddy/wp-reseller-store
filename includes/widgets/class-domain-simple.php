@@ -105,13 +105,13 @@ final class Domain_Simple extends Widget_Base {
 		}
 
 		?>
-		<form role="search" method="get" class="search-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-registration/find' ), 'https' ); ?>"<?php echo $target; ?>>
+		<form role="search" method="get" class="search-form rstore-domain-form" action="<?php echo esc_url_raw( rstore()->api->url( 'www', 'products/domain-registration/find' ), 'https' ); ?>"<?php echo $target; ?>>
 			<label>
 				<input type="search" class="search-field" placeholder="<?php echo esc_attr( $data['text_placeholder'] ); ?>" name="domainToCheck" required>
 			</label>
 			<input type="hidden" class="hidden" value="<?php echo esc_attr( rstore_get_option( 'pl_id' ) ); ?>" name="plid">
 			<input type="hidden" class="hidden" value="slp_rstore" name="itc">
-			<input type="submit" class="search-submit" value="<?php echo esc_attr( $data['text_search'] ); ?>">
+			<button type="submit" class="search-submit button btn btn-primary"><?php echo esc_html( $data['text_search'] ); ?></button>
 		</form>
 		<?php
 
