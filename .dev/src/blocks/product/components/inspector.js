@@ -23,8 +23,14 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 		return <p>{__('No products found', 'reseller-store')}</p>;
 	}
 
+	const decodeEntities = ( str ) => {
+		const txt = document.createElement( 'textarea' );
+		txt.innerHTML = str;
+		return txt.value;
+	};
+
 	const products = posts.map((post) => {
-		return { value: post.id, label: post.title.rendered };
+		return { value: post.id, label: decodeEntities( post.title.rendered ) };
 	});
 
 	let mediaOptions = [];
