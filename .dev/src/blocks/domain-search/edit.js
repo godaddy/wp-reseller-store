@@ -6,12 +6,15 @@ const Edit = ({ attributes }) => {
 			{attributes.title && (
 				<div className="widget rstore-domain">{attributes.title}</div>
 			)}
-			<div className="search-form">
+			<div className="search-form rstore-domain-form">
 				<input
 					className="search-field"
 					placeholder={attributes.text_placeholder}
 				/>
-				<Button className="search-submit" isDefault={true}>
+				<Button
+					className="search-submit button btn btn-primary"
+					isDefault={true}
+				>
 					{attributes.text_search}
 				</Button>
 			</div>

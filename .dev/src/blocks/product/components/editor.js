@@ -3,6 +3,12 @@ import { Button, Spinner } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import Media from './media';
 
+const decodeEntities = (str) => {
+	const txt = document.createElement('textarea');
+	txt.innerHTML = str;
+	return txt.value;
+};
+
 const Editor = ({ media, post, attributes }) => {
 	if (!post) {
 		return (
@@ -26,7 +32,9 @@ const Editor = ({ media, post, attributes }) => {
 			<Media post={post} media={media} size={attributes.image_size} />
 			<div className="rstore-product-header">
 				{attributes.show_title && (
-					<h4 className="widget-title">{post.title.rendered}</h4>
+					<h4 className="widget-title">
+						{decodeEntities(post.title.rendered)}
+					</h4>
 				)}
 				{attributes.layout_type === 'default' && attributes.show_price && (
 					<div

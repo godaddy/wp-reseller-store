@@ -1,13 +1,15 @@
 .rstore-domain {
-	input {
-		&.search-field {
-			width: 68%;
+	.search-form.rstore-domain-form {
+		display: flex;
+
+		.search-field {
+			flex-grow: 1;
 			height: 30px;
 		}
-	}
-	button {
-		&.search-submit {
+
+		.search-submit {
 			height: 32px;
+			white-space: nowrap;
 		}
 	}
 }
