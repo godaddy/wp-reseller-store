@@ -136,6 +136,10 @@
 		border-right: 0;
 		display: inline-block;
 		margin: 0;
+		height: 44px;
+		padding: 0 16px;
+		font-size: 1rem;
+		line-height: 44px;
 	}
 
 	.search-submit {
@@ -147,5 +151,8 @@
 		white-space: nowrap;
 		display: inline-block;
 		margin: 0;
+		height: 44px;
+		padding: 0 20px;
+		font-size: 1rem;
 	}
 }

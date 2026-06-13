@@ -184,6 +184,10 @@
   border-right: 0;
   display: inline-block;
   margin: 0;
+  height: 44px;
+  padding: 0 16px;
+  font-size: 1rem;
+  line-height: 44px;
 }
 .search-form.rstore-domain-form .search-submit {
   -webkit-border-radius: 0 5px 5px 0;
@@ -194,6 +198,9 @@
   white-space: nowrap;
   display: inline-block;
   margin: 0;
+  height: 44px;
+  padding: 0 20px;
+  font-size: 1rem;
 }
 
 /**-------------------

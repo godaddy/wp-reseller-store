@@ -11,23 +11,75 @@
 }
 
 .rstore-product-header {
+	.widget-title {
+		font-size: inherit;
+		font-weight: 600;
+		line-height: 1.4;
+		margin: 8px 0 4px;
+	}
+
+	.rstore-pricing {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 4px;
+		margin: 0 0 10px;
+	}
+
+	.rstore-price {
+		font-size: 1.25em;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+
+	.rstore-retail-price {
+		font-size: 1em;
+		font-weight: 400;
+		color: #aaa;
+		text-decoration: line-through;
+		padding-right: 4px;
+	}
+
+	.rstore-term {
+		font-size: 0.9em;
+		font-weight: 400;
+		opacity: 0.7;
+	}
+
+	.rstore-product-summary {
+		margin: 8px 0;
+		font-size: inherit;
+		font-family: inherit;
+		line-height: 1.6;
+		overflow: hidden;
+	}
+
 	.btn-primary {
 		display: inline-flex;
 		align-items: center;
-		padding: 6px 12px;
+		height: 44px;
+		padding: 0 20px;
 		background: #0073aa;
 		color: #fff;
 		border: 1px solid #0073aa;
 		border-radius: 4px;
-		font-size: 13px;
+		font-size: inherit;
+		font-family: inherit;
+		font-weight: 500;
 		line-height: 1;
 		cursor: pointer;
 		text-decoration: none;
+		margin-bottom: 8px;
 
 		&:hover {
 			background: #005d8c;
 			border-color: #005d8c;
 			color: #fff;
 		}
+	}
+
+	.link {
+		font-size: 0.9em;
+		margin-top: 4px;
 	}
 }
