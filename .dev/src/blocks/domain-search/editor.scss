@@ -4,12 +4,29 @@
 
 		.search-field {
 			flex-grow: 1;
-			height: 30px;
+			height: 32px;
+			padding: 0 8px;
+			border: 1px solid #8c8f94;
+			border-right: 0;
+			border-radius: 4px 0 0 4px;
+			box-sizing: border-box;
 		}
 
-		.search-submit {
+		.search-submit.btn-primary {
 			height: 32px;
+			padding: 0 12px;
+			background: #0073aa;
+			color: #fff;
+			border: 1px solid #0073aa;
+			border-radius: 0 4px 4px 0;
 			white-space: nowrap;
+			cursor: pointer;
+			font-size: 13px;
+
+			&:hover {
+				background: #005d8c;
+				border-color: #005d8c;
+			}
 		}
 	}
 }
