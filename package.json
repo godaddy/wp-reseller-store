@@ -38,6 +38,7 @@
         "@wordpress/components": "*",
         "@wordpress/data": "*",
         "@wordpress/element": "*",
+        "@wordpress/html-entities": "*",
         "@wordpress/i18n": "*"
     },
     "dependencies": {

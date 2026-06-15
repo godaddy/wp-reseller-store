@@ -1,13 +1,8 @@
 import { Fragment } from '@wordpress/element';
 import { Button, Spinner } from '@wordpress/components';
+import { decodeEntities } from '@wordpress/html-entities';
 import { __ } from '@wordpress/i18n';
 import Media from './media';
-
-const decodeEntities = (str) => {
-	const txt = document.createElement('textarea');
-	txt.innerHTML = str;
-	return txt.value;
-};
 
 const Editor = ({ media, post, attributes }) => {
 	if (!post) {

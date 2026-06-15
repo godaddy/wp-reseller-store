@@ -1,3 +1,4 @@
+import { decodeEntities } from '@wordpress/html-entities';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 import {
@@ -22,12 +23,6 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 	if (0 === posts.length) {
 		return <p>{__('No products found', 'reseller-store')}</p>;
 	}
-
-	const decodeEntities = (str) => {
-		const txt = document.createElement('textarea');
-		txt.innerHTML = str;
-		return txt.value;
-	};
 
 	const products = posts.map((post) => {
 		return { value: post.id, label: decodeEntities(post.title.rendered) };

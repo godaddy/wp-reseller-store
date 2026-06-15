@@ -116,6 +116,11 @@ final class TestBlocks extends TestCase {
 			$blocks->domain_search( $instance )
 		);
 
+		$this->assertMatchesRegularExpression(
+			'/<button type="submit" class="search-submit button btn btn-primary">/',
+			$blocks->domain_search( $instance )
+		);
+
 	}
 
 	/**
@@ -157,6 +162,11 @@ final class TestBlocks extends TestCase {
 
 		$this->assertMatchesRegularExpression(
 			'/<form role=\"search\" method=\"get\" class=\"search-form rstore-domain-form\" action=\"https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345\">/',
+			$blocks->domain_search( $instance )
+		);
+
+		$this->assertMatchesRegularExpression(
+			'/<button type=\"submit\" class=\"search-submit button btn btn-primary\">/',
 			$blocks->domain_search( $instance )
 		);
 
