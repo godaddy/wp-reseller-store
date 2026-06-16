@@ -59,9 +59,9 @@
 		align-items: center;
 		height: 44px;
 		padding: 0 20px;
-		background: #0073aa;
+		background: var(--wp-admin-theme-color);
 		color: #fff;
-		border: 1px solid #0073aa;
+		border: 1px solid var(--wp-admin-theme-color);
 		border-radius: 4px;
 		font-size: inherit;
 		font-family: inherit;
@@ -72,8 +72,8 @@
 		margin-bottom: 8px;
 
 		&:hover {
-			background: #005d8c;
-			border-color: #005d8c;
+			background: var(--wp-admin-theme-color-darker-20);
+			border-color: var(--wp-admin-theme-color-darker-20);
 			color: #fff;
 		}
 	}
