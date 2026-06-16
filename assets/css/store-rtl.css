@@ -82,6 +82,12 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-left: 0;
+  height: 44px;
+  min-height: 0;
+  padding: 0 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 44px;
 }
 .rstore-domain-search .form-container .search-form .search-submit {
   -webkit-border-radius: 5px 0 0 5px;
@@ -90,6 +96,12 @@
   appearance: none;
   box-sizing: border-box;
   white-space: nowrap;
+  height: 44px;
+  min-height: 0;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 44px;
 }
 .rstore-domain-search .form-container .search-form .search-field, .rstore-domain-search .form-container .search-form .search-submit {
   display: inline-block;
@@ -199,8 +211,10 @@
   display: inline-block;
   margin: 0;
   height: 44px;
+  min-height: 0;
   padding: 0 20px;
   font-size: 1rem;
+  line-height: 44px;
 }
 
 /**-------------------

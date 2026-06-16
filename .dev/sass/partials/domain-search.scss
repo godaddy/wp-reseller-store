@@ -14,6 +14,12 @@
 				-moz-box-sizing: border-box;
 				box-sizing: border-box;
 				border-right: 0;
+				height: 44px;
+				min-height: 0;
+				padding: 0 16px;
+				font-size: 1rem;
+				font-family: inherit;
+				line-height: 44px;
 			}
 
 			.search-submit {
@@ -23,6 +29,12 @@
 				appearance: none;
 				box-sizing: border-box;
 				white-space: nowrap;
+				height: 44px;
+				min-height: 0;
+				padding: 0 20px;
+				font-size: 1rem;
+				font-family: inherit;
+				line-height: 44px;
 			}
 
 			.search-field, .search-submit {
@@ -152,7 +164,9 @@
 		display: inline-block;
 		margin: 0;
 		height: 44px;
+		min-height: 0;
 		padding: 0 20px;
 		font-size: 1rem;
+		line-height: 44px;
 	}
 }
