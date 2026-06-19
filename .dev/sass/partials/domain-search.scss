@@ -29,15 +29,19 @@
 				appearance: none;
 				box-sizing: border-box;
 				white-space: nowrap;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0;
 				height: 44px;
 				min-height: 0;
 				padding: 0 20px;
 				font-size: 1rem;
 				font-family: inherit;
-				line-height: 44px;
+				line-height: 1;
 			}
 
-			.search-field, .search-submit {
+			.search-field {
 				display: inline-block;
 				margin: 0;
 			}
@@ -154,19 +158,24 @@
 		line-height: 44px;
 	}
 
-	.search-submit {
+	// .btn-primary bumps specificity to 0,4,0 to beat block-theme global styles
+	// (.wp-site-blocks button[type="submit"]:not(.wp-element-button) = 0,3,1)
+	// which set padding:12px 30px and line-height:inherit, pushing text down.
+	.search-submit.btn-primary {
 		-webkit-border-radius: 0 5px 5px 0;
 		border-radius: 0 5px 5px 0;
 		-webkit-appearance: none;
 		appearance: none;
 		box-sizing: border-box;
 		white-space: nowrap;
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		margin: 0;
 		height: 44px;
 		min-height: 0;
 		padding: 0 20px;
 		font-size: 1rem;
-		line-height: 44px;
+		line-height: 1;
 	}
 }
