@@ -172,6 +172,27 @@
 }
 .rstore-domain-search .rstore-domain-buy-button {
   margin-right: 10px;
+  height: 36px;
+  padding: 0 14px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 3px;
+  border: 2px solid currentColor;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.rstore-domain-search .rstore-domain-buy-button.selected {
+  opacity: 0.6;
+}
+.rstore-domain-search .rstore-domain-buy-button:hover, .rstore-domain-search .rstore-domain-buy-button:focus {
+  opacity: 0.8;
 }
 .rstore-domain-search .rstore-disclaimer pre {
   font-family: sans-serif;

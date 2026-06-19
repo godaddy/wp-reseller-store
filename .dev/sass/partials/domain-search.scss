@@ -115,8 +115,35 @@
 		clear: both;
 	}
 
+	// "Select" / "Selected" buttons are <button> without type="button" — block-theme
+	// global styles only target button[type="submit"], so these receive no background
+	// or border from the theme. Outline treatment adapts to the theme's text color.
 	.rstore-domain-buy-button {
 		margin-left: 10px;
+		height: 36px;
+		padding: 0 14px;
+		font-size: 0.875rem;
+		font-family: inherit;
+		line-height: 1;
+		white-space: nowrap;
+		border-radius: 3px;
+		border: 2px solid currentColor;
+		background: transparent;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		box-sizing: border-box;
+		-webkit-appearance: none;
+		appearance: none;
+
+		&.selected {
+			opacity: 0.6;
+		}
+
+		&:hover,
+		&:focus {
+			opacity: 0.8;
+		}
 	}
 
 	.rstore-disclaimer pre {
