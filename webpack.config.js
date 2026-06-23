@@ -96,6 +96,7 @@ module.exports = {
 		"@wordpress/components": [ "wp", "components" ],
 		"@wordpress/data": [ "wp", "data" ],
 		"@wordpress/element": [ "wp", "element" ],
+		"@wordpress/html-entities": [ "wp", "htmlEntities" ],
 		"@wordpress/i18n": [ "wp", "i18n" ],
 	},
 };

@@ -7,23 +7,42 @@
 			display: flex;
 
 			.search-field {
-				flex-grow: 4;
+				flex-grow: 1;
 				-webkit-border-radius: 5px 0 0 5px;
 				border-radius: 5px 0 0 5px;
 				-webkit-box-sizing: border-box;
 				-moz-box-sizing: border-box;
 				box-sizing: border-box;
 				border-right: 0;
+				height: 44px;
+				min-height: 0;
+				padding: 0 16px;
+				font-size: 1rem;
+				font-family: inherit;
+				line-height: 44px;
 			}
 
 			.search-submit {
-				flex-grow: 1;
 				-webkit-border-radius: 0 5px 5px 0;
 				border-radius: 0 5px 5px 0;
+				-webkit-appearance: none;
+				appearance: none;
+				box-sizing: border-box;
+				white-space: nowrap;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0;
+				height: 44px;
+				min-height: 0;
+				padding: 0 20px;
+				font-size: 1rem;
+				font-family: inherit;
+				line-height: 1;
 			}
 
-			.search-field, .search-submit {
-				display: inline;
+			.search-field {
+				display: inline-block;
 				margin: 0;
 			}
 		}
@@ -96,8 +115,35 @@
 		clear: both;
 	}
 
+	// "Select" / "Selected" buttons are <button> without type="button" — block-theme
+	// global styles only target button[type="submit"], so these receive no background
+	// or border from the theme. Outline treatment adapts to the theme's text color.
 	.rstore-domain-buy-button {
 		margin-left: 10px;
+		height: 36px;
+		padding: 0 14px;
+		font-size: 0.875rem;
+		font-family: inherit;
+		line-height: 1;
+		white-space: nowrap;
+		border-radius: 3px;
+		border: 2px solid currentColor;
+		background: transparent;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		box-sizing: border-box;
+		-webkit-appearance: none;
+		appearance: none;
+
+		&.selected {
+			opacity: 0.6;
+		}
+
+		&:hover,
+		&:focus {
+			opacity: 0.8;
+		}
 	}
 
 	.rstore-disclaimer pre {
@@ -109,5 +155,54 @@
 		margin: 0px;
 		padding: 0px;
 		white-space: pre-wrap;
+	}
+}
+
+.search-form.rstore-domain-form {
+	display: flex;
+
+	// The PHP widgets wrap the input in a <label>; `display: contents`
+	// removes the label's layout box so the input becomes the flex child
+	// (matching the React Search widget), while keeping the label→input
+	// association intact for accessibility.
+	label {
+		display: contents;
+	}
+
+	.search-field {
+		flex-grow: 1;
+		-webkit-border-radius: 5px 0 0 5px;
+		border-radius: 5px 0 0 5px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		border-right: 0;
+		display: inline-block;
+		margin: 0;
+		height: 44px;
+		padding: 0 16px;
+		font-size: 1rem;
+		line-height: 44px;
+	}
+
+	// .btn-primary bumps specificity to 0,4,0 to beat block-theme global styles
+	// (.wp-site-blocks button[type="submit"]:not(.wp-element-button) = 0,3,1)
+	// which set padding:12px 30px and line-height:inherit, pushing text down.
+	.search-submit.btn-primary {
+		-webkit-border-radius: 0 5px 5px 0;
+		border-radius: 0 5px 5px 0;
+		-webkit-appearance: none;
+		appearance: none;
+		box-sizing: border-box;
+		white-space: nowrap;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		height: 44px;
+		min-height: 0;
+		padding: 0 20px;
+		font-size: 1rem;
+		line-height: 1;
 	}
 }

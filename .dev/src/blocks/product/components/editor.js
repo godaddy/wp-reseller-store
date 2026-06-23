@@ -1,5 +1,6 @@
 import { Fragment } from '@wordpress/element';
 import { Button, Spinner } from '@wordpress/components';
+import { decodeEntities } from '@wordpress/html-entities';
 import { __ } from '@wordpress/i18n';
 import Media from './media';
 
@@ -26,7 +27,9 @@ const Editor = ({ media, post, attributes }) => {
 			<Media post={post} media={media} size={attributes.image_size} />
 			<div className="rstore-product-header">
 				{attributes.show_title && (
-					<h4 className="widget-title">{post.title.rendered}</h4>
+					<h4 className="widget-title">
+						{decodeEntities(post.title.rendered)}
+					</h4>
 				)}
 				{attributes.layout_type === 'default' && attributes.show_price && (
 					<div

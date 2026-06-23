@@ -1,3 +1,4 @@
+import { decodeEntities } from '@wordpress/html-entities';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 import {
@@ -24,7 +25,7 @@ const Inspector = ({ posts, media, attributes, setAttributes }) => {
 	}
 
 	const products = posts.map((post) => {
-		return { value: post.id, label: post.title.rendered };
+		return { value: post.id, label: decodeEntities(post.title.rendered) };
 	});
 
 	let mediaOptions = [];

@@ -190,7 +190,7 @@ final class TestShortcodes extends TestCase {
 		rstore_update_option( 'pl_id', 12345 );
 
 		$this->assertMatchesRegularExpression(
-			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
+			'/<form role="search" method="get" class="search-form rstore-domain-form" action="https:\/\/www.secureserver.net\/products\/domain-registration\/find\/\?plid=12345">/',
 			do_shortcode( '[rstore_domain]' )
 		);
 
@@ -204,7 +204,7 @@ final class TestShortcodes extends TestCase {
 		rstore_update_option( 'pl_id', 12345 );
 
 		$this->assertMatchesRegularExpression(
-			'/<form role="search" method="get" class="search-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
+			'/<form role="search" method="get" class="search-form rstore-domain-form" action="https:\/\/www.secureserver.net\/products\/domain-transfer\/\?plid=12345">/',
 			do_shortcode( '[rstore_domain_transfer]' )
 		);
 

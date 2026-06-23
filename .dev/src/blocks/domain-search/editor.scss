@@ -1,13 +1,44 @@
 .rstore-domain {
-	input {
-		&.search-field {
-			width: 68%;
-			height: 30px;
+	.search-form.rstore-domain-form {
+		display: flex;
+
+		.search-field {
+			flex-grow: 1;
+			height: 44px;
+			padding: 0 16px;
+			border: 1px solid #c3c4c7;
+			border-right: 0;
+			border-radius: 5px 0 0 5px;
+			box-sizing: border-box;
+			font-size: inherit;
+			font-family: inherit;
+			line-height: 44px;
+			outline: none;
+
+			&:focus {
+				border-color: var(--wp-admin-theme-color);
+			}
 		}
-	}
-	button {
-		&.search-submit {
-			height: 32px;
+
+		.search-submit.btn-primary {
+			height: 44px;
+			padding: 0 20px;
+			background: var(--wp-admin-theme-color);
+			color: #fff;
+			border: 1px solid var(--wp-admin-theme-color);
+			border-radius: 0 5px 5px 0;
+			white-space: nowrap;
+			cursor: pointer;
+			font-size: inherit;
+			font-family: inherit;
+			font-weight: 500;
+			line-height: 1;
+			appearance: none;
+
+			&:hover {
+				background: var(--wp-admin-theme-color-darker-20);
+				border-color: var(--wp-admin-theme-color-darker-20);
+			}
 		}
 	}
 }
