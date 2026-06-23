@@ -128,6 +128,66 @@ jobs:
       - name: Build
         run: npm run js && npm run css
 
+  coverage:
+    name: PHPUnit Coverage
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mysqli, mbstring
+          tools: composer
+          coverage: pcov
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ runner.os }}-php8.1-${{ hashFiles('composer.json') }}
+          restore-keys: composer-${{ runner.os }}-php8.1-
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Install Subversion
+        run: sudo apt-get install -y subversion
+
+      - name: Install WordPress test suite
+        run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 latest true
+
+      - name: Run PHPUnit with coverage
+        run: |
+          mkdir -p coverage
+          ./vendor/bin/phpunit -c .dev/phpunit.xml.dist --coverage-clover coverage/clover.xml
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/clover.xml
+          retention-days: 90
+
   plugin-zip:
     name: Build plugin zip
     runs-on: ubuntu-latest
