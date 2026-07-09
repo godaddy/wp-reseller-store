@@ -96,14 +96,14 @@ final class TestWidgetDomainSearch extends TestCase {
 		rstore_update_option( 'pl_id', 12345 );
 
 		$instance = array(
-			'title'         => '',
-			'placeholder'   => '',
-			'search'        => '',
-			'available'     => '',
-			'not_available' => '',
-			'cart'          => '" onmouseover="alert(1)',
-			'select'        => '',
-			'selected'      => '',
+			'title'              => '',
+			'text_placeholder'   => '',
+			'text_search'        => '',
+			'text_available'     => '',
+			'text_not_available' => '',
+			'text_cart'          => '" onmouseover="alert(1)',
+			'text_select'        => '',
+			'text_selected'      => '',
 		);
 
 		$args = array(
