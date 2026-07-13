@@ -88,6 +88,39 @@ final class TestWidgetDomainSearch extends TestCase {
 	}
 
 	/**
+	 * @testdox Given instance text containing quotes the widget output should be escaped
+	 */
+	function test_widget_escapes_attribute_values() {
+
+		$widget = new Widgets\Domain_Search();
+		rstore_update_option( 'pl_id', 12345 );
+
+		$instance = array(
+			'title'              => '',
+			'text_placeholder'   => '',
+			'text_search'        => '',
+			'text_available'     => '',
+			'text_not_available' => '',
+			'text_cart'          => '" onmouseover="alert(1)',
+			'text_select'        => '',
+			'text_selected'      => '',
+		);
+
+		$args = array(
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		);
+
+		$output = $widget->widget( $args, $instance );
+
+		$this->assertStringNotContainsString( 'onmouseover="alert(1)"', $output );
+		$this->assertStringContainsString( 'data-text_cart="&quot; onmouseover=&quot;alert(1)"', $output );
+
+	}
+
+	/**
 	 * @testdox Given a new instance the instance should update
 	 */
 	function test_widget_update() {

@@ -105,11 +105,11 @@ final class Domain_Search extends Widget_Base {
 			$classes .= ' rstore-domain-popup';
 		}
 
-		echo "<div class=\"$classes\" data-plid=\"$plid\"";
+		echo '<div class="' . esc_attr( $classes ) . '" data-plid="' . esc_attr( $plid ) . '"';
 
 		foreach ( $data as $key => $text ) {
 			if ( ! empty( $text ) ) {
-				echo ' data-' . $key . '="' . $text . '"';
+				echo ' data-' . esc_attr( $key ) . '="' . esc_attr( $text ) . '"';
 			}
 		}
 
