@@ -109,6 +109,7 @@ You can add `?domainToCheck=example.com` to your query string on any page that h
 
 * Fix: Escape data attributes in domain search widget to prevent XSS
 * Fix: Cast button_new_tab to bool in Product widget to prevent fatal TypeError
+* Fix: Defer premature translation calls in post type and taxonomy registration to init to prevent Elementor editor breakage
 
 ### 3.0.0 - April 2026 ###
 
