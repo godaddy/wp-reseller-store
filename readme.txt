@@ -4,7 +4,7 @@ Tags:              reseller, program, storefront, products, posts, shortcode, ec
 Requires at least: 6.2
 Tested up to:      6.8
 Requires PHP:      8.1
-Stable tag:        3.0.0
+Stable tag:        3.0.1
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,11 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 3.0.1 - July 2026 =
+
+* Fix: Escape data attributes in domain search widget to prevent XSS
+* Fix: Cast button_new_tab to bool in Product widget to prevent fatal TypeError
 
 = 3.0.0 - April 2026 =
 
