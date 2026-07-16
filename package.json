@@ -54,7 +54,7 @@
         "babel-loader": "^9.2.1",
         "copyfiles": "^2.4.1",
         "css-loader": "^6.11.0",
-        "cypress": "^15.14.0",
+        "cypress": "^15.15.0",
         "eslint": "^10.0.0",
         "mini-css-extract-plugin": "^2.10.2",
         "postcss-loader": "^7.3.4",
