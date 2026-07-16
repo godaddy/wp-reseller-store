@@ -61,8 +61,6 @@ final class Post_Type {
 	 */
 	public function __construct() {
 
-		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
-
 		add_action( 'init', array( $this, 'register' ) );
 		add_action( 'manage_posts_custom_column', array( $this, 'column_content' ), 10, 2 );
 		add_action( 'delete_post', array( $this, 'delete_imported_product' ) );
@@ -214,6 +212,8 @@ final class Post_Type {
 	 * @since  0.2.0
 	 */
 	public function register(): void {
+
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'products', 'slug name', 'reseller-store' ) );
 
 		$labels = array(
 			'name'                  => esc_html_x( 'Products', 'post type general name', 'reseller-store' ),

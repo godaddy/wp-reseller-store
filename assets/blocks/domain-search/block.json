@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "reseller-store/domain-search",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"title": "Domain Search",
 	"description": "A search form for domain registrations.",
 	"category": "reseller-store",
