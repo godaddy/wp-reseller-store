@@ -205,7 +205,7 @@ final class TestWidgetProduct extends TestCase {
 			'text_more'      => 'text_more 1',
 			'content_height' => 150,
 			'layout_type'    => 'default',
-			'button_new_tab' => false,
+			'button_new_tab' => true,
 		);
 
 		$instance = $widget->update( $new_instance, $old_instance );
@@ -213,6 +213,49 @@ final class TestWidgetProduct extends TestCase {
 		foreach ( $instance as $key => $value ) {
 			$this->assertEquals( $instance[ $key ], $new_instance[ $key ] );
 		}
+
+	}
+
+	/**
+	 * @testdox Given no button_new_tab in the new instance it should update to false
+	 */
+	function test_widget_update_button_new_tab_absent() {
+
+		$widget = new Widgets\Product();
+
+		$instance = $widget->update( array(), array() );
+
+		$this->assertSame( false, $instance['button_new_tab'] );
+		$this->assertIsBool( $instance['button_new_tab'] );
+
+	}
+
+	/**
+	 * @testdox Given a legacy string value for button_new_tab the widget should render without a fatal error
+	 */
+	function test_widget_renders_with_legacy_string_button_new_tab() {
+
+		$widget = new Widgets\Product();
+
+		$post = Tests\Helper::create_product();
+
+		// Simulates data saved by a previous plugin version where button_new_tab was stored as a string.
+		$instance = array(
+			'post_id'        => $post->ID,
+			'redirect'       => true,
+			'button_new_tab' => '1',
+		);
+
+		$args = array(
+			'before_widget' => '<div class="before_widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		);
+
+		echo $widget->widget( $args, $instance );
+
+		$this->expectOutputRegex( '/target="_blank"/' );
 
 	}
 
