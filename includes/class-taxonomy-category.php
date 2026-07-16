@@ -48,8 +48,6 @@ final class Taxonomy_Category {
 	 */
 	public function __construct() {
 
-		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-category', 'slug name', 'reseller-store' ) );
-
 		add_action( 'init', array( $this, 'register' ) );
 	}
 
@@ -75,6 +73,8 @@ final class Taxonomy_Category {
 	 * @since  0.2.0
 	 */
 	public function register(): void {
+
+		self::$default_permalink_base = sanitize_title( esc_html_x( 'product-category', 'slug name', 'reseller-store' ) );
 
 		$labels = array(
 			'name'              => esc_html_x( 'Categories', 'taxonomy general name', 'reseller-store' ),
