@@ -5,6 +5,8 @@
 
 	var cart = {
 
+		dirty: false,
+
 		init: function () {
 			var eventMethod, eventer, messageEvent;
 			if ( window.self !== window.top ) {
@@ -40,7 +42,33 @@
 			).length;
 		},
 
+		refreshCount: function () {
+			if ( window.self !== window.top ) {
+				return;
+			}
+
+			if ( ! $( '.rstore-cart-count' ).length ) {
+				return;
+			}
+
+			$.ajax(
+				{
+					url: rstore.urls.cart_api,
+					type: 'GET',
+					dataType: 'json',
+					xhrFields: { withCredentials: true },
+				}
+			).done(
+				function ( response ) {
+					if ( ! cart.dirty ) {
+						cart.updateCount( response );
+					}
+				}
+			);
+		},
+
 		addItemApi: function ( data, success, error ) {
+			cart.dirty = true;
 			var param    = '&cart=' + JSON.stringify( data );
 			var settings = {
 				type: 'GET',
@@ -281,6 +309,8 @@
 			cart.addItemParam();
 
 			cart.init();
+
+			cart.refreshCount();
 
 			login.init();
 
