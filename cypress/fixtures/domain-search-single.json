@@ -1,0 +1,10 @@
+{
+	"exactMatchDomain": {
+		"domain": "cypresstest2.com",
+		"available": true,
+		"listPrice": "$19.99",
+		"salePrice": "$9.99",
+		"productId": 201
+	},
+	"suggestedDomains": []
+}

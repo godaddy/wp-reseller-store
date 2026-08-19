@@ -4,7 +4,7 @@ Tags:              reseller, program, storefront, products, posts, shortcode, ec
 Requires at least: 6.2
 Tested up to:      6.8
 Requires PHP:      8.1
-Stable tag:        3.0.1
+Stable tag:        3.0.2
 License:           GPL-2.0
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,11 @@ While we recommend you use our widgets for your storefront, we do have a shortco
 You can add `?domainToCheck=example.com` to your query string on any page that has the domain search widget and the widget will perform an automatic search on page load.
 
 == Changelog ==
+
+= 3.0.2 - August 2026 =
+
+* Fix: Add multiple domains to cart via sequential requests (previously only the first domain was added)
+* Update: Upgrade domain-search to v5.0.2
 
 = 3.0.1 - July 2026 =
 
