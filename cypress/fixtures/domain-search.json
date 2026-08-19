@@ -1,0 +1,25 @@
+{
+	"exactMatchDomain": {
+		"domain": "cypresstest.com",
+		"available": true,
+		"listPrice": "$19.99",
+		"salePrice": "$9.99",
+		"productId": 101
+	},
+	"suggestedDomains": [
+		{
+			"domain": "cypresstest.net",
+			"available": true,
+			"listPrice": "$14.99",
+			"salePrice": "$8.99",
+			"productId": 102
+		},
+		{
+			"domain": "cypresstest.org",
+			"available": true,
+			"listPrice": "$12.99",
+			"salePrice": "$7.99",
+			"productId": 103
+		}
+	]
+}
