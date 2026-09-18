@@ -93,7 +93,7 @@ final class API {
 	 *
 	 * @param string $url     The original URL.
 	 * @param array  $args    (optional) Additional query arguments.
-	 * @param string $url_key (optional) Url Key to use for bulding url.
+	 * @param string $url_key (optional) Url Key to use for building url.
 	 *
 	 * @return string
 	 */
@@ -115,7 +115,7 @@ final class API {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @param string $url_key  (optional) Url Key to use for bulding url.
+	 * @param string $url_key  (optional) Url Key to use for building url.
 	 * @param string $endpoint (optional) API endpoint to override the request with.
 	 * @param array  $args     (optional) Additional query arguments.
 	 *
