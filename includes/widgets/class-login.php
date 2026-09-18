@@ -106,7 +106,7 @@ final class Login extends Widget_Base {
 		</div>
 
 		<div  class="rstore-welcome-block" style="display: none;">
-			<!--- Show welcome message -->
+			<!-- Show welcome message -->
 			<span class="welcome-message"><?php echo esc_html( $data['welcome_message'] ); ?></span>
 			<span class="firstname"></span>
 			<span class="lastname"></span>

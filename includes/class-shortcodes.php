@@ -52,7 +52,7 @@ final class Shortcodes {
 		 *
 		 * @since  1.0.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
@@ -65,7 +65,7 @@ final class Shortcodes {
 		 *
 		 * @since  1.1.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the domain search container.
 		 */
@@ -78,7 +78,7 @@ final class Shortcodes {
 		 *
 		 * @since  1.1.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the cart button
 		 */
@@ -91,7 +91,7 @@ final class Shortcodes {
 		 *
 		 * @since  1.1.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the product pod
 		 */
@@ -104,7 +104,7 @@ final class Shortcodes {
 		 *
 		 * @since  1.1.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the product pod
 		 */
@@ -117,7 +117,7 @@ final class Shortcodes {
 		 *
 		 * @since 1.6.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
@@ -130,7 +130,7 @@ final class Shortcodes {
 		 *
 		 * @since 1.6.0
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
@@ -143,7 +143,7 @@ final class Shortcodes {
 		 *
 		 * @since 2.0.4
 		 *
-		 * @param  array $atts Defualt shortcode parameters.
+		 * @param  array $atts Default shortcode parameters.
 		 *
 		 * @return mixed Returns the HTML markup for the domain transfer container.
 		 */
